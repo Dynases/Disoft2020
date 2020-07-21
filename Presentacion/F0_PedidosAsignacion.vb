@@ -1170,8 +1170,6 @@ Public Class F0_PedidosAsignacion
             Dim dt1 As New DataTable
             'cambio el estado del pedido seleccionado
             Dim codPedido As Integer = JGr_Registros3.GetValue("CodPedido")
-            Dim codZonaSelected2 As Integer
-            Dim codZonaSelected3 As Integer
 
             dt1 = L_VerificarPedidoConsolidado(codPedido)
             If dt1.Rows.Count > 0 Then
@@ -1180,30 +1178,42 @@ Public Class F0_PedidosAsignacion
                     Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
                     ToastNotification.Show(Me, "Este pedido ya fue consolidado no puede retornar a confirmación de entrega".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
                     'End If
+                Else
+                    P_RetornarPedidoaDictado()
                 End If
             Else
-                L_PedidoEstados_Grabar(codPedido, "2", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
-                L_PedidoCabacera_ModificarEstado(codPedido, "2")
-                L_PedidoCabacera_ModificarEntrega(codPedido, "0")
-
-                If _soloRepartidor = 0 Then
-                    codZonaSelected2 = JGr_Zonas2.GetValue("Codigo")
-                    codZonaSelected3 = JGr_Zonas3.GetValue("Codigo")
-                    'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
-                    _PCargarGridRegistrosPedidos(JGr_Registros2, "2", codZonaSelected2, Tb_CodRep2.Text)
-                    _PCargarGridRegistrosPedidos(JGr_Registros3, "3", codZonaSelected3, Tb_CodRep3.Text)
-                Else
-                    'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
-                    _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
-                    _PCargarGridRegistrosPedidos(JGr_Registros3, "3", , Tb_CodRep3.Text)
-                End If
+                P_RetornarPedidoaDictado()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
     End Sub
+    Private Sub P_RetornarPedidoaDictado()
+        Try
+            Dim codPedido As Integer = JGr_Registros3.GetValue("CodPedido")
+            Dim codZonaSelected2 As Integer
+            Dim codZonaSelected3 As Integer
 
+            L_PedidoEstados_Grabar(codPedido, "2", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+            L_PedidoCabacera_ModificarEstado(codPedido, "2")
+            L_PedidoCabacera_ModificarEntrega(codPedido, "0")
+
+            If _soloRepartidor = 0 Then
+                codZonaSelected2 = JGr_Zonas2.GetValue("Codigo")
+                codZonaSelected3 = JGr_Zonas3.GetValue("Codigo")
+                'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
+                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", codZonaSelected2, Tb_CodRep2.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros3, "3", codZonaSelected3, Tb_CodRep3.Text)
+            Else
+                'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
+                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros3, "3", , Tb_CodRep3.Text)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Private Sub JGr_Zonas_SelectionChanged(sender As Object, e As EventArgs) Handles JGr_Zonas1.SelectionChanged
         If JGr_Zonas1.Row >= 0 Then
             Tb_CodRep1.Text = JGr_Zonas1.CurrentRow.Cells(0).Value

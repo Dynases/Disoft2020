@@ -359,6 +359,7 @@ Public Class F0_MCaja
             TbCodigo.ReadOnly = True
             tbchofer.ReadOnly = True
             tbFecha.IsInputReadOnly = True
+            tbFecha.Enabled = False
 
             ''''''''''
             btnModificar.Enabled = True
@@ -391,6 +392,7 @@ Public Class F0_MCaja
         TbCodigo.ReadOnly = True
         tbchofer.ReadOnly = False
         tbFecha.IsInputReadOnly = False
+        tbFecha.Enabled = True
         ''  tbCliente.ReadOnly = False  por que solo podra seleccionar Cliente
         ''  tbVendedor.ReadOnly = False
 
@@ -1244,13 +1246,15 @@ Public Class F0_MCaja
 
     Private Sub Dgv_Cortes_EditingCell_1(sender As Object, e As EditingCellEventArgs) Handles Dgv_Cortes.EditingCell
 
-        If TbCodigo.ReadOnly = True Then
+        If tbFecha.Enabled = True Then
             If (e.Column.Index = Dgv_Cortes.RootTable.Columns("CantidadBo").Index Or
                 e.Column.Index = Dgv_Cortes.RootTable.Columns("CantidadDo").Index) Then
                 e.Cancel = False
             Else
                 e.Cancel = True
             End If
+        Else
+            e.Cancel = True
         End If
     End Sub
 
@@ -1308,7 +1312,7 @@ Public Class F0_MCaja
 
     Private Sub Dgv_Depositos_EditingCell(sender As Object, e As EditingCellEventArgs) Handles Dgv_Depositos.EditingCell
         Try
-            If TbCodigo.ReadOnly = True Then
+            If tbFecha.Enabled = True Then
                 If (e.Column.Index = Dgv_Depositos.RootTable.Columns("Banco").Index Or
                     e.Column.Index = Dgv_Depositos.RootTable.Columns("Moneda").Index Or
                     e.Column.Index = Dgv_Depositos.RootTable.Columns("Depos").Index Or
@@ -1318,6 +1322,8 @@ Public Class F0_MCaja
                 Else
                     e.Cancel = True
                 End If
+            Else
+                e.Cancel = True
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -1386,7 +1392,6 @@ Public Class F0_MCaja
         _Inter = _Inter + 1
         If _Inter = 1 Then
             Me.WindowState = FormWindowState.Normal
-
         Else
             Me.Opacity = 100
             Timer1.Enabled = False
