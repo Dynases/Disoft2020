@@ -54,7 +54,7 @@ Partial Class Form2
         Me.MetroTilePanel1.DragDropSupport = True
         Me.MetroTilePanel1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.ItemContainer1})
         Me.MetroTilePanel1.Location = New System.Drawing.Point(9, 49)
-        Me.MetroTilePanel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MetroTilePanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.MetroTilePanel1.Name = "MetroTilePanel1"
         Me.MetroTilePanel1.Size = New System.Drawing.Size(772, 487)
         Me.MetroTilePanel1.TabIndex = 0
@@ -68,7 +68,7 @@ Partial Class Form2
         Me.TextBoxX1.Border.Class = "TextBoxBorder"
         Me.TextBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.TextBoxX1.Location = New System.Drawing.Point(300, 35)
-        Me.TextBoxX1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBoxX1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBoxX1.Name = "TextBoxX1"
         Me.TextBoxX1.PreventEnterBeep = True
         Me.TextBoxX1.Size = New System.Drawing.Size(193, 20)
@@ -248,7 +248,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(772, 527)
         Me.Controls.Add(Me.MetroTilePanel1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.MetroTilePanel1.ResumeLayout(False)

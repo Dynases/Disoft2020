@@ -43,6 +43,8 @@ Public Class Form2
         Mt21.Text = Archivo(4).Split(";")(1).Trim
         Mt31.Text = Archivo(5).Split(";")(1).Trim
         Mt32.Text = Archivo(6).Split(";")(1).Trim
+        Mt33.Text = Archivo(7).Split(";")(1).Trim
+        Mt34.Text = Archivo(8).Split(";")(1).Trim
     End Sub
 
     Private Sub Mt21_Click(sender As Object, e As EventArgs) Handles Mt21.Click
@@ -68,6 +70,16 @@ Public Class Form2
     End Sub
     Private Sub Mt32_Click(sender As Object, e As EventArgs) Handles Mt32.Click
         gs_Ser = 6
+        _prLeerArchivoConfig2()
+    End Sub
+
+    Private Sub Mt33_Click(sender As Object, e As EventArgs) Handles Mt33.Click
+        gs_Ser = 7
+        _prLeerArchivoConfig2()
+    End Sub
+
+    Private Sub Mt34_Click(sender As Object, e As EventArgs) Handles Mt34.Click
+        gs_Ser = 8
         _prLeerArchivoConfig2()
     End Sub
 End Class

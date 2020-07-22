@@ -497,8 +497,10 @@ Public Class F02_Cliente
                         End If
                     End If
                     'Aqui se coloca los datos de la grilla de los Equipos
-                    P_prArmarGrillaEquipo(TbCodigo.Text)
-                    P_prPonerResumenEquipo()
+                    If gs_Parametros(0).Item("syclienteequipo") = True Then
+                        P_prArmarGrillaEquipo(TbCodigo.Text)
+                        P_prPonerResumenEquipo()
+                    End If
 
                     If (gi_vacu = 1) Then
                         Dim dtAcuerdo As DataTable
