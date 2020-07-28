@@ -267,7 +267,7 @@ Public Class F01_Personal
                 End If
                 eciv = "0"
                 plan = "1"
-                reloj = CbAlmacen.SelectedIndex.ToString
+                reloj = CbAlmacen.Value.ToString
 
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
@@ -314,7 +314,7 @@ Public Class F01_Personal
                 End If
                 eciv = "0"
                 plan = "1"
-                reloj = CbAlmacen.SelectedIndex.ToString
+                reloj = CbAlmacen.Value.ToString
 
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
@@ -477,7 +477,7 @@ Public Class F01_Personal
 
                 CbAlmacen.Clear()
                 If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                    CbAlmacen.SelectedIndex = .Cells("cbreloj").Value.ToString
+                    CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
                 Else
                     CbAlmacen.Text = ""
                 End If
@@ -649,6 +649,10 @@ Public Class F01_Personal
 
         Return True
     End Function
+
+    Private Sub Dgj1Busqueda_DoubleClick(sender As Object, e As EventArgs) Handles Dgj1Busqueda.DoubleClick
+
+    End Sub
 
 #End Region
 

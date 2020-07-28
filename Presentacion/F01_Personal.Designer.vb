@@ -23,14 +23,16 @@ Partial Class F01_Personal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim cbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Personal))
+        Dim cbTipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.Gp3Proveedores = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgj1Busqueda = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
+        Me.CbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
         Me.cbTipo = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
@@ -42,8 +44,6 @@ Partial Class F01_Personal
         Me.SbEstado = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.TbPassMovil = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.CbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -61,8 +61,8 @@ Partial Class F01_Personal
         CType(Me.Dgj1Busqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PanelExDatosGenerales.SuspendLayout()
-        CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -85,7 +85,7 @@ Partial Class F01_Personal
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
@@ -112,14 +112,14 @@ Partial Class F01_Personal
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
         '
-        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MBtSiguiente
         '
@@ -206,7 +206,7 @@ Partial Class F01_Personal
         Me.Gp3Proveedores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gp3Proveedores.Location = New System.Drawing.Point(3, 203)
         Me.Gp3Proveedores.Name = "Gp3Proveedores"
-        Me.Gp3Proveedores.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Gp3Proveedores.Padding = New System.Windows.Forms.Padding(5)
         Me.Gp3Proveedores.Size = New System.Drawing.Size(936, 249)
         '
         '
@@ -317,6 +317,31 @@ Partial Class F01_Personal
         Me.PanelExDatosGenerales.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 16
+        '
+        'LabelX6
+        '
+        '
+        '
+        '
+        Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX6.Location = New System.Drawing.Point(464, 118)
+        Me.LabelX6.Name = "LabelX6"
+        Me.LabelX6.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX6.TabIndex = 10
+        Me.LabelX6.Text = "Almacen:"
+        '
+        'CbAlmacen
+        '
+        CbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("CbAlmacen_DesignTimeLayout.LayoutString")
+        Me.CbAlmacen.DesignTimeLayout = CbAlmacen_DesignTimeLayout
+        Me.CbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbAlmacen.Location = New System.Drawing.Point(562, 119)
+        Me.CbAlmacen.Name = "CbAlmacen"
+        Me.CbAlmacen.SelectedIndex = -1
+        Me.CbAlmacen.SelectedItem = Nothing
+        Me.CbAlmacen.Size = New System.Drawing.Size(271, 23)
+        Me.CbAlmacen.TabIndex = 9
         '
         'LabelX5
         '
@@ -463,37 +488,12 @@ Partial Class F01_Personal
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'CbAlmacen
-        '
-        CbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("CbAlmacen_DesignTimeLayout.LayoutString")
-        Me.CbAlmacen.DesignTimeLayout = CbAlmacen_DesignTimeLayout
-        Me.CbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbAlmacen.Location = New System.Drawing.Point(562, 119)
-        Me.CbAlmacen.Name = "CbAlmacen"
-        Me.CbAlmacen.SelectedIndex = -1
-        Me.CbAlmacen.SelectedItem = Nothing
-        Me.CbAlmacen.Size = New System.Drawing.Size(271, 23)
-        Me.CbAlmacen.TabIndex = 9
-        '
-        'LabelX6
-        '
-        '
-        '
-        '
-        Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(464, 118)
-        Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(74, 23)
-        Me.LabelX6.TabIndex = 10
-        Me.LabelX6.Text = "Almacen:"
-        '
         'F01_Personal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_Personal"
         Me.Opacity = 0.05R
         Me.Text = "F01_Proveedor"
@@ -521,8 +521,8 @@ Partial Class F01_Personal
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.PerformLayout()
-        CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbTipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
