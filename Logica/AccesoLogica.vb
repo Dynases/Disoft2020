@@ -475,6 +475,18 @@ Public Class AccesoLogica
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
+    Public Shared Function L_prListarChoferesRutas() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 27))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_ZonaCabecera_GeneralCompleto(_Modo As Integer, Optional _Cadena As String = "") As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
@@ -3984,7 +3996,7 @@ Public Class AccesoLogica
     Public Shared Function L_Validar_Usuario(_Nom As String, _Pass As String) As DataTable
         Dim _Tabla As DataTable
         _Tabla = D_Datos_Tabla("ydnumi, yduser, ydrol, ydpass, ydest, ydcant, ydfontsize", "ZY003", "yduser = '" + _Nom + "' AND ydpass = '" + _Pass + "'")
-            Return _Tabla
+        Return _Tabla
     End Function
 #End Region
 

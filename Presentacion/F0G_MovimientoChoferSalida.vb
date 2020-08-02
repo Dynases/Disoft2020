@@ -679,6 +679,55 @@ Public Class F0G_MovimientoChoferSalida
                 'P_prAyudaChofer()
                 P_prAyudaChoferNuevo()
             End If
+            If e.KeyData = Keys.Control + Keys.R Then
+                'P_prAyudaChofer()
+                P_prAyudaRutaNuevo()
+            End If
+        End If
+    End Sub
+    Private Sub P_prAyudaRutaNuevo()
+        Dim dt As DataTable
+
+        dt = L_prListarChoferesRutas()
+        '   a.cbnumi ,a.cbdesc ,a.cbci ,a.cbfnac
+
+        Dim listEstCeldas As New List(Of Modelo.MCelda)
+        listEstCeldas.Add(New Modelo.MCelda("cbnumi,", True, "CÓDIGO", 70))
+        listEstCeldas.Add(New Modelo.MCelda("cbdesc", True, "NOMBRE", 280))
+        listEstCeldas.Add(New Modelo.MCelda("descrip", False, "RUTA", 250))
+
+        Dim ef = New Efecto
+        ef.tipo = 3
+        ef.dt = dt
+        ef.SeleclCol = 2
+        ef.listEstCeldas = listEstCeldas
+        ef.alto = 50
+        ef.ancho = 350
+        ef.Context = "Seleccione Chofer".ToUpper
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
+        bandera = ef.band
+        If (bandera = True) Then
+            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+
+            _codChofer = Row.Cells("cbnumi").Value
+            tbChofer.Text = Row.Cells("cbdesc").Value
+            '_fechapedido = Row.Cells("oafdoc").Value
+            cbConcepto.Focus()
+
+            _prCargarDetalleVenta(-1)
+            _prAddDetalleVenta()
+            'With grdetalle.RootTable.Columns("img")
+            '    .Width = 80
+            '    .Caption = "Eliminar".ToUpper
+            '    .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
+            '    .Visible = True
+            'End With
+            _prObtenerNumiConciliacionTI0022()
+
+            'If (P_Global.gb_despacho) Then
+            'CargarDespachoDeChoferRuta(_codChofer)
+            'End If
         End If
     End Sub
     Public Sub _prObtenerNumiConciliacionTI0022()
@@ -722,13 +771,13 @@ Public Class F0G_MovimientoChoferSalida
 
     Private Sub grdetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grdetalle.EditingCell
         If (_fnAccesible()) Then
-            ''Habilitar solo las columnas de Precio, %, Monto y Observación
-            'If (e.Column.Index = grdetalle.RootTable.Columns("iccant").Index) Then
-            '    e.Cancel = False
-            'Else
-            '    e.Cancel = True
-            'End If
-            e.Cancel = True
+            'Habilitar solo las columnas de Precio, %, Monto y Observación
+            If (e.Column.Index = grdetalle.RootTable.Columns("iccant").Index) Then
+                e.Cancel = False
+            Else
+                e.Cancel = True
+            End If
+            'e.Cancel = false
         Else
             e.Cancel = True
         End If
@@ -1321,5 +1370,13 @@ salirIf:
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub tbChofer_TextChanged(sender As Object, e As EventArgs) Handles tbChofer.TextChanged
+
+    End Sub
+
+    Private Sub grdetalle_FormattingRow(sender As Object, e As RowLoadEventArgs) Handles grdetalle.FormattingRow
+
     End Sub
 End Class
