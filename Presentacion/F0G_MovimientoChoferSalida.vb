@@ -645,7 +645,7 @@ Public Class F0G_MovimientoChoferSalida
         If grmovimiento.RowCount > 0 Then
             _MPos = 0
             ''   _prMostrarRegistro(_MPos)
-            grmovimiento.Row = _MPos
+            grmovimiento.Row = _MPos 'prueba carlos
         End If
     End Sub
 #End Region
