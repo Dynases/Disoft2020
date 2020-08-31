@@ -289,6 +289,8 @@ Partial Public Class BDDistBHFEntities
 
     Public Overridable Property VR_VistaPedido_PrecioCosto() As DbSet(Of VR_VistaPedido_PrecioCosto)
 
+    Public Overridable Property v_VentasDetalleDespacho() As DbSet(Of v_VentasDetalleDespacho)
+
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer
 
@@ -785,7 +787,7 @@ Partial Public Class BDDistBHFEntities
     End Function
 
 
-    Public Overridable Function sp_go_TC004_appMovil(tipo As Nullable(Of Integer), code_id As Nullable(Of Integer), full_name As String, business_name As String, nit As String, mail As String, phone As String, cell_phone As String, address As String, reference As String, location_lat As Nullable(Of Decimal), location_log As Nullable(Of Decimal), password_cli As String, old_password_cli As String, new_password_cli As String, observacion As String, categoria As String, pedido As Nullable(Of Integer), tO0011 As String, json As String, fingreso As Nullable(Of Date), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), fechapedido As Nullable(Of Date), idRepartidor As Nullable(Of Integer), oanumi As String, oafdoc As Nullable(Of Date), oahora As String, oaccli As Nullable(Of Integer), oarepa As Nullable(Of Integer), oaest As Nullable(Of Integer), oaobs As String, latitud As Nullable(Of Decimal), longitud As Nullable(Of Decimal), total As Nullable(Of Decimal), tipocobro As Nullable(Of Integer), codigogenerado As String, cczona As Nullable(Of Integer)) As Integer
+    Public Overridable Function sp_go_TC004_appMovil(tipo As Nullable(Of Integer), code_id As Nullable(Of Integer), full_name As String, business_name As String, nit As String, mail As String, phone As String, cell_phone As String, address As String, reference As String, location_lat As Nullable(Of Decimal), location_log As Nullable(Of Decimal), password_cli As String, old_password_cli As String, new_password_cli As String, observacion As String, categoria As String, pedido As Nullable(Of Integer), tO0011 As String, json As String, fingreso As Nullable(Of Date), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), fechapedido As Nullable(Of Date), idRepartidor As Nullable(Of Integer), oanumi As String, oafdoc As Nullable(Of Date), oahora As String, oaccli As Nullable(Of Integer), oarepa As Nullable(Of Integer), oaest As Nullable(Of Integer), oaobs As String, latitud As Nullable(Of Decimal), longitud As Nullable(Of Decimal), total As Nullable(Of Decimal), tipocobro As Nullable(Of Integer), codigogenerado As String, cczona As Nullable(Of Integer), razonSocial As String, reclamo As String, idzona As Nullable(Of Integer)) As Integer
 
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
@@ -901,7 +903,16 @@ Partial Public Class BDDistBHFEntities
         Dim cczonaParameter As ObjectParameter = If(cczona.HasValue, New ObjectParameter("cczona", cczona), New ObjectParameter("cczona", GetType(Integer)))
 
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_go_TC004_appMovil", tipoParameter, code_idParameter, full_nameParameter, business_nameParameter, nitParameter, mailParameter, phoneParameter, cell_phoneParameter, addressParameter, referenceParameter, location_latParameter, location_logParameter, password_cliParameter, old_password_cliParameter, new_password_cliParameter, observacionParameter, categoriaParameter, pedidoParameter, tO0011Parameter, jsonParameter, fingresoParameter, creditoParameter, choferParameter, fechapedidoParameter, idRepartidorParameter, oanumiParameter, oafdocParameter, oahoraParameter, oaccliParameter, oarepaParameter, oaestParameter, oaobsParameter, latitudParameter, longitudParameter, totalParameter, tipocobroParameter, codigogeneradoParameter, cczonaParameter)
+        Dim razonSocialParameter As ObjectParameter = If(razonSocial IsNot Nothing, New ObjectParameter("RazonSocial", razonSocial), New ObjectParameter("RazonSocial", GetType(String)))
+
+
+        Dim reclamoParameter As ObjectParameter = If(reclamo IsNot Nothing, New ObjectParameter("Reclamo", reclamo), New ObjectParameter("Reclamo", GetType(String)))
+
+
+        Dim idzonaParameter As ObjectParameter = If(idzona.HasValue, New ObjectParameter("idzona", idzona), New ObjectParameter("idzona", GetType(Integer)))
+
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_go_TC004_appMovil", tipoParameter, code_idParameter, full_nameParameter, business_nameParameter, nitParameter, mailParameter, phoneParameter, cell_phoneParameter, addressParameter, referenceParameter, location_latParameter, location_logParameter, password_cliParameter, old_password_cliParameter, new_password_cliParameter, observacionParameter, categoriaParameter, pedidoParameter, tO0011Parameter, jsonParameter, fingresoParameter, creditoParameter, choferParameter, fechapedidoParameter, idRepartidorParameter, oanumiParameter, oafdocParameter, oahoraParameter, oaccliParameter, oarepaParameter, oaestParameter, oaobsParameter, latitudParameter, longitudParameter, totalParameter, tipocobroParameter, codigogeneradoParameter, cczonaParameter, razonSocialParameter, reclamoParameter, idzonaParameter)
     End Function
 
 

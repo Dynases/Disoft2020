@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_StockActual
+Public Class R_Ventasdespacho
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_StockActual
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_StockActual.rpt"
+            Return "R_Ventasdespacho.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_StockActual
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.R_StockActual.rpt"
+            Return "Presentacion.R_Ventasdespacho.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class R_StockActual
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_StockActual
+Public Class CachedR_Ventasdespacho
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +152,7 @@ Public Class CachedR_StockActual
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_StockActual = New R_StockActual()
+        Dim rpt As R_Ventasdespacho = New R_Ventasdespacho()
         rpt.Site = Me.Site
         Return rpt
     End Function

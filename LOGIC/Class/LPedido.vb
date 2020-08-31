@@ -104,4 +104,11 @@ Public Class LPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
+    Public Function ListarDespachoDetalleXChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoDetalleXChofer)
+        Try
+            Return iPedido.ListarDespachoDetalleXChofer(idChofer, estado)
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 End Class

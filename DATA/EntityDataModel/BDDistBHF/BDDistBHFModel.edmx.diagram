@@ -136,6 +136,7 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_VistaPedido_PrecioCosto" Width="1.5" PointX="34.75" PointY="10.75" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0051_TO005" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0052_TO005" />
+        <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="15.375" PointY="34.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

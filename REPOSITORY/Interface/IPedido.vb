@@ -14,4 +14,5 @@ Public Interface IPedido
     Function ListarPedidoAsignadoAChofer(idChofer As Integer) As List(Of VPedido_BillingDispatch)
     Function ListarDespachoXClienteDeChofer(idChofer As Integer) As List(Of RDespachoxCliente)
     Function ListarDespachoXProductoDeChofer(idChofer As Integer) As List(Of RDespachoXProducto)
+    Function ListarDespachoDetalleXChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoDetalleXChofer)
 End Interface

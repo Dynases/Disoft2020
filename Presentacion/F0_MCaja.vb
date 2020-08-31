@@ -1399,4 +1399,8 @@ Public Class F0_MCaja
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+    Private Sub tbchofer_TextChanged(sender As Object, e As EventArgs) Handles tbchofer.TextChanged
+
+    End Sub
 End Class

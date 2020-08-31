@@ -132,9 +132,9 @@ Public Class F01_Personal
 
     Private Sub P_Inicio()
         'Abrir la conexion de la base de datos
-        If (Not gb_ConexionAbierta) Then
-            L_prAbrirConexion("localhost", "sersolinf", "321", "BDDistBHF")
-        End If
+        'If (Not gb_ConexionAbierta) Then
+        '    L_prAbrirConexion("localhost", "sersolinf", "321", "BDDistBHF")
+        'End If
 
         'Poner visible=false, los componente que no se ocuparan
         _Parametros()
@@ -267,7 +267,12 @@ Public Class F01_Personal
                 End If
                 eciv = "0"
                 plan = "1"
-                reloj = CbAlmacen.Value.ToString
+                If gs_Parametros(0).Item("syruta") = True Then
+                    reloj = CbAlmacen.Value.ToString
+                Else
+                    reloj = "1"
+                End If
+
 
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
@@ -310,11 +315,16 @@ Public Class F01_Personal
                 If (SbEstado.Value) Then
                     est = "1"
                 Else
-                    est = "0"
+                    est = "1"
                 End If
                 eciv = "0"
                 plan = "1"
-                reloj = CbAlmacen.Value.ToString
+                If gs_Parametros(0).Item("syruta") = True Then
+                    reloj = CbAlmacen.Value.ToString
+                Else
+                    reloj = "0"
+                End If
+
 
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
@@ -402,6 +412,7 @@ Public Class F01_Personal
         'MultiCombo
         cbTipo.ReadOnly = True
         CbAlmacen.ReadOnly = True
+        CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
 
         'Botones
         SbEstado.IsReadOnly = True
@@ -420,10 +431,13 @@ Public Class F01_Personal
             cbTipo.Text = ""
         End If
 
-        If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-            CbAlmacen.SelectedIndex = 0
-        Else
-            CbAlmacen.Text = ""
+        If gs_Parametros(0).Item("syruta") = True Then
+
+            If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
+                CbAlmacen.SelectedIndex = 0
+            Else
+                CbAlmacen.Text = ""
+            End If
         End If
 
         'Botones
@@ -432,7 +446,9 @@ Public Class F01_Personal
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
-        P_prComboAlmacenDiAvi()
+        If gs_Parametros(0).Item("syruta") = True Then
+            p_prcomboalmacendiavi()
+        End If
     End Sub
     Private Sub p_prcomboalmacendiavi()
         Dim dt As New DataTable
@@ -474,12 +490,13 @@ Public Class F01_Personal
                 Else
                     cbTipo.Text = ""
                 End If
-
-                CbAlmacen.Clear()
-                If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                    CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
-                Else
-                    CbAlmacen.Text = ""
+                If gs_Parametros(0).Item("syruta") = True Then
+                    CbAlmacen.Clear()
+                    If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
+                        CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
+                    Else
+                        CbAlmacen.Text = ""
+                    End If
                 End If
 
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))

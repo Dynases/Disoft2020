@@ -902,4 +902,42 @@ Public Class frmBillingDispatch
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+    Private Sub btReporteDespachoPedido_Click(sender As Object, e As EventArgs) Handles btReporteDespachoPedido.Click
+        Try
+            Dim idChofer = Me.cbChoferes.Value
+            If (Not IsNumeric(idChofer)) Then
+                Throw New Exception("Debe seleccionar un chofer.")
+            End If
+            If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
+                Throw New Exception("Debe seleccionar un chofer.")
+            End If
+
+            Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, ENEstadoPedido.DICTADO)
+            Dim lista = (From a In listResult
+                         Where a.oafdoc = Tb_Fecha.Value).ToList
+            If (lista.Count = 0) Then
+                Throw New Exception("No hay registros para generar el reporte.")
+            End If
+
+            If Not IsNothing(P_Global.Visualizador) Then
+                P_Global.Visualizador.Close()
+            End If
+
+            P_Global.Visualizador = New Visualizador
+            Dim objrep As New R_Ventasdespacho
+
+            objrep.SetDataSource(lista)
+            'objrep.SetParameterValue("nroDespacho", String.Empty)
+            'objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
+            'objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)
+            'objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+
+            P_Global.Visualizador.CRV1.ReportSource = objrep
+            P_Global.Visualizador.Show()
+            P_Global.Visualizador.BringToFront()
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
 End Class

@@ -499,7 +499,7 @@ Public Class AccesoLogica
         Else
             _Where = _Cadena
         End If
-        _Tabla = D_Datos_Tabla("lccbnumi, cbdesc, lanumi, lacity, c.cedesc, laprovi, cc.cedesc, lazona, ccc.cedesc, lacolor", "TL001,TC002,TL0012,TC005 b, TC005 bb, TC005 bbb, TC0051 c, TC0051 cc, TC0051 ccc", _Where + " order by lanumi")
+        _Tabla = D_Datos_Tabla("lccbnumi, cbdesc, lanumi, lacity, c.cedesc, laprovi, cc.cedesc, lazona, ccc.cedesc, lacolor", "TL001,TC002,TL0012,TC005 b, TC005 bb, TC005 bbb, TC0051 c, TC0051 cc, TC0051 ccc", _Where + " order by lccbnumi")
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
@@ -727,9 +727,9 @@ Public Class AccesoLogica
         Dim _Ds As New DataSet
         Dim _Where As String
         If _Modo = 0 Then
-            _Where = "cbnumi=cbnumi AND cenum=cbcat AND cecon=7 AND cbcat=1 "
+            _Where = "cbnumi=cbnumi AND cenum=cbcat AND cecon=7 AND cbcat in (1,3) AND cbnumi > 4 "
         Else
-            _Where = "cbnumi=cbnumi AND cenum=cbcat AND cecon=7 AND cbcat=1 " + _Cadena
+            _Where = "cbnumi=cbnumi AND cenum=cbcat AND cecon=7 AND cbcat in (1,3) AND cbnumi > 4 " + _Cadena
         End If
         _Tabla = D_Datos_Tabla("cbnumi,cbdesc", "TC002,TC0051", _Where + " order by cbnumi")
         _Ds.Tables.Add(_Tabla)
@@ -4585,7 +4585,7 @@ Public Class AccesoLogica
         End If
 
         Dim campos As String = "canumi,cadesc,categoria,stockSinPedido,StockSoloPedidos,StockFinal "
-        _Tabla = D_Datos_Tabla(campos, "VR_StockDisponible", _Where + " order by cadesc")
+        _Tabla = D_Datos_Tabla(campos, "VR_StockDisponible", _Where + " AND stocksinpedido > 0 order by cadesc")
         Return _Tabla
     End Function
 #End Region

@@ -506,6 +506,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\VR_VistaPedido_PrecioCosto.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\v_VentasDetalleDespacho.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\ZY0021.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>

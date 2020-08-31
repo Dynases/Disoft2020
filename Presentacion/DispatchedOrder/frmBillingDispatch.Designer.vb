@@ -41,6 +41,7 @@ Partial Class frmBillingDispatch
         Me.btVolverDist = New DevComponents.DotNetBar.ButtonX()
         Me.cbChoferes = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btReporteDespachoPedido = New DevComponents.DotNetBar.ButtonX()
         Me.PanelBase.SuspendLayout()
         Me.PanelPedido.SuspendLayout()
         CType(Me.dgjPedido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,7 +60,7 @@ Partial Class frmBillingDispatch
         Me.PanelBase.Controls.Add(Me.PanelSuperior)
         Me.PanelBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelBase.Location = New System.Drawing.Point(0, 0)
-        Me.PanelBase.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelBase.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelBase.Name = "PanelBase"
         Me.PanelBase.Size = New System.Drawing.Size(1582, 554)
         Me.PanelBase.TabIndex = 0
@@ -69,7 +70,7 @@ Partial Class frmBillingDispatch
         Me.PanelPedido.Controls.Add(Me.dgjPedido)
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 74)
-        Me.PanelPedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPedido.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPedido.Name = "PanelPedido"
         Me.PanelPedido.Size = New System.Drawing.Size(1582, 338)
         Me.PanelPedido.TabIndex = 1
@@ -78,7 +79,7 @@ Partial Class frmBillingDispatch
         '
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjPedido.Location = New System.Drawing.Point(0, 0)
-        Me.dgjPedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgjPedido.Margin = New System.Windows.Forms.Padding(4)
         Me.dgjPedido.Name = "dgjPedido"
         Me.dgjPedido.Size = New System.Drawing.Size(1582, 338)
         Me.dgjPedido.TabIndex = 2
@@ -89,7 +90,7 @@ Partial Class frmBillingDispatch
         Me.PanelProducto.Controls.Add(Me.dgjProducto)
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelProducto.Location = New System.Drawing.Point(0, 412)
-        Me.PanelProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelProducto.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelProducto.Name = "PanelProducto"
         Me.PanelProducto.Size = New System.Drawing.Size(1582, 142)
         Me.PanelProducto.TabIndex = 1
@@ -113,13 +114,14 @@ Partial Class frmBillingDispatch
         '
         Me.dgjProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjProducto.Location = New System.Drawing.Point(0, 0)
-        Me.dgjProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgjProducto.Margin = New System.Windows.Forms.Padding(4)
         Me.dgjProducto.Name = "dgjProducto"
         Me.dgjProducto.Size = New System.Drawing.Size(1582, 142)
         Me.dgjProducto.TabIndex = 3
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.btReporteDespachoPedido)
         Me.PanelSuperior.Controls.Add(Me.LabelX1)
         Me.PanelSuperior.Controls.Add(Me.Tb_Fecha)
         Me.PanelSuperior.Controls.Add(Me.btFacturar)
@@ -130,7 +132,7 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Controls.Add(Me.cbChoferes)
         Me.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperior.Location = New System.Drawing.Point(0, 0)
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Name = "PanelSuperior"
         Me.PanelSuperior.Size = New System.Drawing.Size(1582, 74)
         Me.PanelSuperior.TabIndex = 0
@@ -142,7 +144,7 @@ Partial Class frmBillingDispatch
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Location = New System.Drawing.Point(387, 15)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(73, 28)
         Me.LabelX1.TabIndex = 233
@@ -160,7 +162,7 @@ Partial Class frmBillingDispatch
         Me.Tb_Fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tb_Fecha.IsPopupCalendarOpen = False
         Me.Tb_Fecha.Location = New System.Drawing.Point(468, 15)
-        Me.Tb_Fecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Tb_Fecha.Margin = New System.Windows.Forms.Padding(4)
         '
         '
         '
@@ -204,7 +206,7 @@ Partial Class frmBillingDispatch
         Me.btFacturar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btFacturar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btFacturar.Location = New System.Drawing.Point(1182, 0)
-        Me.btFacturar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btFacturar.Margin = New System.Windows.Forms.Padding(4)
         Me.btFacturar.Name = "btFacturar"
         Me.btFacturar.Size = New System.Drawing.Size(100, 74)
         Me.btFacturar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -220,7 +222,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoCliente.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btReporteDespachoCliente.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btReporteDespachoCliente.Location = New System.Drawing.Point(1282, 0)
-        Me.btReporteDespachoCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btReporteDespachoCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.btReporteDespachoCliente.Name = "btReporteDespachoCliente"
         Me.btReporteDespachoCliente.Size = New System.Drawing.Size(100, 74)
         Me.btReporteDespachoCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -236,7 +238,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoLinea.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btReporteDespachoLinea.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btReporteDespachoLinea.Location = New System.Drawing.Point(1382, 0)
-        Me.btReporteDespachoLinea.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btReporteDespachoLinea.Margin = New System.Windows.Forms.Padding(4)
         Me.btReporteDespachoLinea.Name = "btReporteDespachoLinea"
         Me.btReporteDespachoLinea.Size = New System.Drawing.Size(100, 74)
         Me.btReporteDespachoLinea.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -250,7 +252,7 @@ Partial Class frmBillingDispatch
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Location = New System.Drawing.Point(16, 15)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(73, 28)
         Me.LabelX2.TabIndex = 3
@@ -265,7 +267,7 @@ Partial Class frmBillingDispatch
         Me.btVolverDist.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btVolverDist.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.btVolverDist.Location = New System.Drawing.Point(1482, 0)
-        Me.btVolverDist.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btVolverDist.Margin = New System.Windows.Forms.Padding(4)
         Me.btVolverDist.Name = "btVolverDist"
         Me.btVolverDist.Size = New System.Drawing.Size(100, 74)
         Me.btVolverDist.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -277,7 +279,7 @@ Partial Class frmBillingDispatch
         cbChoferes_DesignTimeLayout.LayoutString = resources.GetString("cbChoferes_DesignTimeLayout.LayoutString")
         Me.cbChoferes.DesignTimeLayout = cbChoferes_DesignTimeLayout
         Me.cbChoferes.Location = New System.Drawing.Point(97, 17)
-        Me.cbChoferes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbChoferes.Margin = New System.Windows.Forms.Padding(4)
         Me.cbChoferes.Name = "cbChoferes"
         Me.cbChoferes.SelectedIndex = -1
         Me.cbChoferes.SelectedItem = Nothing
@@ -289,13 +291,29 @@ Partial Class frmBillingDispatch
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'btReporteDespachoPedido
+        '
+        Me.btReporteDespachoPedido.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btReporteDespachoPedido.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btReporteDespachoPedido.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btReporteDespachoPedido.Image = Global.Presentacion.My.Resources.Resources.PEDI_ULTIMOS_PEDIDOS
+        Me.btReporteDespachoPedido.ImageFixedSize = New System.Drawing.Size(30, 30)
+        Me.btReporteDespachoPedido.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btReporteDespachoPedido.Location = New System.Drawing.Point(1082, 0)
+        Me.btReporteDespachoPedido.Margin = New System.Windows.Forms.Padding(4)
+        Me.btReporteDespachoPedido.Name = "btReporteDespachoPedido"
+        Me.btReporteDespachoPedido.Size = New System.Drawing.Size(100, 74)
+        Me.btReporteDespachoPedido.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btReporteDespachoPedido.TabIndex = 235
+        Me.btReporteDespachoPedido.Text = "Despacho por cliente"
+        '
         'frmBillingDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1582, 554)
         Me.Controls.Add(Me.PanelBase)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmBillingDispatch"
         Me.Opacity = 0.05R
         Me.Text = "frmBillingDispatch"
@@ -330,4 +348,5 @@ Partial Class frmBillingDispatch
     Friend WithEvents Tb_Fecha As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents btVolverDist As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btReporteDespachoPedido As DevComponents.DotNetBar.ButtonX
 End Class

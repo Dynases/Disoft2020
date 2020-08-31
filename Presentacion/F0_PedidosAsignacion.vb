@@ -730,7 +730,7 @@ Public Class F0_PedidosAsignacion
         End With
 
         With objGrid.RootTable.Columns(1)
-            .Caption = "Repartidor"
+            .Caption = "Repartidor/Vendedor"
             .Key = "Repartidor"
             .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -803,7 +803,7 @@ Public Class F0_PedidosAsignacion
 
     Private Sub _PCargarGridZonasSoloRepartidores(ByRef objGrid As Janus.Windows.GridEX.GridEX)
         Dim dt As New DataTable
-        dt = L_Empleado_GeneralSimple(-1, "and cbcat=1 and cbest=1 ").Tables(0)
+        dt = L_Empleado_GeneralSimple(-1, "and cbcat in (1,3) and cbest=1 ").Tables(0)
 
         objGrid.BoundMode = BoundMode.Bound
         objGrid.DataSource = dt

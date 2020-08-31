@@ -24,6 +24,7 @@ Partial Class R01_StockDisponible
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -31,6 +32,7 @@ Partial Class R01_StockDisponible
         CType(Me.MBubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MPnUsuario.SuspendLayout()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MGpFiltro.SuspendLayout()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -61,7 +63,7 @@ Partial Class R01_StockDisponible
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -97,6 +99,7 @@ Partial Class R01_StockDisponible
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.Label1)
         Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
         '
         '
@@ -126,6 +129,7 @@ Partial Class R01_StockDisponible
         '
         '
         Me.MGpFiltro.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.MGpFiltro.Controls.SetChildIndex(Me.Label1, 0)
         '
         'MCrReporte
         '
@@ -136,12 +140,21 @@ Partial Class R01_StockDisponible
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(48, 80)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 18)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Stock > 0"
+        '
         'R01_StockDisponible
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1582, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "R01_StockDisponible"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -157,9 +170,12 @@ Partial Class R01_StockDisponible
         Me.MPnUsuario.ResumeLayout(False)
         Me.MPnUsuario.PerformLayout()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MGpFiltro.ResumeLayout(False)
+        Me.MGpFiltro.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label1 As Label
 End Class

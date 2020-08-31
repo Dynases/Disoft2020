@@ -287,4 +287,35 @@ Public Class RPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
+
+    Public Function ListarDespachoDetalleXChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoDetalleXChofer) Implements IPedido.ListarDespachoDetalleXChofer
+        Try
+            Using db = GetSchema()
+                Dim listResult = (From a In db.v_VentasDetalleDespacho
+                                  Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1
+                                  Select New RDespachoDetalleXChofer With {
+                                      .oanumi = a.oanumi,
+                                      .oafdoc = a.oafdoc,
+                                      .oaccli = a.oaccli,
+                                      .ccdesc = a.ccdesc,
+                                      .oarepa = a.oarepa,
+                                      .oaest = a.oaest,
+                                      .oaap = a.oaap,
+                                      .obcprod = a.obcprod,
+                                      .cadesc = a.cadesc,
+                                      .cauventa = a.cauventa,
+                                      .obdesc = a.obdesc,
+                                      .obpbase = a.obpbase,
+                                      .obpcant = a.obpcant,
+                                      .obptot = a.obptot,
+                                      .oaccbnumi = a.oaccbnumi,
+                                      .cbdesc = a.cbdesc
+                                      }).ToList()
+                Return listResult
+
+            End Using
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 End Class

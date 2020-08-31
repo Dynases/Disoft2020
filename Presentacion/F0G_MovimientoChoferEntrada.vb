@@ -806,222 +806,236 @@ Public Class F0G_MovimientoChoferEntrada
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar
     End Sub
+    Private Sub MostrarMensajeError(mensaje As String)
+        ToastNotification.Show(Me,
+                               mensaje.ToUpper,
+                               My.Resources.WARNING,
+                               5000,
+                               eToastGlowColor.Red,
+                               eToastPosition.TopCenter)
+
+    End Sub
 
     Public Sub _prCrearTablaConciliacion()
+        Try
+            Dim TablaPrincipal As DataTable = L_prConciliacionObtenerProducto(lbcodigo.Text) ''2=Chofer   1=Concepto
+            Dim columnas As DataTable = L_prConciliacionObtenerIdNumiTI002(lbcodigo.Text)
+            For Each fila As DataRow In columnas.Rows
+                TablaPrincipal.Columns.Add(fila.Item("ibid").ToString.Trim)
+            Next
+            Dim Productos As DataTable = L_prConciliacionObtenerProductoTI0021(lbcodigo.Text)
+            For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
+                Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
+                Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
+                For i As Integer = 0 To result.Length - 1 Step 1
+                    Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
+                    Dim columnnumi As String = result(i).Item("ibid")
 
-        Dim TablaPrincipal As DataTable = L_prConciliacionObtenerProducto(lbcodigo.Text) ''2=Chofer   1=Concepto
-        Dim columnas As DataTable = L_prConciliacionObtenerIdNumiTI002(lbcodigo.Text)
-        For Each fila As DataRow In columnas.Rows
-            TablaPrincipal.Columns.Add(fila.Item("ibid").ToString.Trim)
-        Next
-        Dim Productos As DataTable = L_prConciliacionObtenerProductoTI0021(lbcodigo.Text)
-        For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
-            Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
-            Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
-            For i As Integer = 0 To result.Length - 1 Step 1
-                Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                Dim columnnumi As String = result(i).Item("ibid")
+                    TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant")
 
-                TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant")
+                Next
+            Next
+            TablaPrincipal.Columns.Add("ID_TO1", Type.GetType("System.String"))
+            TablaPrincipal.Columns.Add("MOVIL")
+            TablaPrincipal.Columns.Add("DEVOLUCION")
+            TablaPrincipal.Columns.Add("TOTAL")
+            TablaPrincipal.Columns.Add("TOTALCOPIA")
+            TablaPrincipal.Columns.Add("estado")
+            TablaPrincipal.Columns.Add("icid")
+            TablaPrincipal.Columns.Add("DevCopia")
+            TablaPrincipal.Columns.Add("FiltroEstado", Type.GetType("System.Boolean"))
+            TablaPrincipal.Columns.Add("ImgEstado", Type.GetType("System.Byte[]"))
+
+            '''''''''''Aqui inserto los movimientos ya insertados para modificarlos
+            Dim ProductosMovimientoSalida As DataTable = L_prConciliacionObtenerProductoTI0021Idnumi(lbcodigo.Text) ''''Estado=3 Conciliacion Chofer
+            For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
+                Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
+                Dim result As DataRow() = ProductosMovimientoSalida.Select("iccprod=" + Str(idprod))
+                For i As Integer = 0 To result.Length - 1 Step 1
+                    Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
+                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
+                    TablaPrincipal.Rows(j).Item("estado") = 1
+                    TablaPrincipal.Rows(j).Item("icid") = result(i).Item("icid")
+                Next
+                TablaPrincipal.Rows(j).Item("FiltroEstado") = True
+            Next
+            'TablaPrincipal.Columns.Add("DEVOLUCION")
+
+            '''''''''''Aqui inserto las ventas realidas con el movil
+            Dim dtVer As DataTable = L_fnObtenerTabla("*", "TM0013", "idtm1id=" + lbcodigo.Text)
+            Dim dtVentaMovil As DataTable
+            If (dtVer.Rows.Count = 0) Then
+                dtVentaMovil = L_prConciliacionObtenerPedidoEntregado(lbcodigo.Text)
+            Else
+                dtVentaMovil = L_prConciliacionObtenerPedidoEntregadoGrabado(lbcodigo.Text, _codChofer)
+            End If
+
+            For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
+                Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
+                Dim result As DataRow() = dtVentaMovil.Select("obcprod='" + Str(idprod) + "'")
+                'Dim result As DataRow() = dtVentaMovil.Select("obcprod=" & idprod)
+
+                For i As Integer = 0 To result.Length - 1 Step 1
+                    Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
+                    TablaPrincipal.Rows(j).Item("MOVIL") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("MOVIL")), 0, TablaPrincipal.Rows(j).Item("MOVIL")) + result(i).Item("obpcant")
+                    If (TablaPrincipal.Rows(j).Item("ID_TO1").ToString.Trim = String.Empty Or IsDBNull(TablaPrincipal.Rows(j).Item("ID_TO1"))) Then
+                        TablaPrincipal.Rows(j).Item("ID_TO1") = result(i).Item("oanumi").ToString
+                    Else
+                        TablaPrincipal.Rows(j).Item("ID_TO1") = TablaPrincipal.Rows(j).Item("ID_TO1").ToString + "," + result(i).Item("oanumi").ToString
+                    End If
+
+                Next
 
             Next
-        Next
-        TablaPrincipal.Columns.Add("ID_TO1", Type.GetType("System.String"))
-        TablaPrincipal.Columns.Add("MOVIL")
-        TablaPrincipal.Columns.Add("DEVOLUCION")
-        TablaPrincipal.Columns.Add("TOTAL")
-        TablaPrincipal.Columns.Add("TOTALCOPIA")
-        TablaPrincipal.Columns.Add("estado")
-        TablaPrincipal.Columns.Add("icid")
-        TablaPrincipal.Columns.Add("DevCopia")
-        TablaPrincipal.Columns.Add("FiltroEstado", Type.GetType("System.Boolean"))
-        TablaPrincipal.Columns.Add("ImgEstado", Type.GetType("System.Byte[]"))
 
-        '''''''''''Aqui inserto los movimientos ya insertados para modificarlos
-        Dim ProductosMovimientoSalida As DataTable = L_prConciliacionObtenerProductoTI0021Idnumi(lbcodigo.Text) ''''Estado=3 Conciliacion Chofer
-        For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
-            Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
-            Dim result As DataRow() = ProductosMovimientoSalida.Select("iccprod=" + Str(idprod))
-            For i As Integer = 0 To result.Length - 1 Step 1
-                Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
-                TablaPrincipal.Rows(j).Item("estado") = 1
-                TablaPrincipal.Rows(j).Item("icid") = result(i).Item("icid")
+            '''''''Suma de Totales
+            For i As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
+                Dim suma As Double = 0
+                Dim sumaMovil As Double = 0
+                For c As Integer = 0 To columnas.Rows.Count - 1 Step 1
+                    Dim colum As String = columnas.Rows(c).Item("ibid")
+                    suma = suma + IIf(IsDBNull(TablaPrincipal.Rows(i).Item(colum)), 0, TablaPrincipal.Rows(i).Item(colum))
+                Next
+                sumaMovil = IIf(IsDBNull(TablaPrincipal.Rows(i).Item("MOVIL")), 0, TablaPrincipal.Rows(i).Item("MOVIL"))
+                TablaPrincipal.Rows(i).Item("TOTALCOPIA") = suma '- sumaMovil
+                suma = suma - IIf(IsDBNull(TablaPrincipal.Rows(i).Item("DEVOLUCION")), 0, TablaPrincipal.Rows(i).Item("DEVOLUCION"))
+                TablaPrincipal.Rows(i).Item("TOTAL") = suma '- sumaMovil
             Next
-            TablaPrincipal.Rows(j).Item("FiltroEstado") = True
-        Next
-        'TablaPrincipal.Columns.Add("DEVOLUCION")
 
-        '''''''''''Aqui inserto las ventas realidas con el movil
-        Dim dtVer As DataTable = L_fnObtenerTabla("*", "TM0013", "idtm1id=" + lbcodigo.Text)
-        Dim dtVentaMovil As DataTable
-        If (dtVer.Rows.Count = 0) Then
-            dtVentaMovil = L_prConciliacionObtenerPedidoEntregado(lbcodigo.Text)
-        Else
-            dtVentaMovil = L_prConciliacionObtenerPedidoEntregadoGrabado(lbcodigo.Text, _codChofer)
-        End If
+            'Aqui se trae los pedido de un determinado chofer que esta cerrada su caja 
 
-        For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
-            Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
-            Dim result As DataRow() = dtVentaMovil.Select("obcprod=" + Str(idprod))
-            'Dim result As DataRow() = dtVentaMovil.Select("obcprod=" & idprod)
+            Dim dtPedidosEntregados As DataTable = New DataTable()
+            dtPedidosEntregados = L_prConciliacionObtenerPedidoEntregadoGral(_codChofer, tbFecha.Value, lbcodigo.Text)
+            dtPedidosEntregados.AcceptChanges()
+            If (dtPedidosEntregados.Rows.Count > 0) Then
+                For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
+                    Dim flag As Boolean = False
+                    If (IsDBNull(TablaPrincipal.Rows(j).Item("estado"))) Then
+                        flag = True
+                    Else
+                        'If (Not TablaPrincipal.Rows(j).Item("estado") = 1) Then
+                        If (TablaPrincipal.Rows(j).Item("estado") = 1) Then
+                            flag = True
+                        End If
+                    End If
+                    If (flag) Then
+                        Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
+                        'Dim suma As Double = dtPedidosEntregados.Compute("sum(obptot)", "obcprod='" + idprod.ToString + "'")
+                        Dim result As DataRow() = dtPedidosEntregados.Select("obcprod='" + idprod.ToString + "'")
+                        For i As Integer = 0 To result.Length - 1 Step 1
+                            Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
+                            TablaPrincipal.Rows(j).Item("DevCopia") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")) + result(i).Item("obpcant")
+                            If (TablaPrincipal.Rows(j).Item("ID_TO1").ToString.Trim = String.Empty Or IsDBNull(TablaPrincipal.Rows(j).Item("ID_TO1"))) Then
+                                TablaPrincipal.Rows(j).Item("ID_TO1") = result(i).Item("oanumi").ToString
+                            Else
+                                TablaPrincipal.Rows(j).Item("ID_TO1") = TablaPrincipal.Rows(j).Item("ID_TO1").ToString + "," + result(i).Item("oanumi").ToString
+                            End If
+                        Next
 
-            For i As Integer = 0 To result.Length - 1 Step 1
-                Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                TablaPrincipal.Rows(j).Item("MOVIL") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("MOVIL")), 0, TablaPrincipal.Rows(j).Item("MOVIL")) + result(i).Item("obpcant")
-                If (TablaPrincipal.Rows(j).Item("ID_TO1").ToString.Trim = String.Empty Or IsDBNull(TablaPrincipal.Rows(j).Item("ID_TO1"))) Then
-                    TablaPrincipal.Rows(j).Item("ID_TO1") = result(i).Item("oanumi").ToString
-                Else
-                    TablaPrincipal.Rows(j).Item("ID_TO1") = TablaPrincipal.Rows(j).Item("ID_TO1").ToString + "," + result(i).Item("oanumi").ToString
-                End If
+                        TablaPrincipal.Rows(j).Item("DEVOLUCION") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia"))
+                        TablaPrincipal.Rows(j).Item("FiltroEstado") = (IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")))
+                        TablaPrincipal.Rows(j).Item("TOTAL") = TablaPrincipal.Rows(j).Item("TOTALCOPIA") - TablaPrincipal.Rows(j).Item("DEVOLUCION")
+                    End If
+                Next
+            End If
 
-            Next
-        Next
-
-        '''''''Suma de Totales
-        For i As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
-            Dim suma As Double = 0
-            Dim sumaMovil As Double = 0
+            Dim dt As New DataTable
+            dt = TablaPrincipal
+            If (gi_adev = 1) Then
+                _prCargarIcono(dt)
+            End If
+            grdetalle.DataSource = dt
+            grdetalle.RetrieveStructure()
+            grdetalle.AlternatingColors = True
             For c As Integer = 0 To columnas.Rows.Count - 1 Step 1
                 Dim colum As String = columnas.Rows(c).Item("ibid")
-                suma = suma + IIf(IsDBNull(TablaPrincipal.Rows(i).Item(colum)), 0, TablaPrincipal.Rows(i).Item(colum))
+                With grdetalle.RootTable.Columns(colum)
+                    .Width = 150
+                    .Visible = True
+                    .TextAlignment = TextAlignment.Far
+                    .FormatString = "0"
+                    .Caption = "Salida " + Str(c + 1)
+                End With
             Next
-            sumaMovil = IIf(IsDBNull(TablaPrincipal.Rows(i).Item("MOVIL")), 0, TablaPrincipal.Rows(i).Item("MOVIL"))
-            TablaPrincipal.Rows(i).Item("TOTALCOPIA") = suma '- sumaMovil
-            suma = suma - IIf(IsDBNull(TablaPrincipal.Rows(i).Item("DEVOLUCION")), 0, TablaPrincipal.Rows(i).Item("DEVOLUCION"))
-            TablaPrincipal.Rows(i).Item("TOTAL") = suma '- sumaMovil
-        Next
 
-        'Aqui se trae los pedido de un determinado chofer que esta cerrada su caja 
-
-        Dim dtPedidosEntregados As DataTable = New DataTable()
-        dtPedidosEntregados = L_prConciliacionObtenerPedidoEntregadoGral(_codChofer, tbFecha.Value, lbcodigo.Text)
-        dtPedidosEntregados.AcceptChanges()
-        If (dtPedidosEntregados.Rows.Count > 0) Then
-            For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
-                Dim flag As Boolean = False
-                If (IsDBNull(TablaPrincipal.Rows(j).Item("estado"))) Then
-                    flag = True
-                Else
-                    'If (Not TablaPrincipal.Rows(j).Item("estado") = 1) Then
-                    If (TablaPrincipal.Rows(j).Item("estado") = 1) Then
-                        flag = True
-                    End If
-                End If
-                If (flag) Then
-                    Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
-                    'Dim suma As Double = dtPedidosEntregados.Compute("sum(obptot)", "obcprod='" + idprod.ToString + "'")
-                    Dim result As DataRow() = dtPedidosEntregados.Select("obcprod='" + idprod.ToString + "'")
-                    For i As Integer = 0 To result.Length - 1 Step 1
-                        Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                        TablaPrincipal.Rows(j).Item("DevCopia") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")) + result(i).Item("obpcant")
-                        If (TablaPrincipal.Rows(j).Item("ID_TO1").ToString.Trim = String.Empty Or IsDBNull(TablaPrincipal.Rows(j).Item("ID_TO1"))) Then
-                            TablaPrincipal.Rows(j).Item("ID_TO1") = result(i).Item("oanumi").ToString
-                        Else
-                            TablaPrincipal.Rows(j).Item("ID_TO1") = TablaPrincipal.Rows(j).Item("ID_TO1").ToString + "," + result(i).Item("oanumi").ToString
-                        End If
-                    Next
-
-                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia"))
-                    TablaPrincipal.Rows(j).Item("FiltroEstado") = (IIf(IsDBNull(TablaPrincipal.Rows(j).Item("TOTALCOPIA")), 0, TablaPrincipal.Rows(j).Item("TOTALCOPIA")) - IIf(IsDBNull(TablaPrincipal.Rows(j).Item("DevCopia")), 0, TablaPrincipal.Rows(j).Item("DevCopia")))
-                    TablaPrincipal.Rows(j).Item("TOTAL") = TablaPrincipal.Rows(j).Item("TOTALCOPIA") - TablaPrincipal.Rows(j).Item("DEVOLUCION")
-                End If
-            Next
-        End If
-
-        Dim dt As New DataTable
-        dt = TablaPrincipal
-        If (gi_adev = 1) Then
-            _prCargarIcono(dt)
-        End If
-        grdetalle.DataSource = dt
-        grdetalle.RetrieveStructure()
-        grdetalle.AlternatingColors = True
-        For c As Integer = 0 To columnas.Rows.Count - 1 Step 1
-            Dim colum As String = columnas.Rows(c).Item("ibid")
-            With grdetalle.RootTable.Columns(colum)
+            With grdetalle.RootTable.Columns("canumi")
+                .Width = 150
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("estado")
+                .Width = 150
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("icid")
+                .Width = 150
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("cadesc")
+                .Width = 200
+                .Visible = True
+                .Caption = "PRODUCTO"
+            End With
+            With grdetalle.RootTable.Columns("ID_TO1")
+                .Width = 150
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("MOVIL")
+                .Width = 150
+                .Visible = False
+                .FormatString = "0.00"
+                .TextAlignment = TextAlignment.Far
+                .Caption = "MOVIL"
+                .CellStyle.BackColor = Color.CadetBlue
+            End With
+            With grdetalle.RootTable.Columns("DEVOLUCION")
                 .Width = 150
                 .Visible = True
+                .FormatString = "0.00"
                 .TextAlignment = TextAlignment.Far
-                .FormatString = "0"
-                .Caption = "Salida " + Str(c + 1)
+                .Caption = "DEVOLUCIÓN"
             End With
-        Next
+            With grdetalle.RootTable.Columns("TOTAL")
+                .Width = 150
+                .Visible = True
+                .FormatString = "0.00"
+                .TextAlignment = TextAlignment.Far
+                .Caption = "ENTREGADO"
+            End With
+            With grdetalle.RootTable.Columns("TOTALCOPIA")
+                .Width = 150
+                .Visible = False
+                .FormatString = "0.00"
+                .TextAlignment = TextAlignment.Far
+            End With
+            With grdetalle.RootTable.Columns("DevCopia")
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("FiltroEstado")
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("ImgEstado")
+                .Width = 80
+                .Caption = "COMPARA".ToUpper
+                .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
+                .Visible = (gi_adev = 1)
+            End With
+            With grdetalle
+                .GroupByBoxVisible = False
+                'diseño de la grilla
+                .VisualStyle = VisualStyle.Office2007
+                .RootTable.RowHeight = 30
 
-        With grdetalle.RootTable.Columns("canumi")
-            .Width = 150
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("estado")
-            .Width = 150
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("icid")
-            .Width = 150
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("cadesc")
-            .Width = 200
-            .Visible = True
-            .Caption = "PRODUCTO"
-        End With
-        With grdetalle.RootTable.Columns("ID_TO1")
-            .Width = 150
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("MOVIL")
-            .Width = 150
-            .Visible = False
-            .FormatString = "0.00"
-            .TextAlignment = TextAlignment.Far
-            .Caption = "MOVIL"
-            .CellStyle.BackColor = Color.CadetBlue
-        End With
-        With grdetalle.RootTable.Columns("DEVOLUCION")
-            .Width = 150
-            .Visible = True
-            .FormatString = "0.00"
-            .TextAlignment = TextAlignment.Far
-            .Caption = "DEVOLUCIÓN"
-        End With
-        With grdetalle.RootTable.Columns("TOTAL")
-            .Width = 150
-            .Visible = True
-            .FormatString = "0.00"
-            .TextAlignment = TextAlignment.Far
-            .Caption = "ENTREGADO"
-        End With
-        With grdetalle.RootTable.Columns("TOTALCOPIA")
-            .Width = 150
-            .Visible = False
-            .FormatString = "0.00"
-            .TextAlignment = TextAlignment.Far
-        End With
-        With grdetalle.RootTable.Columns("DevCopia")
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("FiltroEstado")
-            .Visible = False
-        End With
-        With grdetalle.RootTable.Columns("ImgEstado")
-            .Width = 80
-            .Caption = "COMPARA".ToUpper
-            .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
-            .Visible = (gi_adev = 1)
-        End With
-        With grdetalle
-            .GroupByBoxVisible = False
-            'diseño de la grilla
-            .VisualStyle = VisualStyle.Office2007
-            .RootTable.RowHeight = 30
+                If (gi_adev = 1) Then
+                    Dim fc As GridEXFormatCondition = New GridEXFormatCondition(.RootTable.Columns("FiltroEstado"), ConditionOperator.Equal, False)
+                    fc.FormatStyle.BackColor = Color.LightSalmon
 
-            If (gi_adev = 1) Then
-                Dim fc As GridEXFormatCondition = New GridEXFormatCondition(.RootTable.Columns("FiltroEstado"), ConditionOperator.Equal, False)
-                fc.FormatStyle.BackColor = Color.LightSalmon
+                    .RootTable.FormatConditions.Add(fc)
+                End If
+            End With
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
 
-                .RootTable.FormatConditions.Add(fc)
-            End If
-        End With
     End Sub
 
     Public Sub _prCargarIcono(dt As DataTable)
