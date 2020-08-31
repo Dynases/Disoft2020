@@ -85,8 +85,8 @@
           <Property Name="caconv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="capack" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC0011">
           <Key>
             <PropertyRef Name="cicod" />
@@ -97,8 +97,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0011' no tiene definid
           <Property Name="cieserie" Type="bit" />
           <Property Name="ciest" Type="bit" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC0012">
           <Key>
             <PropertyRef Name="cpnumi" />
@@ -188,8 +188,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0012' no tiene definid
           <Property Name="cchact" Type="nvarchar" MaxLength="50" />
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC0041' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC0041">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -220,8 +220,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0041' no tiene definid
           <Property Name="cpprod" Type="int" />
           <Property Name="cpcat" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC004A1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC004A1">
           <Key>
             <PropertyRef Name="ccaanumi" />
@@ -230,8 +230,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A1' no tiene defini
           <Property Name="ccatc4anumi" Type="int" />
           <Property Name="ccaandia" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC004A2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC004A2">
           <Key>
             <PropertyRef Name="ccabnumi" />
@@ -283,8 +283,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC004A2' no tiene defini
           <Property Name="cfhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TC0091' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC0091">
           <Key>
             <PropertyRef Name="cllin" />
@@ -373,8 +373,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TC0091' no tiene definid
           <Property Name="cabstockf" Type="decimal" Precision="18" Scale="2" />
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TCA00121' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TCA00121">
           <Key>
             <PropertyRef Name="tdnumi" />
@@ -392,8 +392,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCA00121' no tiene defin
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TCP0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TCP0011">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -474,8 +474,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TCP0011' no tiene defini
           <Property Name="iccprod" Type="int" />
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TI003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TI003">
           <Key>
             <PropertyRef Name="idcli" />
@@ -577,8 +577,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TI003' no tiene definida
           <Property Name="lblat" Type="decimal" Precision="18" Scale="10" />
           <Property Name="lblongi" Type="decimal" Precision="18" Scale="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TM001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TM001">
           <Key>
             <PropertyRef Name="ibid" />
@@ -597,8 +597,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM001' no tiene definida
           <Property Name="ibhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ibuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TM0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TM0011">
           <Key>
             <PropertyRef Name="icid" />
@@ -608,8 +608,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0011' no tiene definid
           <Property Name="iccprod" Type="int" />
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TM0012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TM0012">
           <Key>
             <PropertyRef Name="ieid" />
@@ -618,8 +618,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0012' no tiene definid
           <Property Name="ieconcti2" Type="int" />
           <Property Name="ieest" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TM0013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TM0013">
           <Key>
             <PropertyRef Name="idnumi" />
@@ -639,7 +639,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0013' no tiene definid
           <Property Name="oaccli" Type="int" />
           <Property Name="oazona" Type="int" />
           <Property Name="oarepa" Type="int" />
-          <Property Name="oaobs" Type="nvarchar" MaxLength="200" />
+          <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
           <Property Name="oaobs2" Type="nvarchar" MaxLength="60" />
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
@@ -648,8 +648,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TM0013' no tiene definid
           <Property Name="oahact" Type="nvarchar" MaxLength="5" />
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0011">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -665,8 +665,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0011' no tiene definid
           <Property Name="obcampo1" Type="int" />
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0014' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -682,8 +682,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0014' no tiene definid
           <Property Name="ofhact" Type="nvarchar" MaxLength="50" />
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -703,10 +703,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO001A' no tiene definid
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="oacnrofac" Type="bigint" />
           <Property Name="oacnconc" Type="int" />
-          <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO002">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -722,8 +721,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO002' no tiene definida
           <Property Name="odhact" Type="nvarchar" MaxLength="5" />
           <Property Name="oduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0021' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0021">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -738,8 +737,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0021' no tiene definid
           <Property Name="oenped" Type="int" />
           <Property Name="oetipo" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0022' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0022">
           <Key>
             <PropertyRef Name="ofid" />
@@ -754,8 +753,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0022' no tiene definid
           <Property Name="ofest2" Type="int" />
           <Property Name="ofid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0023' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0023">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -772,8 +771,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0023' no tiene definid
           <Property Name="ojhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ojuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO003">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -801,8 +800,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO003' no tiene definida
           <Property Name="ohhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ohuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0041' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0041">
           <Key>
             <PropertyRef Name="oinumi" />
@@ -814,8 +813,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0041' no tiene definid
           <Property Name="oisubtotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="oicant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0042' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0042">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -829,8 +828,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0042' no tiene definid
           <Property Name="ojprecre" Type="decimal" Precision="18" Scale="2" />
           <Property Name="ojdesc" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TO0043' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0043">
           <Key>
             <PropertyRef Name="oknumi" />
@@ -856,6 +855,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0043' no tiene definid
           <Property Name="olCredito" Type="decimal" Precision="18" Scale="2" />
           <Property Name="olTipoCambio" Type="decimal" Precision="18" Scale="2" />
           <Property Name="olEstado" Type="int" />
+          <Property Name="olEstadoIntegracionBanco" Type="int" />
         </EntityType>
         <EntityType Name="TO0051">
           <Key>
@@ -885,8 +885,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TO0043' no tiene definid
           <Property Name="onFecha" Type="date" Nullable="false" />
           <Property Name="onMonto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP001">
           <Key>
             <PropertyRef Name="panumi" />
@@ -902,8 +902,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP001' no tiene definida
           <Property Name="pahact" Type="nvarchar" MaxLength="5" />
           <Property Name="pauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP002">
           <Key>
             <PropertyRef Name="pbnumi" />
@@ -916,8 +916,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP002' no tiene definida
           <Property Name="pbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP003">
           <Key>
             <PropertyRef Name="pdnumi" />
@@ -929,8 +929,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP003' no tiene definida
           <Property Name="pdhact" Type="nvarchar" MaxLength="50" />
           <Property Name="pduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP004">
           <Key>
             <PropertyRef Name="penumi" />
@@ -944,8 +944,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP004' no tiene definida
           <Property Name="pehact" Type="nvarchar" MaxLength="50" />
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP006">
           <Key>
             <PropertyRef Name="pgnumi" />
@@ -962,8 +962,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP006' no tiene definida
           <Property Name="pghact" Type="nvarchar" MaxLength="5" />
           <Property Name="pguact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TP0061' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP0061">
           <Key>
             <PropertyRef Name="phnumi" />
@@ -1008,8 +1008,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TP0061' no tiene definid
           <Property Name="plmonto" Type="decimal" Precision="18" Scale="2" />
           <Property Name="plnumibd" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TS001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TS001">
           <Key>
             <PropertyRef Name="sanumi" />
@@ -1076,8 +1076,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TS001' no tiene definida
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.TV0013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TV0013">
           <Key>
             <PropertyRef Name="tenumi" />
@@ -1112,8 +1112,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.TV0013' no tiene definid
           <Property Name="ycmod" Type="bit" />
           <Property Name="ycdel" Type="bit" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.v_VentasDetalleDespacho' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_VentasDetalleDespacho">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1129,6 +1129,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.v_VentasDetalleDespacho'
           <Property Name="obcprod" Type="nvarchar" MaxLength="10" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cauventa" Type="int" />
+          <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
           <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="obpcant" Type="decimal" Precision="18" Scale="2" />
@@ -1136,8 +1137,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.v_VentasDetalleDespacho'
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vista_promconsumo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1151,8 +1152,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_promconsumo' no ti
           <Property Name="ccprconsu" Type="int" />
           <Property Name="fTentativa" Type="date" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vista_transacciones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vista_transacciones">
           <Key>
             <PropertyRef Name="numi" />
@@ -1166,8 +1167,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vista_transacciones' no 
           <Property Name="uact" Type="nvarchar" MaxLength="50" />
           <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_CajaDetalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1189,8 +1190,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CajaDetalle' no tiene
           <Property Name="tcre" Type="int" Nullable="false" />
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_Clientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1207,8 +1208,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Clientes' no tiene de
           <Property Name="cidesc" Type="nvarchar" MaxLength="80" />
           <Property Name="ccest" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_ClientesPendientesNota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_ClientesPendientesNota">
           <Key>
             <PropertyRef Name="ped" />
@@ -1225,8 +1226,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ClientesPendientesNot
           <Property Name="ped" Type="int" Nullable="false" />
           <Property Name="cacat" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_Conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_Conciliacion">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -1236,8 +1237,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Conciliacion' no tien
           <Property Name="Prod" Type="int" />
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_CuentasPagar_PagosRealizados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -1255,8 +1256,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_CuentasPagar_PagosRea
           <Property Name="cpbfdoc" Type="date" />
           <Property Name="mora" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_EntregaPedidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_EntregaPedidos">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1274,8 +1275,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_EntregaPedidos' no ti
           <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
           <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_Facturas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_Facturas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1310,8 +1311,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Facturas' no tiene de
           <Property Name="fvbprecio" Type="float" />
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_FacturasChacaltaya' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_FacturasChacaltaya">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1324,11 +1325,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_FacturasChacaltaya' n
           <Property Name="oenfac" Type="nvarchar" MaxLength="12" />
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_CajaGeneral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="EstadoIntegracion" />
           </Key>
           <Property Name="IdCaja" Type="int" Nullable="false" />
           <Property Name="FechaCaja" Type="date" />
@@ -1341,9 +1343,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_CajaGeneral' no ti
           <Property Name="TotalDeposito" Type="decimal" Precision="38" Scale="2" />
           <Property Name="TotalGeneral" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Diferencia" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="EstadoIntegracion" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteSalidaItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -1361,8 +1364,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteSalidaI
           <Property Name="nproducto" Type="nvarchar" MaxLength="100" />
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1384,8 +1387,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_comprobanteVenta' 
           <Property Name="factura" Type="nvarchar" MaxLength="100" />
           <Property Name="ojobs" Type="nvarchar" MaxLength="60" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoNotaVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_DespachoNotaVenta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1408,8 +1411,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoNotaVenta'
           <Property Name="ccnit" Type="nvarchar" MaxLength="20" />
           <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1429,10 +1432,11 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXCliente' 
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
           <Property Name="oafdoc" Type="date" />
+          <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
           <Property Name="oanumi" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1449,9 +1453,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DespachoXProducto'
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
           <Property Name="oafdoc" Type="date" />
+          <Property Name="caja" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="Unidad" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DiferenciaPedidoNota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
             <PropertyRef Name="numi" />
@@ -1470,8 +1477,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_DiferenciaPedidoNo
           <Property Name="hora" Type="nvarchar" MaxLength="5" />
           <Property Name="usuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_EquipoPrestadoVsUltimaVenta">
           <Key>
             <PropertyRef Name="numi" />
@@ -1489,8 +1496,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquipoPrestadoVsUl
           <Property Name="prov" Type="nvarchar" MaxLength="50" />
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquiposPrestadoCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_EquiposPrestadoCliente">
           <Key>
             <PropertyRef Name="codbd" />
@@ -1503,8 +1510,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_EquiposPrestadoCli
           <Property Name="nombre" Type="nvarchar" MaxLength="50" />
           <Property Name="direccion" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_Factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_Factura">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1542,8 +1549,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_Factura' no tiene 
           <Property Name="fvbnumi2" Type="int" />
           <Property Name="oazona" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
             <PropertyRef Name="tipo" />
@@ -1559,8 +1566,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta' no
           <Property Name="factura" Type="nvarchar" MaxLength="12" />
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_FacturaVsVenta2">
           <Key>
             <PropertyRef Name="ncli" />
@@ -1578,8 +1585,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_FacturaVsVenta2' n
           <Property Name="factura" Type="nvarchar" MaxLength="12" />
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_ListarZona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
             <PropertyRef Name="numi" />
@@ -1596,8 +1603,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_ListarZona' no tie
           <Property Name="hact" Type="nvarchar" MaxLength="5" />
           <Property Name="uact" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposAgrupado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_PrestamoEquiposAgrupado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1611,8 +1618,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposAgr
           <Property Name="cant" Type="float" />
           <Property Name="cpmov" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposDetallado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_PrestamoEquiposDetallado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1633,8 +1640,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_PrestamoEquiposDet
           <Property Name="cpmov" Type="int" />
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vr_go_reciboCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vr_go_reciboCliente">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1658,8 +1665,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_reciboCliente' no 
           <Property Name="oaanumiprev" Type="int" />
           <Property Name="cbdesc2" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_SaldoPrestamoEquipo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_SaldoPrestamoEquipo">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1671,8 +1678,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_SaldoPrestamoEquip
           <Property Name="cantES" Type="float" />
           <Property Name="ES" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_UltimaVentaCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_UltimaVentaCliente">
           <Key>
             <PropertyRef Name="numi" />
@@ -1688,8 +1695,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GO_UltimaVentaCliente
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
           <Property Name="est" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.vr_go_visitasDiarias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vr_go_visitasDiarias">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1713,8 +1720,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.vr_go_visitasDiarias' no
           <Property Name="nprod" Type="nvarchar" MaxLength="50" />
           <Property Name="ccabcant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_GraficaVentasVs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GraficaVentasVs">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1726,8 +1733,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_GraficaVentasVs' no t
           <Property Name="mes1" Type="int" />
           <Property Name="mes2" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_KadexCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_KadexCliente">
           <Key>
             <PropertyRef Name="concepto" />
@@ -1747,8 +1754,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KadexCliente' no tien
           <Property Name="tipo" Type="nvarchar" MaxLength="10" />
           <Property Name="factura" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexInventario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_KardexInventario">
           <Key>
             <PropertyRef Name="id" />
@@ -1772,8 +1779,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexInventario' no 
           <Property Name="saldo" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexPrestamos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1791,8 +1798,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_KardexPrestamos' no t
           <Property Name="chmonsus" Type="float" />
           <Property Name="chtmov" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_LibroVentas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1819,8 +1826,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentas' no tiene
           <Property Name="fvaalm" Type="int" />
           <Property Name="scnom" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_LibroVentasChacaltaya1">
           <Key>
             <PropertyRef Name="esp" />
@@ -1851,8 +1858,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya
           <Property Name="h" Type="numeric" Precision="21" Scale="4" />
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_LibroVentasChacaltaya2">
           <Key>
             <PropertyRef Name="esp" />
@@ -1880,8 +1887,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_LibroVentasChacaltaya
           <Property Name="h" Type="numeric" Precision="38" Scale="4" />
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Clientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_Mam_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1920,8 +1927,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Clientes' no tien
           <Property Name="cchact" Type="nvarchar" MaxLength="50" />
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_Mam_Conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_Mam_Conciliacion">
           <Key>
             <PropertyRef Name="canumi" />
@@ -1935,8 +1942,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Mam_Conciliacion' no 
           <Property Name="DEVOLUCION" Type="int" />
           <Property Name="TOTAL" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Credito_Cliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
             <PropertyRef Name="pago" />
@@ -1962,8 +1969,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_Credito_Cliente' 
           <Property Name="TotCredit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_ProductoVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_Mam_ProductoVenta">
           <Key>
             <PropertyRef Name="numiProducto" />
@@ -1977,8 +1984,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_Mam_ProductoVenta' no
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="TotalVenta" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_MO_GetPedidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_MO_GetPedidos">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1999,8 +2006,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_MO_GetPedidos' no tie
           <Property Name="oahact" Type="nvarchar" MaxLength="5" />
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_Nota de Venta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_Nota de Venta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2021,8 +2028,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Nota de Venta' no tie
           <Property Name="Vendedor" Type="nvarchar" MaxLength="50" />
           <Property Name="FechaPedido" Type="date" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_NotaCompra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_NotaCompra">
           <Key>
             <PropertyRef Name="caanumi" />
@@ -2062,8 +2069,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_NotaCompra' no tiene 
           <Property Name="fcaccont" Type="nvarchar" MaxLength="14" />
           <Property Name="plazo" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_Pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_Pagos">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -2079,8 +2086,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_Pagos' no tiene defin
           <Property Name="oguact" Type="nvarchar" MaxLength="10" />
           <Property Name="ogrec" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_ProductosMesas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_ProductosMesas">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2096,8 +2103,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ProductosMesas' no ti
           <Property Name="vend4" Type="decimal" Precision="38" Scale="2" />
           <Property Name="totvend4" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_ResumenNotas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_ResumenNotas">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -2111,8 +2118,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_ResumenNotas' no tien
           <Property Name="pagos" Type="decimal" Precision="38" Scale="2" />
           <Property Name="total" Type="float" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_SaldoCliente">
           <Key>
             <PropertyRef Name="idcodcli" />
@@ -2121,8 +2128,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoCliente' no tien
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="idsaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoFisicoValorado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_SaldoFisicoValorado">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2140,8 +2147,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_SaldoFisicoValorado' 
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_stockActual' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_stockActual">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2157,8 +2164,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_stockActual' no tiene
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_StockDisponible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_StockDisponible">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2172,8 +2179,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_StockDisponible' no t
           <Property Name="StockSoloPedidos" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_UtilidadPorProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_UtilidadPorProducto">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2185,8 +2192,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_UtilidadPorProducto' 
           <Property Name="precioVenta" Type="numeric" Precision="38" Scale="2" />
           <Property Name="Utilidad" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendedor12Meses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_VentasVendedor12Meses">
           <Key>
             <PropertyRef Name="numiVendedor" />
@@ -2207,8 +2214,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendedor12Meses
           <Property Name="diciembre" Type="decimal" Precision="18" Scale="2" />
           <Property Name="total" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendidas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vr_VentasVendidas">
           <Key>
             <PropertyRef Name="aanumi" />
@@ -2227,8 +2234,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.Vr_VentasVendidas' no ti
           <Property Name="FechaVenta" Type="date" />
           <Property Name="total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
             <PropertyRef Name="codcliente" />
@@ -3267,6 +3274,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [v_VentasDetalleDespacho].[obcprod] AS [obcprod], 
     [v_VentasDetalleDespacho].[cadesc] AS [cadesc], 
     [v_VentasDetalleDespacho].[cauventa] AS [cauventa], 
+    [v_VentasDetalleDespacho].[cedesc] AS [cedesc], 
     [v_VentasDetalleDespacho].[obdesc] AS [obdesc], 
     [v_VentasDetalleDespacho].[obpbase] AS [obpbase], 
     [v_VentasDetalleDespacho].[obpcant] AS [obpcant], 
@@ -3440,7 +3448,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [VR_GO_CajaGeneral].[TotalCredito] AS [TotalCredito], 
     [VR_GO_CajaGeneral].[TotalDeposito] AS [TotalDeposito], 
     [VR_GO_CajaGeneral].[TotalGeneral] AS [TotalGeneral], 
-    [VR_GO_CajaGeneral].[Diferencia] AS [Diferencia]
+    [VR_GO_CajaGeneral].[Diferencia] AS [Diferencia], 
+    [VR_GO_CajaGeneral].[EstadoIntegracion] AS [EstadoIntegracion]
     FROM [dbo].[VR_GO_CajaGeneral] AS [VR_GO_CajaGeneral]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="Self.vr_go_comprobanteSalidaItems" store:Type="Views" store:Schema="dbo">
@@ -3510,6 +3519,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [VR_GO_DespachoXCliente].[oaest] AS [oaest], 
     [VR_GO_DespachoXCliente].[oaap] AS [oaap], 
     [VR_GO_DespachoXCliente].[oafdoc] AS [oafdoc], 
+    [VR_GO_DespachoXCliente].[oaobs] AS [oaobs], 
     [VR_GO_DespachoXCliente].[oanumi] AS [oanumi]
     FROM [dbo].[VR_GO_DespachoXCliente] AS [VR_GO_DespachoXCliente]</DefiningQuery>
           </EntitySet>
@@ -3525,7 +3535,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
     [VR_GO_DespachoXProducto].[oacnconc] AS [oacnconc], 
     [VR_GO_DespachoXProducto].[oaest] AS [oaest], 
     [VR_GO_DespachoXProducto].[oaap] AS [oaap], 
-    [VR_GO_DespachoXProducto].[oafdoc] AS [oafdoc]
+    [VR_GO_DespachoXProducto].[oafdoc] AS [oafdoc], 
+    [VR_GO_DespachoXProducto].[caja] AS [caja], 
+    [VR_GO_DespachoXProducto].[Unidad] AS [Unidad], 
+    [VR_GO_DespachoXProducto].[Total] AS [Total]
     FROM [dbo].[VR_GO_DespachoXProducto] AS [VR_GO_DespachoXProducto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="Self.VR_GO_DiferenciaPedidoNota" store:Type="Views" store:Schema="dbo">
@@ -4841,12 +4854,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySet Name="VR_EntregaPedidos" EntityType="BDDistBHFModel.VR_EntregaPedidos" />
           <EntitySet Name="VR_Facturas" EntityType="BDDistBHFModel.VR_Facturas" />
           <EntitySet Name="VR_FacturasChacaltaya" EntityType="BDDistBHFModel.VR_FacturasChacaltaya" />
-          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" />
           <EntitySet Name="vr_go_comprobanteVenta" EntityType="BDDistBHFModel.vr_go_comprobanteVenta" />
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
-          <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
-          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" />
           <EntitySet Name="VR_GO_EquipoPrestadoVsUltimaVenta" EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" />
           <EntitySet Name="VR_GO_EquiposPrestadoCliente" EntityType="BDDistBHFModel.VR_GO_EquiposPrestadoCliente" />
@@ -4894,6 +4904,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
           <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
+          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
+          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
+          <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -5512,7 +5525,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oaccli" Type="Int32" />
           <Property Name="oazona" Type="Int32" />
           <Property Name="oarepa" Type="Int32" />
-          <Property Name="oaobs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="oaobs2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="oaest" Type="Int32" />
           <Property Name="oaap" Type="Int32" />
@@ -5561,6 +5574,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="olEstado" Type="Int32" />
           <NavigationProperty Name="TO0051" Relationship="BDDistBHFModel.FK_TO0051_TO005" FromRole="TO005" ToRole="TO0051" />
           <NavigationProperty Name="TO0052" Relationship="BDDistBHFModel.FK_TO0052_TO005" FromRole="TO005" ToRole="TO0052" />
+          <Property Name="olEstadoIntegracionBanco" Type="Int32" />
         </EntityType>
         <EntityType Name="TO0051">
           <Key>
@@ -6265,22 +6279,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="oenfac" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="oeefec" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="VR_GO_CajaGeneral">
-          <Key>
-            <PropertyRef Name="IdCaja" />
-          </Key>
-          <Property Name="IdCaja" Type="Int32" Nullable="false" />
-          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
-          <Property Name="Conciliacion" Type="Int32" />
-          <Property Name="FechaPedido" Type="DateTime" Precision="0" />
-          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
-        </EntityType>
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -6340,44 +6338,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="VR_GO_DespachoXCliente">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="ccnumi" />
-            <PropertyRef Name="oacnrofact" />
-            <PropertyRef Name="oanumi" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="oacnrofact" Type="Int64" Nullable="false" />
-          <Property Name="obptot" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="obdesc" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="IdZona" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="oanumi" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="VR_GO_DespachoXProducto">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="canumi" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="oacnconc" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
@@ -7142,6 +7102,67 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VR_GO_CajaGeneral">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="EstadoIntegracion" />
+          </Key>
+          <Property Name="IdCaja" Type="Int32" Nullable="false" />
+          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
+          <Property Name="Conciliacion" Type="Int32" />
+          <Property Name="FechaPedido" Type="DateTime" Precision="0" />
+          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="EstadoIntegracion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VR_GO_DespachoXProducto">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="canumi" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="canumi" Type="Int32" Nullable="false" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="oacnconc" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="caja" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="VR_GO_DespachoXCliente">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="ccnumi" />
+            <PropertyRef Name="oacnrofact" />
+            <PropertyRef Name="oanumi" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="ccnumi" Type="Int32" Nullable="false" />
+          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oacnrofact" Type="Int64" Nullable="false" />
+          <Property Name="obptot" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="IdZona" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="oanumi" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -7882,7 +7903,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="TO001C">
             <EntityTypeMapping TypeName="BDDistBHFModel.TO001C">
               <MappingFragment StoreEntitySet="TO001C">
-                <ScalarProperty Name="oacfdoc" ColumnName="oacfdoc" />
                 <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
                 <ScalarProperty Name="oacnrofac" ColumnName="oacnrofac" />
                 <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
@@ -7907,6 +7927,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="TO005">
             <EntityTypeMapping TypeName="BDDistBHFModel.TO005">
               <MappingFragment StoreEntitySet="TO005">
+                <ScalarProperty Name="olEstadoIntegracionBanco" ColumnName="olEstadoIntegracionBanco" />
                 <ScalarProperty Name="olEstado" ColumnName="olEstado" />
                 <ScalarProperty Name="olTipoCambio" ColumnName="olTipoCambio" />
                 <ScalarProperty Name="olCredito" ColumnName="olCredito" />
@@ -8667,23 +8688,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_CajaGeneral">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
-              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
-                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
-                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
-                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
-                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
-                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
-                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
-                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
-                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
-                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
-                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
-                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vr_go_comprobanteSalidaItems">
             <EntityTypeMapping TypeName="BDDistBHFModel.vr_go_comprobanteSalidaItems">
               <MappingFragment StoreEntitySet="vr_go_comprobanteSalidaItems">
@@ -8740,42 +8744,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXCliente">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
-                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="obptot" ColumnName="obptot" />
-                <ScalarProperty Name="oacnrofact" ColumnName="oacnrofact" />
-                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
-                <ScalarProperty Name="cccod" ColumnName="cccod" />
-                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXProducto">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="categoria" ColumnName="categoria" />
-                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="cacod" ColumnName="cacod" />
-                <ScalarProperty Name="canumi" ColumnName="canumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9500,6 +9468,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="v_VentasDetalleDespacho">
             <EntityTypeMapping TypeName="BDDistBHFModel.v_VentasDetalleDespacho">
               <MappingFragment StoreEntitySet="v_VentasDetalleDespacho">
+                <ScalarProperty Name="cedesc" ColumnName="cedesc" />
                 <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
                 <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
                 <ScalarProperty Name="obptot" ColumnName="obptot" />
@@ -9516,6 +9485,64 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Tarma.dbo.VR_VistaPedido_PrecioCos
                 <ScalarProperty Name="oaccli" ColumnName="oaccli" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_CajaGeneral">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
+              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
+                <ScalarProperty Name="EstadoIntegracion" ColumnName="EstadoIntegracion" />
+                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
+                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
+                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
+                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
+                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
+                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
+                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
+                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
+                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXProducto">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="caja" ColumnName="caja" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
+                <ScalarProperty Name="canumi" ColumnName="canumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXCliente">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
+                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="obptot" ColumnName="obptot" />
+                <ScalarProperty Name="oacnrofact" ColumnName="oacnrofact" />
+                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
+                <ScalarProperty Name="cccod" ColumnName="cccod" />
+                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

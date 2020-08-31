@@ -125,22 +125,22 @@
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Janus.Data.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Data.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Windows.Ribbon.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
-      <HintPath>..\..\..\Google Drive\Librerias\Janus\Janus.Windows.UI.v3.dll</HintPath>
+      <HintPath>C:\Librerias\Janus\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -194,6 +194,12 @@
     <Compile Include="ModeloF03.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModeloF0M.Designer.vb">
+      <DependentUpon>ModeloF0M.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloF0M.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModeloF1.designer.vb">
       <DependentUpon>ModeloF1.vb</DependentUpon>
     </Compile>
@@ -222,12 +228,6 @@
       <DependentUpon>ModeloF02_cd.vb</DependentUpon>
     </Compile>
     <Compile Include="ModeloF02_cd.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModeloF0M.Designer.vb">
-      <DependentUpon>ModeloF0M.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloF0M.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModeloHor.Designer.vb">
@@ -272,6 +272,9 @@
     <EmbeddedResource Include="ModeloF03.resx">
       <DependentUpon>ModeloF03.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModeloF0M.resx">
+      <DependentUpon>ModeloF0M.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModeloF1.resx">
       <DependentUpon>ModeloF1.vb</DependentUpon>
     </EmbeddedResource>
@@ -286,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModeloF02_cd.resx">
       <DependentUpon>ModeloF02_cd.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModeloF0M.resx">
-      <DependentUpon>ModeloF0M.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModeloHor.resx">
       <DependentUpon>ModeloHor.vb</DependentUpon>
