@@ -77,4 +77,31 @@
             _oafdoc = value
         End Set
     End Property
+    Private _caja As String
+    Public Property Caja() As Decimal
+        Get
+            Return _caja
+        End Get
+        Set(ByVal value As Decimal)
+            _caja = value
+        End Set
+    End Property
+    Private _Unidad As String
+    Public Property Unidad() As Decimal
+        Get
+            Return _Unidad
+        End Get
+        Set(ByVal value As Decimal)
+            _Unidad = value
+        End Set
+    End Property
+    Private _Total As String
+    Public Property Total() As Decimal
+        Get
+            Return _Total
+        End Get
+        Set(ByVal value As Decimal)
+            _Total = value
+        End Set
+    End Property
 End Class

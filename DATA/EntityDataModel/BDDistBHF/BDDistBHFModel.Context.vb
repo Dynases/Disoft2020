@@ -152,8 +152,8 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_VistaPedido_PrecioCosto() As DbSet(Of VR_VistaPedido_PrecioCosto)
     Public Overridable Property v_VentasDetalleDespacho() As DbSet(Of v_VentasDetalleDespacho)
     Public Overridable Property VR_GO_CajaGeneral() As DbSet(Of VR_GO_CajaGeneral)
-    Public Overridable Property VR_GO_DespachoXProducto() As DbSet(Of VR_GO_DespachoXProducto)
     Public Overridable Property VR_GO_DespachoXCliente() As DbSet(Of VR_GO_DespachoXCliente)
+    Public Overridable Property VR_GO_DespachoXProducto() As DbSet(Of VR_GO_DespachoXProducto)
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer
         Dim fechaParameter As ObjectParameter = If(fecha.HasValue, New ObjectParameter("fecha", fecha), New ObjectParameter("fecha", GetType(Date)))

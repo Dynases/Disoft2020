@@ -103,4 +103,13 @@
             _oanumi = value
         End Set
     End Property
+    Private _oaobs As String
+    Public Property oaobs() As String
+        Get
+            Return _oaobs
+        End Get
+        Set(ByVal value As String)
+            _oaobs = value
+        End Set
+    End Property
 End Class

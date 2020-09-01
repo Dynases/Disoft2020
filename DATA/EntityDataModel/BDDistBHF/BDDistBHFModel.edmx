@@ -1455,7 +1455,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXProducto' does not ha
           <Property Name="oafdoc" Type="date" />
           <Property Name="caja" Type="decimal" Precision="38" Scale="6" />
           <Property Name="Unidad" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="Total" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DiferenciaPedidoNota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4905,8 +4905,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           </AssociationSet>
           <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
           <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
-          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
+          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -7122,26 +7122,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="EstadoIntegracion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="VR_GO_DespachoXProducto">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="canumi" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="oacnconc" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="caja" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-        </EntityType>
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -7163,6 +7143,26 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
           <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="oanumi" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VR_GO_DespachoXProducto">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="canumi" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="canumi" Type="Int32" Nullable="false" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="oacnconc" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="caja" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -9506,26 +9506,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXProducto">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
-                <ScalarProperty Name="caja" ColumnName="caja" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="categoria" ColumnName="categoria" />
-                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="cacod" ColumnName="cacod" />
-                <ScalarProperty Name="canumi" ColumnName="canumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VR_GO_DespachoXCliente">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
               <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
@@ -9542,6 +9522,26 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
                 <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
                 <ScalarProperty Name="cccod" ColumnName="cccod" />
                 <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXProducto">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="caja" ColumnName="caja" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
+                <ScalarProperty Name="canumi" ColumnName="canumi" />
                 <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
               </MappingFragment>
             </EntityTypeMapping>

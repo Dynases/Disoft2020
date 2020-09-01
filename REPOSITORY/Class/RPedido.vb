@@ -91,7 +91,8 @@ Public Class RPedido
                                       .obtotal = a.obtotal,
                                       .IdZona = a.IdZona,
                                       .oafdoc = a.oafdoc,
-                                      .oanumi = a.oanumi
+                                      .oanumi = a.oanumi,
+                                      .oaobs = a.oaobs
                                       }).ToList()
                 Return listResult
 
@@ -114,7 +115,10 @@ Public Class RPedido
                                       .cadesc2 = a.cadesc2,
                                       .categoria = a.categoria,
                                       .obpcant = a.obpcant,
-                                      .oafdoc = a.oafdoc
+                                      .oafdoc = a.oafdoc,
+                                      .Caja = a.caja,
+                                      .Unidad = a.Unidad,
+                                      .Total = a.Total
                                       }).ToList()
                 Return listResult
             End Using
