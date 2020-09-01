@@ -21,12 +21,12 @@ Partial Public Class v_VentasDetalleDespacho
     Public Property obcprod As String
     Public Property cadesc As String
     Public Property cauventa As Nullable(Of Integer)
+    Public Property cedesc As String
     Public Property obdesc As Nullable(Of Decimal)
     Public Property obpbase As Nullable(Of Decimal)
     Public Property obpcant As Nullable(Of Decimal)
     Public Property obptot As Nullable(Of Decimal)
     Public Property oaccbnumi As Integer
     Public Property cbdesc As String
-    Public Property cedesc As String
 
 End Class

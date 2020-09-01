@@ -10,12 +10,11 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class TO001C
-    Public Property oacnumi As Integer
-    Public Property oacoanumi As Integer
-    Public Property oaccbnumi As Integer
-    Public Property oacnrofac As Nullable(Of Long)
-    Public Property oacnconc As Nullable(Of Integer)
-    Public Property oacfdoc As Nullable(Of Date)
+Partial Public Class V_StockDisp
+    Public Property iacprod As Nullable(Of Integer)
+    Public Property iacant As Nullable(Of Decimal)
+    Public Property Pedidos As Decimal
+    Public Property Disponible As Nullable(Of Decimal)
+    Public Property iaalm As Nullable(Of Integer)
 
 End Class

@@ -22,6 +22,5 @@ Partial Public Class VR_GO_CajaGeneral
     Public Property TotalDeposito As Nullable(Of Decimal)
     Public Property TotalGeneral As Nullable(Of Decimal)
     Public Property Diferencia As Nullable(Of Decimal)
-    Public Property EstadoIntegracion As String
 
 End Class

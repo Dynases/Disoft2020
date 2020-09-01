@@ -197,6 +197,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\TD001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TFC001.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TFV001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -318,6 +321,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TP0081.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TPA001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TS001.vb">
@@ -504,6 +510,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_VistaPedido_PrecioCosto.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\V_StockDisp.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\v_VentasDetalleDespacho.vb">
