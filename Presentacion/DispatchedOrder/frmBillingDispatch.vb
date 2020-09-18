@@ -502,7 +502,8 @@ Public Class frmBillingDispatch
 
             Dim listResult = New LPedido().ListarDespachoXClienteDeChofer(idChofer, ENEstadoPedido.DICTADO)
             Dim lista = (From a In listResult
-                         Where a.oafdoc = Tb_Fecha.Value).ToList
+                         Where a.oafdoc >= Tb_Fecha.Value And
+                                a.oafdoc <= Tb_FechaHasta.Value).ToList
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
@@ -540,7 +541,8 @@ Public Class frmBillingDispatch
 
             Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, ENEstadoPedido.DICTADO)
             Dim lista = (From a In listResult
-                         Where a.oafdoc = Tb_Fecha.Value).ToList
+                         Where a.oafdoc >= Tb_Fecha.Value And
+                                a.oafdoc <= Tb_FechaHasta.Value).ToList
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
@@ -595,6 +597,7 @@ Public Class frmBillingDispatch
             ConfigForm()
             CargarChoferes()
             Tb_Fecha.Value = DateTime.Today
+            Tb_FechaHasta.Value = DateTime.Today
             _cargaCompleta = True
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -654,7 +657,8 @@ Public Class frmBillingDispatch
 
             Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, ENEstadoPedido.DICTADO)
             Dim lista = (From a In listResult
-                         Where a.Fecha = Tb_Fecha.Value).ToList
+                         Where a.Fecha >= Tb_Fecha.Value And
+                               a.Fecha <= Tb_FechaHasta.Value).ToList
             dgjPedido.BoundMode = Janus.Data.BoundMode.Bound
             dgjPedido.DataSource = lista
             dgjPedido.RetrieveStructure()
@@ -915,7 +919,8 @@ Public Class frmBillingDispatch
 
             Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, ENEstadoPedido.DICTADO)
             Dim lista = (From a In listResult
-                         Where a.oafdoc = Tb_Fecha.Value).ToList
+                         Where a.oafdoc >= Tb_Fecha.Value And
+                                a.oafdoc <= Tb_FechaHasta.Value).ToList
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If

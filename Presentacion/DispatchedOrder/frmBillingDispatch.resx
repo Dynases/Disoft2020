@@ -120,8 +120,8 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="QrFactura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        dAAAEnQB3mYfeAAABtBJREFUeF7tkUFqLDEUA3P/S/+/yeJRKC6E7QxpuqDIQnryhP769/Io3g/6MN4P
+        iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAABtBJREFUeF7tkUFqLDEUA3P/S/+/yeJRKC6E7QxpuqDIQnryhP769/Io3g/6MN4P
         +jDeD/ow3g/6MN4P+jDeD/ow3g/6MPSDfn19/aokdabkdk7Yv62hjTR6U5I6U3I7J+zf1tBGGr0pSZ0p
         uZ0T9m9raCON3pSkzpTczgn7tzW00Q622D5z2tLeW9/yXdp9bbSDLbbPnLa099a3fJd2XxvtYIvtM6ct
         7b31Ld+l3ddGO9hi+8xpS3tvfct3afe1YYPMTWI5Yd/cxfba3CSWE23YIHOTWE7YN3exvTY3ieVEGzbI
