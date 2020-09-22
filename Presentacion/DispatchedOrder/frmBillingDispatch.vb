@@ -775,7 +775,7 @@ Public Class frmBillingDispatch
                 .Width = 80
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                 .Visible = True
-                .FormatString = "0"
+                .FormatString = "0.00"
             End With
 
             With dgjProducto.RootTable.Columns("Precio")
