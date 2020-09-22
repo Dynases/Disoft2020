@@ -25,6 +25,8 @@ Module P_Global
     Public gi_mprec As Byte = 0 '0=modo precio por categoria de cliente, 1=modo de precio de categoria por cada producto'
     Public gi_adev As Byte = 0 '0=no advierte en la devolucion, 1=advierte en la devolucion
     Public gb_despacho As Boolean = False 'true=cargar el despacho en salida de producto, false=no cargar el despacho en salida de producto
+    Public gb_ubilogo As String = ""
+
 #End Region
 
     Public gs_Ip As String = "localhost"

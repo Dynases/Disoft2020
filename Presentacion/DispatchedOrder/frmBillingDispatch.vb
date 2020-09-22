@@ -409,6 +409,7 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Fechali", Fecliteral)
         objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
 
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar

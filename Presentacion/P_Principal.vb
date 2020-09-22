@@ -153,28 +153,45 @@ Public Class P_Principal
             SideNav1.Enabled = True
         End If
     End Sub
+    Private Sub MostrarMensajeError(mensaje As String)
+        ToastNotification.Show(Me,
+                               mensaje.ToUpper,
+                               My.Resources.WARNING,
+                               5000,
+                               eToastGlowColor.Red,
+                               eToastPosition.TopCenter)
 
+    End Sub
     Private Sub _prCargarConfiguracionSistema()
-        'mostrar o no mapas
-        Dim dtConfSistema As DataTable = L_ConfSistemaGeneral()
-        If dtConfSistema.Rows(0).Item("cccmapa") = 0 Then
-            gb_mostrarMapa = False
-        Else
-            gb_mostrarMapa = True
-        End If
+        Try
+            'mostrar o no mapas
+            Dim dtConfSistema As DataTable = L_ConfSistemaGeneral()
+            If dtConfSistema.Rows(0).Item("cccmapa") = 0 Then
+                gb_mostrarMapa = False
+            Else
+                gb_mostrarMapa = True
+            End If
 
-        'Cargar configuración de empresa-parametros
-        gi_mapa = dtConfSistema.Rows(0).Item("cccmapa")
-        gi_notiPed = dtConfSistema.Rows(0).Item("cccnotiped")
-        gi_vcre = dtConfSistema.Rows(0).Item("cccvcre")
-        gi_vdes = dtConfSistema.Rows(0).Item("cccvdes")
-        gi_vccli = dtConfSistema.Rows(0).Item("cccvccli")
-        gi_vacu = dtConfSistema.Rows(0).Item("cccvacu")
-        gi_ftp = dtConfSistema.Rows(0).Item("cccftp")
-        gi_vcre2 = dtConfSistema.Rows(0).Item("cccvcre2")
-        gi_mprec = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccmprec")) = True, 0, dtConfSistema.Rows(0).Item("cccmprec"))
-        gi_adev = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccadev")), 0, dtConfSistema.Rows(0).Item("cccadev"))
-        gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
+            'Cargar configuración de empresa-parametros
+            gi_mapa = dtConfSistema.Rows(0).Item("cccmapa")
+            gi_notiPed = dtConfSistema.Rows(0).Item("cccnotiped")
+            gi_vcre = dtConfSistema.Rows(0).Item("cccvcre")
+            gi_vdes = dtConfSistema.Rows(0).Item("cccvdes")
+            gi_vccli = dtConfSistema.Rows(0).Item("cccvccli")
+            gi_vacu = dtConfSistema.Rows(0).Item("cccvacu")
+            gi_ftp = dtConfSistema.Rows(0).Item("cccftp")
+            gi_vcre2 = dtConfSistema.Rows(0).Item("cccvcre2")
+            gi_mprec = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccmprec")) = True, 0, dtConfSistema.Rows(0).Item("cccmprec"))
+            gi_adev = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccadev")), 0, dtConfSistema.Rows(0).Item("cccadev"))
+            gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
+            If (dtConfSistema.Rows(0).Item("cccubilogo").ToString() = String.Empty) Then
+                Throw New Exception("Debe introducir un logo en la ruta especificada")
+            End If
+            gb_ubilogo = dtConfSistema.Rows(0).Item("cccubilogo")
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub _PCargarPrivilegios()
