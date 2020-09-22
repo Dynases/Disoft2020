@@ -184,10 +184,7 @@ Public Class P_Principal
             gi_mprec = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccmprec")) = True, 0, dtConfSistema.Rows(0).Item("cccmprec"))
             gi_adev = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccadev")), 0, dtConfSistema.Rows(0).Item("cccadev"))
             gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
-            If (dtConfSistema.Rows(0).Item("cccubilogo").ToString() = String.Empty) Then
-                Throw New Exception("Debe introducir un logo en la ruta especificada")
-            End If
-            gb_ubilogo = dtConfSistema.Rows(0).Item("cccubilogo")
+            gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
