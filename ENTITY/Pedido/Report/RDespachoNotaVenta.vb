@@ -29,6 +29,16 @@
         End Set
     End Property
 
+    Private _ccdirec As String
+    Public Property ccdirec() As String
+        Get
+            Return _ccdirec
+        End Get
+        Set(ByVal value As String)
+            _ccdirec = value
+        End Set
+    End Property
+
     Private _cbdesc As String
     Public Property cbdesc() As String
         Get

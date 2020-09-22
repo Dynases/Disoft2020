@@ -16,6 +16,6 @@ Partial Public Class TO001C
     Public Property oaccbnumi As Integer
     Public Property oacnrofac As Nullable(Of Long)
     Public Property oacnconc As Nullable(Of Integer)
-    Public Property oacfdoc As Nullable(Of Date)
+    Public Property oacfdoc As Date
 
 End Class

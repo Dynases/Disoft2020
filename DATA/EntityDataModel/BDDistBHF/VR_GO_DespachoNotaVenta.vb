@@ -14,6 +14,7 @@ Partial Public Class VR_GO_DespachoNotaVenta
     Public Property oanumi As Integer
     Public Property oafdoc As Nullable(Of Date)
     Public Property ccdesc As String
+    Public Property ccdirec As String
     Public Property cbdesc As String
     Public Property canumi As Integer
     Public Property cadesc As String

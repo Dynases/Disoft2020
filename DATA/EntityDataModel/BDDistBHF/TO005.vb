@@ -22,7 +22,6 @@ Partial Public Class TO005
     Public Property olCredito As Nullable(Of Decimal)
     Public Property olTipoCambio As Nullable(Of Decimal)
     Public Property olEstado As Nullable(Of Integer)
-    Public Property olEstadoIntegracionBanco As Nullable(Of Integer)
 
     Public Overridable Property TO0051 As ICollection(Of TO0051) = New HashSet(Of TO0051)
     Public Overridable Property TO0052 As ICollection(Of TO0052) = New HashSet(Of TO0052)

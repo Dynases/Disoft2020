@@ -52,6 +52,7 @@ warning 6013: The table/view 'BDDistNV1.dbo.Parametros' does not have a primary 
           <Property Name="symodped" Type="bit" />
           <Property Name="symodcli" Type="bit" />
           <Property Name="systocknega" Type="bit" />
+          <Property Name="sysubilogo" Type="nvarchar" MaxLength="100" />
         </EntityType>-->
         <!--Errors Found During Generation:
 warning 6013: The table/view 'BDDistNV1.dbo.Personal' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -132,6 +133,7 @@ warning 6013: The table/view 'BDDistNV1.dbo.TC0001' does not have a primary key 
           <Property Name="ccprecapp" Type="int" />
           <Property Name="ccstock" Type="int" />
           <Property Name="cccdespacho" Type="int" />
+          <Property Name="cccubilogo" Type="nvarchar" MaxLength="100" />
         </EntityType>-->
         <!--Errors Found During Generation:
 warning 6013: The table/view 'BDDistNV1.dbo.TC0002' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -1064,7 +1066,7 @@ warning 6013: The table/view 'BDDistNV1.dbo.TO001B' does not have a primary key 
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="oacnrofac" Type="bigint" />
           <Property Name="oacnconc" Type="int" />
-          <Property Name="oacfdoc" Type="date" />
+          <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TO002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1217,7 +1219,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0043' does not have a primary key 
           <Property Name="olCredito" Type="decimal" Precision="18" Scale="2" />
           <Property Name="olTipoCambio" Type="decimal" Precision="18" Scale="2" />
           <Property Name="olEstado" Type="int" />
-          <Property Name="olEstadoIntegracionBanco" Type="int" />
         </EntityType>
         <EntityType Name="TO0051">
           <Key>
@@ -1912,6 +1913,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoNotaVenta' does not ha
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="oafdoc" Type="date" />
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="canumi" Type="int" Nullable="false" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
@@ -4060,6 +4062,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [VR_GO_DespachoNotaVenta].[oanumi] AS [oanumi], 
     [VR_GO_DespachoNotaVenta].[oafdoc] AS [oafdoc], 
     [VR_GO_DespachoNotaVenta].[ccdesc] AS [ccdesc], 
+    [VR_GO_DespachoNotaVenta].[ccdirec] AS [ccdirec], 
     [VR_GO_DespachoNotaVenta].[cbdesc] AS [cbdesc], 
     [VR_GO_DespachoNotaVenta].[canumi] AS [canumi], 
     [VR_GO_DespachoNotaVenta].[cadesc] AS [cadesc], 
@@ -6136,7 +6139,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="oacnrofac" Type="Int64" />
           <Property Name="oacnconc" Type="Int32" />
-          <Property Name="oacfdoc" Type="DateTime" Precision="0" />
+          <Property Name="oacfdoc" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityType Name="TO004">
           <Key>
@@ -6165,7 +6168,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="olCredito" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="olTipoCambio" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="olEstado" Type="Int32" />
-          <Property Name="olEstadoIntegracionBanco" Type="Int32" />
           <NavigationProperty Name="TO0051" Relationship="BDDistBHFModel.FK_TO0051_TO005" FromRole="TO005" ToRole="TO0051" />
           <NavigationProperty Name="TO0052" Relationship="BDDistBHFModel.FK_TO0052_TO005" FromRole="TO005" ToRole="TO0052" />
         </EntityType>
@@ -6986,6 +6988,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
           <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="canumi" Type="Int32" Nullable="false" />
           <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -8569,7 +8572,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySetMapping Name="TO005">
             <EntityTypeMapping TypeName="BDDistBHFModel.TO005">
               <MappingFragment StoreEntitySet="TO005">
-                <ScalarProperty Name="olEstadoIntegracionBanco" ColumnName="olEstadoIntegracionBanco" />
                 <ScalarProperty Name="olEstado" ColumnName="olEstado" />
                 <ScalarProperty Name="olTipoCambio" ColumnName="olTipoCambio" />
                 <ScalarProperty Name="olCredito" ColumnName="olCredito" />
@@ -9453,6 +9455,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
                 <ScalarProperty Name="cadesc" ColumnName="cadesc" />
                 <ScalarProperty Name="canumi" ColumnName="canumi" />
                 <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
+                <ScalarProperty Name="ccdirec" ColumnName="ccdirec" />
                 <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />

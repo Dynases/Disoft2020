@@ -178,6 +178,7 @@ Public Class RPedido
                                       .oafdoc = a.oafdoc,
                                       .ccdesc = a.ccdesc,
                                       .cbdesc = a.cbdesc,
+                                      .ccdirec = a.ccdirec,
                                       .canumi = a.canumi,
                                       .cadesc = a.cadesc,
                                       .obpcant = a.obpcant,
