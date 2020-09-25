@@ -26,6 +26,7 @@ Module P_Global
     Public gi_adev As Byte = 0 '0=no advierte en la devolucion, 1=advierte en la devolucion
     Public gb_despacho As Boolean = False 'true=cargar el despacho en salida de producto, false=no cargar el despacho en salida de producto
     Public gb_ubilogo As String = ""
+    Public gi_frecvisita As Byte = 0 '0=no mostrará ni registrará frec de visitas, 1=mostrará y registrará frec de visitas
 
 #End Region
 

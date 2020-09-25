@@ -2655,7 +2655,8 @@ Public Class AccesoLogica
                                              preven As String, detalle As DataTable, detalle2 As DataTable,
                                              tacu As String, fini As String, ffin As String, fre As String,
                                              acuEst As String, acuObs As String, tcre As String,
-                                             dtDet1 As DataTable, dtDet2 As DataTable) As Boolean
+                                             dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
+                                             frecvisita As String, dia As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2702,6 +2703,10 @@ Public Class AccesoLogica
             _listParam.Add(New Datos.DParametro("@TC004A2", "", dtDet2))
         End If
 
+        _listParam.Add(New Datos.DParametro("@giFrec", giFrec))
+        _listParam.Add(New Datos.DParametro("@frecvisita", frecvisita))
+        _listParam.Add(New Datos.DParametro("@dia", dia))
+
         _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
         If _Tabla.Rows.Count > 0 Then
             numi = _Tabla.Rows(0).Item(0)
@@ -2729,7 +2734,8 @@ Public Class AccesoLogica
                                                 supven As String, preven As String, detalle As DataTable, detalle2 As DataTable,
                                                 tacu As String, fini As String, ffin As String, fre As String,
                                                 acuEst As String, acuObs As String, tcre As String,
-                                                dtDet1 As DataTable, dtDet2 As DataTable) As Boolean
+                                                dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
+                                                frecvisita As String, dia As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2775,6 +2781,10 @@ Public Class AccesoLogica
             _listParam.Add(New Datos.DParametro("@TC004A1", "", dtDet1))
             _listParam.Add(New Datos.DParametro("@TC004A2", "", dtDet2))
         End If
+
+        _listParam.Add(New Datos.DParametro("@giFrec", giFrec))
+        _listParam.Add(New Datos.DParametro("@frecvisita", frecvisita))
+        _listParam.Add(New Datos.DParametro("@dia", dia))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
         If _Tabla.Rows.Count > 0 Then
@@ -3134,7 +3144,20 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnObtenerVisitaClientes(zona As String, fecha As String) As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 15))
+        _listParam.Add(New Datos.DParametro("@cczona", zona))
+        _listParam.Add(New Datos.DParametro("@fechaprox", fecha))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+
+        Return _Tabla
+    End Function
 #End Region
 
 #Region "Notas"

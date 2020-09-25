@@ -185,6 +185,7 @@ Public Class P_Principal
             gi_adev = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccadev")), 0, dtConfSistema.Rows(0).Item("cccadev"))
             gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
             gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
+            gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
@@ -623,7 +624,13 @@ Public Class P_Principal
         'tab3.Text = frm.Text
         'tab3.Icon = frm.Icon
     End Sub
-
+    Private Sub btVisitaClientes_Click(sender As Object, e As EventArgs) Handles btVisitaClientes.Click
+        R01_VisitasDiarias.AllowTransparency = True
+        Dim frm As New R01_VisitasClientes
+        frm._nameButton = btVisitaClientes.Name
+        frm._modulo = FP_Logistica
+        frm.Show()
+    End Sub
 #End Region
 
 #Region "Pedido"
@@ -1488,6 +1495,8 @@ Public Class P_Principal
             frm.Show()
         End If
     End Sub
+
+
 #End Region
 
 End Class

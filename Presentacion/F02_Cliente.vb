@@ -143,6 +143,12 @@ Public Class F02_Cliente
         P_prActualizarPaginacion(0)
         P_prLlenarDatos(0)
         _Habilitar()
+
+        If gi_frecvisita = 1 Then
+            stiFrecuencia.Visible = True
+        Else
+            stiFrecuencia.Visible = False
+        End If
     End Sub
     Private Sub _Habilitar()
         GroupPanelEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
@@ -315,6 +321,10 @@ Public Class F02_Cliente
             dgjDias.AllowEdit = CType(IIf(flat, 1, 2), InheritableBoolean)
             dgjProducto.AllowEdit = CType(IIf(flat, 1, 2), InheritableBoolean)
         End If
+
+        'Frecuencia Visitas
+        tbiFrecuencia.IsInputReadOnly = Not flat
+        cbDias.ReadOnly = Not flat
     End Sub
 
     Private Sub P_prLimpiar()
@@ -379,6 +389,9 @@ Public Class F02_Cliente
             P_prArmarGrillaProducto("-1")
         End If
 
+        'Limpia Frecuencia de Visitas
+        tbiFrecuencia.Value = 0
+        cbDias.SelectedIndex = 0
     End Sub
 
     Private Sub P_prArmarCombos()
@@ -395,6 +408,9 @@ Public Class F02_Cliente
             P_prArmarComboTipoAcuerdo()
             P_prArmarComboFrecuencia()
         End If
+
+        'Armar Combo Frecuencia de visitas dia
+        P_prArmarComboDias()
     End Sub
 
     Private Sub P_prArmarGrillas()
@@ -556,6 +572,24 @@ Public Class F02_Cliente
                         End If
                     End If
 
+                    'Mostrar Frecuencia de Visitas
+                    If (gi_frecvisita = 1) Then
+                        Dim dtFrecuencia As DataTable
+                        dtFrecuencia = New DataTable
+                        dtFrecuencia = L_fnObtenerTabla("a.cccnumi4, a.cccfrecvisita, a.cccdia",
+                                                     "TC004C a ",
+                                                     "a.cccnumi4=" + TbCodigo.Text)
+                        If (dtFrecuencia.Rows.Count = 1) Then
+                            tbiFrecuencia.Value = IIf(IsDBNull(dtFrecuencia.Rows(0).Item("cccfrecvisita")) = True, 0, dtFrecuencia.Rows(0).Item("cccfrecvisita"))
+                            cbDias.Value = IIf(IsDBNull(dtFrecuencia.Rows(0).Item("cccdia")) = True, " ", dtFrecuencia.Rows(0).Item("cccdia"))
+                        Else
+                            tbiFrecuencia.Value = 0
+                            cbDias.SelectedIndex = -1
+
+                        End If
+
+                    End If
+
                     MLbFecha.Text = CType(.GetValue("fact").ToString, Date).ToString("dd/MM/yyyy")
                     MLbHora.Text = .GetValue("hact").ToString
                     MLbUsuario.Text = .GetValue("uact").ToString
@@ -677,6 +711,10 @@ Public Class F02_Cliente
 
         Dim tcre As String
 
+        Dim giFrec As String
+        Dim frecvisita As String
+        Dim dia As String
+
 
         DgjEquipo.Refetch()
         If (BoNuevo) Then
@@ -746,6 +784,12 @@ Public Class F02_Cliente
                     tacu = "-1"
                 End If
 
+                'Para registrar frecuencia de visitas
+                giFrec = gi_frecvisita.ToString
+                frecvisita = tbiFrecuencia.Value.ToString
+                dia = cbDias.Value.ToString
+
+
                 BtAddEquipo.Select()
 
                 Dim dt As DataTable = CType(DgjEquipo.DataSource, DataTable).DefaultView.ToTable(False, "chnumi", "chfec", "chcod", "chdesc", "chtmov", "chnrem", "chcan", "chmonbs", "chmonsus", "chnota", "chlin", "chobs", "estado")
@@ -754,9 +798,7 @@ Public Class F02_Cliente
                 Dim res As Boolean = L_fnGrabarCliente(numi, cod, desc, zona, dct, dctnum, direc, telf1, telf2, cat,
                                                        est, lat, lon, prconsu, even, obs, fnac, nomfac, nit, ultped,
                                                        fecing, ultvent, recven, supven, preven, dt, dt2, tacu, fini, ffin,
-                                                       fre, acuEst, acuObs, tcre,
-                                                       dtDet1,
-                                                       dtDet2)
+                                                       fre, acuEst, acuObs, tcre, dtDet1, dtDet2, giFrec, frecvisita, dia)
 
                 If (res) Then
                     P_prLimpiar()
@@ -843,6 +885,11 @@ Public Class F02_Cliente
                     tacu = "-1"
                 End If
 
+                'Para modificar o registrar frecuencia de visitas
+                giFrec = gi_frecvisita.ToString
+                frecvisita = tbiFrecuencia.Value.ToString
+                dia = cbDias.Value.ToString
+
                 BtAddEquipo.Select()
 
                 Dim dt As DataTable = CType(DgjEquipo.DataSource, DataTable).DefaultView.ToTable(False, "chnumi", "chfec", "chcod", "chdesc", "chtmov", "chnrem", "chcan", "chmonbs", "chmonsus", "chnota", "chlin", "chobs", "estado")
@@ -851,9 +898,7 @@ Public Class F02_Cliente
                 Dim res As Boolean = L_fnModificarCliente(numi, cod, desc, zona, dct, dctnum, direc, telf1, telf2, cat,
                                                           est, lat, lon, even, obs, fnac, nomfac, nit, ultped,
                                                           fecing, ultvent, recven, supven, preven, dt, dt2, tacu, fini, ffin,
-                                                          fre, acuEst, acuObs, tcre,
-                                                          dtDet1,
-                                                          dtDet2)
+                                                          fre, acuEst, acuObs, tcre, dtDet1, dtDet2, giFrec, frecvisita, dia)
 
                 If (res) Then
 
@@ -2766,7 +2811,32 @@ Public Class F02_Cliente
         dt = L_fnObtenerTabla("cenum as [cod], cedesc as [desc]", "TC0051", "cecon=16")
         g_prArmarCombo(cbTipoCredito, dt, 60, 200, "Código", "Tipo Crédito")
     End Sub
+    Private Sub P_prArmarComboDias()
+        Dim dt As New DataTable
 
+        dt.Columns.Add("desc", GetType(String))
+
+        dt.Rows.Add({"LUNES"})
+        dt.Rows.Add({"MARTES"})
+        dt.Rows.Add({"MIERCOLES"})
+        dt.Rows.Add({"JUEVES"})
+        dt.Rows.Add({"VIERNES"})
+        dt.Rows.Add({"SABADO"})
+        dt.Rows.Add({"DOMINGO"})
+
+        With cbDias
+
+            .DropDownList.Columns.Add("desc").Width = 200
+            .DropDownList.Columns("desc").Caption = "DIA DE LA SEMANA"
+            .ValueMember = "desc"
+            .DisplayMember = "desc"
+            .DataSource = dt
+            .Refresh()
+
+            .SelectedIndex = 0
+        End With
+
+    End Sub
     Private Sub tbRecorrido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbRecorrido.KeyPress
         g_prValidarTextBox(1, e)
     End Sub
