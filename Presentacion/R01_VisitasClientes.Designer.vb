@@ -53,7 +53,6 @@ Partial Class R01_VisitasClientes
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 625)
-        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -61,10 +60,6 @@ Partial Class R01_VisitasClientes
         Me.MPnInferior.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
-        '
-        'MPanelToolBarUsuario
-        '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
         '
         'MTbUsuario
         '
@@ -142,7 +137,7 @@ Partial Class R01_VisitasClientes
         '
         'MCrReporte
         '
-        Me.MCrReporte.Size = New System.Drawing.Size(886, 661)
+        Me.MCrReporte.Size = New System.Drawing.Size(984, 661)
         '
         'tbFecha
         '
@@ -246,7 +241,7 @@ Partial Class R01_VisitasClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1186, 661)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Name = "R01_VisitasClientes"
         Me.Text = "R01_VisitasClientes"
         Me.Controls.SetChildIndex(Me.MPnInferior, 0)

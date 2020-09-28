@@ -76,6 +76,15 @@ Public Class R01_VisitasClientes
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
+        If cbZona.SelectedIndex = -1 Then
+            ToastNotification.Show(Me, "seleccione una zona..!!!".ToUpper,
+                                     My.Resources.WARNING, 2000,
+                                         eToastGlowColor.Blue,
+                                         eToastPosition.BottomLeft)
+            MCrReporte.ReportSource = Nothing
+            Exit Sub
+        End If
+
         _prCargarReporte()
     End Sub
 #End Region
