@@ -2205,6 +2205,26 @@ Public Class AccesoLogica
         Tabla = D_Datos_Tabla("b.cenum as [cod], b.cedesc as [desc]", "TC005 a, TC0051 b", where)
         Return Tabla
     End Function
+    Public Shared Function L_fnVerificarZona(where As String) As String
+        Dim Tabla As DataTable
+        If (where = String.Empty) Then
+            where = "1=1"
+        Else
+            where = where + " and A.oazona = B.lanumi" _
+                    & " and B.laprovi = C.cenum  AND C.cecon  = 3"
+        End If
+        Dim tipoZona As String = ""
+        Tabla = D_Datos_Tabla("c.cedesc", "TO001 A, TL001 B , TC0051 C", where)
+        If Tabla.Rows.Count > 0 Then
+            Select Case Tabla.Rows(0).Item(0)
+                Case "LA PAZ"
+                    tipoZona = "ES LA PAZ"
+                Case "EL ALTO"
+                    tipoZona = "ES EL ALTO"
+            End Select
+        End If
+        Return tipoZona
+    End Function
 
     Public Shared Function L_fnObtenerUnidad() As DataTable
         Dim Tabla As DataTable

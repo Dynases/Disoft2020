@@ -354,15 +354,14 @@ Public Class frmBillingDispatch
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Ds2 = L_Reporte_Factura_Cia("1")
         _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
-
-        If _Ds3.Tables(0).Rows(0).Item("cbtimp").ToString = "1" Then
-            'Nota venta de tarma
-            ReporteNotaVenta2(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
-
-        ElseIf _Ds3.Tables(0).Rows(0).Item("cbtimp").ToString = "2" Then
-            ReporteNotaVenta(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
-        End If
-
+        Select Case _Ds3.Tables(0).Rows(0).Item("cbtimp").ToString
+            Case "1"
+                ReporteNotaVenta2(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+            Case "2"
+                ReporteNotaVenta(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+            Case "3"
+                ReporteNotaVenta3(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+        End Select
     End Sub
 
     Private Sub ReporteNotaVenta(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
@@ -528,6 +527,99 @@ Public Class frmBillingDispatch
         End If
     End Sub
 
+    Private Sub ReporteNotaVenta3(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta3
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        If mes = 1 Then
+            mesl = "Enero"
+        End If
+        If mes = 2 Then
+            mesl = "Febrero"
+        End If
+        If mes = 3 Then
+            mesl = "Marzo"
+        End If
+        If mes = 4 Then
+            mesl = "Abril"
+        End If
+        If mes = 5 Then
+            mesl = "Mayo"
+        End If
+        If mes = 6 Then
+            mesl = "Junio"
+        End If
+        If mes = 7 Then
+            mesl = "Julio"
+        End If
+        If mes = 8 Then
+            mesl = "Agosto"
+        End If
+        If mes = 9 Then
+            mesl = "Septiembre"
+        End If
+        If mes = 10 Then
+            mesl = "Octubre"
+        End If
+        If mes = 11 Then
+            mesl = "Noviembre"
+        End If
+        If mes = 12 Then
+            mesl = "Diciembre"
+        End If
+        Dim tipoZona As String = L_fnVerificarZona("oanumi =" + idPedido)
+        Dim esZonaLaPaz = IIf(tipoZona = "ES LA PAZ", "*", "")
+        Dim esZonaElAlto = IIf(tipoZona = "ES EL ALTO", "*", "")
+
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.Subreports.Item("NotaVenta3.rpt").SetDataSource(listResult)
+        objrep.SetDataSource(listResult)
+        'objrep.SetParameterValue("Literal", _Literal)
+        'objrep.SetParameterValue("Fechali", Fecliteral)
+
+        objrep.SetParameterValue("tipoZonaLaPaz", esZonaLaPaz)
+        objrep.SetParameterValue("tipoZonaElAlto", esZonaElAlto)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        objrep.SetParameterValue("tipoZonaLaPaz", esZonaLaPaz, "NotaVenta3.rpt")
+        objrep.SetParameterValue("tipoZonaElAlto", esZonaElAlto, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta3.rpt")
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        End If
+
+        Dim pd As New PrintDocument()
+        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        If (Not pd.PrinterSettings.IsValid) Then
+            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                   My.Resources.WARNING, 5 * 1000,
+                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
+        Else
+            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            objrep.PrintToPrinter(2, False, 1, 1)
+        End If
+
+        If (grabarPDF) Then
+            'Copia de Factura en PDF
+            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            End If
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        End If
+    End Sub
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
         imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
