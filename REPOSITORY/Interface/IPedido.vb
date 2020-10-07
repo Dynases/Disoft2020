@@ -7,7 +7,7 @@ Public Interface IPedido
     Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer) As Boolean
     Function ListarDespachoXClienteDeChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoxCliente)
     Function ListarDespachoXProductoDeChoferSalida(idChofer As Integer) As List(Of RDespachoXProducto)
-    Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoXProducto)
+    Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer, fechaDesde As DateTime, fechaHasta As DateTime) As List(Of RDespachoXProducto)
     Function VolverPedidoDistribucion(listIdPedido As List(Of Integer), idChofer As Integer) As Boolean
     Function ListarDespachXNotaVentaDeChofer(idChofer As Integer, idPedido As Integer) As List(Of RDespachoNotaVenta)
     Function ListarDespachXNotaVenta(idPedido As Integer) As List(Of RDespachoNotaVenta)

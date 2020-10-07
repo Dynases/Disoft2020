@@ -804,11 +804,11 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, ENEstadoPedido.DICTADO)
-            Dim lista = (From a In listResult
-                         Where a.oafdoc >= Tb_Fecha.Value And
-                                a.oafdoc <= Tb_FechaHasta.Value).ToList
-            If (lista.Count = 0) Then
+            Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, ENEstadoPedido.DICTADO, Tb_Fecha.Value, Tb_FechaHasta.Value)
+            'Dim lista = (From a In listResult
+            '             Where a.oafdoc >= Tb_Fecha.Value And
+            '                    a.oafdoc <= Tb_FechaHasta.Value).ToList
+            If (listResult.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
 
@@ -819,7 +819,7 @@ Public Class frmBillingDispatch
             P_Global.Visualizador = New Visualizador
             Dim objrep As New DespachoXProducto
 
-            objrep.SetDataSource(lista)
+            objrep.SetDataSource(listResult)
             objrep.SetParameterValue("nroDespacho", String.Empty)
             objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
             objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)

@@ -41,9 +41,9 @@ Public Class LPedido
         End Try
     End Function
 
-    Public Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoXProducto)
+    Public Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer, fechaDesde As DateTime, fechaHasta As DateTime) As List(Of RDespachoXProducto)
         Try
-            Return iPedido.ListarDespachoXProductoDeChofer(idChofer, estado)
+            Return iPedido.ListarDespachoXProductoDeChofer(idChofer, estado, fechaDesde, fechaHasta)
         Catch ex As Exception
             Throw New Exception(ex.Message)
         End Try

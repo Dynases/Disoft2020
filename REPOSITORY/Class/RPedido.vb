@@ -102,24 +102,35 @@ Public Class RPedido
         End Try
     End Function
 
-    Public Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer) As List(Of RDespachoXProducto) Implements IPedido.ListarDespachoXProductoDeChofer
+    Public Function ListarDespachoXProductoDeChofer(idChofer As Integer, estado As Integer, fechaDesde As DateTime, fechaHasta As DateTime) As List(Of RDespachoXProducto) Implements IPedido.ListarDespachoXProductoDeChofer
         Try
             Using db = GetSchema()
                 Dim listResult = (From a In db.VR_GO_DespachoXProducto
-                                  Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1
+                                  Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1 And a.oafdoc >= fechaDesde And a.oafdoc <= fechaHasta
+                                  Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                                   Select New RDespachoXProducto With {
-                                      .oaccbnumi = a.oaccbnumi,
-                                      .canumi = a.canumi,
-                                      .cacod = a.cacod,
-                                      .cadesc = a.cadesc,
-                                      .cadesc2 = a.cadesc2,
-                                      .categoria = a.categoria,
-                                      .obpcant = a.obpcant,
-                                      .oafdoc = a.oafdoc,
-                                      .Caja = a.caja,
-                                      .Unidad = a.Unidad,
-                                      .Total = a.Total
-                                      }).ToList()
+                                    .canumi = grupo.FirstOrDefault().canumi,
+                                    .cadesc = grupo.FirstOrDefault().cadesc,
+                                    .categoria = grupo.FirstOrDefault().categoria,
+                                    .obpcant = grupo.Sum(Function(item) item.obpcant),
+                                    .Caja = grupo.Sum(Function(item) item.caja),
+                                    .Unidad = grupo.Sum(Function(item) item.Unidad),
+                                    .Total = grupo.Sum(Function(item) item.Total)
+                                  }).ToList()
+
+                'Select Case New RDespachoXProducto With {
+                '    .oaccbnumi = a.oaccbnumi,
+                '    .canumi = a.canumi,
+                '    .cacod = a.cacod,
+                '    .cadesc = a.cadesc,
+                '    .cadesc2 = a.cadesc2,
+                '    .categoria = a.categoria,
+                '    .obpcant = a.obpcant,
+                '    .oafdoc = a.oafdoc,
+                '    .Caja = a.caja,
+                '    .Unidad = a.Unidad,
+                '    .Total = a.Total
+                '    }).ToList()
                 Return listResult
             End Using
         Catch ex As Exception
