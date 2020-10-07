@@ -29,52 +29,6 @@
           <Property Name="mbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="mbuact" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.Parametros' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Parametros">
-          <Property Name="synumi" Type="nchar" MaxLength="10" />
-          <Property Name="sycompra" Type="bit" />
-          <Property Name="sycompracred" Type="bit" />
-          <Property Name="sycomprafact" Type="bit" />
-          <Property Name="sycomprareten" Type="bit" />
-          <Property Name="sycompraconsig" Type="bit" />
-          <Property Name="sycompraasiento" Type="bit" />
-          <Property Name="sycompradescpr1" Type="bit" />
-          <Property Name="sycompradescpr2" Type="bit" />
-          <Property Name="syclienteequipo" Type="bit" />
-          <Property Name="syproductofamilia" Type="bit" />
-          <Property Name="syproductopack" Type="bit" />
-          <Property Name="syciudad" Type="int" />
-          <Property Name="syruta" Type="bit" />
-          <Property Name="syaplinea" Type="int" />
-          <Property Name="sycredito" Type="bit" />
-          <Property Name="syvmapa" Type="bit" />
-          <Property Name="symodped" Type="bit" />
-          <Property Name="symodcli" Type="bit" />
-          <Property Name="systocknega" Type="bit" />
-          <Property Name="sysubilogo" Type="nvarchar" MaxLength="100" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.Personal' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Personal">
-          <Property Name="codper" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="sueldo" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="Ci" Type="nvarchar" MaxLength="200" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="200" />
-          <Property Name="obser" Type="nvarchar" MaxLength="400" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="400" />
-          <Property Name="fechnac" Type="date" />
-          <Property Name="fechret" Type="date" />
-          <Property Name="foto" Type="nvarchar" MaxLength="200" />
-          <Property Name="activo" Type="int" />
-          <Property Name="categoria" Type="nvarchar" MaxLength="200" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="200" />
-          <Property Name="Ecivil" Type="nvarchar" MaxLength="200" />
-          <Property Name="fechareg" Type="date" />
-          <Property Name="horareg" Type="nvarchar" MaxLength="5" />
-          <Property Name="usuarioreg" Type="nvarchar" MaxLength="200" />
-        </EntityType>-->
         <EntityType Name="TA001">
           <Key>
             <PropertyRef Name="aaId" />
@@ -100,55 +54,6 @@ warning 6013: The table/view 'BDDistNV1.dbo.Personal' does not have a primary ke
           <Property Name="bahact" Type="nvarchar" MaxLength="5" />
           <Property Name="bauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TB002' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TB002">
-          <Property Name="bbnumi" Type="int" />
-          <Property Name="bbtran" Type="int" />
-          <Property Name="bbtori" Type="nvarchar" MaxLength="10" />
-          <Property Name="bbcori" Type="nchar" MaxLength="10" />
-          <Property Name="bbtdes" Type="nchar" MaxLength="10" />
-          <Property Name="bbcdes" Type="nchar" MaxLength="10" />
-          <Property Name="bbprog" Type="nvarchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC000' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC000">
-          <Property Name="cnumi" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC0001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC0001">
-          <Property Name="cccnumi" Type="int" />
-          <Property Name="cccmapa" Type="int" />
-          <Property Name="cccnotiped" Type="int" />
-          <Property Name="cccvcre" Type="int" />
-          <Property Name="cccvdes" Type="int" />
-          <Property Name="cccvccli" Type="int" />
-          <Property Name="cccvacu" Type="int" />
-          <Property Name="cccftp" Type="int" />
-          <Property Name="cccvcre2" Type="int" />
-          <Property Name="cccmprec" Type="int" />
-          <Property Name="cccadev" Type="int" />
-          <Property Name="ccprecapp" Type="int" />
-          <Property Name="ccstock" Type="int" />
-          <Property Name="cccdespacho" Type="int" />
-          <Property Name="cccubilogo" Type="nvarchar" MaxLength="100" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC0002' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC0002">
-          <Property Name="cbnumi" Type="int" />
-          <Property Name="cbcod" Type="int" />
-          <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cbrut" Type="nvarchar" MaxLength="150" />
-          <Property Name="cbvp" Type="bit" />
-          <Property Name="cbtimp" Type="int" />
-          <Property Name="cbest" Type="bit" />
-          <Property Name="cbfact" Type="date" />
-          <Property Name="cbhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TC001">
           <Key>
             <PropertyRef Name="canumi" />
@@ -235,20 +140,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key 
           <Property Name="cbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC0021' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC0021">
-          <Property Name="chnumi" Type="int" />
-          <Property Name="chano" Type="int" />
-          <Property Name="chmes" Type="int" />
-          <Property Name="chsueldo" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC0022' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC0022">
-          <Property Name="cknumi" Type="int" />
-          <Property Name="ckidfsm" Type="nvarchar" MaxLength="250" />
-        </EntityType>-->
         <EntityType Name="TC003">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -330,17 +221,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0041' does not have a primary key 
           <Property Name="cpcat" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC004A' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC004A">
-          <Property Name="ccatc4numi" Type="int" />
-          <Property Name="ccatacu" Type="int" />
-          <Property Name="ccafini" Type="date" />
-          <Property Name="ccaffin" Type="date" />
-          <Property Name="ccafre" Type="int" />
-          <Property Name="ccaest" Type="int" />
-          <Property Name="ccaobs" Type="nvarchar" MaxLength="200" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TC004A1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC004A1">
           <Key>
@@ -393,18 +273,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC004A2' does not have a primary key
           <Property Name="cehact" Type="nvarchar" MaxLength="50" />
           <Property Name="ceuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC005C' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC005C">
-          <Property Name="canumi" Type="int" />
-          <Property Name="canombre" Type="nvarchar" MaxLength="200" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="200" />
-          <Property Name="caimg" Type="nvarchar" MaxLength="50" />
-          <Property Name="caest" Type="int" />
-          <Property Name="cafact" Type="date" />
-          <Property Name="cahact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cauact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TC006">
           <Key>
             <PropertyRef Name="cfid" />
@@ -415,47 +283,6 @@ warning 6013: The table/view 'BDDistNV1.dbo.TC005C' does not have a primary key 
           <Property Name="cfhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC0061' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC0061">
-          <Property Name="cgcfid" Type="int" />
-          <Property Name="cgcon" Type="int" />
-          <Property Name="cgconp" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC007' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC007">
-          <Property Name="cinumi" Type="int" />
-          <Property Name="cicod" Type="nvarchar" MaxLength="10" />
-          <Property Name="cidesc" Type="nvarchar" MaxLength="80" />
-          <Property Name="cifact" Type="date" />
-          <Property Name="cihact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ciuact" Type="nvarchar" MaxLength="10" />
-          <Property Name="citcv" Type="bit" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC008' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC008">
-          <Property Name="cjnumi" Type="int" />
-          <Property Name="cjusuario" Type="int" />
-          <Property Name="cjpara" Type="int" />
-          <Property Name="cjnota" Type="nvarchar" MaxLength="2000" />
-          <Property Name="cjfecha" Type="date" />
-          <Property Name="cjhora" Type="nvarchar" MaxLength="5" />
-          <Property Name="cjleido" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC009' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC009">
-          <Property Name="cknumi" Type="int" />
-          <Property Name="ckdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="ckest" Type="int" />
-          <Property Name="ckpdf" Type="nvarchar" MaxLength="20" />
-          <Property Name="ckobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="ckfact" Type="date" />
-          <Property Name="ckhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ckuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TC0091' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TC0091">
@@ -468,22 +295,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0091' does not have a primary key 
           <Property Name="cllin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="clcopy" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TC010' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TC010">
-          <Property Name="cmnumi" Type="int" />
-          <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmtelf" Type="nvarchar" MaxLength="20" />
-          <Property Name="cmemail" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmest" Type="int" />
-          <Property Name="cmobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cmrsocial" Type="nvarchar" MaxLength="50" />
-          <Property Name="cmnit" Type="nvarchar" MaxLength="20" />
-          <Property Name="cmfact" Type="date" />
-          <Property Name="cmhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cmuact" Type="nvarchar" MaxLength="10" />
-          <Property Name="cmncuenta" Type="int" />
-        </EntityType>-->
         <EntityType Name="TC011">
           <Key>
             <PropertyRef Name="cnnumi" />
@@ -563,21 +374,6 @@ warning 6013: The table/view 'BDDistNV1.dbo.TC010' does not have a primary key d
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TCA0012' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TCA0012">
-          <Property Name="tcnumi" Type="int" />
-          <Property Name="tctc1numi" Type="int" />
-          <Property Name="tcty4prov" Type="int" />
-          <Property Name="tcfvencre" Type="date" />
-          <Property Name="tcnotaentre" Type="nvarchar" MaxLength="20" />
-          <Property Name="tcnrofact" Type="nvarchar" MaxLength="20" />
-          <Property Name="tctotcre" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="tcfdoc" Type="date" />
-          <Property Name="tcfact" Type="date" />
-          <Property Name="tchact" Type="nvarchar" MaxLength="5" />
-          <Property Name="tcuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TCA00121' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TCA00121">
           <Key>
@@ -596,48 +392,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TCA00121' does not have a primary ke
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TCA0013' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TCA0013">
-          <Property Name="tenumi" Type="int" />
-          <Property Name="tefdoc" Type="date" />
-          <Property Name="tety4vend" Type="int" />
-          <Property Name="teobs" Type="nvarchar" MaxLength="100" />
-          <Property Name="tefact" Type="date" />
-          <Property Name="tehact" Type="nvarchar" MaxLength="5" />
-          <Property Name="teuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TCI001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TCI001">
-          <Property Name="cpnumi" Type="int" />
-          <Property Name="cpdesc" Type="nvarchar" MaxLength="30" />
-          <Property Name="cpmov" Type="int" />
-          <Property Name="cpmovcli" Type="int" />
-          <Property Name="cptipo" Type="int" />
-          <Property Name="cpest" Type="int" />
-          <Property Name="cpfact" Type="date" />
-          <Property Name="cphact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cpuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TCP001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TCP001">
-          <Property Name="cpanumi" Type="int" />
-          <Property Name="cpaprov" Type="int" />
-          <Property Name="cpafdoc" Type="date" />
-          <Property Name="cpamonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="cpaobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cpaest" Type="int" />
-          <Property Name="cpafven" Type="date" />
-          <Property Name="cpatpago" Type="int" />
-          <Property Name="cpafpro" Type="int" />
-          <Property Name="cpanota" Type="int" />
-          <Property Name="cpatpro" Type="int" />
-          <Property Name="cpafact" Type="date" />
-          <Property Name="cpahact" Type="nvarchar" MaxLength="5" />
-          <Property Name="cpauact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TCP0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TCP0011">
@@ -717,33 +471,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TCP0011' does not have a primary key
           <Property Name="fvaalm" Type="int" />
           <Property Name="fvanumi2" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TFV0011' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TFV0011">
-          <Property Name="fvbnumi" Type="int" />
-          <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
-          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="50" />
-          <Property Name="fvbcant" Type="int" />
-          <Property Name="fvbprecio" Type="float" />
-          <Property Name="fvbnumi2" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TH001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TH001">
-          <Property Name="hanumi" Type="int" />
-          <Property Name="hadesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="hames1" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hames2" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hames3" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="hasaldo" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TI001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TI001">
-          <Property Name="iacprod" Type="int" />
-          <Property Name="iacant" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="iaalm" Type="int" />
-        </EntityType>-->
         <EntityType Name="TI002">
           <Key>
             <PropertyRef Name="ibid" />
@@ -860,30 +587,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TI003' does not have a primary key d
           <Property Name="lahact" Type="nvarchar" MaxLength="5" />
           <Property Name="lauact" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TL001_C' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TL001_C">
-          <Property Name="id" Type="int" />
-          <Property Name="cod" Type="nvarchar" MaxLength="50" />
-          <Property Name="des" Type="nvarchar" MaxLength="150" />
-          <Property Name="codent" Type="int" />
-          <Property Name="hact" Type="nvarchar" MaxLength="5" />
-          <Property Name="fact" Type="date" />
-          <Property Name="uact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TL0012' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TL0012">
-          <Property Name="lcnumi" Type="int" />
-          <Property Name="lccbnumi" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TL0013' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TL0013">
-          <Property Name="lbnumi" Type="int" />
-          <Property Name="lblat" Type="decimal" Precision="18" Scale="6" />
-          <Property Name="lblongi" Type="decimal" Precision="18" Scale="6" />
-        </EntityType>-->
         <EntityType Name="TL002">
           <Key>
             <PropertyRef Name="ldnumi" />
@@ -984,24 +687,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0011' does not have a primary key 
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO0012' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO0012">
-          <Property Name="ocnumi" Type="int" />
-          <Property Name="ocest" Type="int" />
-          <Property Name="ocfecha" Type="date" />
-          <Property Name="ochora" Type="nvarchar" MaxLength="5" />
-          <Property Name="ocobs" Type="nvarchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO0013' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO0013">
-          <Property Name="odnumi" Type="int" />
-          <Property Name="odnum" Type="int" />
-          <Property Name="odfecha" Type="date" />
-          <Property Name="odhora" Type="nvarchar" MaxLength="5" />
-          <Property Name="odobs" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TO0014' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO0014">
           <Key>
@@ -1019,20 +704,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0014' does not have a primary key 
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO0015' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO0015">
-          <Property Name="ohnumi" Type="int" />
-          <Property Name="ohdiassem" Type="nvarchar" MaxLength="7" />
-          <Property Name="ohdias" Type="int" />
-          <Property Name="ohdiames" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO0016' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO0016">
-          <Property Name="oinumi" Type="int" />
-          <Property Name="oifecha" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TO001A">
           <Key>
@@ -1044,19 +715,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key 
           <Property Name="oaaentrega" Type="int" />
           <Property Name="oaacaja" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO001A1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO001A1">
-          <Property Name="ognumi" Type="int" />
-          <Property Name="ogcred" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TO001B' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TO001B">
-          <Property Name="obnumi" Type="int" />
-          <Property Name="oblatitud" Type="decimal" Precision="18" Scale="14" />
-          <Property Name="oblongitud" Type="decimal" Precision="18" Scale="14" />
-        </EntityType>-->
         <EntityType Name="TO001C">
           <Key>
             <PropertyRef Name="oacnumi" />
@@ -1280,17 +938,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP002' does not have a primary key d
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TP0021' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TP0021">
-          <Property Name="pcnumi" Type="int" />
-          <Property Name="pcdias" Type="int" />
-          <Property Name="pcmonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="pcobs" Type="nvarchar" MaxLength="50" />
-          <Property Name="pcmul" Type="bit" />
-          <Property Name="pcbode" Type="bit" />
-          <Property Name="pcfecha" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TP003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP003">
           <Key>
@@ -1318,16 +965,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP004' does not have a primary key d
           <Property Name="pehact" Type="nvarchar" MaxLength="50" />
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TP005' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TP005">
-          <Property Name="pfnumi" Type="int" />
-          <Property Name="pfflib" Type="date" />
-          <Property Name="pfdes" Type="nvarchar" MaxLength="20" />
-          <Property Name="pffact" Type="date" />
-          <Property Name="pfhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="pfuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.TP006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TP006">
@@ -1369,15 +1006,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP0061' does not have a primary key 
           <Property Name="pihact" Type="nvarchar" MaxLength="5" />
           <Property Name="piuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TP0071' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TP0071">
-          <Property Name="pjturno" Type="int" />
-          <Property Name="pjcper" Type="int" />
-          <Property Name="pjent" Type="nvarchar" MaxLength="5" />
-          <Property Name="pjsal" Type="nvarchar" MaxLength="5" />
-          <Property Name="pjfecha" Type="date" />
-        </EntityType>-->
         <EntityType Name="TP008">
           <Key>
             <PropertyRef Name="pknumi" />
@@ -1430,43 +1058,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TS001' does not have a primary key d
           <Property Name="sanom1" Type="nvarchar" MaxLength="100" />
           <Property Name="sanom2" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TS002' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TS002">
-          <Property Name="yenumi" Type="int" />
-          <Property Name="yecia" Type="int" />
-          <Property Name="yealm" Type="int" />
-          <Property Name="yesfc" Type="int" />
-          <Property Name="yeautoriz" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="yenunf" Type="int" />
-          <Property Name="yekey" Type="nvarchar" MaxLength="255" />
-          <Property Name="yefdel" Type="date" />
-          <Property Name="yefal" Type="date" />
-          <Property Name="yenota" Type="nvarchar" MaxLength="255" />
-          <Property Name="yenota2" Type="nvarchar" MaxLength="255" />
-          <Property Name="yeap" Type="nvarchar" MaxLength="1" />
-          <Property Name="yefact" Type="date" />
-          <Property Name="yehact" Type="nvarchar" MaxLength="5" />
-          <Property Name="yeuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.TS003' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TS003">
-          <Property Name="scnumi" Type="int" />
-          <Property Name="scnit" Type="nvarchar" MaxLength="15" />
-          <Property Name="scneg" Type="nvarchar" MaxLength="30" />
-          <Property Name="scnom" Type="nvarchar" MaxLength="30" />
-          <Property Name="scact" Type="nvarchar" MaxLength="40" />
-          <Property Name="scdir" Type="nvarchar" MaxLength="40" />
-          <Property Name="sctelf" Type="nvarchar" MaxLength="20" />
-          <Property Name="scciu" Type="nvarchar" MaxLength="20" />
-          <Property Name="scpai" Type="nvarchar" MaxLength="15" />
-          <Property Name="scsuc" Type="nchar" MaxLength="15" />
-          <Property Name="scdebfis" Type="float" />
-          <Property Name="scfact" Type="date" />
-          <Property Name="schact" Type="nvarchar" MaxLength="5" />
-          <Property Name="scuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="TV001">
           <Key>
             <PropertyRef Name="tanumi" />
@@ -1548,23 +1139,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.TV0013' does not have a primary key 
           <Property Name="zahora" Type="nvarchar" MaxLength="10" />
           <Property Name="zaest" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.ZY001' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ZY001">
-          <Property Name="yanumi" Type="int" />
-          <Property Name="yaprog" Type="nvarchar" MaxLength="40" />
-          <Property Name="yatit" Type="nvarchar" MaxLength="40" />
-          <Property Name="yamod" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.ZY002' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ZY002">
-          <Property Name="ybnumi" Type="int" />
-          <Property Name="ybrol" Type="nvarchar" MaxLength="30" />
-          <Property Name="ybfact" Type="date" />
-          <Property Name="ybhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ybuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="ZY0021">
           <Key>
             <PropertyRef Name="ycline" />
@@ -1577,20 +1151,6 @@ warning 6013: The table/view 'BDDistNV1.dbo.ZY002' does not have a primary key d
           <Property Name="ycmod" Type="bit" />
           <Property Name="ycdel" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.ZY003' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ZY003">
-          <Property Name="ydnumi" Type="int" />
-          <Property Name="yduser" Type="nvarchar" MaxLength="10" />
-          <Property Name="ydrol" Type="int" />
-          <Property Name="ydpass" Type="nvarchar" MaxLength="20" />
-          <Property Name="ydest" Type="bit" />
-          <Property Name="ydcant" Type="int" />
-          <Property Name="ydfontsize" Type="int" />
-          <Property Name="ydfact" Type="date" />
-          <Property Name="ybhact" Type="nvarchar" MaxLength="5" />
-          <Property Name="ybuact" Type="nvarchar" MaxLength="10" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.V_StockDisp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_StockDisp">
@@ -1729,20 +1289,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_Conciliacion' does not have a pri
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_CuentasPagar_PagosProximos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_CuentasPagar_PagosProximos">
-          <Property Name="cpaprov" Type="int" />
-          <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="cpanumi" Type="int" />
-          <Property Name="cpaobs" Type="nvarchar" MaxLength="200" />
-          <Property Name="cpafdoc" Type="date" />
-          <Property Name="cpafven" Type="date" />
-          <Property Name="cpamonto" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="saldo" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="pagado" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="mora" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_CuentasPagar_PagosRealizados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
@@ -1831,18 +1377,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_FacturasChacaltaya' does not have
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_FidelidadCliente' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_FidelidadCliente">
-          <Property Name="Anho" Type="int" />
-          <Property Name="oencli" Type="int" />
-          <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="TotalPedido" Type="int" />
-          <Property Name="odtprod" Type="int" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
-          <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
-          <Property Name="ccprconsu" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_CajaGeneral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
@@ -1926,6 +1460,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoNotaVenta' does not ha
           <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
           <Property Name="ccnit" Type="nvarchar" MaxLength="20" />
           <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
+          <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2102,17 +1637,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta2' does not have
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_GO_FaltanteTapas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_GO_FaltanteTapas">
-          <Property Name="nota" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="ctprod" Type="int" />
-          <Property Name="ntprod" Type="nvarchar" MaxLength="50" />
-          <Property Name="crepa" Type="int" />
-          <Property Name="nrepa" Type="nvarchar" MaxLength="50" />
-          <Property Name="tapas" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_ListarZona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
@@ -2167,15 +1691,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposDetallado' does
           <Property Name="cpmov" Type="int" />
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_GO_ProductoVendidoCliente' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_GO_ProductoVendidoCliente">
-          <Property Name="cliente" Type="int" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="codProducto" Type="nvarchar" MaxLength="10" />
-          <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
-          <Property Name="monto" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.vr_go_reciboCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vr_go_reciboCliente">
@@ -2684,13 +2199,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoFisicoValorado' does not hav
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_SaldoInventario' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_SaldoInventario">
-          <Property Name="Codigo" Type="int" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="30" />
-          <Property Name="Cantidad" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_stockActual' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_stockActual">
           <Key>
@@ -2722,24 +2230,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_StockDisponible' does not have a 
           <Property Name="StockSoloPedidos" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BDDistNV1.dbo.VR_UltimosPedidos' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VR_UltimosPedidos">
-          <Property Name="codCliente" Type="nvarchar" MaxLength="15" />
-          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
-          <Property Name="Telefono" Type="nvarchar" MaxLength="101" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="200" />
-          <Property Name="zona" Type="int" />
-          <Property Name="fechaPrestamo" Type="date" />
-          <Property Name="horaPrestamo" Type="nvarchar" MaxLength="5" />
-          <Property Name="codEquipo" Type="nvarchar" MaxLength="10" />
-          <Property Name="Equipo" Type="nvarchar" MaxLength="30" />
-          <Property Name="codMovimiento" Type="int" />
-          <Property Name="movimiento" Type="nvarchar" MaxLength="50" />
-          <Property Name="fechaUltimoPedido" Type="date" />
-          <Property Name="codProducto" Type="nvarchar" MaxLength="10" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="30" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDDistNV1.dbo.VR_UtilidadPorProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VR_UtilidadPorProducto">
@@ -4074,7 +3564,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [VR_GO_DespachoNotaVenta].[oaccbnumi] AS [oaccbnumi], 
     [VR_GO_DespachoNotaVenta].[Total] AS [Total], 
     [VR_GO_DespachoNotaVenta].[ccnit] AS [ccnit], 
-    [VR_GO_DespachoNotaVenta].[cctelf1] AS [cctelf1]
+    [VR_GO_DespachoNotaVenta].[cctelf1] AS [cctelf1], 
+    [VR_GO_DespachoNotaVenta].[cedesc] AS [cedesc]
     FROM [dbo].[VR_GO_DespachoNotaVenta] AS [VR_GO_DespachoNotaVenta]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_DespachoXCliente" EntityType="Self.VR_GO_DespachoXCliente" store:Type="Views" store:Schema="dbo">
@@ -5433,7 +4924,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" />
           <EntitySet Name="vr_go_comprobanteVenta" EntityType="BDDistBHFModel.vr_go_comprobanteVenta" />
-          <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
           <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
           <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" />
@@ -5482,6 +4972,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <End Role="TO005" EntitySet="TO005" />
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
+          <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -6979,29 +6470,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="factura" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ojobs" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="VR_GO_DespachoNotaVenta">
-          <Key>
-            <PropertyRef Name="oanumi" />
-            <PropertyRef Name="canumi" />
-            <PropertyRef Name="oaccbnumi" />
-          </Key>
-          <Property Name="oanumi" Type="Int32" Nullable="false" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -7786,6 +7254,30 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VR_GO_DespachoNotaVenta">
+          <Key>
+            <PropertyRef Name="oanumi" />
+            <PropertyRef Name="canumi" />
+            <PropertyRef Name="oaccbnumi" />
+          </Key>
+          <Property Name="oanumi" Type="Int32" Nullable="false" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccdirec" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="canumi" Type="Int32" Nullable="false" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9440,28 +8932,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoNotaVenta">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoNotaVenta">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoNotaVenta">
-                <ScalarProperty Name="cctelf1" ColumnName="cctelf1" />
-                <ScalarProperty Name="ccnit" ColumnName="ccnit" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="canumi" ColumnName="canumi" />
-                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
-                <ScalarProperty Name="ccdirec" ColumnName="ccdirec" />
-                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VR_GO_DespachoXCliente">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
               <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
@@ -10215,6 +9685,29 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
                 <ScalarProperty Name="codRepartidor" ColumnName="codRepartidor" />
                 <ScalarProperty Name="cliente" ColumnName="cliente" />
                 <ScalarProperty Name="codcliente" ColumnName="codcliente" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoNotaVenta">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoNotaVenta">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoNotaVenta">
+                <ScalarProperty Name="cedesc" ColumnName="cedesc" />
+                <ScalarProperty Name="cctelf1" ColumnName="cctelf1" />
+                <ScalarProperty Name="ccnit" ColumnName="ccnit" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="canumi" ColumnName="canumi" />
+                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
+                <ScalarProperty Name="ccdirec" ColumnName="ccdirec" />
+                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
               </MappingFragment>

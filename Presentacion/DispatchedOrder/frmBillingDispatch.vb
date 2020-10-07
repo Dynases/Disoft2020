@@ -361,6 +361,8 @@ Public Class frmBillingDispatch
                 ReporteNotaVenta(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
             Case "3"
                 ReporteNotaVenta3(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+            Case "4"
+                ReporteNotaVenta4(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
         End Select
     End Sub
 
@@ -594,6 +596,86 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta3.rpt")
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta3.rpt")
         objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta3.rpt")
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        End If
+
+        Dim pd As New PrintDocument()
+        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        If (Not pd.PrinterSettings.IsValid) Then
+            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                   My.Resources.WARNING, 5 * 1000,
+                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
+        Else
+            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            objrep.PrintToPrinter(2, False, 1, 1)
+        End If
+
+        If (grabarPDF) Then
+            'Copia de Factura en PDF
+            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            End If
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        End If
+    End Sub
+
+    Private Sub ReporteNotaVenta4(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta4
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        If mes = 1 Then
+            mesl = "Enero"
+        End If
+        If mes = 2 Then
+            mesl = "Febrero"
+        End If
+        If mes = 3 Then
+            mesl = "Marzo"
+        End If
+        If mes = 4 Then
+            mesl = "Abril"
+        End If
+        If mes = 5 Then
+            mesl = "Mayo"
+        End If
+        If mes = 6 Then
+            mesl = "Junio"
+        End If
+        If mes = 7 Then
+            mesl = "Julio"
+        End If
+        If mes = 8 Then
+            mesl = "Agosto"
+        End If
+        If mes = 9 Then
+            mesl = "Septiembre"
+        End If
+        If mes = 10 Then
+            mesl = "Octubre"
+        End If
+        If mes = 11 Then
+            mesl = "Noviembre"
+        End If
+        If mes = 12 Then
+            mesl = "Diciembre"
+        End If
+
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
@@ -1124,6 +1206,16 @@ Public Class frmBillingDispatch
             P_Global.Visualizador.CRV1.ReportSource = objrep
             P_Global.Visualizador.Show()
             P_Global.Visualizador.BringToFront()
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Tb_FechaHasta_ValueChanged(sender As Object, e As EventArgs) Handles Tb_FechaHasta.ValueChanged
+        Try
+            If (_cargaCompleta) Then
+                CargarPedidos()
+            End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try

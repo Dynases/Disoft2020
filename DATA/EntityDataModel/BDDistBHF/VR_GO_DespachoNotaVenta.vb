@@ -27,5 +27,6 @@ Partial Public Class VR_GO_DespachoNotaVenta
     Public Property Total As Nullable(Of Decimal)
     Public Property ccnit As String
     Public Property cctelf1 As String
+    Public Property cedesc As String
 
 End Class

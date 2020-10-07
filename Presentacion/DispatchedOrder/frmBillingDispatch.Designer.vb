@@ -32,6 +32,8 @@ Partial Class frmBillingDispatch
         Me.QrFactura = New Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl()
         Me.dgjProducto = New Janus.Windows.GridEX.GridEX()
         Me.PanelSuperior = New System.Windows.Forms.Panel()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.Tb_FechaHasta = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.btReporteDespachoPedido = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.Tb_Fecha = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
@@ -42,8 +44,6 @@ Partial Class frmBillingDispatch
         Me.btVolverDist = New DevComponents.DotNetBar.ButtonX()
         Me.cbChoferes = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
-        Me.Tb_FechaHasta = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.PanelBase.SuspendLayout()
         Me.PanelPedido.SuspendLayout()
         CType(Me.dgjPedido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,9 +51,9 @@ Partial Class frmBillingDispatch
         CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgjProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperior.SuspendLayout()
+        CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_Fecha, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbChoferes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelBase
@@ -99,7 +99,7 @@ Partial Class frmBillingDispatch
         Me.QrFactura.ErrorCorrectLevel = Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.M
         Me.QrFactura.Image = CType(resources.GetObject("QrFactura.Image"), System.Drawing.Image)
         Me.QrFactura.Location = New System.Drawing.Point(694, 5)
-        Me.QrFactura.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.QrFactura.Margin = New System.Windows.Forms.Padding(2)
         Me.QrFactura.Name = "QrFactura"
         Me.QrFactura.QuietZoneModule = Gma.QrCodeNet.Encoding.Windows.Render.QuietZoneModules.Two
         Me.QrFactura.Size = New System.Drawing.Size(95, 90)
@@ -135,6 +135,64 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Name = "PanelSuperior"
         Me.PanelSuperior.Size = New System.Drawing.Size(1186, 60)
         Me.PanelSuperior.TabIndex = 0
+        '
+        'LabelX3
+        '
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Location = New System.Drawing.Point(495, 13)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX3.TabIndex = 237
+        Me.LabelX3.Text = "Fecha hasta:"
+        '
+        'Tb_FechaHasta
+        '
+        '
+        '
+        '
+        Me.Tb_FechaHasta.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.Tb_FechaHasta.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.Tb_FechaHasta.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
+        Me.Tb_FechaHasta.ButtonDropDown.Visible = True
+        Me.Tb_FechaHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tb_FechaHasta.IsPopupCalendarOpen = False
+        Me.Tb_FechaHasta.Location = New System.Drawing.Point(575, 13)
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.Tb_FechaHasta.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.Tb_FechaHasta.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
+        Me.Tb_FechaHasta.MonthCalendar.ClearButtonVisible = True
+        '
+        '
+        '
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
+        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.Tb_FechaHasta.MonthCalendar.DisplayMonth = New Date(2017, 2, 1, 0, 0, 0, 0)
+        Me.Tb_FechaHasta.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
+        '
+        '
+        '
+        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
+        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.Tb_FechaHasta.MonthCalendar.TodayButtonVisible = True
+        Me.Tb_FechaHasta.Name = "Tb_FechaHasta"
+        Me.Tb_FechaHasta.Size = New System.Drawing.Size(120, 22)
+        Me.Tb_FechaHasta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.Tb_FechaHasta.TabIndex = 236
         '
         'btReporteDespachoPedido
         '
@@ -297,64 +355,6 @@ Partial Class frmBillingDispatch
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'LabelX3
-        '
-        '
-        '
-        '
-        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Location = New System.Drawing.Point(495, 13)
-        Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(74, 23)
-        Me.LabelX3.TabIndex = 237
-        Me.LabelX3.Text = "Fecha hasta:"
-        '
-        'Tb_FechaHasta
-        '
-        '
-        '
-        '
-        Me.Tb_FechaHasta.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.Tb_FechaHasta.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_FechaHasta.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
-        Me.Tb_FechaHasta.ButtonDropDown.Visible = True
-        Me.Tb_FechaHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tb_FechaHasta.IsPopupCalendarOpen = False
-        Me.Tb_FechaHasta.Location = New System.Drawing.Point(575, 13)
-        '
-        '
-        '
-        '
-        '
-        '
-        Me.Tb_FechaHasta.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_FechaHasta.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
-        Me.Tb_FechaHasta.MonthCalendar.ClearButtonVisible = True
-        '
-        '
-        '
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
-        Me.Tb_FechaHasta.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_FechaHasta.MonthCalendar.DisplayMonth = New Date(2017, 2, 1, 0, 0, 0, 0)
-        Me.Tb_FechaHasta.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
-        '
-        '
-        '
-        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
-        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.Tb_FechaHasta.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_FechaHasta.MonthCalendar.TodayButtonVisible = True
-        Me.Tb_FechaHasta.Name = "Tb_FechaHasta"
-        Me.Tb_FechaHasta.Size = New System.Drawing.Size(120, 22)
-        Me.Tb_FechaHasta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.Tb_FechaHasta.TabIndex = 236
-        '
         'frmBillingDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -373,9 +373,9 @@ Partial Class frmBillingDispatch
         CType(Me.dgjProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSuperior.ResumeLayout(False)
         Me.PanelSuperior.PerformLayout()
+        CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_Fecha, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbChoferes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

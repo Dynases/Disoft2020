@@ -187,7 +187,8 @@ Public Class RPedido
                                       .Total = a.Total,
                                       .oaobs = a.oaobs,
                                       .ccnit = a.ccnit,
-                                      .cctelf1 = a.cctelf1
+                                      .cctelf1 = a.cctelf1,
+                                      .cedesc = a.cedesc
                                       }).ToList()
                 Return listResult
             End Using

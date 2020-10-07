@@ -170,21 +170,21 @@ Partial Class F01_Producto
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1149, 574)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1107, 574)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1149, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -197,7 +197,7 @@ Partial Class F01_Producto
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(0, 644)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(1149, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -210,11 +210,11 @@ Partial Class F01_Producto
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(949, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -250,7 +250,7 @@ Partial Class F01_Producto
         'MPanelToolBarImprimir
         '
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1069, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBubbleBarUsuario
         '
@@ -448,7 +448,7 @@ Partial Class F01_Producto
         '
         Me.UcImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.UcImagen.Location = New System.Drawing.Point(81, 32)
-        Me.UcImagen.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.UcImagen.Margin = New System.Windows.Forms.Padding(2)
         Me.UcImagen.Name = "UcImagen"
         Me.UcImagen.Size = New System.Drawing.Size(142, 146)
         Me.UcImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -495,7 +495,7 @@ Partial Class F01_Producto
         Me.GroupPanelProdPack.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelProdPack.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelProdPack.Name = "GroupPanelProdPack"
-        Me.GroupPanelProdPack.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupPanelProdPack.Padding = New System.Windows.Forms.Padding(5)
         Me.GroupPanelProdPack.Size = New System.Drawing.Size(328, 207)
         '
         '
@@ -1460,7 +1460,7 @@ Partial Class F01_Producto
         Me.GroupPanelBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(3, 253)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
-        Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5)
         Me.GroupPanelBusqueda.Size = New System.Drawing.Size(1101, 318)
         '
         '
@@ -1531,7 +1531,7 @@ Partial Class F01_Producto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1149, 680)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_Producto"
         Me.Opacity = 0.02R
         Me.Text = "F00_Producto"
