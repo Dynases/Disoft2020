@@ -426,27 +426,26 @@ Public Class frmBillingDispatch
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
             P_Global.Visualizador.BringToFront() 'Comentar
-        End If
-
-        Dim pd As New PrintDocument()
-        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-        If (Not pd.PrinterSettings.IsValid) Then
-            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                   My.Resources.WARNING, 5 * 1000,
-                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
         Else
-            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            objrep.PrintToPrinter(2, False, 1, 1)
-        End If
-
-        If (grabarPDF) Then
-            'Copia de Factura en PDF
-            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
             End If
-            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
         End If
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        'End If
     End Sub
     Private Sub ReporteNotaVenta2(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
         P_Global.Visualizador = New Visualizador
@@ -506,27 +505,26 @@ Public Class frmBillingDispatch
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
             P_Global.Visualizador.BringToFront() 'Comentar
-        End If
-
-        Dim pd As New PrintDocument()
-        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-        If (Not pd.PrinterSettings.IsValid) Then
-            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                   My.Resources.WARNING, 5 * 1000,
-                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
         Else
-            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            objrep.PrintToPrinter(2, False, 1, 1)
-        End If
-
-        If (grabarPDF) Then
-            'Copia de Factura en PDF
-            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
             End If
-            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
         End If
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        'End If
     End Sub
 
     Private Sub ReporteNotaVenta3(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
@@ -600,27 +598,26 @@ Public Class frmBillingDispatch
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
             P_Global.Visualizador.BringToFront() 'Comentar
-        End If
-
-        Dim pd As New PrintDocument()
-        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-        If (Not pd.PrinterSettings.IsValid) Then
-            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                   My.Resources.WARNING, 5 * 1000,
-                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
         Else
-            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            objrep.PrintToPrinter(2, False, 1, 1)
-        End If
-
-        If (grabarPDF) Then
-            'Copia de Factura en PDF
-            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
             End If
-            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
         End If
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        'End If
     End Sub
 
     Private Sub ReporteNotaVenta4(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
@@ -671,36 +668,39 @@ Public Class frmBillingDispatch
         End If
 
         Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        ' objrep.Subreports.Item("NotaVenta4.rpt").SetDataSource(listResult)
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
         objrep.SetParameterValue("Logo", gb_ubilogo)
 
+        'objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta4.rpt")
+        'objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta4.rpt")
+        'objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta4.rpt")
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
             P_Global.Visualizador.BringToFront() 'Comentar
-        End If
-
-        Dim pd As New PrintDocument()
-        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-        If (Not pd.PrinterSettings.IsValid) Then
-            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                   My.Resources.WARNING, 5 * 1000,
-                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
         Else
-            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            objrep.PrintToPrinter(2, False, 1, 1)
-        End If
-
-        If (grabarPDF) Then
-            'Copia de Factura en PDF
-            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
             End If
-            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
         End If
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        'End If
     End Sub
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
