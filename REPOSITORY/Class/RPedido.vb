@@ -321,10 +321,11 @@ Public Class RPedido
                                       .obcprod = a.obcprod,
                                       .cadesc = a.cadesc,
                                       .cauventa = a.cauventa,
-                                      .obdesc = a.obdesc,
                                       .obpbase = a.obpbase,
                                       .obpcant = a.obpcant,
                                       .obptot = a.obptot,
+                                      .obdesc = a.obdesc,
+                                      .obtotal = a.obtotal,
                                       .oaccbnumi = a.oaccbnumi,
                                       .cbdesc = a.cbdesc
                                       }).ToList()

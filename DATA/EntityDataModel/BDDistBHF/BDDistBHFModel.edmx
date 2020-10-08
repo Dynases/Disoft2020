@@ -1181,10 +1181,11 @@ warning 6002: The table/view 'BDDistNV1.dbo.v_VentasDetalleDespacho' does not ha
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cauventa" Type="int" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="obpcant" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obptot" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="obtotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -3337,10 +3338,11 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [v_VentasDetalleDespacho].[cadesc] AS [cadesc], 
     [v_VentasDetalleDespacho].[cauventa] AS [cauventa], 
     [v_VentasDetalleDespacho].[cedesc] AS [cedesc], 
-    [v_VentasDetalleDespacho].[obdesc] AS [obdesc], 
     [v_VentasDetalleDespacho].[obpbase] AS [obpbase], 
     [v_VentasDetalleDespacho].[obpcant] AS [obpcant], 
     [v_VentasDetalleDespacho].[obptot] AS [obptot], 
+    [v_VentasDetalleDespacho].[obdesc] AS [obdesc], 
+    [v_VentasDetalleDespacho].[obtotal] AS [obtotal], 
     [v_VentasDetalleDespacho].[oaccbnumi] AS [oaccbnumi], 
     [v_VentasDetalleDespacho].[cbdesc] AS [cbdesc]
     FROM [dbo].[v_VentasDetalleDespacho] AS [v_VentasDetalleDespacho]</DefiningQuery>
@@ -4910,7 +4912,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySet Name="TS001" EntityType="BDDistBHFModel.TS001" />
           <EntitySet Name="TV0013" EntityType="BDDistBHFModel.TV0013" />
           <EntitySet Name="V_StockDisp" EntityType="BDDistBHFModel.V_StockDisp" />
-          <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
           <EntitySet Name="vista_promconsumo" EntityType="BDDistBHFModel.vista_promconsumo" />
           <EntitySet Name="vista_transacciones" EntityType="BDDistBHFModel.vista_transacciones" />
           <EntitySet Name="VR_CajaDetalle" EntityType="BDDistBHFModel.VR_CajaDetalle" />
@@ -4973,6 +4974,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
+          <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -6225,29 +6227,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="Disponible" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="iaalm" Type="Int32" />
         </EntityType>
-        <EntityType Name="v_VentasDetalleDespacho">
-          <Key>
-            <PropertyRef Name="oanumi" />
-            <PropertyRef Name="oaccbnumi" />
-          </Key>
-          <Property Name="oanumi" Type="Int32" Nullable="false" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="oaccli" Type="Int32" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="oarepa" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="obcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cauventa" Type="Int32" />
-          <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -7277,6 +7256,30 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_VentasDetalleDespacho">
+          <Key>
+            <PropertyRef Name="oanumi" />
+            <PropertyRef Name="oaccbnumi" />
+          </Key>
+          <Property Name="oanumi" Type="Int32" Nullable="false" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="oaccli" Type="Int32" />
+          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oarepa" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="obcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cauventa" Type="Int32" />
+          <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -8681,29 +8684,6 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_VentasDetalleDespacho">
-            <EntityTypeMapping TypeName="BDDistBHFModel.v_VentasDetalleDespacho">
-              <MappingFragment StoreEntitySet="v_VentasDetalleDespacho">
-                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-                <ScalarProperty Name="obptot" ColumnName="obptot" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="cedesc" ColumnName="cedesc" />
-                <ScalarProperty Name="cauventa" ColumnName="cauventa" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="obcprod" ColumnName="obcprod" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="oarepa" ColumnName="oarepa" />
-                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
-                <ScalarProperty Name="oaccli" ColumnName="oaccli" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vista_promconsumo">
             <EntityTypeMapping TypeName="BDDistBHFModel.vista_promconsumo">
               <MappingFragment StoreEntitySet="vista_promconsumo">
@@ -9708,6 +9688,30 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
                 <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
                 <ScalarProperty Name="ccdirec" ColumnName="ccdirec" />
                 <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_VentasDetalleDespacho">
+            <EntityTypeMapping TypeName="BDDistBHFModel.v_VentasDetalleDespacho">
+              <MappingFragment StoreEntitySet="v_VentasDetalleDespacho">
+                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="obptot" ColumnName="obptot" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="obpbase" ColumnName="obpbase" />
+                <ScalarProperty Name="cedesc" ColumnName="cedesc" />
+                <ScalarProperty Name="cauventa" ColumnName="cauventa" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="obcprod" ColumnName="obcprod" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="oarepa" ColumnName="oarepa" />
+                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
+                <ScalarProperty Name="oaccli" ColumnName="oaccli" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
               </MappingFragment>

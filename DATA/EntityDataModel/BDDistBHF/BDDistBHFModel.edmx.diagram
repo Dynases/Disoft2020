@@ -83,7 +83,6 @@
         <EntityTypeShape EntityType="BDDistBHFModel.TS001" Width="1.5" PointX="25.75" PointY="7.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.TV0013" Width="1.5" PointX="25.75" PointY="10.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.V_StockDisp" Width="1.5" PointX="25.75" PointY="14.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="24.75" PointY="25.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vista_promconsumo" Width="1.5" PointX="8.75" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vista_transacciones" Width="1.5" PointX="10.75" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_CajaDetalle" Width="1.5" PointX="16.75" PointY="26.75" />
@@ -135,11 +134,12 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_StockDisponible" Width="1.5" PointX="6.75" PointY="34.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_UtilidadPorProducto" Width="1.5" PointX="34.75" PointY="11.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.Vr_VentasVendedor12Meses" Width="1.5" PointX="34.75" PointY="14.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.Vr_VentasVendidas" Width="1.5" PointX="34.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.Vr_VentasVendidas" Width="2.25" PointX="34.75" PointY="19.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_VistaPedido_PrecioCosto" Width="1.5" PointX="34.75" PointY="23.75" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0051_TO005" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0052_TO005" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.5" PointX="35.375" PointY="27.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="35.375" PointY="33.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
