@@ -10698,4 +10698,30 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_go_TCA001", _listParam)
         Return _Tabla
     End Function
+
+    Public Shared Function L_fnObtenerDescripcion() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 7))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC001", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnObtenerProductos() As DataTable
+        Dim Tabla As DataTable
+        Dim where As String = ""
+        'Select Case a.canumi ,a.canombre ,a.cadesc ,a.caimg ,a.cafact,a.cahact,a.cauact
+        'From TC005C As a
+        If (where = String.Empty) Then
+            where = "1=1 and caest=1"
+        Else
+            where = where + " order by a.cadesc asc"
+        End If
+
+        Tabla = D_Datos_Tabla("a.canumi as [cod], a.cadesc as [desc]", "TC001 a", where)
+        Return Tabla
+    End Function
 End Class

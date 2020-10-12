@@ -494,6 +494,18 @@
     <Compile Include="Programas Reportes\F01_RepZonaVendedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Programas Reportes\R01_EstadoCuentasCompra.designer.vb">
+      <DependentUpon>R01_EstadoCuentasCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Programas Reportes\R01_EstadoCuentasCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Programas Reportes\R01_ReporteMovimientos.designer.vb">
+      <DependentUpon>R01_ReporteMovimientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Programas Reportes\R01_ReporteMovimientos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pr_ReporteVentasGrafico.Designer.vb">
       <DependentUpon>Pr_ReporteVentasGrafico.vb</DependentUpon>
     </Compile>
@@ -823,6 +835,12 @@
       <DependentUpon>R_EstadoCuentasClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_EstadoCuentasCompra.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_EstadoCuentasCompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\R_FacturaPreImpresa1.vb">
       <DependentUpon>R_FacturaPreImpresa1.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -857,6 +875,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>R_HisotorialCobrosVentasCredito.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_KardexGeneral.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_KardexGeneral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_Mam_CreditoGeneral.vb">
@@ -1383,6 +1407,12 @@
     <EmbeddedResource Include="Programas Reportes\F01_RepZonaVendedores.resx">
       <DependentUpon>F01_RepZonaVendedores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Programas Reportes\R01_EstadoCuentasCompra.resx">
+      <DependentUpon>R01_EstadoCuentasCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Programas Reportes\R01_ReporteMovimientos.resx">
+      <DependentUpon>R01_ReporteMovimientos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pr_ReporteVentasGrafico.resx">
       <DependentUpon>Pr_ReporteVentasGrafico.vb</DependentUpon>
     </EmbeddedResource>
@@ -1561,6 +1591,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_EstadoCuentasClientes.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_EstadoCuentasCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_EstadoCuentasCompra.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_FacturaPreImpresa1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_FacturaPreImpresa1.vb</LastGenOutput>
@@ -1584,6 +1618,10 @@
     <EmbeddedResource Include="Reportes\R_HisotorialCobrosVentasCredito.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_HisotorialCobrosVentasCredito.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_KardexGeneral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_KardexGeneral.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_Mam_CreditoGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
