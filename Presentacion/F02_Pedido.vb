@@ -1211,7 +1211,7 @@ Public Class F02_Pedido
             Else
                 Tb_Estado.Value = True
             End If
-
+            tb_EstadoPedido.Text = .GetValue("oaest")
             'Controla y muestra si el pedido está vigente o anulado
             If .GetValue("oaap") = 2 Then
                 MRlAccion.Text = "ANULADO"
@@ -1580,7 +1580,7 @@ Public Class F02_Pedido
                 Dim mensajeError As String = ""
                 L_fnEliminarVenta(Tb_Id.Text, mensajeError)
 
-                L_PedidoCabacera_Modificar(Tb_Id.Text, Tb_Fecha.Value.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "1"))
+                L_PedidoCabacera_Modificar(Tb_Id.Text, Tb_Fecha.Value.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", tb_EstadoPedido.Text))
                 L_PedidoCabacera_ModificarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString)
 
                 'modificar detalle
