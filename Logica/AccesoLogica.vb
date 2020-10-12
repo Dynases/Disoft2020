@@ -10677,6 +10677,35 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnObtenerClientes() As DataTable
+        Dim Tabla As DataTable
+        Dim where As String = ""
+        'Select Case a.canumi ,a.canombre ,a.cadesc ,a.caimg ,a.cafact,a.cahact,a.cauact
+        'From TC005C As a
+        If (where = String.Empty) Then
+            where = "1=1 and ccest=1"
+        Else
+            where = where + " order by a.ccdesc asc"
+        End If
+
+        Tabla = D_Datos_Tabla("a.ccnumi as [cod], a.ccdesc as [desc]", "TC004 a", where)
+        Return Tabla
+    End Function
+
+    Public Shared Function L_fnObtenerPersonal(cat As Integer) As DataTable
+        Dim Tabla As DataTable
+        Dim where As String = ""
+        'Select Case a.canumi ,a.canombre ,a.cadesc ,a.caimg ,a.cafact,a.cahact,a.cauact
+        'From TC005C As a
+        If (where = String.Empty) Then
+            where = "1=1 and cbcat=" + Str(cat)
+        Else
+            where = where + " order by a.cbdesc asc"
+        End If
+
+        Tabla = D_Datos_Tabla("a.cbnumi as [cod], a.cbdesc as [desc]", "TC002 a", where)
+        Return Tabla
+    End Function
     Public Shared Function L_prListarEstadoCuentasCompraTotal(idProveedor As Integer, fechai As String) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
