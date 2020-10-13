@@ -1496,6 +1496,126 @@ Public Class P_Principal
         End If
     End Sub
 
+    Private Sub btVendedorZonas_Click(sender As Object, e As EventArgs) Handles btVendedorZonas.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New F01_RepZonaVendedores
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btPagosCompras.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnEstadoCuentasProveedor_Click(sender As Object, e As EventArgs) Handles btnEstadoCuentasProveedor.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasCompra
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btnEstadoCuentasProveedor.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnReporteMovimiento_Click(sender As Object, e As EventArgs) Handles btnReporteMovimiento.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New R01_ReporteMovimientos
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btnEstadoCuentasProveedor.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnReporteCompras_Click(sender As Object, e As EventArgs) Handles btnReporteCompras.Click
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New F01_ReporteCompras
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        'frm._nameButton = btnEstadoCuentasProveedor.Name
+        ''frm._tab = tab3
+        'frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnExistenciaProducto_Click(sender As Object, e As EventArgs) Handles btnExistenciaProducto.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New R02_ExistenciaProductos
+
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btnEstadoCuentasProveedor.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnReporteComercial_Click(sender As Object, e As EventArgs) Handles btnReporteComercial.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New R01_VentasProductosRanking
+
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btnEstadoCuentasProveedor.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub btnVentaFacturada_Click(sender As Object, e As EventArgs) Handles btnVentaFacturada.Click
+        'SideNav1.IsMenuExpanded = False
+        'FP_Ventana.Select()
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New F01_ReporteVentaFact
+
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        'frm._nameButton = btnEstadoCuentasProveedor.Name
+        ''frm._tab = tab3
+        'frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
 
 #End Region
 
