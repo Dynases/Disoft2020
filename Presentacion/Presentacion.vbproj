@@ -181,7 +181,9 @@
     <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <HintPath>C:\librerias\FlashControlV71.dll</HintPath>
+    </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
       <HintPath>..\..\..\Google Drive\Librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
@@ -492,6 +494,12 @@
       <DependentUpon>F01_ReporteCompras.vb</DependentUpon>
     </Compile>
     <Compile Include="Programas Reportes\F01_ReporteCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Programas Reportes\F01_ReporteVentaAdmin.Designer.vb">
+      <DependentUpon>F01_ReporteVentaAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Programas Reportes\F01_ReporteVentaAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Programas Reportes\F01_ReporteVentaFact.designer.vb">
@@ -1442,6 +1450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Programas Reportes\F01_ReporteCompras.resx">
       <DependentUpon>F01_ReporteCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Programas Reportes\F01_ReporteVentaAdmin.resx">
+      <DependentUpon>F01_ReporteVentaAdmin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Programas Reportes\F01_ReporteVentaFact.resx">
       <DependentUpon>F01_ReporteVentaFact.vb</DependentUpon>

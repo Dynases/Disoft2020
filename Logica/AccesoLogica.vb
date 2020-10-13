@@ -10753,4 +10753,123 @@ Public Class AccesoLogica
         Tabla = D_Datos_Tabla("a.canumi as [cod], a.cadesc as [desc]", "TC001 a", where)
         Return Tabla
     End Function
+
+    Public Shared Function L_fnReporteVentaAdminEstructura() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 7))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaGeneral(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaProveedor(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaCategoria(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaMarca(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaAtributo(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteVentaProducto(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@gr1", Proveedor))
+        _listParam.Add(New Datos.DParametro("@cat", Categoria))
+        _listParam.Add(New Datos.DParametro("@gr2", Marca))
+        _listParam.Add(New Datos.DParametro("@gr3", Atributo))
+        _listParam.Add(New Datos.DParametro("@desc2", Descripcion))
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteVentaAdministrativo", _listParam)
+
+        Return _Tabla
+    End Function
+
 End Class

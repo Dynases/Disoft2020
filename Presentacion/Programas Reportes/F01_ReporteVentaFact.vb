@@ -580,4 +580,8 @@ Public Class F01_ReporteVentaFact
     Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
 
     End Sub
+
+    Private Sub MBtGrabar_Click(sender As Object, e As EventArgs) Handles MBtGrabar.Click
+
+    End Sub
 End Class

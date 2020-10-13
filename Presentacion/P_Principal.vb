@@ -1616,6 +1616,12 @@ Public Class P_Principal
         'tab3.Icon = frm.Icon
     End Sub
 
+    Private Sub btnVentaAdministrativa_Click(sender As Object, e As EventArgs) Handles btnVentaAdministrativa.Click
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New F01_ReporteVentaAdmin
+        frm.Show()
+    End Sub
+
 
 #End Region
 
