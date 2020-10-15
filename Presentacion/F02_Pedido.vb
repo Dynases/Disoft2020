@@ -23,7 +23,7 @@ Public Class F02_Pedido
     Public _nameButton As String
     Public _tab As SuperTabItem
     Public _modulo As SideNavItem
-
+    Public _BanderaDescuentos As Boolean = True
 #End Region
 
 #Region "Metodos Privados"
@@ -1407,7 +1407,11 @@ Public Class F02_Pedido
                     _Error = True
                 End If
             Next
+            If (_BanderaDescuentos = False) Then
+                ToastNotification.Show(Me, "Se modificó cantidad y/o precio, por favor vuelva a presione el botón aplicar descuentos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                _Error = True
 
+            End If
             Return _Error
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -1936,15 +1940,8 @@ Public Class F02_Pedido
         _PGrabarRegistro()
     End Sub
 
-    Private Sub JGr_DetallePedido_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGr_DetallePedido.EditingCell
-        If (_fnAccesible()) Then
-            'If e.Column.Index <> 3 Then
-            '    e.Cancel = True
-            'End If
-            e.Cancel = True
-        Else
-            e.Cancel = True
-        End If
+    Private Sub JGr_DetallePedido_EditingCell(sender As Object, e As EditingCellEventArgs)
+
     End Sub
 
     Public Function _fnAccesible()
@@ -2005,6 +2002,7 @@ Public Class F02_Pedido
 
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
         _PSalirRegistro()
+        _BanderaDescuentos = True
     End Sub
 
     Private Sub JGr_DetallePedido_KeyDown(sender As Object, e As KeyEventArgs) Handles JGr_DetallePedido.KeyDown
@@ -2015,10 +2013,10 @@ Public Class F02_Pedido
 
 
     Private Sub JGr_DetallePedido_UpdatingCell(sender As Object, e As UpdatingCellEventArgs) Handles JGr_DetallePedido.UpdatingCell
-        Dim cantidad, precio As Double
-        cantidad = e.Value
-        precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
-        JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
+        'Dim cantidad, precio As Double
+        'cantidad = e.Value
+        'precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+        'JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
     End Sub
 
     Private Sub MBtModificar_Click(sender As Object, e As EventArgs) Handles MBtModificar.Click
@@ -2074,8 +2072,24 @@ Public Class F02_Pedido
 
     End Sub
 
-    Private Sub JGr_UltimosPedidos_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGr_UltimosPedidos.EditingCell
-        e.Cancel = True
+    Private Sub JGr_UltimosPedidos_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGr_UltimosPedidos.EditingCell, JGr_DetallePedido.EditingCell
+        If (_fnAccesible()) Then
+            If gi_userRol = 1 Then
+                If e.Column.Index = JGr_DetallePedido.RootTable.Columns("Cantidad").Index Or e.Column.Index = JGr_DetallePedido.RootTable.Columns("Precio").Index Or e.Column.Index = JGr_DetallePedido.RootTable.Columns("Descuento").Index Then
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
+            Else
+                If e.Column.Index = JGr_DetallePedido.RootTable.Columns("Cantidad").Index Then
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
+            End If
+        Else
+            e.Cancel = True
+        End If
     End Sub
 
     Private Sub JGr_UltimosPedidos_SelectionChanged(sender As Object, e As EventArgs) Handles JGr_UltimosPedidos.SelectionChanged
@@ -2239,7 +2253,7 @@ Public Class F02_Pedido
 
     End Sub
 
-    Private Sub SuperTabControl1_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles MSuperTabControlPrincipal.SelectedTabChanged 'SuperTabControl1.SelectedTabChanged
+    Private Sub SuperTabControl1_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles MSuperTabControlPrincipal.SelectedTabChanged  'SuperTabControl1.SelectedTabChanged
         If e.NewValue.ToString = "REGISTRO" And _Nuevo = False Then
             If JGr_Buscador.RowCount > 0 Then
                 '_Pos = 0
@@ -2725,7 +2739,7 @@ Public Class F02_Pedido
 
             End If
         Next
-
+        _BanderaDescuentos = True
         Btn_TerminarAdd.Focus()
         'Btn_TerminarAdd.PerformClick()
 
@@ -2862,5 +2876,71 @@ Public Class F02_Pedido
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub JGr_DetallePedido_CellValueChanged(sender As Object, e As ColumnActionEventArgs) Handles JGr_DetallePedido.CellValueChanged
+        Try
+            If (e.Column.Index = JGr_DetallePedido.RootTable.Columns("Cantidad").Index) Or (e.Column.Index = JGr_DetallePedido.RootTable.Columns("Precio").Index) Then
+
+                If (Not IsNumeric(JGr_DetallePedido.GetValue("Cantidad")) Or JGr_DetallePedido.GetValue("Cantidad").ToString = String.Empty) Then
+                    JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value = 1
+                    JGr_DetallePedido.CurrentRow.Cells("Monto").Value = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+                    JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Precio").Value - JGr_DetallePedido.GetValue("Descuento")
+                Else
+                    If (JGr_DetallePedido.GetValue("Cantidad") > 0) Then
+                        Dim cantidad, precio, descuento As Double
+                        Dim atributo As Integer
+                        cantidad = JGr_DetallePedido.GetValue("Cantidad")
+                        precio = JGr_DetallePedido.GetValue("Precio")
+                        'atributo = JGr_DetallePedido.GetValue("Atributo")
+                        descuento = JGr_DetallePedido.GetValue("Descuento")
+
+                        JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
+                        JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
+                        'If atributo = -1 Then
+                        '    JGr_DetallePedido.CurrentRow.Cells("Monto").Value = 1 * precio
+                        '    JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
+                        'Else
+                        '    JGr_DetallePedido.CurrentRow.Cells("Monto").Value = cantidad * precio
+                        '    JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value - descuento
+                        'End If
+                        _BanderaDescuentos = False
+                    Else
+
+                        JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value = 1
+                        JGr_DetallePedido.CurrentRow.Cells("Monto").Value = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+                        JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+
+
+                    End If
+                End If
+            End If
+
+            ''''''''''''''''''''MONTO DE DESCUENTO '''''''''''''''''''''
+            If (e.Column.Index = JGr_DetallePedido.RootTable.Columns("Descuento").Index) Then
+                If (Not IsNumeric(JGr_DetallePedido.GetValue("Descuento")) Or JGr_DetallePedido.GetValue("Descuento").ToString = String.Empty) Then
+
+                    JGr_DetallePedido.CurrentRow.Cells("Descuento").Value = 0
+                    JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+
+                Else
+                    If (JGr_DetallePedido.GetValue("Descuento") >= 0 And JGr_DetallePedido.GetValue("Descuento") <= JGr_DetallePedido.GetValue("Monto")) Then
+
+                        Dim montodesc As Double = JGr_DetallePedido.GetValue("Descuento")
+
+                        JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.GetValue("Monto") - montodesc
+
+                        _BanderaDescuentos = True
+                    Else
+
+                        JGr_DetallePedido.CurrentRow.Cells("Descuento").Value = 0
+                        JGr_DetallePedido.CurrentRow.Cells("Total").Value = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
     End Sub
 End Class
