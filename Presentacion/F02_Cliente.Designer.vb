@@ -53,6 +53,9 @@ Partial Class F02_Cliente
         Me.BtAddEquipo = New DevComponents.DotNetBar.ButtonX()
         Me.TableLayoutPanelDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.StcFrecuencia = New DevComponents.DotNetBar.SuperTabControl()
+        Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
+        Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel7 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.gpFrecuencia = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
@@ -81,9 +84,6 @@ Partial Class F02_Cliente
         Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
         Me.SuperTabItemCoordenadas = New DevComponents.DotNetBar.SuperTabItem()
         Me.StiUbicacion = New DevComponents.DotNetBar.SuperTabItem()
-        Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
-        Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PnDatosGenerales = New DevComponents.DotNetBar.PanelEx()
         Me.cbTipoCredito = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -196,6 +196,8 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.SuspendLayout()
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StcFrecuencia.SuspendLayout()
+        Me.SuperTabControlPanel3.SuspendLayout()
+        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel7.SuspendLayout()
         Me.gpFrecuencia.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
@@ -210,8 +212,6 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
         Me.GroupPanelCoordenadas.SuspendLayout()
-        Me.SuperTabControlPanel3.SuspendLayout()
-        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PnDatosGenerales.SuspendLayout()
         CType(Me.cbTipoCredito, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,15 +266,15 @@ Partial Class F02_Cliente
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1149, 496)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemAcuerdo})
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel5, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusquedaDatos)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1330, 496)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1107, 496)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -710,6 +710,33 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StiFiltroCliente, Me.StiUbicacion, Me.catProd, Me.stiFrecuencia})
         Me.StcFrecuencia.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.StcFrecuencia.Text = "SuperTabControl2"
+        '
+        'SuperTabControlPanel3
+        '
+        Me.SuperTabControlPanel3.Controls.Add(Me.DgjSugerencia)
+        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
+        Me.SuperTabControlPanel3.Padding = New System.Windows.Forms.Padding(5)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(337, 314)
+        Me.SuperTabControlPanel3.TabIndex = 1
+        Me.SuperTabControlPanel3.TabItem = Me.StiFiltroCliente
+        '
+        'DgjSugerencia
+        '
+        Me.DgjSugerencia.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgjSugerencia.Location = New System.Drawing.Point(5, 5)
+        Me.DgjSugerencia.Name = "DgjSugerencia"
+        Me.DgjSugerencia.RecordNavigator = True
+        Me.DgjSugerencia.Size = New System.Drawing.Size(327, 304)
+        Me.DgjSugerencia.TabIndex = 0
+        '
+        'StiFiltroCliente
+        '
+        Me.StiFiltroCliente.AttachedControl = Me.SuperTabControlPanel3
+        Me.StiFiltroCliente.GlobalItem = False
+        Me.StiFiltroCliente.Name = "StiFiltroCliente"
+        Me.StiFiltroCliente.Text = "SUGERENCIAS"
         '
         'SuperTabControlPanel7
         '
@@ -1162,33 +1189,6 @@ Partial Class F02_Cliente
         Me.StiUbicacion.GlobalItem = False
         Me.StiUbicacion.Name = "StiUbicacion"
         Me.StiUbicacion.Text = "UBICACIÓN"
-        '
-        'SuperTabControlPanel3
-        '
-        Me.SuperTabControlPanel3.Controls.Add(Me.DgjSugerencia)
-        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Padding = New System.Windows.Forms.Padding(5)
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(337, 314)
-        Me.SuperTabControlPanel3.TabIndex = 1
-        Me.SuperTabControlPanel3.TabItem = Me.StiFiltroCliente
-        '
-        'DgjSugerencia
-        '
-        Me.DgjSugerencia.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgjSugerencia.Location = New System.Drawing.Point(5, 5)
-        Me.DgjSugerencia.Name = "DgjSugerencia"
-        Me.DgjSugerencia.RecordNavigator = True
-        Me.DgjSugerencia.Size = New System.Drawing.Size(327, 304)
-        Me.DgjSugerencia.TabIndex = 0
-        '
-        'StiFiltroCliente
-        '
-        Me.StiFiltroCliente.AttachedControl = Me.SuperTabControlPanel3
-        Me.StiFiltroCliente.GlobalItem = False
-        Me.StiFiltroCliente.Name = "StiFiltroCliente"
-        Me.StiFiltroCliente.Text = "SUGERENCIAS"
         '
         'GroupPanelDatosGenerales
         '
@@ -2189,7 +2189,7 @@ Partial Class F02_Cliente
         Me.GroupPanelBusquedaDatos.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusquedaDatos.Name = "GroupPanelBusquedaDatos"
         Me.GroupPanelBusquedaDatos.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelBusquedaDatos.Size = New System.Drawing.Size(1330, 496)
+        Me.GroupPanelBusquedaDatos.Size = New System.Drawing.Size(1107, 496)
         '
         '
         '
@@ -2228,7 +2228,7 @@ Partial Class F02_Cliente
         Me.DgjBusqueda.GroupTotals = Janus.Windows.GridEX.GroupTotals.ExpandedGroup
         Me.DgjBusqueda.Location = New System.Drawing.Point(5, 5)
         Me.DgjBusqueda.Name = "DgjBusqueda"
-        Me.DgjBusqueda.Size = New System.Drawing.Size(1314, 462)
+        Me.DgjBusqueda.Size = New System.Drawing.Size(1091, 462)
         Me.DgjBusqueda.TabIndex = 0
         Me.DgjBusqueda.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.DgjBusqueda.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
@@ -2835,6 +2835,8 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.ResumeLayout(False)
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StcFrecuencia.ResumeLayout(False)
+        Me.SuperTabControlPanel3.ResumeLayout(False)
+        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel7.ResumeLayout(False)
         Me.gpFrecuencia.ResumeLayout(False)
         Me.PanelEx3.ResumeLayout(False)
@@ -2850,8 +2852,6 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.ResumeLayout(False)
         Me.SuperTabControlPanel2.ResumeLayout(False)
         Me.GroupPanelCoordenadas.ResumeLayout(False)
-        Me.SuperTabControlPanel3.ResumeLayout(False)
-        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.PerformLayout()

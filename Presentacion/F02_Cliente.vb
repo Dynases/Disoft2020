@@ -1387,7 +1387,7 @@ Public Class F02_Cliente
             .Visible = True
         End With
         With DgjBusqueda.RootTable.Columns(24)
-            .Caption = "Recorrido"
+            .Caption = ""
             .Key = "recven"
             .Width = 80
             .HeaderStyle.Font = FtTitulo
