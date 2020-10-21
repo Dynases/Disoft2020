@@ -248,9 +248,11 @@ Public Class F02_Precio
 
         'cargar datos de la tabla
         Dim dtPreciosProd As DataTable
+        Dim dtPReciosGeneral As DataTable = L_fnProductoPreciosGeneral()
         For i = 0 To dtProd.Rows.Count - 1
-            Dim where As String = "chcprod='" + dtProd.Rows(i).Item("canumi").ToString + "'"
-            dtPreciosProd = L_PrecioProd_GeneralConCatPrecio(-1, where).Tables(0)
+            'Dim where As String = "chcprod='" + dtProd.Rows(i).Item("canumi").ToString + "'"
+            '' dtPreciosProd = L_PrecioProd_GeneralConCatPrecio(-1, where).Tables(0)
+            dtPreciosProd = ObtenerPreciosProducto(dtPReciosGeneral, dtProd.Rows(i).Item("canumi"))
             Dim listPrecio = String.Empty
             Dim k As Integer = 0
             For j = 0 To dtPreciosProd.Rows.Count - 1
@@ -325,6 +327,25 @@ Public Class F02_Precio
 
 
     End Sub
+
+    Public Function ObtenerPreciosProducto(dtGeneral As DataTable, ProductoId As Integer) As DataTable
+        Dim dtProducto = dtGeneral.Copy
+        dtProducto.Rows.Clear()
+        For i As Integer = 0 To dtGeneral.Rows.Count - 1 Step 1
+
+            If (dtGeneral.Rows(i).Item("chcprod") = ProductoId) Then
+
+                dtProducto.ImportRow(dtGeneral.Rows(i))
+
+            End If
+
+        Next
+
+        Return dtProducto
+
+
+
+    End Function
 
     'Private Sub _PCargarDetalle(idTipoProd As String)
     '    Dim dtProd, dtCatPrecios As New DataTable

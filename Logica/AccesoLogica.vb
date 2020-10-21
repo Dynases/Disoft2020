@@ -2442,6 +2442,20 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+
+    Public Shared Function L_fnProductoPreciosGeneral() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 9))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TC001", _listParam)
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_fnProductoGrabar(ByRef numi As String, cod As String, desc As String, desc2 As String,
                                               cat As String, ByRef img As String, stc As String, est As String,
                                               serie As String, pcom As String, fing As String, cemp As String,
