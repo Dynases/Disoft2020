@@ -2079,8 +2079,8 @@ Public Class F02_Cliente
         f.Item(1) = Now.Date
 
         'Código producto
-        Dim cprod As String = L_GetFilaTabla("TC001", "top(1) cacod", "caest=1 and caserie=1").Item("cacod").ToString
-        f.Item(2) = cprod
+        ' Dim cprod As String = L_GetFilaTabla("TC001", "top(1) cacod", "caest=1 and caserie=1").Item("cacod").ToString
+        f.Item(2) = CbFiltroResumenEquipo.Value
 
         'Descripción Producto
         f.Item(3) = ""
@@ -2877,7 +2877,7 @@ Public Class F02_Cliente
         Return dt
     End Function
     Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
-        Dim dt As DataTable = _fnObtenerDatatableClientes()
+        Dim dt As DataTable = CType(DgjBusqueda.DataSource, DataTable)
         P_prGenerarReporte(dt)
     End Sub
     Private Sub P_prGenerarReporte(dt As DataTable)

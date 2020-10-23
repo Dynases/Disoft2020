@@ -27,6 +27,7 @@ Public Class frmBillingDispatch
         Try
             If (_cargaCompleta) Then
                 CargarPedidos()
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -70,7 +71,8 @@ Public Class frmBillingDispatch
                 Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Str(list1(i).Id))
 
                 'P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
-                P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
+                'P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
+                P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer)
 
             Next
 
@@ -849,6 +851,7 @@ Public Class frmBillingDispatch
         Try
             If (_cargaCompleta) Then
                 CargarPedidos()
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -997,6 +1000,17 @@ Public Class frmBillingDispatch
                 .UseHeaderSelector = True
                 .FilterEditType = FilterEditType.NoEdit
                 .Position = 8
+            End With
+            dgjPedido.RootTable.Columns.Add(New GridEXColumn("NotaVenta"))
+            With dgjPedido.RootTable.Columns("NotaVenta")
+                .Caption = "NotaVenta"
+                .Width = 100
+                .ShowRowSelector = True
+                .UseHeaderSelector = True
+                .FilterEditType = FilterEditType.NoEdit
+                .Position = 8
+                .CheckBoxTrueValue = True
+
             End With
             With dgjPedido
                 .GroupByBoxVisible = False
@@ -1215,6 +1229,7 @@ Public Class frmBillingDispatch
         Try
             If (_cargaCompleta) Then
                 CargarPedidos()
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)

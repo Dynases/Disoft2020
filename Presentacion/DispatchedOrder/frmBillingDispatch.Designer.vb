@@ -44,6 +44,8 @@ Partial Class frmBillingDispatch
         Me.btVolverDist = New DevComponents.DotNetBar.ButtonX()
         Me.cbChoferes = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.lblPedido = New DevComponents.DotNetBar.LabelX()
+        Me.lblCantidadPedido = New DevComponents.DotNetBar.LabelX()
         Me.PanelBase.SuspendLayout()
         Me.PanelPedido.SuspendLayout()
         CType(Me.dgjPedido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +121,8 @@ Partial Class frmBillingDispatch
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.lblCantidadPedido)
+        Me.PanelSuperior.Controls.Add(Me.lblPedido)
         Me.PanelSuperior.Controls.Add(Me.LabelX3)
         Me.PanelSuperior.Controls.Add(Me.Tb_FechaHasta)
         Me.PanelSuperior.Controls.Add(Me.btReporteDespachoPedido)
@@ -355,6 +359,31 @@ Partial Class frmBillingDispatch
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'lblPedido
+        '
+        '
+        '
+        '
+        Me.lblPedido.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPedido.Location = New System.Drawing.Point(12, 34)
+        Me.lblPedido.Name = "lblPedido"
+        Me.lblPedido.Size = New System.Drawing.Size(77, 23)
+        Me.lblPedido.TabIndex = 238
+        Me.lblPedido.Text = "Total pedido:"
+        '
+        'lblCantidadPedido
+        '
+        '
+        '
+        '
+        Me.lblCantidadPedido.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lblCantidadPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCantidadPedido.Location = New System.Drawing.Point(83, 34)
+        Me.lblCantidadPedido.Name = "lblCantidadPedido"
+        Me.lblCantidadPedido.Size = New System.Drawing.Size(77, 23)
+        Me.lblCantidadPedido.TabIndex = 239
+        '
         'frmBillingDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -399,4 +428,6 @@ Partial Class frmBillingDispatch
     Friend WithEvents btReporteDespachoPedido As DevComponents.DotNetBar.ButtonX
     Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tb_FechaHasta As DevComponents.Editors.DateTimeAdv.DateTimeInput
+    Friend WithEvents lblCantidadPedido As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lblPedido As DevComponents.DotNetBar.LabelX
 End Class
