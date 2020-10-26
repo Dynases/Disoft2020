@@ -1086,7 +1086,7 @@ Public Class F02_Cliente
             .Columns(1).Caption = "Descripción"
         End With
 
-        CbFiltroResumenEquipo.ValueMember = dt.Columns(1).ToString
+        CbFiltroResumenEquipo.ValueMember = dt.Columns(0).ToString
         CbFiltroResumenEquipo.DisplayMember = dt.Columns(2).ToString
         CbFiltroResumenEquipo.DataSource = dt
         CbFiltroResumenEquipo.Refresh()
@@ -3054,5 +3054,4 @@ Public Class F02_Cliente
     Private Sub Timer2_Tick(sender As Object, e As EventArgs)
 
     End Sub
-
 End Class

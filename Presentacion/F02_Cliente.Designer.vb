@@ -694,9 +694,9 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.ControlBox.Name = ""
         Me.StcFrecuencia.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StcFrecuencia.ControlBox.MenuBox, Me.StcFrecuencia.ControlBox.CloseBox})
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel3)
-        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel7)
-        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel6)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel4)
+        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel6)
+        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel7)
         Me.StcFrecuencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.StcFrecuencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StcFrecuencia.Location = New System.Drawing.Point(761, 3)
@@ -947,7 +947,7 @@ Partial Class F02_Cliente
         Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(101, 314)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(312, 314)
         Me.SuperTabControlPanel1.TabIndex = 1
         Me.SuperTabControlPanel1.TabItem = Me.SuperTabItemMapa
         '
@@ -962,7 +962,7 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelMapa.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelMapa.Name = "GroupPanelMapa"
-        Me.GroupPanelMapa.Size = New System.Drawing.Size(101, 314)
+        Me.GroupPanelMapa.Size = New System.Drawing.Size(312, 314)
         '
         '
         '
@@ -1045,7 +1045,7 @@ Partial Class F02_Cliente
         Me.GmUbicacionCliente.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GmUbicacionCliente.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GmUbicacionCliente.ShowTileGridLines = False
-        Me.GmUbicacionCliente.Size = New System.Drawing.Size(95, 290)
+        Me.GmUbicacionCliente.Size = New System.Drawing.Size(306, 290)
         Me.GmUbicacionCliente.TabIndex = 2
         Me.GmUbicacionCliente.Zoom = 0R
         '
