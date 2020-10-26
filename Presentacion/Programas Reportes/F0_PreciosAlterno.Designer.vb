@@ -98,19 +98,22 @@ Partial Class F0_PreciosAlterno
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1071, 429)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(803, 348)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.PanelDatos)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1029, 429)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(761, 348)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelDatos, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Size = New System.Drawing.Size(1071, 86)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnSuperior.Size = New System.Drawing.Size(803, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -121,8 +124,9 @@ Partial Class F0_PreciosAlterno
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(0, 515)
-        Me.MPnInferior.Size = New System.Drawing.Size(1071, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 418)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Size = New System.Drawing.Size(803, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -133,11 +137,14 @@ Partial Class F0_PreciosAlterno
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(804, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(603, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         '
         'MTbUsuario
         '
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MTbUsuario.ReadOnly = True
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MPanelToolBarNavegacion
@@ -163,12 +170,14 @@ Partial Class F0_PreciosAlterno
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(784, 0)
-        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(287, 86)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(588, 0)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(215, 70)
         '
         'MBtImprimir
         '
-        Me.MBtImprimir.Location = New System.Drawing.Point(191, 0)
+        Me.MBtImprimir.Location = New System.Drawing.Point(143, 0)
+        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MBtImprimir.Text = "Excel"
         '
         'MBubbleBarUsuario
@@ -216,8 +225,9 @@ Partial Class F0_PreciosAlterno
         Me.PanelDatos.Controls.Add(Me.PanelCategoria)
         Me.PanelDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelDatos.Location = New System.Drawing.Point(0, 0)
+        Me.PanelDatos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PanelDatos.Name = "PanelDatos"
-        Me.PanelDatos.Size = New System.Drawing.Size(1029, 429)
+        Me.PanelDatos.Size = New System.Drawing.Size(761, 348)
         Me.PanelDatos.TabIndex = 29
         '
         'PanelPrecios
@@ -228,9 +238,8 @@ Partial Class F0_PreciosAlterno
         Me.PanelPrecios.Controls.Add(Me.GroupPanel3)
         Me.PanelPrecios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPrecios.Location = New System.Drawing.Point(0, 0)
-        Me.PanelPrecios.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPrecios.Name = "PanelPrecios"
-        Me.PanelPrecios.Size = New System.Drawing.Size(424, 429)
+        Me.PanelPrecios.Size = New System.Drawing.Size(307, 348)
         Me.PanelPrecios.TabIndex = 2
         '
         'GroupPanel4
@@ -241,10 +250,9 @@ Partial Class F0_PreciosAlterno
         Me.GroupPanel4.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel4.Location = New System.Drawing.Point(0, 113)
-        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanel4.Location = New System.Drawing.Point(0, 92)
         Me.GroupPanel4.Name = "GroupPanel4"
-        Me.GroupPanel4.Size = New System.Drawing.Size(424, 316)
+        Me.GroupPanel4.Size = New System.Drawing.Size(307, 256)
         '
         '
         '
@@ -282,9 +290,8 @@ Partial Class F0_PreciosAlterno
         Me.Panel5.Controls.Add(Me.grprecio)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(418, 289)
+        Me.Panel5.Size = New System.Drawing.Size(301, 233)
         Me.Panel5.TabIndex = 0
         '
         'grprecio
@@ -293,11 +300,10 @@ Partial Class F0_PreciosAlterno
         Me.grprecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grprecio.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grprecio.Location = New System.Drawing.Point(0, 0)
-        Me.grprecio.Margin = New System.Windows.Forms.Padding(4)
         Me.grprecio.Name = "grprecio"
         Me.grprecio.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grprecio.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grprecio.Size = New System.Drawing.Size(418, 289)
+        Me.grprecio.Size = New System.Drawing.Size(301, 233)
         Me.grprecio.TabIndex = 0
         Me.grprecio.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -310,9 +316,8 @@ Partial Class F0_PreciosAlterno
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(424, 113)
+        Me.GroupPanel3.Size = New System.Drawing.Size(307, 92)
         '
         '
         '
@@ -351,9 +356,8 @@ Partial Class F0_PreciosAlterno
         Me.Panel4.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(418, 86)
+        Me.Panel4.Size = New System.Drawing.Size(301, 69)
         Me.Panel4.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -365,11 +369,10 @@ Partial Class F0_PreciosAlterno
         Me.TableLayoutPanel1.Controls.Add(Me.Panel6, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(418, 86)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(301, 69)
         Me.TableLayoutPanel1.TabIndex = 236
         '
         'Panel6
@@ -378,11 +381,10 @@ Partial Class F0_PreciosAlterno
         Me.Panel6.Controls.Add(Me.cbAlmacen)
         Me.Panel6.Controls.Add(Me.lbgrupo2)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel6.Location = New System.Drawing.Point(129, 4)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel6.Location = New System.Drawing.Point(93, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Padding = New System.Windows.Forms.Padding(0, 25, 0, 0)
-        Me.Panel6.Size = New System.Drawing.Size(159, 78)
+        Me.Panel6.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.Panel6.Size = New System.Drawing.Size(114, 63)
         Me.Panel6.TabIndex = 34
         '
         'cbAlmacen
@@ -393,14 +395,13 @@ Partial Class F0_PreciosAlterno
         Me.cbAlmacen.DesignTimeLayout = cbAlmacen_DesignTimeLayout
         Me.cbAlmacen.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacen.Location = New System.Drawing.Point(82, 25)
-        Me.cbAlmacen.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbAlmacen.Location = New System.Drawing.Point(66, 20)
         Me.cbAlmacen.Name = "cbAlmacen"
         Me.cbAlmacen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbAlmacen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbAlmacen.SelectedIndex = -1
         Me.cbAlmacen.SelectedItem = Nothing
-        Me.cbAlmacen.Size = New System.Drawing.Size(77, 24)
+        Me.cbAlmacen.Size = New System.Drawing.Size(48, 21)
         Me.cbAlmacen.TabIndex = 31
         Me.cbAlmacen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -415,12 +416,11 @@ Partial Class F0_PreciosAlterno
         Me.lbgrupo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.lbgrupo2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbgrupo2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbgrupo2.Location = New System.Drawing.Point(0, 25)
-        Me.lbgrupo2.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbgrupo2.Location = New System.Drawing.Point(0, 20)
         Me.lbgrupo2.Name = "lbgrupo2"
         Me.lbgrupo2.PaddingTop = 4
         Me.lbgrupo2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbgrupo2.Size = New System.Drawing.Size(82, 24)
+        Me.lbgrupo2.Size = New System.Drawing.Size(66, 20)
         Me.lbgrupo2.TabIndex = 32
         Me.lbgrupo2.Text = "Categoria:"
         '
@@ -430,10 +430,9 @@ Partial Class F0_PreciosAlterno
         Me.PanelCategoria.Controls.Add(Me.GroupPanel2)
         Me.PanelCategoria.Controls.Add(Me.GPanelAddCategoria)
         Me.PanelCategoria.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PanelCategoria.Location = New System.Drawing.Point(424, 0)
-        Me.PanelCategoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelCategoria.Location = New System.Drawing.Point(307, 0)
         Me.PanelCategoria.Name = "PanelCategoria"
-        Me.PanelCategoria.Size = New System.Drawing.Size(605, 429)
+        Me.PanelCategoria.Size = New System.Drawing.Size(454, 348)
         Me.PanelCategoria.TabIndex = 3
         '
         'GroupPanel2
@@ -444,10 +443,9 @@ Partial Class F0_PreciosAlterno
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel2.Location = New System.Drawing.Point(0, 181)
-        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanel2.Location = New System.Drawing.Point(0, 147)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(605, 248)
+        Me.GroupPanel2.Size = New System.Drawing.Size(454, 201)
         '
         '
         '
@@ -486,9 +484,8 @@ Partial Class F0_PreciosAlterno
         Me.Panel3.Controls.Add(Me.grcategoria)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(599, 221)
+        Me.Panel3.Size = New System.Drawing.Size(448, 178)
         Me.Panel3.TabIndex = 0
         '
         'grcategoria
@@ -499,11 +496,10 @@ Partial Class F0_PreciosAlterno
         Me.grcategoria.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grcategoria.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.grcategoria.Location = New System.Drawing.Point(0, 0)
-        Me.grcategoria.Margin = New System.Windows.Forms.Padding(4)
         Me.grcategoria.Name = "grcategoria"
         Me.grcategoria.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grcategoria.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grcategoria.Size = New System.Drawing.Size(599, 221)
+        Me.grcategoria.Size = New System.Drawing.Size(448, 178)
         Me.grcategoria.TabIndex = 0
         Me.grcategoria.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -516,9 +512,8 @@ Partial Class F0_PreciosAlterno
         Me.GPanelAddCategoria.Dock = System.Windows.Forms.DockStyle.Top
         Me.GPanelAddCategoria.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GPanelAddCategoria.Location = New System.Drawing.Point(0, 0)
-        Me.GPanelAddCategoria.Margin = New System.Windows.Forms.Padding(4)
         Me.GPanelAddCategoria.Name = "GPanelAddCategoria"
-        Me.GPanelAddCategoria.Size = New System.Drawing.Size(605, 181)
+        Me.GPanelAddCategoria.Size = New System.Drawing.Size(454, 147)
         '
         '
         '
@@ -564,9 +559,8 @@ Partial Class F0_PreciosAlterno
         Me.Panel2.Controls.Add(Me.LabelX9)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(599, 154)
+        Me.Panel2.Size = New System.Drawing.Size(448, 124)
         Me.Panel2.TabIndex = 0
         '
         'LabelX2
@@ -578,11 +572,10 @@ Partial Class F0_PreciosAlterno
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(253, 58)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(190, 47)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX2.Size = New System.Drawing.Size(28, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(21, 23)
         Me.LabelX2.TabIndex = 248
         Me.LabelX2.Text = "%"
         '
@@ -595,11 +588,10 @@ Partial Class F0_PreciosAlterno
         Me.TbMargen.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.TbMargen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbMargen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TbMargen.Location = New System.Drawing.Point(177, 59)
-        Me.TbMargen.Margin = New System.Windows.Forms.Padding(4)
+        Me.TbMargen.Location = New System.Drawing.Point(133, 48)
         Me.TbMargen.Name = "TbMargen"
         Me.TbMargen.PreventEnterBeep = True
-        Me.TbMargen.Size = New System.Drawing.Size(68, 24)
+        Me.TbMargen.Size = New System.Drawing.Size(51, 21)
         Me.TbMargen.TabIndex = 2
         Me.TbMargen.Text = "0"
         Me.TbMargen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -613,11 +605,10 @@ Partial Class F0_PreciosAlterno
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(9, 57)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(7, 46)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(105, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(79, 23)
         Me.LabelX1.TabIndex = 246
         Me.LabelX1.Text = "Margen:"
         '
@@ -629,11 +620,10 @@ Partial Class F0_PreciosAlterno
         Me.btnAgregar.Image = Global.Presentacion.My.Resources.Resources.add
         Me.btnAgregar.ImageFixedSize = New System.Drawing.Size(35, 30)
         Me.btnAgregar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnAgregar.Location = New System.Drawing.Point(441, 26)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAgregar.Location = New System.Drawing.Point(331, 21)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Shape = New DevComponents.DotNetBar.RoundRectangleShapeDescriptor(8)
-        Me.btnAgregar.Size = New System.Drawing.Size(123, 63)
+        Me.btnAgregar.Size = New System.Drawing.Size(92, 51)
         Me.btnAgregar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnAgregar.TabIndex = 245
         Me.btnAgregar.Text = "Agregar"
@@ -647,11 +637,10 @@ Partial Class F0_PreciosAlterno
         Me.tbDescripcion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDescripcion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbDescripcion.Location = New System.Drawing.Point(177, 27)
-        Me.tbDescripcion.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbDescripcion.Location = New System.Drawing.Point(133, 22)
         Me.tbDescripcion.Name = "tbDescripcion"
         Me.tbDescripcion.PreventEnterBeep = True
-        Me.tbDescripcion.Size = New System.Drawing.Size(221, 24)
+        Me.tbDescripcion.Size = New System.Drawing.Size(166, 21)
         Me.tbDescripcion.TabIndex = 1
         '
         'LabelX12
@@ -663,11 +652,10 @@ Partial Class F0_PreciosAlterno
         Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX12.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX12.Location = New System.Drawing.Point(9, 26)
-        Me.LabelX12.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX12.Location = New System.Drawing.Point(7, 21)
         Me.LabelX12.Name = "LabelX12"
         Me.LabelX12.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX12.Size = New System.Drawing.Size(151, 28)
+        Me.LabelX12.Size = New System.Drawing.Size(113, 23)
         Me.LabelX12.TabIndex = 244
         Me.LabelX12.Text = "Descripción:"
         '
@@ -678,8 +666,7 @@ Partial Class F0_PreciosAlterno
         '
         Me.swEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swEstado.Location = New System.Drawing.Point(177, 89)
-        Me.swEstado.Margin = New System.Windows.Forms.Padding(4)
+        Me.swEstado.Location = New System.Drawing.Point(133, 72)
         Me.swEstado.Name = "swEstado"
         Me.swEstado.OffBackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.swEstado.OffText = "COSTO"
@@ -687,7 +674,7 @@ Partial Class F0_PreciosAlterno
         Me.swEstado.OnBackColor = System.Drawing.Color.Gold
         Me.swEstado.OnText = "VENTA"
         Me.swEstado.OnTextColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.swEstado.Size = New System.Drawing.Size(181, 27)
+        Me.swEstado.Size = New System.Drawing.Size(136, 22)
         Me.swEstado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swEstado.TabIndex = 242
         Me.swEstado.Value = True
@@ -702,11 +689,10 @@ Partial Class F0_PreciosAlterno
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX9.Location = New System.Drawing.Point(9, 89)
-        Me.LabelX9.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX9.Location = New System.Drawing.Point(7, 72)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX9.Size = New System.Drawing.Size(105, 28)
+        Me.LabelX9.Size = New System.Drawing.Size(79, 23)
         Me.LabelX9.TabIndex = 243
         Me.LabelX9.Text = "Precio:"
         '
@@ -715,20 +701,21 @@ Partial Class F0_PreciosAlterno
         Me.msModulos.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.msModulos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SELECCIONARTODOSDELToolStripMenuItem})
         Me.msModulos.Name = "msModulos"
-        Me.msModulos.Size = New System.Drawing.Size(227, 28)
+        Me.msModulos.Size = New System.Drawing.Size(194, 26)
         '
         'SELECCIONARTODOSDELToolStripMenuItem
         '
         Me.SELECCIONARTODOSDELToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SELECCIONARTODOSDELToolStripMenuItem.Name = "SELECCIONARTODOSDELToolStripMenuItem"
-        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(226, 24)
+        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.SELECCIONARTODOSDELToolStripMenuItem.Text = "ELIMINAR CATEGORIA"
         '
         'F0_PreciosAlterno
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1071, 559)
+        Me.ClientSize = New System.Drawing.Size(803, 454)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "F0_PreciosAlterno"
         Me.Text = "F0_PreciosAlterno"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

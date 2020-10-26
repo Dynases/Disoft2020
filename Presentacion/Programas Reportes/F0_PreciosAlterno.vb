@@ -136,14 +136,19 @@ Public Class F0_PreciosAlterno
 
             'a.yfcprod ,a.yfnumi ,a.yfcdprod1,gr3.ycdes3 as Laboratorio,gr4.ycdes3 as Presentacion 
             With grprecio.RootTable.Columns("yfcprod")
-                .Caption = "COD PR"
+                .Caption = "COD"
                 .Width = 60
                 .Visible = True
             End With
             With grprecio.RootTable.Columns("yfnumi")
-                .Caption = "Cod P"
+                .Caption = "COD PROD"
                 .Width = 70
                 .Visible = False
+            End With
+            With grprecio.RootTable.Columns("yfCodProd")
+                .Caption = "COD PROD"
+                .Width = 70
+                .Visible = True
             End With
             With grprecio.RootTable.Columns("cacat")
                 .Caption = "Cod P"

@@ -277,6 +277,7 @@ Public Class F02_Precio
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .CellStyle.BackColor = Color.AliceBlue
+            .Visible = False
         End With
 
         With JGr_Detalle.RootTable.Columns(1)
@@ -286,6 +287,7 @@ Public Class F02_Precio
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .CellStyle.BackColor = Color.AliceBlue
+            .Visible = True
         End With
 
         ''JGr_Detalle.RootTable.Columns.Add()
@@ -295,6 +297,7 @@ Public Class F02_Precio
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.BackColor = Color.AliceBlue
+            .Visible = True
         End With
 
         For i = 3 To JGr_Detalle.RootTable.Columns.Count - 1
