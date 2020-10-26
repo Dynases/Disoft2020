@@ -888,7 +888,7 @@ Public Class F02_Cliente
                 'Para modificar o registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-                dia = 1 'cbDias.Value.ToString
+                dia = cbDias.Value.ToString
 
                 BtAddEquipo.Select()
 
