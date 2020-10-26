@@ -888,7 +888,7 @@ Public Class F02_Cliente
                 'Para modificar o registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-                dia = cbDias.Value.ToString
+                dia = 1 'cbDias.Value.ToString
 
                 BtAddEquipo.Select()
 
@@ -3053,5 +3053,9 @@ Public Class F02_Cliente
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub CbFiltroResumenEquipo_ValueChanged(sender As Object, e As EventArgs) Handles CbFiltroResumenEquipo.ValueChanged
+        P_prPonerResumenEquipo()
     End Sub
 End Class
