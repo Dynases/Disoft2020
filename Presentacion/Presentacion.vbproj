@@ -2096,6 +2096,10 @@
     <Content Include="Resources\cobro.png" />
     <None Include="Resources\descuentos.png" />
     <None Include="Resources\volver.png" />
+    <None Include="Resources\icons8_In_Transit_30px.png" />
+    <None Include="Resources\icons8_In_Transit_50px_3.png" />
+    <None Include="Resources\icons8_In_Transit_100px.png" />
+    <None Include="Resources\icons8_In_Transit_80px.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

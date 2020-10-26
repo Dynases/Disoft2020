@@ -40,8 +40,18 @@ Public Class frmBillingDispatch
             If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
+
+            Dim checks = Me.dgjPedido.GetCheckedRows()
+            Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+
+            If (listIdPedido.Count = 0) Then
+                Throw New Exception("Debe seleccionar por lo menos un pedido.")
+            End If
+
             Dim list2 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
             Dim list1 As List(Of VPedido_BillingDispatch) = New List(Of VPedido_BillingDispatch)
+
+            list2 = list2.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
 
             For i As Integer = 0 To list2.Count - 1 Step 1
                 'If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
@@ -994,23 +1004,12 @@ Public Class frmBillingDispatch
             End With
             dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
             With dgjPedido.RootTable.Columns("Check")
-                .Caption = "Volver a Dist."
+                .Caption = "Seleccionar"
                 .Width = 100
                 .ShowRowSelector = True
                 .UseHeaderSelector = True
                 .FilterEditType = FilterEditType.NoEdit
                 .Position = 8
-            End With
-            dgjPedido.RootTable.Columns.Add(New GridEXColumn("NotaVenta"))
-            With dgjPedido.RootTable.Columns("NotaVenta")
-                .Caption = "NotaVenta"
-                .Width = 100
-                .ShowRowSelector = True
-                .UseHeaderSelector = True
-                .FilterEditType = FilterEditType.NoEdit
-                .Position = 8
-                .CheckBoxTrueValue = True
-
             End With
             With dgjPedido
                 .GroupByBoxVisible = False
