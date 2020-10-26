@@ -1995,8 +1995,9 @@ Public Class F02_Cliente
         'If (DtProductosCompuestos.Select("canumi=" + CbFiltroResumenEquipo.Value.ToString).Length = 0) Then
         Dim s As String = CbFiltroResumenEquipo.Value.ToString
         TbiCantSaliente.Value = P_fnResumenProducto(CbFiltroResumenEquipo.Value.ToString, "-1")
-        TbiCantEntrante.Value = P_fnResumenProducto(CbFiltroResumenEquipo.Value.ToString, "1") * -1
-        TbiCantSaldo.Value = TbiCantSaliente.Value + TbiCantEntrante.Value
+        TbiCantEntrante.Value = P_fnResumenProducto(CbFiltroResumenEquipo.Value.ToString, "1")
+        Dim valorCantidadEntrante = TbiCantEntrante.Value * -1
+        TbiCantSaldo.Value = TbiCantSaliente.Value + valorCantidadEntrante
         'Else
         'ToastNotification.Show(Me, "El equipo con código: ".ToUpper + CbFiltroResumenEquipo.Value.ToString _
         '                       + " es un equipo compuesto,".ToUpper + ChrW(13) + "sus partes se sumaran como individuales".ToUpper,
@@ -2032,9 +2033,10 @@ Public Class F02_Cliente
         If (Array.Length > 0) Then
             Pc = Array(0).Item("canumi").ToString
             Suma = P_fnResumenProducto(Pc, "-1")
-            Resta = P_fnResumenProducto(Pc, "1") * -1
+            Resta = P_fnResumenProducto(Pc, "1")
+            Dim restaSaiente = Resta * -1
             TbiCantSaliente.Value = TbiCantSaliente.Value + Suma
-            TbiCantEntrante.Value = TbiCantEntrante.Value - Resta
+            TbiCantEntrante.Value = TbiCantEntrante.Value - restaSaiente
             TbiCantSaldo.Value = TbiCantSaliente.Value + TbiCantEntrante.Value
         End If
     End Sub
