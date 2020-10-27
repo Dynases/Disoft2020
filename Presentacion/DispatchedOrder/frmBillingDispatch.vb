@@ -1153,18 +1153,23 @@ Public Class frmBillingDispatch
             If (listIdPedido.Count = 0) Then
                 Throw New Exception("Debe seleccionar por lo menos un pedido.")
             End If
-            For Each nfact As Integer In listFacPedido
-                Dim nro As Integer = nfact
-                If nro > 0 Then
-                    MostrarMensajeError("Debe de seleccionar solo los pedidos que no hayan sido facturados")
-                    Exit Sub
+            Dim _Result As MsgBoxResult
+
+            _Result = MsgBox("Esta seguro de volver a distribucion?", MsgBoxStyle.YesNo, "Advertencia")
+            If _Result = MsgBoxResult.Yes Then
+                For Each nfact As Integer In listFacPedido
+                    Dim nro As Integer = nfact
+                    If nro > 0 Then
+                        MostrarMensajeError("Debe de seleccionar solo los pedidos que no hayan sido facturados")
+                        Exit Sub
+                    End If
+                Next
+                Dim idChofer = Me.cbChoferes.Value
+                Dim result = New LPedido().VolverPedidoDistribucion(listIdPedido, idChofer)
+                If (result) Then
+                    CargarPedidos()
+                    MostrarMensajeOk("Pedidos volvieron a Distribución correctamente")
                 End If
-            Next
-            Dim idChofer = Me.cbChoferes.Value
-            Dim result = New LPedido().VolverPedidoDistribucion(listIdPedido, idChofer)
-            If (result) Then
-                CargarPedidos()
-                MostrarMensajeOk("Pedidos volvieron a Distribución correctamente")
             End If
         Catch ex As Exception
             Throw New Exception(ex.Message)

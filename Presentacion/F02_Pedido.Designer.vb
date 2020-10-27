@@ -69,6 +69,7 @@ Partial Class F02_Pedido
         Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
         Me.GroupPanel4 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
+        Me.tb_EstadoPedido = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.btAplicarDesc = New DevComponents.DotNetBar.ButtonX()
         Me.tbMontoCredito = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.swTipoVenta = New DevComponents.DotNetBar.Controls.SwitchButton()
@@ -152,7 +153,6 @@ Partial Class F02_Pedido
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.tb_EstadoPedido = New DevComponents.DotNetBar.Controls.TextBoxX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -233,7 +233,7 @@ Partial Class F02_Pedido
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.Controls.Add(Me.SuperTabControlPanel1)
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 2
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1149, 562)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemCliente})
@@ -244,13 +244,13 @@ Partial Class F02_Pedido
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.TableLayoutPanel3)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(997, 503)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1107, 562)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
@@ -258,7 +258,7 @@ Partial Class F02_Pedido
         'MPnSuperior
         '
         Me.MPnSuperior.Controls.Add(Me.btnVentaDirecta)
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1149, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -275,7 +275,7 @@ Partial Class F02_Pedido
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(0, 632)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(1149, 29)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -288,44 +288,44 @@ Partial Class F02_Pedido
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(949, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarUsuario.Size = New System.Drawing.Size(200, 29)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MPanelToolBarNavegacion
         '
-        Me.MPanelToolBarNavegacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarNavegacion.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarNavegacion.Padding = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.MPanelToolBarNavegacion.Size = New System.Drawing.Size(320, 29)
         '
         'MBtUltimo
         '
         Me.MBtUltimo.Location = New System.Drawing.Point(136, 0)
-        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2)
         Me.MBtUltimo.Size = New System.Drawing.Size(43, 29)
         '
         'MBtSiguiente
         '
         Me.MBtSiguiente.Location = New System.Drawing.Point(93, 0)
-        Me.MBtSiguiente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBtSiguiente.Margin = New System.Windows.Forms.Padding(4)
         Me.MBtSiguiente.Size = New System.Drawing.Size(43, 29)
         '
         'MBtAnterior
         '
         Me.MBtAnterior.Location = New System.Drawing.Point(50, 0)
-        Me.MBtAnterior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBtAnterior.Margin = New System.Windows.Forms.Padding(4)
         Me.MBtAnterior.Size = New System.Drawing.Size(43, 29)
         '
         'MBtPrimero
         '
         Me.MBtPrimero.Location = New System.Drawing.Point(7, 0)
-        Me.MBtPrimero.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBtPrimero.Margin = New System.Windows.Forms.Padding(4)
         Me.MBtPrimero.Size = New System.Drawing.Size(43, 29)
         '
         'MBtSalir
@@ -347,7 +347,7 @@ Partial Class F02_Pedido
         '
         Me.MPanelToolBarImprimir.Controls.Add(Me.btActualizar)
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(989, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(160, 70)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btActualizar, 0)
@@ -355,7 +355,7 @@ Partial Class F02_Pedido
         'MBtImprimir
         '
         Me.MBtImprimir.Location = New System.Drawing.Point(88, 0)
-        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBubbleBarUsuario
         '
@@ -377,7 +377,7 @@ Partial Class F02_Pedido
         Me.MBubbleBarUsuario.ButtonBackAreaStyle.PaddingLeft = 3
         Me.MBubbleBarUsuario.ButtonBackAreaStyle.PaddingRight = 3
         Me.MBubbleBarUsuario.ButtonBackAreaStyle.PaddingTop = 3
-        Me.MBubbleBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBubbleBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MBubbleBarUsuario.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.MBubbleBarUsuario.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         Me.MBubbleBarUsuario.Size = New System.Drawing.Size(50, 29)
@@ -389,7 +389,7 @@ Partial Class F02_Pedido
         '
         Me.MLbPaginacion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MLbPaginacion.Location = New System.Drawing.Point(179, 0)
-        Me.MLbPaginacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MLbPaginacion.Margin = New System.Windows.Forms.Padding(4)
         Me.MLbPaginacion.Size = New System.Drawing.Size(134, 29)
         '
         'MFlyoutUsuario
@@ -1143,6 +1143,23 @@ Partial Class F02_Pedido
         Me.PanelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx2.Style.GradientAngle = 90
         Me.PanelEx2.TabIndex = 8
+        '
+        'tb_EstadoPedido
+        '
+        Me.tb_EstadoPedido.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.tb_EstadoPedido.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tb_EstadoPedido.DisabledBackColor = System.Drawing.Color.White
+        Me.tb_EstadoPedido.ForeColor = System.Drawing.Color.Black
+        Me.tb_EstadoPedido.Location = New System.Drawing.Point(378, 110)
+        Me.tb_EstadoPedido.Multiline = True
+        Me.tb_EstadoPedido.Name = "tb_EstadoPedido"
+        Me.tb_EstadoPedido.PreventEnterBeep = True
+        Me.tb_EstadoPedido.Size = New System.Drawing.Size(80, 20)
+        Me.tb_EstadoPedido.TabIndex = 46
+        Me.tb_EstadoPedido.Visible = False
         '
         'btAplicarDesc
         '
@@ -2429,30 +2446,13 @@ Partial Class F02_Pedido
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'tb_EstadoPedido
-        '
-        Me.tb_EstadoPedido.BackColor = System.Drawing.Color.White
-        '
-        '
-        '
-        Me.tb_EstadoPedido.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tb_EstadoPedido.DisabledBackColor = System.Drawing.Color.White
-        Me.tb_EstadoPedido.ForeColor = System.Drawing.Color.Black
-        Me.tb_EstadoPedido.Location = New System.Drawing.Point(378, 110)
-        Me.tb_EstadoPedido.Multiline = True
-        Me.tb_EstadoPedido.Name = "tb_EstadoPedido"
-        Me.tb_EstadoPedido.PreventEnterBeep = True
-        Me.tb_EstadoPedido.Size = New System.Drawing.Size(80, 20)
-        Me.tb_EstadoPedido.TabIndex = 46
-        Me.tb_EstadoPedido.Visible = False
-        '
         'F02_Pedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1149, 661)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F02_Pedido"
         Me.Text = "F02_Pedido"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)
