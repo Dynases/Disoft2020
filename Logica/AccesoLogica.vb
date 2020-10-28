@@ -8661,6 +8661,16 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
         Return _Tabla
     End Function
+    Public Shared Function ObtenerTipoDePagoPedido(idPedido As String) As String
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 29))
+        _listParam.Add(New Datos.DParametro("@numi", idPedido))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Dim tipoPago = _Tabla.Rows(0).Item(0)
+        Return tipoPago
+    End Function
 
     Public Shared Function updateTO001C(numi As String, NumFactura As String) As DataTable
         Dim _Tabla As DataTable

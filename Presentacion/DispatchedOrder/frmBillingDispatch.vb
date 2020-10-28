@@ -48,21 +48,21 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar por lo menos un pedido.")
             End If
 
-            Dim list2 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
-            Dim list1 As List(Of VPedido_BillingDispatch) = New List(Of VPedido_BillingDispatch)
+            Dim list1 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
+            'Dim list1 As List(Of VPedido_BillingDispatch) = New List(Of VPedido_BillingDispatch)
 
-            list2 = list2.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
+            list1 = list1.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
 
-            For i As Integer = 0 To list2.Count - 1 Step 1
-                'If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
-                If (list2(i).NroFactura = Nothing) Then
-                    list1.Add(list2(i))
-                Else
-                    If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
-                        list1.Add(list2(i))
-                    End If
-                End If
-            Next
+            'For i As Integer = 0 To list2.Count - 1 Step 1
+            '    'If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
+            '    If (list2(i).NroFactura = Nothing) Then
+            '        list1.Add(list2(i))
+            '    Else
+            '        If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
+            '            list1.Add(list2(i))
+            '        End If
+            '    End If
+            'Next
 
             If (list1.Count = 0) Then
                 ToastNotification.Show(Me, "No Existe ningun dato para generar Notas de Venta!!".ToUpper,
@@ -78,7 +78,7 @@ Public Class frmBillingDispatch
                     GrabarTV001(Str(list1(i).Id))
                 End If
 
-                Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Str(list1(i).Id))
+                'Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Str(list1(i).Id))
 
                 'P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
                 'P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
@@ -114,7 +114,7 @@ Public Class frmBillingDispatch
                 P_prImprimirFacturar(numi, True, True, nit) '_Codigo de a tabla TV001
             Else
                 'Volver todo al estada anterior
-                ToastNotification.Show(Me, "No es posible facturar, vuelva a ingresar a la mesa he intente nuevamente!!!".ToUpper,
+                ToastNotification.Show(Me, "No es posible facturar!!!".ToUpper,
                                        My.Resources.OK,
                                        5 * 1000,
                                        eToastGlowColor.Red,
@@ -217,7 +217,7 @@ Public Class frmBillingDispatch
             _Ds.Tables(0).Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
         Next
         P_Global.Visualizador = New Visualizador
-        Dim objrep As New R_FacturaPreImpresa1
+        Dim objrep As New Factura
         Dim dia, mes, ano As Integer
         Dim Fecliteral, mesl As String
         Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
@@ -260,24 +260,67 @@ Public Class frmBillingDispatch
         If mes = 12 Then
             mesl = "Diciembre"
         End If
+        Dim tipoPago = ObtenerTipoDePagoPedido(numi)
 
-        Fecliteral = "Cochabamba, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(_Ds.Tables(0))
-        objrep.SetParameterValue("Literal", _Literal)
-        objrep.SetParameterValue("Fechali", Fecliteral)
-        objrep.SetParameterValue("Ley", _Ds1.Tables(0).Rows(0).Item("yenota").ToString())
+
+        objrep.SetParameterValue("Fecliteral", Fecliteral)
+        objrep.SetParameterValue("Nota2", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
         'objrep.PrintOptions.PrinterName = "L4150 Series(Red) (Copiar 1)"
 
-        Dim pd As New PrintDocument()
-        pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-        If (Not pd.PrinterSettings.IsValid) Then
-            ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                   My.Resources.WARNING, 5 * 1000,
-                                   eToastGlowColor.Blue, eToastPosition.BottomRight)
+        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Literal1", _Literal)
+        objrep.SetParameterValue("NroFactura", _NumFac)
+        objrep.SetParameterValue("NroAutoriz", _Autorizacion)
+        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString) '?
+        objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+        objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
+        objrep.SetParameterValue("ESFC", _Ds1.Tables(0).Rows(0).Item("yesfc").ToString)
+        objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
+        objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
+        objrep.SetParameterValue("Tipo", "ORIGINAL")
+        objrep.SetParameterValue("TipoPago", tipoPago)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+        'If imp = 1 Then
+        '    objrep.SetParameterValue("Tipo", "ORIGINAL")
+        'Else
+        '    objrep.SetParameterValue("Tipo", "COPIA")
+        'End If
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
         Else
-            objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            objrep.PrintToPrinter(1, False, 1, 1)
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
         End If
+        If (grabarPDF) Then
+            'Copia de Factura en PDF
+            If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+                Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+            End If
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+
+        End If
+        'Dim pd As New PrintDocument()
+        'pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        'If (Not pd.PrinterSettings.IsValid) Then
+        '    ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+        '                           My.Resources.WARNING, 5 * 1000,
+        '                           eToastGlowColor.Blue, eToastPosition.BottomRight)
+        'Else
+        '    objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        '    objrep.PrintToPrinter(1, False, 1, 1)
+        'End If
         'objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
         'objrep.PrintToPrinter(1, False, 1, 1)
 
@@ -323,17 +366,196 @@ Public Class frmBillingDispatch
         '    '    objrep.PrintToPrinter(1, False, 1, 1)
         '    'End If
 
-        '    'If (grabarPDF) Then
-        '    '    'Copia de Factura en PDF
-        '    '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '    '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    '    End If
-        '    '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
 
-        '    'End If
+        'End If
         'End If
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
+    Private Sub P_ReImprImprimirFacturar(numi As String, impFactura As Boolean, grabarPDF As Boolean, nit As String)
+        Dim _Fecha, _FechaAl As Date
+        Dim _Ds, _Ds1, _Ds2, _Ds3 As New DataSet
+        Dim _Autorizacion, _Nit, _Fechainv, _Total, _Key, _Cod_Control, _Hora,
+            _Literal, _TotalDecimal, _TotalDecimal2 As String
+        Dim I, _NumFac, _numidosif, _TotalCC As Integer
+        Dim ice, _Desc, _TotalLi As Decimal
+        Dim _VistaPrevia As Integer = 0
+        Dim QrFactura1 As String
+
+        _Desc = CDbl(0)
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+
+        _Fecha = Now.Date.ToString("dd/MM/yyyy")
+        _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
+        _Ds1 = L_Dosificacion("1", "1", _Fecha)
+
+        _Ds = L_Reporte_Factura(numi, numi)
+        _Autorizacion = _Ds1.Tables(0).Rows(0).Item("yeautoriz").ToString
+        _NumFac = CInt(_Ds1.Tables(0).Rows(0).Item("yenunf")) + 1
+        _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
+        _Fechainv = Microsoft.VisualBasic.Right(_Fecha.ToShortDateString, 4) +
+                    Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 5), 2) +
+                    Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 2)
+        _Total = _Ds.Tables(0).Rows(0).Item("fvatotal").ToString
+        ice = _Ds.Tables(0).Rows(0).Item("fvaimpsi")
+        _numidosif = _Ds1.Tables(0).Rows(0).Item("yenumi").ToString
+        _Key = _Ds1.Tables(0).Rows(0).Item("yekey")
+        _FechaAl = _Ds1.Tables(0).Rows(0).Item("yefal")
+
+        _NumFac = CInt(_Ds.Tables(0).Rows(0).Item("fvanfac").ToString)
+        'Dim maxNFac As Integer = L_fnObtenerMaxIdTabla("TFV001", "fvanfac", "fvaautoriz = " + _Autorizacion)
+        '_NumFac = maxNFac + 1
+
+        _TotalCC = Math.Round(CDbl(_Total), MidpointRounding.AwayFromZero)
+        _Cod_Control = ControlCode.generateControlCode(_Autorizacion, _NumFac, _Nit, _Fechainv, CStr(_TotalCC), _Key)
+
+        'Literal 
+        _TotalLi = _Ds.Tables(0).Rows(0).Item("fvastot") - _Ds.Tables(0).Rows(0).Item("fvadesc")
+        _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+        _TotalDecimal2 = CDbl(_TotalDecimal) * 100
+
+        'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        _Ds2 = L_Reporte_Factura_Cia("1")
+        QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
+
+        L_Modificar_Factura("fvanumi = " + CStr(numi),
+                            "",
+                            CStr(_NumFac),
+                            CStr(_Autorizacion),
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            _Cod_Control,
+                            _FechaAl.ToString("yyyy/MM/dd"),
+                            "",
+                            "",
+                            CStr(numi))
+
+
+        updateTO001C(numi, Str(_NumFac))
+        _Ds = L_Reporte_Factura(numi, numi)
+
+        _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+
+        For I = 0 To _Ds.Tables(0).Rows.Count - 1
+            _Ds.Tables(0).Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
+        Next
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New Factura
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        If mes = 1 Then
+            mesl = "Enero"
+        End If
+        If mes = 2 Then
+            mesl = "Febrero"
+        End If
+        If mes = 3 Then
+            mesl = "Marzo"
+        End If
+        If mes = 4 Then
+            mesl = "Abril"
+        End If
+        If mes = 5 Then
+            mesl = "Mayo"
+        End If
+        If mes = 6 Then
+            mesl = "Junio"
+        End If
+        If mes = 7 Then
+            mesl = "Julio"
+        End If
+        If mes = 8 Then
+            mesl = "Agosto"
+        End If
+        If mes = 9 Then
+            mesl = "Septiembre"
+        End If
+        If mes = 10 Then
+            mesl = "Octubre"
+        End If
+        If mes = 11 Then
+            mesl = "Noviembre"
+        End If
+        If mes = 12 Then
+            mesl = "Diciembre"
+        End If
+        Dim tipoPago = ObtenerTipoDePagoPedido(numi)
+
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(_Ds.Tables(0))
+
+        objrep.SetParameterValue("Fecliteral", Fecliteral)
+        objrep.SetParameterValue("Nota2", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
+        'objrep.PrintOptions.PrinterName = "L4150 Series(Red) (Copiar 1)"
+
+        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Literal1", _Literal)
+        objrep.SetParameterValue("NroFactura", _NumFac)
+        objrep.SetParameterValue("NroAutoriz", _Autorizacion)
+        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString) '?
+        objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+        objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
+        objrep.SetParameterValue("ESFC", _Ds1.Tables(0).Rows(0).Item("yesfc").ToString)
+        objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
+        objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
+        objrep.SetParameterValue("Tipo", "ORIGINAL")
+        objrep.SetParameterValue("TipoPago", tipoPago)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+        'If imp = 1 Then
+        '    objrep.SetParameterValue("Tipo", "ORIGINAL")
+        'Else
+        '    objrep.SetParameterValue("Tipo", "COPIA")
+        'End If
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+        'If (grabarPDF) Then
+        '    'Copia de Factura en PDF
+        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        '    End If
+        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
+
+        'End If
+        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+    End Sub
+
     Private Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
         Dim _Fecha, _FechaAl As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
@@ -777,7 +999,7 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoXClienteDeChofer(idChofer, ENEstadoPedido.DICTADO)
+            Dim listResult = New LPedido().ListarDespachoXClienteDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
             Dim lista = (From a In listResult
                          Where a.oafdoc >= Tb_Fecha.Value And
                                 a.oafdoc <= Tb_FechaHasta.Value).ToList
@@ -816,7 +1038,7 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, ENEstadoPedido.DICTADO, Tb_Fecha.Value, Tb_FechaHasta.Value)
+            Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
             'Dim lista = (From a In listResult
             '             Where a.oafdoc >= Tb_Fecha.Value And
             '                    a.oafdoc <= Tb_FechaHasta.Value).ToList
@@ -877,6 +1099,7 @@ Public Class frmBillingDispatch
             Tb_Fecha.Value = DateTime.Today
             Tb_FechaHasta.Value = DateTime.Today
             _cargaCompleta = True
+            cbEstado.SelectedIndex = 0
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
@@ -933,7 +1156,7 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, ENEstadoPedido.DICTADO)
+            Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
             Dim lista = (From a In listResult
                          Where a.Fecha >= Tb_Fecha.Value And
                                a.Fecha <= Tb_FechaHasta.Value).ToList
@@ -992,7 +1215,7 @@ Public Class frmBillingDispatch
                 .Caption = "Nro. Factura"
                 .Width = 80
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = False
+                .Visible = True
                 .Position = 6
             End With
             With dgjPedido.RootTable.Columns("nombreZona")
@@ -1200,7 +1423,7 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, ENEstadoPedido.DICTADO)
+            Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
             Dim lista = (From a In listResult
                          Where a.oafdoc >= Tb_Fecha.Value And
                                 a.oafdoc <= Tb_FechaHasta.Value).ToList
@@ -1230,6 +1453,88 @@ Public Class frmBillingDispatch
     End Sub
 
     Private Sub Tb_FechaHasta_ValueChanged(sender As Object, e As EventArgs) Handles Tb_FechaHasta.ValueChanged
+        Try
+            If (_cargaCompleta) Then
+                CargarPedidos()
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnFactura_Click(sender As Object, e As EventArgs) Handles btnFactura.Click
+        Try
+            Dim idChofer = Me.cbChoferes.Value
+            If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
+                Throw New Exception("Debe seleccionar un chofer.")
+            End If
+
+            Dim checks = Me.dgjPedido.GetCheckedRows()
+            Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+
+            If (listIdPedido.Count = 0) Then
+                Throw New Exception("Debe seleccionar por lo menos un pedido.")
+            End If
+
+            Dim list2 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
+            Dim list1 As List(Of VPedido_BillingDispatch) = New List(Of VPedido_BillingDispatch)
+
+            list2 = list2.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
+
+            For i As Integer = 0 To list2.Count - 1 Step 1
+                'If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
+                If (list2(i).NroFactura = Nothing) Then
+                    list1.Add(list2(i))
+                Else
+                    If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
+                        list1.Add(list2(i))
+                    Else
+                        P_ReImprImprimirFacturar(list2(i).Id, True, True, 0)
+                    End If
+
+                End If
+            Next
+
+            If (list1.Count = 0) Then
+                ToastNotification.Show(Me, "No Existe ningun dato para generar Notas de Venta!!".ToUpper,
+                                    My.Resources.OK,
+                                    5 * 1000,
+                                    eToastGlowColor.Red,
+                                    eToastPosition.TopCenter)
+                Return
+            End If
+
+            For i As Integer = 0 To list1.Count - 1 Step 1
+                If L_YaSeGraboTV001(list1(i).Id) = False Then
+                    GrabarTV001(Str(list1(i).Id))
+                End If
+
+                Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Str(list1(i).Id))
+
+                P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
+                ' P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
+                ' P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer)
+
+            Next
+
+            Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+
+            CargarPedidos()
+            ToastNotification.Show(Me, "Facturas Generadas Correctamente".ToUpper,
+                                      img, 2000,
+                                      eToastGlowColor.Green,
+                                      eToastPosition.TopCenter
+                                      )
+
+
+
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cbEstado_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbEstado.SelectedValueChanged
         Try
             If (_cargaCompleta) Then
                 CargarPedidos()

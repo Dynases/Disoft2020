@@ -347,6 +347,12 @@
       <DependentUpon>DespachoNotaVentaXCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DispatchedOrder\Report\Factura.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DispatchedOrder\Report\NotaVenta.vb">
       <DependentUpon>NotaVenta.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1379,6 +1385,10 @@
     <EmbeddedResource Include="DispatchedOrder\Report\DespachoNotaVentaXCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DespachoNotaVentaXCliente.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchedOrder\Report\Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
