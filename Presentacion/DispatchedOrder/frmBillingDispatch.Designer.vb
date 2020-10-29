@@ -34,6 +34,8 @@ Partial Class frmBillingDispatch
         Me.QrFactura = New Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl()
         Me.dgjProducto = New Janus.Windows.GridEX.GridEX()
         Me.PanelSuperior = New System.Windows.Forms.Panel()
+        Me.cbEstado = New System.Windows.Forms.ComboBox()
+        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.btnFactura = New DevComponents.DotNetBar.ButtonX()
         Me.lblCantidadPedido = New DevComponents.DotNetBar.LabelX()
         Me.lblPedido = New DevComponents.DotNetBar.LabelX()
@@ -49,8 +51,6 @@ Partial Class frmBillingDispatch
         Me.btVolverDist = New DevComponents.DotNetBar.ButtonX()
         Me.cbChoferes = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
-        Me.cbEstado = New System.Windows.Forms.ComboBox()
         Me.PanelBase.SuspendLayout()
         Me.PanelPedido.SuspendLayout()
         Me.panelFondo.SuspendLayout()
@@ -174,6 +174,27 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Name = "PanelSuperior"
         Me.PanelSuperior.Size = New System.Drawing.Size(1186, 60)
         Me.PanelSuperior.TabIndex = 0
+        '
+        'cbEstado
+        '
+        Me.cbEstado.FormattingEnabled = True
+        Me.cbEstado.Items.AddRange(New Object() {"DICTADO", "ENTREGADO"})
+        Me.cbEstado.Location = New System.Drawing.Point(369, 38)
+        Me.cbEstado.Name = "cbEstado"
+        Me.cbEstado.Size = New System.Drawing.Size(121, 21)
+        Me.cbEstado.TabIndex = 243
+        '
+        'LabelX4
+        '
+        '
+        '
+        '
+        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX4.Location = New System.Drawing.Point(290, 35)
+        Me.LabelX4.Name = "LabelX4"
+        Me.LabelX4.Size = New System.Drawing.Size(55, 23)
+        Me.LabelX4.TabIndex = 242
+        Me.LabelX4.Text = "Estado:"
         '
         'btnFactura
         '
@@ -433,27 +454,6 @@ Partial Class frmBillingDispatch
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'LabelX4
-        '
-        '
-        '
-        '
-        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX4.Location = New System.Drawing.Point(290, 35)
-        Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(55, 23)
-        Me.LabelX4.TabIndex = 242
-        Me.LabelX4.Text = "Estado:"
-        '
-        'cbEstado
-        '
-        Me.cbEstado.FormattingEnabled = True
-        Me.cbEstado.Items.AddRange(New Object() {"DICTADO", "ENTREGADO"})
-        Me.cbEstado.Location = New System.Drawing.Point(369, 38)
-        Me.cbEstado.Name = "cbEstado"
-        Me.cbEstado.Size = New System.Drawing.Size(121, 21)
-        Me.cbEstado.TabIndex = 243
         '
         'frmBillingDispatch
         '

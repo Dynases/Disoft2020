@@ -389,6 +389,12 @@
       <DependentUpon>NotaVenta4.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DispatchedOrder\Report\NotaVenta5.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotaVenta5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="F01_MonitoreoPedido.Designer.vb">
       <DependentUpon>F01_MonitoreoPedido.vb</DependentUpon>
     </Compile>
@@ -1413,6 +1419,10 @@
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta4.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NotaVenta4.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NotaVenta5.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="F01_MonitoreoPedido.resx">
       <DependentUpon>F01_MonitoreoPedido.vb</DependentUpon>
