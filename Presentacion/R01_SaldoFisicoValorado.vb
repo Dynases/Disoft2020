@@ -37,21 +37,42 @@ Public Class R01_SaldoFisicoValorado
         If (Not gb_ConexionAbierta) Then
             L_prAbrirConexion()
         End If
-
+        P_prArmarComboCatCliente()
         Me.Text = "S A L D O   F Í S I C O   V A L O R A D O".ToUpper
         'Me.WindowState = FormWindowState.Maximized
         MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
 
     End Sub
+    Private Sub P_prArmarComboCatCliente()
 
+        Dim Dt As New DataTable
+        Dt = L_CategoriaPrecioGeneral()
+        With cbCategoria.DropDownList
+            .Columns.Add(Dt.Columns(0).ToString).Width = 50
+            .Columns(0).Caption = "Código"
+
+            .Columns.Add(Dt.Columns(1).ToString).Width = 70
+            .Columns(1).Caption = "Abreviatura"
+
+            .Columns.Add(Dt.Columns(2).ToString).Width = 120
+            .Columns(2).Caption = "Descripción"
+        End With
+
+        cbCategoria.ValueMember = Dt.Columns(0).ToString
+        cbCategoria.DisplayMember = Dt.Columns(2).ToString
+        cbCategoria.DataSource = Dt
+        cbCategoria.Refresh()
+        cbCategoria.SelectedIndex = 0
+    End Sub
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
 
         Dim objrep As New R_SaldosFisicoValorado()
 
-        _dt = L_VistaSaldoFisicoValorado("cenum=0")
+        _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
 
         objrep.SetDataSource(_dt)
+        objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
         MCrReporte.ReportSource = objrep
     End Sub
 
