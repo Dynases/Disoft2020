@@ -1622,6 +1622,16 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btPediPedidoNuevo_Click(sender As Object, e As EventArgs) Handles btPediPedidoNuevo.Click
+
+        F02_PedidoNuevo.AllowTransparency = True
+        Dim frm As New F02_PedidoNuevo
+
+        frm._nameButton = btPediPedidoNuevo.Name
+        frm._modulo = FP_Pedido
+        frm.Show()
+    End Sub
+
 
 #End Region
 

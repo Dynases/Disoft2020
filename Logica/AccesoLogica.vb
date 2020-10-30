@@ -1014,6 +1014,18 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_ProductosPedido_GeneralNuevo(_Modo As Integer, Optional _CatClie As String = "") As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = "canumi=canumi"
+        Else
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi"
+        End If
+        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
+
+        Return _Tabla
+    End Function
 
     Public Shared Function L_ProductosPedido_General2(_Modo As Integer, Optional _CatProd As String = "", Optional _CatClie As String = "", Optional _ordenEspecifico As String = "0", Optional _numiCli As String = "0") As DataTable
         Dim _Tabla As DataTable
@@ -1367,6 +1379,17 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_PedidoDetalle_GeneralNuevo(_Modo As Integer, Optional _idCabecera As String = "") As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = " obnumi = obnumi"
+        Else
+            _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod"
+        End If
+        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant", "TO0011,TC001, TI001", _Where)
+        Return _Tabla
+    End Function
     Public Shared Sub L_PedidoDetalle_Grabar(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String)
         Dim _Err As Boolean
         Dim Sql As String
@@ -1374,6 +1397,14 @@ Public Class AccesoLogica
         campo1 = 0
         campo2 = 0
         Sql = _idCabecera + ",'" + _codProd + "'," + _cantidad + "," + _precio + "," + _subTotal + "," + _desc + "," + _total + "," + _flia + "," + campo1 + "," + campo2
+        _Err = D_Insertar_Datos("TO0011", Sql)
+    End Sub
+    Public Shared Sub L_PedidoDetalle_GrabarNuevo(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String, _atributo As String)
+        Dim _Err As Boolean
+        Dim Sql As String
+        Dim campo2 As String
+        campo2 = 0
+        Sql = _idCabecera + ",'" + _codProd + "'," + _cantidad + "," + _precio + "," + _subTotal + "," + _desc + "," + _total + "," + _flia + "," + _atributo + "," + campo2
         _Err = D_Insertar_Datos("TO0011", Sql)
     End Sub
 
@@ -1447,6 +1478,16 @@ Public Class AccesoLogica
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 22))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListaPedidosPorFecha(fechaI As String, fechaf As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 30))
+        _listParam.Add(New Datos.DParametro("@fechai", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaf", fechaf))
         _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
         Return _Tabla
