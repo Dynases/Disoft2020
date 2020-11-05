@@ -584,7 +584,7 @@ Public Class F02_Cliente
                             cbDias.Value = IIf(IsDBNull(dtFrecuencia.Rows(0).Item("cccdia")) = True, " ", dtFrecuencia.Rows(0).Item("cccdia"))
                         Else
                             tbiFrecuencia.Value = 0
-                            cbDias.SelectedIndex = -1
+                            cbDias.SelectedIndex = 0
 
                         End If
 
@@ -713,7 +713,7 @@ Public Class F02_Cliente
 
         Dim giFrec As String
         Dim frecvisita As String
-        Dim dia As String
+        Dim dia As String = "0"
 
 
         DgjEquipo.Refetch()
