@@ -2720,7 +2720,9 @@ Public Class F02_PedidoNuevo
                 L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
             End If
 
-            L_prGrabarTO001C(Tb_Id.Text, cbPreVendedor.Value.ToString)
+            'Grabo en la TO001C
+            L_prGrabarTO001C(Tb_Id.Text, 4) 'Mando 4 porque ese sera el repartidor por defecto para venta/cierres directos EMPRESA(NO CAMBIAR)
+
             'Cambiar de zona al cliente a la zona del chofer
             L_GrabarModificarCliente("cczona=" + Tb_CliCodZona.Text, "ccnumi=" + Str(Tb_CliCod.Text))
 
@@ -2842,8 +2844,14 @@ Public Class F02_PedidoNuevo
             objrep.SetParameterValue("Literal1", Literal)
             objrep.SetParameterValue("Usuario", P_Global.gs_user)
 
-            objrep.PrintOptions.PrinterName = "EPSON TM-T2011 Receipt"
-            objrep.PrintToPrinter(1, False, 1, 1)
+            'objrep.PrintOptions.PrinterName = "EPSON TM-T2011 Receipt"
+            'objrep.PrintToPrinter(1, False, 1, 1)
+
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+
+
 
             'ACTUALIZAR GRILLA DE BUSQUEDA
             ''AC******************************_PCargarBuscador()

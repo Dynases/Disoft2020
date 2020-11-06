@@ -1196,6 +1196,7 @@ Public Class F0_CreditosPedidos
 
             _modulo.Select()
             '_tab.Close()
+            Close()
 
         End If
     End Sub

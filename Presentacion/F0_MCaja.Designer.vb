@@ -47,12 +47,12 @@ Partial Class F0_MCaja
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.SuperTabControl2 = New DevComponents.DotNetBar.SuperTabControl()
-        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.Dgv_Depositos = New Janus.Windows.GridEX.GridEX()
-        Me.DEPÓSITO = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.Dgv_Cortes = New Janus.Windows.GridEX.GridEX()
         Me.SuperTabItem2 = New DevComponents.DotNetBar.SuperTabItem()
+        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.Dgv_Depositos = New Janus.Windows.GridEX.GridEX()
+        Me.DEPÓSITO = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
         Me.Tb_TipoCambio = New DevComponents.Editors.DoubleInput()
@@ -67,6 +67,7 @@ Partial Class F0_MCaja
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.TbCodigo = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnCierreDirecto = New DevComponents.DotNetBar.ButtonX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,10 +102,10 @@ Partial Class F0_MCaja
         Me.GroupPanel3.SuspendLayout()
         CType(Me.SuperTabControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl2.SuspendLayout()
-        Me.SuperTabControlPanel4.SuspendLayout()
-        CType(Me.Dgv_Depositos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel3.SuspendLayout()
         CType(Me.Dgv_Cortes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuperTabControlPanel4.SuspendLayout()
+        CType(Me.Dgv_Depositos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
         CType(Me.Tb_TipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbbanco, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +114,8 @@ Partial Class F0_MCaja
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSuperior.Controls.Add(Me.btnCierreDirecto)
+        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelSuperior.Size = New System.Drawing.Size(1284, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -124,11 +126,14 @@ Partial Class F0_MCaja
         Me.PanelSuperior.Style.GradientAngle = 90
         Me.PanelSuperior.StyleMouseDown.BackColor1.Color = System.Drawing.Color.Gray
         Me.PanelSuperior.StyleMouseDown.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar1, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar2, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.btnCierreDirecto, 0)
         '
         'PanelInferior
         '
         Me.PanelInferior.Location = New System.Drawing.Point(0, 642)
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelInferior.Size = New System.Drawing.Size(1284, 39)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -163,7 +168,7 @@ Partial Class F0_MCaja
         '
         'TxtNombreUsu
         '
-        Me.TxtNombreUsu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TxtNombreUsu.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtNombreUsu.ReadOnly = True
         Me.TxtNombreUsu.Size = New System.Drawing.Size(135, 23)
         Me.TxtNombreUsu.Text = "DEFAULT"
@@ -187,14 +192,14 @@ Partial Class F0_MCaja
         'PanelToolBar2
         '
         Me.PanelToolBar2.Location = New System.Drawing.Point(1204, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnImprimir
         '
         '
         'btnUltimo
         '
-        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(4)
         '
         'btnSiguiente
         '
@@ -208,23 +213,23 @@ Partial Class F0_MCaja
         'MPanelUserAct
         '
         Me.MPanelUserAct.Location = New System.Drawing.Point(1084, 0)
-        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(4)
         '
         'SuperTabControlPanel1
         '
-        Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(5)
         Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1252, 570)
         '
         'PanelContent
         '
         Me.PanelContent.Controls.Add(Me.GroupPanel4)
         Me.PanelContent.Controls.Add(Me.Panel3)
-        Me.PanelContent.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelContent.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelContent.Size = New System.Drawing.Size(1252, 570)
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelPrincipal.Size = New System.Drawing.Size(1284, 681)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
@@ -234,13 +239,13 @@ Partial Class F0_MCaja
         'GridEX1
         '
         Me.GridEX1.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        Me.GridEX1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.GridEX1.Size = New System.Drawing.Size(946, 403)
+        Me.GridEX1.Margin = New System.Windows.Forms.Padding(5)
+        Me.GridEX1.Size = New System.Drawing.Size(946, 429)
         '
         'GroupPanel1
         '
         Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.GroupPanel1.Size = New System.Drawing.Size(952, 424)
+        Me.GroupPanel1.Size = New System.Drawing.Size(952, 450)
         '
         '
         '
@@ -273,16 +278,16 @@ Partial Class F0_MCaja
         'Panel2
         '
         Me.Panel2.Margin = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.Panel2.Size = New System.Drawing.Size(952, 424)
+        Me.Panel2.Size = New System.Drawing.Size(952, 450)
         '
         'SuperTabControlPanel2
         '
         Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(952, 424)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(952, 450)
         '
         'Panel1
         '
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Size = New System.Drawing.Size(1284, 570)
         '
         'SuperTabControl1
@@ -300,7 +305,7 @@ Partial Class F0_MCaja
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1284, 570)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
@@ -316,7 +321,7 @@ Partial Class F0_MCaja
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 244)
-        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanel4.Name = "GroupPanel4"
         Me.GroupPanel4.Size = New System.Drawing.Size(1252, 326)
         '
@@ -633,7 +638,7 @@ Partial Class F0_MCaja
         Me.Dgv_PedidoTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dgv_PedidoTotal.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dgv_PedidoTotal.Location = New System.Drawing.Point(0, 0)
-        Me.Dgv_PedidoTotal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Dgv_PedidoTotal.Margin = New System.Windows.Forms.Padding(2)
         Me.Dgv_PedidoTotal.Name = "Dgv_PedidoTotal"
         Me.Dgv_PedidoTotal.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.Dgv_PedidoTotal.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -651,7 +656,7 @@ Partial Class F0_MCaja
         Me.Panel3.Controls.Add(Me.GroupPanel2)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1252, 244)
         Me.Panel3.TabIndex = 3
@@ -665,7 +670,7 @@ Partial Class F0_MCaja
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(398, 0)
-        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanel3.Name = "GroupPanel3"
         Me.GroupPanel3.Size = New System.Drawing.Size(854, 244)
         '
@@ -714,11 +719,11 @@ Partial Class F0_MCaja
         Me.SuperTabControl2.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl2.ControlBox.Name = ""
         Me.SuperTabControl2.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl2.ControlBox.MenuBox, Me.SuperTabControl2.ControlBox.CloseBox})
-        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
+        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl2.Location = New System.Drawing.Point(0, 0)
-        Me.SuperTabControl2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SuperTabControl2.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControl2.Name = "SuperTabControl2"
         Me.SuperTabControl2.ReorderTabsEnabled = True
         Me.SuperTabControl2.SelectedTabFont = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold)
@@ -728,6 +733,34 @@ Partial Class F0_MCaja
         Me.SuperTabControl2.TabIndex = 0
         Me.SuperTabControl2.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem2, Me.DEPÓSITO})
         Me.SuperTabControl2.Text = "AYUDA"
+        '
+        'SuperTabControlPanel3
+        '
+        Me.SuperTabControlPanel3.Controls.Add(Me.Dgv_Cortes)
+        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 26)
+        Me.SuperTabControlPanel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(848, 196)
+        Me.SuperTabControlPanel3.TabIndex = 1
+        Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem2
+        '
+        'Dgv_Cortes
+        '
+        Me.Dgv_Cortes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dgv_Cortes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dgv_Cortes.Location = New System.Drawing.Point(0, 0)
+        Me.Dgv_Cortes.Name = "Dgv_Cortes"
+        Me.Dgv_Cortes.Size = New System.Drawing.Size(848, 196)
+        Me.Dgv_Cortes.TabIndex = 0
+        Me.Dgv_Cortes.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'SuperTabItem2
+        '
+        Me.SuperTabItem2.AttachedControl = Me.SuperTabControlPanel3
+        Me.SuperTabItem2.GlobalItem = False
+        Me.SuperTabItem2.Name = "SuperTabItem2"
+        Me.SuperTabItem2.Text = "CORTES"
         '
         'SuperTabControlPanel4
         '
@@ -756,34 +789,6 @@ Partial Class F0_MCaja
         Me.DEPÓSITO.Name = "DEPÓSITO"
         Me.DEPÓSITO.Text = "DEPOSITO"
         '
-        'SuperTabControlPanel3
-        '
-        Me.SuperTabControlPanel3.Controls.Add(Me.Dgv_Cortes)
-        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 26)
-        Me.SuperTabControlPanel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(848, 196)
-        Me.SuperTabControlPanel3.TabIndex = 1
-        Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem2
-        '
-        'Dgv_Cortes
-        '
-        Me.Dgv_Cortes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgv_Cortes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Dgv_Cortes.Location = New System.Drawing.Point(0, 0)
-        Me.Dgv_Cortes.Name = "Dgv_Cortes"
-        Me.Dgv_Cortes.Size = New System.Drawing.Size(848, 196)
-        Me.Dgv_Cortes.TabIndex = 0
-        Me.Dgv_Cortes.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'SuperTabItem2
-        '
-        Me.SuperTabItem2.AttachedControl = Me.SuperTabControlPanel3
-        Me.SuperTabItem2.GlobalItem = False
-        Me.SuperTabItem2.Name = "SuperTabItem2"
-        Me.SuperTabItem2.Text = "CORTES"
-        '
         'GroupPanel2
         '
         Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
@@ -804,7 +809,7 @@ Partial Class F0_MCaja
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanel2.Name = "GroupPanel2"
         Me.GroupPanel2.Size = New System.Drawing.Size(398, 244)
         '
@@ -873,7 +878,7 @@ Partial Class F0_MCaja
         cbbanco_DesignTimeLayout.LayoutString = resources.GetString("cbbanco_DesignTimeLayout.LayoutString")
         Me.cbbanco.DesignTimeLayout = cbbanco_DesignTimeLayout
         Me.cbbanco.Location = New System.Drawing.Point(248, 178)
-        Me.cbbanco.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbbanco.Margin = New System.Windows.Forms.Padding(2)
         Me.cbbanco.Name = "cbbanco"
         Me.cbbanco.SelectedIndex = -1
         Me.cbbanco.SelectedItem = Nothing
@@ -1052,14 +1057,33 @@ Partial Class F0_MCaja
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'btnCierreDirecto
+        '
+        Me.btnCierreDirecto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnCierreDirecto.BackColor = System.Drawing.Color.Transparent
+        Me.btnCierreDirecto.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnCierreDirecto.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnCierreDirecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCierreDirecto.Image = Global.Presentacion.My.Resources.Resources.BONOS_DESC
+        Me.btnCierreDirecto.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnCierreDirecto.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnCierreDirecto.Location = New System.Drawing.Point(1072, 0)
+        Me.btnCierreDirecto.Name = "btnCierreDirecto"
+        Me.btnCierreDirecto.Size = New System.Drawing.Size(132, 72)
+        Me.btnCierreDirecto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnCierreDirecto.TabIndex = 15
+        Me.btnCierreDirecto.Text = "CIERRE DIRECTO"
+        Me.btnCierreDirecto.TextColor = System.Drawing.Color.Black
+        '
         'F0_MCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1284, 681)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "F0_MCaja"
         Me.Text = "F0_MCaja"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.Controls.SetChildIndex(Me.PanelPrincipal, 0)
         Me.PanelSuperior.ResumeLayout(False)
         Me.PanelInferior.ResumeLayout(False)
@@ -1097,10 +1121,10 @@ Partial Class F0_MCaja
         Me.GroupPanel3.ResumeLayout(False)
         CType(Me.SuperTabControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControl2.ResumeLayout(False)
-        Me.SuperTabControlPanel4.ResumeLayout(False)
-        CType(Me.Dgv_Depositos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel3.ResumeLayout(False)
         CType(Me.Dgv_Cortes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SuperTabControlPanel4.ResumeLayout(False)
+        CType(Me.Dgv_Depositos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
         CType(Me.Tb_TipoCambio, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1152,4 +1176,5 @@ Partial Class F0_MCaja
     Friend WithEvents Tb_TipoCambio As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnCierreDirecto As DevComponents.DotNetBar.ButtonX
 End Class
