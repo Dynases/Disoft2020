@@ -143,7 +143,7 @@ Public Class F02_Cliente
         P_prActualizarPaginacion(0)
         P_prLlenarDatos(0)
         _Habilitar()
-
+        cbDias.SelectedIndex = 0
         If gi_frecvisita = 1 Then
             stiFrecuencia.Visible = True
         Else

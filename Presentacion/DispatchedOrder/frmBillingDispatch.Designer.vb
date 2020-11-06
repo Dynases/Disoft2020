@@ -210,6 +210,7 @@ Partial Class frmBillingDispatch
         Me.btnFactura.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnFactura.TabIndex = 240
         Me.btnFactura.Text = "Factura"
+        Me.btnFactura.Visible = False
         '
         'lblCantidadPedido
         '
