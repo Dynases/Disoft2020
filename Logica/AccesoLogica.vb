@@ -2731,7 +2731,8 @@ Public Class AccesoLogica
                                              tacu As String, fini As String, ffin As String, fre As String,
                                              acuEst As String, acuObs As String, tcre As String,
                                              dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
-                                             frecvisita As String, dia As String) As Boolean
+                                             frecvisita As String, lunes As Integer, martes As Integer, miercoles As Integer,
+                                             jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2780,7 +2781,13 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@giFrec", giFrec))
         _listParam.Add(New Datos.DParametro("@frecvisita", frecvisita))
-        _listParam.Add(New Datos.DParametro("@dia", dia))
+        _listParam.Add(New Datos.DParametro("@lunes", lunes))
+        _listParam.Add(New Datos.DParametro("@martes", martes))
+        _listParam.Add(New Datos.DParametro("@miercoles", miercoles))
+        _listParam.Add(New Datos.DParametro("@jueves", jueves))
+        _listParam.Add(New Datos.DParametro("@viernes", viernes))
+        _listParam.Add(New Datos.DParametro("@sabado", sabado))
+        _listParam.Add(New Datos.DParametro("@domingo", domingo))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
         If _Tabla.Rows.Count > 0 Then
@@ -2810,7 +2817,8 @@ Public Class AccesoLogica
                                                 tacu As String, fini As String, ffin As String, fre As String,
                                                 acuEst As String, acuObs As String, tcre As String,
                                                 dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
-                                                frecvisita As String, dia As String) As Boolean
+                                                frecvisita As String, lunes As Integer, martes As Integer, miercoles As Integer,
+                                                jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2859,7 +2867,13 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@giFrec", giFrec))
         _listParam.Add(New Datos.DParametro("@frecvisita", frecvisita))
-        _listParam.Add(New Datos.DParametro("@dia", dia))
+        _listParam.Add(New Datos.DParametro("@lunes", lunes))
+        _listParam.Add(New Datos.DParametro("@martes", martes))
+        _listParam.Add(New Datos.DParametro("@miercoles", miercoles))
+        _listParam.Add(New Datos.DParametro("@jueves", jueves))
+        _listParam.Add(New Datos.DParametro("@viernes", viernes))
+        _listParam.Add(New Datos.DParametro("@sabado", sabado))
+        _listParam.Add(New Datos.DParametro("@domingo", domingo))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
         If _Tabla.Rows.Count > 0 Then

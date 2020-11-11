@@ -1245,6 +1245,8 @@ Public Class F0_Ventas
         Else
             '_tab.Close()
             _modulo.Select()
+            Close()
+
         End If
     End Sub
     Public Sub _prCargarIconELiminar()
