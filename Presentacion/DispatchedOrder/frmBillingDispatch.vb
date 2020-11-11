@@ -1659,12 +1659,14 @@ Public Class frmBillingDispatch
             ArmarListaPedido(listaPedido)
             btnNotaVenta.Enabled = False
             btnFactura.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
         End If
         If (e.KeyData = Keys.Control + Keys.N) Then
             listaPedido = listaPedido.Where(Function(a) Not a.observacion.Contains("F,")).ToList()
             ArmarListaPedido(listaPedido)
             btnFactura.Enabled = False
             btnNotaVenta.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
         End If
     End Sub
 End Class
