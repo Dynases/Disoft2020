@@ -38,4 +38,13 @@
             _nombreZona = value
         End Set
     End Property
+    Private _observacion As String
+    Public Property observacion() As String
+        Get
+            Return _observacion
+        End Get
+        Set(ByVal value As String)
+            _observacion = value
+        End Set
+    End Property
 End Class

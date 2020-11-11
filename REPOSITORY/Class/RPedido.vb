@@ -46,7 +46,8 @@ Public Class RPedido
                                       .NombreCliente = b.ccdesc,
                                       .NombreVendedor = c.cbdesc,
                                       .NroFactura = d.oacnrofac,
-                                      .idZona = a.oazona
+                                      .idZona = a.oazona,
+                                      .observacion = a.oaobs
                                       }).ToList()
                 Return listResult
             End Using
