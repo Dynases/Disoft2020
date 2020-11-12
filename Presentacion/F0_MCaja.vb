@@ -366,6 +366,7 @@ Public Class F0_MCaja
             btnGrabar.Enabled = False
             btnNuevo.Enabled = True
             btnEliminar.Enabled = True
+            btnCierreDirecto.Enabled = False
 
             btBuscarChofer.Enabled = False
 
@@ -397,6 +398,7 @@ Public Class F0_MCaja
         ''  tbVendedor.ReadOnly = False
 
         btnGrabar.Enabled = True
+        btnCierreDirecto.Enabled = True
 
         btBuscarChofer.Enabled = True
 
@@ -526,6 +528,22 @@ Public Class F0_MCaja
 
     End Function
 
+    Private Function P_prArmarAyudaConciliacionDirecta(idChofer As Integer)
+        Try
+            Dim dt As DataTable
+
+            dt = L_prListarConciliacionDirecta(idChofer)
+
+            lbconciliacion.Text = dt.Rows(0).Item("ibid")
+            Numi_Conciliacion = dt.Rows(0).Item("ibid")
+            tbchofer.Text = dt.Rows(0).Item("chofer")
+            Numi_Chofer = dt.Rows(0).Item("idchofer")
+
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+
+    End Function
     Public Function _fnAccesible()
         Return tbFecha.IsInputReadOnly = False
     End Function
@@ -722,7 +740,110 @@ Public Class F0_MCaja
         End Try
 
     End Sub
+    Public Sub cargarDetalleConciliacionDirecta()
+        Try
+            Dim dt As New DataTable
 
+            dt = L_prObtenerDetalleChoferDirecto(4, tbFecha.Value.ToString("yyyy/MM/dd"))  'Mando 4 porque ese sera el repartidor por defecto para venta/cierres directos EMPRESA(NO CAMBIAR)
+
+            If dt.Rows.Count > 0 Then
+
+                Dgv_PedidoTotal.DataSource = dt
+                Dgv_PedidoTotal.RetrieveStructure()
+                Dgv_PedidoTotal.AlternatingColors = True
+                'oanumi , oafdoc, oaccli, cliente, oarepa, oaest, oaap, oapg, total,contado,credito, estado
+                With Dgv_PedidoTotal.RootTable.Columns("oanumi")
+                    .Width = 120
+                    .Caption = "NOTA VENTA"
+                    .Visible = True
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("oaest")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("oaap")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("oapg")
+                    .Width = 90
+                    .Visible = False
+                End With
+
+
+                With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
+                    .Width = 150
+                    .Caption = "Nro Factura"
+                    .Visible = False
+                End With
+
+                With Dgv_PedidoTotal.RootTable.Columns("cliente")
+                    .Caption = "cliente"
+                    .Width = 150
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("total")
+                    .Caption = "TOTAL"
+                    .Width = 200
+                    .Visible = True
+                    .FormatString = "0.00"
+                    .AggregateFunction = AggregateFunction.Sum
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("contado")
+                    .Caption = "COBRADO"
+                    .Width = 200
+                    .Visible = True
+                    .FormatString = "0.00"
+                    .AggregateFunction = AggregateFunction.Sum
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("credito")
+                    .Caption = "CREDITO"
+                    .Width = 200
+                    '.Visible = (gi_vcre2 = 1)
+                    .Visible = True
+                    .FormatString = "0.00"
+                    .AggregateFunction = AggregateFunction.Sum
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("oarepa")
+                    .Width = 160
+                    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("tcre")
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("estado")
+                    .Width = 50
+                    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+                    .Visible = False
+                End With
+
+                With Dgv_PedidoTotal
+                    .GroupByBoxVisible = False
+                    'diseño de la grilla
+                    .VisualStyle = VisualStyle.Office2007
+                    .TotalRow = InheritableBoolean.True
+                    .TotalRowFormatStyle.BackColor = Color.Gold
+                    .TotalRowPosition = TotalRowPosition.BottomFixed
+
+                    Dim fc As GridEXFormatCondition = New GridEXFormatCondition(.RootTable.Columns("tcre"), ConditionOperator.Equal, "1")
+                    fc.FormatStyle.BackColor = Color.LightSalmon
+
+                    .RootTable.FormatConditions.Add(fc)
+                End With
+            Else
+                Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                ToastNotification.Show(Me, "No existe o ya se realizó cierre de caja de esta fecha".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+
+    End Sub
     Private Sub _prCargarVenta()
         Try
             Dim dt As New DataTable
@@ -1392,15 +1513,25 @@ Public Class F0_MCaja
         _Inter = _Inter + 1
         If _Inter = 1 Then
             Me.WindowState = FormWindowState.Normal
+            Me.CenterToScreen()
+
         Else
             Me.Opacity = 100
             Timer1.Enabled = False
         End If
-        'Me.Opacity = 100
-        'Timer1.Enabled = False
+
     End Sub
 
-    Private Sub tbchofer_TextChanged(sender As Object, e As EventArgs) Handles tbchofer.TextChanged
+    Private Sub btnCierreDirecto_Click(sender As Object, e As EventArgs) Handles btnCierreDirecto.Click
+        Try
+            P_prArmarAyudaConciliacionDirecta(4)  'Mando 4 porque ese sera el repartidor por defecto para venta/cierres directos EMPRESA(NO CAMBIAR)
+            cargarDetalleConciliacionDirecta()
+            _LimpiarLista()
+            'Colocar el total del contado en el tbdRecibido.Text
+            tbdRecibido.Text = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("contado"), AggregateFunction.Sum)
 
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
     End Sub
 End Class

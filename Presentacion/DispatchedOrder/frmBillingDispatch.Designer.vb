@@ -44,7 +44,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoPedido = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.Tb_Fecha = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
-        Me.btFacturar = New DevComponents.DotNetBar.ButtonX()
+        Me.btnNotaVenta = New DevComponents.DotNetBar.ButtonX()
         Me.btReporteDespachoCliente = New DevComponents.DotNetBar.ButtonX()
         Me.btReporteDespachoLinea = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
@@ -163,7 +163,7 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Controls.Add(Me.btReporteDespachoPedido)
         Me.PanelSuperior.Controls.Add(Me.LabelX1)
         Me.PanelSuperior.Controls.Add(Me.Tb_Fecha)
-        Me.PanelSuperior.Controls.Add(Me.btFacturar)
+        Me.PanelSuperior.Controls.Add(Me.btnNotaVenta)
         Me.PanelSuperior.Controls.Add(Me.btReporteDespachoCliente)
         Me.PanelSuperior.Controls.Add(Me.btReporteDespachoLinea)
         Me.PanelSuperior.Controls.Add(Me.LabelX2)
@@ -367,20 +367,20 @@ Partial Class frmBillingDispatch
         Me.Tb_Fecha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Tb_Fecha.TabIndex = 232
         '
-        'btFacturar
+        'btnNotaVenta
         '
-        Me.btFacturar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btFacturar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btFacturar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btFacturar.Image = Global.Presentacion.My.Resources.Resources.REPORTE2
-        Me.btFacturar.ImageFixedSize = New System.Drawing.Size(30, 30)
-        Me.btFacturar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btFacturar.Location = New System.Drawing.Point(886, 0)
-        Me.btFacturar.Name = "btFacturar"
-        Me.btFacturar.Size = New System.Drawing.Size(75, 60)
-        Me.btFacturar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btFacturar.TabIndex = 4
-        Me.btFacturar.Text = "Nota de Venta"
+        Me.btnNotaVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnNotaVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btnNotaVenta.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnNotaVenta.Image = Global.Presentacion.My.Resources.Resources.REPORTE2
+        Me.btnNotaVenta.ImageFixedSize = New System.Drawing.Size(30, 30)
+        Me.btnNotaVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnNotaVenta.Location = New System.Drawing.Point(886, 0)
+        Me.btnNotaVenta.Name = "btnNotaVenta"
+        Me.btnNotaVenta.Size = New System.Drawing.Size(75, 60)
+        Me.btnNotaVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnNotaVenta.TabIndex = 4
+        Me.btnNotaVenta.Text = "Nota de Venta"
         '
         'btReporteDespachoCliente
         '
@@ -497,7 +497,7 @@ Partial Class frmBillingDispatch
     Friend WithEvents btReporteDespachoPedido As DevComponents.DotNetBar.ButtonX
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tb_Fecha As DevComponents.Editors.DateTimeAdv.DateTimeInput
-    Friend WithEvents btFacturar As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents btnNotaVenta As DevComponents.DotNetBar.ButtonX
     Friend WithEvents btReporteDespachoCliente As DevComponents.DotNetBar.ButtonX
     Friend WithEvents btReporteDespachoLinea As DevComponents.DotNetBar.ButtonX
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX

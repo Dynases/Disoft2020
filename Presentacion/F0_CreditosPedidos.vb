@@ -1078,9 +1078,9 @@ Public Class F0_CreditosPedidos
         '.DropDownList.Columns("yccod3").Caption = "COD"
         '.DropDownList.Columns.Add("ycdes3").Width = 200
         For i As Integer = 0 To dt.Rows.Count - 1 Step 1
-            Dim data As String = dt.Rows(i).Item("cedesc")
+            Dim data As String = dt.Rows(i).Item("ycdes3")
             If (data.Equals(name)) Then
-                Return dt.Rows(i).Item("cenum")
+                Return dt.Rows(i).Item("yccod3")
             End If
         Next
         Return -1
@@ -1196,6 +1196,7 @@ Public Class F0_CreditosPedidos
 
             _modulo.Select()
             '_tab.Close()
+            Close()
 
         End If
     End Sub

@@ -28,13 +28,15 @@ Public Class frmBillingDispatch
             If (_cargaCompleta) Then
                 CargarPedidos()
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
     End Sub
 
-    Private Sub btFacturar_Click(sender As Object, e As EventArgs) Handles btFacturar.Click
+    Private Sub btFacturar_Click(sender As Object, e As EventArgs) Handles btnNotaVenta.Click
         Try
             Dim idChofer = Me.cbChoferes.Value
             If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
@@ -1167,6 +1169,8 @@ Public Class frmBillingDispatch
             If (_cargaCompleta) Then
                 CargarPedidos()
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -1231,108 +1235,124 @@ Public Class frmBillingDispatch
 
     Private Sub CargarPedidos()
         Try
-            Dim idChofer = Me.cbChoferes.Value
-            If (Not IsNumeric(idChofer)) Then
-                Throw New Exception("Debe seleccionar un chofer.")
-            End If
-            If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
-                Throw New Exception("Debe seleccionar un chofer.")
-            End If
-
-            Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
-            Dim lista = (From a In listResult
-                         Where a.Fecha >= Tb_Fecha.Value And
-                               a.Fecha <= Tb_FechaHasta.Value).ToList
-            dgjPedido.BoundMode = Janus.Data.BoundMode.Bound
-            dgjPedido.DataSource = lista
-            dgjPedido.RetrieveStructure()
-
-            With dgjPedido.RootTable.Columns("Fecha")
-                .Caption = "Fecha Pedido"
-                .Width = 80
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
-                .Position = 0
-            End With
-
-            With dgjPedido.RootTable.Columns("NombreCliente")
-                .Caption = "Cliente"
-                .Width = 400
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-                .Visible = True
-                .Position = 1
-            End With
-
-            With dgjPedido.RootTable.Columns("Id")
-                .Caption = "Pedido"
-                .Width = 60
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
-                .Position = 2
-            End With
-
-            With dgjPedido.RootTable.Columns("NombreVendedor")
-                .Caption = "Vendedor"
-                .Width = 250
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-                .Visible = True
-                .Position = 3
-            End With
-
-            With dgjPedido.RootTable.Columns("idZona")
-                .Caption = "Zona"
-                .Width = 120
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-                .Visible = True
-                .Position = 4
-            End With
-            With dgjPedido.RootTable.Columns("EstaFacturado")
-                .Caption = "Facturado"
-                .Width = 80
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-                .Visible = False
-                .Position = 5
-            End With
-
-            With dgjPedido.RootTable.Columns("NroFactura")
-                .Caption = "Nro. Factura"
-                .Width = 80
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
-                .Position = 6
-            End With
-            With dgjPedido.RootTable.Columns("nombreZona")
-                .Caption = "Nombre Zona"
-                .Width = 80
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = False
-                .Position = 7
-            End With
-            dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
-            With dgjPedido.RootTable.Columns("Check")
-                .Caption = "Seleccionar"
-                .Width = 100
-                .ShowRowSelector = True
-                .UseHeaderSelector = True
-                .FilterEditType = FilterEditType.NoEdit
-                .Position = 8
-            End With
-            With dgjPedido
-                .GroupByBoxVisible = False
-                .DefaultFilterRowComparison = FilterConditionOperator.Contains
-                .FilterMode = FilterMode.Automatic
-                .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
-                .VisualStyle = VisualStyle.Office2007
-                .SelectionMode = SelectionMode.MultipleSelection
-                .AlternatingColors = True
-                .AllowEdit = InheritableBoolean.False
-                .AllowColumnDrag = False
-                .AutomaticSort = False
-                '.ColumnHeaders = InheritableBoolean.False
-            End With
+            Dim lista As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
+            ArmarListaPedido(lista)
         Catch ex As Exception
             Throw New Exception(ex.Message)
         End Try
+    End Sub
+
+    Private Function ObtenerListaPedido() As List(Of VPedido_BillingDispatch)
+        Dim idChofer = Me.cbChoferes.Value
+        If (Not IsNumeric(idChofer)) Then
+            Throw New Exception("Debe seleccionar un chofer.")
+        End If
+        If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
+            Throw New Exception("Debe seleccionar un chofer.")
+        End If
+
+        Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
+        Dim lista = (From a In listResult
+                     Where a.Fecha >= Tb_Fecha.Value And
+                           a.Fecha <= Tb_FechaHasta.Value).ToList
+        Return lista
+    End Function
+
+    Private Sub ArmarListaPedido(lista As List(Of VPedido_BillingDispatch))
+        dgjPedido.BoundMode = Janus.Data.BoundMode.Bound
+        dgjPedido.DataSource = lista
+        dgjPedido.RetrieveStructure()
+
+        With dgjPedido.RootTable.Columns("Fecha")
+            .Caption = "Fecha Pedido"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .Position = 0
+        End With
+
+        With dgjPedido.RootTable.Columns("NombreCliente")
+            .Caption = "Cliente"
+            .Width = 400
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+            .Position = 1
+        End With
+
+        With dgjPedido.RootTable.Columns("Id")
+            .Caption = "Pedido"
+            .Width = 60
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .Position = 2
+        End With
+
+        With dgjPedido.RootTable.Columns("NombreVendedor")
+            .Caption = "Vendedor"
+            .Width = 250
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+            .Position = 3
+        End With
+
+        With dgjPedido.RootTable.Columns("idZona")
+            .Caption = "Zona"
+            .Width = 120
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .Visible = True
+            .Position = 4
+        End With
+        With dgjPedido.RootTable.Columns("EstaFacturado")
+            .Caption = "Facturado"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .Visible = False
+            .Position = 5
+        End With
+
+        With dgjPedido.RootTable.Columns("NroFactura")
+            .Caption = "Nro. Factura"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .Position = 6
+        End With
+        With dgjPedido.RootTable.Columns("nombreZona")
+            .Caption = "Nombre Zona"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .Position = 7
+        End With
+        dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
+        With dgjPedido.RootTable.Columns("Check")
+            .Caption = "Seleccionar"
+            .Width = 100
+            .ShowRowSelector = True
+            .UseHeaderSelector = True
+            .FilterEditType = FilterEditType.NoEdit
+            .Position = 8
+        End With
+        With dgjPedido.RootTable.Columns("observacion")
+            .Caption = "observacion"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .Position = 7
+        End With
+        With dgjPedido
+            .GroupByBoxVisible = False
+            .DefaultFilterRowComparison = FilterConditionOperator.Contains
+            .FilterMode = FilterMode.Automatic
+            .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
+            .VisualStyle = VisualStyle.Office2007
+            .SelectionMode = SelectionMode.MultipleSelection
+            .AlternatingColors = True
+            .AllowEdit = InheritableBoolean.False
+            .AllowColumnDrag = False
+            .AutomaticSort = False
+            '.ColumnHeaders = InheritableBoolean.False
+        End With
     End Sub
 
     Private Sub CargarProductos(idPedido As Integer)
@@ -1540,6 +1560,8 @@ Public Class frmBillingDispatch
             If (_cargaCompleta) Then
                 CargarPedidos()
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -1622,9 +1644,29 @@ Public Class frmBillingDispatch
             If (_cargaCompleta) Then
                 CargarPedidos()
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
+    End Sub
+
+    Private Sub dgjPedido_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjPedido.KeyDown
+        Dim listaPedido As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
+        If (e.KeyData = Keys.Control + Keys.F) Then
+            listaPedido = listaPedido.Where(Function(a) a.observacion.Contains("F,")).ToList()
+            ArmarListaPedido(listaPedido)
+            btnNotaVenta.Enabled = False
+            btnFactura.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
+        End If
+        If (e.KeyData = Keys.Control + Keys.N) Then
+            listaPedido = listaPedido.Where(Function(a) Not a.observacion.Contains("F,")).ToList()
+            ArmarListaPedido(listaPedido)
+            btnFactura.Enabled = False
+            btnNotaVenta.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
+        End If
     End Sub
 End Class
