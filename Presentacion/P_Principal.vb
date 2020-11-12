@@ -1332,7 +1332,7 @@ Public Class P_Principal
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
         F02ZonaAsignacion.AllowTransparency = True
-        Dim frm As New F02ZonaAsignacion
+        Dim frm As New F0_AsignacionZonaAlternativo
         'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
         frm._nameButton = F02_Zona.Name
         'frm._tab = tab3

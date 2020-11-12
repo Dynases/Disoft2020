@@ -3707,7 +3707,62 @@ Public Class AccesoLogica
     End Function
 
 #End Region
+    Public Shared Function L_prListarZonasDetalle(Modulo As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 14))
+        _listParam.Add(New Datos.DParametro("@Modulo", Modulo))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function GrabarDetalleZonaModulo(_dt As DataTable, Modulo As Integer) As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 13))
+        _listParam.Add(New Datos.DParametro("@Modulo", Modulo))
+        _listParam.Add(New Datos.DParametro("@TL0012", "", _dt))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ReporteVentas", _listParam)
+        If (_Tabla.Rows.Count > 0) Then
+            Return True
+        End If
+        Return False
+    End Function
+    Public Shared Function L_prListarZonasVendedor() As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ZonasAlternativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarZonasRepartidor() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ZonasAlternativo", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarZonasAlternativo() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ZonasAlternativo", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_ObtenerFidelidadCliente(_CodTipoP As String, _Aini As String, _Afin As String, _Criterio As String) As DataSet
         Dim _tabla As DataTable
         Dim _Ds As New DataSet
