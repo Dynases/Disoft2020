@@ -347,6 +347,12 @@
       <DependentUpon>DespachoNotaVentaXCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DispatchedOrder\Report\DespachoXProductoSinAgrupacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DespachoXProductoSinAgrupacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DispatchedOrder\Report\Factura.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1409,6 +1415,10 @@
     <EmbeddedResource Include="DispatchedOrder\Report\DespachoNotaVentaXCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DespachoNotaVentaXCliente.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchedOrder\Report\DespachoXProductoSinAgrupacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DespachoXProductoSinAgrupacion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\Factura.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

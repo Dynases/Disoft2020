@@ -11196,4 +11196,29 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+#Region "Empresa tipo de reporte"
+    Public Shared Function ObtenerEmpresaHabilitada() As Integer
+        Dim _Tabla As DataTable
+        Dim _resultado As Integer
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _Tabla = D_ProcedimientoConParam("sp_EmpresaReporte", _listParam)
+        If _Tabla.Rows.Count > 0 Then
+            _resultado = _Tabla.Rows(0).Item("Id")
+        Else
+            _resultado = 0
+        End If
+        Return _resultado
+    End Function
+    Public Shared Function ObtenerEmpresaTipoReporte(empresaId As Integer, reporteId As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@empresaId", empresaId))
+        _listParam.Add(New Datos.DParametro("@reporteId", reporteId))
+        _Tabla = D_ProcedimientoConParam("sp_EmpresaReporte", _listParam)
+        Return _Tabla
+    End Function
+#End Region
+
 End Class

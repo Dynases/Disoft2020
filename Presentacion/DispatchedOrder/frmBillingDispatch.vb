@@ -1130,26 +1130,36 @@ Public Class frmBillingDispatch
             If (listResult.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
-
-            If Not IsNothing(P_Global.Visualizador) Then
-                P_Global.Visualizador.Close()
-            End If
-
-            P_Global.Visualizador = New Visualizador
-            Dim objrep As New DespachoXProducto
-
-            objrep.SetDataSource(listResult)
-            objrep.SetParameterValue("nroDespacho", String.Empty)
-            objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
-            objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)
-            objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
-
-            P_Global.Visualizador.CRV1.ReportSource = objrep
-            P_Global.Visualizador.Show()
-            P_Global.Visualizador.BringToFront()
+            Dim empresaId = ObtenerEmpresaHabilitada()
+            Dim empresaHabilitada As DataTable = ObtenerEmpresaTipoReporte(empresaId, Convert.ToInt32(ENReporte.DESPACHOXPRODUCTO))
+            For Each fila As DataRow In empresaHabilitada.Rows
+                Select Case fila.Item("TipoReporte").ToString
+                    Case ENReporteTipo.DESPACHOXPRODUCTO_AgrupadoXCategoria
+                        Dim objrep As New DespachoXProducto
+                        SerParametros(listResult, objrep)
+                    Case ENReporteTipo.DESPACHOXPRODUCTO_SinAgrupacion
+                        Dim objrep As New DespachoXProductoSinAgrupacion
+                        SerParametros(listResult, objrep)
+                End Select
+            Next
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
+    End Sub
+
+    Private Sub SerParametros(listResult As List(Of RDespachoXProducto), objrep As Object)
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+        P_Global.Visualizador = New Visualizador
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("nroDespacho", String.Empty)
+        objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
+        objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)
+        objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        P_Global.Visualizador.CRV1.ReportSource = objrep
+        P_Global.Visualizador.ShowDialog()
+        P_Global.Visualizador.BringToFront()
     End Sub
 
     Private Sub dgjPedido_SelectionChanged(sender As Object, e As EventArgs) Handles dgjPedido.SelectionChanged

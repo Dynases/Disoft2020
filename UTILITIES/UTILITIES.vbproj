@@ -78,6 +78,8 @@
     <Compile Include="ConnectionString\ConnectionString.vb" />
     <Compile Include="Enum\ENMensaje.vb" />
     <Compile Include="Enum\ENCombo.vb" />
+    <Compile Include="Enum\ENReporte.vb" />
+    <Compile Include="Enum\ENReporteTipo.vb" />
     <Compile Include="Enum\ENTipoPersonal.vb" />
     <Compile Include="Enum\ENEstadoPedido.vb" />
     <Compile Include="Enum\ENLibreria.vb" />
