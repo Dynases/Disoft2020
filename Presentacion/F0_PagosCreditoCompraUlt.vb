@@ -831,6 +831,7 @@ Public Class F0_PagosCreditoCompraUlt
         Else
             '_tab.Close()
             _modulo.Select()
+            Close()
         End If
     End Sub
     Private Sub P_GenerarReporte()

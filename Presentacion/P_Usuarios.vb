@@ -369,7 +369,7 @@ Public Class P_Usuarios
         If (boSalir) Then
             'Me.Close()
             _modulo.Select()
-            _tab.Close()
+            Close()
         Else
             _PLimpiar()
             _PInhabilitar()

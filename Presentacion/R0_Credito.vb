@@ -209,10 +209,9 @@ Public Class R0_Credito
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
 
-
-        '  
         _modulo.Select()
         '_tab.Close()
+        Close()
 
     End Sub
     Sub _prHabilitar()

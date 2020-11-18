@@ -105,6 +105,7 @@ Public Class R0_ReportePedidosCosto
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
         '_tab.Close()
         _modulo.Select()
+        Close()
     End Sub
 
     Private Sub checkUnaVendedor_CheckValueChanged(sender As Object, e As EventArgs) Handles checkUnaVendedor.CheckValueChanged
