@@ -411,20 +411,24 @@ Public Class P_Principal
     Private Sub btConfEquipo_Click(sender As Object, e As EventArgs) Handles btConfEquipo.Click
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
-        F01_Producto.AllowTransparency = True
-        Dim frm As New F01_Producto
-        frm._nameButton = btConfCliente.Name
-        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
-        'frm._tab = tab3
-        frm._modulo = FP_Configuracion
-        frm.TipoForm = 2
-        frm.Titulo = "E Q U I P O"
-        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
-        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
-        'tab3.AttachedControl.Controls.Add(panel)
+        'F01_Producto.AllowTransparency = True
+        'Dim frm As New F01_Producto
+        Dim frm As New Form1
         frm.Show()
-        'tab3.Text = frm.Text
-        'tab3.Icon = frm.Icon
+
+
+        'frm._nameButton = btConfCliente.Name
+        ''Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        ''frm._tab = tab3
+        'frm._modulo = FP_Configuracion
+        'frm.TipoForm = 2
+        'frm.Titulo = "E Q U I P O"
+        ''Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        ''superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        ''tab3.AttachedControl.Controls.Add(panel)
+
+        ''tab3.Text = frm.Text
+        ''tab3.Icon = frm.Icon
     End Sub
 
     Private Sub btConfPrecio_Click(sender As Object, e As EventArgs) Handles btConfPrecio.Click

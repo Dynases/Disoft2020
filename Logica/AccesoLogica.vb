@@ -11157,4 +11157,43 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+    Public Shared Function L_fnVerificarCodCliente(_codcli As String) As Boolean
+        Dim _Tabla As DataTable
+        Dim _resultado As Boolean
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@cccod", _codcli))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+
+
+        If _Tabla.Rows.Count >= 1 Then
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_fnVerificarCodClienteMod(_codcli As String, _cod As String) As Boolean
+        Dim _Tabla As DataTable
+        Dim _resultado As Boolean
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 17))
+        _listParam.Add(New Datos.DParametro("@cccod", _codcli))
+        _listParam.Add(New Datos.DParametro("@ccnumi", _cod))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+
+
+        If _Tabla.Rows.Count = 1 Then
+            _resultado = False
+        Else
+            _resultado = True
+        End If
+
+        Return _resultado
+    End Function
 End Class

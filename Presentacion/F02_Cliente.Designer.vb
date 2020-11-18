@@ -52,10 +52,20 @@ Partial Class F02_Cliente
         Me.BtAddEquipo = New DevComponents.DotNetBar.ButtonX()
         Me.TableLayoutPanelDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.StcFrecuencia = New DevComponents.DotNetBar.SuperTabControl()
+        Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
+        Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel7 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.gpFrecuencia = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.gpDiasVisita = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.chbDomingo = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbSabado = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbViernes = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbJueves = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbMiercoles = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbMartes = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbLunes = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.tbiFrecuencia = New DevComponents.Editors.IntegerInput()
         Me.LabelX38 = New DevComponents.DotNetBar.LabelX()
         Me.stiFrecuencia = New DevComponents.DotNetBar.SuperTabItem()
@@ -79,9 +89,6 @@ Partial Class F02_Cliente
         Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
         Me.SuperTabItemCoordenadas = New DevComponents.DotNetBar.SuperTabItem()
         Me.StiUbicacion = New DevComponents.DotNetBar.SuperTabItem()
-        Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
-        Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PnDatosGenerales = New DevComponents.DotNetBar.PanelEx()
         Me.cbTipoCredito = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -168,13 +175,6 @@ Partial Class F02_Cliente
         Me.ToolStripMenuItemEliminarProducto = New System.Windows.Forms.ToolStripMenuItem()
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.chbLunes = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbMartes = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbMiercoles = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbViernes = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbJueves = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbDomingo = New DevComponents.DotNetBar.Controls.CheckBoxX()
-        Me.chbSabado = New DevComponents.DotNetBar.Controls.CheckBoxX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -201,6 +201,8 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.SuspendLayout()
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StcFrecuencia.SuspendLayout()
+        Me.SuperTabControlPanel3.SuspendLayout()
+        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel7.SuspendLayout()
         Me.gpFrecuencia.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
@@ -215,8 +217,6 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
         Me.GroupPanelCoordenadas.SuspendLayout()
-        Me.SuperTabControlPanel3.SuspendLayout()
-        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PnDatosGenerales.SuspendLayout()
         CType(Me.cbTipoCredito, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -698,10 +698,10 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.ControlBox.MenuBox.Name = ""
         Me.StcFrecuencia.ControlBox.Name = ""
         Me.StcFrecuencia.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StcFrecuencia.ControlBox.MenuBox, Me.StcFrecuencia.ControlBox.CloseBox})
+        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel3)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel7)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel6)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel4)
-        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel3)
         Me.StcFrecuencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.StcFrecuencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StcFrecuencia.Location = New System.Drawing.Point(761, 3)
@@ -715,6 +715,33 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StiFiltroCliente, Me.StiUbicacion, Me.catProd, Me.stiFrecuencia})
         Me.StcFrecuencia.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.StcFrecuencia.Text = "SuperTabControl2"
+        '
+        'SuperTabControlPanel3
+        '
+        Me.SuperTabControlPanel3.Controls.Add(Me.DgjSugerencia)
+        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
+        Me.SuperTabControlPanel3.Padding = New System.Windows.Forms.Padding(5)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(337, 314)
+        Me.SuperTabControlPanel3.TabIndex = 1
+        Me.SuperTabControlPanel3.TabItem = Me.StiFiltroCliente
+        '
+        'DgjSugerencia
+        '
+        Me.DgjSugerencia.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgjSugerencia.Location = New System.Drawing.Point(5, 5)
+        Me.DgjSugerencia.Name = "DgjSugerencia"
+        Me.DgjSugerencia.RecordNavigator = True
+        Me.DgjSugerencia.Size = New System.Drawing.Size(327, 304)
+        Me.DgjSugerencia.TabIndex = 0
+        '
+        'StiFiltroCliente
+        '
+        Me.StiFiltroCliente.AttachedControl = Me.SuperTabControlPanel3
+        Me.StiFiltroCliente.GlobalItem = False
+        Me.StiFiltroCliente.Name = "StiFiltroCliente"
+        Me.StiFiltroCliente.Text = "SUGERENCIAS"
         '
         'SuperTabControlPanel7
         '
@@ -836,6 +863,97 @@ Partial Class F02_Cliente
         Me.gpDiasVisita.TabIndex = 46
         Me.gpDiasVisita.Text = "Días de Visita"
         '
+        'chbDomingo
+        '
+        '
+        '
+        '
+        Me.chbDomingo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbDomingo.Location = New System.Drawing.Point(142, 59)
+        Me.chbDomingo.Name = "chbDomingo"
+        Me.chbDomingo.Size = New System.Drawing.Size(75, 23)
+        Me.chbDomingo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbDomingo.TabIndex = 13
+        Me.chbDomingo.Text = "Domingo"
+        '
+        'chbSabado
+        '
+        '
+        '
+        '
+        Me.chbSabado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbSabado.Location = New System.Drawing.Point(59, 59)
+        Me.chbSabado.Name = "chbSabado"
+        Me.chbSabado.Size = New System.Drawing.Size(68, 23)
+        Me.chbSabado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbSabado.TabIndex = 12
+        Me.chbSabado.Text = "Sábado"
+        '
+        'chbViernes
+        '
+        '
+        '
+        '
+        Me.chbViernes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbViernes.Location = New System.Drawing.Point(142, 32)
+        Me.chbViernes.Name = "chbViernes"
+        Me.chbViernes.Size = New System.Drawing.Size(68, 23)
+        Me.chbViernes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbViernes.TabIndex = 11
+        Me.chbViernes.Text = "Viernes"
+        '
+        'chbJueves
+        '
+        '
+        '
+        '
+        Me.chbJueves.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbJueves.Location = New System.Drawing.Point(59, 32)
+        Me.chbJueves.Name = "chbJueves"
+        Me.chbJueves.Size = New System.Drawing.Size(68, 23)
+        Me.chbJueves.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbJueves.TabIndex = 10
+        Me.chbJueves.Text = "Jueves"
+        '
+        'chbMiercoles
+        '
+        '
+        '
+        '
+        Me.chbMiercoles.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbMiercoles.Location = New System.Drawing.Point(181, 3)
+        Me.chbMiercoles.Name = "chbMiercoles"
+        Me.chbMiercoles.Size = New System.Drawing.Size(80, 23)
+        Me.chbMiercoles.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbMiercoles.TabIndex = 9
+        Me.chbMiercoles.Text = "Miércoles"
+        '
+        'chbMartes
+        '
+        '
+        '
+        '
+        Me.chbMartes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbMartes.Location = New System.Drawing.Point(91, 3)
+        Me.chbMartes.Name = "chbMartes"
+        Me.chbMartes.Size = New System.Drawing.Size(68, 23)
+        Me.chbMartes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbMartes.TabIndex = 8
+        Me.chbMartes.Text = "Martes"
+        '
+        'chbLunes
+        '
+        '
+        '
+        '
+        Me.chbLunes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbLunes.Location = New System.Drawing.Point(8, 3)
+        Me.chbLunes.Name = "chbLunes"
+        Me.chbLunes.Size = New System.Drawing.Size(57, 23)
+        Me.chbLunes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbLunes.TabIndex = 7
+        Me.chbLunes.Text = "Lunes"
+        '
         'tbiFrecuencia
         '
         '
@@ -943,7 +1061,7 @@ Partial Class F02_Cliente
         Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(312, 314)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(101, 314)
         Me.SuperTabControlPanel1.TabIndex = 1
         Me.SuperTabControlPanel1.TabItem = Me.SuperTabItemMapa
         '
@@ -958,7 +1076,7 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelMapa.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelMapa.Name = "GroupPanelMapa"
-        Me.GroupPanelMapa.Size = New System.Drawing.Size(312, 314)
+        Me.GroupPanelMapa.Size = New System.Drawing.Size(101, 314)
         '
         '
         '
@@ -1041,7 +1159,7 @@ Partial Class F02_Cliente
         Me.GmUbicacionCliente.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GmUbicacionCliente.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GmUbicacionCliente.ShowTileGridLines = False
-        Me.GmUbicacionCliente.Size = New System.Drawing.Size(306, 290)
+        Me.GmUbicacionCliente.Size = New System.Drawing.Size(95, 290)
         Me.GmUbicacionCliente.TabIndex = 2
         Me.GmUbicacionCliente.Zoom = 0R
         '
@@ -1185,33 +1303,6 @@ Partial Class F02_Cliente
         Me.StiUbicacion.GlobalItem = False
         Me.StiUbicacion.Name = "StiUbicacion"
         Me.StiUbicacion.Text = "UBICACIÓN"
-        '
-        'SuperTabControlPanel3
-        '
-        Me.SuperTabControlPanel3.Controls.Add(Me.DgjSugerencia)
-        Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Padding = New System.Windows.Forms.Padding(5)
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(337, 314)
-        Me.SuperTabControlPanel3.TabIndex = 1
-        Me.SuperTabControlPanel3.TabItem = Me.StiFiltroCliente
-        '
-        'DgjSugerencia
-        '
-        Me.DgjSugerencia.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgjSugerencia.Location = New System.Drawing.Point(5, 5)
-        Me.DgjSugerencia.Name = "DgjSugerencia"
-        Me.DgjSugerencia.RecordNavigator = True
-        Me.DgjSugerencia.Size = New System.Drawing.Size(327, 304)
-        Me.DgjSugerencia.TabIndex = 0
-        '
-        'StiFiltroCliente
-        '
-        Me.StiFiltroCliente.AttachedControl = Me.SuperTabControlPanel3
-        Me.StiFiltroCliente.GlobalItem = False
-        Me.StiFiltroCliente.Name = "StiFiltroCliente"
-        Me.StiFiltroCliente.Text = "SUGERENCIAS"
         '
         'GroupPanelDatosGenerales
         '
@@ -2816,97 +2907,6 @@ Partial Class F02_Cliente
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'chbLunes
-        '
-        '
-        '
-        '
-        Me.chbLunes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbLunes.Location = New System.Drawing.Point(8, 3)
-        Me.chbLunes.Name = "chbLunes"
-        Me.chbLunes.Size = New System.Drawing.Size(57, 23)
-        Me.chbLunes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbLunes.TabIndex = 7
-        Me.chbLunes.Text = "Lunes"
-        '
-        'chbMartes
-        '
-        '
-        '
-        '
-        Me.chbMartes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbMartes.Location = New System.Drawing.Point(91, 3)
-        Me.chbMartes.Name = "chbMartes"
-        Me.chbMartes.Size = New System.Drawing.Size(68, 23)
-        Me.chbMartes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbMartes.TabIndex = 8
-        Me.chbMartes.Text = "Martes"
-        '
-        'chbMiercoles
-        '
-        '
-        '
-        '
-        Me.chbMiercoles.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbMiercoles.Location = New System.Drawing.Point(181, 3)
-        Me.chbMiercoles.Name = "chbMiercoles"
-        Me.chbMiercoles.Size = New System.Drawing.Size(80, 23)
-        Me.chbMiercoles.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbMiercoles.TabIndex = 9
-        Me.chbMiercoles.Text = "Miércoles"
-        '
-        'chbViernes
-        '
-        '
-        '
-        '
-        Me.chbViernes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbViernes.Location = New System.Drawing.Point(142, 32)
-        Me.chbViernes.Name = "chbViernes"
-        Me.chbViernes.Size = New System.Drawing.Size(68, 23)
-        Me.chbViernes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbViernes.TabIndex = 11
-        Me.chbViernes.Text = "Viernes"
-        '
-        'chbJueves
-        '
-        '
-        '
-        '
-        Me.chbJueves.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbJueves.Location = New System.Drawing.Point(59, 32)
-        Me.chbJueves.Name = "chbJueves"
-        Me.chbJueves.Size = New System.Drawing.Size(68, 23)
-        Me.chbJueves.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbJueves.TabIndex = 10
-        Me.chbJueves.Text = "Jueves"
-        '
-        'chbDomingo
-        '
-        '
-        '
-        '
-        Me.chbDomingo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbDomingo.Location = New System.Drawing.Point(142, 59)
-        Me.chbDomingo.Name = "chbDomingo"
-        Me.chbDomingo.Size = New System.Drawing.Size(75, 23)
-        Me.chbDomingo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbDomingo.TabIndex = 13
-        Me.chbDomingo.Text = "Domingo"
-        '
-        'chbSabado
-        '
-        '
-        '
-        '
-        Me.chbSabado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.chbSabado.Location = New System.Drawing.Point(59, 59)
-        Me.chbSabado.Name = "chbSabado"
-        Me.chbSabado.Size = New System.Drawing.Size(68, 23)
-        Me.chbSabado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.chbSabado.TabIndex = 12
-        Me.chbSabado.Text = "Sábado"
-        '
         'F02_Cliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2949,6 +2949,8 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.ResumeLayout(False)
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StcFrecuencia.ResumeLayout(False)
+        Me.SuperTabControlPanel3.ResumeLayout(False)
+        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel7.ResumeLayout(False)
         Me.gpFrecuencia.ResumeLayout(False)
         Me.PanelEx3.ResumeLayout(False)
@@ -2963,8 +2965,6 @@ Partial Class F02_Cliente
         Me.GroupPanelMapa.ResumeLayout(False)
         Me.SuperTabControlPanel2.ResumeLayout(False)
         Me.GroupPanelCoordenadas.ResumeLayout(False)
-        Me.SuperTabControlPanel3.ResumeLayout(False)
-        CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.PerformLayout()

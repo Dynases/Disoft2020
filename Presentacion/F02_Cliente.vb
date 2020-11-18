@@ -1968,6 +1968,48 @@ Public Class F02_Cliente
                 Exit Function
             End If
         End If
+        'If (L_fnVerificarCodCliente(tbCodCliente.Text)) Then
+        '    ToastNotification.Show(Me, "Ya existe cliente con este codigo, introduzca otro!!!".ToUpper,
+        '               My.Resources.WARNING,
+        '               InDuracion * 1000,
+        '               eToastGlowColor.Red,
+        '               eToastPosition.TopCenter)
+
+        '    Return False
+        '    Exit Function
+        'End If
+        If tbCodCliente.Text <> String.Empty Then
+            If (BoModificar = False) Then
+                If (L_fnVerificarCodCliente(tbCodCliente.Text)) Then
+                    ToastNotification.Show(Me, "Ya existe cliente con este codigo, introduzca otro!!!".ToUpper,
+                           My.Resources.WARNING,
+                           InDuracion * 1000,
+                           eToastGlowColor.Red,
+                           eToastPosition.TopCenter)
+
+                    Return False
+                    Exit Function
+                End If
+            Else
+                If L_fnVerificarCodClienteMod(tbCodCliente.Text, TbCodigo.Text) Then
+                    If (L_fnVerificarCodCliente(tbCodCliente.Text)) Then
+                        ToastNotification.Show(Me, "Ya existe cliente con este codigo, introduzca otro!!!".ToUpper,
+                               My.Resources.WARNING,
+                               InDuracion * 1000,
+                               eToastGlowColor.Red,
+                               eToastPosition.TopCenter)
+
+                        Return False
+                        Exit Function
+                        'Else
+                        '    Return True
+                        '    Exit Function
+                    End If
+                End If
+
+            End If
+        End If
+
         Return True
     End Function
 
