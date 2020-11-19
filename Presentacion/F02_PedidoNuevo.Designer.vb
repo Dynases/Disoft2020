@@ -94,6 +94,7 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx4 = New DevComponents.DotNetBar.PanelEx()
+        Me.QrFactura = New Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl()
         Me.Tb_CantProd = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Btn_AddProd = New DevComponents.DotNetBar.ButtonX()
         Me.Btn_TerminarAdd = New DevComponents.DotNetBar.ButtonX()
@@ -188,6 +189,7 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         Me.PanelEx4.SuspendLayout()
+        CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JGr_Productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
@@ -1509,6 +1511,7 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx4.AutoScroll = True
         Me.PanelEx4.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx4.Controls.Add(Me.QrFactura)
         Me.PanelEx4.Controls.Add(Me.Tb_CantProd)
         Me.PanelEx4.Controls.Add(Me.Btn_AddProd)
         Me.PanelEx4.Controls.Add(Me.Btn_TerminarAdd)
@@ -1526,6 +1529,21 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx4.Style.GradientAngle = 90
         Me.PanelEx4.TabIndex = 25
+        '
+        'QrFactura
+        '
+        Me.QrFactura.ErrorCorrectLevel = Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.M
+        Me.QrFactura.Image = CType(resources.GetObject("QrFactura.Image"), System.Drawing.Image)
+        Me.QrFactura.Location = New System.Drawing.Point(15, 477)
+        Me.QrFactura.Margin = New System.Windows.Forms.Padding(2)
+        Me.QrFactura.Name = "QrFactura"
+        Me.QrFactura.QuietZoneModule = Gma.QrCodeNet.Encoding.Windows.Render.QuietZoneModules.Two
+        Me.QrFactura.Size = New System.Drawing.Size(44, 38)
+        Me.QrFactura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.QrFactura.TabIndex = 28
+        Me.QrFactura.TabStop = False
+        Me.QrFactura.Text = "QrCodeImgControl1"
+        Me.QrFactura.Visible = False
         '
         'Tb_CantProd
         '
@@ -2479,6 +2497,7 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.GroupPanel1.ResumeLayout(False)
         Me.PanelEx4.ResumeLayout(False)
+        CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JGr_Productos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
         Me.PanelEx3.ResumeLayout(False)
@@ -2635,4 +2654,5 @@ Partial Class F02_PedidoNuevo
     Friend WithEvents btnVentaDirecta As DevComponents.DotNetBar.ButtonX
     Friend WithEvents btAplicarDesc As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents QrFactura As Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl
 End Class

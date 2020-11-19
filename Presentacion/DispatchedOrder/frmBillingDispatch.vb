@@ -264,7 +264,11 @@ Public Class frmBillingDispatch
         End If
         Dim tipoPago = ObtenerTipoDePagoPedido(numi)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Dim cadena As String = _Ds2.Tables(0).Rows(0).Item("scciu").ToString
+        Dim posicion As Integer = cadena.IndexOf("-")
+        Dim ciudad As String = cadena.Substring(0, posicion)
+
+        Fecliteral = ciudad + ",  " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(_Ds.Tables(0))
 
         objrep.SetParameterValue("Fecliteral", Fecliteral)
@@ -506,7 +510,11 @@ Public Class frmBillingDispatch
         End If
         Dim tipoPago = ObtenerTipoDePagoPedido(numi)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Dim cadena As String = _Ds2.Tables(0).Rows(0).Item("scciu").ToString
+        Dim posicion As Integer = cadena.IndexOf("-")
+        Dim ciudad As String = cadena.Substring(0, posicion)
+
+        Fecliteral = ciudad + ",  " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(_Ds.Tables(0))
 
         objrep.SetParameterValue("Fecliteral", Fecliteral)

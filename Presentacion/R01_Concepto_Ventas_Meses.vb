@@ -352,6 +352,7 @@ Public Class R01_Concepto_Ventas_Meses
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
         '_tab.Close()
         _modulo.Select()
+        Close()
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
