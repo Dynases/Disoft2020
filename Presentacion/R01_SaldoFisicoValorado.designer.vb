@@ -28,6 +28,8 @@ Partial Class R01_SaldoFisicoValorado
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.cbCategoria = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
+        Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -52,7 +54,7 @@ Partial Class R01_SaldoFisicoValorado
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -65,11 +67,11 @@ Partial Class R01_SaldoFisicoValorado
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -105,9 +107,11 @@ Partial Class R01_SaldoFisicoValorado
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.LabelX5)
+        Me.MGpFiltro.Controls.Add(Me.swTipo)
         Me.MGpFiltro.Controls.Add(Me.cbCategoria)
         Me.MGpFiltro.Controls.Add(Me.LabelX4)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
@@ -139,10 +143,12 @@ Partial Class R01_SaldoFisicoValorado
         Me.MGpFiltro.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX4, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbCategoria, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.swTipo, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX5, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4)
         Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'Timer1
@@ -175,12 +181,47 @@ Partial Class R01_SaldoFisicoValorado
         Me.cbCategoria.Size = New System.Drawing.Size(179, 21)
         Me.cbCategoria.TabIndex = 246
         '
+        'LabelX5
+        '
+        Me.LabelX5.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX5.Location = New System.Drawing.Point(10, 53)
+        Me.LabelX5.Name = "LabelX5"
+        Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX5.Size = New System.Drawing.Size(82, 23)
+        Me.LabelX5.TabIndex = 380
+        Me.LabelX5.Text = "Agrupado"
+        '
+        'swTipo
+        '
+        '
+        '
+        '
+        Me.swTipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swTipo.Location = New System.Drawing.Point(98, 53)
+        Me.swTipo.Name = "swTipo"
+        Me.swTipo.OffBackColor = System.Drawing.Color.LawnGreen
+        Me.swTipo.OffText = "NO"
+        Me.swTipo.OnBackColor = System.Drawing.Color.Gold
+        Me.swTipo.OnText = "SI"
+        Me.swTipo.Size = New System.Drawing.Size(128, 22)
+        Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swTipo.TabIndex = 379
+        Me.swTipo.Value = True
+        Me.swTipo.ValueObject = "Y"
+        '
         'R01_SaldoFisicoValorado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1186, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_SaldoFisicoValorado"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -206,4 +247,6 @@ Partial Class R01_SaldoFisicoValorado
     Friend WithEvents Timer1 As Timer
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbCategoria As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

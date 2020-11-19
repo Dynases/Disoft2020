@@ -46,13 +46,17 @@ Public Class R01_StockDisponible
 
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
-
-        Dim objrep As New R_StockDisponible()
-
-        _dt = L_VistaStockDisponible()
-
-        objrep.SetDataSource(_dt)
-        MCrReporte.ReportSource = objrep
+        If swTipo.Value Then
+            Dim objrep As New R_StockDisponible()
+            _dt = L_VistaStockDisponible()
+            objrep.SetDataSource(_dt)
+            MCrReporte.ReportSource = objrep
+        Else
+            Dim objrep As New R_StockDisponiblesSinAgrupacion()
+            _dt = L_VistaStockDisponible()
+            objrep.SetDataSource(_dt)
+            MCrReporte.ReportSource = objrep
+        End If
     End Sub
 
 #End Region

@@ -25,6 +25,8 @@ Partial Class R01_StockDisponible
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
+        Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -47,8 +49,9 @@ Partial Class R01_StockDisponible
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 646)
-        Me.MPnInferior.Size = New System.Drawing.Size(1182, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -59,13 +62,14 @@ Partial Class R01_StockDisponible
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(915, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -99,8 +103,11 @@ Partial Class R01_StockDisponible
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.LabelX5)
+        Me.MGpFiltro.Controls.Add(Me.swTipo)
         Me.MGpFiltro.Controls.Add(Me.Label1)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
         '
@@ -130,10 +137,13 @@ Partial Class R01_StockDisponible
         '
         Me.MGpFiltro.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MGpFiltro.Controls.SetChildIndex(Me.Label1, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.swTipo, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX5, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Size = New System.Drawing.Size(1182, 690)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'Timer1
         '
@@ -143,18 +153,54 @@ Partial Class R01_StockDisponible
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(48, 80)
+        Me.Label1.Location = New System.Drawing.Point(36, 65)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 18)
+        Me.Label1.Size = New System.Drawing.Size(57, 15)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Stock > 0"
         '
+        'LabelX5
+        '
+        Me.LabelX5.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX5.Location = New System.Drawing.Point(30, 28)
+        Me.LabelX5.Name = "LabelX5"
+        Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX5.Size = New System.Drawing.Size(82, 23)
+        Me.LabelX5.TabIndex = 378
+        Me.LabelX5.Text = "Agrupado"
+        '
+        'swTipo
+        '
+        '
+        '
+        '
+        Me.swTipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swTipo.Location = New System.Drawing.Point(118, 28)
+        Me.swTipo.Name = "swTipo"
+        Me.swTipo.OffBackColor = System.Drawing.Color.LawnGreen
+        Me.swTipo.OffText = "NO"
+        Me.swTipo.OnBackColor = System.Drawing.Color.Gold
+        Me.swTipo.OnText = "SI"
+        Me.swTipo.Size = New System.Drawing.Size(128, 22)
+        Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swTipo.TabIndex = 377
+        Me.swTipo.Value = True
+        Me.swTipo.ValueObject = "Y"
+        '
         'R01_StockDisponible
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "R01_StockDisponible"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -178,4 +224,6 @@ Partial Class R01_StockDisponible
 
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label1 As Label
+    Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

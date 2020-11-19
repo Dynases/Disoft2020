@@ -66,14 +66,19 @@ Public Class R01_SaldoFisicoValorado
     End Sub
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
-
-        Dim objrep As New R_SaldosFisicoValorado()
-
-        _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
-
-        objrep.SetDataSource(_dt)
-        objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-        MCrReporte.ReportSource = objrep
+        If swTipo.Value Then
+            Dim objrep As New R_SaldosFisicoValorado()
+            _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
+            objrep.SetDataSource(_dt)
+            objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+            MCrReporte.ReportSource = objrep
+        Else
+            Dim objrep As New R_SaldosFisicoValoradoSinAgrupacion()
+            _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
+            objrep.SetDataSource(_dt)
+            objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+            MCrReporte.ReportSource = objrep
+        End If
     End Sub
 
 #End Region

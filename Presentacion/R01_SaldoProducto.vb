@@ -1,6 +1,7 @@
 ﻿Imports Logica.AccesoLogica
 Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
+Imports UTILITIES
 
 Public Class R01_SaldoProducto
     Dim _inter As Integer = 0
@@ -46,13 +47,18 @@ Public Class R01_SaldoProducto
 
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
+        If swTipo.Value Then
+            Dim objrep As New R_StockActual()
+            _dt = L_VistaStockActual("cenum=0")
+            objrep.SetDataSource(_dt)
+            MCrReporte.ReportSource = objrep
+        Else
+            Dim objrep As New R_StockActualSinAgrupacion()
+            _dt = L_VistaStockActual("cenum=0")
+            objrep.SetDataSource(_dt)
+            MCrReporte.ReportSource = objrep
+        End If
 
-        Dim objrep As New R_StockActual()
-
-        _dt = L_VistaStockActual("cenum=0")
-
-        objrep.SetDataSource(_dt)
-        MCrReporte.ReportSource = objrep
     End Sub
 
 #End Region

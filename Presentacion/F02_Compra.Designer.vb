@@ -130,7 +130,7 @@ Partial Class F02_Compra
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1149, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
@@ -139,20 +139,20 @@ Partial Class F02_Compra
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBuscador)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1244, 455)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1107, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1149, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -164,7 +164,7 @@ Partial Class F02_Compra
         '
         'MPnInferior
         '
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(1149, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -177,11 +177,11 @@ Partial Class F02_Compra
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(949, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -218,7 +218,7 @@ Partial Class F02_Compra
         '
         Me.MPanelToolBarImprimir.Controls.Add(Me.btnContabilizar)
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(999, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(150, 70)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btnContabilizar, 0)
@@ -227,7 +227,7 @@ Partial Class F02_Compra
         '
         Me.MBtImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MBtImprimir.Location = New System.Drawing.Point(78, 0)
-        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBubbleBarUsuario
         '
@@ -255,7 +255,7 @@ Partial Class F02_Compra
         'MPnUsuario
         '
         Me.MPnUsuario.Location = New System.Drawing.Point(311, 184)
-        Me.MPnUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MLbPaginacion
         '
@@ -1430,7 +1430,7 @@ Partial Class F02_Compra
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1149, 561)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F02_Compra"
         Me.Text = "F02_Compra"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)
