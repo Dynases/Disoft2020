@@ -566,7 +566,7 @@ Public Class frmBillingDispatch
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
 
-    Private Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
+    Public Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
         Dim _Fecha, _FechaAl As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
         Dim _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
@@ -1673,14 +1673,14 @@ Public Class frmBillingDispatch
     Private Sub dgjPedido_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjPedido.KeyDown
         Dim listaPedido As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
         If (e.KeyData = Keys.Control + Keys.F) Then
-            listaPedido = listaPedido.Where(Function(a) a.observacion.Contains("F,")).ToList()
+            listaPedido = listaPedido.Where(Function(a) a.observacion.Contains("F,") Or a.observacion.Contains("f,")).ToList()
             ArmarListaPedido(listaPedido)
             btnNotaVenta.Enabled = False
             btnFactura.Enabled = True
             lblCantidadPedido.Text = listaPedido.Count.ToString
         End If
         If (e.KeyData = Keys.Control + Keys.N) Then
-            listaPedido = listaPedido.Where(Function(a) Not a.observacion.Contains("F,")).ToList()
+            listaPedido = listaPedido.Where(Function(a) Not a.observacion.Contains("F,") Or Not a.observacion.Contains("f,")).ToList()
             ArmarListaPedido(listaPedido)
             btnFactura.Enabled = False
             btnNotaVenta.Enabled = True
