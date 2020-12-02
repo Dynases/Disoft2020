@@ -1636,6 +1636,20 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btnVentaFacturacion_Click(sender As Object, e As EventArgs) Handles btnVentaFacturacion.Click
+        F0_PagosCreditoCompraUlt.AllowTransparency = True
+        Dim frm As New F01_ReporteFactura02
+
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        'frm._nameButton = btnEstadoCuentasProveedor.Name
+        ''frm._tab = tab3
+        'frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+    End Sub
+
 
 #End Region
 
