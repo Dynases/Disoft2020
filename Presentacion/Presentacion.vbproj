@@ -533,6 +533,12 @@
     <Compile Include="Programas Reportes\F01_ReporteCompras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Programas Reportes\F01_ReporteFactura02.Designer.vb">
+      <DependentUpon>F01_ReporteFactura02.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Programas Reportes\F01_ReporteFactura02.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Programas Reportes\F01_ReporteVentaAdmin.Designer.vb">
       <DependentUpon>F01_ReporteVentaAdmin.vb</DependentUpon>
     </Compile>
@@ -1536,6 +1542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Programas Reportes\F01_ReporteCompras.resx">
       <DependentUpon>F01_ReporteCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Programas Reportes\F01_ReporteFactura02.resx">
+      <DependentUpon>F01_ReporteFactura02.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Programas Reportes\F01_ReporteVentaAdmin.resx">
       <DependentUpon>F01_ReporteVentaAdmin.vb</DependentUpon>

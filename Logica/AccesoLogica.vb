@@ -10764,6 +10764,20 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_fnReporteFacturadosV2(FechaI As String, FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 9))
+
+        _listParam.Add(New Datos.DParametro("@FechaDesde", FechaI))
+        _listParam.Add(New Datos.DParametro("@FechaHasta", FechaF))
+        _Tabla = D_ProcedimientoConParam("MAM_ReporteComercial", _listParam)
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_fnReporteComprasFacturadas(Proveedor As Integer, Categoria As Integer, Marca As Integer, Atributo As Integer, Descripcion As String, FechaI As String, FechaF As String) As DataTable
         Dim _Tabla As DataTable
 
