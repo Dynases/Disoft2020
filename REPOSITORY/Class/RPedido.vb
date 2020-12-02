@@ -113,10 +113,10 @@ Public Class RPedido
                                     .canumi = grupo.FirstOrDefault().canumi,
                                     .cadesc = grupo.FirstOrDefault().cadesc,
                                     .categoria = grupo.FirstOrDefault().categoria,
-                                    .obpcant = grupo.Sum(Function(item) item.obpcant),
-                                    .Caja = grupo.Sum(Function(item) item.caja),
-                                    .Unidad = grupo.Sum(Function(item) item.Unidad),
-                                    .Total = grupo.Sum(Function(item) item.Total)
+                                    .obpcant = grupo.Sum(Function(item) item.obpcant).Value,
+                                    .Caja = grupo.Sum(Function(item) item.caja).Value,
+                                    .Unidad = grupo.Sum(Function(item) item.Unidad).Value,
+                                    .Total = grupo.Sum(Function(item) item.Total).Value
                                   }).ToList()
 
                 'Select Case New RDespachoXProducto With {
