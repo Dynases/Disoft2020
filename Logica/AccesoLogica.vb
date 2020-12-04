@@ -2266,7 +2266,26 @@ Public Class AccesoLogica
         End If
         Return tipoZona
     End Function
-
+    Public Shared Function L_fnObtenerZonaRepartidorDistribuidor(where As String) As DataTable
+        Dim Tabla As DataTable
+        If (where = String.Empty) Then
+            where = "1=1"
+        Else
+            where = where + " and pedido.oazona = B.lanumi " _
+                    & " and B.laprovi = C.cenum  AND C.cecon = 3" _
+                    & " and B.laprovi = C2.cenum  AND C2.cecon  = 2 " _
+                    & " and pedido.oanumi = pedidoDis.oacoanumi " _
+                    & " and pedidoDis.oaccbnumi = personalDist.cbnumi " _
+                    & " and pedido.oarepa = personalRep.cbnumi "
+        End If
+        Dim seleccion As String = "C.cedesc + '-' + C2.cedesc AS Zona, " _
+                                 & "personalRep.cbnumi as vendedorId, " _
+                                 & "personalRep.cbdesc  as vendedor," _
+                                 & "personalDist.cbnumi as repartidorId," _
+                                 & "personalDist.cbdesc  as repartidor "
+        Tabla = D_Datos_Tabla(seleccion, "TO001 pedido, TL001 B , TC0051 C, TC0051 C2, TO001C pedidoDis, TC002 personalDist, TC002 personalRep", where)
+        Return Tabla
+    End Function
     Public Shared Function L_fnObtenerUnidad() As DataTable
         Dim Tabla As DataTable
         Dim where As String = ""

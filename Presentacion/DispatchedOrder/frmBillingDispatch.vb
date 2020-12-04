@@ -472,42 +472,8 @@ Public Class frmBillingDispatch
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
-        If mes = 1 Then
-            mesl = "Enero"
-        End If
-        If mes = 2 Then
-            mesl = "Febrero"
-        End If
-        If mes = 3 Then
-            mesl = "Marzo"
-        End If
-        If mes = 4 Then
-            mesl = "Abril"
-        End If
-        If mes = 5 Then
-            mesl = "Mayo"
-        End If
-        If mes = 6 Then
-            mesl = "Junio"
-        End If
-        If mes = 7 Then
-            mesl = "Julio"
-        End If
-        If mes = 8 Then
-            mesl = "Agosto"
-        End If
-        If mes = 9 Then
-            mesl = "Septiembre"
-        End If
-        If mes = 10 Then
-            mesl = "Octubre"
-        End If
-        If mes = 11 Then
-            mesl = "Noviembre"
-        End If
-        If mes = 12 Then
-            mesl = "Diciembre"
-        End If
+        mesl = ObtenerMesLiberal(mes)
+
         Dim tipoPago = ObtenerTipoDePagoPedido(numi)
 
         Dim cadena As String = _Ds2.Tables(0).Rows(0).Item("scciu").ToString
@@ -598,66 +564,37 @@ Public Class frmBillingDispatch
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Ds2 = L_Reporte_Factura_Cia("1")
         _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+        Dim objrep As Object = Nothing
         Select Case _Ds3.Tables(0).Rows(0).Item("cbtimp").ToString
             Case "1"
-                ReporteNotaVenta2(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta2(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "2"
-                ReporteNotaVenta(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "3"
-                ReporteNotaVenta3(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta3(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "4"
-                ReporteNotaVenta4(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta4(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "5"
-                ReporteNotaVenta5(idPedido, grabarPDF, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta5(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "6"
+                ReporteNotaVenta6(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "7"
+                ReporteNotaVenta7(idPedido, _Ds2, _Ds3, _Literal, listResult)
         End Select
     End Sub
 
-    Private Sub ReporteNotaVenta(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta
         Dim dia, mes, ano As Integer
         Dim Fecliteral, mesl As String
-        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+
         Fecliteral = listResult.Item(0).oafdoc
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
-        If mes = 1 Then
-            mesl = "Enero"
-        End If
-        If mes = 2 Then
-            mesl = "Febrero"
-        End If
-        If mes = 3 Then
-            mesl = "Marzo"
-        End If
-        If mes = 4 Then
-            mesl = "Abril"
-        End If
-        If mes = 5 Then
-            mesl = "Mayo"
-        End If
-        If mes = 6 Then
-            mesl = "Junio"
-        End If
-        If mes = 7 Then
-            mesl = "Julio"
-        End If
-        If mes = 8 Then
-            mesl = "Agosto"
-        End If
-        If mes = 9 Then
-            mesl = "Septiembre"
-        End If
-        If mes = 10 Then
-            mesl = "Octubre"
-        End If
-        If mes = 11 Then
-            mesl = "Noviembre"
-        End If
-        If mes = 12 Then
-            mesl = "Diciembre"
-        End If
+
+        mesl = ObtenerMesLiberal(mes)
 
         Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
@@ -684,25 +621,10 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(2, False, 1, 1)
             End If
         End If
-        'If (grabarPDF) Then
-        '    'Copia de Factura en PDF
-        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    End If
-        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
-        'End If
     End Sub
-    Private Sub ReporteNotaVenta2(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
-        P_Global.Visualizador = New Visualizador
-        Dim objrep As New NotaVenta2
-        Dim dia, mes, ano As Integer
-        Dim Fecliteral, mesl As String
-        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
-        Fecliteral = listResult.Item(0).oafdoc
-        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
-        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
-        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+
+    Private Shared Function ObtenerMesLiberal(mes As Integer) As String
+        Dim mesl As String = ""
         If mes = 1 Then
             mesl = "Enero"
         End If
@@ -739,6 +661,21 @@ Public Class frmBillingDispatch
         If mes = 12 Then
             mesl = "Diciembre"
         End If
+
+        Return mesl
+    End Function
+
+    Private Sub ReporteNotaVenta2(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta2
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
 
         Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
@@ -763,17 +700,9 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(2, False, 1, 1)
             End If
         End If
-        'If (grabarPDF) Then
-        '    'Copia de Factura en PDF
-        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    End If
-        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
-
-        'End If
     End Sub
 
-    Private Sub ReporteNotaVenta3(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta3(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta3
         Dim dia, mes, ano As Integer
@@ -783,47 +712,14 @@ Public Class frmBillingDispatch
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
-        If mes = 1 Then
-            mesl = "Enero"
-        End If
-        If mes = 2 Then
-            mesl = "Febrero"
-        End If
-        If mes = 3 Then
-            mesl = "Marzo"
-        End If
-        If mes = 4 Then
-            mesl = "Abril"
-        End If
-        If mes = 5 Then
-            mesl = "Mayo"
-        End If
-        If mes = 6 Then
-            mesl = "Junio"
-        End If
-        If mes = 7 Then
-            mesl = "Julio"
-        End If
-        If mes = 8 Then
-            mesl = "Agosto"
-        End If
-        If mes = 9 Then
-            mesl = "Septiembre"
-        End If
-        If mes = 10 Then
-            mesl = "Octubre"
-        End If
-        If mes = 11 Then
-            mesl = "Noviembre"
-        End If
-        If mes = 12 Then
-            mesl = "Diciembre"
-        End If
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         Dim tipoZona As String = L_fnVerificarZona("oanumi =" + idPedido)
         Dim esZonaLaPaz = IIf(tipoZona = "ES LA PAZ", "*", "")
         Dim esZonaElAlto = IIf(tipoZona = "ES EL ALTO", "*", "")
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+
         objrep.Subreports.Item("NotaVenta3.rpt").SetDataSource(listResult)
         objrep.SetDataSource(listResult)
         'objrep.SetParameterValue("Literal", _Literal)
@@ -856,17 +752,10 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(1, False, 1, 1)
             End If
         End If
-        'If (grabarPDF) Then
-        '    'Copia de Factura en PDF
-        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    End If
-        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
 
-        'End If
     End Sub
 
-    Private Sub ReporteNotaVenta4(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta4(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta4
         Dim dia, mes, ano As Integer
@@ -876,42 +765,7 @@ Public Class frmBillingDispatch
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
-        If mes = 1 Then
-            mesl = "Enero"
-        End If
-        If mes = 2 Then
-            mesl = "Febrero"
-        End If
-        If mes = 3 Then
-            mesl = "Marzo"
-        End If
-        If mes = 4 Then
-            mesl = "Abril"
-        End If
-        If mes = 5 Then
-            mesl = "Mayo"
-        End If
-        If mes = 6 Then
-            mesl = "Junio"
-        End If
-        If mes = 7 Then
-            mesl = "Julio"
-        End If
-        If mes = 8 Then
-            mesl = "Agosto"
-        End If
-        If mes = 9 Then
-            mesl = "Septiembre"
-        End If
-        If mes = 10 Then
-            mesl = "Octubre"
-        End If
-        If mes = 11 Then
-            mesl = "Noviembre"
-        End If
-        If mes = 12 Then
-            mesl = "Diciembre"
-        End If
+        mesl = ObtenerMesLiberal(mes)
 
         Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         ' objrep.Subreports.Item("NotaVenta4.rpt").SetDataSource(listResult)
@@ -923,6 +777,7 @@ Public Class frmBillingDispatch
         'objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta4.rpt")
         'objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta4.rpt")
         'objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta4.rpt")
+
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
@@ -939,16 +794,9 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(1, False, 1, 1)
             End If
         End If
-        'If (grabarPDF) Then
-        '    'Copia de Factura en PDF
-        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    End If
-        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
 
-        'End If
     End Sub
-    Private Sub ReporteNotaVenta5(idPedido As String, grabarPDF As Boolean, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta5(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta5
         Dim dia, mes, ano As Integer
@@ -958,42 +806,8 @@ Public Class frmBillingDispatch
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
-        If mes = 1 Then
-            mesl = "Enero"
-        End If
-        If mes = 2 Then
-            mesl = "Febrero"
-        End If
-        If mes = 3 Then
-            mesl = "Marzo"
-        End If
-        If mes = 4 Then
-            mesl = "Abril"
-        End If
-        If mes = 5 Then
-            mesl = "Mayo"
-        End If
-        If mes = 6 Then
-            mesl = "Junio"
-        End If
-        If mes = 7 Then
-            mesl = "Julio"
-        End If
-        If mes = 8 Then
-            mesl = "Agosto"
-        End If
-        If mes = 9 Then
-            mesl = "Septiembre"
-        End If
-        If mes = 10 Then
-            mesl = "Octubre"
-        End If
-        If mes = 11 Then
-            mesl = "Noviembre"
-        End If
-        If mes = 12 Then
-            mesl = "Diciembre"
-        End If
+
+        mesl = ObtenerMesLiberal(mes)
 
         Fecliteral = "Oruro, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
@@ -1020,14 +834,80 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(2, False, 1, 1)
             End If
         End If
-        'If (grabarPDF) Then
-        '    'Copia de Factura en PDF
-        '    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
-        '        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
-        '    End If
-        '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
 
-        'End If
+    End Sub
+    Private Sub ReporteNotaVenta7(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta7
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Literal", _Literal)
+        objrep.SetParameterValue("Fechali", Fecliteral)
+        objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
+            End If
+        End If
+    End Sub
+    Private Sub ReporteNotaVenta6(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta_Ticket
+        Dim zona, repartidor, vendedor As String
+
+        Dim tZonaRepartidorVendedor As DataTable = L_fnObtenerZonaRepartidorDistribuidor("oanumi =" + idPedido)
+        If tZonaRepartidorVendedor.Rows.Count() > 0 Then
+            zona = tZonaRepartidorVendedor.Rows(0).Item("zona").ToString()
+            repartidor = tZonaRepartidorVendedor.Rows(0).Item("repartidor").ToString()
+            vendedor = tZonaRepartidorVendedor.Rows(0).Item("vendedor").ToString()
+        Else
+            zona = "--"
+            repartidor = "--"
+            vendedor = "--"
+        End If
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("zona", zona)
+        objrep.SetParameterValue("repartidor", repartidor)
+        objrep.SetParameterValue("vendedor", vendedor)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
+            End If
+        End If
     End Sub
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
