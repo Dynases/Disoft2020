@@ -11253,5 +11253,99 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+#Region "EMPRESA"
+    Public Shared Function L_prEmpresaGeneral() As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC012", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prEmpresaAyuda() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC012", _listParam)
+
+        Return _Tabla
+    End Function
+
+
+    Public Shared Function L_prEmpresaGrabar(ByRef _numi As String, _desc As String, _con1 As String, _con2 As String, _con3 As String, _con4 As String) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@cenumi", _numi))
+        _listParam.Add(New Datos.DParametro("@cedesc", _desc))
+        _listParam.Add(New Datos.DParametro("@cecon1", _con1))
+        _listParam.Add(New Datos.DParametro("@cecon2", _con2))
+        _listParam.Add(New Datos.DParametro("@cecon3", _con3))
+        _listParam.Add(New Datos.DParametro("@cecon4", _con4))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC012", _listParam)
+
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_prEmpresaModificar(_numi As String, _desc As String, _con1 As String, _con2 As String, _con3 As String, _con4 As String) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@cenumi", _numi))
+        _listParam.Add(New Datos.DParametro("@cedesc", _desc))
+        _listParam.Add(New Datos.DParametro("@cecon1", _con1))
+        _listParam.Add(New Datos.DParametro("@cecon2", _con2))
+        _listParam.Add(New Datos.DParametro("@cecon3", _con3))
+        _listParam.Add(New Datos.DParametro("@cecon4", _con4))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_dg_TC012", _listParam)
+
+
+
+        Return _resultado
+    End Function
+
+
+    Public Shared Function L_prEmpresaBorrar(_numi As String, _desc As String, _con1 As String, _con2 As String, _con3 As String, _con4 As String, ByRef _mensaje As String) As Boolean
+
+        Dim _resultado As Boolean
+
+        If L_fnbValidarEliminacion(_numi, "TC004", "cenumi", _mensaje) = True Then
+            Dim _Tabla As DataTable
+
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@cenumi", _numi))
+            _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_dg_TC012", _listParam)
+
+
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+#End Region
 End Class

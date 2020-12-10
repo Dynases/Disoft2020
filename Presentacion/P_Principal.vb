@@ -43,19 +43,13 @@ Public Class P_Principal
             frm.ShowDialog()
             '_prLeerArchivoConfig2()
         Else
-            _prLeerArchivoConfig()
+            _prLeerArchivoConfig(1)
         End If
 
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
-        gb_ConexionAbierta = True
+        EmpresaSeleccion()
+        'inicio la empresa
 
-        Me.WindowState = FormWindowState.Maximized
-        gs_Parametros = L_Parametros()
-
-        'iniciar login de usuario
-
-        _prLogin()
-        l_habilitar_prog()
         'btConfCliente.Visible = True
         'btConfPrecio.Visible = True
         'btConfProducto.Visible = True
@@ -66,6 +60,23 @@ Public Class P_Principal
         'btConfEquipo.Visible = True
         'btDescuentos.Visible = True
 
+    End Sub
+    Private Sub EmpresaSeleccion()
+        Dim frmEmpresa As New P_LoginEmpresa
+        frmEmpresa.ShowDialog()
+        If frmEmpresa.ok = False Then
+            Me.Close()
+            Exit Sub
+        End If
+        _prLeerArchivoConfig(2)
+        gb_ConexionAbierta = True
+        L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
+        Me.WindowState = FormWindowState.Maximized
+        gs_Parametros = L_Parametros()
+        'iniciar login de usuario
+
+        _prLogin()
+        l_habilitar_prog()
     End Sub
     Private Sub l_habilitar_prog()
         btInveMPCompraProducto.Visible = gs_Parametros(0).Item("sycompra")
@@ -108,13 +119,31 @@ Public Class P_Principal
         ''  ct.PanelBackColor = Color.FromArgb(49, 59, 66)
     End Sub
 
-    Private Sub _prLeerArchivoConfig()
+    Private Sub _prLeerArchivoConfig(tipoInicio As Integer)
+        Dim NombreBaseDatos As String = "BDDistBHF"
+        Dim empresa = gs_empresaDesc
         Dim Archivo() As String = IO.File.ReadAllLines(Application.StartupPath + "\CONFIG.TXT")
         gs_Ip = Archivo(0).Split("=")(1).Trim
         gs_UsuarioSql = Archivo(1).Split("=")(1).Trim
         gs_ClaveSql = Archivo(2).Split("=")(1).Trim
         gs_NombreBD = Archivo(3).Split("=")(1).Trim
         gs_CarpetaRaiz = Archivo(4).Split("=")(1).Trim
+        gs_NombreBD2 = Archivo(5).Split("=")(1).Trim
+        gs_NombreBD3 = Archivo(6).Split("=")(1).Trim
+
+        If tipoInicio = 1 Then
+            NombreBaseDatos = gs_NombreBD
+        ElseIf tipoInicio = 2 Then
+
+            If gs_NombreBD2 = empresa Then
+                gs_NombreBD = gs_NombreBD2
+            End If
+            If gs_NombreBD3 = empresa Then
+                gs_NombreBD = gs_NombreBD3
+            End If
+
+        End If
+
         'gs_ftpIp = Archivo(5).Split("=")(1).Trim
         'gs_ftpUsuario = "1" 'Archivo(6).Split("=")(1).Trim
         'gs_ftpPass = "1" 'Archivo(7).Split("=")(1).Trim
@@ -327,6 +356,8 @@ Public Class P_Principal
                 Case "btAbout"
                     'Dim frm As New P_Acerca
                     'frm.ShowDialog()
+                Case "tbEmpresa"
+                    EmpresaSeleccion()
             End Select
         End If
     End Sub
@@ -1647,6 +1678,16 @@ Public Class P_Principal
         'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
         'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
         'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+    End Sub
+
+    Private Sub btConfEmpresa_Click(sender As Object, e As EventArgs) Handles btConfEmpresa.Click
+
+        F1_Empresas.AllowTransparency = True
+        Dim frm As New F1_Empresas
+
+        frm._nameButton = btConfEmpresa.Name
+        frm._modulo = FP_Configuracion
         frm.Show()
     End Sub
 
