@@ -497,6 +497,12 @@
     <Compile Include="F0_Ventas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F1_Empresas.Designer.vb">
+      <DependentUpon>F1_Empresas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F1_Empresas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -615,6 +621,12 @@
       <DependentUpon>P_IntegradorFlextel.vb</DependentUpon>
     </Compile>
     <Compile Include="P_IntegradorFlextel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_LoginEmpresa.Designer.vb">
+      <DependentUpon>P_LoginEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="P_LoginEmpresa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="P_Mesas.Designer.vb">
@@ -1550,6 +1562,9 @@
     <EmbeddedResource Include="F0_Ventas.resx">
       <DependentUpon>F0_Ventas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F1_Empresas.resx">
+      <DependentUpon>F1_Empresas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -1609,6 +1624,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P_IntegradorFlextel.resx">
       <DependentUpon>P_IntegradorFlextel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_LoginEmpresa.resx">
+      <DependentUpon>P_LoginEmpresa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P_Mesas.resx">
       <DependentUpon>P_Mesas.vb</DependentUpon>

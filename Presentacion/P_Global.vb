@@ -34,6 +34,8 @@ Module P_Global
     Public gs_UsuarioSql As String = "sa"
     Public gs_ClaveSql As String = "123"
     Public gs_NombreBD As String = "BDDistBHF"
+    Public gs_NombreBD2 As String = "BDDistBHF1"
+    Public gs_NombreBD3 As String = "BDDistBHF2"
     Public gs_CarpetaRaiz As String = "C:\BD"
     Public gs_Ser As String = "1"
     Public gs_puerto As String = "0"
@@ -91,6 +93,14 @@ Module P_Global
 
     Public gi_IVA As Decimal = 13 'Valor por defecto 13 = IVA actual Bolivia 2016
     Public gi_ICE As Decimal = 55 'Valor por defecto 55 = ICE actual Bolivia 2016
+
+    'configuracion del sistema tabla TC012
+    Public gs_empresaDireccion As String
+    Public gs_empresaNit As String
+    Public gs_empresaDescSistema As String
+    Public gs_empresaDesc As String
+    Public gi_empresaNumi As String
+
 #Region "Metodos"
 
     'Tipos de Modos
