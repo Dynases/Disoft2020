@@ -199,8 +199,10 @@ Public Class P_Principal
         listaTabs.Add(MetroTilePanelPedido)
         listaTabs.Add(MetroTilePanelVenta)
         listaTabs.Add(MetroTilePanelInventario)
+        listaTabs.Add(MetroTilePanelCRM)
         listaTabs.Add(MetroTilePanelRRHH)
         listaTabs.Add(MetroTilePanelCompra)
+
 
         Dim idRolUsu As String = gi_userRol
 
@@ -1647,6 +1649,93 @@ Public Class P_Principal
         'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
         'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
         'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Private Sub btComisiones_Click(sender As Object, e As EventArgs) Handles btComisiones.Click
+
+        F02_Comisiones.AllowTransparency = True
+        Dim frm As New F02_Comisiones
+        frm._nameButton = btComisiones.Name
+        frm._modulo = FP_CRM
+        frm.Show()
+
+    End Sub
+
+    Private Sub btVentaComision_Click(sender As Object, e As EventArgs) Handles btVentaComision.Click
+        R01_VentasComision.AllowTransparency = True
+        Dim frm As New R01_VentasComision
+        frm._nameButton = btVentaComision.Name
+        frm._modulo = FP_CRM
         frm.Show()
     End Sub
 

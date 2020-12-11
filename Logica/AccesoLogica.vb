@@ -4585,6 +4585,76 @@ Public Class AccesoLogica
 
 #End Region
 
+#Region "CATEGORIA COMISIONES"
+
+    Public Shared Function L_fnMostrarComisiones(cod As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@codpro", cod))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnActualizarEstadoComision(cod As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@codpro", cod))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnGrabarComisiones(ByRef numi As String, codpro As String, comision As String) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@codpro", codpro))
+        _listParam.Add(New Datos.DParametro("@comision", comision))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_prReporteVentasComisionTodos(_fechaI As String, _FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prReporteVentasComisionUno(_fechaI As String, _FechaF As String, _codPrevendedor As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
+
+
+#End Region
 #Region "Saldo Cliente"
 
     Public Shared Sub L_Actualizar_Saldo(codCli As String, monto As String)
