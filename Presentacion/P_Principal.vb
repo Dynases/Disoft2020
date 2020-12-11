@@ -1693,15 +1693,12 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
-
     Private Sub btComisiones_Click(sender As Object, e As EventArgs) Handles btComisiones.Click
-
         F02_Comisiones.AllowTransparency = True
         Dim frm As New F02_Comisiones
         frm._nameButton = btComisiones.Name
         frm._modulo = FP_CRM
         frm.Show()
-
     End Sub
 
     Private Sub btVentaComision_Click(sender As Object, e As EventArgs) Handles btVentaComision.Click
@@ -1711,6 +1708,8 @@ Public Class P_Principal
         frm._modulo = FP_CRM
         frm.Show()
     End Sub
+
+
 
 
 #End Region
