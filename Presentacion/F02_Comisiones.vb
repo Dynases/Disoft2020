@@ -360,6 +360,8 @@ Public Class F02_Comisiones
         If JGr_Detalle.CurrentRow.Selected <> JGr_Detalle.FilterRow.Selected Then
             If JGr_Detalle.Focused Then
                 If JGr_Detalle.GetValue("canumi") > 0 Then
+                    btNuevoP.Enabled = True
+
                     tbCodPro.Text = JGr_Detalle.CurrentRow.Cells("canumi").Value.ToString
                     lbProducto.Text = JGr_Detalle.CurrentRow.Cells("cadesc").Value.ToString + "    " + JGr_Detalle.CurrentRow.Cells("listprecio").Value.ToString
 

@@ -1709,6 +1709,13 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btVentasVendedor_Click(sender As Object, e As EventArgs) Handles btVentasVendedor.Click
+        R01_VentasVendedor.AllowTransparency = True
+        Dim frm As New R01_VentasVendedor
+        frm._nameButton = btVentasVendedor.Name
+        frm._modulo = FP_CRM
+        frm.Show()
+    End Sub
 
 
 
