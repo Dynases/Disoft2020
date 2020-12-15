@@ -27,7 +27,7 @@ Module P_Global
     Public gb_despacho As Boolean = False 'true=cargar el despacho en salida de producto, false=no cargar el despacho en salida de producto
     Public gb_ubilogo As String = ""
     Public gi_frecvisita As Byte = 0 '0=no mostrará ni registrará frec de visitas, 1=mostrará y registrará frec de visitas
-
+    Public gi_CRM As Byte = 0 '0=no mostrará menu CRM, 1=mostrará menu CRM
 #End Region
 
     Public gs_Ip As String = "localhost"

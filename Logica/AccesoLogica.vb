@@ -1207,11 +1207,11 @@ Public Class AccesoLogica
         _Err = D_Insertar_Datos("TO001", Sql)
     End Sub
 
-    Public Shared Sub L_PedidoCabecera_GrabarExtencion(ByRef to1numi As String, numiprev As String, entrega As String, caja As String)
+    Public Shared Sub L_PedidoCabecera_GrabarExtencion(ByRef to1numi As String, numiprev As String, entrega As String, caja As String, fvenc As String)
         Dim _Err As Boolean
         Dim Sql As String
-        Sql = to1numi + "," + numiprev + "," + entrega + "," + caja + ""
-        _Err = D_Insertar_Datos("TO001A (oaato1numi,oaanumiprev,oaaentrega,oaacaja)", Sql)
+        Sql = to1numi + "," + numiprev + "," + entrega + "," + caja + ",'" + fvenc + "'"
+        _Err = D_Insertar_Datos("TO001A (oaato1numi,oaanumiprev,oaaentrega,oaacaja,oaafvenc)", Sql)
     End Sub
 
     Public Shared Sub L_PedidoCabacera_Modificar(_numi As String, _fecha As String, _hora As String, _idCli As String, _zona As String, distribuidor As String, _obs As String, _estado As String)
@@ -1256,11 +1256,11 @@ Public Class AccesoLogica
 
     End Function
 
-    Public Shared Sub L_PedidoCabacera_ModificarExtencion(to1numi As String, numiprev As String)
+    Public Shared Sub L_PedidoCabacera_ModificarExtencion(to1numi As String, numiprev As String, fvenc As String)
         Dim _Err As Boolean
         Dim Sql, _where As String
 
-        Sql = "oaanumiprev =" + numiprev + ""
+        Sql = "oaanumiprev =" + numiprev + "," + "oaafvenc ='" + fvenc + "'"
 
         _where = "oaato1numi =" + to1numi
         _Err = D_Modificar_Datos("TO001A", Sql, _where)

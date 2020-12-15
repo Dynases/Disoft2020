@@ -317,6 +317,9 @@ Public Class F02_PedidoNuevo
             With JGr_Buscador.RootTable.Columns("montocredito")
                 .Visible = False
             End With
+            With JGr_Buscador.RootTable.Columns("oaafvenc")
+                .Visible = False
+            End With
 
             JGr_Buscador.ContextMenuStrip = ConMenu_Buscador
 
@@ -1261,6 +1264,8 @@ Public Class F02_PedidoNuevo
         Tb_CliTelef.Text = ""
         Tb_Estado.Value = True
         Tb_CantProd.Text = ""
+        Tb_Fecha.Value = Now.Date
+        dtpFechaVenc.Value = Now.Date
 
         If _nuevoBasePeriodico = True Then
             CheckBoxX1.Checked = False
@@ -1329,6 +1334,7 @@ Public Class F02_PedidoNuevo
             Tb_CliCateg.Text = .GetValue("cccat")
             Tb_Zona.Text = .GetValue("cedesc")
             Tb_Observaciones.Text = .GetValue("oaobs")
+            dtpFechaVenc.Value = .GetValue("oaafvenc")
             If .GetValue("oaest") = 0 Then
                 Tb_Estado.Value = False
             Else
@@ -1593,7 +1599,7 @@ Public Class F02_PedidoNuevo
                 End If
 
                 L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0")
-                L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0")
+                L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0", dtpFechaVenc.Value.ToString("yyyy/MM/dd"))
                 If (swTipoVenta.Value = False) Then  ''''Grabar Credito
                     L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
                 End If
@@ -1720,7 +1726,7 @@ Public Class F02_PedidoNuevo
                 Dim oaest As String = L_fnObtenerDatoTabla("TO001", "oaest", "oanumi=" + Tb_Id.Text.Trim)
 
                 L_PedidoCabacera_Modificar(Tb_Id.Text, Tb_Fecha.Value.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", oaest))
-                L_PedidoCabacera_ModificarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString)
+                L_PedidoCabacera_ModificarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, dtpFechaVenc.Value.ToString("yyyy/MM/dd"))
 
                 'modificar detalle
                 L_PedidoDetalle_Borrar(Tb_Id.Text)
@@ -2083,7 +2089,7 @@ Public Class F02_PedidoNuevo
     Private Sub _PNuevoRegistro()
         _PHabilitar()
         'BBtn_Nuevo.Enabled = True
-        MBtNuevo.Enabled = True
+        'MBtNuevo.Enabled = True
 
         _PLimpiar()
         Tb_Fecha.Focus()
@@ -2965,17 +2971,31 @@ Public Class F02_PedidoNuevo
         Try
             If (swTipoVenta.Value = True) Then
                 tbMontoCredito.Visible = False
+                lbFVenc.Visible = False
+                dtpFechaVenc.Visible = False
             Else
                 tbMontoCredito.Visible = True
-                If (Tb_Id.Text.Length <= 0) Then
-                    Dim dt As DataTable = CType(JGr_DetallePedido.DataSource, DataTable)
-                    Dim sumTotal As Double = 0
-                    For i = 0 To dt.Rows.Count - 1
-                        sumTotal = sumTotal + dt.Rows(i).Item("obtotal")
+                lbFVenc.Visible = True
+                dtpFechaVenc.Visible = True
+                dtpFechaVenc.Value = Now.Date
 
-                    Next
-                    tbMontoCredito.Text = Str(sumTotal)
-                End If
+                'If (Tb_Id.Text.Length <= 0) Then
+                '    Dim dt As DataTable = CType(JGr_DetallePedido.DataSource, DataTable)
+                '    Dim sumTotal As Double = 0
+                '    For i = 0 To dt.Rows.Count - 1
+                '        sumTotal = sumTotal + dt.Rows(i).Item("obtotal")
+
+                '    Next
+                '    tbMontoCredito.Text = Str(sumTotal)
+                'End If
+                Dim dt As DataTable = CType(JGr_DetallePedido.DataSource, DataTable)
+                Dim sumTotal As Double = 0
+                For i = 0 To dt.Rows.Count - 1
+                    sumTotal = sumTotal + dt.Rows(i).Item("obtotal")
+
+                Next
+                tbMontoCredito.Text = Str(sumTotal)
+
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
@@ -3023,7 +3043,7 @@ Public Class F02_PedidoNuevo
             End If
 
             L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), "1", "0")
-            L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0")
+            L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0", dtpFechaVenc.Value.ToString("yyyy/MM/dd"))
             If (swTipoVenta.Value = False) Then  ''''Grabar Credito
                 L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
             End If

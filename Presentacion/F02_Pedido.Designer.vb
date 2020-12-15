@@ -153,6 +153,8 @@ Partial Class F02_Pedido
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.dtpFechaVenc = New System.Windows.Forms.DateTimePicker()
+        Me.lbFVenc = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -1108,6 +1110,8 @@ Partial Class F02_Pedido
         Me.PanelEx2.AutoScroll = True
         Me.PanelEx2.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx2.Controls.Add(Me.dtpFechaVenc)
+        Me.PanelEx2.Controls.Add(Me.lbFVenc)
         Me.PanelEx2.Controls.Add(Me.tb_EstadoPedido)
         Me.PanelEx2.Controls.Add(Me.btAplicarDesc)
         Me.PanelEx2.Controls.Add(Me.tbMontoCredito)
@@ -1261,12 +1265,13 @@ Partial Class F02_Pedido
         Me.Btn_GenerarPedidos.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_GenerarPedidos.BackColor = System.Drawing.Color.Transparent
         Me.Btn_GenerarPedidos.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.Btn_GenerarPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_GenerarPedidos.Image = Global.Presentacion.My.Resources.Resources.GEN_PEDIDOS_AUTOMATICAMENTE_ORI
         Me.Btn_GenerarPedidos.ImageFixedSize = New System.Drawing.Size(35, 35)
         Me.Btn_GenerarPedidos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_GenerarPedidos.Location = New System.Drawing.Point(799, 53)
+        Me.Btn_GenerarPedidos.Location = New System.Drawing.Point(799, 84)
         Me.Btn_GenerarPedidos.Name = "Btn_GenerarPedidos"
-        Me.Btn_GenerarPedidos.Size = New System.Drawing.Size(73, 77)
+        Me.Btn_GenerarPedidos.Size = New System.Drawing.Size(73, 46)
         Me.Btn_GenerarPedidos.TabIndex = 35
         Me.Btn_GenerarPedidos.Text = "GENERAR PEDIDOS"
         Me.Btn_GenerarPedidos.TextColor = System.Drawing.Color.Navy
@@ -2446,6 +2451,26 @@ Partial Class F02_Pedido
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'dtpFechaVenc
+        '
+        Me.dtpFechaVenc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaVenc.Location = New System.Drawing.Point(748, 77)
+        Me.dtpFechaVenc.Name = "dtpFechaVenc"
+        Me.dtpFechaVenc.Size = New System.Drawing.Size(120, 23)
+        Me.dtpFechaVenc.TabIndex = 48
+        '
+        'lbFVenc
+        '
+        '
+        '
+        '
+        Me.lbFVenc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbFVenc.Location = New System.Drawing.Point(748, 54)
+        Me.lbFVenc.Name = "lbFVenc"
+        Me.lbFVenc.Size = New System.Drawing.Size(94, 23)
+        Me.lbFVenc.TabIndex = 49
+        Me.lbFVenc.Text = "FECHA VENC.:"
+        '
         'F02_Pedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2654,4 +2679,6 @@ Partial Class F02_Pedido
     Friend WithEvents btAplicarDesc As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Timer1 As Timer
     Friend WithEvents tb_EstadoPedido As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents dtpFechaVenc As DateTimePicker
+    Friend WithEvents lbFVenc As DevComponents.DotNetBar.LabelX
 End Class

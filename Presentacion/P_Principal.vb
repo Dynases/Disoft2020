@@ -99,6 +99,7 @@ Public Class P_Principal
         If gs_puerto <> "0" Then
             btConfFormulario.Visible = True
         End If
+
     End Sub
 
     Private Sub _prCambiarStyle()
@@ -215,6 +216,12 @@ Public Class P_Principal
             gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
             gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
             gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
+            gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
+            If gi_CRM = 1 Then
+                FP_CRM.Visible = True
+            Else
+                FP_CRM.Visible = False
+            End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try

@@ -278,6 +278,7 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVenta)
         Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
@@ -286,7 +287,6 @@ Partial Class P_Principal
         Me.SideNav1.Controls.Add(Me.SideNavPanelCerrarSesion)
         Me.SideNav1.Controls.Add(Me.SideNavPanelRRHH)
         Me.SideNav1.Controls.Add(Me.SideNavPanelInventario)
-        Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVentana)
         Me.SideNav1.Controls.Add(Me.SideNavPanel1)
         Me.SideNav1.Controls.Add(Me.SideNavPanel2)
@@ -307,6 +307,7 @@ Partial Class P_Principal
         Me.SideNavPanel3.Name = "SideNavPanel3"
         Me.SideNavPanel3.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanel3.TabIndex = 182
+        Me.SideNavPanel3.Visible = False
         '
         'MetroTilePanelCRM
         '
@@ -2509,9 +2510,8 @@ Partial Class P_Principal
         Me.SideNavPanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SideNavPanelPedido.Location = New System.Drawing.Point(142, 36)
         Me.SideNavPanelPedido.Name = "SideNavPanelPedido"
-        Me.SideNavPanelPedido.Size = New System.Drawing.Size(876, 565)
+        Me.SideNavPanelPedido.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelPedido.TabIndex = 156
-        Me.SideNavPanelPedido.Visible = False
         '
         'PanelPedido
         '
@@ -2519,7 +2519,7 @@ Partial Class P_Principal
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 0)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(876, 565)
+        Me.PanelPedido.Size = New System.Drawing.Size(875, 565)
         Me.PanelPedido.TabIndex = 6
         '
         'MetroTilePanelPedido
@@ -2543,7 +2543,7 @@ Partial Class P_Principal
         Me.MetroTilePanelPedido.Location = New System.Drawing.Point(0, 0)
         Me.MetroTilePanelPedido.MultiLine = True
         Me.MetroTilePanelPedido.Name = "MetroTilePanelPedido"
-        Me.MetroTilePanelPedido.Size = New System.Drawing.Size(876, 565)
+        Me.MetroTilePanelPedido.Size = New System.Drawing.Size(875, 565)
         Me.MetroTilePanelPedido.TabIndex = 2
         Me.MetroTilePanelPedido.Text = "mtp2Logistica"
         '
@@ -3275,6 +3275,7 @@ Partial Class P_Principal
         '
         'FP_Pedido
         '
+        Me.FP_Pedido.Checked = True
         Me.FP_Pedido.Name = "FP_Pedido"
         Me.FP_Pedido.Panel = Me.SideNavPanelPedido
         Me.FP_Pedido.Symbol = ""
@@ -3326,7 +3327,6 @@ Partial Class P_Principal
         '
         'FP_CRM
         '
-        Me.FP_CRM.Checked = True
         Me.FP_CRM.Name = "FP_CRM"
         Me.FP_CRM.Panel = Me.SideNavPanel3
         Me.FP_CRM.Symbol = ""
