@@ -10,24 +10,23 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class v_VentasDetalleDespacho
-    Public Property oanumi As Integer
-    Public Property oafdoc As Nullable(Of Date)
-    Public Property oaccli As Nullable(Of Integer)
+Partial Public Class VR_GO_DespachoXCliente1
+    Public Property oaccbnumi As Integer
+    Public Property ccnumi As Integer
+    Public Property cccod As String
     Public Property ccdesc As String
-    Public Property oarepa As Nullable(Of Integer)
-    Public Property oaest As Nullable(Of Integer)
-    Public Property oaap As Nullable(Of Integer)
-    Public Property obcprod As String
-    Public Property cadesc As String
-    Public Property cauventa As Nullable(Of Integer)
-    Public Property cedesc As String
-    Public Property obpbase As Nullable(Of Decimal)
-    Public Property obpcant As Nullable(Of Decimal)
+    Public Property oacnrofact As Long
     Public Property obptot As Nullable(Of Decimal)
     Public Property obdesc As Nullable(Of Decimal)
     Public Property obtotal As Nullable(Of Decimal)
-    Public Property oaccbnumi As Integer
-    Public Property cbdesc As String
+    Public Property IdZona As Nullable(Of Integer)
+    Public Property oaest As Nullable(Of Integer)
+    Public Property oaap As Nullable(Of Integer)
+    Public Property oafdoc As Nullable(Of Date)
+    Public Property oaobs As String
+    Public Property oanumi As Integer
+    Public Property tipo As String
+    Public Property contado As Nullable(Of Decimal)
+    Public Property credito As Nullable(Of Decimal)
 
 End Class

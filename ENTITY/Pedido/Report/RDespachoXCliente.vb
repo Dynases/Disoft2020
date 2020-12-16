@@ -103,6 +103,9 @@
             _oanumi = value
         End Set
     End Property
+
+
+
     Private _oaobs As String
     Public Property oaobs() As String
         Get
@@ -110,6 +113,35 @@
         End Get
         Set(ByVal value As String)
             _oaobs = value
+        End Set
+    End Property
+
+    Private _tipo As String
+    Public Property tipo() As String
+        Get
+            Return _tipo
+        End Get
+        Set(ByVal value As String)
+            _tipo = value
+        End Set
+    End Property
+
+    Private _contado As Decimal
+    Public Property contado() As Decimal
+        Get
+            Return _contado
+        End Get
+        Set(ByVal value As Decimal)
+            _contado = value
+        End Set
+    End Property
+    Private _credito As Decimal
+    Public Property credito() As Decimal
+        Get
+            Return _credito
+        End Get
+        Set(ByVal value As Decimal)
+            _credito = value
         End Set
     End Property
 End Class

@@ -93,7 +93,10 @@ Public Class RPedido
                                       .IdZona = a.IdZona,
                                       .oafdoc = a.oafdoc,
                                       .oanumi = a.oanumi,
-                                      .oaobs = a.oaobs
+                                      .oaobs = a.oaobs,
+                                      .tipo = a.tipo,
+                                      .contado = a.contado,
+                                      .credito = a.credito
                                       }).ToList()
                 Return listResult
 
