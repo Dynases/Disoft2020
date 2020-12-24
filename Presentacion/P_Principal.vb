@@ -1724,6 +1724,22 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btEstadoCuentaCliente_Click(sender As Object, e As EventArgs) Handles btEstadoCuentaCliente.Click
+        R01_EstadoCuentasClientes.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasClientes
+        frm._nameButton = btEstadoCuentaCliente.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
+    Private Sub btEstadoCuentasClientesTodos_Click(sender As Object, e As EventArgs) Handles btEstadoCuentasClientesTodos.Click
+        R01_EstadoCuentasClientesTodos.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasClientesTodos
+        frm._nameButton = btEstadoCuentasClientesTodos.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
 
 
 #End Region
