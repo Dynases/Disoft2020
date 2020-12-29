@@ -40,6 +40,7 @@ Module P_Global
     Public gs_Ser As String = "1"
     Public gs_puerto As String = "0"
     Public gs_Parametros As DataTable
+    Public gs_CantPersonal As Integer = 0 'Cantidad de registros para grabar personal sin contar los 4 primeros del sistema
 
     'Datos para conexion FTP
     Public gs_ftpIp As String = "localhost"

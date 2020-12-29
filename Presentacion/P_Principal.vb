@@ -99,7 +99,7 @@ Public Class P_Principal
         If gs_puerto <> "0" Then
             btConfFormulario.Visible = True
         End If
-
+        gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
     End Sub
 
     Private Sub _prCambiarStyle()
