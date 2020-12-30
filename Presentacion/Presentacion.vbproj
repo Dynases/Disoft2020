@@ -748,6 +748,18 @@
     <Compile Include="R01_EstadoCuentasCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_EstadoCuentasClientes.designer.vb">
+      <DependentUpon>R01_EstadoCuentasClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientesTodos.designer.vb">
+      <DependentUpon>R01_EstadoCuentasClientesTodos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientesTodos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_EstadoCuentasPorCobrar.Designer.vb">
       <DependentUpon>R01_EstadoCuentasPorCobrar.vb</DependentUpon>
     </Compile>
@@ -962,6 +974,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>R_EstadoCuentasClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_EstadoCuentasClientesNuevo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_EstadoCuentasClientesNuevo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_EstadoCuentasClientesTodos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_EstadoCuentasClientesTodos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_EstadoCuentasCompra.vb">
@@ -1697,6 +1721,12 @@
     <EmbeddedResource Include="R01_EstadoCuentasCliente.resx">
       <DependentUpon>R01_EstadoCuentasCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_EstadoCuentasClientes.resx">
+      <DependentUpon>R01_EstadoCuentasClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_EstadoCuentasClientesTodos.resx">
+      <DependentUpon>R01_EstadoCuentasClientesTodos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_EstadoCuentasPorCobrar.resx">
       <DependentUpon>R01_EstadoCuentasPorCobrar.vb</DependentUpon>
     </EmbeddedResource>
@@ -1821,6 +1851,14 @@
     <EmbeddedResource Include="Reportes\R_EstadoCuentasClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_EstadoCuentasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_EstadoCuentasClientesNuevo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_EstadoCuentasClientesNuevo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_EstadoCuentasClientesTodos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_EstadoCuentasClientesTodos.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_EstadoCuentasCompra.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
