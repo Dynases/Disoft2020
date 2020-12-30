@@ -1012,10 +1012,18 @@ Public Class frmBillingDispatch
             End If
 
             Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
-            'Dim lista = (From a In listResult
-            '             Where a.oafdoc >= Tb_Fecha.Value And
-            '                    a.oafdoc <= Tb_FechaHasta.Value).ToList
-            If (listResult.Count = 0) Then
+            Dim lista = (From a In listResult
+                         Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
+                         Select New RDespachoXProducto With {
+                          .canumi = grupo.FirstOrDefault().canumi,
+                          .cadesc = grupo.FirstOrDefault().cadesc,
+                          .categoria = grupo.FirstOrDefault().categoria,
+                          .obpcant = grupo.Sum(Function(item) item.obpcant),
+                          .Caja = grupo.Sum(Function(item) item.Caja),
+                          .Unidad = grupo.Sum(Function(item) item.Unidad),
+                          .Total = grupo.Sum(Function(item) item.Total)
+                        }).ToList()
+            If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
             Dim empresaId = ObtenerEmpresaHabilitada()
@@ -1024,10 +1032,10 @@ Public Class frmBillingDispatch
                 Select Case fila.Item("TipoReporte").ToString
                     Case ENReporteTipo.DESPACHOXPRODUCTO_AgrupadoXCategoria
                         Dim objrep As New DespachoXProducto
-                        SerParametros(listResult, objrep)
+                        SerParametros(lista, objrep)
                     Case ENReporteTipo.DESPACHOXPRODUCTO_SinAgrupacion
                         Dim objrep As New DespachoXProductoSinAgrupacion
-                        SerParametros(listResult, objrep)
+                        SerParametros(lista, objrep)
                 End Select
             Next
         Catch ex As Exception
