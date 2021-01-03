@@ -139,19 +139,31 @@ Public Class F02_Movimiento
         End If
     End Sub
 
+    Public Function ExisteProducto(idproducto As Integer) As Boolean
+
+        Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable)
+        For i As Integer = 0 To dt.Rows.Count - 1 Step 1
+            If (dt.Rows(i).Item("estado") >= 0 And dt.Rows(i).Item("iccprod") = idproducto) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub dgjDetalle_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjDetalle.KeyDown
         
 
         If (BoNuevo Or BoModificar) Then
             If (e.KeyData = Keys.Control + Keys.Enter) Then
                 Dim dt As DataTable
-                dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc]",
-                                      "TC001 a",
-                                      "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 order by a.canumi asc")
+                dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc],b.iacant as stock",
+                                      "TC001 a,TI001 as b",
+                                      "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
+                                      and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
 
                 Dim listEstCeldas As New List(Of Modelo.MCelda)
                 listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 80))
                 listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 270))
+                listEstCeldas.Add(New Modelo.MCelda("stock", True, "Stock", 120))
 
                 Dim ef = New Efecto
                 ef.tipo = 3
@@ -167,26 +179,41 @@ Public Class F02_Movimiento
                 bandera = ef.band
                 If (bandera = True) Then
                     Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                    If (Not ExisteProducto(Row.Cells("numi").Value)) Then
 
-                    'dgjDetalle.SetValue("cprod", Row.Cells("numi").Value)
-                    'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
-                    dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index
-                    DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
-                    DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
+
+
+                        'dgjDetalle.SetValue("cprod", Row.Cells("numi").Value)
+                        'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
+                        dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index
+                        DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
+                        DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
+                        DtDetalle.Rows(dgjDetalle.Row).Item("stock") = Row.Cells("stock").Value
+                    Else
+                        Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                        ToastNotification.Show(Me, "El producto ya existe en el Detalle",
+                          img,
+                          5000,
+                          eToastGlowColor.Blue,
+                          eToastPosition.BottomLeft)
+                    End If
+
                 End If
-            ElseIf (e.KeyData = Keys.Enter And dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index) Then
+                ElseIf (e.KeyData = Keys.Enter And dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index) Then
                 Dim filIndex As Integer = dgjDetalle.Row
                 If (filIndex = dgjDetalle.RowCount - 1) Then
                     P_prAddFilaDetalle()
 
                     Dim dt As DataTable
-                    dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc]",
-                                          "TC001 a",
-                                          "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 order by a.canumi asc")
+                    dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc],b.iacant as stock",
+                                      "TC001 a,TI001 as b",
+                                      "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
+                                      and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
 
                     Dim listEstCeldas As New List(Of Modelo.MCelda)
                     listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 80))
                     listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 270))
+                    listEstCeldas.Add(New Modelo.MCelda("stock", True, "Stock", 120))
 
                     Dim ef = New Efecto
                     ef.tipo = 3
@@ -202,14 +229,25 @@ Public Class F02_Movimiento
                     bandera = ef.band
                     If (bandera = True) Then
                         Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                        If (Not ExisteProducto(Row.Cells("numi").Value)) Then
+                            dgjDetalle.Row = filIndex + 1
+                            dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index
 
-                        dgjDetalle.Row = filIndex + 1
-                        dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index
+                            'dgjDetalle.SetValue("cprod", Row.Cells("numi").Value)
+                            'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
+                            DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
+                            DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
+                            DtDetalle.Rows(dgjDetalle.Row).Item("stock") = Row.Cells("stock").Value
 
-                        'dgjDetalle.SetValue("cprod", Row.Cells("numi").Value)
-                        'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
-                        DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
-                        DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
+                        Else
+                            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                            ToastNotification.Show(Me, "El producto ya existe en el Detalle",
+                              img,
+                              5000,
+                              eToastGlowColor.Blue,
+                              eToastPosition.BottomLeft)
+                        End If
+
                     End If
 
                 End If
@@ -367,7 +405,8 @@ Public Class F02_Movimiento
 
         'ComboBox
         cbConcepto.ReadOnly = Not flat
-
+        cbAlmacenOrigen.ReadOnly = Not flat
+        cbDepositoDestino.ReadOnly = Not flat
         'DateTimer
         dtiFechaDoc.IsInputReadOnly = Not flat
         dtiFechaDoc.ButtonDropDown.Enabled = flat
@@ -395,6 +434,12 @@ Public Class F02_Movimiento
             cbConcepto.Clear()
         End If
 
+        If (CType(cbAlmacenOrigen.DataSource, DataTable).Rows.Count > 0) Then
+            cbAlmacenOrigen.SelectedIndex = 0
+        Else
+            cbAlmacenOrigen.Clear()
+        End If
+
         'DateTimer
         dtiFechaDoc.Value = Now.Date
 
@@ -410,6 +455,24 @@ Public Class F02_Movimiento
 
     Private Sub P_prArmarCombos()
         P_prArmarComboConcepto()
+        _prCargarComboLibreriaDeposito(cbAlmacenOrigen)
+        _prCargarComboLibreriaDeposito(cbDepositoDestino)
+    End Sub
+
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
     End Sub
 
     Private Sub P_prArmarGrillas()
@@ -450,7 +513,7 @@ Public Class F02_Movimiento
                     stEst = .GetValue("est").ToString
                     stAlm = .GetValue("alm").ToString
                     stIddc = .GetValue("iddc").ToString
-
+                    cbAlmacenOrigen.Value = .GetValue("alm")
                     'Aqui se coloca los datos de la grilla de los Equipos
                     P_prArmarGrillaDetalle(tbCodigo.Text)
 
@@ -549,13 +612,13 @@ Public Class F02_Movimiento
                 concep = cbConcepto.Value.ToString
                 obs = tbObs.Text.Trim
                 est = IIf(tipo = 1, "1", "11")
-                alm = stAlm
+                alm = cbAlmacenOrigen.Value
                 iddc = stIddc
 
                 dtiFechaDoc.Select()
 
                 Dim dt As New DataTable
-                dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "iccant", "estado")
+                dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "ncprod", "iccant", "stock", "estado")
 
                 'Grabar
                 Dim res As Boolean = L_fnMovimientoGrabar(id, fdoc, concep, obs, est, alm, iddc, dt)
@@ -587,13 +650,13 @@ Public Class F02_Movimiento
                 concep = cbConcepto.Value.ToString
                 obs = tbObs.Text.Trim
                 est = stEst
-                alm = stAlm
+                alm = cbAlmacenOrigen.Value
                 iddc = stIddc
 
                 dtiFechaDoc.Select()
 
                 Dim dt As New DataTable
-                dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "iccant", "estado")
+                dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "ncprod", "iccant", "stock", "estado")
 
                 'Grabar
                 Dim res As Boolean = L_fnMovimientoModificar(id, fdoc, concep, obs, est, alm, iddc, dt)
@@ -818,7 +881,7 @@ Public Class F02_Movimiento
 
     Private Sub P_prArmarGrillaDetalle(numi As String)
         DtDetalle = New DataTable
-        DtDetalle = L_fnMovimientoDetalle(numi)
+        DtDetalle = L_fnMovimientoDetalle(numi, cbAlmacenOrigen.Value)
 
         dgjDetalle.BoundMode = Janus.Data.BoundMode.Bound
         dgjDetalle.DataSource = DtDetalle
@@ -871,7 +934,10 @@ Public Class F02_Movimiento
             .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
-
+        With dgjDetalle.RootTable.Columns("stock")
+            .Visible = False
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
         'Habilitar Filtradores
         With dgjDetalle
             .GroupByBoxVisible = False
@@ -912,7 +978,127 @@ Public Class F02_Movimiento
         fil.Item("ncprod") = "Nuevo"
         fil.Item("iccant") = 0
         fil.Item("estado") = 0
+        fil.Item("stock") = 0
         DtDetalle.Rows.Add(fil)
+    End Sub
+    Public Function _fnAccesible()
+        Return tbObs.ReadOnly = False
+    End Function
+
+    Private Sub cbConcepto_ValueChanged(sender As Object, e As EventArgs) Handles cbConcepto.ValueChanged
+        If (cbConcepto.SelectedIndex >= 0) Then
+            If (cbConcepto.Value = 60) Then ''''Movimiento 6=Traspaso Salida
+                If (CType(cbAlmacenOrigen.DataSource, DataTable).Rows.Count > 1) Then
+                    lbDepositoDestino.Visible = True
+                    cbDepositoDestino.Visible = True
+                    lbDepositoOrigen.Text = "Deposito Origen"
+                    lbDepositoDestino.Text = "Deposito Destino"
+                    cbDepositoDestino.SelectedIndex = 1
+                    If (Not _fnAccesible()) Then
+                        MBtModificar.Enabled = False
+                    End If
+                Else
+                    lbDepositoDestino.Visible = False
+                    cbDepositoDestino.Visible = False
+                    lbDepositoOrigen.Text = "Deposito:"
+                    If (Not _fnAccesible()) Then
+                        MBtModificar.Enabled = True
+                    End If
+                End If
+            Else
+                MBtModificar.Enabled = True
+                lbDepositoDestino.Visible = False
+                cbDepositoDestino.Visible = False
+                lbDepositoOrigen.Text = "Deposito:"
+
+            End If
+            If (_fnAccesible() And tbCodigo.Text = String.Empty) Then
+                CType(dgjDetalle.DataSource, DataTable).Rows.Clear()
+                P_prAddFilaDetalle()
+            End If
+        End If
+    End Sub
+
+    Private Sub cbAlmacenOrigen_ValueChanged(sender As Object, e As EventArgs) Handles cbAlmacenOrigen.ValueChanged
+        If (_fnAccesible() And tbCodigo.Text = String.Empty) Then
+            CType(dgjDetalle.DataSource, DataTable).Rows.Clear()
+            P_prAddFilaDetalle()
+
+        End If
+    End Sub
+    Public Sub _fnObtenerFilaDetalle(ByRef pos As Integer, numi As Integer)
+        For i As Integer = 0 To CType(dgjDetalle.DataSource, DataTable).Rows.Count - 1 Step 1
+            Dim _numi As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("icid")
+            If (_numi = numi) Then
+                pos = i
+                Return
+            End If
+        Next
+
+    End Sub
+
+    Private Sub dgjDetalle_CellValueChanged(sender As Object, e As ColumnActionEventArgs) Handles dgjDetalle.CellValueChanged
+        If (e.Column.Index = dgjDetalle.RootTable.Columns("iccant").Index) Then
+
+
+            If (Not IsNumeric(dgjDetalle.GetValue("iccant")) Or dgjDetalle.GetValue("iccant").ToString = String.Empty) Then
+
+                'dgjDetalle.GetRow(rowIndex).Cells("cant").Value = 1
+                '  dgjDetalle.CurrentRow.Cells.Item("cant").Value = 1
+                Dim lin As Integer = dgjDetalle.GetValue("icid")
+                Dim pos As Integer = -1
+                _fnObtenerFilaDetalle(pos, lin)
+                CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+
+                Dim estado As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado")
+
+                If (estado = 1) Then
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                End If
+
+            Else
+                If (dgjDetalle.GetValue("iccant") > 0) Then
+
+                    Dim stock As Double = dgjDetalle.GetValue("stock")
+                    If (dgjDetalle.GetValue("iccant") > stock And cbConcepto.Value = 60) Then
+                        Dim lin As Integer = dgjDetalle.GetValue("icid")
+                        Dim pos As Integer = -1
+                        _fnObtenerFilaDetalle(pos, lin)
+                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = stock
+                        dgjDetalle.SetValue("iccant", stock)
+                        Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                        ToastNotification.Show(Me, "La cantidad que se quiere sacar es mayor a la que existe en el stock solo puede Sacar : ".ToUpper + Str(stock).Trim,
+                          img,
+                          5000,
+                          eToastGlowColor.Blue,
+                          eToastPosition.BottomLeft)
+                        Return
+
+
+                    Else
+                        Dim lin As Integer = dgjDetalle.GetValue("icid")
+                        Dim pos As Integer = -1
+                        _fnObtenerFilaDetalle(pos, lin)
+                        Dim estado As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado")
+
+                        If (estado = 1) Then
+                            CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                        End If
+                    End If
+                Else
+                    Dim lin As Integer = dgjDetalle.GetValue("icid")
+                    Dim pos As Integer = -1
+                    _fnObtenerFilaDetalle(pos, lin)
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+                    Dim estado As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado")
+
+                    If (estado = 1) Then
+                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                    End If
+
+                End If
+            End If
+        End If
     End Sub
 
 #End Region
