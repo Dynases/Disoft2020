@@ -23,13 +23,17 @@ Partial Class F02_Movimiento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim cbConcepto_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Movimiento))
         Dim cbDepositoDestino_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Movimiento))
         Dim cbAlmacenOrigen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbConcepto_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.cbDepositoDestino = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbDepositoDestino = New DevComponents.DotNetBar.LabelX()
+        Me.cbAlmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
@@ -46,10 +50,6 @@ Partial Class F02_Movimiento
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cbDepositoDestino = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.lbDepositoDestino = New DevComponents.DotNetBar.LabelX()
-        Me.cbAlmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -66,6 +66,8 @@ Partial Class F02_Movimiento
         Me.TableLayoutPanelPrincipal.SuspendLayout()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PanelExDatosGenerales.SuspendLayout()
+        CType(Me.cbDepositoDestino, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbConcepto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtiFechaDoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDetalle.SuspendLayout()
@@ -73,8 +75,6 @@ Partial Class F02_Movimiento
         Me.GroupPanelBusqueda.SuspendLayout()
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmDetalle.SuspendLayout()
-        CType(Me.cbDepositoDestino, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -307,6 +307,78 @@ Partial Class F02_Movimiento
         Me.PanelExDatosGenerales.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 0
+        '
+        'cbDepositoDestino
+        '
+        Me.cbDepositoDestino.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbDepositoDestino_DesignTimeLayout.LayoutString = resources.GetString("cbDepositoDestino_DesignTimeLayout.LayoutString")
+        Me.cbDepositoDestino.DesignTimeLayout = cbDepositoDestino_DesignTimeLayout
+        Me.cbDepositoDestino.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDepositoDestino.Location = New System.Drawing.Point(553, 99)
+        Me.cbDepositoDestino.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbDepositoDestino.Name = "cbDepositoDestino"
+        Me.cbDepositoDestino.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbDepositoDestino.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbDepositoDestino.SelectedIndex = -1
+        Me.cbDepositoDestino.SelectedItem = Nothing
+        Me.cbDepositoDestino.Size = New System.Drawing.Size(235, 26)
+        Me.cbDepositoDestino.TabIndex = 239
+        Me.cbDepositoDestino.Visible = False
+        Me.cbDepositoDestino.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbDepositoDestino
+        '
+        Me.lbDepositoDestino.AutoSize = True
+        Me.lbDepositoDestino.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbDepositoDestino.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbDepositoDestino.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDepositoDestino.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbDepositoDestino.Location = New System.Drawing.Point(553, 75)
+        Me.lbDepositoDestino.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbDepositoDestino.Name = "lbDepositoDestino"
+        Me.lbDepositoDestino.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbDepositoDestino.Size = New System.Drawing.Size(129, 20)
+        Me.lbDepositoDestino.TabIndex = 240
+        Me.lbDepositoDestino.Text = "Deposito Salida:"
+        Me.lbDepositoDestino.Visible = False
+        '
+        'cbAlmacenOrigen
+        '
+        Me.cbAlmacenOrigen.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbAlmacenOrigen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacenOrigen_DesignTimeLayout.LayoutString")
+        Me.cbAlmacenOrigen.DesignTimeLayout = cbAlmacenOrigen_DesignTimeLayout
+        Me.cbAlmacenOrigen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAlmacenOrigen.Location = New System.Drawing.Point(553, 41)
+        Me.cbAlmacenOrigen.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbAlmacenOrigen.Name = "cbAlmacenOrigen"
+        Me.cbAlmacenOrigen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbAlmacenOrigen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbAlmacenOrigen.SelectedIndex = -1
+        Me.cbAlmacenOrigen.SelectedItem = Nothing
+        Me.cbAlmacenOrigen.Size = New System.Drawing.Size(235, 26)
+        Me.cbAlmacenOrigen.TabIndex = 237
+        Me.cbAlmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbDepositoOrigen
+        '
+        Me.lbDepositoOrigen.AutoSize = True
+        Me.lbDepositoOrigen.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbDepositoOrigen.Location = New System.Drawing.Point(553, 17)
+        Me.lbDepositoOrigen.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
+        Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbDepositoOrigen.Size = New System.Drawing.Size(77, 20)
+        Me.lbDepositoOrigen.TabIndex = 238
+        Me.lbDepositoOrigen.Text = "Deposito:"
         '
         'LabelX4
         '
@@ -584,78 +656,6 @@ Partial Class F02_Movimiento
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'cbDepositoDestino
-        '
-        Me.cbDepositoDestino.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
-        cbDepositoDestino_DesignTimeLayout.LayoutString = resources.GetString("cbDepositoDestino_DesignTimeLayout.LayoutString")
-        Me.cbDepositoDestino.DesignTimeLayout = cbDepositoDestino_DesignTimeLayout
-        Me.cbDepositoDestino.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbDepositoDestino.Location = New System.Drawing.Point(553, 99)
-        Me.cbDepositoDestino.Margin = New System.Windows.Forms.Padding(4)
-        Me.cbDepositoDestino.Name = "cbDepositoDestino"
-        Me.cbDepositoDestino.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbDepositoDestino.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbDepositoDestino.SelectedIndex = -1
-        Me.cbDepositoDestino.SelectedItem = Nothing
-        Me.cbDepositoDestino.Size = New System.Drawing.Size(235, 26)
-        Me.cbDepositoDestino.TabIndex = 239
-        Me.cbDepositoDestino.Visible = False
-        Me.cbDepositoDestino.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'lbDepositoDestino
-        '
-        Me.lbDepositoDestino.AutoSize = True
-        Me.lbDepositoDestino.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.lbDepositoDestino.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbDepositoDestino.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDepositoDestino.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbDepositoDestino.Location = New System.Drawing.Point(553, 75)
-        Me.lbDepositoDestino.Margin = New System.Windows.Forms.Padding(4)
-        Me.lbDepositoDestino.Name = "lbDepositoDestino"
-        Me.lbDepositoDestino.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbDepositoDestino.Size = New System.Drawing.Size(129, 20)
-        Me.lbDepositoDestino.TabIndex = 240
-        Me.lbDepositoDestino.Text = "Deposito Salida:"
-        Me.lbDepositoDestino.Visible = False
-        '
-        'cbAlmacenOrigen
-        '
-        Me.cbAlmacenOrigen.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
-        cbAlmacenOrigen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacenOrigen_DesignTimeLayout.LayoutString")
-        Me.cbAlmacenOrigen.DesignTimeLayout = cbAlmacenOrigen_DesignTimeLayout
-        Me.cbAlmacenOrigen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacenOrigen.Location = New System.Drawing.Point(553, 41)
-        Me.cbAlmacenOrigen.Margin = New System.Windows.Forms.Padding(4)
-        Me.cbAlmacenOrigen.Name = "cbAlmacenOrigen"
-        Me.cbAlmacenOrigen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbAlmacenOrigen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbAlmacenOrigen.SelectedIndex = -1
-        Me.cbAlmacenOrigen.SelectedItem = Nothing
-        Me.cbAlmacenOrigen.Size = New System.Drawing.Size(235, 26)
-        Me.cbAlmacenOrigen.TabIndex = 237
-        Me.cbAlmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'lbDepositoOrigen
-        '
-        Me.lbDepositoOrigen.AutoSize = True
-        Me.lbDepositoOrigen.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbDepositoOrigen.Location = New System.Drawing.Point(553, 17)
-        Me.lbDepositoOrigen.Margin = New System.Windows.Forms.Padding(4)
-        Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
-        Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbDepositoOrigen.Size = New System.Drawing.Size(77, 20)
-        Me.lbDepositoOrigen.TabIndex = 238
-        Me.lbDepositoOrigen.Text = "Deposito:"
-        '
         'F02_Movimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -687,6 +687,8 @@ Partial Class F02_Movimiento
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.PerformLayout()
+        CType(Me.cbDepositoDestino, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbConcepto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtiFechaDoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelDetalle.ResumeLayout(False)
@@ -694,8 +696,6 @@ Partial Class F02_Movimiento
         Me.GroupPanelBusqueda.ResumeLayout(False)
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CmDetalle.ResumeLayout(False)
-        CType(Me.cbDepositoDestino, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

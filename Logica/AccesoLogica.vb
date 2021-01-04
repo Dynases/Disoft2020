@@ -7885,7 +7885,7 @@ Public Class AccesoLogica
     End Function
 
     Public Shared Function L_fnMovimientoGrabar(ByRef id As String, fdoc As String, concep As String, obs As String,
-                                                est As String, alm As String, iddc As String, TI0021 As DataTable) As Boolean
+                                                est As String, alm As String, _depositoDestino As Integer, _ibidOrigen As Integer, TI0021 As DataTable) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -7898,7 +7898,9 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@obs", obs))
         _listParam.Add(New Datos.DParametro("@est", est))
         _listParam.Add(New Datos.DParametro("@alm", alm))
-        _listParam.Add(New Datos.DParametro("@iddc", iddc))
+        _listParam.Add(New Datos.DParametro("@ibdepdest", _depositoDestino))
+        _listParam.Add(New Datos.DParametro("@iddc", 0))
+        _listParam.Add(New Datos.DParametro("@ibidOrigen", _ibidOrigen))
         _listParam.Add(New Datos.DParametro("@TI0021", "", TI0021))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 

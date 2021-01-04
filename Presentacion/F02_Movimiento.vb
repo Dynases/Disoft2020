@@ -592,7 +592,45 @@ Public Class F02_Movimiento
             End If
         End If
     End Sub
+    Sub _prGuardarTraspaso()
+        Dim numi As String = ""
+        Dim dt As DataTable
+        Dim est As String
+        est = IIf(tipo = 1, "1", "11")
+        dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "ncprod", "iccant", "stock", "estado")
+        'Dim res As Boolean = L_fnMovimientoGrabar(id, fdoc, concep, obs, est, alm, iddc, dt)
+        Dim res As Boolean = L_fnMovimientoGrabar(numi, dtiFechaDoc.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObs.Text.Trim, est, cbAlmacenOrigen.Value, cbDepositoDestino.Value, 0, dt)
+        If res Then
 
+            Dim numDestino As String = ""
+
+
+            Dim resDestino As Boolean = L_fnMovimientoGrabar(numDestino, dtiFechaDoc.Value.ToString("yyyy/MM/dd"), 50, tbObs.Text.Trim, est, cbDepositoDestino.Value, cbAlmacenOrigen.Value, numi, dt)
+            If resDestino Then
+                P_prLimpiar()
+                BoNavegar = False
+                P_prArmarGrillaBusqueda()
+                BoNavegar = True
+
+                ToastNotification.Show(Me, "Codigo de movimiento ".ToUpper + tbCodigo.Text + " Grabado con Exito.".ToUpper,
+                                       My.Resources.GRABACION_EXITOSA,
+                                       InDuracion * 1000,
+                                       eToastGlowColor.Green,
+                                       eToastPosition.TopCenter)
+
+                Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+                ToastNotification.Show(Me, "Código de Movimiento ".ToUpper + tbCodigo.Text + " Grabado con Exito.".ToUpper,
+                                          img, 2000,
+                                          eToastGlowColor.Green,
+                                          eToastPosition.TopCenter
+                                          )
+            End If
+
+        Else
+            Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+            ToastNotification.Show(Me, "El Movimiento no pudo ser insertado".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+        End If
+    End Sub
     Private Sub P_prGrabarRegistro()
         Dim id As String
         Dim fdoc As String
@@ -606,6 +644,12 @@ Public Class F02_Movimiento
 
         If (BoNuevo) Then
             If (P_fnValidarGrabacion()) Then
+
+                If (cbConcepto.Value = 60) Then
+                    _prGuardarTraspaso()
+                    Return
+
+                End If
 
                 id = ""
                 fdoc = dtiFechaDoc.Value.ToString("yyyy/MM/dd")
@@ -621,7 +665,10 @@ Public Class F02_Movimiento
                 dt = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "icid", "icibid", "iccprod", "ncprod", "iccant", "stock", "estado")
 
                 'Grabar
-                Dim res As Boolean = L_fnMovimientoGrabar(id, fdoc, concep, obs, est, alm, iddc, dt)
+
+                'L_fnMovimientoGrabar(numi, dtiFechaDoc.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObs.Text.Trim, est, cbAlmacenOrigen.Value, cbDepositoDestino.Value, 0, dt)
+
+                Dim res As Boolean = L_fnMovimientoGrabar(id, fdoc, concep, obs, est, alm, 0, 0, dt)
 
                 If (res) Then
                     P_prLimpiar()
