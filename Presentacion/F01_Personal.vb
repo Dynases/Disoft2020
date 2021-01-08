@@ -173,8 +173,27 @@ Public Class F01_Personal
         P_LlenarDatos(IndexReg)
 
         Bool = True
-
+        _prCargarComboLibreriaDeposito(cbSucursal)
         MTbUsuario.Text = gs_user
+    End Sub
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        If (dt.Rows.Count > 0) Then
+            cbSucursal.SelectedIndex = 0
+        End If
     End Sub
     Private Sub _Parametros()
         CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
@@ -276,7 +295,7 @@ Public Class F01_Personal
 
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                        fret, fot, est, eciv, plan, reloj)
+                                                        fret, fot, est, eciv, plan, reloj, cbSucursal.Value)
 
                 If (res) Then
                     P_Limpiar()
@@ -328,7 +347,7 @@ Public Class F01_Personal
 
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                           fret, fot, est, eciv, plan, reloj)
+                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value)
 
                 If (res) Then
                     Bool = False
@@ -399,7 +418,7 @@ Public Class F01_Personal
         'MultiCombo
         cbTipo.ReadOnly = False
         CbAlmacen.ReadOnly = False
-
+        cbSucursal.ReadOnly = False
         'Botones
         SbEstado.IsReadOnly = False
     End Sub
@@ -413,7 +432,7 @@ Public Class F01_Personal
         cbTipo.ReadOnly = True
         CbAlmacen.ReadOnly = True
         CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
-
+        cbSucursal.ReadOnly = True
         'Botones
         SbEstado.IsReadOnly = True
     End Sub
@@ -439,7 +458,11 @@ Public Class F01_Personal
                 CbAlmacen.Text = ""
             End If
         End If
-
+        If (CType(cbSucursal.DataSource, DataTable).Rows.Count > 0) Then
+            cbSucursal.SelectedIndex = 0
+        Else
+            cbSucursal.Text = ""
+        End If
         'Botones
         SbEstado.Value = True
     End Sub
@@ -483,7 +506,7 @@ Public Class F01_Personal
                 TbCodigo.Text = .Cells("cbnumi").Value.ToString
                 TbNombre.Text = .Cells("cbdesc").Value.ToString
                 TbPassMovil.Text = .Cells("cbci").Value.ToString
-
+                cbSucursal.Value = .Cells("cbalmacen").Value
                 cbTipo.Clear()
                 If (CType(cbTipo.DataSource, DataTable).Rows.Count > 0) Then
                     cbTipo.SelectedText = .Cells("ncat").Value.ToString
@@ -543,6 +566,9 @@ Public Class F01_Personal
             .Visible = True
         End With
         With Dgj1Busqueda.RootTable.Columns("cbdirec")
+            .Visible = False
+        End With
+        With Dgj1Busqueda.RootTable.Columns("cbalmacen")
             .Visible = False
         End With
         With Dgj1Busqueda.RootTable.Columns("cbtelef")

@@ -41,7 +41,7 @@ Public Class R01_SaldoFisicoValorado
         Me.Text = "S A L D O   F Í S I C O   V A L O R A D O".ToUpper
         'Me.WindowState = FormWindowState.Maximized
         MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-
+        _prCargarComboLibreriaDeposito(cbAlmacen)
     End Sub
     Private Sub P_prArmarComboCatCliente()
 
@@ -68,16 +68,39 @@ Public Class R01_SaldoFisicoValorado
         Dim _dt As New DataTable
         If swTipo.Value Then
             Dim objrep As New R_SaldosFisicoValorado()
-            _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
-            objrep.SetDataSource(_dt)
-            objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-            MCrReporte.ReportSource = objrep
+
+            If (cbAlmacen.Value >= 0) Then
+
+                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString() + " and iaalm=" + Str(cbAlmacen.Value))
+                objrep.SetDataSource(_dt)
+                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+                MCrReporte.ReportSource = objrep
+            Else
+                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
+                objrep.SetDataSource(_dt)
+                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+                MCrReporte.ReportSource = objrep
+            End If
+
+
+
         Else
             Dim objrep As New R_SaldosFisicoValoradoSinAgrupacion()
-            _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
-            objrep.SetDataSource(_dt)
-            objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-            MCrReporte.ReportSource = objrep
+            If (cbAlmacen.Value >= 0) Then
+
+                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString() + " and iaalm=" + Str(cbAlmacen.Value))
+                objrep.SetDataSource(_dt)
+                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+                MCrReporte.ReportSource = objrep
+            Else
+                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
+                objrep.SetDataSource(_dt)
+                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+                MCrReporte.ReportSource = objrep
+            End If
+
+
+
         End If
     End Sub
 
@@ -93,5 +116,23 @@ Public Class R01_SaldoFisicoValorado
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        dt.Rows.Add(-1, "Todos")
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        mCombo.Value = -1
     End Sub
 End Class

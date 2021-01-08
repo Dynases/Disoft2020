@@ -17,6 +17,26 @@ Public Class R01_SaldoProducto
 
     Private Sub My_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         P_prInicio()
+        _prCargarComboLibreriaDeposito(cbAlmacen)
+    End Sub
+
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        dt.Rows.Add(-1, "Todos")
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        mCombo.Value = -1
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
@@ -49,14 +69,30 @@ Public Class R01_SaldoProducto
         Dim _dt As New DataTable
         If swTipo.Value Then
             Dim objrep As New R_StockActual()
-            _dt = L_VistaStockActual("cenum=0")
-            objrep.SetDataSource(_dt)
-            MCrReporte.ReportSource = objrep
+            If (cbAlmacen.Value >= 0) Then
+                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value))
+                objrep.SetDataSource(_dt)
+                MCrReporte.ReportSource = objrep
+            Else
+                _dt = L_VistaStockActual("cenum=0")
+                objrep.SetDataSource(_dt)
+                MCrReporte.ReportSource = objrep
+            End If
+
+
         Else
             Dim objrep As New R_StockActualSinAgrupacion()
-            _dt = L_VistaStockActual("cenum=0")
-            objrep.SetDataSource(_dt)
-            MCrReporte.ReportSource = objrep
+
+            If (cbAlmacen.Value >= 0) Then
+                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value))
+                objrep.SetDataSource(_dt)
+                MCrReporte.ReportSource = objrep
+            Else
+                _dt = L_VistaStockActual("cenum=0")
+                objrep.SetDataSource(_dt)
+                MCrReporte.ReportSource = objrep
+            End If
+
         End If
 
     End Sub

@@ -4814,8 +4814,8 @@ Public Class AccesoLogica
             _Where = _where1
         End If
 
-        Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,iacant, caconv, cenum,cedesc "
-        _Tabla = D_Datos_Tabla(campos, "VR_stockActual", _Where + " order by cadesc")
+        Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,Sum(iacant) as iacant, caconv, cenum,cedesc "
+        _Tabla = D_Datos_Tabla(campos, "VR_stockActual", _Where + "group by canumi,cacod,cadesc,cadesc2,caest,iacprod, caconv, cenum,cedesc order by cadesc")
         Return _Tabla
     End Function
     Shared Function L_VistaSaldoFisicoValorado(Optional _where1 As String = "") As DataTable
@@ -4827,8 +4827,8 @@ Public Class AccesoLogica
             _Where = _where1
         End If
 
-        Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,iacant,chprecio,subtotal, caconv, cenum,cedesc "
-        _Tabla = D_Datos_Tabla(campos, "VR_SaldoFisicoValorado", _Where + " order by cadesc")
+        Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,Sum(iacant) as iacant,chprecio,Sum(subtotal) as subtotal, caconv, cenum,cedesc "
+        _Tabla = D_Datos_Tabla(campos, "VR_SaldoFisicoValorado", _Where + " group by canumi,cacod,cadesc,cadesc2,caest,iacprod,chprecio, caconv, cenum,cedesc order by cadesc")
         Return _Tabla
     End Function
     Shared Function L_VistaStockDisponible(Optional _where1 As String = "") As DataTable
@@ -5114,7 +5114,7 @@ Public Class AccesoLogica
     Public Shared Function L_fnGrabarPersonal(ByRef numi As String, desc As String, direc As String, telef As String,
                                               cat As String, sal As String, ci As String, obs As String, fnac As String,
                                               fing As String, fret As String, fot As String, est As String,
-                                              eciv As String, plan As String, reloj As String) As Boolean
+                                              eciv As String, plan As String, reloj As String, cbalmacen As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -5137,6 +5137,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@eciv", eciv))
         _listParam.Add(New Datos.DParametro("@plan", plan))
         _listParam.Add(New Datos.DParametro("@reloj", reloj))
+        _listParam.Add(New Datos.DParametro("@cbalmacen", cbalmacen))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC002", _listParam)
@@ -5154,7 +5155,7 @@ Public Class AccesoLogica
     Public Shared Function L_fnModificarPersonal(ByRef numi As String, desc As String, direc As String, telef As String,
                                                   cat As String, sal As String, ci As String, obs As String, fnac As String,
                                                   fing As String, fret As String, fot As String, est As String,
-                                                  eciv As String, plan As String, reloj As String) As Boolean
+                                                  eciv As String, plan As String, reloj As String, cbalmacen As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -5177,6 +5178,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@eciv", eciv))
         _listParam.Add(New Datos.DParametro("@plan", plan))
         _listParam.Add(New Datos.DParametro("@reloj", reloj))
+        _listParam.Add(New Datos.DParametro("@cbalmacen", cbalmacen))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC002", _listParam)
