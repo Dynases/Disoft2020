@@ -99,6 +99,7 @@ Public Class P_Principal
         If gs_puerto <> "0" Then
             btConfFormulario.Visible = True
         End If
+        gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
     End Sub
 
     Private Sub _prCambiarStyle()
@@ -215,6 +216,12 @@ Public Class P_Principal
             gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
             gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
             gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
+            gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
+            If gi_CRM = 1 Then
+                FP_CRM.Visible = True
+            Else
+                FP_CRM.Visible = False
+            End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
@@ -1709,6 +1716,29 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btVentasVendedor_Click(sender As Object, e As EventArgs) Handles btVentasVendedor.Click
+        R01_VentasVendedor.AllowTransparency = True
+        Dim frm As New R01_VentasVendedor
+        frm._nameButton = btVentasVendedor.Name
+        frm._modulo = FP_CRM
+        frm.Show()
+    End Sub
+
+    Private Sub btEstadoCuentaCliente_Click(sender As Object, e As EventArgs) Handles btEstadoCuentaCliente.Click
+        R01_EstadoCuentasClientes.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasClientes
+        frm._nameButton = btEstadoCuentaCliente.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
+    Private Sub btEstadoCuentasClientesTodos_Click(sender As Object, e As EventArgs) Handles btEstadoCuentasClientesTodos.Click
+        R01_EstadoCuentasClientesTodos.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasClientesTodos
+        frm._nameButton = btEstadoCuentasClientesTodos.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
 
 
 

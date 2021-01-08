@@ -5,6 +5,7 @@ Public Class P_LoginEmpresa
 
 #Region "METODOS PRIVADOS"
     Private Sub _prIniciarTodo()
+        Me.Text = "LOGIN EMPRESA"
         _prCargarGridModulos()
         GroupPanel1.Focus()
         grEmpresa.Focus()

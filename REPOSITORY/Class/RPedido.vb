@@ -93,7 +93,10 @@ Public Class RPedido
                                       .IdZona = a.IdZona,
                                       .oafdoc = a.oafdoc,
                                       .oanumi = a.oanumi,
-                                      .oaobs = a.oaobs
+                                      .oaobs = a.oaobs,
+                                      .tipo = a.tipo,
+                                      .contado = a.contado,
+                                      .credito = a.credito
                                       }).ToList()
                 Return listResult
 
@@ -108,18 +111,29 @@ Public Class RPedido
             Using db = GetSchema()
                 Dim listResult = (From a In db.VR_GO_DespachoXProducto
                                   Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1 And a.oafdoc >= fechaDesde And a.oafdoc <= fechaHasta
-                                  Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                                   Select New RDespachoXProducto With {
-                                    .canumi = grupo.FirstOrDefault().canumi,
-                                    .cadesc = grupo.FirstOrDefault().cadesc,
-                                    .categoria = grupo.FirstOrDefault().categoria,
-                                    .obpcant = grupo.Sum(Function(item) item.obpcant).Value,
-                                    .Caja = grupo.Sum(Function(item) item.caja).Value,
-                                    .Unidad = grupo.Sum(Function(item) item.Unidad).Value,
-                                    .Total = grupo.Sum(Function(item) item.Total).Value
-                                  }).ToList()
+                                   .canumi = a.canumi,
+                                   .cadesc = a.cadesc,
+                                   .categoria = a.categoria,
+                                   .obpcant = a.obpcant,
+                                   .Caja = a.caja,
+                                   .Unidad = a.Unidad,
+                                   .Total = a.Total
+                                   }).ToList()
+                ' Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
+                'Select New RDespachoXProducto With {
+                '  .canumi = grupo.FirstOrDefault().canumi,
+                '  .cadesc = grupo.FirstOrDefault().cadesc,
+                '  .categoria = grupo.FirstOrDefault().categoria,
+                '  .obpcant = grupo.Sum(Function(item) item.obpcant).Value,
+                '  .Caja = grupo.Sum(Function(item) item.caja).Value,
+                '  .Unidad = grupo.Sum(Function(item) item.Unidad).Value,
+                '  .Total = grupo.Sum(Function(item) item.Total).Value
+                '}).ToList()
 
-                'Select Case New RDespachoXProducto With {
+                'Dim listResult = (From a In db.VR_GO_DespachoXProducto
+                '                  Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1 And a.oafdoc >= fechaDesde And a.oafdoc <= fechaHasta
+                '                  Select New RDespachoXProducto With {
                 '    .oaccbnumi = a.oaccbnumi,
                 '    .canumi = a.canumi,
                 '    .cacod = a.cacod,

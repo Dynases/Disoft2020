@@ -680,12 +680,17 @@ Public Class F01_Personal
             End If
         End If
 
+        Dim dt As DataTable = L_fnContarPersonal()
+        If (dt.Rows(0).Item("cantidad") + 1 > gs_CantPersonal) Then
+            sms = "Ya llegó al limite de registros de Personal, comuniquese con el Administrador del Sistema."
+        End If
+
         If (Not sms = String.Empty) Then
             ToastNotification.Show(Me, sms.ToUpper,
                        My.Resources.WARNING,
                        Duracion * 1000,
                        eToastGlowColor.Red,
-                       eToastPosition.MiddleCenter)
+                       eToastPosition.TopCenter)
             Return False
             Exit Function
         End If

@@ -198,13 +198,13 @@
       <HintPath>C:\librerias\FlashControlV71.dll</HintPath>
     </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
-      <HintPath>C:\librerias\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <HintPath>C:\librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.Core">
-      <HintPath>C:\librerias\GMap.NET.Core.dll</HintPath>
+      <HintPath>C:\librerias\Gmap\GMap.NET.Core.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.WindowsForms">
-      <HintPath>C:\librerias\GMap.NET.WindowsForms.dll</HintPath>
+      <HintPath>C:\librerias\Gmap\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis, Version=1.32.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.dll</HintPath>
@@ -225,29 +225,29 @@
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
     <Reference Include="Interop.AcroPDFLib">
-      <HintPath>C:\librerias\Interop.AcroPDFLib.dll</HintPath>
+      <HintPath>C:\librerias\PDF\Interop.AcroPDFLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="itextsharp">
       <HintPath>C:\librerias\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Data.v3">
-      <HintPath>C:\librerias\Janus.Data.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3">
-      <HintPath>C:\librerias\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3">
-      <HintPath>C:\librerias\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3">
-      <HintPath>C:\librerias\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3">
-      <HintPath>C:\librerias\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.Ribbon.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
-      <HintPath>C:\librerias\Janus.Windows.UI.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -748,6 +748,18 @@
     <Compile Include="R01_EstadoCuentasCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_EstadoCuentasClientes.designer.vb">
+      <DependentUpon>R01_EstadoCuentasClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientesTodos.designer.vb">
+      <DependentUpon>R01_EstadoCuentasClientesTodos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_EstadoCuentasClientesTodos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_EstadoCuentasPorCobrar.Designer.vb">
       <DependentUpon>R01_EstadoCuentasPorCobrar.vb</DependentUpon>
     </Compile>
@@ -812,6 +824,12 @@
       <DependentUpon>R01_UltimaVentaCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="R01_UltimaVentaCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_VentasVendedor.Designer.vb">
+      <DependentUpon>R01_VentasVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_VentasVendedor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="R01_VentasComision.Designer.vb">
@@ -958,6 +976,18 @@
       <DependentUpon>R_EstadoCuentasClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_EstadoCuentasClientesNuevo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_EstadoCuentasClientesNuevo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_EstadoCuentasClientesTodos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_EstadoCuentasClientesTodos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\R_EstadoCuentasCompra.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1101,6 +1131,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>R_UtilidadPorProducto.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_VentasVendedor.vb">
+      <DependentUpon>R_VentasVendedor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reportes\R_VentasComision.vb">
       <DependentUpon>R_VentasComision.rpt</DependentUpon>
@@ -1685,6 +1721,12 @@
     <EmbeddedResource Include="R01_EstadoCuentasCliente.resx">
       <DependentUpon>R01_EstadoCuentasCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_EstadoCuentasClientes.resx">
+      <DependentUpon>R01_EstadoCuentasClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_EstadoCuentasClientesTodos.resx">
+      <DependentUpon>R01_EstadoCuentasClientesTodos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_EstadoCuentasPorCobrar.resx">
       <DependentUpon>R01_EstadoCuentasPorCobrar.vb</DependentUpon>
     </EmbeddedResource>
@@ -1717,6 +1759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="R01_UltimaVentaCliente.resx">
       <DependentUpon>R01_UltimaVentaCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_VentasVendedor.resx">
+      <DependentUpon>R01_VentasVendedor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_VentasComision.resx">
       <DependentUpon>R01_VentasComision.vb</DependentUpon>
@@ -1806,6 +1851,14 @@
     <EmbeddedResource Include="Reportes\R_EstadoCuentasClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_EstadoCuentasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_EstadoCuentasClientesNuevo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_EstadoCuentasClientesNuevo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_EstadoCuentasClientesTodos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_EstadoCuentasClientesTodos.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_EstadoCuentasCompra.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1902,6 +1955,10 @@
     <EmbeddedResource Include="Reportes\R_UtilidadPorProducto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_UtilidadPorProducto.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasVendedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasVendedor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VentasComision.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

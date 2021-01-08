@@ -85,8 +85,8 @@
           <Property Name="caconv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="capack" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0011">
           <Key>
             <PropertyRef Name="cicod" />
@@ -97,8 +97,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0011' does not have a primary key 
           <Property Name="cieserie" Type="bit" />
           <Property Name="ciest" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0012">
           <Key>
             <PropertyRef Name="cpnumi" />
@@ -144,7 +144,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key 
           <Key>
             <PropertyRef Name="chnumi" />
           </Key>
-          <Property Name="chnumi" Type="int" Nullable="false" />
+          <Property Name="chnumi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="chcprod" Type="nvarchar" MaxLength="15" />
           <Property Name="chcatcl" Type="int" />
           <Property Name="chprecio" Type="numeric" Precision="18" Scale="2" />
@@ -167,8 +167,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key 
           <Property Name="cctelf2" Type="nvarchar" MaxLength="50" />
           <Property Name="cccat" Type="int" />
           <Property Name="ccest" Type="int" />
-          <Property Name="cclat" Type="decimal" Precision="18" Scale="14" />
-          <Property Name="cclongi" Type="decimal" Precision="18" Scale="14" />
+          <Property Name="cclat" Type="decimal" Precision="18" Scale="16" />
+          <Property Name="cclongi" Type="decimal" Precision="18" Scale="16" />
           <Property Name="ccprconsu" Type="int" />
           <Property Name="cceven" Type="bit" />
           <Property Name="ccobs" Type="nvarchar" MaxLength="150" />
@@ -188,8 +188,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0012' does not have a primary key 
           <Property Name="cchact" Type="nvarchar" MaxLength="50" />
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC0041' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0041">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -220,8 +220,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0041' does not have a primary key 
           <Property Name="cpprod" Type="int" />
           <Property Name="cpcat" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC004A1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A1">
           <Key>
             <PropertyRef Name="ccaanumi" />
@@ -230,8 +230,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC004A1' does not have a primary key
           <Property Name="ccatc4anumi" Type="int" />
           <Property Name="ccaandia" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC004A2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A2">
           <Key>
             <PropertyRef Name="ccabnumi" />
@@ -283,8 +283,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC004A2' does not have a primary key
           <Property Name="cfhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TC0091' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0091">
           <Key>
             <PropertyRef Name="cllin" />
@@ -373,8 +373,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TC0091' does not have a primary key 
           <Property Name="cabstockf" Type="decimal" Precision="18" Scale="2" />
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TCA00121' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCA00121">
           <Key>
             <PropertyRef Name="tdnumi" />
@@ -392,8 +392,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TCA00121' does not have a primary ke
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TCP0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCP0011">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -495,8 +495,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TCP0011' does not have a primary key
           <Property Name="iccprod" Type="int" />
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TI003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TI003">
           <Key>
             <PropertyRef Name="idcli" />
@@ -598,8 +598,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TI003' does not have a primary key d
           <Property Name="lblat" Type="decimal" Precision="18" Scale="10" />
           <Property Name="lblongi" Type="decimal" Precision="18" Scale="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TM001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM001">
           <Key>
             <PropertyRef Name="ibid" />
@@ -618,8 +618,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TM001' does not have a primary key d
           <Property Name="ibhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ibuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TM0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0011">
           <Key>
             <PropertyRef Name="icid" />
@@ -629,8 +629,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TM0011' does not have a primary key 
           <Property Name="iccprod" Type="int" />
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TM0012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0012">
           <Key>
             <PropertyRef Name="ieid" />
@@ -639,8 +639,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TM0012' does not have a primary key 
           <Property Name="ieconcti2" Type="int" />
           <Property Name="ieest" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TM0013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0013">
           <Key>
             <PropertyRef Name="idnumi" />
@@ -669,8 +669,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TM0013' does not have a primary key 
           <Property Name="oahact" Type="nvarchar" MaxLength="5" />
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0011">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -686,8 +686,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0011' does not have a primary key 
           <Property Name="obcampo1" Type="int" />
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0014' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -703,8 +703,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0014' does not have a primary key 
           <Property Name="ofhact" Type="nvarchar" MaxLength="50" />
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -714,6 +714,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key 
           <Property Name="oaanumiprev" Type="int" />
           <Property Name="oaaentrega" Type="int" />
           <Property Name="oaacaja" Type="int" />
+          <Property Name="oaafvenc" Type="date" />
         </EntityType>
         <EntityType Name="TO001C">
           <Key>
@@ -726,8 +727,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO001A' does not have a primary key 
           <Property Name="oacnconc" Type="int" />
           <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO002">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -743,8 +744,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO002' does not have a primary key d
           <Property Name="odhact" Type="nvarchar" MaxLength="5" />
           <Property Name="oduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0021' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0021">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -759,8 +760,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0021' does not have a primary key 
           <Property Name="oenped" Type="int" />
           <Property Name="oetipo" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0022' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0022">
           <Key>
             <PropertyRef Name="ofid" />
@@ -775,8 +776,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0022' does not have a primary key 
           <Property Name="ofest2" Type="int" />
           <Property Name="ofid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0023' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0023">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -793,8 +794,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0023' does not have a primary key 
           <Property Name="ojhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ojuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO003">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -822,8 +823,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO003' does not have a primary key d
           <Property Name="ohhact" Type="nvarchar" MaxLength="5" />
           <Property Name="ohuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0041' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0041">
           <Key>
             <PropertyRef Name="oinumi" />
@@ -835,8 +836,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0041' does not have a primary key 
           <Property Name="oisubtotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="oicant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0042' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0042">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -850,8 +851,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0042' does not have a primary key 
           <Property Name="ojprecre" Type="decimal" Precision="18" Scale="2" />
           <Property Name="ojdesc" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TO0043' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0043">
           <Key>
             <PropertyRef Name="oknumi" />
@@ -906,8 +907,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TO0043' does not have a primary key 
           <Property Name="onFecha" Type="date" Nullable="false" />
           <Property Name="onMonto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP001">
           <Key>
             <PropertyRef Name="panumi" />
@@ -923,8 +924,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP001' does not have a primary key d
           <Property Name="pahact" Type="nvarchar" MaxLength="5" />
           <Property Name="pauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP002">
           <Key>
             <PropertyRef Name="pbnumi" />
@@ -937,8 +938,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP002' does not have a primary key d
           <Property Name="pbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP003">
           <Key>
             <PropertyRef Name="pdnumi" />
@@ -950,8 +951,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP003' does not have a primary key d
           <Property Name="pdhact" Type="nvarchar" MaxLength="50" />
           <Property Name="pduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP004">
           <Key>
             <PropertyRef Name="penumi" />
@@ -965,8 +966,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP004' does not have a primary key d
           <Property Name="pehact" Type="nvarchar" MaxLength="50" />
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP006">
           <Key>
             <PropertyRef Name="pgnumi" />
@@ -983,8 +984,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP006' does not have a primary key d
           <Property Name="pghact" Type="nvarchar" MaxLength="5" />
           <Property Name="pguact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TP0061' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP0061">
           <Key>
             <PropertyRef Name="phnumi" />
@@ -1047,8 +1048,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TP0061' does not have a primary key 
           <Property Name="aanscf" Type="decimal" Precision="18" Scale="2" />
           <Property Name="aanumiasiento" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TS001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TS001">
           <Key>
             <PropertyRef Name="sanumi" />
@@ -1115,8 +1116,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TS001' does not have a primary key d
           <Property Name="tdhact" Type="nvarchar" MaxLength="5" />
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.TV0013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TV0013">
           <Key>
             <PropertyRef Name="tenumi" />
@@ -1151,8 +1152,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.TV0013' does not have a primary key 
           <Property Name="ycmod" Type="bit" />
           <Property Name="ycdel" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.V_StockDisp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.V_StockDisp' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_StockDisp">
           <Key>
             <PropertyRef Name="Pedidos" />
@@ -1163,8 +1164,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.V_StockDisp' does not have a primary
           <Property Name="Disponible" Type="decimal" Precision="38" Scale="2" />
           <Property Name="iaalm" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.v_VentasDetalleDespacho' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="v_VentasDetalleDespacho">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1189,8 +1190,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.v_VentasDetalleDespacho' does not ha
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vista_promconsumo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1204,8 +1205,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vista_promconsumo' does not have a p
           <Property Name="ccprconsu" Type="int" />
           <Property Name="fTentativa" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vista_transacciones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_transacciones">
           <Key>
             <PropertyRef Name="numi" />
@@ -1219,8 +1220,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vista_transacciones' does not have a
           <Property Name="uact" Type="nvarchar" MaxLength="50" />
           <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_CajaDetalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1242,8 +1243,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_CajaDetalle' does not have a prim
           <Property Name="tcre" Type="int" Nullable="false" />
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_Clientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1260,8 +1261,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_Clientes' does not have a primary
           <Property Name="cidesc" Type="nvarchar" MaxLength="80" />
           <Property Name="ccest" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_ClientesPendientesNota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ClientesPendientesNota">
           <Key>
             <PropertyRef Name="ped" />
@@ -1273,13 +1274,13 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_ClientesPendientesNota' does not 
           <Property Name="zon" Type="int" />
           <Property Name="nzon" Type="nvarchar" MaxLength="50" />
           <Property Name="codP" Type="nvarchar" MaxLength="10" />
-          <Property Name="can" Type="int" />
+          <Property Name="can" Type="decimal" Precision="18" Scale="2" />
           <Property Name="tot" Type="numeric" Precision="18" Scale="2" />
           <Property Name="ped" Type="int" Nullable="false" />
           <Property Name="cacat" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_Conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Conciliacion">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -1289,8 +1290,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_Conciliacion' does not have a pri
           <Property Name="Prod" Type="int" />
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_CuentasPagar_PagosRealizados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -1308,8 +1309,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_CuentasPagar_PagosRealizados' doe
           <Property Name="cpbfdoc" Type="date" />
           <Property Name="mora" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_EntregaPedidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_EntregaPedidos">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1327,8 +1328,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_EntregaPedidos' does not have a p
           <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
           <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_Facturas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Facturas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1363,8 +1364,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_Facturas' does not have a primary
           <Property Name="fvbprecio" Type="float" />
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_FacturasChacaltaya' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_FacturasChacaltaya">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1377,8 +1378,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_FacturasChacaltaya' does not have
           <Property Name="oenfac" Type="nvarchar" MaxLength="12" />
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_CajaGeneral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
@@ -1395,8 +1396,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_CajaGeneral' does not have a p
           <Property Name="TotalGeneral" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Diferencia" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteSalidaItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -1414,8 +1415,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteSalidaItems' does n
           <Property Name="nproducto" Type="nvarchar" MaxLength="100" />
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1437,8 +1438,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vr_go_comprobanteVenta' does not hav
           <Property Name="factura" Type="nvarchar" MaxLength="100" />
           <Property Name="ojobs" Type="nvarchar" MaxLength="60" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoNotaVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoNotaVenta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1463,14 +1464,15 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoNotaVenta' does not ha
           <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
             <PropertyRef Name="ccnumi" />
             <PropertyRef Name="oacnrofact" />
             <PropertyRef Name="oanumi" />
+            <PropertyRef Name="tipo" />
           </Key>
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
           <Property Name="ccnumi" Type="int" Nullable="false" />
@@ -1486,9 +1488,12 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXCliente' does not hav
           <Property Name="oafdoc" Type="date" />
           <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
           <Property Name="oanumi" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="contado" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="credito" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1509,8 +1514,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DespachoXProducto' does not ha
           <Property Name="Unidad" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DiferenciaPedidoNota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
             <PropertyRef Name="numi" />
@@ -1520,17 +1525,17 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_DiferenciaPedidoNota' does not
           <Property Name="fecha" Type="date" />
           <Property Name="ccli" Type="int" />
           <Property Name="cpro" Type="int" />
-          <Property Name="npro" Type="nvarchar" MaxLength="15" />
+          <Property Name="npro" Type="nvarchar" MaxLength="100" />
           <Property Name="pedido" Type="int" />
           <Property Name="nota" Type="int" />
-          <Property Name="cped" Type="int" Nullable="false" />
+          <Property Name="cped" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="cnot" Type="int" />
-          <Property Name="dif" Type="int" />
+          <Property Name="dif" Type="decimal" Precision="19" Scale="2" />
           <Property Name="hora" Type="nvarchar" MaxLength="5" />
           <Property Name="usuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquipoPrestadoVsUltimaVenta">
           <Key>
             <PropertyRef Name="numi" />
@@ -1548,8 +1553,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' d
           <Property Name="prov" Type="nvarchar" MaxLength="50" />
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquiposPrestadoCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquiposPrestadoCliente">
           <Key>
             <PropertyRef Name="codbd" />
@@ -1562,8 +1567,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_EquiposPrestadoCliente' does n
           <Property Name="nombre" Type="nvarchar" MaxLength="50" />
           <Property Name="direccion" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_Factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_Factura">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1601,8 +1606,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_Factura' does not have a prima
           <Property Name="fvbnumi2" Type="int" />
           <Property Name="oazona" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
             <PropertyRef Name="tipo" />
@@ -1618,8 +1623,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta' does not have 
           <Property Name="factura" Type="nvarchar" MaxLength="12" />
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta2">
           <Key>
             <PropertyRef Name="ncli" />
@@ -1637,8 +1642,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_FacturaVsVenta2' does not have
           <Property Name="factura" Type="nvarchar" MaxLength="12" />
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_ListarZona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
             <PropertyRef Name="numi" />
@@ -1655,8 +1660,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_ListarZona' does not have a pr
           <Property Name="hact" Type="nvarchar" MaxLength="5" />
           <Property Name="uact" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposAgrupado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposAgrupado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1670,8 +1675,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposAgrupado' does 
           <Property Name="cant" Type="float" />
           <Property Name="cpmov" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposDetallado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposDetallado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1692,8 +1697,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_PrestamoEquiposDetallado' does
           <Property Name="cpmov" Type="int" />
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vr_go_reciboCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_reciboCliente">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1708,7 +1713,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.vr_go_reciboCliente' does not have a
           <Property Name="cccod" Type="nvarchar" MaxLength="15" />
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="obpcant" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="cadesc2" Type="nvarchar" MaxLength="20" />
+          <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="obptot" Type="numeric" Precision="18" Scale="2" />
           <Property Name="cctelf1" Type="nvarchar" MaxLength="50" />
@@ -1717,8 +1722,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vr_go_reciboCliente' does not have a
           <Property Name="oaanumiprev" Type="int" />
           <Property Name="cbdesc2" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_SaldoPrestamoEquipo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_SaldoPrestamoEquipo">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1730,8 +1735,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_SaldoPrestamoEquipo' does not 
           <Property Name="cantES" Type="float" />
           <Property Name="ES" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_UltimaVentaCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_UltimaVentaCliente">
           <Key>
             <PropertyRef Name="numi" />
@@ -1747,8 +1752,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GO_UltimaVentaCliente' does not h
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
           <Property Name="est" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.vr_go_visitasDiarias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_visitasDiarias">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1772,8 +1777,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.vr_go_visitasDiarias' does not have 
           <Property Name="nprod" Type="nvarchar" MaxLength="50" />
           <Property Name="ccabcant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_GraficaVentasVs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GraficaVentasVs">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1785,8 +1790,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_GraficaVentasVs' does not have a 
           <Property Name="mes1" Type="int" />
           <Property Name="mes2" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_KadexCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KadexCliente">
           <Key>
             <PropertyRef Name="concepto" />
@@ -1806,8 +1811,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_KadexCliente' does not have a pri
           <Property Name="tipo" Type="nvarchar" MaxLength="10" />
           <Property Name="factura" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexInventario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexInventario">
           <Key>
             <PropertyRef Name="id" />
@@ -1831,8 +1836,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexInventario' does not have a
           <Property Name="saldo" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexPrestamos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1850,8 +1855,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_KardexPrestamos' does not have a 
           <Property Name="chmonsus" Type="float" />
           <Property Name="chtmov" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1878,8 +1883,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentas' does not have a prim
           <Property Name="fvaalm" Type="int" />
           <Property Name="scnom" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya1">
           <Key>
             <PropertyRef Name="esp" />
@@ -1910,8 +1915,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya1' does not 
           <Property Name="h" Type="numeric" Precision="21" Scale="4" />
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya2">
           <Key>
             <PropertyRef Name="esp" />
@@ -1939,8 +1944,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_LibroVentasChacaltaya2' does not 
           <Property Name="h" Type="numeric" Precision="38" Scale="4" />
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Clientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1979,8 +1984,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Clientes' does not have a pri
           <Property Name="cchact" Type="nvarchar" MaxLength="50" />
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_Mam_Conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Mam_Conciliacion">
           <Key>
             <PropertyRef Name="canumi" />
@@ -1994,8 +1999,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_Mam_Conciliacion' does not have a
           <Property Name="DEVOLUCION" Type="int" />
           <Property Name="TOTAL" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Credito_Cliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
             <PropertyRef Name="pago" />
@@ -2021,23 +2026,23 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_Credito_Cliente' does not hav
           <Property Name="TotCredit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_Mam_ProductoVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_ProductoVenta">
           <Key>
             <PropertyRef Name="numiProducto" />
           </Key>
           <Property Name="categoria" Type="nvarchar" MaxLength="200" />
           <Property Name="numiProducto" Type="int" Nullable="false" />
-          <Property Name="producto" Type="nvarchar" MaxLength="50" />
-          <Property Name="NombreCorto" Type="nvarchar" MaxLength="20" />
+          <Property Name="producto" Type="nvarchar" MaxLength="100" />
+          <Property Name="NombreCorto" Type="nvarchar" MaxLength="100" />
           <Property Name="empresa" Type="nvarchar" MaxLength="30" />
           <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
           <Property Name="TotalVenta" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_MO_GetPedidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_MO_GetPedidos">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2058,8 +2063,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_MO_GetPedidos' does not have a pr
           <Property Name="oahact" Type="nvarchar" MaxLength="5" />
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_Nota de Venta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Nota de Venta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2073,15 +2078,15 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_Nota de Venta' does not have a pr
           <Property Name="CI" Type="nvarchar" MaxLength="20" />
           <Property Name="Celular" Type="nvarchar" MaxLength="50" />
           <Property Name="CodProducto" Type="int" Nullable="false" />
-          <Property Name="Producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="100" />
           <Property Name="Cantidad" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PrecioUnitario" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Vendedor" Type="nvarchar" MaxLength="50" />
           <Property Name="FechaPedido" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_NotaCompra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_NotaCompra">
           <Key>
             <PropertyRef Name="caanumi" />
@@ -2121,8 +2126,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_NotaCompra' does not have a prima
           <Property Name="fcaccont" Type="nvarchar" MaxLength="14" />
           <Property Name="plazo" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_Pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Pagos">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -2138,14 +2143,14 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_Pagos' does not have a primary ke
           <Property Name="oguact" Type="nvarchar" MaxLength="10" />
           <Property Name="ogrec" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_ProductosMesas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ProductosMesas">
           <Key>
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="vend1" Type="decimal" Precision="38" Scale="2" />
           <Property Name="totvend1" Type="numeric" Precision="38" Scale="2" />
           <Property Name="vend2" Type="decimal" Precision="38" Scale="2" />
@@ -2155,8 +2160,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_ProductosMesas' does not have a p
           <Property Name="vend4" Type="decimal" Precision="38" Scale="2" />
           <Property Name="totvend4" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_ResumenNotas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ResumenNotas">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -2170,8 +2175,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_ResumenNotas' does not have a pri
           <Property Name="pagos" Type="decimal" Precision="38" Scale="2" />
           <Property Name="total" Type="float" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoCliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoCliente">
           <Key>
             <PropertyRef Name="idcodcli" />
@@ -2180,8 +2185,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoCliente' does not have a pri
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="idsaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoFisicoValorado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoFisicoValorado">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2198,9 +2203,10 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_SaldoFisicoValorado' does not hav
           <Property Name="caconv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="chcatcl" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_stockActual' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_stockActual">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2216,8 +2222,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_stockActual' does not have a prim
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_StockDisponible' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_StockDisponible">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2225,27 +2231,27 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_StockDisponible' does not have a 
             <PropertyRef Name="StockSoloPedidos" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="categoria" Type="nvarchar" MaxLength="200" />
           <Property Name="stockSinPedido" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockSoloPedidos" Type="decimal" Precision="38" Scale="2" Nullable="false" />
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_UtilidadPorProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_UtilidadPorProducto">
           <Key>
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="producto" Type="nvarchar" MaxLength="100" />
           <Property Name="cantidad" Type="decimal" Precision="38" Scale="2" />
           <Property Name="precioCosto" Type="numeric" Precision="38" Scale="4" />
           <Property Name="precioVenta" Type="numeric" Precision="38" Scale="2" />
           <Property Name="Utilidad" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendedor12Meses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendedor12Meses">
           <Key>
             <PropertyRef Name="numiVendedor" />
@@ -2266,14 +2272,15 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendedor12Meses' does not h
           <Property Name="diciembre" Type="decimal" Precision="18" Scale="2" />
           <Property Name="total" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendidas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendidas">
           <Key>
             <PropertyRef Name="aanumi" />
             <PropertyRef Name="aabdes" />
             <PropertyRef Name="ydnumi" />
             <PropertyRef Name="CodVenta" />
+            <PropertyRef Name="ccnumi" />
             <PropertyRef Name="facturas" />
           </Key>
           <Property Name="aanumi" Type="int" Nullable="false" />
@@ -2281,13 +2288,15 @@ warning 6002: The table/view 'BDDistNV1.dbo.Vr_VentasVendidas' does not have a p
           <Property Name="ydnumi" Type="int" Nullable="false" />
           <Property Name="yddesc" Type="nvarchar" MaxLength="50" />
           <Property Name="CodVenta" Type="int" Nullable="false" />
+          <Property Name="ccnumi" Type="int" Nullable="false" />
+          <Property Name="cccod" Type="nvarchar" MaxLength="15" />
           <Property Name="cliente" Type="nvarchar" MaxLength="50" />
           <Property Name="facturas" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="FechaVenta" Type="date" />
           <Property Name="total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
             <PropertyRef Name="codcliente" />
@@ -2445,6 +2454,16 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Parameter Name="cedesc" Type="nvarchar" Mode="In" />
           <Parameter Name="pack" Type="int" Mode="In" />
           <Parameter Name="numipro" Type="int" Mode="In" />
+          <Parameter Name="ygnumi" Type="int" Mode="In" />
+          <Parameter Name="ygcod" Type="nvarchar" Mode="In" />
+          <Parameter Name="ygdesc" Type="nvarchar" Mode="In" />
+          <Parameter Name="ygpcv" Type="int" Mode="In" />
+          <Parameter Name="yguact" Type="nvarchar" Mode="In" />
+          <Parameter Name="almacen" Type="int" Mode="In" />
+          <Parameter Name="categoria" Type="int" Mode="In" />
+          <Parameter Name="cod1" Type="int" Mode="In" />
+          <Parameter Name="cod2" Type="int" Mode="In" />
+          <Parameter Name="ygmer" Type="decimal" Mode="In" />
         </Function>
         <Function Name="sp_go_TC002" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -2503,6 +2522,16 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Parameter Name="producto" Type="int" Mode="In" />
           <Parameter Name="categoria" Type="int" Mode="In" />
           <Parameter Name="tcre" Type="int" Mode="In" />
+          <Parameter Name="giFrec" Type="int" Mode="In" />
+          <Parameter Name="frecvisita" Type="int" Mode="In" />
+          <Parameter Name="fechaprox" Type="date" Mode="In" />
+          <Parameter Name="lunes" Type="int" Mode="In" />
+          <Parameter Name="martes" Type="int" Mode="In" />
+          <Parameter Name="miercoles" Type="int" Mode="In" />
+          <Parameter Name="jueves" Type="int" Mode="In" />
+          <Parameter Name="viernes" Type="int" Mode="In" />
+          <Parameter Name="sabado" Type="int" Mode="In" />
+          <Parameter Name="domingo" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_go_TC004_appMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -2546,6 +2575,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Parameter Name="RazonSocial" Type="nvarchar" Mode="In" />
           <Parameter Name="Reclamo" Type="nvarchar" Mode="In" />
           <Parameter Name="idzona" Type="int" Mode="In" />
+          <Parameter Name="body" Type="xml" Mode="In" />
         </Function>
         <Function Name="sp_go_TC009" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -2736,6 +2766,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Parameter Name="fechaF" Type="date" Mode="In" />
           <Parameter Name="prevendedor" Type="int" Mode="In" />
           <Parameter Name="distribuidor" Type="int" Mode="In" />
+          <Parameter Name="Modulo" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_Mam_TC002" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -3124,7 +3155,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [TO001A].[oaato1numi] AS [oaato1numi], 
     [TO001A].[oaanumiprev] AS [oaanumiprev], 
     [TO001A].[oaaentrega] AS [oaaentrega], 
-    [TO001A].[oaacaja] AS [oaacaja]
+    [TO001A].[oaacaja] AS [oaacaja], 
+    [TO001A].[oaafvenc] AS [oaafvenc]
     FROM [dbo].[TO001A] AS [TO001A]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="TO002" EntityType="Self.TO002" store:Type="Tables" store:Schema="dbo">
@@ -3585,7 +3617,10 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [VR_GO_DespachoXCliente].[oaap] AS [oaap], 
     [VR_GO_DespachoXCliente].[oafdoc] AS [oafdoc], 
     [VR_GO_DespachoXCliente].[oaobs] AS [oaobs], 
-    [VR_GO_DespachoXCliente].[oanumi] AS [oanumi]
+    [VR_GO_DespachoXCliente].[oanumi] AS [oanumi], 
+    [VR_GO_DespachoXCliente].[tipo] AS [tipo], 
+    [VR_GO_DespachoXCliente].[contado] AS [contado], 
+    [VR_GO_DespachoXCliente].[credito] AS [credito]
     FROM [dbo].[VR_GO_DespachoXCliente] AS [VR_GO_DespachoXCliente]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_DespachoXProducto" EntityType="Self.VR_GO_DespachoXProducto" store:Type="Views" store:Schema="dbo">
@@ -4166,7 +4201,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [VR_SaldoFisicoValorado].[subtotal] AS [subtotal], 
     [VR_SaldoFisicoValorado].[caconv] AS [caconv], 
     [VR_SaldoFisicoValorado].[cenum] AS [cenum], 
-    [VR_SaldoFisicoValorado].[cedesc] AS [cedesc]
+    [VR_SaldoFisicoValorado].[cedesc] AS [cedesc], 
+    [VR_SaldoFisicoValorado].[chcatcl] AS [chcatcl]
     FROM [dbo].[VR_SaldoFisicoValorado] AS [VR_SaldoFisicoValorado]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_stockActual" EntityType="Self.VR_stockActual" store:Type="Views" store:Schema="dbo">
@@ -4229,6 +4265,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
     [Vr_VentasVendidas].[ydnumi] AS [ydnumi], 
     [Vr_VentasVendidas].[yddesc] AS [yddesc], 
     [Vr_VentasVendidas].[CodVenta] AS [CodVenta], 
+    [Vr_VentasVendidas].[ccnumi] AS [ccnumi], 
+    [Vr_VentasVendidas].[cccod] AS [cccod], 
     [Vr_VentasVendidas].[cliente] AS [cliente], 
     [Vr_VentasVendidas].[facturas] AS [facturas], 
     [Vr_VentasVendidas].[FechaVenta] AS [FechaVenta], 
@@ -4366,6 +4404,16 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <Parameter Name="cedesc" Mode="In" Type="String" />
             <Parameter Name="pack" Mode="In" Type="Int32" />
             <Parameter Name="numipro" Mode="In" Type="Int32" />
+            <Parameter Name="ygnumi" Mode="In" Type="Int32" />
+            <Parameter Name="ygcod" Mode="In" Type="String" />
+            <Parameter Name="ygdesc" Mode="In" Type="String" />
+            <Parameter Name="ygpcv" Mode="In" Type="Int32" />
+            <Parameter Name="yguact" Mode="In" Type="String" />
+            <Parameter Name="almacen" Mode="In" Type="Int32" />
+            <Parameter Name="categoria" Mode="In" Type="Int32" />
+            <Parameter Name="cod1" Mode="In" Type="Int32" />
+            <Parameter Name="cod2" Mode="In" Type="Int32" />
+            <Parameter Name="ygmer" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC002" ReturnType="Collection(Int32)">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -4424,6 +4472,16 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <Parameter Name="producto" Mode="In" Type="Int32" />
             <Parameter Name="categoria" Mode="In" Type="Int32" />
             <Parameter Name="tcre" Mode="In" Type="Int32" />
+            <Parameter Name="giFrec" Mode="In" Type="Int32" />
+            <Parameter Name="frecvisita" Mode="In" Type="Int32" />
+            <Parameter Name="fechaprox" Mode="In" Type="DateTime" />
+            <Parameter Name="lunes" Mode="In" Type="Int32" />
+            <Parameter Name="martes" Mode="In" Type="Int32" />
+            <Parameter Name="miercoles" Mode="In" Type="Int32" />
+            <Parameter Name="jueves" Mode="In" Type="Int32" />
+            <Parameter Name="viernes" Mode="In" Type="Int32" />
+            <Parameter Name="sabado" Mode="In" Type="Int32" />
+            <Parameter Name="domingo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC004_appMovil">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -4467,6 +4525,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <Parameter Name="RazonSocial" Mode="In" Type="String" />
             <Parameter Name="Reclamo" Mode="In" Type="String" />
             <Parameter Name="idzona" Mode="In" Type="Int32" />
+            <Parameter Name="body" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC009">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -4657,6 +4716,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <Parameter Name="fechaF" Mode="In" Type="DateTime" />
             <Parameter Name="prevendedor" Mode="In" Type="Int32" />
             <Parameter Name="distribuidor" Mode="In" Type="Int32" />
+            <Parameter Name="Modulo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Mam_TC002">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5271,8 +5331,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="cctelf2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cccat" Type="Int32" />
           <Property Name="ccest" Type="Int32" />
-          <Property Name="cclat" Type="Decimal" Precision="18" Scale="14" />
-          <Property Name="cclongi" Type="Decimal" Precision="18" Scale="14" />
+          <Property Name="cclat" Type="Decimal" Precision="18" Scale="16" />
+          <Property Name="cclongi" Type="Decimal" Precision="18" Scale="16" />
           <Property Name="ccprconsu" Type="Int32" />
           <Property Name="cceven" Type="Boolean" />
           <Property Name="ccobs" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -6011,6 +6071,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="oaanumiprev" Type="Int32" />
           <Property Name="oaaentrega" Type="Int32" />
           <Property Name="oaacaja" Type="Int32" />
+          <Property Name="oaafvenc" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="TO002">
           <Key>
@@ -6455,6 +6516,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <PropertyRef Name="ccnumi" />
             <PropertyRef Name="oacnrofact" />
             <PropertyRef Name="oanumi" />
+            <PropertyRef Name="tipo" />
           </Key>
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="ccnumi" Type="Int32" Nullable="false" />
@@ -6470,6 +6532,9 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
           <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="oanumi" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="contado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="credito" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
@@ -6500,7 +6565,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="fecha" Type="DateTime" Precision="0" />
           <Property Name="ccli" Type="Int32" />
           <Property Name="cpro" Type="Int32" />
-          <Property Name="npro" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="npro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="pedido" Type="Int32" />
           <Property Name="nota" Type="Int32" />
           <Property Name="cped" Type="Int32" Nullable="false" />
@@ -6670,7 +6735,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="obpcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="cadesc2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6963,8 +7028,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           </Key>
           <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="numiProducto" Type="Int32" Nullable="false" />
-          <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NombreCorto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCorto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cantidad" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="obpbase" Type="Decimal" Precision="18" Scale="2" />
@@ -7003,7 +7068,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="CI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CodProducto" Type="Int32" Nullable="false" />
-          <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PrecioUnitario" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
@@ -7069,7 +7134,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="vend1" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="totvend1" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="vend2" Type="Decimal" Precision="38" Scale="2" />
@@ -7116,6 +7181,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="caconv" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="Boolean" />
           <Property Name="cedesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="chcatcl" Type="Int32" />
         </EntityType>
         <EntityType Name="VR_stockActual">
           <Key>
@@ -7139,7 +7205,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <PropertyRef Name="StockSoloPedidos" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="stockSinPedido" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
           <Property Name="StockSoloPedidos" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
@@ -7150,7 +7216,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cantidad" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="precioCosto" Type="Decimal" Precision="38" Scale="4" />
           <Property Name="precioVenta" Type="Decimal" Precision="38" Scale="2" />
@@ -7183,6 +7249,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
             <PropertyRef Name="ydnumi" />
             <PropertyRef Name="CodVenta" />
             <PropertyRef Name="facturas" />
+            <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="aanumi" Type="Int32" Nullable="false" />
           <Property Name="aabdes" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
@@ -7193,6 +7260,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <Property Name="facturas" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="FechaVenta" Type="DateTime" Precision="0" />
           <Property Name="total" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="ccnumi" Type="Int32" Nullable="false" />
+          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
@@ -8444,6 +8513,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySetMapping Name="TO001A">
             <EntityTypeMapping TypeName="BDDistBHFModel.TO001A">
               <MappingFragment StoreEntitySet="TO001A">
+                <ScalarProperty Name="oaafvenc" ColumnName="oaafvenc" />
                 <ScalarProperty Name="oaacaja" ColumnName="oaacaja" />
                 <ScalarProperty Name="oaaentrega" ColumnName="oaaentrega" />
                 <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
@@ -8915,6 +8985,9 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySetMapping Name="VR_GO_DespachoXCliente">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
               <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="contado" ColumnName="contado" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
                 <ScalarProperty Name="oaobs" ColumnName="oaobs" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
@@ -9564,6 +9637,7 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySetMapping Name="VR_SaldoFisicoValorado">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_SaldoFisicoValorado">
               <MappingFragment StoreEntitySet="VR_SaldoFisicoValorado">
+                <ScalarProperty Name="chcatcl" ColumnName="chcatcl" />
                 <ScalarProperty Name="cedesc" ColumnName="cedesc" />
                 <ScalarProperty Name="cenum" ColumnName="cenum" />
                 <ScalarProperty Name="caconv" ColumnName="caconv" />
@@ -9643,6 +9717,8 @@ warning 6002: The table/view 'BDDistNV1.dbo.VR_VistaPedido_PrecioCosto' does not
           <EntitySetMapping Name="Vr_VentasVendidas">
             <EntityTypeMapping TypeName="BDDistBHFModel.Vr_VentasVendidas">
               <MappingFragment StoreEntitySet="Vr_VentasVendidas">
+                <ScalarProperty Name="cccod" ColumnName="cccod" />
+                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
                 <ScalarProperty Name="total" ColumnName="total" />
                 <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
                 <ScalarProperty Name="facturas" ColumnName="facturas" />
