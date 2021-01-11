@@ -248,7 +248,7 @@ Partial Class F02_PedidoNuevo
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.TableLayoutPanel3)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1242, 562)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1307, 562)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -2170,7 +2170,7 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1242, 562)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1307, 562)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'GroupPanel7
@@ -2183,7 +2183,7 @@ Partial Class F02_PedidoNuevo
         Me.GroupPanel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel7.Location = New System.Drawing.Point(3, 93)
         Me.GroupPanel7.Name = "GroupPanel7"
-        Me.GroupPanel7.Size = New System.Drawing.Size(1236, 466)
+        Me.GroupPanel7.Size = New System.Drawing.Size(1301, 466)
         '
         '
         '
@@ -2221,7 +2221,7 @@ Partial Class F02_PedidoNuevo
         Me.JGr_Buscador.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None
         Me.JGr_Buscador.Location = New System.Drawing.Point(0, 0)
         Me.JGr_Buscador.Name = "JGr_Buscador"
-        Me.JGr_Buscador.Size = New System.Drawing.Size(1230, 442)
+        Me.JGr_Buscador.Size = New System.Drawing.Size(1295, 442)
         Me.JGr_Buscador.TabIndex = 1
         '
         'GroupPanel6
@@ -2234,7 +2234,7 @@ Partial Class F02_PedidoNuevo
         Me.GroupPanel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel6.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanel6.Name = "GroupPanel6"
-        Me.GroupPanel6.Size = New System.Drawing.Size(1236, 84)
+        Me.GroupPanel6.Size = New System.Drawing.Size(1301, 84)
         '
         '
         '
@@ -2281,7 +2281,7 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelEx9.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx9.Name = "PanelEx9"
-        Me.PanelEx9.Size = New System.Drawing.Size(1230, 60)
+        Me.PanelEx9.Size = New System.Drawing.Size(1295, 60)
         Me.PanelEx9.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx9.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelEx9.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -2301,6 +2301,7 @@ Partial Class F02_PedidoNuevo
         Me.ButtonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.ButtonX3.TabIndex = 5
         Me.ButtonX3.Text = "MOSTRAR ULTIMOS 100 PEDIDOS"
+        Me.ButtonX3.Visible = False
         '
         'btBuscar
         '

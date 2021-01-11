@@ -72,7 +72,7 @@ Partial Class frmBillingDispatch
         Me.PanelBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelBase.Location = New System.Drawing.Point(0, 0)
         Me.PanelBase.Name = "PanelBase"
-        Me.PanelBase.Size = New System.Drawing.Size(1186, 499)
+        Me.PanelBase.Size = New System.Drawing.Size(1284, 599)
         Me.PanelBase.TabIndex = 0
         '
         'PanelPedido
@@ -81,7 +81,7 @@ Partial Class frmBillingDispatch
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 60)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(1186, 324)
+        Me.PanelPedido.Size = New System.Drawing.Size(1284, 424)
         Me.PanelPedido.TabIndex = 1
         '
         'panelFondo
@@ -91,7 +91,7 @@ Partial Class frmBillingDispatch
         Me.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelFondo.Location = New System.Drawing.Point(0, 0)
         Me.panelFondo.Name = "panelFondo"
-        Me.panelFondo.Size = New System.Drawing.Size(1186, 324)
+        Me.panelFondo.Size = New System.Drawing.Size(1284, 424)
         Me.panelFondo.TabIndex = 70
         '
         'dgjPedido
@@ -99,7 +99,7 @@ Partial Class frmBillingDispatch
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjPedido.Location = New System.Drawing.Point(0, 37)
         Me.dgjPedido.Name = "dgjPedido"
-        Me.dgjPedido.Size = New System.Drawing.Size(1186, 287)
+        Me.dgjPedido.Size = New System.Drawing.Size(1284, 387)
         Me.dgjPedido.TabIndex = 2
         '
         'LblSubtitulo
@@ -111,7 +111,7 @@ Partial Class frmBillingDispatch
         Me.LblSubtitulo.ForeColor = System.Drawing.Color.Black
         Me.LblSubtitulo.Location = New System.Drawing.Point(0, 0)
         Me.LblSubtitulo.Name = "LblSubtitulo"
-        Me.LblSubtitulo.Size = New System.Drawing.Size(1186, 37)
+        Me.LblSubtitulo.Size = New System.Drawing.Size(1284, 37)
         Me.LblSubtitulo.TabIndex = 69
         Me.LblSubtitulo.Text = "Para generar la consulta, especifique valores para el filtro de búsqueda:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Para g" &
     "enerar notas de venta y volver a distribución debe seleccionar algún registro:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
@@ -123,9 +123,9 @@ Partial Class frmBillingDispatch
         Me.PanelProducto.Controls.Add(Me.QrFactura)
         Me.PanelProducto.Controls.Add(Me.dgjProducto)
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelProducto.Location = New System.Drawing.Point(0, 384)
+        Me.PanelProducto.Location = New System.Drawing.Point(0, 484)
         Me.PanelProducto.Name = "PanelProducto"
-        Me.PanelProducto.Size = New System.Drawing.Size(1186, 115)
+        Me.PanelProducto.Size = New System.Drawing.Size(1284, 115)
         Me.PanelProducto.TabIndex = 1
         '
         'QrFactura
@@ -148,7 +148,7 @@ Partial Class frmBillingDispatch
         Me.dgjProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjProducto.Location = New System.Drawing.Point(0, 0)
         Me.dgjProducto.Name = "dgjProducto"
-        Me.dgjProducto.Size = New System.Drawing.Size(1186, 115)
+        Me.dgjProducto.Size = New System.Drawing.Size(1284, 115)
         Me.dgjProducto.TabIndex = 3
         '
         'PanelSuperior
@@ -172,7 +172,7 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperior.Location = New System.Drawing.Point(0, 0)
         Me.PanelSuperior.Name = "PanelSuperior"
-        Me.PanelSuperior.Size = New System.Drawing.Size(1186, 60)
+        Me.PanelSuperior.Size = New System.Drawing.Size(1284, 60)
         Me.PanelSuperior.TabIndex = 0
         '
         'cbEstado
@@ -204,7 +204,7 @@ Partial Class frmBillingDispatch
         Me.btnFactura.Image = CType(resources.GetObject("btnFactura.Image"), System.Drawing.Image)
         Me.btnFactura.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btnFactura.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnFactura.Location = New System.Drawing.Point(736, 0)
+        Me.btnFactura.Location = New System.Drawing.Point(834, 0)
         Me.btnFactura.Name = "btnFactura"
         Me.btnFactura.Size = New System.Drawing.Size(75, 60)
         Me.btnFactura.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -302,7 +302,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoPedido.Image = CType(resources.GetObject("btReporteDespachoPedido.Image"), System.Drawing.Image)
         Me.btReporteDespachoPedido.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btReporteDespachoPedido.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btReporteDespachoPedido.Location = New System.Drawing.Point(811, 0)
+        Me.btReporteDespachoPedido.Location = New System.Drawing.Point(909, 0)
         Me.btReporteDespachoPedido.Name = "btReporteDespachoPedido"
         Me.btReporteDespachoPedido.Size = New System.Drawing.Size(75, 60)
         Me.btReporteDespachoPedido.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -375,7 +375,7 @@ Partial Class frmBillingDispatch
         Me.btnNotaVenta.Image = Global.Presentacion.My.Resources.Resources.REPORTE2
         Me.btnNotaVenta.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btnNotaVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnNotaVenta.Location = New System.Drawing.Point(886, 0)
+        Me.btnNotaVenta.Location = New System.Drawing.Point(984, 0)
         Me.btnNotaVenta.Name = "btnNotaVenta"
         Me.btnNotaVenta.Size = New System.Drawing.Size(75, 60)
         Me.btnNotaVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -390,7 +390,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoCliente.Image = Global.Presentacion.My.Resources.Resources.PEDI_ULTIMOS_PEDIDOS
         Me.btReporteDespachoCliente.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btReporteDespachoCliente.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btReporteDespachoCliente.Location = New System.Drawing.Point(961, 0)
+        Me.btReporteDespachoCliente.Location = New System.Drawing.Point(1059, 0)
         Me.btReporteDespachoCliente.Name = "btReporteDespachoCliente"
         Me.btReporteDespachoCliente.Size = New System.Drawing.Size(75, 60)
         Me.btReporteDespachoCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -405,7 +405,7 @@ Partial Class frmBillingDispatch
         Me.btReporteDespachoLinea.Image = Global.Presentacion.My.Resources.Resources.PEDI_ENTRAGA_PEDIDOS
         Me.btReporteDespachoLinea.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btReporteDespachoLinea.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btReporteDespachoLinea.Location = New System.Drawing.Point(1036, 0)
+        Me.btReporteDespachoLinea.Location = New System.Drawing.Point(1134, 0)
         Me.btReporteDespachoLinea.Name = "btReporteDespachoLinea"
         Me.btReporteDespachoLinea.Size = New System.Drawing.Size(75, 60)
         Me.btReporteDespachoLinea.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -432,7 +432,7 @@ Partial Class frmBillingDispatch
         Me.btVolverDist.Image = Global.Presentacion.My.Resources.Resources.volver
         Me.btVolverDist.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btVolverDist.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btVolverDist.Location = New System.Drawing.Point(1111, 0)
+        Me.btVolverDist.Location = New System.Drawing.Point(1209, 0)
         Me.btVolverDist.Name = "btVolverDist"
         Me.btVolverDist.Size = New System.Drawing.Size(75, 60)
         Me.btVolverDist.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -459,10 +459,11 @@ Partial Class frmBillingDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1186, 499)
+        Me.ClientSize = New System.Drawing.Size(1284, 599)
         Me.Controls.Add(Me.PanelBase)
         Me.Name = "frmBillingDispatch"
         Me.Opacity = 0.05R
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "DESPACHO"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.PanelBase.ResumeLayout(False)

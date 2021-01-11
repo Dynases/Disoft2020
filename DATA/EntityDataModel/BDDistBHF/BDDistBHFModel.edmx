@@ -86,7 +86,7 @@
           <Property Name="capack" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0011">
           <Key>
             <PropertyRef Name="cicod" />
@@ -98,7 +98,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0011' no tiene definid
           <Property Name="ciest" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0012">
           <Key>
             <PropertyRef Name="cpnumi" />
@@ -139,6 +139,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0012' no tiene definid
           <Property Name="cbfact" Type="date" />
           <Property Name="cbhact" Type="nvarchar" MaxLength="5" />
           <Property Name="cbuact" Type="nvarchar" MaxLength="10" />
+          <Property Name="cbalmacen" Type="int" />
         </EntityType>
         <EntityType Name="TC003">
           <Key>
@@ -189,7 +190,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0012' no tiene definid
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0041">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -221,7 +222,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0041' no tiene definid
           <Property Name="cpcat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A1">
           <Key>
             <PropertyRef Name="ccaanumi" />
@@ -231,7 +232,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A1' no tiene defini
           <Property Name="ccaandia" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A2">
           <Key>
             <PropertyRef Name="ccabnumi" />
@@ -284,7 +285,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC004A2' no tiene defini
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0091">
           <Key>
             <PropertyRef Name="cllin" />
@@ -374,7 +375,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TC0091' no tiene definid
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCA00121">
           <Key>
             <PropertyRef Name="tdnumi" />
@@ -393,7 +394,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCA00121' no tiene defin
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCP0011">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -481,6 +482,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCP0011' no tiene defini
           <Property Name="ibobs" Type="nvarchar" MaxLength="100" />
           <Property Name="ibest" Type="int" />
           <Property Name="ibalm" Type="int" />
+          <Property Name="ibdepdest" Type="int" />
+          <Property Name="ibiddestino" Type="int" />
           <Property Name="ibiddc" Type="int" />
           <Property Name="ibfact" Type="date" />
           <Property Name="ibhact" Type="nvarchar" MaxLength="5" />
@@ -496,7 +499,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TCP0011' no tiene defini
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TI003">
           <Key>
             <PropertyRef Name="idcli" />
@@ -599,7 +602,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TI003' no tiene definida
           <Property Name="lblongi" Type="decimal" Precision="18" Scale="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM001">
           <Key>
             <PropertyRef Name="ibid" />
@@ -619,7 +622,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM001' no tiene definida
           <Property Name="ibuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0011">
           <Key>
             <PropertyRef Name="icid" />
@@ -630,7 +633,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0011' no tiene definid
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0012">
           <Key>
             <PropertyRef Name="ieid" />
@@ -640,7 +643,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0012' no tiene definid
           <Property Name="ieest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0013">
           <Key>
             <PropertyRef Name="idnumi" />
@@ -670,7 +673,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TM0013' no tiene definid
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0011">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -687,7 +690,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0011' no tiene definid
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -704,7 +707,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0014' no tiene definid
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -728,7 +731,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO001A' no tiene definid
           <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO002">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -745,7 +748,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO002' no tiene definida
           <Property Name="oduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0021">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -761,7 +764,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0021' no tiene definid
           <Property Name="oetipo" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0022">
           <Key>
             <PropertyRef Name="ofid" />
@@ -777,7 +780,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0022' no tiene definid
           <Property Name="ofid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0023">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -795,7 +798,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0023' no tiene definid
           <Property Name="ojuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO003">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -824,7 +827,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO003' no tiene definida
           <Property Name="ohuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0041">
           <Key>
             <PropertyRef Name="oinumi" />
@@ -837,7 +840,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0041' no tiene definid
           <Property Name="oicant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0042">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -852,7 +855,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0042' no tiene definid
           <Property Name="ojdesc" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0043">
           <Key>
             <PropertyRef Name="oknumi" />
@@ -908,7 +911,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TO0043' no tiene definid
           <Property Name="onMonto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP001">
           <Key>
             <PropertyRef Name="panumi" />
@@ -925,7 +928,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP001' no tiene definida
           <Property Name="pauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP002">
           <Key>
             <PropertyRef Name="pbnumi" />
@@ -939,7 +942,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP002' no tiene definida
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP003">
           <Key>
             <PropertyRef Name="pdnumi" />
@@ -952,7 +955,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP003' no tiene definida
           <Property Name="pduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP004">
           <Key>
             <PropertyRef Name="penumi" />
@@ -967,7 +970,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP004' no tiene definida
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP006">
           <Key>
             <PropertyRef Name="pgnumi" />
@@ -985,7 +988,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP006' no tiene definida
           <Property Name="pguact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP0061">
           <Key>
             <PropertyRef Name="phnumi" />
@@ -1049,7 +1052,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TP0061' no tiene definid
           <Property Name="aanumiasiento" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TS001">
           <Key>
             <PropertyRef Name="sanumi" />
@@ -1117,7 +1120,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TS001' no tiene definida
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TV0013">
           <Key>
             <PropertyRef Name="tenumi" />
@@ -1153,7 +1156,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.TV0013' no tiene definid
           <Property Name="ycdel" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.V_StockDisp' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.V_StockDisp' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_StockDisp">
           <Key>
             <PropertyRef Name="Pedidos" />
@@ -1165,7 +1168,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.V_StockDisp' no tiene de
           <Property Name="iaalm" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="v_VentasDetalleDespacho">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1191,7 +1194,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.v_VentasDetalleDespacho'
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1206,7 +1209,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_promconsumo' no ti
           <Property Name="fTentativa" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_transacciones">
           <Key>
             <PropertyRef Name="numi" />
@@ -1221,7 +1224,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vista_transacciones' no 
           <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1244,7 +1247,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CajaDetalle' no tiene
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1262,7 +1265,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Clientes' no tiene de
           <Property Name="ccest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ClientesPendientesNota">
           <Key>
             <PropertyRef Name="ped" />
@@ -1280,7 +1283,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ClientesPendientesNot
           <Property Name="cacat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Conciliacion">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -1291,7 +1294,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Conciliacion' no tien
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -1310,7 +1313,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_CuentasPagar_PagosRea
           <Property Name="mora" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_EntregaPedidos">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1329,7 +1332,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_EntregaPedidos' no ti
           <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Facturas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1365,7 +1368,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Facturas' no tiene de
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_FacturasChacaltaya">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1379,7 +1382,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_FacturasChacaltaya' n
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
@@ -1397,7 +1400,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_CajaGeneral' no ti
           <Property Name="Diferencia" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -1416,7 +1419,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteSalidaI
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1439,23 +1442,28 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_comprobanteVenta' 
           <Property Name="ojobs" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoNotaVenta">
           <Key>
             <PropertyRef Name="oanumi" />
+            <PropertyRef Name="cbnumi" />
             <PropertyRef Name="canumi" />
             <PropertyRef Name="oaccbnumi" />
           </Key>
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="oafdoc" Type="date" />
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ccnomfac" Type="nvarchar" MaxLength="200" />
           <Property Name="ccdirec" Type="nvarchar" MaxLength="200" />
+          <Property Name="cbnumi" Type="int" Nullable="false" />
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="canumi" Type="int" Nullable="false" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
           <Property Name="obpcant" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obpbase" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="obptot" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obtotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="oaest" Type="int" />
           <Property Name="oaccbnumi" Type="int" Nullable="false" />
@@ -1465,7 +1473,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoNotaVenta'
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1493,7 +1501,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXCliente' 
           <Property Name="credito" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1515,7 +1523,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DespachoXProducto'
           <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
             <PropertyRef Name="numi" />
@@ -1535,7 +1543,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_DiferenciaPedidoNo
           <Property Name="usuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquipoPrestadoVsUltimaVenta">
           <Key>
             <PropertyRef Name="numi" />
@@ -1554,7 +1562,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquipoPrestadoVsUl
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquiposPrestadoCliente">
           <Key>
             <PropertyRef Name="codbd" />
@@ -1568,7 +1576,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_EquiposPrestadoCli
           <Property Name="direccion" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_Factura">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1607,7 +1615,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_Factura' no tiene 
           <Property Name="oazona" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
             <PropertyRef Name="tipo" />
@@ -1624,7 +1632,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta' no
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta2">
           <Key>
             <PropertyRef Name="ncli" />
@@ -1643,7 +1651,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_FacturaVsVenta2' n
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
             <PropertyRef Name="numi" />
@@ -1661,7 +1669,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_ListarZona' no tie
           <Property Name="uact" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposAgrupado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1676,7 +1684,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposAgr
           <Property Name="cpmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposDetallado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1698,7 +1706,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_PrestamoEquiposDet
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_reciboCliente">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1723,7 +1731,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_reciboCliente' no 
           <Property Name="cbdesc2" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_SaldoPrestamoEquipo">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1736,7 +1744,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_SaldoPrestamoEquip
           <Property Name="ES" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_UltimaVentaCliente">
           <Key>
             <PropertyRef Name="numi" />
@@ -1753,7 +1761,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GO_UltimaVentaCliente
           <Property Name="est" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_visitasDiarias">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1778,7 +1786,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.vr_go_visitasDiarias' no
           <Property Name="ccabcant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GraficaVentasVs">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1791,7 +1799,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_GraficaVentasVs' no t
           <Property Name="mes2" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KadexCliente">
           <Key>
             <PropertyRef Name="concepto" />
@@ -1812,7 +1820,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KadexCliente' no tien
           <Property Name="factura" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexInventario">
           <Key>
             <PropertyRef Name="id" />
@@ -1837,7 +1845,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexInventario' no 
           <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -1856,7 +1864,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_KardexPrestamos' no t
           <Property Name="chtmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1884,7 +1892,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentas' no tiene
           <Property Name="scnom" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya1">
           <Key>
             <PropertyRef Name="esp" />
@@ -1916,7 +1924,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya2">
           <Key>
             <PropertyRef Name="esp" />
@@ -1945,7 +1953,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_LibroVentasChacaltaya
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1985,7 +1993,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Clientes' no tien
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Mam_Conciliacion">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2000,7 +2008,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Mam_Conciliacion' no 
           <Property Name="TOTAL" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
             <PropertyRef Name="pago" />
@@ -2027,7 +2035,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_Credito_Cliente' 
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_ProductoVenta">
           <Key>
             <PropertyRef Name="numiProducto" />
@@ -2042,7 +2050,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_Mam_ProductoVenta' no
           <Property Name="TotalVenta" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_MO_GetPedidos">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2064,7 +2072,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_MO_GetPedidos' no tie
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Nota de Venta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2086,7 +2094,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Nota de Venta' no tie
           <Property Name="FechaPedido" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_NotaCompra">
           <Key>
             <PropertyRef Name="caanumi" />
@@ -2127,7 +2135,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_NotaCompra' no tiene 
           <Property Name="plazo" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Pagos">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -2144,7 +2152,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_Pagos' no tiene defin
           <Property Name="ogrec" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ProductosMesas">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2161,7 +2169,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ProductosMesas' no ti
           <Property Name="totvend4" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ResumenNotas">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -2176,7 +2184,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_ResumenNotas' no tien
           <Property Name="total" Type="float" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoCliente">
           <Key>
             <PropertyRef Name="idcodcli" />
@@ -2186,7 +2194,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoCliente' no tien
           <Property Name="idsaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoFisicoValorado">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2197,16 +2205,17 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_SaldoFisicoValorado' 
           <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="caest" Type="bit" />
           <Property Name="iacprod" Type="int" />
-          <Property Name="iacant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="iacant" Type="decimal" Precision="38" Scale="2" />
           <Property Name="chprecio" Type="numeric" Precision="18" Scale="2" />
           <Property Name="subtotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="caconv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
           <Property Name="chcatcl" Type="int" />
+          <Property Name="iaalm" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_stockActual">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2217,13 +2226,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_stockActual' no tiene
           <Property Name="cadesc2" Type="nvarchar" MaxLength="100" />
           <Property Name="caest" Type="bit" />
           <Property Name="iacprod" Type="int" />
-          <Property Name="iacant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="iacant" Type="decimal" Precision="38" Scale="2" />
           <Property Name="caconv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="bit" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="iaalm" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_StockDisponible">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2238,7 +2248,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_StockDisponible' no t
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_UtilidadPorProducto">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2251,7 +2261,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_UtilidadPorProducto' 
           <Property Name="Utilidad" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendedor12Meses">
           <Key>
             <PropertyRef Name="numiVendedor" />
@@ -2273,7 +2283,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendedor12Meses
           <Property Name="total" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendidas">
           <Key>
             <PropertyRef Name="aanumi" />
@@ -2296,7 +2306,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.Vr_VentasVendidas' no ti
           <Property Name="total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
             <PropertyRef Name="codcliente" />
@@ -2484,6 +2494,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Parameter Name="plan" Type="int" Mode="In" />
           <Parameter Name="reloj" Type="int" Mode="In" />
           <Parameter Name="uact" Type="nvarchar" Mode="In" />
+          <Parameter Name="cbalmacen" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_go_TC004" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -2670,6 +2681,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Parameter Name="alm" Type="int" Mode="In" />
           <Parameter Name="iddc" Type="int" Mode="In" />
           <Parameter Name="uact" Type="nvarchar" Mode="In" />
+          <Parameter Name="ibdepdest" Type="int" Mode="In" />
+          <Parameter Name="ibidOrigen" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_go_TO0023" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -3586,13 +3599,17 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
     [VR_GO_DespachoNotaVenta].[oanumi] AS [oanumi], 
     [VR_GO_DespachoNotaVenta].[oafdoc] AS [oafdoc], 
     [VR_GO_DespachoNotaVenta].[ccdesc] AS [ccdesc], 
+    [VR_GO_DespachoNotaVenta].[ccnomfac] AS [ccnomfac], 
     [VR_GO_DespachoNotaVenta].[ccdirec] AS [ccdirec], 
+    [VR_GO_DespachoNotaVenta].[cbnumi] AS [cbnumi], 
     [VR_GO_DespachoNotaVenta].[cbdesc] AS [cbdesc], 
     [VR_GO_DespachoNotaVenta].[canumi] AS [canumi], 
     [VR_GO_DespachoNotaVenta].[cadesc] AS [cadesc], 
     [VR_GO_DespachoNotaVenta].[oaobs] AS [oaobs], 
     [VR_GO_DespachoNotaVenta].[obpcant] AS [obpcant], 
     [VR_GO_DespachoNotaVenta].[obpbase] AS [obpbase], 
+    [VR_GO_DespachoNotaVenta].[obptot] AS [obptot], 
+    [VR_GO_DespachoNotaVenta].[obdesc] AS [obdesc], 
     [VR_GO_DespachoNotaVenta].[obtotal] AS [obtotal], 
     [VR_GO_DespachoNotaVenta].[oaest] AS [oaest], 
     [VR_GO_DespachoNotaVenta].[oaccbnumi] AS [oaccbnumi], 
@@ -4202,7 +4219,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
     [VR_SaldoFisicoValorado].[caconv] AS [caconv], 
     [VR_SaldoFisicoValorado].[cenum] AS [cenum], 
     [VR_SaldoFisicoValorado].[cedesc] AS [cedesc], 
-    [VR_SaldoFisicoValorado].[chcatcl] AS [chcatcl]
+    [VR_SaldoFisicoValorado].[chcatcl] AS [chcatcl], 
+    [VR_SaldoFisicoValorado].[iaalm] AS [iaalm]
     FROM [dbo].[VR_SaldoFisicoValorado] AS [VR_SaldoFisicoValorado]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_stockActual" EntityType="Self.VR_stockActual" store:Type="Views" store:Schema="dbo">
@@ -4216,7 +4234,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
     [VR_stockActual].[iacant] AS [iacant], 
     [VR_stockActual].[caconv] AS [caconv], 
     [VR_stockActual].[cenum] AS [cenum], 
-    [VR_stockActual].[cedesc] AS [cedesc]
+    [VR_stockActual].[cedesc] AS [cedesc], 
+    [VR_stockActual].[iaalm] AS [iaalm]
     FROM [dbo].[VR_stockActual] AS [VR_stockActual]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_StockDisponible" EntityType="Self.VR_StockDisponible" store:Type="Views" store:Schema="dbo">
@@ -4434,6 +4453,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
             <Parameter Name="plan" Mode="In" Type="Int32" />
             <Parameter Name="reloj" Mode="In" Type="Int32" />
             <Parameter Name="uact" Mode="In" Type="String" />
+            <Parameter Name="cbalmacen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC004">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -4620,6 +4640,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
             <Parameter Name="alm" Mode="In" Type="Int32" />
             <Parameter Name="iddc" Mode="In" Type="Int32" />
             <Parameter Name="uact" Mode="In" Type="String" />
+            <Parameter Name="ibdepdest" Mode="In" Type="Int32" />
+            <Parameter Name="ibidOrigen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TO0023" ReturnType="Collection(Int32)">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5303,6 +5325,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Property Name="cbfact" Type="DateTime" Precision="0" />
           <Property Name="cbhact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="cbuact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cbalmacen" Type="Int32" />
         </EntityType>
         <EntityType Name="TC003">
           <Key>
@@ -5560,6 +5583,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Property Name="ibfact" Type="DateTime" Precision="0" />
           <Property Name="ibhact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="ibuact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ibdepdest" Type="Int32" />
+          <Property Name="ibiddestino" Type="Int32" />
         </EntityType>
         <EntityType Name="TI0021">
           <Key>
@@ -7175,13 +7200,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="caest" Type="Boolean" />
           <Property Name="iacprod" Type="Int32" />
-          <Property Name="iacant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="iacant" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="chprecio" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="subtotal" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="caconv" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="Boolean" />
           <Property Name="cedesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="chcatcl" Type="Int32" />
+          <Property Name="iaalm" Type="Int32" />
         </EntityType>
         <EntityType Name="VR_stockActual">
           <Key>
@@ -7193,10 +7219,11 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="caest" Type="Boolean" />
           <Property Name="iacprod" Type="Int32" />
-          <Property Name="iacant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="iacant" Type="Decimal" Precision="38" Scale="2" />
           <Property Name="caconv" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="cenum" Type="Boolean" />
           <Property Name="cedesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="iaalm" Type="Int32" />
         </EntityType>
         <EntityType Name="VR_StockDisponible">
           <Key>
@@ -7307,6 +7334,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
             <PropertyRef Name="oanumi" />
             <PropertyRef Name="canumi" />
             <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="cbnumi" />
           </Key>
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
@@ -7325,6 +7353,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ccnomfac" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cbnumi" Type="Int32" Nullable="false" />
+          <Property Name="obptot" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="v_VentasDetalleDespacho">
           <Key>
@@ -7684,6 +7716,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="TC002">
             <EntityTypeMapping TypeName="BDDistBHFModel.TC002">
               <MappingFragment StoreEntitySet="TC002">
+                <ScalarProperty Name="cbalmacen" ColumnName="cbalmacen" />
                 <ScalarProperty Name="cbuact" ColumnName="cbuact" />
                 <ScalarProperty Name="cbhact" ColumnName="cbhact" />
                 <ScalarProperty Name="cbfact" ColumnName="cbfact" />
@@ -7964,6 +7997,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="TI002">
             <EntityTypeMapping TypeName="BDDistBHFModel.TI002">
               <MappingFragment StoreEntitySet="TI002">
+                <ScalarProperty Name="ibiddestino" ColumnName="ibiddestino" />
+                <ScalarProperty Name="ibdepdest" ColumnName="ibdepdest" />
                 <ScalarProperty Name="ibuact" ColumnName="ibuact" />
                 <ScalarProperty Name="ibhact" ColumnName="ibhact" />
                 <ScalarProperty Name="ibfact" ColumnName="ibfact" />
@@ -9637,6 +9672,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="VR_SaldoFisicoValorado">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_SaldoFisicoValorado">
               <MappingFragment StoreEntitySet="VR_SaldoFisicoValorado">
+                <ScalarProperty Name="iaalm" ColumnName="iaalm" />
                 <ScalarProperty Name="chcatcl" ColumnName="chcatcl" />
                 <ScalarProperty Name="cedesc" ColumnName="cedesc" />
                 <ScalarProperty Name="cenum" ColumnName="cenum" />
@@ -9656,6 +9692,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="VR_stockActual">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_stockActual">
               <MappingFragment StoreEntitySet="VR_stockActual">
+                <ScalarProperty Name="iaalm" ColumnName="iaalm" />
                 <ScalarProperty Name="cedesc" ColumnName="cedesc" />
                 <ScalarProperty Name="cenum" ColumnName="cenum" />
                 <ScalarProperty Name="caconv" ColumnName="caconv" />
@@ -9749,6 +9786,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Ariel.dbo.VR_VistaPedido_PrecioCos
           <EntitySetMapping Name="VR_GO_DespachoNotaVenta">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoNotaVenta">
               <MappingFragment StoreEntitySet="VR_GO_DespachoNotaVenta">
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="obptot" ColumnName="obptot" />
+                <ScalarProperty Name="cbnumi" ColumnName="cbnumi" />
+                <ScalarProperty Name="ccnomfac" ColumnName="ccnomfac" />
                 <ScalarProperty Name="cedesc" ColumnName="cedesc" />
                 <ScalarProperty Name="cctelf1" ColumnName="cctelf1" />
                 <ScalarProperty Name="ccnit" ColumnName="ccnit" />

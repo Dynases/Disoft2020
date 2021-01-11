@@ -9,12 +9,12 @@
         End Set
     End Property
 
-    Private _oafdoc As DateTime
-    Public Property oafdoc() As DateTime
+    Private _oafdoc As Date
+    Public Property oafdoc() As Date
         Get
             Return _oafdoc
         End Get
-        Set(ByVal value As DateTime)
+        Set(ByVal value As Date)
             _oafdoc = value
         End Set
     End Property
@@ -28,7 +28,15 @@
             _ccdesc = value
         End Set
     End Property
-
+    Private _ccnomfac As String
+    Public Property ccnomfac() As String
+        Get
+            Return _ccnomfac
+        End Get
+        Set(ByVal value As String)
+            _ccnomfac = value
+        End Set
+    End Property
     Private _ccdirec As String
     Public Property ccdirec() As String
         Get
@@ -36,6 +44,16 @@
         End Get
         Set(ByVal value As String)
             _ccdirec = value
+        End Set
+    End Property
+
+    Private _cbnumi As Integer
+    Public Property cbnumi() As Integer
+        Get
+            Return _cbnumi
+        End Get
+        Set(ByVal value As Integer)
+            _cbnumi = value
         End Set
     End Property
 
@@ -88,6 +106,26 @@
         End Get
         Set(ByVal value As Decimal)
             _obpbase = value
+        End Set
+    End Property
+
+    Private _obptot As Decimal
+    Public Property obptot() As Decimal
+        Get
+            Return _obptot
+        End Get
+        Set(ByVal value As Decimal)
+            _obptot = value
+        End Set
+    End Property
+
+    Private _obdesc As Decimal
+    Public Property obdesc() As Decimal
+        Get
+            Return _obdesc
+        End Get
+        Set(ByVal value As Decimal)
+            _obdesc = value
         End Set
     End Property
 

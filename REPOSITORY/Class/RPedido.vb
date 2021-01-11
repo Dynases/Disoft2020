@@ -198,17 +198,20 @@ Public Class RPedido
         Try
             Using db = GetSchema()
                 Dim listResult = (From a In db.VR_GO_DespachoNotaVenta
-                                  Where a.oaest = ENEstadoPedido.DICTADO And a.oaccbnumi = idChofer And a.oanumi = idPedido
+                                  Where (a.oaest = ENEstadoPedido.DICTADO Or a.oaest = ENEstadoPedido.ENTREGADO) And a.oaccbnumi = idChofer And a.oanumi = idPedido
                                   Select New RDespachoNotaVenta With {
                                       .oanumi = a.oanumi,
                                       .oafdoc = a.oafdoc,
                                       .ccdesc = a.ccdesc,
                                       .cbdesc = a.cbdesc,
+                                      .ccnomfac = a.ccnomfac,
                                       .ccdirec = a.ccdirec,
                                       .canumi = a.canumi,
                                       .cadesc = a.cadesc,
                                       .obpcant = a.obpcant,
                                       .obpbase = a.obpbase,
+                                      .obptot = a.obptot,
+                                      .obdesc = a.obdesc,
                                       .obtotal = a.obtotal,
                                       .Total = a.Total,
                                       .oaobs = a.oaobs,

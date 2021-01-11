@@ -1165,9 +1165,10 @@ Public Class frmBillingDispatch
     End Function
 
     Private Sub ArmarListaPedido(lista As List(Of VPedido_BillingDispatch))
-        dgjPedido.BoundMode = Janus.Data.BoundMode.Bound
+        dgjPedido.BoundMode = BoundMode.Bound
         dgjPedido.DataSource = lista
         dgjPedido.RetrieveStructure()
+
 
         With dgjPedido.RootTable.Columns("Fecha")
             .Caption = "Fecha Pedido"
@@ -1245,20 +1246,23 @@ Public Class frmBillingDispatch
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
             .Position = 7
+
         End With
         With dgjPedido
-            .GroupByBoxVisible = False
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
             .FilterMode = FilterMode.Automatic
             .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
-            .VisualStyle = VisualStyle.Office2007
-            .SelectionMode = SelectionMode.MultipleSelection
-            .AlternatingColors = True
+            .GroupByBoxVisible = False
+
+
+            '.SelectionMode = SelectionMode.MultipleSelection
+            '.AlternatingColors = True
             .AllowEdit = InheritableBoolean.False
-            .AllowColumnDrag = False
-            .AutomaticSort = False
-            '.ColumnHeaders = InheritableBoolean.False
+            '.AllowColumnDrag = False
+            '.AutomaticSort = False
+            '.ColumnHeaders = InheritableBoolean.True
         End With
+        dgjPedido.VisualStyle = VisualStyle.Office2007
     End Sub
 
     Private Sub CargarProductos(idPedido As Integer)
