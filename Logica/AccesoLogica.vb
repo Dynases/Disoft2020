@@ -1020,7 +1020,7 @@ Public Class AccesoLogica
         If _Modo = 0 Then
             _Where = "canumi=canumi"
         Else
-            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi"
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
         _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
 
@@ -1402,8 +1402,16 @@ Public Class AccesoLogica
     Public Shared Sub L_PedidoDetalle_GrabarNuevo(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String, _atributo As String)
         Dim _Err As Boolean
         Dim Sql As String
+
+        'Recuperamos el precio de costo del producto
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        _Where = " chcatcl =1  And chcprod=" + _codProd
+        _Tabla = D_Datos_Tabla("chprecio", "TC003", _Where)
+
         Dim campo2 As String
-        campo2 = 0
+        campo2 = _Tabla.Rows(0).Item("chprecio").ToString
+
         Sql = _idCabecera + ",'" + _codProd + "'," + _cantidad + "," + _precio + "," + _subTotal + "," + _desc + "," + _total + "," + _flia + "," + _atributo + "," + campo2
         _Err = D_Insertar_Datos("TO0011", Sql)
     End Sub

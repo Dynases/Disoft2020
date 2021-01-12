@@ -148,7 +148,7 @@ Public Class R01_EstadoCuentasCompra
     End Sub
 
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
-        _tab.Close()
+        Close()
         _modulo.Select()
     End Sub
 
