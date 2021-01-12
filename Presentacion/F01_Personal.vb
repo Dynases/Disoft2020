@@ -196,8 +196,10 @@ Public Class F01_Personal
         End If
     End Sub
     Private Sub _Parametros()
-        CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
-        LabelX6.Visible = gs_Parametros(0).Item("syruta")
+        CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
+        LabelX6.Visible = False 'gs_Parametros(0).Item("syruta")
+        LabelX7.Visible = gs_Parametros(0).Item("syruta")
+        cbSucursal.Visible = gs_Parametros(0).Item("syruta")
     End Sub
     Private Sub P_Nuevo()
         P_Limpiar()
@@ -286,11 +288,11 @@ Public Class F01_Personal
                 End If
                 eciv = "0"
                 plan = "1"
-                If gs_Parametros(0).Item("syruta") = True Then
-                    reloj = CbAlmacen.Value.ToString
-                Else
-                    reloj = "1"
-                End If
+                'If gs_Parametros(0).Item("syruta") = True Then
+                '    reloj = CbAlmacen.Value.ToString
+                'Else
+                reloj = "1"
+                'End If
 
 
                 'Grabar cabecera
@@ -338,11 +340,11 @@ Public Class F01_Personal
                 End If
                 eciv = "0"
                 plan = "1"
-                If gs_Parametros(0).Item("syruta") = True Then
-                    reloj = CbAlmacen.Value.ToString
-                Else
-                    reloj = "0"
-                End If
+                'If gs_Parametros(0).Item("syruta") = True Then
+                '    reloj = CbAlmacen.Value.ToString
+                'Else
+                reloj = "0"
+                'End If
 
 
                 'Modificar
@@ -431,7 +433,7 @@ Public Class F01_Personal
         'MultiCombo
         cbTipo.ReadOnly = True
         CbAlmacen.ReadOnly = True
-        CbAlmacen.Visible = gs_Parametros(0).Item("syruta")
+        CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
         cbSucursal.ReadOnly = True
         'Botones
         SbEstado.IsReadOnly = True
@@ -450,14 +452,14 @@ Public Class F01_Personal
             cbTipo.Text = ""
         End If
 
-        If gs_Parametros(0).Item("syruta") = True Then
+        'If gs_Parametros(0).Item("syruta") = True Then
 
-            If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                CbAlmacen.SelectedIndex = 0
-            Else
-                CbAlmacen.Text = ""
-            End If
-        End If
+        '    If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
+        '        CbAlmacen.SelectedIndex = 0
+        '    Else
+        '        CbAlmacen.Text = ""
+        '    End If
+        'End If
         If (CType(cbSucursal.DataSource, DataTable).Rows.Count > 0) Then
             cbSucursal.SelectedIndex = 0
         Else
@@ -469,9 +471,9 @@ Public Class F01_Personal
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
-        If gs_Parametros(0).Item("syruta") = True Then
-            p_prcomboalmacendiavi()
-        End If
+        'If gs_Parametros(0).Item("syruta") = True Then
+        '    p_prcomboalmacendiavi()
+        'End If
     End Sub
     Private Sub p_prcomboalmacendiavi()
         Dim dt As New DataTable
@@ -513,14 +515,14 @@ Public Class F01_Personal
                 Else
                     cbTipo.Text = ""
                 End If
-                If gs_Parametros(0).Item("syruta") = True Then
-                    CbAlmacen.Clear()
-                    If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
-                        CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
-                    Else
-                        CbAlmacen.Text = ""
-                    End If
-                End If
+                'If gs_Parametros(0).Item("syruta") = True Then
+                '    CbAlmacen.Clear()
+                '    If (CType(CbAlmacen.DataSource, DataTable).Rows.Count > 0) Then
+                '        CbAlmacen.SelectedText = .Cells("cbreloj").Value.ToString
+                '    Else
+                '        CbAlmacen.Text = ""
+                '    End If
+                'End If
 
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))
             End With
