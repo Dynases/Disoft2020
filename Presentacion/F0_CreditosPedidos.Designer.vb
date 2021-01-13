@@ -187,6 +187,10 @@ Partial Class F0_CreditosPedidos
         '
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1204, 0)
         '
+        'MBtImprimir
+        '
+        Me.MBtImprimir.Visible = False
+        '
         'MBubbleBarUsuario
         '
         '

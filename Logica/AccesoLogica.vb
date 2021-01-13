@@ -11512,4 +11512,99 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+#Region "BANCOS"
+
+    Public Shared Function L_prBancoGeneral() As DataTable
+        Dim _Tabla As DataTable
+        't.canumi , t.canombre, t.cacuenta, t.caobs, t.cafact, t.cahact, t.cauact 
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 3))
+        _listPalam.Add(New Datos.DParametro("@cauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_BA001", _listPalam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prBancoGrabar(ByRef _canumi As String, _canombre As String,
+                                           _cacuenta As String, _caobs As String,
+                                           _img As String, _estado As Integer) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+        't.canumi , t.canombre, t.cacuenta, t.caobs, t.cafact, t.cahact, t.cauact 
+        _listPalam.Add(New Datos.DParametro("@tipo", 1))
+        _listPalam.Add(New Datos.DParametro("@canumi", _canumi))
+        _listPalam.Add(New Datos.DParametro("@canombre", _canombre))
+        _listPalam.Add(New Datos.DParametro("@canrocuenta", _cacuenta))
+        _listPalam.Add(New Datos.DParametro("@caobs", _caobs))
+        _listPalam.Add(New Datos.DParametro("@caestado", _estado))
+        _listPalam.Add(New Datos.DParametro("@caimg", _img))
+        _listPalam.Add(New Datos.DParametro("@cauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_BA001", _listPalam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _canumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_prBancoBorrar(_numi As String, ByRef _mensaje As String) As Boolean
+
+        Dim _resultado As Boolean
+
+        If L_fnbValidarEliminacion(_numi, "BA001", "canumi", _mensaje) = True Then
+            Dim _Tabla As DataTable
+
+            Dim _listPalam As New List(Of Datos.DParametro)
+
+            _listPalam.Add(New Datos.DParametro("@tipo", -1))
+            _listPalam.Add(New Datos.DParametro("@canumi", _numi))
+            _listPalam.Add(New Datos.DParametro("@cauact", L_Usuario))
+            _Tabla = D_ProcedimientoConParam("sp_Mam_BA001", _listPalam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _numi = _Tabla.Rows(0).Item(0)
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_prBancoModificar(ByRef _canumi As String, _canombre As String,
+                                           _cacuenta As String, _caobs As String,
+                                           _img As String, _estado As Integer) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+        't.canumi , t.canombre, t.cacuenta, t.caobs, t.cafact, t.cahact, t.cauact 
+        _listPalam.Add(New Datos.DParametro("@tipo", 2))
+        _listPalam.Add(New Datos.DParametro("@canumi", _canumi))
+        _listPalam.Add(New Datos.DParametro("@canombre", _canombre))
+        _listPalam.Add(New Datos.DParametro("@canrocuenta", _cacuenta))
+        _listPalam.Add(New Datos.DParametro("@caobs", _caobs))
+        _listPalam.Add(New Datos.DParametro("@caestado", _estado))
+        _listPalam.Add(New Datos.DParametro("@caimg", _img))
+        _listPalam.Add(New Datos.DParametro("@cauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_BA001", _listPalam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _canumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+#End Region
 End Class

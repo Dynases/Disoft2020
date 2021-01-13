@@ -1740,6 +1740,14 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btBancos_Click(sender As Object, e As EventArgs) Handles btBancos.Click
+        F1_Bancos.AllowTransparency = True
+        Dim frm As New F1_Bancos
+        frm._nameButton = btBancos.Name
+        frm._modulo = FP_Configuracion
+        frm.Show()
+    End Sub
+
 
 
 #End Region

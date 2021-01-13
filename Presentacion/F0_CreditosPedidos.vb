@@ -137,6 +137,7 @@ Public Class F0_CreditosPedidos
             .Width = 100
             .TextAlignment = TextAlignment.Far
             .Visible = True
+            .FormatString = "0.00"
         End With
         With grcobranza.RootTable.Columns("tefact")
             .Width = 100
