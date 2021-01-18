@@ -1016,6 +1016,7 @@ Public Class frmBillingDispatch
                          Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                          Select New RDespachoXProducto With {
                           .canumi = grupo.FirstOrDefault().canumi,
+                          .cacod = grupo.FirstOrDefault().cacod,
                           .cadesc = grupo.FirstOrDefault().cadesc,
                           .categoria = grupo.FirstOrDefault().categoria,
                           .obpcant = grupo.Sum(Function(item) item.obpcant),

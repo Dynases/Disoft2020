@@ -30,5 +30,7 @@ Partial Public Class VR_Mam_Conciliacion
 
     Public Property TOTAL As Nullable(Of Integer)
 
+    Public Property cacod As String
+
 
 End Class

@@ -219,20 +219,20 @@ Public Class F0G_MovimientoChoferSalida
         End With
 
         With grdetalle.RootTable.Columns("iccprod")
-            .Width = 120
-            .Caption = "CODIGO."   'Codigo p'
+            .Width = 100
+            .Caption = "CÓD. SIST."   'Codigo p'
             .Visible = True
         End With
 
         With grdetalle.RootTable.Columns("cacod")
-            .Width = 120
-            .Caption = "CODIGO FLEX."
+            .Width = 100
+            .Caption = "CÓD. PROD."
             .Visible = True
         End With
 
         With grdetalle.RootTable.Columns("producto")
             .Caption = "PRODUCTOS"
-            .Width = 250
+            .Width = 300
             .Visible = True
         End With
 

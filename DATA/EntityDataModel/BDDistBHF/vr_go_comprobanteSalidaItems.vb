@@ -36,5 +36,7 @@ Partial Public Class vr_go_comprobanteSalidaItems
 
     Public Property cantidad As Nullable(Of Decimal)
 
+    Public Property codprod As String
+
 
 End Class

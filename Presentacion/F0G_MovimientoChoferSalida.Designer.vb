@@ -288,7 +288,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(836, 170)
+        Me.Panel1.Size = New System.Drawing.Size(836, 174)
         Me.Panel1.TabIndex = 0
         '
         'btBuscarChofer
@@ -330,7 +330,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX6.Location = New System.Drawing.Point(458, 60)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX6.Size = New System.Drawing.Size(161, 20)
+        Me.LabelX6.Size = New System.Drawing.Size(129, 16)
         Me.LabelX6.TabIndex = 235
         Me.LabelX6.Text = "Nro de Conciliacion:"
         '
@@ -392,7 +392,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.tbFecha.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFecha.MonthCalendar.TodayButtonVisible = True
         Me.tbFecha.Name = "tbFecha"
-        Me.tbFecha.Size = New System.Drawing.Size(120, 26)
+        Me.tbFecha.Size = New System.Drawing.Size(120, 22)
         Me.tbFecha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFecha.TabIndex = 6
         '
@@ -427,7 +427,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX4.Location = New System.Drawing.Point(23, 105)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(105, 20)
+        Me.LabelX4.Size = New System.Drawing.Size(84, 16)
         Me.LabelX4.TabIndex = 231
         Me.LabelX4.Text = "Observacion:"
         '
@@ -442,7 +442,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.cbConcepto.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbConcepto.SelectedIndex = -1
         Me.cbConcepto.SelectedItem = Nothing
-        Me.cbConcepto.Size = New System.Drawing.Size(221, 26)
+        Me.cbConcepto.Size = New System.Drawing.Size(221, 22)
         Me.cbConcepto.TabIndex = 4
         Me.cbConcepto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -459,7 +459,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX3.Location = New System.Drawing.Point(22, 79)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX3.Size = New System.Drawing.Size(81, 20)
+        Me.LabelX3.Size = New System.Drawing.Size(65, 16)
         Me.LabelX3.TabIndex = 229
         Me.LabelX3.Text = "Concepto:"
         '
@@ -477,7 +477,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.tbChofer.Location = New System.Drawing.Point(118, 46)
         Me.tbChofer.Name = "tbChofer"
         Me.tbChofer.PreventEnterBeep = True
-        Me.tbChofer.Size = New System.Drawing.Size(280, 26)
+        Me.tbChofer.Size = New System.Drawing.Size(280, 22)
         Me.tbChofer.TabIndex = 3
         '
         'LabelX2
@@ -493,7 +493,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX2.Location = New System.Drawing.Point(23, 48)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX2.Size = New System.Drawing.Size(61, 20)
+        Me.LabelX2.Size = New System.Drawing.Size(49, 16)
         Me.LabelX2.TabIndex = 227
         Me.LabelX2.Text = "Chofer:"
         '
@@ -511,7 +511,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.tbCodigo.Location = New System.Drawing.Point(118, 16)
         Me.tbCodigo.Name = "tbCodigo"
         Me.tbCodigo.PreventEnterBeep = True
-        Me.tbCodigo.Size = New System.Drawing.Size(80, 26)
+        Me.tbCodigo.Size = New System.Drawing.Size(80, 22)
         Me.tbCodigo.TabIndex = 2
         '
         'LabelX1
@@ -527,7 +527,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX1.Location = New System.Drawing.Point(22, 18)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(62, 20)
+        Me.LabelX1.Size = New System.Drawing.Size(50, 16)
         Me.LabelX1.TabIndex = 225
         Me.LabelX1.Text = "Código:"
         '
@@ -586,7 +586,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.grproducto.Name = "grproducto"
         Me.grproducto.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grproducto.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grproducto.Size = New System.Drawing.Size(836, 192)
+        Me.grproducto.Size = New System.Drawing.Size(836, 196)
         Me.grproducto.TabIndex = 0
         Me.grproducto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -643,7 +643,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(836, 13)
+        Me.grdetalle.Size = New System.Drawing.Size(836, 17)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -707,7 +707,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.grmovimiento.Name = "grmovimiento"
         Me.grmovimiento.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grmovimiento.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimiento.Size = New System.Drawing.Size(936, 428)
+        Me.grmovimiento.Size = New System.Drawing.Size(936, 432)
         Me.grmovimiento.TabIndex = 0
         Me.grmovimiento.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

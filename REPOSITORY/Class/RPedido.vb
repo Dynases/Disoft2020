@@ -113,6 +113,7 @@ Public Class RPedido
                                   Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1 And a.oafdoc >= fechaDesde And a.oafdoc <= fechaHasta
                                   Select New RDespachoXProducto With {
                                    .canumi = a.canumi,
+                                   .cacod = a.cacod,
                                    .cadesc = a.cadesc,
                                    .categoria = a.categoria,
                                    .obpcant = a.obpcant,
@@ -337,6 +338,7 @@ Public Class RPedido
                                       .oaest = a.oaest,
                                       .oaap = a.oaap,
                                       .obcprod = a.obcprod,
+                                      .cacod = a.cacod,
                                       .cadesc = a.cadesc,
                                       .cauventa = a.cauventa,
                                       .obpbase = a.obpbase,

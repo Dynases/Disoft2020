@@ -60,9 +60,8 @@ Partial Class frmDispatch
         Me.PanelBase.Controls.Add(Me.PanelZona)
         Me.PanelBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelBase.Location = New System.Drawing.Point(0, 0)
-        Me.PanelBase.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelBase.Name = "PanelBase"
-        Me.PanelBase.Size = New System.Drawing.Size(1582, 554)
+        Me.PanelBase.Size = New System.Drawing.Size(1186, 561)
         Me.PanelBase.TabIndex = 0
         '
         'PanelSubBase
@@ -71,48 +70,43 @@ Partial Class frmDispatch
         Me.PanelSubBase.Controls.Add(Me.PanelProducto)
         Me.PanelSubBase.Controls.Add(Me.PanelAccion)
         Me.PanelSubBase.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelSubBase.Location = New System.Drawing.Point(360, 0)
-        Me.PanelSubBase.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelSubBase.Location = New System.Drawing.Point(270, 0)
         Me.PanelSubBase.Name = "PanelSubBase"
-        Me.PanelSubBase.Size = New System.Drawing.Size(1222, 554)
+        Me.PanelSubBase.Size = New System.Drawing.Size(916, 561)
         Me.PanelSubBase.TabIndex = 1
         '
         'PanelPedido
         '
         Me.PanelPedido.Controls.Add(Me.dgjPedido)
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelPedido.Location = New System.Drawing.Point(0, 74)
-        Me.PanelPedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelPedido.Location = New System.Drawing.Point(0, 60)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(1222, 338)
+        Me.PanelPedido.Size = New System.Drawing.Size(916, 386)
         Me.PanelPedido.TabIndex = 2
         '
         'dgjPedido
         '
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjPedido.Location = New System.Drawing.Point(0, 0)
-        Me.dgjPedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgjPedido.Name = "dgjPedido"
-        Me.dgjPedido.Size = New System.Drawing.Size(1222, 338)
+        Me.dgjPedido.Size = New System.Drawing.Size(916, 386)
         Me.dgjPedido.TabIndex = 1
         '
         'PanelProducto
         '
         Me.PanelProducto.Controls.Add(Me.dgjProducto)
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelProducto.Location = New System.Drawing.Point(0, 412)
-        Me.PanelProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelProducto.Location = New System.Drawing.Point(0, 446)
         Me.PanelProducto.Name = "PanelProducto"
-        Me.PanelProducto.Size = New System.Drawing.Size(1222, 142)
+        Me.PanelProducto.Size = New System.Drawing.Size(916, 115)
         Me.PanelProducto.TabIndex = 1
         '
         'dgjProducto
         '
         Me.dgjProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjProducto.Location = New System.Drawing.Point(0, 0)
-        Me.dgjProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgjProducto.Name = "dgjProducto"
-        Me.dgjProducto.Size = New System.Drawing.Size(1222, 142)
+        Me.dgjProducto.Size = New System.Drawing.Size(916, 115)
         Me.dgjProducto.TabIndex = 2
         '
         'PanelAccion
@@ -123,9 +117,8 @@ Partial Class frmDispatch
         Me.PanelAccion.Controls.Add(Me.cbChoferes)
         Me.PanelAccion.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelAccion.Location = New System.Drawing.Point(0, 0)
-        Me.PanelAccion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelAccion.Name = "PanelAccion"
-        Me.PanelAccion.Size = New System.Drawing.Size(1222, 74)
+        Me.PanelAccion.Size = New System.Drawing.Size(916, 60)
         Me.PanelAccion.TabIndex = 0
         '
         'btGrabar
@@ -136,10 +129,9 @@ Partial Class frmDispatch
         Me.btGrabar.Image = Global.Presentacion.My.Resources.Resources.GRABAR
         Me.btGrabar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btGrabar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btGrabar.Location = New System.Drawing.Point(1022, 0)
-        Me.btGrabar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btGrabar.Location = New System.Drawing.Point(766, 0)
         Me.btGrabar.Name = "btGrabar"
-        Me.btGrabar.Size = New System.Drawing.Size(100, 74)
+        Me.btGrabar.Size = New System.Drawing.Size(75, 60)
         Me.btGrabar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btGrabar.TabIndex = 2
         Me.btGrabar.Text = "Grabar"
@@ -152,10 +144,9 @@ Partial Class frmDispatch
         Me.btActualizar.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
         Me.btActualizar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btActualizar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btActualizar.Location = New System.Drawing.Point(1122, 0)
-        Me.btActualizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btActualizar.Location = New System.Drawing.Point(841, 0)
         Me.btActualizar.Name = "btActualizar"
-        Me.btActualizar.Size = New System.Drawing.Size(100, 74)
+        Me.btActualizar.Size = New System.Drawing.Size(75, 60)
         Me.btActualizar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btActualizar.TabIndex = 3
         Me.btActualizar.Text = "Actualizar"
@@ -166,10 +157,9 @@ Partial Class frmDispatch
         '
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Location = New System.Drawing.Point(8, 15)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Location = New System.Drawing.Point(6, 12)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(73, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(55, 23)
         Me.LabelX2.TabIndex = 1
         Me.LabelX2.Text = "Choferes:"
         '
@@ -177,12 +167,11 @@ Partial Class frmDispatch
         '
         cbChoferes_DesignTimeLayout.LayoutString = resources.GetString("cbChoferes_DesignTimeLayout.LayoutString")
         Me.cbChoferes.DesignTimeLayout = cbChoferes_DesignTimeLayout
-        Me.cbChoferes.Location = New System.Drawing.Point(89, 17)
-        Me.cbChoferes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbChoferes.Location = New System.Drawing.Point(67, 14)
         Me.cbChoferes.Name = "cbChoferes"
         Me.cbChoferes.SelectedIndex = -1
         Me.cbChoferes.SelectedItem = Nothing
-        Me.cbChoferes.Size = New System.Drawing.Size(267, 22)
+        Me.cbChoferes.Size = New System.Drawing.Size(200, 20)
         Me.cbChoferes.TabIndex = 0
         '
         'PanelZona
@@ -190,9 +179,8 @@ Partial Class frmDispatch
         Me.PanelZona.Controls.Add(Me.PanelZonaGrilla)
         Me.PanelZona.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelZona.Location = New System.Drawing.Point(0, 0)
-        Me.PanelZona.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelZona.Name = "PanelZona"
-        Me.PanelZona.Size = New System.Drawing.Size(360, 554)
+        Me.PanelZona.Size = New System.Drawing.Size(270, 561)
         Me.PanelZona.TabIndex = 0
         '
         'PanelZonaGrilla
@@ -201,18 +189,16 @@ Partial Class frmDispatch
         Me.PanelZonaGrilla.Controls.Add(Me.btConsultar)
         Me.PanelZonaGrilla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelZonaGrilla.Location = New System.Drawing.Point(0, 0)
-        Me.PanelZonaGrilla.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelZonaGrilla.Name = "PanelZonaGrilla"
-        Me.PanelZonaGrilla.Size = New System.Drawing.Size(360, 554)
+        Me.PanelZonaGrilla.Size = New System.Drawing.Size(270, 561)
         Me.PanelZonaGrilla.TabIndex = 1
         '
         'dgjZona
         '
         Me.dgjZona.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjZona.Location = New System.Drawing.Point(0, 0)
-        Me.dgjZona.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgjZona.Name = "dgjZona"
-        Me.dgjZona.Size = New System.Drawing.Size(360, 492)
+        Me.dgjZona.Size = New System.Drawing.Size(270, 511)
         Me.dgjZona.TabIndex = 0
         '
         'btConsultar
@@ -222,10 +208,9 @@ Partial Class frmDispatch
         Me.btConsultar.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.btConsultar.Image = Global.Presentacion.My.Resources.Resources.buscar
         Me.btConsultar.ImageFixedSize = New System.Drawing.Size(30, 30)
-        Me.btConsultar.Location = New System.Drawing.Point(0, 492)
-        Me.btConsultar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btConsultar.Location = New System.Drawing.Point(0, 511)
         Me.btConsultar.Name = "btConsultar"
-        Me.btConsultar.Size = New System.Drawing.Size(360, 62)
+        Me.btConsultar.Size = New System.Drawing.Size(270, 50)
         Me.btConsultar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btConsultar.TabIndex = 1
         Me.btConsultar.Text = "CONSULTAR"
@@ -237,13 +222,13 @@ Partial Class frmDispatch
         '
         'frmDispatch
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 554)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
         Me.Controls.Add(Me.PanelBase)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmDispatch"
         Me.Opacity = 0.05R
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmDispatch"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.PanelBase.ResumeLayout(False)

@@ -48,7 +48,7 @@
           <Property Name="banum" Type="int" />
           <Property Name="baproc" Type="nvarchar" MaxLength="50" />
           <Property Name="balinea" Type="int" />
-          <Property Name="bamensaje" Type="nvarchar" MaxLength="400" />
+          <Property Name="bamensaje" Type="nvarchar" MaxLength="2000" />
           <Property Name="batipo" Type="int" />
           <Property Name="bafact" Type="date" />
           <Property Name="bahact" Type="nvarchar" MaxLength="5" />
@@ -1182,6 +1182,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.v_VentasDetalleDespacho
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
           <Property Name="obcprod" Type="nvarchar" MaxLength="10" />
+          <Property Name="cacod" Type="nvarchar" MaxLength="10" />
           <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cauventa" Type="int" />
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
@@ -1415,6 +1416,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.vr_go_comprobanteSalida
           <Property Name="nrepatidor" Type="nvarchar" MaxLength="50" />
           <Property Name="conciliacion" Type="int" />
           <Property Name="producto" Type="int" Nullable="false" />
+          <Property Name="codprod" Type="nvarchar" MaxLength="10" />
           <Property Name="nproducto" Type="nvarchar" MaxLength="100" />
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
@@ -1999,7 +2001,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Mam_Conciliacion' no
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="int" Nullable="false" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
+          <Property Name="cacod" Type="nvarchar" MaxLength="10" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="columna1" Type="int" />
           <Property Name="columna2" Type="int" />
           <Property Name="columna3" Type="int" />
@@ -3380,6 +3383,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
     [v_VentasDetalleDespacho].[oaest] AS [oaest], 
     [v_VentasDetalleDespacho].[oaap] AS [oaap], 
     [v_VentasDetalleDespacho].[obcprod] AS [obcprod], 
+    [v_VentasDetalleDespacho].[cacod] AS [cacod], 
     [v_VentasDetalleDespacho].[cadesc] AS [cadesc], 
     [v_VentasDetalleDespacho].[cauventa] AS [cauventa], 
     [v_VentasDetalleDespacho].[cedesc] AS [cedesc], 
@@ -3571,6 +3575,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
     [vr_go_comprobanteSalidaItems].[nrepatidor] AS [nrepatidor], 
     [vr_go_comprobanteSalidaItems].[conciliacion] AS [conciliacion], 
     [vr_go_comprobanteSalidaItems].[producto] AS [producto], 
+    [vr_go_comprobanteSalidaItems].[codprod] AS [codprod], 
     [vr_go_comprobanteSalidaItems].[nproducto] AS [nproducto], 
     [vr_go_comprobanteSalidaItems].[cantidad] AS [cantidad]
     FROM [dbo].[vr_go_comprobanteSalidaItems] AS [vr_go_comprobanteSalidaItems]</DefiningQuery>
@@ -4044,6 +4049,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySet Name="VR_Mam_Conciliacion" EntityType="Self.VR_Mam_Conciliacion" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VR_Mam_Conciliacion].[canumi] AS [canumi], 
+    [VR_Mam_Conciliacion].[cacod] AS [cacod], 
     [VR_Mam_Conciliacion].[cadesc] AS [cadesc], 
     [VR_Mam_Conciliacion].[columna1] AS [columna1], 
     [VR_Mam_Conciliacion].[columna2] AS [columna2], 
@@ -5256,7 +5262,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="banum" Type="Int32" />
           <Property Name="baproc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="balinea" Type="Int32" />
-          <Property Name="bamensaje" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="bamensaje" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="batipo" Type="Int32" />
           <Property Name="bafact" Type="DateTime" Precision="0" />
           <Property Name="bahact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
@@ -6513,6 +6519,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="producto" Type="Int32" Nullable="false" />
           <Property Name="nproducto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cantidad" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="codprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
@@ -7014,13 +7021,14 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
             <PropertyRef Name="canumi" />
           </Key>
           <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cadesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="columna1" Type="Int32" />
           <Property Name="columna2" Type="Int32" />
           <Property Name="columna3" Type="Int32" />
           <Property Name="columna4" Type="Int32" />
           <Property Name="DEVOLUCION" Type="Int32" />
           <Property Name="TOTAL" Type="Int32" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
@@ -7381,6 +7389,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -8982,6 +8991,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySetMapping Name="vr_go_comprobanteSalidaItems">
             <EntityTypeMapping TypeName="BDDistBHFModel.vr_go_comprobanteSalidaItems">
               <MappingFragment StoreEntitySet="vr_go_comprobanteSalidaItems">
+                <ScalarProperty Name="codprod" ColumnName="codprod" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="nproducto" ColumnName="nproducto" />
                 <ScalarProperty Name="producto" ColumnName="producto" />
@@ -9488,6 +9498,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySetMapping Name="VR_Mam_Conciliacion">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_Mam_Conciliacion">
               <MappingFragment StoreEntitySet="VR_Mam_Conciliacion">
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
                 <ScalarProperty Name="DEVOLUCION" ColumnName="DEVOLUCION" />
                 <ScalarProperty Name="columna4" ColumnName="columna4" />
@@ -9813,6 +9824,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySetMapping Name="v_VentasDetalleDespacho">
             <EntityTypeMapping TypeName="BDDistBHFModel.v_VentasDetalleDespacho">
               <MappingFragment StoreEntitySet="v_VentasDetalleDespacho">
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
                 <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
                 <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
                 <ScalarProperty Name="obtotal" ColumnName="obtotal" />
