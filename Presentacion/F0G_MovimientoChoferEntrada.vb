@@ -963,11 +963,11 @@ Public Class F0G_MovimientoChoferEntrada
                 .Visible = True
                 .Caption = "CÓD. SIST."
             End With
-            With grdetalle.RootTable.Columns("cacod")
-                .Width = 100
-                .Visible = True
-                .Caption = "CÓD. PROD."
-            End With
+            'With grdetalle.RootTable.Columns("cacod")
+            '    .Width = 100
+            '    .Visible = True
+            '    .Caption = "CÓD. PROD."
+            'End With
             With grdetalle.RootTable.Columns("estado")
                 .Width = 150
                 .Visible = False
