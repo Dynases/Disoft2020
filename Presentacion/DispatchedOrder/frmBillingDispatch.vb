@@ -1573,7 +1573,7 @@ Public Class frmBillingDispatch
             lblCantidadPedido.Text = listaPedido.Count.ToString
         End If
         If (e.KeyData = Keys.Control + Keys.N) Then
-            listaPedido = listaPedido.Where(Function(a) Not a.observacion.Contains("F,") Or Not a.observacion.Contains("f,")).ToList()
+            listaPedido = listaPedido.Where(Function(a) Not (a.observacion.Contains("F,") OrElse a.observacion.Contains("f,"))).ToList()
             ArmarListaPedido(listaPedido)
             btnFactura.Enabled = False
             btnNotaVenta.Enabled = True
