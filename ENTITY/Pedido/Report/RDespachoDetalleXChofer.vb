@@ -73,6 +73,17 @@
             _obcprod = value
         End Set
     End Property
+
+    Private _cacod As String
+    Public Property cacod() As String
+        Get
+            Return _cacod
+        End Get
+        Set(ByVal value As String)
+            _cacod = value
+        End Set
+    End Property
+
     Private _cadesc As String
     Public Property cadesc() As String
         Get

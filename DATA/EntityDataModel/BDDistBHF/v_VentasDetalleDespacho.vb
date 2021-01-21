@@ -50,5 +50,7 @@ Partial Public Class v_VentasDetalleDespacho
 
     Public Property cbdesc As String
 
+    Public Property cacod As String
+
 
 End Class

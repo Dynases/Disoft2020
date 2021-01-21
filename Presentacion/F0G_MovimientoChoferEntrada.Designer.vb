@@ -85,24 +85,24 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1582, 560)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanel4)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1256, 560)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(942, 455)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel3)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1540, 560)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1144, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel1, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel3, 0)
@@ -110,8 +110,8 @@ Partial Class F0G_MovimientoChoferEntrada
         'MPnSuperior
         '
         Me.MPnSuperior.Controls.Add(Me.tbTablet)
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1582, 86)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -126,8 +126,8 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPnInferior
         '
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MPnInferior.Size = New System.Drawing.Size(1582, 44)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnInferior.Size = New System.Drawing.Size(1186, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -138,14 +138,14 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1315, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(986, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
@@ -178,8 +178,8 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1475, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBtImprimir
         '
@@ -230,9 +230,8 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1540, 235)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1144, 191)
         '
         '
         '
@@ -283,9 +282,8 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.Panel1.Controls.Add(Me.LabelX2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1534, 208)
+        Me.Panel1.Size = New System.Drawing.Size(1138, 168)
         Me.Panel1.TabIndex = 0
         '
         'rlEstado
@@ -296,10 +294,9 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.rlEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.rlEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rlEstado.ForeColor = System.Drawing.Color.Orange
-        Me.rlEstado.Location = New System.Drawing.Point(969, 96)
-        Me.rlEstado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rlEstado.Location = New System.Drawing.Point(727, 78)
         Me.rlEstado.Name = "rlEstado"
-        Me.rlEstado.Size = New System.Drawing.Size(400, 86)
+        Me.rlEstado.Size = New System.Drawing.Size(300, 70)
         Me.rlEstado.TabIndex = 239
         Me.rlEstado.Text = "Accesible"
         '
@@ -311,10 +308,9 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.lbcodigo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbcodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbcodigo.ForeColor = System.Drawing.Color.Orange
-        Me.lbcodigo.Location = New System.Drawing.Point(791, 95)
-        Me.lbcodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lbcodigo.Location = New System.Drawing.Point(593, 77)
         Me.lbcodigo.Name = "lbcodigo"
-        Me.lbcodigo.Size = New System.Drawing.Size(160, 86)
+        Me.lbcodigo.Size = New System.Drawing.Size(120, 70)
         Me.lbcodigo.TabIndex = 238
         Me.lbcodigo.Text = "0"
         '
@@ -328,11 +324,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX7.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX7.Location = New System.Drawing.Point(611, 116)
-        Me.LabelX7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX7.Location = New System.Drawing.Point(458, 94)
         Me.LabelX7.Name = "LabelX7"
         Me.LabelX7.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX7.Size = New System.Drawing.Size(161, 20)
+        Me.LabelX7.Size = New System.Drawing.Size(129, 16)
         Me.LabelX7.TabIndex = 237
         Me.LabelX7.Text = "Nro de Conciliacion:"
         '
@@ -345,11 +340,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX6.Location = New System.Drawing.Point(611, 49)
-        Me.LabelX6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX6.Location = New System.Drawing.Point(458, 40)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX6.Size = New System.Drawing.Size(127, 28)
+        Me.LabelX6.Size = New System.Drawing.Size(95, 23)
         Me.LabelX6.TabIndex = 236
         Me.LabelX6.Text = "Estado:"
         '
@@ -361,15 +355,14 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.swestado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.swestado.IsReadOnly = True
-        Me.swestado.Location = New System.Drawing.Point(789, 53)
-        Me.swestado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.swestado.Location = New System.Drawing.Point(592, 43)
         Me.swestado.Name = "swestado"
         Me.swestado.OffBackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.swestado.OffText = "CERRADO"
         Me.swestado.OffTextColor = System.Drawing.Color.White
         Me.swestado.OnBackColor = System.Drawing.Color.Gold
         Me.swestado.OnText = "ABIERTA"
-        Me.swestado.Size = New System.Drawing.Size(180, 27)
+        Me.swestado.Size = New System.Drawing.Size(135, 22)
         Me.swestado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swestado.TabIndex = 235
         Me.swestado.Value = True
@@ -384,11 +377,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX5.Location = New System.Drawing.Point(611, 17)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX5.Location = New System.Drawing.Point(458, 14)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX5.Size = New System.Drawing.Size(161, 28)
+        Me.LabelX5.Size = New System.Drawing.Size(121, 23)
         Me.LabelX5.TabIndex = 234
         Me.LabelX5.Text = "Fecha Movimiento:"
         '
@@ -403,8 +395,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbFecha.ButtonDropDown.Visible = True
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.IsPopupCalendarOpen = False
-        Me.tbFecha.Location = New System.Drawing.Point(789, 15)
-        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbFecha.Location = New System.Drawing.Point(592, 12)
         '
         '
         '
@@ -435,7 +426,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbFecha.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFecha.MonthCalendar.TodayButtonVisible = True
         Me.tbFecha.Name = "tbFecha"
-        Me.tbFecha.Size = New System.Drawing.Size(160, 26)
+        Me.tbFecha.Size = New System.Drawing.Size(120, 22)
         Me.tbFecha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFecha.TabIndex = 233
         '
@@ -450,12 +441,11 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbObservacion.DisabledBackColor = System.Drawing.Color.White
         Me.tbObservacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbObservacion.ForeColor = System.Drawing.Color.Black
-        Me.tbObservacion.Location = New System.Drawing.Point(157, 90)
-        Me.tbObservacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbObservacion.Location = New System.Drawing.Point(118, 73)
         Me.tbObservacion.Multiline = True
         Me.tbObservacion.Name = "tbObservacion"
         Me.tbObservacion.PreventEnterBeep = True
-        Me.tbObservacion.Size = New System.Drawing.Size(281, 76)
+        Me.tbObservacion.Size = New System.Drawing.Size(211, 62)
         Me.tbObservacion.TabIndex = 232
         '
         'LabelX4
@@ -468,11 +458,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(31, 90)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX4.Location = New System.Drawing.Point(23, 73)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(105, 20)
+        Me.LabelX4.Size = New System.Drawing.Size(84, 16)
         Me.LabelX4.TabIndex = 231
         Me.LabelX4.Text = "Observacion:"
         '
@@ -481,14 +470,13 @@ Partial Class F0G_MovimientoChoferEntrada
         cbConcepto_DesignTimeLayout.LayoutString = resources.GetString("cbConcepto_DesignTimeLayout.LayoutString")
         Me.cbConcepto.DesignTimeLayout = cbConcepto_DesignTimeLayout
         Me.cbConcepto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbConcepto.Location = New System.Drawing.Point(157, 52)
-        Me.cbConcepto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbConcepto.Location = New System.Drawing.Point(118, 42)
         Me.cbConcepto.Name = "cbConcepto"
         Me.cbConcepto.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbConcepto.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbConcepto.SelectedIndex = -1
         Me.cbConcepto.SelectedItem = Nothing
-        Me.cbConcepto.Size = New System.Drawing.Size(235, 26)
+        Me.cbConcepto.Size = New System.Drawing.Size(176, 22)
         Me.cbConcepto.TabIndex = 230
         Me.cbConcepto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -502,11 +490,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX3.Location = New System.Drawing.Point(29, 58)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX3.Location = New System.Drawing.Point(22, 47)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX3.Size = New System.Drawing.Size(81, 20)
+        Me.LabelX3.Size = New System.Drawing.Size(65, 16)
         Me.LabelX3.TabIndex = 229
         Me.LabelX3.Text = "Concepto:"
         '
@@ -521,11 +508,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbChofer.DisabledBackColor = System.Drawing.Color.White
         Me.tbChofer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbChofer.ForeColor = System.Drawing.Color.Black
-        Me.tbChofer.Location = New System.Drawing.Point(157, 17)
-        Me.tbChofer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbChofer.Location = New System.Drawing.Point(118, 14)
         Me.tbChofer.Name = "tbChofer"
         Me.tbChofer.PreventEnterBeep = True
-        Me.tbChofer.Size = New System.Drawing.Size(373, 26)
+        Me.tbChofer.Size = New System.Drawing.Size(280, 22)
         Me.tbChofer.TabIndex = 228
         '
         'LabelX2
@@ -538,11 +524,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(31, 20)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Location = New System.Drawing.Point(23, 16)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX2.Size = New System.Drawing.Size(61, 20)
+        Me.LabelX2.Size = New System.Drawing.Size(49, 16)
         Me.LabelX2.TabIndex = 227
         Me.LabelX2.Text = "Chofer:"
         '
@@ -554,10 +539,9 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel3.Location = New System.Drawing.Point(0, 235)
-        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel3.Location = New System.Drawing.Point(0, 191)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1540, 325)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1144, 264)
         '
         '
         '
@@ -597,11 +581,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grdetalle.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdetalle.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.grdetalle.Location = New System.Drawing.Point(0, 0)
-        Me.grdetalle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(1534, 298)
+        Me.grdetalle.Size = New System.Drawing.Size(1138, 241)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -614,9 +597,8 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupPanel4.Name = "GroupPanel4"
-        Me.GroupPanel4.Size = New System.Drawing.Size(1256, 560)
+        Me.GroupPanel4.Size = New System.Drawing.Size(942, 455)
         '
         '
         '
@@ -663,11 +645,10 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grmovimiento.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.grmovimiento.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight
         Me.grmovimiento.Location = New System.Drawing.Point(0, 0)
-        Me.grmovimiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grmovimiento.Name = "grmovimiento"
         Me.grmovimiento.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grmovimiento.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimiento.Size = New System.Drawing.Size(1250, 533)
+        Me.grmovimiento.Size = New System.Drawing.Size(936, 432)
         Me.grmovimiento.TabIndex = 0
         Me.grmovimiento.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -678,8 +659,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.tbTablet.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTablet.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTablet.Location = New System.Drawing.Point(784, 34)
-        Me.tbTablet.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbTablet.Location = New System.Drawing.Point(588, 28)
         Me.tbTablet.Name = "tbTablet"
         Me.tbTablet.OffBackColor = System.Drawing.Color.DodgerBlue
         Me.tbTablet.OffText = "TODOS LOS REGISTROS"
@@ -687,7 +667,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbTablet.OnBackColor = System.Drawing.Color.Gold
         Me.tbTablet.OnText = "ULTIMOS 20 REGISTROS"
         Me.tbTablet.OnTextColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbTablet.Size = New System.Drawing.Size(267, 27)
+        Me.tbTablet.Size = New System.Drawing.Size(200, 22)
         Me.tbTablet.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbTablet.TabIndex = 36
         Me.tbTablet.Value = True
@@ -700,11 +680,11 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'F0G_MovimientoChoferEntrada
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 690)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0G_MovimientoChoferEntrada"
         Me.Text = "F0G_MovimientoChofer"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)

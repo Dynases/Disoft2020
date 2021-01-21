@@ -959,9 +959,15 @@ Public Class F0G_MovimientoChoferEntrada
             Next
 
             With grdetalle.RootTable.Columns("canumi")
-                .Width = 150
-                .Visible = False
+                .Width = 100
+                .Visible = True
+                .Caption = "CÓD. SIST."
             End With
+            'With grdetalle.RootTable.Columns("cacod")
+            '    .Width = 100
+            '    .Visible = True
+            '    .Caption = "CÓD. PROD."
+            'End With
             With grdetalle.RootTable.Columns("estado")
                 .Width = 150
                 .Visible = False
@@ -971,7 +977,7 @@ Public Class F0G_MovimientoChoferEntrada
                 .Visible = False
             End With
             With grdetalle.RootTable.Columns("cadesc")
-                .Width = 200
+                .Width = 250
                 .Visible = True
                 .Caption = "PRODUCTO"
             End With
