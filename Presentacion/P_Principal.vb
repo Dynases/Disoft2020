@@ -84,7 +84,7 @@ Public Class P_Principal
         ItemContainerInveEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
         btMovPack.Visible = gs_Parametros(0).Item("syproductopack")
         btLogiRepVisitasDiarias.Visible = False
-        tLogiRepProductosMesa.Visible = False
+        tLogiRepProductosMesa.Visible = True
         btPediControlReclamos.Visible = False
         btVentVenta.Visible = False
         btVentPago.Visible = False
@@ -214,14 +214,14 @@ Public Class P_Principal
             gi_mprec = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccmprec")) = True, 0, dtConfSistema.Rows(0).Item("cccmprec"))
             gi_adev = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccadev")), 0, dtConfSistema.Rows(0).Item("cccadev"))
             gb_despacho = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccdespacho")), False, dtConfSistema.Rows(0).Item("cccdespacho"))
-            gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
-            gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
-            gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
-            If gi_CRM = 1 Then
-                FP_CRM.Visible = True
-            Else
-                FP_CRM.Visible = False
-            End If
+            'gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
+            'gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
+            'gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
+            'If gi_CRM = 1 Then
+            '    FP_CRM.Visible = True
+            'Else
+            '    FP_CRM.Visible = False
+            'End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try

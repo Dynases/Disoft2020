@@ -697,7 +697,7 @@ Public Class frmBillingDispatch
                                        eToastGlowColor.Blue, eToastPosition.BottomRight)
             Else
                 objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-                objrep.PrintToPrinter(2, False, 1, 1)
+                objrep.PrintToPrinter(1, False, 1, 1)
             End If
         End If
     End Sub
