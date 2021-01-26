@@ -177,7 +177,7 @@ Public Class frmBillingDispatch
         _Cod_Control = ControlCode.generateControlCode(_Autorizacion, _NumFac, _Nit, _Fechainv, CStr(_TotalCC), _Key)
 
         'Literal 
-        _TotalLi = _Ds.Tables(0).Rows(0).Item("fvastot") - _Ds.Tables(0).Rows(0).Item("fvadesc")
+        _TotalLi = _Ds.Tables(0).Rows(0).Item("fvasubtotal") - _Ds.Tables(0).Rows(0).Item("fvadesc")
         _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
         _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
@@ -423,7 +423,7 @@ Public Class frmBillingDispatch
         _Cod_Control = ControlCode.generateControlCode(_Autorizacion, _NumFac, _Nit, _Fechainv, CStr(_TotalCC), _Key)
 
         'Literal 
-        _TotalLi = _Ds.Tables(0).Rows(0).Item("fvastot") - _Ds.Tables(0).Rows(0).Item("fvadesc")
+        _TotalLi = _Ds.Tables(0).Rows(0).Item("fvasubtotal") - _Ds.Tables(0).Rows(0).Item("fvadesc")
         _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
         _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
