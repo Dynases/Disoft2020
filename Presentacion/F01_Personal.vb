@@ -336,7 +336,7 @@ Public Class F01_Personal
                 If (SbEstado.Value) Then
                     est = "1"
                 Else
-                    est = "1"
+                    est = "0"
                 End If
                 eciv = "0"
                 plan = "1"
@@ -683,9 +683,12 @@ Public Class F01_Personal
         End If
 
         Dim dt As DataTable = L_fnContarPersonal()
-        If (dt.Rows(0).Item("cantidad") + 1 > gs_CantPersonal) Then
-            sms = "Ya llegó al limite de registros de Personal, comuniquese con el Administrador del Sistema."
+        If (SbEstado.Value = True And Nuevo = True) Or (SbEstado.Value = True And Modificar = True) Then
+            If (dt.Rows(0).Item("cantidad") + 1 > gs_CantPersonal) Then
+                sms = "Ya llegó al limite de registros de Personal, comuniquese con el Administrador del Sistema."
+            End If
         End If
+
 
         If (Not sms = String.Empty) Then
             ToastNotification.Show(Me, sms.ToUpper,
