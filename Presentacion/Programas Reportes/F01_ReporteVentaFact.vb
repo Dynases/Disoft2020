@@ -244,7 +244,6 @@ Public Class F01_ReporteVentaFact
                 .FormatString = ""
                 .Visible = False
             End With
-
             With grDatos.RootTable.Columns("Atributo")
                 .Caption = "Atributo"
                 .FormatString = ""
@@ -266,11 +265,7 @@ Public Class F01_ReporteVentaFact
                 .FormatString = ""
                 .Visible = False
             End With
-            With grDatos.RootTable.Columns("CodProducto")
-                .Caption = "CodProducto"
-                .FormatString = ""
-                .Visible = True
-            End With
+
             With grDatos.RootTable.Columns("Unidad")
                 .Caption = "Unidad"
                 .FormatString = ""
@@ -317,18 +312,43 @@ Public Class F01_ReporteVentaFact
                 .FormatString = ""
                 .Visible = False
             End With
-            With grDatos.RootTable.Columns("NroFactura")
-                .Caption = "NroFactura"
+            With grDatos.RootTable.Columns("Codigo")
+                .Caption = "Cod. ZonaPed"
                 .FormatString = ""
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("Codigo")
-                .Caption = "Codigo"
+            With grDatos.RootTable.Columns("CodCli")
+                .Caption = "Cod. Cliente"
                 .FormatString = ""
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("NombreCliente")
                 .Caption = "NombreCliente"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("NitCli")
+                .Caption = "NIT/CI"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("RSocial")
+                .Caption = "Razón Social"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("NroFactura")
+                .Caption = "NroFactura"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("Autorizacion")
+                .Caption = "Nro Autorizacion"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("CControl")
+                .Caption = "Código Control"
                 .FormatString = ""
                 .Visible = True
             End With
@@ -358,14 +378,16 @@ Public Class F01_ReporteVentaFact
                 .FormatString = "dd/MM/yyyy"
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("Producto")
-                .Width = 250
-                .Caption = "Producto"
+            With grDatos.RootTable.Columns("CodProducto")
+                .Caption = "CodProducto"
+                .FormatString = ""
+                .Visible = False
+            End With
+            With grDatos.RootTable.Columns("CodPro")
+                .Caption = "CodProducto"
+                .FormatString = ""
                 .Visible = True
             End With
-
-
-
             With grDatos.RootTable.Columns("Producto")
                 .Width = 250
                 .Caption = "Producto"
@@ -375,7 +397,6 @@ Public Class F01_ReporteVentaFact
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
             End With
             With grDatos.RootTable.Columns("Ganancia")
                 .Width = 100
@@ -383,23 +404,20 @@ Public Class F01_ReporteVentaFact
                 .Visible = True
 
             End With
-            With grDatos.RootTable.Columns("PrecioOficial")
+            With grDatos.RootTable.Columns("PrecioCosto")
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
             End With
             With grDatos.RootTable.Columns("PrecioVendido")
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
             End With
             With grDatos.RootTable.Columns("Cantidad")
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
             End With
             With grDatos.RootTable.Columns("Precio")
                 .Width = 100
@@ -429,9 +447,7 @@ Public Class F01_ReporteVentaFact
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
             End With
-
 
 
 
