@@ -170,8 +170,8 @@ Public Class frmBillingDispatch
         _Key = _Ds1.Tables(0).Rows(0).Item("yekey")
         _FechaAl = _Ds1.Tables(0).Rows(0).Item("yefal")
 
-        Dim maxNFac As Integer = L_fnObtenerMaxIdTabla("TFV001", "fvanfac", "fvaautoriz = " + _Autorizacion)
-        _NumFac = maxNFac + 1
+        'Dim maxNFac As Integer = L_fnObtenerMaxIdTabla("TFV001", "fvanfac", "fvaautoriz = " + _Autorizacion)
+        '_NumFac = maxNFac + 1
 
         _TotalCC = Math.Round(CDbl(_Total), MidpointRounding.AwayFromZero)
         _Cod_Control = ControlCode.generateControlCode(_Autorizacion, _NumFac, _Nit, _Fechainv, CStr(_TotalCC), _Key)
