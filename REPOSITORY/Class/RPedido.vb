@@ -3,6 +3,7 @@ Imports ENTITY
 Imports REPOSITORY
 Imports UTILITIES
 
+
 Public Class RPedido
     Inherits RBaseTSM
     Implements IPedido
@@ -56,7 +57,7 @@ Public Class RPedido
         End Try
     End Function
 
-    Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer) As Boolean Implements IPedido.GuardarPedidoDeChofer
+    Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer, usuario As String) As Boolean Implements IPedido.GuardarPedidoDeChofer
         Try
             Using db = GetSchema()
                 For Each id As String In listIdPedido
@@ -68,6 +69,20 @@ Public Class RPedido
                         .oacfdoc = DateTime.Now
                     }
                     db.TO001C.Add(data)
+
+                    Dim data2 = New TO001D With
+                    {
+                        .oadoanumi = id,
+                        .oadestado = 4,
+                        .oaddescrip = "Dist",
+                        .oadcampo1 = 0,
+                        .oadcampo2 = 0,
+                        .oadcampo3 = " ",
+                        .oadfecha = Date.Now,
+                        .oadhora = DateTime.Now.ToString("hh:mm"),
+                        .oadusuario = usuario
+                    }
+                    db.TO001D.Add(data2)
                 Next
 
                 db.SaveChanges()

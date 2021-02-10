@@ -1401,6 +1401,7 @@ Public Class frmBillingDispatch
                         Exit Sub
                     End If
                 Next
+
                 Dim idChofer = Me.cbChoferes.Value
                 Dim result = New LPedido().VolverPedidoDistribucion(listIdPedido, idChofer)
                 If (result) Then

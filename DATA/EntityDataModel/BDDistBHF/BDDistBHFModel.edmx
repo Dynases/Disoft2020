@@ -48,7 +48,7 @@
           <Property Name="banum" Type="int" />
           <Property Name="baproc" Type="nvarchar" MaxLength="50" />
           <Property Name="balinea" Type="int" />
-          <Property Name="bamensaje" Type="nvarchar" MaxLength="2000" />
+          <Property Name="bamensaje" Type="nvarchar" MaxLength="400" />
           <Property Name="batipo" Type="int" />
           <Property Name="bafact" Type="date" />
           <Property Name="bahact" Type="nvarchar" MaxLength="5" />
@@ -730,6 +730,21 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO001A' no tiene defini
           <Property Name="oacnconc" Type="int" />
           <Property Name="oacfdoc" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
+        <EntityType Name="TO001D">
+          <Key>
+            <PropertyRef Name="oadnumi" />
+          </Key>
+          <Property Name="oadnumi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oadoanumi" Type="int" Nullable="false" />
+          <Property Name="oadestado" Type="int" Nullable="false" />
+          <Property Name="oaddescrip" Type="nvarchar" MaxLength="20" />
+          <Property Name="oadcampo1" Type="int" />
+          <Property Name="oadcampo2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="oadcampo3" Type="nvarchar" MaxLength="200" />
+          <Property Name="oadfecha" Type="date" />
+          <Property Name="oadhora" Type="nvarchar" MaxLength="5" />
+          <Property Name="oadusuario" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO002">
@@ -1346,7 +1361,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Facturas' no tiene d
           <Property Name="fvaest" Type="int" />
           <Property Name="fvanitcli" Type="nvarchar" MaxLength="15" />
           <Property Name="fvacodcli" Type="int" />
-          <Property Name="fvadescli1" Type="nvarchar" MaxLength="20" />
+          <Property Name="fvadescli1" Type="nvarchar" MaxLength="50" />
           <Property Name="fvadescli2" Type="nvarchar" MaxLength="30" />
           <Property Name="fvastot" Type="float" />
           <Property Name="fvaimpsi" Type="float" />
@@ -1363,7 +1378,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_Facturas' no tiene d
           <Property Name="fvanumi2" Type="int" Nullable="false" />
           <Property Name="fvbnumi" Type="int" />
           <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
-          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="50" />
+          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="100" />
           <Property Name="fvbcant" Type="int" />
           <Property Name="fvbprecio" Type="float" />
           <Property Name="fvbnumi2" Type="int" />
@@ -1557,7 +1572,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_EquipoPrestadoVsU
           <Property Name="dir" Type="nvarchar" MaxLength="200" />
           <Property Name="saldo" Type="float" />
           <Property Name="cequi" Type="nvarchar" MaxLength="10" />
-          <Property Name="nequi" Type="nvarchar" MaxLength="30" />
+          <Property Name="nequi" Type="nvarchar" MaxLength="100" />
           <Property Name="czona" Type="int" />
           <Property Name="dpto" Type="nvarchar" MaxLength="50" />
           <Property Name="prov" Type="nvarchar" MaxLength="50" />
@@ -1606,14 +1621,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_Factura' no tiene
           <Property Name="fvaimgqr" Type="image" />
           <Property Name="fvaalm" Type="int" />
           <Property Name="fvanumi2" Type="int" Nullable="false" />
-          <Property Name="fvbnumi" Type="int" />
           <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
-          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="50" />
-          <Property Name="fvbcant" Type="int" />
-          <Property Name="fvbprecio" Type="float" />
+          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="100" />
+          <Property Name="fvbcant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvbprecio" Type="numeric" Precision="18" Scale="2" />
           <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
           <Property Name="obtotal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fvbnumi2" Type="int" />
           <Property Name="oazona" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
@@ -1679,7 +1692,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_PrestamoEquiposAg
           <Property Name="chnumi" Type="int" Nullable="false" />
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="chcod" Type="nvarchar" MaxLength="10" />
-          <Property Name="chdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="chdesc" Type="nvarchar" MaxLength="100" />
           <Property Name="chtmov" Type="int" />
           <Property Name="cpdesc" Type="nvarchar" MaxLength="30" />
           <Property Name="cant" Type="float" />
@@ -1741,7 +1754,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_GO_SaldoPrestamoEqui
           <Property Name="chnumi" Type="int" Nullable="false" />
           <Property Name="ccdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="chcod" Type="nvarchar" MaxLength="10" />
-          <Property Name="cadesc" Type="nvarchar" MaxLength="30" />
+          <Property Name="cadesc" Type="nvarchar" MaxLength="100" />
           <Property Name="cantES" Type="float" />
           <Property Name="ES" Type="int" />
         </EntityType>
@@ -1840,8 +1853,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_KardexInventario' no
           <Property Name="alm" Type="int" />
           <Property Name="id2" Type="int" Nullable="false" />
           <Property Name="cprod" Type="int" />
-          <Property Name="descProd" Type="nvarchar" MaxLength="30" />
-          <Property Name="desc2Prod" Type="nvarchar" MaxLength="15" />
+          <Property Name="descProd" Type="nvarchar" MaxLength="100" />
+          <Property Name="desc2Prod" Type="nvarchar" MaxLength="100" />
           <Property Name="cant" Type="decimal" Precision="29" Scale="2" />
           <Property Name="saldo" Type="numeric" Precision="1" Scale="1" Nullable="false" />
           <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -2993,6 +3006,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySet Name="TL002" EntityType="Self.TL002" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO001" EntityType="Self.TO001" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO001C" EntityType="Self.TO001C" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TO001D" EntityType="Self.TO001D" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO004" EntityType="Self.TO004" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO005" EntityType="Self.TO005" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO0051" EntityType="Self.TO0051" Schema="dbo" store:Type="Tables" />
@@ -3730,14 +3744,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
     [VR_GO_Factura].[fvaimgqr] AS [fvaimgqr], 
     [VR_GO_Factura].[fvaalm] AS [fvaalm], 
     [VR_GO_Factura].[fvanumi2] AS [fvanumi2], 
-    [VR_GO_Factura].[fvbnumi] AS [fvbnumi], 
     [VR_GO_Factura].[fvbcprod] AS [fvbcprod], 
     [VR_GO_Factura].[fvbdesprod] AS [fvbdesprod], 
     [VR_GO_Factura].[fvbcant] AS [fvbcant], 
     [VR_GO_Factura].[fvbprecio] AS [fvbprecio], 
     [VR_GO_Factura].[obdesc] AS [obdesc], 
     [VR_GO_Factura].[obtotal] AS [obtotal], 
-    [VR_GO_Factura].[fvbnumi2] AS [fvbnumi2], 
     [VR_GO_Factura].[oazona] AS [oazona]
     FROM [dbo].[VR_GO_Factura] AS [VR_GO_Factura]</DefiningQuery>
           </EntitySet>
@@ -5018,7 +5030,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" />
           <EntitySet Name="VR_GO_EquipoPrestadoVsUltimaVenta" EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" />
           <EntitySet Name="VR_GO_EquiposPrestadoCliente" EntityType="BDDistBHFModel.VR_GO_EquiposPrestadoCliente" />
-          <EntitySet Name="VR_GO_Factura" EntityType="BDDistBHFModel.VR_GO_Factura" />
           <EntitySet Name="VR_GO_FacturaVsVenta" EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta" />
           <EntitySet Name="VR_GO_FacturaVsVenta2" EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta2" />
           <EntitySet Name="VR_GO_ListarZona" EntityType="BDDistBHFModel.VR_GO_ListarZona" />
@@ -5063,6 +5074,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           </AssociationSet>
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
           <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
+          <EntitySet Name="TO001D" EntityType="BDDistBHFModel.TO001D" />
+          <EntitySet Name="VR_GO_Factura" EntityType="BDDistBHFModel.VR_GO_Factura" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -5262,7 +5275,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="banum" Type="Int32" />
           <Property Name="baproc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="balinea" Type="Int32" />
-          <Property Name="bamensaje" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="bamensaje" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="batipo" Type="Int32" />
           <Property Name="bafact" Type="DateTime" Precision="0" />
           <Property Name="bahact" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
@@ -6453,7 +6466,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="fvaest" Type="Int32" />
           <Property Name="fvanitcli" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="fvacodcli" Type="Int32" />
-          <Property Name="fvadescli1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fvadescli1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="fvastot" Type="Double" />
           <Property Name="fvaimpsi" Type="Double" />
@@ -6470,7 +6483,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="fvanumi2" Type="Int32" Nullable="false" />
           <Property Name="fvbnumi" Type="Int32" />
           <Property Name="fvbcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="fvbdesprod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fvbdesprod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="fvbcant" Type="Int32" />
           <Property Name="fvbprecio" Type="Double" />
           <Property Name="fvbnumi2" Type="Int32" />
@@ -6617,7 +6630,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="dir" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="saldo" Type="Double" />
           <Property Name="cequi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="nequi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="nequi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="czona" Type="Int32" />
           <Property Name="dpto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="prov" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -6634,43 +6647,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="botellone" Type="Int32" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="VR_GO_Factura">
-          <Key>
-            <PropertyRef Name="fvanumi" />
-            <PropertyRef Name="fvanumi2" />
-          </Key>
-          <Property Name="fvanumi" Type="Int32" Nullable="false" />
-          <Property Name="fvafec" Type="DateTime" Precision="0" />
-          <Property Name="fvanfac" Type="Int32" />
-          <Property Name="fvaautoriz" Type="Double" />
-          <Property Name="fvaest" Type="Int32" />
-          <Property Name="fvanitcli" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="fvacodcli" Type="Int32" />
-          <Property Name="fvadescli1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="fvastot" Type="Double" />
-          <Property Name="fvaimpsi" Type="Double" />
-          <Property Name="fvaimpeo" Type="Double" />
-          <Property Name="fvaimptc" Type="Double" />
-          <Property Name="fvasubtotal" Type="Double" />
-          <Property Name="fvadesc" Type="Double" />
-          <Property Name="fvatotal" Type="Double" />
-          <Property Name="fvadebfis" Type="Double" />
-          <Property Name="fvaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="fvaflim" Type="DateTime" Precision="0" />
-          <Property Name="fvaimgqr" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="fvaalm" Type="Int32" />
-          <Property Name="fvanumi2" Type="Int32" Nullable="false" />
-          <Property Name="fvbnumi" Type="Int32" />
-          <Property Name="fvbcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="fvbdesprod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fvbcant" Type="Int32" />
-          <Property Name="fvbprecio" Type="Double" />
-          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="fvbnumi2" Type="Int32" />
-          <Property Name="oazona" Type="Int32" />
         </EntityType>
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
@@ -6727,7 +6703,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="chnumi" Type="Int32" Nullable="false" />
           <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="chcod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="chdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chdesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="chtmov" Type="Int32" />
           <Property Name="cpdesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="cant" Type="Double" />
@@ -6783,7 +6759,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="chnumi" Type="Int32" Nullable="false" />
           <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="chcod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cantES" Type="Double" />
           <Property Name="ES" Type="Int32" />
         </EntityType>
@@ -6872,8 +6848,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="alm" Type="Int32" />
           <Property Name="id2" Type="Int32" Nullable="false" />
           <Property Name="cprod" Type="Int32" />
-          <Property Name="descProd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="desc2Prod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="descProd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="desc2Prod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="cant" Type="Decimal" Precision="29" Scale="2" />
           <Property Name="saldo" Type="Decimal" Nullable="false" Precision="1" Scale="1" />
           <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -7390,6 +7366,56 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
           <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TO001D">
+          <Key>
+            <PropertyRef Name="oadnumi" />
+          </Key>
+          <Property Name="oadnumi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oadoanumi" Type="Int32" Nullable="false" />
+          <Property Name="oadestado" Type="Int32" Nullable="false" />
+          <Property Name="oaddescrip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="oadcampo1" Type="Int32" />
+          <Property Name="oadcampo2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="oadcampo3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="oadfecha" Type="DateTime" Precision="0" />
+          <Property Name="oadusuario" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="oadhora" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VR_GO_Factura">
+          <Key>
+            <PropertyRef Name="fvanumi" />
+            <PropertyRef Name="fvanumi2" />
+          </Key>
+          <Property Name="fvanumi" Type="Int32" Nullable="false" />
+          <Property Name="fvafec" Type="DateTime" Precision="0" />
+          <Property Name="fvanfac" Type="Int32" />
+          <Property Name="fvaautoriz" Type="Double" />
+          <Property Name="fvaest" Type="Int32" />
+          <Property Name="fvanitcli" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="fvacodcli" Type="Int32" />
+          <Property Name="fvadescli1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fvastot" Type="Double" />
+          <Property Name="fvaimpsi" Type="Double" />
+          <Property Name="fvaimpeo" Type="Double" />
+          <Property Name="fvaimptc" Type="Double" />
+          <Property Name="fvasubtotal" Type="Double" />
+          <Property Name="fvadesc" Type="Double" />
+          <Property Name="fvatotal" Type="Double" />
+          <Property Name="fvadebfis" Type="Double" />
+          <Property Name="fvaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="fvaflim" Type="DateTime" Precision="0" />
+          <Property Name="fvaimgqr" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fvaalm" Type="Int32" />
+          <Property Name="fvanumi2" Type="Int32" Nullable="false" />
+          <Property Name="fvbcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fvbdesprod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fvbcant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvbprecio" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="oazona" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -9119,43 +9145,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_Factura">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_Factura">
-              <MappingFragment StoreEntitySet="VR_GO_Factura">
-                <ScalarProperty Name="oazona" ColumnName="oazona" />
-                <ScalarProperty Name="fvbnumi2" ColumnName="fvbnumi2" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="fvbprecio" ColumnName="fvbprecio" />
-                <ScalarProperty Name="fvbcant" ColumnName="fvbcant" />
-                <ScalarProperty Name="fvbdesprod" ColumnName="fvbdesprod" />
-                <ScalarProperty Name="fvbcprod" ColumnName="fvbcprod" />
-                <ScalarProperty Name="fvbnumi" ColumnName="fvbnumi" />
-                <ScalarProperty Name="fvanumi2" ColumnName="fvanumi2" />
-                <ScalarProperty Name="fvaalm" ColumnName="fvaalm" />
-                <ScalarProperty Name="fvaimgqr" ColumnName="fvaimgqr" />
-                <ScalarProperty Name="fvaflim" ColumnName="fvaflim" />
-                <ScalarProperty Name="fvaccont" ColumnName="fvaccont" />
-                <ScalarProperty Name="fvadebfis" ColumnName="fvadebfis" />
-                <ScalarProperty Name="fvatotal" ColumnName="fvatotal" />
-                <ScalarProperty Name="fvadesc" ColumnName="fvadesc" />
-                <ScalarProperty Name="fvasubtotal" ColumnName="fvasubtotal" />
-                <ScalarProperty Name="fvaimptc" ColumnName="fvaimptc" />
-                <ScalarProperty Name="fvaimpeo" ColumnName="fvaimpeo" />
-                <ScalarProperty Name="fvaimpsi" ColumnName="fvaimpsi" />
-                <ScalarProperty Name="fvastot" ColumnName="fvastot" />
-                <ScalarProperty Name="fvadescli2" ColumnName="fvadescli2" />
-                <ScalarProperty Name="fvadescli1" ColumnName="fvadescli1" />
-                <ScalarProperty Name="fvacodcli" ColumnName="fvacodcli" />
-                <ScalarProperty Name="fvanitcli" ColumnName="fvanitcli" />
-                <ScalarProperty Name="fvaest" ColumnName="fvaest" />
-                <ScalarProperty Name="fvaautoriz" ColumnName="fvaautoriz" />
-                <ScalarProperty Name="fvanfac" ColumnName="fvanfac" />
-                <ScalarProperty Name="fvafec" ColumnName="fvafec" />
-                <ScalarProperty Name="fvanumi" ColumnName="fvanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VR_GO_FacturaVsVenta">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_FacturaVsVenta">
               <MappingFragment StoreEntitySet="VR_GO_FacturaVsVenta">
@@ -9843,6 +9832,57 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Victor.dbo.VR_VistaPedido_PrecioCo
                 <ScalarProperty Name="oaccli" ColumnName="oaccli" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TO001D">
+            <EntityTypeMapping TypeName="BDDistBHFModel.TO001D">
+              <MappingFragment StoreEntitySet="TO001D">
+                <ScalarProperty Name="oadhora" ColumnName="oadhora" />
+                <ScalarProperty Name="oadusuario" ColumnName="oadusuario" />
+                <ScalarProperty Name="oadfecha" ColumnName="oadfecha" />
+                <ScalarProperty Name="oadcampo3" ColumnName="oadcampo3" />
+                <ScalarProperty Name="oadcampo2" ColumnName="oadcampo2" />
+                <ScalarProperty Name="oadcampo1" ColumnName="oadcampo1" />
+                <ScalarProperty Name="oaddescrip" ColumnName="oaddescrip" />
+                <ScalarProperty Name="oadestado" ColumnName="oadestado" />
+                <ScalarProperty Name="oadoanumi" ColumnName="oadoanumi" />
+                <ScalarProperty Name="oadnumi" ColumnName="oadnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_Factura">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_Factura">
+              <MappingFragment StoreEntitySet="VR_GO_Factura">
+                <ScalarProperty Name="oazona" ColumnName="oazona" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="fvbprecio" ColumnName="fvbprecio" />
+                <ScalarProperty Name="fvbcant" ColumnName="fvbcant" />
+                <ScalarProperty Name="fvbdesprod" ColumnName="fvbdesprod" />
+                <ScalarProperty Name="fvbcprod" ColumnName="fvbcprod" />
+                <ScalarProperty Name="fvanumi2" ColumnName="fvanumi2" />
+                <ScalarProperty Name="fvaalm" ColumnName="fvaalm" />
+                <ScalarProperty Name="fvaimgqr" ColumnName="fvaimgqr" />
+                <ScalarProperty Name="fvaflim" ColumnName="fvaflim" />
+                <ScalarProperty Name="fvaccont" ColumnName="fvaccont" />
+                <ScalarProperty Name="fvadebfis" ColumnName="fvadebfis" />
+                <ScalarProperty Name="fvatotal" ColumnName="fvatotal" />
+                <ScalarProperty Name="fvadesc" ColumnName="fvadesc" />
+                <ScalarProperty Name="fvasubtotal" ColumnName="fvasubtotal" />
+                <ScalarProperty Name="fvaimptc" ColumnName="fvaimptc" />
+                <ScalarProperty Name="fvaimpeo" ColumnName="fvaimpeo" />
+                <ScalarProperty Name="fvaimpsi" ColumnName="fvaimpsi" />
+                <ScalarProperty Name="fvastot" ColumnName="fvastot" />
+                <ScalarProperty Name="fvadescli2" ColumnName="fvadescli2" />
+                <ScalarProperty Name="fvadescli1" ColumnName="fvadescli1" />
+                <ScalarProperty Name="fvacodcli" ColumnName="fvacodcli" />
+                <ScalarProperty Name="fvanitcli" ColumnName="fvanitcli" />
+                <ScalarProperty Name="fvaest" ColumnName="fvaest" />
+                <ScalarProperty Name="fvaautoriz" ColumnName="fvaautoriz" />
+                <ScalarProperty Name="fvanfac" ColumnName="fvanfac" />
+                <ScalarProperty Name="fvafec" ColumnName="fvafec" />
+                <ScalarProperty Name="fvanumi" ColumnName="fvanumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

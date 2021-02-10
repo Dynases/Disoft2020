@@ -327,7 +327,7 @@ Public Class frmDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim result = New LPedido().GuardarPedidoDeChofer(listIdPedido, idChofer)
+            Dim result = New LPedido().GuardarPedidoDeChofer(listIdPedido, idChofer, gs_user)
             If (result) Then
                 btActualizar.PerformClick()
                 MostrarMensajeOk("Pedidos asignados correctamente")

@@ -58,21 +58,17 @@ Partial Public Class VR_GO_Factura
 
     Public Property fvanumi2 As Integer
 
-    Public Property fvbnumi As Nullable(Of Integer)
-
     Public Property fvbcprod As String
 
     Public Property fvbdesprod As String
 
-    Public Property fvbcant As Nullable(Of Integer)
+    Public Property fvbcant As Nullable(Of Decimal)
 
-    Public Property fvbprecio As Nullable(Of Double)
+    Public Property fvbprecio As Nullable(Of Decimal)
 
     Public Property obdesc As Nullable(Of Decimal)
 
     Public Property obtotal As Nullable(Of Decimal)
-
-    Public Property fvbnumi2 As Nullable(Of Integer)
 
     Public Property oazona As Nullable(Of Integer)
 

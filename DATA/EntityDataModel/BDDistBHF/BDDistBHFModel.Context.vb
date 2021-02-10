@@ -223,8 +223,6 @@ Partial Public Class BDDistBHFEntities
 
     Public Overridable Property VR_GO_EquiposPrestadoCliente() As DbSet(Of VR_GO_EquiposPrestadoCliente)
 
-    Public Overridable Property VR_GO_Factura() As DbSet(Of VR_GO_Factura)
-
     Public Overridable Property VR_GO_FacturaVsVenta() As DbSet(Of VR_GO_FacturaVsVenta)
 
     Public Overridable Property VR_GO_FacturaVsVenta2() As DbSet(Of VR_GO_FacturaVsVenta2)
@@ -296,6 +294,10 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_GO_DespachoNotaVenta() As DbSet(Of VR_GO_DespachoNotaVenta)
 
     Public Overridable Property v_VentasDetalleDespacho() As DbSet(Of v_VentasDetalleDespacho)
+
+    Public Overridable Property TO001D() As DbSet(Of TO001D)
+
+    Public Overridable Property VR_GO_Factura() As DbSet(Of VR_GO_Factura)
 
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer

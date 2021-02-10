@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="24fc2bc05e4645fd98e411859379ebf6" Name="Diagram1" ZoomLevel="95">
+      <Diagram DiagramId="24fc2bc05e4645fd98e411859379ebf6" Name="Diagram1" ZoomLevel="61">
         <EntityTypeShape EntityType="BDDistBHFModel.CM001" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.CM0011" Width="1.5" PointX="5.75" PointY="4.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.TA001" Width="1.5" PointX="7.75" PointY="0.75" />
@@ -101,7 +101,6 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" Width="1.5" PointX="28.75" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" Width="1.5" PointX="29.75" PointY="0.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_EquiposPrestadoCliente" Width="1.5" PointX="29.75" PointY="5.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_Factura" Width="1.5" PointX="20.75" PointY="29.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta" Width="1.5" PointX="29.75" PointY="9.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta2" Width="1.5" PointX="6.75" PointY="30.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_ListarZona" Width="1.5" PointX="8.75" PointY="30.75" />
@@ -140,6 +139,8 @@
         <AssociationConnector Association="BDDistBHFModel.FK_TO0052_TO005" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.5" PointX="35.375" PointY="27.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="35.375" PointY="33.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.TO001D" Width="1.5" PointX="23.375" PointY="26.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_Factura" Width="1.5" PointX="19.375" PointY="30.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

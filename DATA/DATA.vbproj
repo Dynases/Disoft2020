@@ -260,6 +260,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\TO001C.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TO001D.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TO002.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>

@@ -25,9 +25,9 @@ Public Class LPedido
         End Try
     End Function
 
-    Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer) As Boolean
+    Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer, usuario As String) As Boolean
         Try
-            Return iPedido.GuardarPedidoDeChofer(listIdPedido, idChofer)
+            Return iPedido.GuardarPedidoDeChofer(listIdPedido, idChofer, usuario)
         Catch ex As Exception
             Throw New Exception(ex.Message)
         End Try
