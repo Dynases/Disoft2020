@@ -11607,4 +11607,30 @@ Public Class AccesoLogica
     End Function
 
 #End Region
+
+#Region "ESTADOS TABLA TO001D"
+    Public Shared Function L_GrabarTO001D(_oanumi As String, _estado As String, _descrip As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 1))
+        _listPalam.Add(New Datos.DParametro("@oanumi", _oanumi))
+        _listPalam.Add(New Datos.DParametro("@estado", _estado))
+        _listPalam.Add(New Datos.DParametro("@descrip", _descrip))
+        _listPalam.Add(New Datos.DParametro("@oadusuario", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001D", _listPalam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_EstadoTO001D(_oanumi As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 2))
+        _listPalam.Add(New Datos.DParametro("@oanumi", _oanumi))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001D", _listPalam)
+
+        Return _Tabla
+    End Function
+#End Region
 End Class

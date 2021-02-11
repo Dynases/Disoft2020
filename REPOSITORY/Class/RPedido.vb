@@ -74,7 +74,7 @@ Public Class RPedido
                     {
                         .oadoanumi = id,
                         .oadestado = 4,
-                        .oaddescrip = "Dist",
+                        .oaddescrip = "Distribución",
                         .oadcampo1 = 0,
                         .oadcampo2 = 0,
                         .oadcampo3 = " ",
@@ -199,6 +199,13 @@ Public Class RPedido
                                 Where a.oaccbnumi = idChofer And a.oacoanumi = id
                                 Select a)
                     db.TO001C.RemoveRange(data)
+                Next
+
+                For Each id2 As String In listIdPedido
+                    Dim data2 = (From a In db.TO001D
+                                 Where a.oadoanumi = id2 And a.oadestado = 4
+                                 Select a)
+                    db.TO001D.RemoveRange(data2)
                 Next
 
                 db.SaveChanges()

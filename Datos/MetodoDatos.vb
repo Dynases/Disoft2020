@@ -94,6 +94,7 @@ Public Class MetodoDatos
             Dim _adaptador As New SqlDataAdapter(Comando) 'SqlDataAdapter()
 
             _adaptador.Fill(_tabla)
+            Comando.CommandTimeout = 0
         Catch ex As Exception
             MsgBox(ex.Message)
             'Finally

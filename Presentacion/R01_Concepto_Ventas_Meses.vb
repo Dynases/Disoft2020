@@ -225,7 +225,7 @@ Public Class R01_Concepto_Ventas_Meses
                         FechaFinalMes = tbFechaF.Value
                         fechaInicialMes = PrimerDiaDelMes(tbFechaF.Value)
                     Else
-                        Dim ano = DateTime.Today
+                        Dim ano = tbFechaI.Value
                         fechaInicialMes = DateSerial(ano.Year, k, 1)
                         FechaFinalMes = UltimoDiaDelMes(fechaInicialMes)
 

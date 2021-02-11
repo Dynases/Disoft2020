@@ -110,7 +110,11 @@ Public Class frmBillingDispatch
     Private Function P_fnGenerarFactura(numi As String, subtotal As Double, descuento As Double, total As Double, nit As String, Nombre As String, Codcli As String) As Boolean
         Dim res As Boolean = False
         res = P_fnGrabarFacturarTFV001(numi, subtotal, descuento, total, nit, Nombre, Codcli) ' Grabar en la TFV001
+
         If (res) Then
+            'Grabar Estado 5 de Facturado en la TO001D
+            L_GrabarTO001D(numi, "5", "Factura")
+
             If (P_fnValidarFactura()) Then
                 'Validar para facturar
                 P_prImprimirFacturar(numi, True, True, nit) '_Codigo de a tabla TV001
@@ -1402,12 +1406,28 @@ Public Class frmBillingDispatch
                     End If
                 Next
 
+                For Each idPedido As Integer In listIdPedido
+                    Dim idP As Integer = idPedido
+                    Dim dt As DataTable = L_EstadoTO001D(idP)
+                    If dt.Rows.Count > 0 Then
+                        If dt.Rows(0).Item("estadomax") > 4 Then
+                            MostrarMensajeError("No puede volver a Distribucion porque el pedido ya se encuentra en:" + dt.Rows(0).Item("oaddescrip"))
+                            Exit Sub
+                        End If
+                    Else
+                        MostrarMensajeError("No puede volver a Distribucion ")
+                        Exit Sub
+                    End If
+                Next
+
                 Dim idChofer = Me.cbChoferes.Value
                 Dim result = New LPedido().VolverPedidoDistribucion(listIdPedido, idChofer)
                 If (result) Then
-                    CargarPedidos()
-                    MostrarMensajeOk("Pedidos volvieron a Distribución correctamente")
-                End If
+                        CargarPedidos()
+                        MostrarMensajeOk("Pedidos volvieron a Distribución correctamente")
+                    End If
+
+
             End If
         Catch ex As Exception
             Throw New Exception(ex.Message)
