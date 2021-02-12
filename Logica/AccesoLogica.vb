@@ -11632,5 +11632,18 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_BuscarIdPedido(_idchofer As String, _fechaped As String, _conciliacion As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 3))
+        _listPalam.Add(New Datos.DParametro("@idchof", _idchofer))
+        _listPalam.Add(New Datos.DParametro("@fechapedido", _fechaped))
+        _listPalam.Add(New Datos.DParametro("@conciliacion", _conciliacion))
+        _listPalam.Add(New Datos.DParametro("@oadusuario", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001D", _listPalam)
+
+        Return _Tabla
+    End Function
 #End Region
 End Class

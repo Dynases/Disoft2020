@@ -565,6 +565,11 @@ Public Class F0G_MovimientoChoferSalida
                 Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(_codChofer) ''Aqui obtengo el numi de la TI0022 
                 Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, tabla.Rows(0).Item("ieid"), CType(grdetalle.DataSource, DataTable), _fechapedido)
                 If res Then
+                    Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, tabla.Rows(0).Item("ieid"))
+                    For i = 0 To dt.Rows.Count - 1
+                        'Grabar Estado 6 de Movimiento Salida en la TO001D
+                        L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "6", "Movimiento Salida")
+                    Next
 
                     _prCargarVenta()
                     _Limpiar()
@@ -583,6 +588,11 @@ Public Class F0G_MovimientoChoferSalida
         Else
             Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido)
             If res Then
+                Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, _IdConciliacion)
+                For i = 0 To dt.Rows.Count - 1
+                    'Grabar Estado 6 de Movimiento Salida en la TO001D
+                    L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "6", "Movimiento Salida")
+                Next
                 _prCargarVenta()
                 _Limpiar()
                 Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
