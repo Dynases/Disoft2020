@@ -1049,6 +1049,15 @@ Public Class F0_MCaja
             If res Then
                 Dim ListaCambios = New LCajaCambio().GuardarCajaCambio(ListaCambio, Convert.ToInt32(numi))
                 Dim ListaDepositos = New LCajaDeposito().GuardarDepositoCambio(ListaDeposito, Convert.ToInt32(numi))
+
+                Dim dt As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable)
+                If dt.Rows.Count > 0 Then
+                    For i = 0 To dt.Rows.Count - 1
+                        'Grabar Estado 8 de Cierre de Caja en la TO001D
+                        L_GrabarTO001D(dt.Rows(i).Item("oanumi"), "8", "Cierre de Caja")
+                    Next
+                End If
+
                 Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
                 ToastNotification.Show(Me, "Código de Caja ".ToUpper + TbCodigo.Text + " Grabado con Exito.".ToUpper,
                                           img, 2000,

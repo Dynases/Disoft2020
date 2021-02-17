@@ -403,6 +403,15 @@ Public Class F0G_MovimientoChoferEntrada
             'Next
 
             'L_prMovimientoChoferInsertarEnlacePedidoMovil(lbcodigo.Text, dt)
+
+            Dim dt As DataTable = L_BuscarIdPedido2(_codChofer, lbcodigo.Text)
+            If dt.Rows.Count > 0 Then
+                For i = 0 To dt.Rows.Count - 1
+                    'Grabar Estado 7 de Movimiento Conciliacion en la TO001D
+                    L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "7", "Movimiento Conciliación")
+                Next
+            End If
+
             _prCargarVenta()
             _prSalir()
 
