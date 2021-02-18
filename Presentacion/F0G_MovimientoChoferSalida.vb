@@ -590,7 +590,7 @@ Public Class F0G_MovimientoChoferSalida
         Else
             Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido)
             If res Then
-                Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, _IdConciliacion)
+                Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, lbConciliacion.Text)
                 For i = 0 To dt.Rows.Count - 1
                     'Grabar Estado 6 de Movimiento Salida en la TO001D
                     L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "6", "Movimiento Salida")

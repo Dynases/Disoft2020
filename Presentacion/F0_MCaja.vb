@@ -1115,6 +1115,13 @@ Public Class F0_MCaja
                     Dim mensajeError As String = ""
                     Dim res As Boolean = L_fnCajaEliminar(TbCodigo.Text, CType(Dgv_PedidoTotal.DataSource, DataTable))
                     If res Then
+                        Dim dt As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable)
+                        If dt.Rows.Count > 0 Then
+                            For i = 0 To dt.Rows.Count - 1
+                                'Eliminar Estado 8 de Cierre de Caja en la TO001D
+                                L_EliminarTO001D(dt.Rows(i).Item("oanumi"))
+                            Next
+                        End If
                         Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
                         ToastNotification.Show(Me, "Código de Caja ".ToUpper + TbCodigo.Text + " eliminado con Exito.".ToUpper,
                                                   img, 2000,
