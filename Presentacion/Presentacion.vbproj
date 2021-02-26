@@ -405,6 +405,12 @@
       <DependentUpon>NotaVenta7.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DispatchedOrder\Report\NotaVenta8.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotaVenta8.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DispatchedOrder\Report\NotaVenta_Ticket.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1555,6 +1561,10 @@
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta7.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NotaVenta7.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta8.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NotaVenta8.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta_Ticket.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
