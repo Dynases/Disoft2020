@@ -836,12 +836,12 @@ Public Class F0G_MovimientoChoferEntrada
             For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
                 Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
                 Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
+                Dim cantidad = 0
                 For i As Integer = 0 To result.Length - 1 Step 1
                     Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
                     Dim columnnumi As String = result(i).Item("ibid")
-
-                    TablaPrincipal.Rows(j).Item(columnnumi) = result(i).Item("iccant")
-
+                    cantidad = cantidad + result(i).Item("iccant")
+                    TablaPrincipal.Rows(j).Item(columnnumi) = cantidad
                 Next
             Next
             TablaPrincipal.Columns.Add("ID_TO1", Type.GetType("System.String"))
