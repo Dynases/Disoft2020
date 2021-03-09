@@ -78,11 +78,11 @@
         End Set
     End Property
     Private _caja As String
-    Public Property Caja() As Decimal
+    Public Property Caja() As Integer
         Get
             Return _caja
         End Get
-        Set(ByVal value As Decimal)
+        Set(ByVal value As Integer)
             _caja = value
         End Set
     End Property
