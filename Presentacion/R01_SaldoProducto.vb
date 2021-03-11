@@ -67,14 +67,16 @@ Public Class R01_SaldoProducto
 
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
+        Dim saldoMayorCero As Boolean = chkSaldoMayorCero.Checked
+        Dim condicionMayorCero As String = IIf(chkSaldoMayorCero.Checked, " AND iacant > 0 ", "")
         If swTipo.Value Then
             Dim objrep As New R_StockActual()
             If (cbAlmacen.Value >= 0) Then
-                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value))
+                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value) + " " + condicionMayorCero)
                 objrep.SetDataSource(_dt)
                 MCrReporte.ReportSource = objrep
             Else
-                _dt = L_VistaStockActual("cenum=0")
+                _dt = L_VistaStockActual("cenum=0" + " " + condicionMayorCero)
                 objrep.SetDataSource(_dt)
                 MCrReporte.ReportSource = objrep
             End If
@@ -84,11 +86,11 @@ Public Class R01_SaldoProducto
             Dim objrep As New R_StockActualSinAgrupacion()
 
             If (cbAlmacen.Value >= 0) Then
-                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value))
+                _dt = L_VistaStockActual("cenum=0 and iaalm=" + Str(cbAlmacen.Value) + " " + condicionMayorCero)
                 objrep.SetDataSource(_dt)
                 MCrReporte.ReportSource = objrep
             Else
-                _dt = L_VistaStockActual("cenum=0")
+                _dt = L_VistaStockActual("cenum=0" + " " + condicionMayorCero)
                 objrep.SetDataSource(_dt)
                 MCrReporte.ReportSource = objrep
             End If

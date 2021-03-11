@@ -30,6 +30,8 @@ Partial Class R01_SaldoProducto
         Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.cbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.chkSaldoMayorCero = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -53,9 +55,9 @@ Partial Class R01_SaldoProducto
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 646)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MPnInferior.Size = New System.Drawing.Size(1181, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -66,14 +68,14 @@ Partial Class R01_SaldoProducto
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(914, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -107,12 +109,14 @@ Partial Class R01_SaldoProducto
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.chkSaldoMayorCero)
+        Me.MGpFiltro.Controls.Add(Me.Label1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
         Me.MGpFiltro.Controls.Add(Me.lbDepositoOrigen)
         Me.MGpFiltro.Controls.Add(Me.LabelX5)
         Me.MGpFiltro.Controls.Add(Me.swTipo)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
         '
@@ -145,11 +149,13 @@ Partial Class R01_SaldoProducto
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX5, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.lbDepositoOrigen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.Label1, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.chkSaldoMayorCero, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MCrReporte.Size = New System.Drawing.Size(1181, 690)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'Timer1
         '
@@ -165,11 +171,10 @@ Partial Class R01_SaldoProducto
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX5.Location = New System.Drawing.Point(31, 33)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX5.Location = New System.Drawing.Point(23, 27)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX5.Size = New System.Drawing.Size(109, 28)
+        Me.LabelX5.Size = New System.Drawing.Size(82, 23)
         Me.LabelX5.TabIndex = 376
         Me.LabelX5.Text = "Agrupado"
         '
@@ -180,14 +185,13 @@ Partial Class R01_SaldoProducto
         '
         Me.swTipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swTipo.Location = New System.Drawing.Point(148, 33)
-        Me.swTipo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.swTipo.Location = New System.Drawing.Point(111, 27)
         Me.swTipo.Name = "swTipo"
         Me.swTipo.OffBackColor = System.Drawing.Color.LawnGreen
         Me.swTipo.OffText = "NO"
         Me.swTipo.OnBackColor = System.Drawing.Color.Gold
         Me.swTipo.OnText = "SI"
-        Me.swTipo.Size = New System.Drawing.Size(171, 27)
+        Me.swTipo.Size = New System.Drawing.Size(128, 22)
         Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swTipo.TabIndex = 375
         Me.swTipo.Value = True
@@ -199,14 +203,13 @@ Partial Class R01_SaldoProducto
         cbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacen_DesignTimeLayout.LayoutString")
         Me.cbAlmacen.DesignTimeLayout = cbAlmacen_DesignTimeLayout
         Me.cbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacen.Location = New System.Drawing.Point(148, 69)
-        Me.cbAlmacen.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbAlmacen.Location = New System.Drawing.Point(111, 56)
         Me.cbAlmacen.Name = "cbAlmacen"
         Me.cbAlmacen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbAlmacen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbAlmacen.SelectedIndex = -1
         Me.cbAlmacen.SelectedItem = Nothing
-        Me.cbAlmacen.Size = New System.Drawing.Size(235, 26)
+        Me.cbAlmacen.Size = New System.Drawing.Size(176, 22)
         Me.cbAlmacen.TabIndex = 377
         Me.cbAlmacen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -220,20 +223,43 @@ Partial Class R01_SaldoProducto
         Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbDepositoOrigen.Location = New System.Drawing.Point(31, 69)
-        Me.lbDepositoOrigen.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbDepositoOrigen.Location = New System.Drawing.Point(23, 56)
         Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
         Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbDepositoOrigen.Size = New System.Drawing.Size(76, 20)
+        Me.lbDepositoOrigen.Size = New System.Drawing.Size(61, 16)
         Me.lbDepositoOrigen.TabIndex = 378
         Me.lbDepositoOrigen.Text = "Sucursal:"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(20, 86)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(65, 15)
+        Me.Label1.TabIndex = 379
+        Me.Label1.Text = "Stock > 0"
+        '
+        'chkSaldoMayorCero
+        '
+        '
+        '
+        '
+        Me.chkSaldoMayorCero.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chkSaldoMayorCero.Location = New System.Drawing.Point(111, 84)
+        Me.chkSaldoMayorCero.Name = "chkSaldoMayorCero"
+        Me.chkSaldoMayorCero.Size = New System.Drawing.Size(100, 23)
+        Me.chkSaldoMayorCero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chkSaldoMayorCero.TabIndex = 380
+        '
         'R01_SaldoProducto
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1581, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "R01_SaldoProducto"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -261,4 +287,6 @@ Partial Class R01_SaldoProducto
     Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents cbAlmacen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
+    Friend WithEvents chkSaldoMayorCero As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents Label1 As Label
 End Class

@@ -4838,7 +4838,7 @@ Public Class AccesoLogica
         Else
             _Where = _where1
         End If
-
+        'SUM(b.obpcant) - CONVERT(INTEGER, SUM(b.obpcant) / c.caconv) * c.caconv AS Unidad
         Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,Sum(iacant) as iacant, caconv, cenum,cedesc "
         _Tabla = D_Datos_Tabla(campos, "VR_stockActual", _Where + "group by canumi,cacod,cadesc,cadesc2,caest,iacprod, caconv, cenum,cedesc order by cadesc")
         Return _Tabla
