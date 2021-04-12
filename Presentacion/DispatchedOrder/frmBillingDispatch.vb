@@ -683,7 +683,7 @@ Public Class frmBillingDispatch
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Literal", _Literal)
         objrep.SetParameterValue("Fechali", Fecliteral)
@@ -720,7 +720,7 @@ Public Class frmBillingDispatch
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         Dim tipoZona As String = L_fnVerificarZona("oanumi =" + idPedido)
         Dim esZonaLaPaz = IIf(tipoZona = "ES LA PAZ", "*", "")
         Dim esZonaElAlto = IIf(tipoZona = "ES EL ALTO", "*", "")
@@ -773,7 +773,7 @@ Public Class frmBillingDispatch
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         ' objrep.Subreports.Item("NotaVenta4.rpt").SetDataSource(listResult)
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
@@ -815,7 +815,7 @@ Public Class frmBillingDispatch
 
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "Oruro, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Literal", _Literal)
         objrep.SetParameterValue("Fechali", Fecliteral)
@@ -853,7 +853,7 @@ Public Class frmBillingDispatch
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
 
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Literal", _Literal)
@@ -928,7 +928,7 @@ Public Class frmBillingDispatch
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
