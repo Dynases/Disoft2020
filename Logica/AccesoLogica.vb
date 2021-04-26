@@ -11669,4 +11669,115 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+#Region "PROFORMA"
+    Public Shared Function L_prListaProforma() As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TP009", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_ProformaDetalle(_Modo As Integer, Optional _idCabecera As String = "") As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = " pnnumi = pnnumi"
+        Else
+            _Where = "pnnumi=" + _idCabecera + " AND pncprod=canumi AND iacprod=pncprod"
+        End If
+        _Tabla = D_Datos_Tabla("pnnumi,pncprod, cacod, cadesc,pnpcant,pnpbase,pnptot,pndesc,pntotal,pnfamilia, pncampo1, iacant", "TP0091,TC001, TI001", _Where)
+        Return _Tabla
+    End Function
+    Public Shared Sub L_ProformaCabecera_Grabar(ByRef _numi As String, _fecha As String, _hora As String, _idCli As String, _zona As String, distribuidor As String, _obs As String, _estado As String, _activoPasivo As String, _pedGen As String)
+        Dim _Actualizacion As String
+        Dim _Err As Boolean
+        Dim _Tabla As DataTable
+        _Tabla = D_Maximo("TP009", "pmnumi", "pmnumi=pmnumi")
+        If Not IsDBNull(_Tabla.Rows(0).Item(0)) Then
+            _numi = _Tabla.Rows(0).Item(0) + 1
+        Else
+            _numi = "1"
+        End If
+
+        _Actualizacion = "'" + Date.Now.Date.ToString("yyyy/MM/dd") + "', '" + Now.Hour.ToString + ":" + Now.Minute.ToString + "' ,'" + L_Usuario + "'"
+        Dim Sql As String
+        Sql = _numi + ",'" + Date.Now.Date.ToString("yyyy/MM/dd") + "','" + _hora + "'," + _idCli + "," + _zona + "," + distribuidor + ",'" + _obs + "',''," + _estado + "," + _activoPasivo + "," + _pedGen + "," + _Actualizacion
+        _Err = D_Insertar_Datos("TP009", Sql)
+    End Sub
+    Public Shared Sub L_ProformaDetalle_Grabar(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String, _atributo As String)
+        Dim _Err As Boolean
+        Dim Sql As String
+
+        'Recuperamos el precio de costo del producto
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        _Where = " chcatcl =1  And chcprod=" + _codProd
+        _Tabla = D_Datos_Tabla("chprecio", "TC003", _Where)
+
+        Dim campo2 As String
+        campo2 = _Tabla.Rows(0).Item("chprecio").ToString
+
+        Sql = _idCabecera + ",'" + _codProd + "'," + _cantidad + "," + _precio + "," + _subTotal + "," + _desc + "," + _total + "," + _flia + "," + _atributo + "," + campo2
+        _Err = D_Insertar_Datos("TP0091", Sql)
+    End Sub
+    Public Shared Sub L_ProformaCabacera_Modificar(_numi As String, _fecha As String, _hora As String, _idCli As String, _zona As String, distribuidor As String, _obs As String, _estado As String)
+        Dim _Err As Boolean
+        Dim Sql, _where As String
+
+        Sql = "pmfdoc ='" + _fecha + "', " +
+        "pmhora ='" + _hora + "', " +
+        "pmccli =" + _idCli + ", " +
+        "pmzona = " + _zona + ", " +
+        "pmrepa = " + distribuidor + ", " +
+        "pmobs = '" + _obs + "', " +
+        "pmest =" + _estado + ", " +
+        "pmfact = '" + Date.Now.Date.ToString("yyyy/MM/dd") + "', " +
+        "pmhact = '" + Now.Hour.ToString + ":" + Now.Minute.ToString + "', " +
+        "pmuact = '" + L_Usuario + "' "
+
+        _where = "pmnumi = " + _numi
+        _Err = D_Modificar_Datos("TP009", Sql, _where)
+    End Sub
+    Public Shared Sub L_ProformaDetalle_Borrar(_Id As String)
+        Dim _Where As String
+        Dim _Err As Boolean
+
+        _Where = "pnnumi = " + _Id
+        _Err = D_Eliminar_Datos("TP0091", _Where)
+    End Sub
+    Public Shared Function L_prListaProformaPorFecha(fechaI As String, fechaf As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@fechai", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaf", fechaf))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TP009", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_EliminarProforma(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TP009", "pmnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@pmnumi", numi))
+            _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+            _Tabla = D_ProcedimientoConParam("sp_Mam_TP009", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+#End Region
+
+
 End Class
