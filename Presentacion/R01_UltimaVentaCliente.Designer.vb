@@ -24,7 +24,7 @@ Partial Class R01_UltimaVentaCliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GpCriterio = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.lbCriterio = New DevComponents.DotNetBar.LabelX()
         Me.TbCriterio = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.GpRangoFechas = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
@@ -36,6 +36,7 @@ Partial Class R01_UltimaVentaCliente
         Me.TbCodigo = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.BtBuscarCliente = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.swZonas = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -63,9 +64,9 @@ Partial Class R01_UltimaVentaCliente
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 646)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MPnInferior.Size = New System.Drawing.Size(1182, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -76,14 +77,14 @@ Partial Class R01_UltimaVentaCliente
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(915, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -120,8 +121,8 @@ Partial Class R01_UltimaVentaCliente
         Me.MGpFiltro.Controls.Add(Me.GpCriterio)
         Me.MGpFiltro.Controls.Add(Me.GpRangoFechas)
         Me.MGpFiltro.Controls.Add(Me.GpZona)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
         '
@@ -156,23 +157,22 @@ Partial Class R01_UltimaVentaCliente
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.MCrReporte.Size = New System.Drawing.Size(1182, 690)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'GpCriterio
         '
         Me.GpCriterio.BackColor = System.Drawing.Color.Transparent
         Me.GpCriterio.CanvasColor = System.Drawing.SystemColors.Control
         Me.GpCriterio.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GpCriterio.Controls.Add(Me.LabelX3)
+        Me.GpCriterio.Controls.Add(Me.lbCriterio)
         Me.GpCriterio.Controls.Add(Me.TbCriterio)
         Me.GpCriterio.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpCriterio.Dock = System.Windows.Forms.DockStyle.Top
         Me.GpCriterio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GpCriterio.Location = New System.Drawing.Point(0, 279)
-        Me.GpCriterio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GpCriterio.Location = New System.Drawing.Point(0, 277)
         Me.GpCriterio.Name = "GpCriterio"
-        Me.GpCriterio.Size = New System.Drawing.Size(394, 110)
+        Me.GpCriterio.Size = New System.Drawing.Size(294, 89)
         '
         '
         '
@@ -203,21 +203,20 @@ Partial Class R01_UltimaVentaCliente
         Me.GpCriterio.TabIndex = 19
         Me.GpCriterio.Text = "Criterio"
         '
-        'LabelX3
+        'lbCriterio
         '
-        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
+        Me.lbCriterio.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
-        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX3.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LabelX3.Location = New System.Drawing.Point(8, 4)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(363, 28)
-        Me.LabelX3.TabIndex = 12
-        Me.LabelX3.Text = "Dirección: Buscará palabras contenidas"
+        Me.lbCriterio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbCriterio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbCriterio.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.lbCriterio.Location = New System.Drawing.Point(6, 3)
+        Me.lbCriterio.Name = "lbCriterio"
+        Me.lbCriterio.Size = New System.Drawing.Size(272, 23)
+        Me.lbCriterio.TabIndex = 12
+        Me.lbCriterio.Text = "Dirección: Buscará palabras contenidas"
         '
         'TbCriterio
         '
@@ -227,12 +226,11 @@ Partial Class R01_UltimaVentaCliente
         Me.TbCriterio.Border.Class = "TextBoxBorder"
         Me.TbCriterio.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.TbCriterio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCriterio.Location = New System.Drawing.Point(8, 39)
-        Me.TbCriterio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TbCriterio.Location = New System.Drawing.Point(6, 32)
         Me.TbCriterio.Multiline = True
         Me.TbCriterio.Name = "TbCriterio"
         Me.TbCriterio.PreventEnterBeep = True
-        Me.TbCriterio.Size = New System.Drawing.Size(373, 28)
+        Me.TbCriterio.Size = New System.Drawing.Size(280, 23)
         Me.TbCriterio.TabIndex = 11
         '
         'GpRangoFechas
@@ -245,10 +243,9 @@ Partial Class R01_UltimaVentaCliente
         Me.GpRangoFechas.Controls.Add(Me.DtiDesde)
         Me.GpRangoFechas.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpRangoFechas.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GpRangoFechas.Location = New System.Drawing.Point(0, 166)
-        Me.GpRangoFechas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GpRangoFechas.Location = New System.Drawing.Point(0, 185)
         Me.GpRangoFechas.Name = "GpRangoFechas"
-        Me.GpRangoFechas.Size = New System.Drawing.Size(394, 113)
+        Me.GpRangoFechas.Size = New System.Drawing.Size(294, 92)
         '
         '
         '
@@ -288,10 +285,9 @@ Partial Class R01_UltimaVentaCliente
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LabelX2.Location = New System.Drawing.Point(8, 46)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Location = New System.Drawing.Point(6, 37)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(69, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(52, 23)
         Me.LabelX2.TabIndex = 3
         Me.LabelX2.Text = "Hasta:"
         '
@@ -304,10 +300,9 @@ Partial Class R01_UltimaVentaCliente
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.LabelX1.Location = New System.Drawing.Point(8, 10)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX1.Location = New System.Drawing.Point(6, 8)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(69, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(52, 23)
         Me.LabelX1.TabIndex = 2
         Me.LabelX1.Text = "Desde:"
         '
@@ -322,8 +317,7 @@ Partial Class R01_UltimaVentaCliente
         Me.DtiHasta.ButtonDropDown.Visible = True
         Me.DtiHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtiHasta.IsPopupCalendarOpen = False
-        Me.DtiHasta.Location = New System.Drawing.Point(85, 46)
-        Me.DtiHasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DtiHasta.Location = New System.Drawing.Point(64, 37)
         '
         '
         '
@@ -354,7 +348,7 @@ Partial Class R01_UltimaVentaCliente
         Me.DtiHasta.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.DtiHasta.MonthCalendar.TodayButtonVisible = True
         Me.DtiHasta.Name = "DtiHasta"
-        Me.DtiHasta.Size = New System.Drawing.Size(296, 26)
+        Me.DtiHasta.Size = New System.Drawing.Size(222, 23)
         Me.DtiHasta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.DtiHasta.TabIndex = 1
         '
@@ -369,8 +363,7 @@ Partial Class R01_UltimaVentaCliente
         Me.DtiDesde.ButtonDropDown.Visible = True
         Me.DtiDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtiDesde.IsPopupCalendarOpen = False
-        Me.DtiDesde.Location = New System.Drawing.Point(85, 10)
-        Me.DtiDesde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DtiDesde.Location = New System.Drawing.Point(64, 8)
         '
         '
         '
@@ -401,7 +394,7 @@ Partial Class R01_UltimaVentaCliente
         Me.DtiDesde.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.DtiDesde.MonthCalendar.TodayButtonVisible = True
         Me.DtiDesde.Name = "DtiDesde"
-        Me.DtiDesde.Size = New System.Drawing.Size(296, 26)
+        Me.DtiDesde.Size = New System.Drawing.Size(222, 23)
         Me.DtiDesde.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.DtiDesde.TabIndex = 0
         '
@@ -410,6 +403,7 @@ Partial Class R01_UltimaVentaCliente
         Me.GpZona.BackColor = System.Drawing.Color.Transparent
         Me.GpZona.CanvasColor = System.Drawing.SystemColors.Control
         Me.GpZona.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GpZona.Controls.Add(Me.swZonas)
         Me.GpZona.Controls.Add(Me.TbDescripcion)
         Me.GpZona.Controls.Add(Me.TbCodigo)
         Me.GpZona.Controls.Add(Me.BtBuscarCliente)
@@ -417,9 +411,8 @@ Partial Class R01_UltimaVentaCliente
         Me.GpZona.Dock = System.Windows.Forms.DockStyle.Top
         Me.GpZona.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GpZona.Location = New System.Drawing.Point(0, 0)
-        Me.GpZona.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GpZona.Name = "GpZona"
-        Me.GpZona.Size = New System.Drawing.Size(394, 166)
+        Me.GpZona.Size = New System.Drawing.Size(294, 185)
         '
         '
         '
@@ -457,12 +450,11 @@ Partial Class R01_UltimaVentaCliente
         '
         Me.TbDescripcion.Border.Class = "TextBoxBorder"
         Me.TbDescripcion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.TbDescripcion.Location = New System.Drawing.Point(8, 50)
-        Me.TbDescripcion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TbDescripcion.Location = New System.Drawing.Point(6, 82)
         Me.TbDescripcion.Multiline = True
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.PreventEnterBeep = True
-        Me.TbDescripcion.Size = New System.Drawing.Size(373, 81)
+        Me.TbDescripcion.Size = New System.Drawing.Size(280, 66)
         Me.TbDescripcion.TabIndex = 11
         '
         'TbCodigo
@@ -472,11 +464,10 @@ Partial Class R01_UltimaVentaCliente
         '
         Me.TbCodigo.Border.Class = "TextBoxBorder"
         Me.TbCodigo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.TbCodigo.Location = New System.Drawing.Point(8, 15)
-        Me.TbCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TbCodigo.Location = New System.Drawing.Point(6, 53)
         Me.TbCodigo.Name = "TbCodigo"
         Me.TbCodigo.PreventEnterBeep = True
-        Me.TbCodigo.Size = New System.Drawing.Size(83, 24)
+        Me.TbCodigo.Size = New System.Drawing.Size(62, 21)
         Me.TbCodigo.TabIndex = 10
         '
         'BtBuscarCliente
@@ -486,10 +477,9 @@ Partial Class R01_UltimaVentaCliente
         Me.BtBuscarCliente.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.BtBuscarCliente.Image = Global.Presentacion.My.Resources.Resources.buscar
         Me.BtBuscarCliente.ImageFixedSize = New System.Drawing.Size(32, 32)
-        Me.BtBuscarCliente.Location = New System.Drawing.Point(100, 6)
-        Me.BtBuscarCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BtBuscarCliente.Location = New System.Drawing.Point(75, 46)
         Me.BtBuscarCliente.Name = "BtBuscarCliente"
-        Me.BtBuscarCliente.Size = New System.Drawing.Size(51, 42)
+        Me.BtBuscarCliente.Size = New System.Drawing.Size(38, 34)
         Me.BtBuscarCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.BtBuscarCliente.TabIndex = 15
         '
@@ -498,12 +488,32 @@ Partial Class R01_UltimaVentaCliente
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'swZonas
+        '
+        '
+        '
+        '
+        Me.swZonas.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swZonas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swZonas.Location = New System.Drawing.Point(62, 5)
+        Me.swZonas.Name = "swZonas"
+        Me.swZonas.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swZonas.OffText = "UNA ZONA"
+        Me.swZonas.OffTextColor = System.Drawing.Color.White
+        Me.swZonas.OnBackColor = System.Drawing.Color.Gold
+        Me.swZonas.OnText = "TODAS LAS ZONAS"
+        Me.swZonas.Size = New System.Drawing.Size(172, 22)
+        Me.swZonas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swZonas.TabIndex = 248
+        Me.swZonas.Value = True
+        Me.swZonas.ValueObject = "Y"
+        '
         'R01_UltimaVentaCliente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "R01_UltimaVentaCliente"
         Me.Opacity = 0.05R
         Me.Text = "R01_UltimaVentaCliente"
@@ -529,7 +539,7 @@ Partial Class R01_UltimaVentaCliente
 
     End Sub
     Friend WithEvents GpCriterio As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbCriterio As DevComponents.DotNetBar.LabelX
     Friend WithEvents TbCriterio As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents GpRangoFechas As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
@@ -541,4 +551,5 @@ Partial Class R01_UltimaVentaCliente
     Friend WithEvents TbCodigo As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents BtBuscarCliente As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents swZonas As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

@@ -2005,6 +2005,30 @@ Public Class F02_ProformaPedido
         End If
 
     End Sub
+    Private Sub P_GenerarReporte()
+        Dim dt As DataTable = L_ReporteProforma(Tb_Id.Text)
+        Dim _Ds2 As DataSet = L_Reporte_Factura_Cia("1")
+
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+
+        P_Global.Visualizador = New Visualizador
+
+        Dim objrep As New R_Proforma
+        '' GenerarNro(_dt)
+        ''objrep.SetDataSource(Dt1Kardex)
+        objrep.SetDataSource(dt)
+        objrep.SetParameterValue("Usuario", gs_user)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        P_Global.Visualizador.ShowDialog() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
+
+
+
+    End Sub
+
 #End Region
 
     Private Sub P_Pedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -3352,5 +3376,11 @@ Public Class F02_ProformaPedido
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        If (Not _fnAccesible()) Then
+            P_GenerarReporte()
+        End If
     End Sub
 End Class

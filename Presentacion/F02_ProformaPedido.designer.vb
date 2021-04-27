@@ -353,7 +353,6 @@ Partial Class F02_ProformaPedido
         '
         Me.MBtImprimir.Location = New System.Drawing.Point(88, 0)
         Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4)
-        Me.MBtImprimir.Visible = False
         '
         'MBubbleBarUsuario
         '

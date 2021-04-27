@@ -6482,6 +6482,21 @@ Public Class AccesoLogica
         _Tabla = D_Datos_Tabla(campos, "VR_GO_UltimaVentaCliente", _Where + " order by fultven asc")
         Return _Tabla
     End Function
+    Shared Function L_VistaUltimaVentaClientesTodos(fini As String, ffin As String, criterio As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String = ""
+
+        If (criterio = String.Empty) Then
+            _Where = _Where + "fultven>='" + fini + "' and fultven<='" + ffin + "'"
+        Else
+            _Where = _Where + "fultven>='" + fini + "' and fultven<='" + ffin + "' and direc like '%" + criterio + "%'"
+        End If
+
+        'Dim campos As String = "numi, rsoc, format(fultven, 'dd/MM/yyyy') as fultven, telf, direc, czona, dpto, prov, zona, est"
+        Dim campos As String = "numi, rsoc, fultven, telf, direc, czona, dpto, prov, zona, est"
+        _Tabla = D_Datos_Tabla(campos, "VR_GO_UltimaVentaCliente", _Where + " order by fultven asc")
+        Return _Tabla
+    End Function
 
 #End Region
 
@@ -11776,6 +11791,18 @@ Public Class AccesoLogica
             _resultado = False
         End If
         Return _resultado
+    End Function
+    Public Shared Function L_ReporteProforma(_numi As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@pmnumi", _numi))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TP009", _listParam)
+
+        Return _Tabla
     End Function
 #End Region
 

@@ -36,7 +36,19 @@ Public Class R01_UltimaVentaCliente
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
-        P_prCargarReporte()
+        ' P_prCargarReporte()
+        If swZonas.Value = True Then
+            P_prCargarReporte()
+        Else
+            If TbCodigo.Text = String.Empty Then
+                ToastNotification.Show(Me, "Debe Seleccionar una Zona...!!!".ToUpper,
+                                           My.Resources.INFORMATION, 2000,
+                                           eToastGlowColor.Blue,
+                                           eToastPosition.TopCenter)
+            Else
+                P_prCargarReporte()
+            End If
+        End If
     End Sub
 
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
@@ -69,8 +81,8 @@ Public Class R01_UltimaVentaCliente
     Private Sub P_prCargarReporte()
         If (P_fnValidar()) Then
             Dim dt As New DataTable
-
-            dt = L_VistaUltimaVentaCliente(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCodigo.Text, TbCriterio.Text.Trim)
+            _prInterpretarDatos(dt)
+            'dt = L_VistaUltimaVentaCliente(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCodigo.Text, TbCriterio.Text.Trim)
 
             If (dt.Rows.Count > 0) Then
                 Dim objrep As New R_UltimaVentaCliente
@@ -93,7 +105,16 @@ Public Class R01_UltimaVentaCliente
             End If
         End If
     End Sub
+    Public Sub _prInterpretarDatos(ByRef dt As DataTable)
+        If (swZonas.Value = True) Then
+            dt = L_VistaUltimaVentaClientesTodos(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCriterio.Text.Trim)
+        Else
+            If (TbCodigo.Text.Length > 0) Then
+                dt = L_VistaUltimaVentaCliente(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCodigo.Text, TbCriterio.Text.Trim)
 
+            End If
+        End If
+    End Sub
     Private Sub P_prCargarAyudaCliente()
         Dim frmAyuda As Modelo.ModeloAyuda
         Dim dt As DataTable = L_GetZonasCPZ().Tables(0)
@@ -118,9 +139,9 @@ Public Class R01_UltimaVentaCliente
     Private Function P_fnValidar() As Boolean
         Dim sms As String = ""
 
-        If (TbCodigo.Text.Trim = String.Empty) Then
-            sms = "Para generar el reporte debe elegir una zona.".ToUpper
-        End If
+        'If (TbCodigo.Text.Trim = String.Empty) Then
+        '    sms = "Para generar el reporte debe elegir una zona.".ToUpper
+        'End If
 
         If (DtiHasta.Value > Now.Date) Then
             If (sms = String.Empty) Then
@@ -160,6 +181,20 @@ Public Class R01_UltimaVentaCliente
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub swZonas_ValueChanged(sender As Object, e As EventArgs) Handles swZonas.ValueChanged
+        If (swZonas.Value = True) Then
+            TbCodigo.Visible = False
+            TbDescripcion.Visible = False
+            BtBuscarCliente.Visible = False
+
+        Else
+            TbCodigo.Visible = True
+            TbDescripcion.Visible = True
+            BtBuscarCliente.Visible = True
+
+        End If
     End Sub
 #End Region
 
