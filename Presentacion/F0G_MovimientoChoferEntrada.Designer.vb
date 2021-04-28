@@ -47,6 +47,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grmovimiento = New Janus.Windows.GridEX.GridEX()
         Me.tbTablet = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.swDevolucion = New DevComponents.DotNetBar.Controls.SwitchButton()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -109,6 +110,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Controls.Add(Me.swDevolucion)
         Me.MPnSuperior.Controls.Add(Me.tbTablet)
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
@@ -123,6 +125,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MPnSuperior.Controls.SetChildIndex(Me.MPanelToolBarImprimir, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.tbTablet, 0)
+        Me.MPnSuperior.Controls.SetChildIndex(Me.swDevolucion, 0)
         '
         'MPnInferior
         '
@@ -678,6 +681,27 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'swDevolucion
+        '
+        '
+        '
+        '
+        Me.swDevolucion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swDevolucion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swDevolucion.Location = New System.Drawing.Point(852, 28)
+        Me.swDevolucion.Name = "swDevolucion"
+        Me.swDevolucion.OffBackColor = System.Drawing.Color.DodgerBlue
+        Me.swDevolucion.OffText = "SOLO DEVOLUCIÓN"
+        Me.swDevolucion.OffTextColor = System.Drawing.Color.White
+        Me.swDevolucion.OnBackColor = System.Drawing.Color.Gold
+        Me.swDevolucion.OnText = "TODOS"
+        Me.swDevolucion.OnTextColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.swDevolucion.Size = New System.Drawing.Size(200, 22)
+        Me.swDevolucion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swDevolucion.TabIndex = 37
+        Me.swDevolucion.Value = True
+        Me.swDevolucion.ValueObject = "Y"
+        '
         'F0G_MovimientoChoferEntrada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -738,4 +762,5 @@ Partial Class F0G_MovimientoChoferEntrada
     Friend WithEvents rlEstado As DevComponents.DotNetBar.Controls.ReflectionLabel
     Friend WithEvents tbTablet As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents swDevolucion As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

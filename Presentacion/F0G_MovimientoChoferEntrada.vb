@@ -776,15 +776,33 @@ Public Class F0G_MovimientoChoferEntrada
     End Sub
     Public Sub _prCrearTablaConciliacionReporteNuevo()
         Dim dt As DataTable = CType(grdetalle.DataSource, DataTable)
+        Dim estado As String = "True"
+
         Dim columnas As DataTable = L_prConciliacionObtenerIdNumiTI002(lbcodigo.Text)
         Dim k As Integer = 0
         For Each fila As DataRow In columnas.Rows
             k += 1
             dt.Columns(fila.Item("ibid").ToString.Trim).ColumnName = "columna" + Str(k).Trim
         Next
+        Dim dt1 As DataTable = dt.Clone()
 
         If (dt.Rows.Count > 0) Then
-            P_GenerarReporte(dt)
+            If swDevolucion.Value = False Then
+                Dim filasFiltradas As DataRow() = dt.Select("FiltroEstado=" + (estado))
+                For Each row As DataRow In filasFiltradas
+                    dt1.ImportRow(row)
+                Next
+            Else
+                dt1 = dt
+            End If
+
+            P_GenerarReporte(dt1)
+
+            'Codigo para resolver el bug de volver a imprimir, cambiamos el nombre de la columna a su nombre inicial
+            For Each fila As DataRow In columnas.Rows
+                k += 1
+                dt.Columns(3).ColumnName = columnas.Rows(0).Item("ibid")
+            Next
         Else
             ToastNotification.Show(Me, "No hay SALIDAS DE PRODUCTOS EN LA FECHA".ToUpper,
                        My.Resources.INFORMATION,
