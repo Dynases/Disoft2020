@@ -34,6 +34,7 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.swOpcion = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -61,8 +62,9 @@ Partial Class R01_Concepto_Ventas_Meses
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 601)
-        Me.MPnInferior.Size = New System.Drawing.Size(999, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 488)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Size = New System.Drawing.Size(749, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -73,11 +75,14 @@ Partial Class R01_Concepto_Ventas_Meses
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(732, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(549, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         '
         'MTbUsuario
         '
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MTbUsuario.ReadOnly = True
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -113,7 +118,8 @@ Partial Class R01_Concepto_Ventas_Meses
         '
         Me.MGpFiltro.Controls.Add(Me.GroupBox2)
         Me.MGpFiltro.Controls.Add(Me.GroupBox1)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 559)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 454)
         '
         '
         '
@@ -147,19 +153,19 @@ Partial Class R01_Concepto_Ventas_Meses
         '
         'MCrReporte
         '
-        Me.MCrReporte.Size = New System.Drawing.Size(999, 645)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MCrReporte.Size = New System.Drawing.Size(749, 524)
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.swOpcion)
         Me.GroupBox1.Controls.Add(Me.cbConcepto)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(394, 84)
+        Me.GroupBox1.Size = New System.Drawing.Size(294, 80)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Agrupados"
@@ -170,14 +176,13 @@ Partial Class R01_Concepto_Ventas_Meses
         cbConcepto_DesignTimeLayout.LayoutString = resources.GetString("cbConcepto_DesignTimeLayout.LayoutString")
         Me.cbConcepto.DesignTimeLayout = cbConcepto_DesignTimeLayout
         Me.cbConcepto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbConcepto.Location = New System.Drawing.Point(134, 26)
-        Me.cbConcepto.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbConcepto.Location = New System.Drawing.Point(100, 21)
         Me.cbConcepto.Name = "cbConcepto"
         Me.cbConcepto.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbConcepto.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbConcepto.SelectedIndex = -1
         Me.cbConcepto.SelectedItem = Nothing
-        Me.cbConcepto.Size = New System.Drawing.Size(219, 26)
+        Me.cbConcepto.Size = New System.Drawing.Size(164, 22)
         Me.cbConcepto.TabIndex = 247
         Me.cbConcepto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -190,11 +195,9 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.GroupBox2.Controls.Add(Me.tbFechaI)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 84)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 80)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(394, 364)
+        Me.GroupBox2.Size = New System.Drawing.Size(294, 282)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
@@ -208,11 +211,10 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(92, 60)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(69, 49)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(69, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(52, 23)
         Me.LabelX1.TabIndex = 235
         Me.LabelX1.Text = "Al:"
         '
@@ -227,8 +229,7 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(193, 60)
-        Me.tbFechaF.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaF.Location = New System.Drawing.Point(145, 49)
         '
         '
         '
@@ -259,7 +260,7 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.tbFechaF.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaF.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaF.Name = "tbFechaF"
-        Me.tbFechaF.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaF.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaF.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaF.TabIndex = 234
         '
@@ -272,11 +273,10 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(88, 21)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX4.Location = New System.Drawing.Point(66, 17)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(99, 28)
+        Me.LabelX4.Size = New System.Drawing.Size(74, 23)
         Me.LabelX4.TabIndex = 233
         Me.LabelX4.Text = "Fecha Del:"
         '
@@ -291,8 +291,7 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(193, 22)
-        Me.tbFechaI.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaI.Location = New System.Drawing.Point(145, 18)
         '
         '
         '
@@ -323,7 +322,7 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.tbFechaI.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaI.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaI.Name = "tbFechaI"
-        Me.tbFechaI.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaI.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaI.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaI.TabIndex = 232
         '
@@ -332,11 +331,32 @@ Partial Class R01_Concepto_Ventas_Meses
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'swOpcion
+        '
+        '
+        '
+        '
+        Me.swOpcion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swOpcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swOpcion.Location = New System.Drawing.Point(100, 49)
+        Me.swOpcion.Name = "swOpcion"
+        Me.swOpcion.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swOpcion.OffText = "SIN MOVIMIENTO"
+        Me.swOpcion.OffTextColor = System.Drawing.Color.White
+        Me.swOpcion.OnBackColor = System.Drawing.Color.Gold
+        Me.swOpcion.OnText = "CON MOVIMIENTO"
+        Me.swOpcion.Size = New System.Drawing.Size(165, 22)
+        Me.swOpcion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swOpcion.TabIndex = 249
+        Me.swOpcion.Value = True
+        Me.swOpcion.ValueObject = "Y"
+        '
         'R01_Concepto_Ventas_Meses
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1399, 645)
+        Me.ClientSize = New System.Drawing.Size(1049, 524)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "R01_Concepto_Ventas_Meses"
         Me.Opacity = 0.05R
         Me.Text = "Concepto_Ventas_Meses"
@@ -371,4 +391,5 @@ Partial Class R01_Concepto_Ventas_Meses
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cbConcepto As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents swOpcion As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

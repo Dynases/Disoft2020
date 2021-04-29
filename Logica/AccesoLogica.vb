@@ -9691,6 +9691,20 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnObtenerCLientesSinMovimiento(_fechaI As String, _fechaF As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 11))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _fechaF))
+
+        _listParam.Add(New Datos.DParametro("@yduact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_VentasEstadisticos", _listParam)
+
+        Return _Tabla
+    End Function
 #End Region
 
 #Region "VENTAS GRAFICAS"

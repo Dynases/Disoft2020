@@ -65,6 +65,11 @@ Public Class R01_Concepto_Ventas_Meses
         Next
         titulo = "REPORTE ESTADISTICO VENTAS POR CLIENTE"
     End Sub
+    Sub _prCargarTableCLIENTEVentasSinMovimiento(ByRef dt As DataTable)
+
+        dt = L_fnObtenerCLientesSinMovimiento(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+        titulo = "REPORTE ESTADISTICO CLIENTES SIN MOVIMIENTO"
+    End Sub
 
     Sub _prCargarTableZONASVentas(ByRef dt As DataTable)
         dt = L_fnObtenerZonasVentasEstadistico(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
@@ -258,7 +263,12 @@ Public Class R01_Concepto_Ventas_Meses
             _prCargarTableVendedorVentas(_dt)
         End If
         If (cbConcepto.Value = 2) Then
-            _prCargarTableCLIENTEVentas(_dt)
+            If swOpcion.Value = True Then
+                _prCargarTableCLIENTEVentas(_dt)
+            Else
+                _prCargarTableCLIENTEVentasSinMovimiento(_dt)
+            End If
+
         End If
         If (cbConcepto.Value = 3) Then
             _prCargarTablePRODUCTOSVentas(_dt)
@@ -369,5 +379,13 @@ Public Class R01_Concepto_Ventas_Meses
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub cbConcepto_ValueChanged(sender As Object, e As EventArgs) Handles cbConcepto.ValueChanged
+        If cbConcepto.Text = "CLIENTES" Then
+            swOpcion.Visible = True
+        Else
+            swOpcion.Visible = False
+        End If
     End Sub
 End Class
