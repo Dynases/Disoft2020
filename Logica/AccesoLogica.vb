@@ -11697,6 +11697,29 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_BuscarIdPedido3(_idchofer As String, _conciliacion As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 5))
+        _listPalam.Add(New Datos.DParametro("@idchof", _idchofer))
+        _listPalam.Add(New Datos.DParametro("@conciliacion", _conciliacion))
+        _listPalam.Add(New Datos.DParametro("@oadusuario", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001D", _listPalam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_EliminarTO001DEstado7(_oanumi As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 6))
+        _listPalam.Add(New Datos.DParametro("@oanumi", _oanumi))
+        _listPalam.Add(New Datos.DParametro("@oadusuario", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO001D", _listPalam)
+
+        Return _Tabla
+    End Function
 #End Region
 #Region "PROFORMA"
     Public Shared Function L_prListaProforma() As DataTable
@@ -11818,6 +11841,13 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Sub L_EliminarTO001C(_Id As String)
+        Dim _Where As String
+        Dim _Err As Boolean
+
+        _Where = "oacoanumi = " + _Id
+        _Err = D_Eliminar_Datos("TO001C", _Where)
+    End Sub
 #End Region
 
 
