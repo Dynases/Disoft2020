@@ -100,6 +100,7 @@ Public Class P_Principal
             btConfFormulario.Visible = True
         End If
         gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
+        gs_LiberarPedido = gs_Parametros(0).Item("syliberarpedido")
     End Sub
 
     Private Sub _prCambiarStyle()

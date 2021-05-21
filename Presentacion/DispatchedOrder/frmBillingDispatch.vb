@@ -898,6 +898,7 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("repartidor", repartidor)
         objrep.SetParameterValue("vendedor", vendedor)
         objrep.SetParameterValue("Logo", gb_ubilogo)
+
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
             P_Global.Visualizador.ShowDialog() 'Comentar
@@ -911,7 +912,8 @@ Public Class frmBillingDispatch
                                        eToastGlowColor.Blue, eToastPosition.BottomRight)
             Else
                 objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-                objrep.PrintToPrinter(2, False, 1, 1)
+                Dim nrocopias As Integer = _Ds3.Tables(0).Rows(0).Item("cbnrocopias")
+                objrep.PrintToPrinter(nrocopias, False, 1, 1)
             End If
         End If
     End Sub

@@ -24,7 +24,6 @@ Partial Class F01_Producto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbUnidVenta_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim CbUnidMax_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbUMed_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -32,6 +31,7 @@ Partial Class F01_Producto
         Dim cbgrupo4_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo3_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbEmpresa_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim CbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanelDatos = New System.Windows.Forms.TableLayoutPanel()
@@ -1287,7 +1287,7 @@ Partial Class F01_Producto
         Me.TbNombreCorto.Border.Class = "TextBoxBorder"
         Me.TbNombreCorto.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.TbNombreCorto.Location = New System.Drawing.Point(109, 110)
-        Me.TbNombreCorto.MaxLength = 50
+        Me.TbNombreCorto.MaxLength = 100
         Me.TbNombreCorto.Name = "TbNombreCorto"
         Me.TbNombreCorto.Size = New System.Drawing.Size(200, 23)
         Me.TbNombreCorto.TabIndex = 2
