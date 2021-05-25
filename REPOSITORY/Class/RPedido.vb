@@ -369,7 +369,9 @@ Public Class RPedido
                                       .obdesc = a.obdesc,
                                       .obtotal = a.obtotal,
                                       .oaccbnumi = a.oaccbnumi,
-                                      .cbdesc = a.cbdesc
+                                      .cbdesc = a.cbdesc,
+                                      .oaanumiprev = a.oaanumiprev,
+                                      .vendedor = a.vendedor
                                       }).ToList()
                 Return listResult
 

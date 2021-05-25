@@ -171,4 +171,24 @@
             _cbdesc = value
         End Set
     End Property
+
+    Private _oaanumiprev As Integer
+    Public Property oaanumiprev() As Integer
+        Get
+            Return _oaanumiprev
+        End Get
+        Set(ByVal value As Integer)
+            _oaanumiprev = value
+        End Set
+    End Property
+
+    Private _vendedor As String
+    Public Property vendedor() As String
+        Get
+            Return _vendedor
+        End Get
+        Set(ByVal value As String)
+            _vendedor = value
+        End Set
+    End Property
 End Class

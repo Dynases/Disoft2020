@@ -138,9 +138,9 @@
         <AssociationConnector Association="BDDistBHFModel.FK_TO0051_TO005" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0052_TO005" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.5" PointX="35.375" PointY="27.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="35.375" PointY="33.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.TO001D" Width="1.5" PointX="23.375" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_Factura" Width="1.5" PointX="19.375" PointY="30.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="35.375" PointY="33.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

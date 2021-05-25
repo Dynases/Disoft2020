@@ -228,7 +228,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
-        Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1022, 602)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
@@ -242,7 +242,7 @@ Partial Class F0_PedidosAsignacion
         '
         Me.SuperTabControlPanel2.Controls.Add(Me.PanelEx6)
         Me.SuperTabControlPanel2.Controls.Add(Me.PanelEx7)
-        Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControlPanel2.Size = New System.Drawing.Size(1022, 577)
         '
         'SuperTabItem2
@@ -251,7 +251,7 @@ Partial Class F0_PedidosAsignacion
         '
         'SuperTabControlPanel1
         '
-        Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1022, 577)
         Me.SuperTabControlPanel1.Controls.SetChildIndex(Me.PanelEx1, 0)
         Me.SuperTabControlPanel1.Controls.SetChildIndex(Me.PanelEx2, 0)
@@ -260,7 +260,7 @@ Partial Class F0_PedidosAsignacion
         '
         'PanelEx1
         '
-        Me.PanelEx1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelEx1.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx1.Size = New System.Drawing.Size(1022, 64)
         Me.PanelEx1.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx1.Style.BackColor1.Color = System.Drawing.Color.Blue
@@ -322,14 +322,14 @@ Partial Class F0_PedidosAsignacion
         Me.BubbleBar2.ButtonBackAreaStyle.PaddingRight = 3
         Me.BubbleBar2.ButtonBackAreaStyle.PaddingTop = 3
         Me.BubbleBar2.Location = New System.Drawing.Point(958, 0)
-        Me.BubbleBar2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BubbleBar2.Margin = New System.Windows.Forms.Padding(4)
         Me.BubbleBar2.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.BubbleBar2.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         '
         'PanelEx2
         '
         Me.PanelEx2.Location = New System.Drawing.Point(0, 541)
-        Me.PanelEx2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelEx2.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx2.Size = New System.Drawing.Size(1022, 36)
         Me.PanelEx2.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx2.Style.BackColor1.Color = System.Drawing.Color.Blue
@@ -345,7 +345,7 @@ Partial Class F0_PedidosAsignacion
         '
         'PanelEx3
         '
-        Me.PanelEx3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelEx3.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx3.Size = New System.Drawing.Size(1022, 200)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -357,7 +357,7 @@ Partial Class F0_PedidosAsignacion
         '
         'PanelEx4
         '
-        Me.PanelEx4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelEx4.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx4.Size = New System.Drawing.Size(1022, 277)
         Me.PanelEx4.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -439,7 +439,7 @@ Partial Class F0_PedidosAsignacion
         'PanelEx5
         '
         Me.PanelEx5.Location = New System.Drawing.Point(822, 0)
-        Me.PanelEx5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelEx5.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx5.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx5.Style.BackColor1.Color = System.Drawing.Color.Blue
         Me.PanelEx5.Style.BackColor2.Color = System.Drawing.Color.Blue
@@ -487,7 +487,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx10.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx10.Location = New System.Drawing.Point(0, 512)
         Me.PanelEx10.Name = "PanelEx10"
-        Me.PanelEx10.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.PanelEx10.Padding = New System.Windows.Forms.Padding(3)
         Me.PanelEx10.Size = New System.Drawing.Size(696, 65)
         Me.PanelEx10.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx10.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -674,7 +674,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.GroupPanel3.Padding = New System.Windows.Forms.Padding(3)
         Me.GroupPanel3.Size = New System.Drawing.Size(445, 92)
         '
         '
@@ -936,7 +936,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx8.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx8.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx8.Name = "PanelEx8"
-        Me.PanelEx8.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.PanelEx8.Padding = New System.Windows.Forms.Padding(5)
         Me.PanelEx8.Size = New System.Drawing.Size(317, 225)
         Me.PanelEx8.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx8.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -1115,7 +1115,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx17.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx17.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx17.Name = "PanelEx17"
-        Me.PanelEx17.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.PanelEx17.Padding = New System.Windows.Forms.Padding(5)
         Me.PanelEx17.Size = New System.Drawing.Size(317, 223)
         Me.PanelEx17.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx17.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -1283,7 +1283,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx13.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx13.Location = New System.Drawing.Point(0, 510)
         Me.PanelEx13.Name = "PanelEx13"
-        Me.PanelEx13.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.PanelEx13.Padding = New System.Windows.Forms.Padding(3)
         Me.PanelEx13.Size = New System.Drawing.Size(696, 62)
         Me.PanelEx13.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx13.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -1571,7 +1571,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel4.Name = "GroupPanel4"
-        Me.GroupPanel4.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.GroupPanel4.Padding = New System.Windows.Forms.Padding(3)
         Me.GroupPanel4.Size = New System.Drawing.Size(454, 92)
         '
         '
@@ -1816,7 +1816,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx19.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx19.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx19.Name = "PanelEx19"
-        Me.PanelEx19.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.PanelEx19.Padding = New System.Windows.Forms.Padding(5)
         Me.PanelEx19.Size = New System.Drawing.Size(317, 223)
         Me.PanelEx19.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx19.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -1984,7 +1984,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx21.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx21.Location = New System.Drawing.Point(0, 506)
         Me.PanelEx21.Name = "PanelEx21"
-        Me.PanelEx21.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.PanelEx21.Padding = New System.Windows.Forms.Padding(3)
         Me.PanelEx21.Size = New System.Drawing.Size(696, 62)
         Me.PanelEx21.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx21.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
@@ -2170,7 +2170,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel6.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupPanel6.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel6.Name = "GroupPanel6"
-        Me.GroupPanel6.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.GroupPanel6.Padding = New System.Windows.Forms.Padding(3)
         Me.GroupPanel6.Size = New System.Drawing.Size(466, 92)
         '
         '
@@ -2418,7 +2418,7 @@ Partial Class F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(1022, 602)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_PedidosAsignacion"
         Me.Opacity = 0.05R
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized

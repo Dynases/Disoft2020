@@ -10,20 +10,27 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_Insert_TO001_Result
+Partial Public Class v_VentasDetalleDespacho1
     Public Property oanumi As Integer
     Public Property oafdoc As Nullable(Of Date)
-    Public Property oahora As String
     Public Property oaccli As Nullable(Of Integer)
-    Public Property oazona As Nullable(Of Integer)
+    Public Property ccdesc As String
     Public Property oarepa As Nullable(Of Integer)
-    Public Property oaobs As String
-    Public Property oaobs2 As String
     Public Property oaest As Nullable(Of Integer)
     Public Property oaap As Nullable(Of Integer)
-    Public Property oapg As Nullable(Of Integer)
-    Public Property oafact As Nullable(Of Date)
-    Public Property oahact As String
-    Public Property oauact As String
+    Public Property obcprod As String
+    Public Property cacod As String
+    Public Property cadesc As String
+    Public Property cauventa As Nullable(Of Integer)
+    Public Property cedesc As String
+    Public Property obpbase As Nullable(Of Decimal)
+    Public Property obpcant As Nullable(Of Decimal)
+    Public Property obptot As Nullable(Of Decimal)
+    Public Property obdesc As Nullable(Of Decimal)
+    Public Property obtotal As Nullable(Of Decimal)
+    Public Property oaccbnumi As Integer
+    Public Property cbdesc As String
+    Public Property oaanumiprev As Nullable(Of Integer)
+    Public Property vendedor As String
 
 End Class
