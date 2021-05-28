@@ -1276,6 +1276,42 @@ Public Class frmBillingDispatch
             .Visible = False
             .Position = 7
         End With
+        With dgjPedido.RootTable.Columns("observacion")
+            .Caption = "observacion"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .Position = 8
+
+        End With
+        With dgjPedido.RootTable.Columns("Subtotal")
+            .Caption = "Subtotal"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .FormatString = "0.00"
+            .AggregateFunction = AggregateFunction.Sum
+            .Position = 9
+        End With
+        With dgjPedido.RootTable.Columns("Descuento")
+            .Caption = "Descuento"
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .FormatString = "0.00"
+            .AggregateFunction = AggregateFunction.Sum
+            .Position = 10
+        End With
+        With dgjPedido.RootTable.Columns("Total")
+            .Caption = "Total"
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Width = 80
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0.00"
+            .AggregateFunction = AggregateFunction.Sum
+            .Position = 11
+        End With
         dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
         With dgjPedido.RootTable.Columns("Check")
             .Caption = "Seleccionar"
@@ -1283,16 +1319,9 @@ Public Class frmBillingDispatch
             .ShowRowSelector = True
             .UseHeaderSelector = True
             .FilterEditType = FilterEditType.NoEdit
-            .Position = 8
+            .Position = 12
         End With
-        With dgjPedido.RootTable.Columns("observacion")
-            .Caption = "observacion"
-            .Width = 80
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = False
-            .Position = 7
 
-        End With
         With dgjPedido
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
             .FilterMode = FilterMode.Automatic
@@ -1306,6 +1335,10 @@ Public Class frmBillingDispatch
             '.AllowColumnDrag = False
             '.AutomaticSort = False
             '.ColumnHeaders = InheritableBoolean.True
+
+            .TotalRow = InheritableBoolean.True
+            .TotalRowFormatStyle.BackColor = Color.Gold
+            .TotalRowPosition = TotalRowPosition.BottomFixed
         End With
         dgjPedido.VisualStyle = VisualStyle.Office2007
     End Sub

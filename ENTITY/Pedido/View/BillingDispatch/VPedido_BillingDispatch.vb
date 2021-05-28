@@ -47,4 +47,32 @@
             _observacion = value
         End Set
     End Property
+
+    Private _Subtotal As Decimal
+    Public Property Subtotal() As Decimal
+        Get
+            Return _Subtotal
+        End Get
+        Set(ByVal value As Decimal)
+            _Subtotal = value
+        End Set
+    End Property
+    Private _descuento As Decimal
+    Public Property Descuento() As Decimal
+        Get
+            Return _descuento
+        End Get
+        Set(ByVal value As Decimal)
+            _descuento = value
+        End Set
+    End Property
+    Private _Total As Decimal
+    Public Property Total() As Decimal
+        Get
+            Return _Total
+        End Get
+        Set(ByVal value As Decimal)
+            _Total = value
+        End Set
+    End Property
 End Class

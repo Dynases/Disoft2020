@@ -35,20 +35,41 @@ Public Class RPedido
     Public Function ListarPedidoAsignadoAChofer(idChofer As Integer, estado As Integer) As List(Of VPedido_BillingDispatch) Implements IPedido.ListarPedidoAsignadoAChofer
         Try
             Using db = GetSchema()
+                'Dim listResult = (From a In db.TO001
+                '                  Join a1 In db.TO001A On a.oanumi Equals a1.oaato1numi
+                '                  Join b In db.TC004 On a.oaccli Equals b.ccnumi
+                '                  Join c In db.TC002 On a1.oaanumiprev Equals c.cbnumi
+                '                  Join d In db.TO001C On a.oanumi Equals d.oacoanumi
+                '                  Where a.oaest = estado And d.oaccbnumi = idChofer And a.oaap = 1
+                '                  Select New VPedido_BillingDispatch With {
+                '                      .Id = a.oanumi,
+                '                      .Fecha = a.oafdoc,
+                '                      .NombreCliente = b.ccdesc,
+                '                      .NombreVendedor = c.cbdesc,
+                '                      .NroFactura = d.oacnrofac,
+                '                      .idZona = a.oazona,
+                '                      .observacion = a.oaobs
+                '                      }).ToList()
+                'Return listResult
                 Dim listResult = (From a In db.TO001
                                   Join a1 In db.TO001A On a.oanumi Equals a1.oaato1numi
                                   Join b In db.TC004 On a.oaccli Equals b.ccnumi
                                   Join c In db.TC002 On a1.oaanumiprev Equals c.cbnumi
                                   Join d In db.TO001C On a.oanumi Equals d.oacoanumi
+                                  Join e In db.TO0011 On e.obnumi Equals a.oanumi
                                   Where a.oaest = estado And d.oaccbnumi = idChofer And a.oaap = 1
+                                  Group By a.oanumi, a.oafdoc, b.ccdesc, c.cbdesc, d.oacnrofac, a.oazona, a.oaobs Into grupo = Group
                                   Select New VPedido_BillingDispatch With {
-                                      .Id = a.oanumi,
-                                      .Fecha = a.oafdoc,
-                                      .NombreCliente = b.ccdesc,
-                                      .NombreVendedor = c.cbdesc,
-                                      .NroFactura = d.oacnrofac,
-                                      .idZona = a.oazona,
-                                      .observacion = a.oaobs
+                                      .Id = oanumi,
+                                      .Fecha = oafdoc,
+                                      .NombreCliente = ccdesc,
+                                      .NombreVendedor = cbdesc,
+                                      .NroFactura = oacnrofac,
+                                      .idZona = oazona,
+                                      .observacion = oaobs,
+                                      .Subtotal = grupo.Sum(Function(item) item.e.obptot).Value,
+                                      .Descuento = grupo.Sum(Function(item) item.e.obdesc).Value,
+                                      .Total = grupo.Sum(Function(item) item.e.obtotal).Value
                                       }).ToList()
                 Return listResult
             End Using
