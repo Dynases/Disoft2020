@@ -196,10 +196,10 @@ Public Class F01_Personal
         End If
     End Sub
     Private Sub _Parametros()
-        CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
-        LabelX6.Visible = False 'gs_Parametros(0).Item("syruta")
-        LabelX7.Visible = gs_Parametros(0).Item("syruta")
-        cbSucursal.Visible = gs_Parametros(0).Item("syruta")
+        'CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
+        'LabelX6.Visible = False 'gs_Parametros(0).Item("syruta")
+        'LabelX7.Visible = gs_Parametros(0).Item("syruta")
+        'cbSucursal.Visible = gs_Parametros(0).Item("syruta")
     End Sub
     Private Sub P_Nuevo()
         P_Limpiar()
@@ -433,7 +433,7 @@ Public Class F01_Personal
         'MultiCombo
         cbTipo.ReadOnly = True
         CbAlmacen.ReadOnly = True
-        CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
+        'CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
         cbSucursal.ReadOnly = True
         'Botones
         SbEstado.IsReadOnly = True
@@ -471,14 +471,29 @@ Public Class F01_Personal
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
+        p_prcomboalmacendiavi()
         'If gs_Parametros(0).Item("syruta") = True Then
         '    p_prcomboalmacendiavi()
         'End If
     End Sub
     Private Sub p_prcomboalmacendiavi()
         Dim dt As New DataTable
-        dt = L_fnObtenerTabla("id as [Cod], Descrip as [Desc]", "DiAvi.Inv.Almacen", "tipoalmacen=1")
-        g_prArmarCombo(CbAlmacen, dt, 60, 150, "Código", "Almacen")
+        dt = L_fnMovimientoListarSucursales()
+
+        With CbAlmacen
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+
+        'g_prArmarCombo(CbAlmacen, dt, 60, 150, "Código", "Almacen")
     End Sub
 
     Private Sub P_ArmarGrillas()
@@ -562,6 +577,15 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("cbdesc")
             .Caption = "Nombre"
             .Width = 250
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.FontSize = gi_fuenteTamano
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+        End With
+
+        With Dgj1Busqueda.RootTable.Columns("Almacen")
+            .Caption = "Almacen"
+            .Width = 120
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near

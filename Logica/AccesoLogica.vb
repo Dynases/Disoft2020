@@ -1385,7 +1385,7 @@ Public Class AccesoLogica
         If _Modo = 0 Then
             _Where = " obnumi = obnumi"
         Else
-            _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod"
+            _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod and iaalm=1"
         End If
         _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant", "TO0011,TC001, TI001", _Where)
         Return _Tabla
@@ -7222,7 +7222,7 @@ Public Class AccesoLogica
     ' @ibid ,@ibfdoc,@ibconcep ,@ibobs  ,@ibest,
     '@ibalm ,@ibiddc,@ibidchof ,@ibidvent ,@newFecha,@newHora,@ibuact
     Public Shared Function L_prMovimientoChoferGrabarSalida(ByRef _ibid As String, _ibfdoc As String, _ibconcep As Integer, _ibobs As String, _ibidchof As Integer,
-                                                            _idConciliacion As Integer, _detalle As DataTable, _fechapedido As String) As Boolean
+                                                            _idConciliacion As Integer, _detalle As DataTable, _fechapedido As String, AlmacenOrigen As Integer, AlmacenDestino As Integer) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -7234,13 +7234,15 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ibconcep", _ibconcep))
         _listParam.Add(New Datos.DParametro("@ibobs", _ibobs))
         _listParam.Add(New Datos.DParametro("@ibest", 1))
-        _listParam.Add(New Datos.DParametro("@ibalm", 1))
+
         _listParam.Add(New Datos.DParametro("@ibiddc", 0))
         _listParam.Add(New Datos.DParametro("@ibidchof", _ibidchof))
         _listParam.Add(New Datos.DParametro("@ibidvent", 0))
         _listParam.Add(New Datos.DParametro("@ibidconcil", _idConciliacion))
         _listParam.Add(New Datos.DParametro("@TM0011", "", _detalle))
         _listParam.Add(New Datos.DParametro("@fechapedido", _fechapedido))
+        _listParam.Add(New Datos.DParametro("@ibalm", AlmacenOrigen))
+        _listParam.Add(New Datos.DParametro("@AlmacenDestino", AlmacenDestino))
         _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
 

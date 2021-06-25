@@ -52,6 +52,30 @@ Public Class F0G_MovimientoChoferSalida
         If (grmovimiento.RowCount > 0) Then
             _prMostrarRegistro(0)
         End If
+
+        _prCargarComboLibreriaDeposito(cbalmacenOrigen)
+        _prCargarComboLibreriaDeposito(cbalmacenDestino)
+
+    End Sub
+
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        If (dt.Rows.Count > 0) Then
+            mCombo.SelectedIndex = 0
+        End If
     End Sub
     Private Sub _prCargarComboLibreriaConcepto(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
@@ -95,6 +119,10 @@ Public Class F0G_MovimientoChoferSalida
         tbObservacion.ReadOnly = True
         tbFecha.IsInputReadOnly = True
 
+        cbalmacenOrigen.ReadOnly = True
+        cbalmacenDestino.ReadOnly = True
+
+
         ''''''''''
         MBtModificar.Enabled = True
         MBtGrabar.Enabled = False
@@ -112,6 +140,7 @@ Public Class F0G_MovimientoChoferSalida
     Private Sub _prhabilitar()
         tbCodigo.ReadOnly = False
         tbChofer.ReadOnly = False
+        cbalmacenOrigen.ReadOnly = False
         tbObservacion.ReadOnly = False
         tbFecha.IsInputReadOnly = False
         grmovimiento.Enabled = True
@@ -159,6 +188,10 @@ Public Class F0G_MovimientoChoferSalida
         lbConciliacion.Text = 0
         tbChofer.Focus()
 
+        If (CType(cbalmacenOrigen.DataSource, DataTable).Rows.Count > 0) Then
+            cbalmacenOrigen.SelectedIndex = 0
+        End If
+
     End Sub
     Public Sub _prMostrarRegistro(_N As Integer)
         '   a.ibid ,a.ibfdoc ,a.ibconcep ,b.cpdesc as concepto,a.ibobs ,a.ibest ,a.ibalm ,a.ibiddc ,a.ibidchof
@@ -169,6 +202,12 @@ Public Class F0G_MovimientoChoferSalida
             _codChofer = .GetValue("ibidchof")
             cbConcepto.Value = .GetValue("ibconcep")
             tbObservacion.Text = .GetValue("ibobs")
+
+            cbalmacenOrigen.Value = .GetValue("ibalm")
+            Dim dt As DataTable = CType(grmovimiento.DataSource, DataTable)
+            Dim destino As Integer = .GetValue("AlmacenDestino")
+            cbalmacenDestino.Value = .GetValue("AlmacenDestino")
+
             tbChofer.Text = .GetValue("chofer")
             MLbFecha.Text = CType(.GetValue("ibfact"), Date).ToString("dd/MM/yyyy")
             MLbHora.Text = .GetValue("ibhact").ToString
@@ -241,7 +280,21 @@ Public Class F0G_MovimientoChoferSalida
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .FormatString = "0.00"
-            .Caption = "Cantidad".ToUpper
+            .Caption = "Total".ToUpper
+        End With
+        With grdetalle.RootTable.Columns("cantidadPreVenta")
+            .Width = 160
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0.00"
+            .Caption = "Cant. Preventa"
+        End With
+        With grdetalle.RootTable.Columns("cantidadAutoVenta")
+            .Width = 160
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0.00"
+            .Caption = "Cant. AutoVenta"
         End With
 
         With grdetalle.RootTable.Columns("estado")
@@ -445,7 +498,7 @@ Public Class F0G_MovimientoChoferSalida
         Dim img As New Bitmap(My.Resources.delete, 28, 28)
         img.Save(Bin, Imaging.ImageFormat.Png)
         'CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", 0, Bin.GetBuffer, 0)
-        CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", "", 0, Bin.GetBuffer, 0)
+        CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", "", 0, 0, 0, Bin.GetBuffer, 0)
 
     End Sub
 
@@ -563,7 +616,7 @@ Public Class F0G_MovimientoChoferSalida
                 Return
             Else
                 Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(_codChofer) ''Aqui obtengo el numi de la TI0022 
-                Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, tabla.Rows(0).Item("ieid"), CType(grdetalle.DataSource, DataTable), _fechapedido)
+                Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, tabla.Rows(0).Item("ieid"), CType(grdetalle.DataSource, DataTable), _fechapedido, cbalmacenOrigen.Value, cbalmacenDestino.Value)
                 If res Then
                     Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, tabla.Rows(0).Item("ibid"))
                     If dt.Rows.Count > 0 Then
@@ -588,7 +641,7 @@ Public Class F0G_MovimientoChoferSalida
                 End If
             End If
         Else
-            Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido)
+            Dim res As Boolean = L_prMovimientoChoferGrabarSalida(numi, tbFecha.Value.ToString("yyyy/MM/dd"), cbConcepto.Value, tbObservacion.Text, _codChofer, _IdConciliacion, CType(grdetalle.DataSource, DataTable), _fechapedido, cbalmacenOrigen.Value, cbalmacenDestino.Value)
             If res Then
                 Dim dt As DataTable = L_BuscarIdPedido(_codChofer, _fechapedido, lbConciliacion.Text)
                 For i = 0 To dt.Rows.Count - 1
@@ -785,7 +838,7 @@ Public Class F0G_MovimientoChoferSalida
     Private Sub grdetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grdetalle.EditingCell
         If (_fnAccesible()) Then
             'Habilitar solo las columnas de Precio, %, Monto y Observación
-            If (e.Column.Index = grdetalle.RootTable.Columns("iccant").Index) Then
+            If (e.Column.Index = grdetalle.RootTable.Columns("cantidadAutoVenta").Index) Then
                 e.Cancel = False
             Else
                 e.Cancel = True
@@ -865,7 +918,7 @@ salirIf:
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cacod") = grproducto.GetValue("cacod")
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("producto") = grproducto.GetValue("cadesc")
 
-                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 0
                     _prCargarProductos()
 
                     grproducto.RemoveFilters()
@@ -890,15 +943,18 @@ salirIf:
     End Sub
 
     Private Sub grdetalle_CellValueChanged(sender As Object, e As ColumnActionEventArgs) Handles grdetalle.CellValueChanged
-        If (e.Column.Index = grdetalle.RootTable.Columns("iccant").Index) Then
-            If (Not IsNumeric(grdetalle.GetValue("iccant")) Or grdetalle.GetValue("iccant").ToString = String.Empty) Then
+        If (e.Column.Index = grdetalle.RootTable.Columns("cantidadAutoVenta").Index) Then
+            If (Not IsNumeric(grdetalle.GetValue("cantidadAutoVenta")) Or grdetalle.GetValue("cantidadAutoVenta").ToString = String.Empty) Then
 
                 'grDetalle.GetRow(rowIndex).Cells("cant").Value = 1
                 '  grDetalle.CurrentRow.Cells.Item("cant").Value = 1
                 Dim lin As Integer = grdetalle.GetValue("icid")
                 Dim pos As Integer = -1
                 _fnObtenerFilaDetalle(pos, lin)
-                CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+                CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadAutoVenta") = 0
+                CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = grdetalle.GetValue("cantidadPreVenta")
+
+                grdetalle.SetValue("iccant", grdetalle.GetValue("cantidadPreVenta"))
 
                 Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
@@ -906,11 +962,15 @@ salirIf:
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
                 End If
             Else
-                If (grdetalle.GetValue("iccant") > 0) Then
+                If (grdetalle.GetValue("cantidadAutoVenta") > 0) Then
                     Dim lin As Integer = grdetalle.GetValue("icid")
                     Dim pos As Integer = -1
                     _fnObtenerFilaDetalle(pos, lin)
                     Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
+
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta")
+
+                    grdetalle.SetValue("iccant", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta"))
 
                     If (estado = 1) Then
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
@@ -919,7 +979,11 @@ salirIf:
                     Dim lin As Integer = grdetalle.GetValue("icid")
                     Dim pos As Integer = -1
                     _fnObtenerFilaDetalle(pos, lin)
-                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadAutoVenta") = 0
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = grdetalle.GetValue("cantidadPreVenta")
+
+                    grdetalle.SetValue("iccant", grdetalle.GetValue("cantidadPreVenta"))
+
                     Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
                     If (estado = 1) Then
@@ -931,9 +995,9 @@ salirIf:
     End Sub
 
     Private Sub grdetalle_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles grdetalle.CellEdited
-        If (e.Column.Index = grdetalle.RootTable.Columns("iccant").Index) Then
-            If (Not IsNumeric(grdetalle.GetValue("iccant")) Or grdetalle.GetValue("iccant").ToString = String.Empty) Then
-                grdetalle.SetValue("iccant", 1)
+        If (e.Column.Index = grdetalle.RootTable.Columns("cantidadAutoVenta").Index) Then
+            If (Not IsNumeric(grdetalle.GetValue("cantidadAutoVenta")) Or grdetalle.GetValue("cantidadAutoVenta").ToString = String.Empty) Then
+                grdetalle.SetValue("cantidadAutoVenta", 0)
             Else
                 'If (grdetalle.GetValue("iccant") > 0) Then
 
@@ -1237,6 +1301,7 @@ salirIf:
         listEstCeldas.Add(New Modelo.MCelda("oaest", False, "ESTADO", 150))
         listEstCeldas.Add(New Modelo.MCelda("oaap", False, "oaap".ToUpper, 150))
         listEstCeldas.Add(New Modelo.MCelda("oafdoc", True, "FECHA PEDIDO", 220, "MM/dd/YYYY"))
+        listEstCeldas.Add(New Modelo.MCelda("cbalmacen", False, "Almacen".ToUpper, 150))
 
         Dim ef = New Efecto
         ef.tipo = 3
@@ -1255,6 +1320,9 @@ salirIf:
             _codChofer = Row.Cells("oaccbnumi").Value
             tbChofer.Text = Row.Cells("cbdesc").Value
             _fechapedido = Row.Cells("oafdoc").Value
+
+            cbalmacenDestino.Value = Row.Cells("cbalmacen").Value
+
             cbConcepto.Focus()
 
             _prCargarDetalleVenta(-1)
@@ -1329,7 +1397,9 @@ salirIf:
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("cacod") = item.cacod
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto") = item.cadesc
 
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("cantidadPreVenta") = item.obpcant
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = item.obpcant
+
                         i += 1
                     Next
                     _prCargarProductos()
