@@ -412,17 +412,25 @@ Public Class F0G_MovimientoChoferEntrada
                 Next
             End If
 
-            ''Filtrar los Pedidos que no han sido entregados y liberarlos para volver a asignarlos
+            ''Filtrar los Pedidos que no han sido entregados y liberarlos para volver a asignarlos o caso contrario anularlos
+            ''gs_LiberarPedido=0 No hace nada, gs_LiberarPedido=1 Libera, gs_LiberarPedido=2 Anula pedidos
+            Dim dt2 As DataTable = L_BuscarIdPedido3(_codChofer, lbcodigo.Text)
             If gs_LiberarPedido = 1 Then
-                Dim dt2 As DataTable = L_BuscarIdPedido3(_codChofer, lbcodigo.Text)
                 If dt2.Rows.Count > 0 Then
                     For i = 0 To dt2.Rows.Count - 1
                         L_EliminarTO001C(dt2.Rows(i).Item("idpedido"))
                         L_EliminarTO001DEstado7(dt2.Rows(i).Item("idpedido"))
                     Next
                 End If
+            ElseIf gs_LiberarPedido = 2 Then
+                If dt2.Rows.Count > 0 Then
+                    For i = 0 To dt2.Rows.Count - 1
+                        'L_EliminarTO001C(dt2.Rows(i).Item("idpedido"))
+                        'L_EliminarTO001DEstado7(dt2.Rows(i).Item("idpedido"))
+                        L_PedidoCabacera_ModificarActivoPasivo(dt2.Rows(i).Item("idpedido"), "2")
+                    Next
+                End If
             End If
-
 
             _prCargarVenta()
             _prSalir()

@@ -41,7 +41,7 @@ Module P_Global
     Public gs_puerto As String = "0"
     Public gs_Parametros As DataTable
     Public gs_CantPersonal As Integer = 0 'Cantidad de registros para grabar personal sin contar los 4 primeros del sistema
-    Public gs_LiberarPedido As Integer = 0 'Si esta en 1 se libera si esta en 0 no se libera
+    Public gs_LiberarPedido As Integer = 0 'Si esta en 0 no se libera, si esta en 1 se libera para volverlos a asignar y si esta en 2 se anula pedidos no entregados
 
     'Datos para conexion FTP
     Public gs_ftpIp As String = "localhost"
