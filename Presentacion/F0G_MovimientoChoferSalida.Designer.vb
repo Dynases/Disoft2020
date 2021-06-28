@@ -353,6 +353,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.cbalmacenOrigen.SelectedItem = Nothing
         Me.cbalmacenOrigen.Size = New System.Drawing.Size(295, 26)
         Me.cbalmacenOrigen.TabIndex = 238
+        Me.cbalmacenOrigen.Visible = False
         Me.cbalmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'LabelX7
@@ -372,6 +373,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.LabelX7.Size = New System.Drawing.Size(132, 20)
         Me.LabelX7.TabIndex = 237
         Me.LabelX7.Text = "Almacen Origen:"
+        Me.LabelX7.Visible = False
         '
         'btBuscarChofer
         '

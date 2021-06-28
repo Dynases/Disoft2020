@@ -352,17 +352,17 @@ Public Class F0G_MovimientoChoferEntrada
             Dim data As Decimal = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION"))
             Dim estado As Integer = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("estado")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("estado"))
             'a.icid ,a.icibid ,a.iccprod ,b.cadesc as producto,a.iccant ,Cast(null as image ) as img,1 as estado
-            If (estado = 2) Then
+            If (estado >= 1) Then
                 If (data > 0) Then
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", data, Bin.GetBuffer, estado)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, Bin.GetBuffer, estado)
                     contador += 1
                 Else
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", data, Bin.GetBuffer, -1)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, Bin.GetBuffer, -1)
                 End If
             Else
                 If (estado = 0) Then
                     'If (data > 0) Then
-                    detalleCopia.Rows.Add(0, numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", data, Bin.GetBuffer, 0)
+                    detalleCopia.Rows.Add(0, numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, Bin.GetBuffer, 0)
                     contador += 1
                     'End If
                 End If

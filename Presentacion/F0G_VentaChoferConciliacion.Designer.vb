@@ -105,7 +105,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(5)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1363, 611)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
@@ -114,7 +114,7 @@ Partial Class F0G_VentaChoferConciliacion
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanel4)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(5)
         Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1256, 560)
         '
         'MSuperTabControlPanelRegistro
@@ -122,7 +122,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel3)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GPanelProductos)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.Panel2)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1321, 611)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.Panel2, 0)
@@ -131,7 +131,7 @@ Partial Class F0G_VentaChoferConciliacion
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(5)
         Me.MPnSuperior.Size = New System.Drawing.Size(1363, 86)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -144,7 +144,7 @@ Partial Class F0G_VentaChoferConciliacion
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(0, 697)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5)
         Me.MPnInferior.Size = New System.Drawing.Size(1363, 44)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -157,11 +157,11 @@ Partial Class F0G_VentaChoferConciliacion
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1096, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -197,7 +197,7 @@ Partial Class F0G_VentaChoferConciliacion
         'MPanelToolBarImprimir
         '
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1256, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(5)
         '
         'MBtImprimir
         '
@@ -248,7 +248,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel1.Name = "GroupPanel1"
         Me.GroupPanel1.Size = New System.Drawing.Size(604, 262)
         '
@@ -298,7 +298,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.Panel1.Controls.Add(Me.LabelX1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(598, 235)
         Me.Panel1.TabIndex = 0
@@ -310,7 +310,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.btBuscarConciliacion.Image = Global.Presentacion.My.Resources.Resources.buscar
         Me.btBuscarConciliacion.ImageFixedSize = New System.Drawing.Size(23, 23)
         Me.btBuscarConciliacion.Location = New System.Drawing.Point(288, 53)
-        Me.btBuscarConciliacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btBuscarConciliacion.Margin = New System.Windows.Forms.Padding(4)
         Me.btBuscarConciliacion.Name = "btBuscarConciliacion"
         Me.btBuscarConciliacion.Size = New System.Drawing.Size(53, 30)
         Me.btBuscarConciliacion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -324,7 +324,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.swestado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.swestado.Location = New System.Drawing.Point(183, 123)
-        Me.swestado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.swestado.Margin = New System.Windows.Forms.Padding(4)
         Me.swestado.Name = "swestado"
         Me.swestado.OffBackColor = System.Drawing.Color.LawnGreen
         Me.swestado.OffText = "SIN COBRAR"
@@ -348,7 +348,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbConciliacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbConciliacion.ForeColor = System.Drawing.Color.Black
         Me.tbConciliacion.Location = New System.Drawing.Point(183, 54)
-        Me.tbConciliacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbConciliacion.Margin = New System.Windows.Forms.Padding(4)
         Me.tbConciliacion.Name = "tbConciliacion"
         Me.tbConciliacion.PreventEnterBeep = True
         Me.tbConciliacion.ReadOnly = True
@@ -366,7 +366,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.LabelX5.Location = New System.Drawing.Point(31, 158)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX5.Size = New System.Drawing.Size(121, 28)
@@ -385,7 +385,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.IsPopupCalendarOpen = False
         Me.tbFecha.Location = New System.Drawing.Point(183, 158)
-        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbFecha.Margin = New System.Windows.Forms.Padding(4)
         '
         '
         '
@@ -431,7 +431,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.LabelX4.Location = New System.Drawing.Point(31, 58)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX4.Size = New System.Drawing.Size(138, 20)
@@ -449,7 +449,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.LabelX3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.LabelX3.Location = New System.Drawing.Point(31, 129)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX3.Size = New System.Drawing.Size(61, 20)
@@ -468,7 +468,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbChofer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbChofer.ForeColor = System.Drawing.Color.Black
         Me.tbChofer.Location = New System.Drawing.Point(183, 89)
-        Me.tbChofer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbChofer.Margin = New System.Windows.Forms.Padding(4)
         Me.tbChofer.Name = "tbChofer"
         Me.tbChofer.PreventEnterBeep = True
         Me.tbChofer.Size = New System.Drawing.Size(359, 26)
@@ -485,7 +485,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.LabelX2.Location = New System.Drawing.Point(29, 91)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX2.Size = New System.Drawing.Size(61, 20)
@@ -504,7 +504,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCodigo.ForeColor = System.Drawing.Color.Black
         Me.tbCodigo.Location = New System.Drawing.Point(183, 20)
-        Me.tbCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbCodigo.Margin = New System.Windows.Forms.Padding(4)
         Me.tbCodigo.Name = "tbCodigo"
         Me.tbCodigo.PreventEnterBeep = True
         Me.tbCodigo.Size = New System.Drawing.Size(107, 26)
@@ -522,7 +522,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.LabelX1.Location = New System.Drawing.Point(29, 22)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX1.Size = New System.Drawing.Size(62, 20)
@@ -538,7 +538,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.GPanelProductos.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GPanelProductos.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GPanelProductos.Location = New System.Drawing.Point(0, 382)
-        Me.GPanelProductos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GPanelProductos.Margin = New System.Windows.Forms.Padding(4)
         Me.GPanelProductos.Name = "GPanelProductos"
         Me.GPanelProductos.Size = New System.Drawing.Size(1321, 229)
         '
@@ -582,7 +582,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.dgjCliente.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgjCliente.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.dgjCliente.Location = New System.Drawing.Point(0, 0)
-        Me.dgjCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgjCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.dgjCliente.Name = "dgjCliente"
         Me.dgjCliente.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.dgjCliente.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -600,7 +600,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 262)
-        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel3.Name = "GroupPanel3"
         Me.GroupPanel3.Size = New System.Drawing.Size(1321, 120)
         '
@@ -642,7 +642,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.dgjDetalle.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgjDetalle.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.dgjDetalle.Location = New System.Drawing.Point(0, 0)
-        Me.dgjDetalle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgjDetalle.Margin = New System.Windows.Forms.Padding(4)
         Me.dgjDetalle.Name = "dgjDetalle"
         Me.dgjDetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.dgjDetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -665,7 +665,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.pnTotales.DisabledBackColor = System.Drawing.Color.Empty
         Me.pnTotales.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnTotales.Location = New System.Drawing.Point(0, 51)
-        Me.pnTotales.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnTotales.Margin = New System.Windows.Forms.Padding(4)
         Me.pnTotales.Name = "pnTotales"
         Me.pnTotales.Size = New System.Drawing.Size(1315, 42)
         Me.pnTotales.Style.Alignment = System.Drawing.StringAlignment.Center
@@ -684,7 +684,7 @@ Partial Class F0G_VentaChoferConciliacion
         '
         Me.lbTotalCredito.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbTotalCredito.Location = New System.Drawing.Point(847, 7)
-        Me.lbTotalCredito.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lbTotalCredito.Margin = New System.Windows.Forms.Padding(4)
         Me.lbTotalCredito.Name = "lbTotalCredito"
         Me.lbTotalCredito.Size = New System.Drawing.Size(133, 28)
         Me.lbTotalCredito.TabIndex = 8
@@ -702,7 +702,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbTotalCredito.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTotalCredito.Increment = 1.0R
         Me.tbTotalCredito.Location = New System.Drawing.Point(988, 9)
-        Me.tbTotalCredito.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbTotalCredito.Margin = New System.Windows.Forms.Padding(4)
         Me.tbTotalCredito.Name = "tbTotalCredito"
         Me.tbTotalCredito.Size = New System.Drawing.Size(107, 27)
         Me.tbTotalCredito.TabIndex = 7
@@ -715,7 +715,7 @@ Partial Class F0G_VentaChoferConciliacion
         '
         Me.lbTotalContado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbTotalContado.Location = New System.Drawing.Point(591, 7)
-        Me.lbTotalContado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lbTotalContado.Margin = New System.Windows.Forms.Padding(4)
         Me.lbTotalContado.Name = "lbTotalContado"
         Me.lbTotalContado.Size = New System.Drawing.Size(133, 28)
         Me.lbTotalContado.TabIndex = 6
@@ -733,7 +733,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbTotalContado.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTotalContado.Increment = 1.0R
         Me.tbTotalContado.Location = New System.Drawing.Point(732, 9)
-        Me.tbTotalContado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbTotalContado.Margin = New System.Windows.Forms.Padding(4)
         Me.tbTotalContado.Name = "tbTotalContado"
         Me.tbTotalContado.Size = New System.Drawing.Size(107, 27)
         Me.tbTotalContado.TabIndex = 5
@@ -746,7 +746,7 @@ Partial Class F0G_VentaChoferConciliacion
         '
         Me.lbTotalDescuento.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbTotalDescuento.Location = New System.Drawing.Point(308, 7)
-        Me.lbTotalDescuento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lbTotalDescuento.Margin = New System.Windows.Forms.Padding(4)
         Me.lbTotalDescuento.Name = "lbTotalDescuento"
         Me.lbTotalDescuento.Size = New System.Drawing.Size(160, 28)
         Me.lbTotalDescuento.TabIndex = 4
@@ -764,7 +764,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbTotalDescuento.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTotalDescuento.Increment = 1.0R
         Me.tbTotalDescuento.Location = New System.Drawing.Point(476, 9)
-        Me.tbTotalDescuento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbTotalDescuento.Margin = New System.Windows.Forms.Padding(4)
         Me.tbTotalDescuento.Name = "tbTotalDescuento"
         Me.tbTotalDescuento.Size = New System.Drawing.Size(107, 27)
         Me.tbTotalDescuento.TabIndex = 3
@@ -781,7 +781,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.tbSubTotalContado.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbSubTotalContado.Increment = 1.0R
         Me.tbSubTotalContado.Location = New System.Drawing.Point(193, 9)
-        Me.tbSubTotalContado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbSubTotalContado.Margin = New System.Windows.Forms.Padding(4)
         Me.tbSubTotalContado.Name = "tbSubTotalContado"
         Me.tbSubTotalContado.Size = New System.Drawing.Size(107, 27)
         Me.tbSubTotalContado.TabIndex = 1
@@ -794,7 +794,7 @@ Partial Class F0G_VentaChoferConciliacion
         '
         Me.lbSubTotalContado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbSubTotalContado.Location = New System.Drawing.Point(12, 7)
-        Me.lbSubTotalContado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lbSubTotalContado.Margin = New System.Windows.Forms.Padding(4)
         Me.lbSubTotalContado.Name = "lbSubTotalContado"
         Me.lbSubTotalContado.Size = New System.Drawing.Size(173, 28)
         Me.lbSubTotalContado.TabIndex = 0
@@ -810,7 +810,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel4.Name = "GroupPanel4"
         Me.GroupPanel4.Size = New System.Drawing.Size(1256, 560)
         '
@@ -859,7 +859,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.grmovimiento.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.grmovimiento.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight
         Me.grmovimiento.Location = New System.Drawing.Point(0, 0)
-        Me.grmovimiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grmovimiento.Margin = New System.Windows.Forms.Padding(4)
         Me.grmovimiento.Name = "grmovimiento"
         Me.grmovimiento.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grmovimiento.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -874,7 +874,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.Panel2.Controls.Add(Me.GroupPanel1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1321, 262)
         Me.Panel2.TabIndex = 237
@@ -888,7 +888,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(604, 0)
-        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel2.Name = "GroupPanel2"
         Me.GroupPanel2.Size = New System.Drawing.Size(717, 262)
         '
@@ -928,7 +928,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.Panel3.Controls.Add(Me.dgjTotal)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(711, 235)
         Me.Panel3.TabIndex = 0
@@ -941,7 +941,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.dgjTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgjTotal.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgjTotal.Location = New System.Drawing.Point(0, 0)
-        Me.dgjTotal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgjTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.dgjTotal.Name = "dgjTotal"
         Me.dgjTotal.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.dgjTotal.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -960,7 +960,7 @@ Partial Class F0G_VentaChoferConciliacion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1363, 741)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "F0G_VentaChoferConciliacion"
         Me.Text = "F0G_MovimientoChofer"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)
