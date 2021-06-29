@@ -1014,13 +1014,13 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_ProductosPedido_GeneralNuevo(_Modo As Integer, Optional _CatClie As String = "") As DataTable
+    Public Shared Function L_ProductosPedido_GeneralNuevo(_Modo As Integer, Optional _CatClie As String = "", Optional _alm As String = "") As DataTable
         Dim _Tabla As DataTable
         Dim _Where As String
         If _Modo = 0 Then
             _Where = "canumi=canumi"
         Else
-            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi AND caserie=0"
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
         _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
 

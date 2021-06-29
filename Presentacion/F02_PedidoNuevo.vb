@@ -586,9 +586,9 @@ Public Class F02_PedidoNuevo
         'diseño de la grilla
         JGr_Productos.VisualStyle = VisualStyle.Office2007
     End Sub
-    Private Sub _PCargarGridProductosNuevo(idCatCli As Integer)
+    Private Sub _PCargarGridProductosNuevo(idCatCli As Integer, alm As String)
         'Dim dtProd, dtCatPrecios As New DataTable
-        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo(-1, idCatCli)
+        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo(-1, idCatCli, alm)
 
         JGr_Productos.BoundMode = BoundMode.Bound
         JGr_Productos.DataSource = dtProd2
@@ -2108,7 +2108,7 @@ Public Class F02_PedidoNuevo
         '_Modificar = True
         _PHabilitar()
         JGr_Clientes.Enabled = False
-        _PCargarGridProductosNuevo(Tb_CliCateg.Text)
+        _PCargarGridProductosNuevo(Tb_CliCateg.Text, 1)
     End Sub
 
     Private Sub _PEliminarRegistro()
@@ -2313,7 +2313,7 @@ Public Class F02_PedidoNuevo
             JGr_TipoProd.Row = 0
 
             ''Carga los productos
-            _PCargarGridProductosNuevo(Tb_CliCateg.Text)
+            _PCargarGridProductosNuevo(Tb_CliCateg.Text, 1)
             JGr_Productos.Focus()
             JGr_Productos.MoveTo(JGr_Productos.FilterRow)
             JGr_Productos.Col = 1
