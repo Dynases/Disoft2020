@@ -483,6 +483,12 @@
     <Compile Include="F02_Precio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F03_Cabfac.Designer.vb">
+      <DependentUpon>F03_Cabfac.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F03_Cabfac.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F0G_MovimientoChoferSalida.Designer.vb">
       <DependentUpon>F0G_MovimientoChoferSalida.vb</DependentUpon>
     </Compile>
@@ -1614,6 +1620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F02_Precio.resx">
       <DependentUpon>F02_Precio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F03_Cabfac.resx">
+      <DependentUpon>F03_Cabfac.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F0G_MovimientoChoferSalida.resx">
       <DependentUpon>F0G_MovimientoChoferSalida.vb</DependentUpon>

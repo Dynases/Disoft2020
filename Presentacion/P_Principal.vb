@@ -1762,6 +1762,16 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btArchivosCSV_Click(sender As Object, e As EventArgs) Handles btArchivosCSV.Click
+
+        F03_Cabfac.AllowTransparency = True
+        Dim frm As New F03_Cabfac
+
+        frm._nameButton = btArchivosCSV.Name
+        frm._modulo = FP_Pedido
+        frm.ShowDialog()
+    End Sub
+
 
 
 #End Region
