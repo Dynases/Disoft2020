@@ -7,6 +7,7 @@ Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports Google.Apis.Auth.OAuth2
 
+
 Public Class F03_Cabfac
 #Region "Variables Globales"
     Dim _inter As Integer = 0
@@ -15,6 +16,7 @@ Public Class F03_Cabfac
     Public _modulo As SideNavItem
     Public _nameButton As String
     Public _tab As SuperTabItem
+
 #End Region
     Private Sub _PIniciarTodo()
         Me.Text = "G E N E R A R    A R C H I V O S   C S V"
@@ -127,4 +129,5 @@ Public Class F03_Cabfac
     Private Sub BtnSalir1_Click(sender As Object, e As EventArgs) Handles BtnSalir1.Click
         Me.Close()
     End Sub
+
 End Class

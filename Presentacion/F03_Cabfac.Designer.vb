@@ -363,7 +363,7 @@ Partial Class F03_Cabfac
         Me.MPanelToolBarAccion.Controls.Add(Me.BtnGenerar)
         Me.MPanelToolBarAccion.Location = New System.Drawing.Point(2, 1)
         Me.MPanelToolBarAccion.Name = "MPanelToolBarAccion"
-        Me.MPanelToolBarAccion.Size = New System.Drawing.Size(200, 70)
+        Me.MPanelToolBarAccion.Size = New System.Drawing.Size(280, 70)
         Me.MPanelToolBarAccion.TabIndex = 8
         '
         'BtnSalir1
@@ -374,7 +374,7 @@ Partial Class F03_Cabfac
         Me.BtnSalir1.Image = Global.Presentacion.My.Resources.Resources.atras
         Me.BtnSalir1.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.BtnSalir1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.BtnSalir1.Location = New System.Drawing.Point(95, 0)
+        Me.BtnSalir1.Location = New System.Drawing.Point(107, 0)
         Me.BtnSalir1.Name = "BtnSalir1"
         Me.BtnSalir1.Size = New System.Drawing.Size(72, 70)
         Me.BtnSalir1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -395,7 +395,7 @@ Partial Class F03_Cabfac
         Me.BtnGenerar.Size = New System.Drawing.Size(72, 70)
         Me.BtnGenerar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.BtnGenerar.TabIndex = 9
-        Me.BtnGenerar.Text = "GENERAR"
+        Me.BtnGenerar.Text = "EXPORTAR"
         Me.BtnGenerar.TextColor = System.Drawing.Color.Black
         '
         'Timer1

@@ -1772,6 +1772,15 @@ Public Class P_Principal
         frm.ShowDialog()
     End Sub
 
+    Private Sub btnImportarPrecios_Click(sender As Object, e As EventArgs) Handles btnImportarInventario.Click
+        F03_ImportarInventario.AllowTransparency = True
+        Dim frm As New F03_ImportarInventario
+
+        frm._nameButton = btnImportarInventario.Name
+        frm._modulo = FP_Inventario
+        frm.ShowDialog()
+    End Sub
+
 
 
 #End Region
