@@ -18,44 +18,44 @@ Public Class F03_Cabfac
     Public _tab As SuperTabItem
 
 #End Region
+#Region "METODOS PRIVADOS"
     Private Sub _PIniciarTodo()
         Me.Text = "G E N E R A R    A R C H I V O S   C S V"
         tbFecha.Value = Now.Date
-
+        CheckTodosVendedor.CheckValue = True
     End Sub
 
-    Private Sub BtnGenerar_Click(sender As Object, e As EventArgs) Handles BtnGenerar.Click
-        Dim _ubicacion As String
-        DtCabfac = L_prGenerarCabfac(tbFecha.Value)
-        DtDetfac = L_prGenerarDetfac(tbFecha.Value)
+    Public Sub _prListarPrevendedores()
 
-        If DtCabfac.Rows.Count > 0 Then
-            If (Not Directory.Exists(gs_CarpetaRaiz + "\CSV")) Then
-                Directory.CreateDirectory(gs_CarpetaRaiz + "\CSV")
+        Dim dt As DataTable
+        dt = L_prListarPrevendedor()
+        'a.cbnumi , a.cbdesc As nombre, a.cbdirec, a.cbtelef, a.cbfnac 
+        Dim listEstCeldas As New List(Of Modelo.MCelda)
+        listEstCeldas.Add(New Modelo.MCelda("cbnumi", True, "ID", 50))
+        listEstCeldas.Add(New Modelo.MCelda("nombre", True, "NOMBRE", 280))
+        listEstCeldas.Add(New Modelo.MCelda("cbdirec", False, "DIRECCION", 220))
+        listEstCeldas.Add(New Modelo.MCelda("cbtelef", False, "Telefono".ToUpper, 200))
+        listEstCeldas.Add(New Modelo.MCelda("cbfnac", False, "F.Nacimiento".ToUpper, 150, "MM/dd,yyyy"))
+        Dim ef = New Efecto
+        ef.tipo = 3
+        ef.dt = dt
+        ef.SeleclCol = 1
+        ef.listEstCeldas = listEstCeldas
+        ef.alto = 50
+        ef.ancho = 250
+        ef.Context = "Seleccione Vendedor".ToUpper
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
+        bandera = ef.band
+        If (bandera = True) Then
+            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+            If (IsNothing(Row)) Then
+                tbVendedor.Focus()
+                Return
             End If
-
-            _ubicacion = gs_CarpetaRaiz + "\CSV\"
-            If (DataTableCSVFile(DtCabfac, "cabfac.csv", _ubicacion)) Then
-                If (DataTableCSVFile(DtDetfac, "detfac.csv", _ubicacion)) Then
-                    ToastNotification.Show(Me, "EXPORTACIÓN DE LOS ARCHIVOS EXITOSO EN LA UBICACION: " + _ubicacion,
-                                           My.Resources.OK, 5000,
-                                           eToastGlowColor.Green,
-                                           eToastPosition.BottomCenter)
-                End If
-
-            Else
-                ToastNotification.Show(Me, "FALLÓ LA EXPORTACIÓN DE LOS ARCHIVOS..!!!",
-                                           My.Resources.WARNING, 4000,
-                                           eToastGlowColor.Red,
-                                           eToastPosition.BottomCenter)
-            End If
-        Else
-            ToastNotification.Show(Me, "NO HAY REGISTROS PARA GENERAR...!!!",
-                                           My.Resources.WARNING, 4000,
-                                           eToastGlowColor.Red,
-                                           eToastPosition.BottomCenter)
+            tbCodigoVendedor.Text = Row.Cells("cbnumi").Value
+            tbVendedor.Text = Row.Cells("nombre").Value
         End If
-
     End Sub
 
     Private Function DataTableCSVFile(ByVal dt As DataTable, ByVal sfilename As String, ByVal strFilePath As String) As Boolean
@@ -112,6 +112,54 @@ Public Class F03_Cabfac
         Return False
     End Function
 
+#End Region
+#Region "EVENTOS"
+    Private Sub BtnGenerar_Click(sender As Object, e As EventArgs) Handles BtnGenerar.Click
+        Dim _ubicacion As String
+        If (CheckTodosVendedor.Checked) Then
+            DtCabfac = L_prGenerarCabfac(tbFecha.Value)
+            DtDetfac = L_prGenerarDetfac(tbFecha.Value)
+
+        End If
+        If (checkUnaVendedor.Checked) Then
+            DtCabfac = L_prGenerarCabfacUnVendedor(tbFecha.Value, tbCodigoVendedor.Text)
+            DtDetfac = L_prGenerarDetfacUnVendedor(tbFecha.Value, tbCodigoVendedor.Text)
+
+        End If
+
+        'DtCabfac = L_prGenerarCabfac(tbFecha.Value)
+        'DtDetfac = L_prGenerarDetfac(tbFecha.Value)
+
+        If DtCabfac.Rows.Count > 0 Then
+            If (Not Directory.Exists(gs_CarpetaRaiz + "\CSV")) Then
+                Directory.CreateDirectory(gs_CarpetaRaiz + "\CSV")
+            End If
+
+            _ubicacion = gs_CarpetaRaiz + "\CSV\"
+            If (DataTableCSVFile(DtCabfac, "cabfac.csv", _ubicacion)) Then
+                If (DataTableCSVFile(DtDetfac, "detfac.csv", _ubicacion)) Then
+                    ToastNotification.Show(Me, "EXPORTACIÓN DE LOS ARCHIVOS EXITOSO EN LA UBICACION: " + _ubicacion,
+                                           My.Resources.OK, 5000,
+                                           eToastGlowColor.Green,
+                                           eToastPosition.BottomCenter)
+                End If
+
+            Else
+                ToastNotification.Show(Me, "FALLÓ LA EXPORTACIÓN DE LOS ARCHIVOS..!!!",
+                                           My.Resources.WARNING, 4000,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.BottomCenter)
+            End If
+        Else
+            ToastNotification.Show(Me, "NO HAY REGISTROS PARA GENERAR...!!!",
+                                           My.Resources.WARNING, 4000,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.BottomCenter)
+        End If
+
+    End Sub
+
+
     Private Sub F03_Cabfac_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _PIniciarTodo()
     End Sub
@@ -130,4 +178,32 @@ Public Class F03_Cabfac
         Me.Close()
     End Sub
 
+    Private Sub tbVendedor_KeyDown(sender As Object, e As KeyEventArgs) Handles tbVendedor.KeyDown
+        If (checkUnaVendedor.Checked) Then
+            If e.KeyData = Keys.Control + Keys.Enter Then
+                _prListarPrevendedores()
+            End If
+        End If
+    End Sub
+
+    Private Sub checkUnaVendedor_CheckValueChanged(sender As Object, e As EventArgs) Handles checkUnaVendedor.CheckValueChanged
+        If (checkUnaVendedor.Checked) Then
+            CheckTodosVendedor.CheckValue = False
+            tbVendedor.Enabled = True
+            tbVendedor.BackColor = Color.White
+            tbVendedor.Focus()
+        End If
+    End Sub
+
+    Private Sub CheckTodosVendedor_CheckValueChanged(sender As Object, e As EventArgs) Handles CheckTodosVendedor.CheckValueChanged
+        If (CheckTodosVendedor.Checked) Then
+            checkUnaVendedor.CheckValue = False
+            tbVendedor.Enabled = True
+            tbVendedor.BackColor = Color.Gainsboro
+            tbVendedor.Clear()
+            tbCodigoVendedor.Clear()
+
+        End If
+    End Sub
+#End Region
 End Class

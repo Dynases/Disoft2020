@@ -37,6 +37,11 @@ Partial Class F03_Cabfac
         Me.BtnSalir1 = New DevComponents.DotNetBar.ButtonX()
         Me.BtnGenerar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.CheckTodosVendedor = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.checkUnaVendedor = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.lbvendedor = New DevComponents.DotNetBar.LabelX()
+        Me.tbCodigoVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +67,7 @@ Partial Class F03_Cabfac
         'PanelSuperior
         '
         Me.PanelSuperior.Controls.Add(Me.MPanelToolBarAccion)
-        Me.PanelSuperior.Size = New System.Drawing.Size(558, 72)
+        Me.PanelSuperior.Size = New System.Drawing.Size(718, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -76,8 +81,8 @@ Partial Class F03_Cabfac
         '
         'PanelInferior
         '
-        Me.PanelInferior.Location = New System.Drawing.Point(0, 181)
-        Me.PanelInferior.Size = New System.Drawing.Size(558, 39)
+        Me.PanelInferior.Location = New System.Drawing.Point(0, 304)
+        Me.PanelInferior.Size = New System.Drawing.Size(718, 39)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -121,12 +126,12 @@ Partial Class F03_Cabfac
         '
         'PanelToolBar2
         '
-        Me.PanelToolBar2.Location = New System.Drawing.Point(478, 0)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(638, 0)
         Me.PanelToolBar2.Visible = False
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Size = New System.Drawing.Size(558, 220)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(718, 343)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelSuperior, 0)
@@ -134,20 +139,20 @@ Partial Class F03_Cabfac
         '
         'MPanelUserAct
         '
-        Me.MPanelUserAct.Location = New System.Drawing.Point(358, 0)
+        Me.MPanelUserAct.Location = New System.Drawing.Point(518, 0)
         '
         'PanelContent
         '
         Me.PanelContent.Controls.Add(Me.MPanelSup)
-        Me.PanelContent.Size = New System.Drawing.Size(525, 109)
+        Me.PanelContent.Size = New System.Drawing.Size(685, 232)
         '
         'Panel1
         '
-        Me.Panel1.Size = New System.Drawing.Size(558, 109)
+        Me.Panel1.Size = New System.Drawing.Size(718, 232)
         '
         'MSuperTabControlPanel1
         '
-        Me.MSuperTabControlPanel1.Size = New System.Drawing.Size(525, 109)
+        Me.MSuperTabControlPanel1.Size = New System.Drawing.Size(685, 232)
         '
         'MSuperTabControl
         '
@@ -164,7 +169,7 @@ Partial Class F03_Cabfac
         Me.MSuperTabControl.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControl.ControlBox.Name = ""
         Me.MSuperTabControl.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControl.ControlBox.MenuBox, Me.MSuperTabControl.ControlBox.CloseBox})
-        Me.MSuperTabControl.Size = New System.Drawing.Size(558, 109)
+        Me.MSuperTabControl.Size = New System.Drawing.Size(718, 232)
         Me.MSuperTabControl.Controls.SetChildIndex(Me.MSuperTabControlPanel1, 0)
         '
         'MPanelSup
@@ -175,20 +180,25 @@ Partial Class F03_Cabfac
         Me.MPanelSup.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MPanelSup.Location = New System.Drawing.Point(0, 0)
         Me.MPanelSup.Name = "MPanelSup"
-        Me.MPanelSup.Size = New System.Drawing.Size(525, 109)
+        Me.MPanelSup.Size = New System.Drawing.Size(685, 232)
         Me.MPanelSup.TabIndex = 2
         '
         'GroupPanel1
         '
         Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel1.Controls.Add(Me.tbCodigoVendedor)
+        Me.GroupPanel1.Controls.Add(Me.tbVendedor)
+        Me.GroupPanel1.Controls.Add(Me.CheckTodosVendedor)
+        Me.GroupPanel1.Controls.Add(Me.checkUnaVendedor)
+        Me.GroupPanel1.Controls.Add(Me.lbvendedor)
         Me.GroupPanel1.Controls.Add(Me.LabelX4)
         Me.GroupPanel1.Controls.Add(Me.tbFecha)
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(525, 109)
+        Me.GroupPanel1.Size = New System.Drawing.Size(685, 232)
         '
         '
         '
@@ -218,7 +228,7 @@ Partial Class F03_Cabfac
         '
         Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel1.TabIndex = 236
-        Me.GroupPanel1.Text = "Seleccione Fecha para Generar Archivos"
+        Me.GroupPanel1.Text = "Filtros"
         '
         'LabelX4
         '
@@ -247,7 +257,7 @@ Partial Class F03_Cabfac
         Me.tbFecha.ButtonDropDown.Visible = True
         Me.tbFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFecha.IsPopupCalendarOpen = False
-        Me.tbFecha.Location = New System.Drawing.Point(109, 25)
+        Me.tbFecha.Location = New System.Drawing.Point(25, 52)
         '
         '
         '
@@ -403,11 +413,87 @@ Partial Class F03_Cabfac
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'tbVendedor
+        '
+        Me.tbVendedor.BackColor = System.Drawing.Color.Gainsboro
+        '
+        '
+        '
+        Me.tbVendedor.Border.Class = "TextBoxBorder"
+        Me.tbVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbVendedor.Location = New System.Drawing.Point(24, 119)
+        Me.tbVendedor.Name = "tbVendedor"
+        Me.tbVendedor.PreventEnterBeep = True
+        Me.tbVendedor.Size = New System.Drawing.Size(167, 22)
+        Me.tbVendedor.TabIndex = 249
+        '
+        'CheckTodosVendedor
+        '
+        '
+        '
+        '
+        Me.CheckTodosVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.CheckTodosVendedor.Location = New System.Drawing.Point(248, 118)
+        Me.CheckTodosVendedor.Name = "CheckTodosVendedor"
+        Me.CheckTodosVendedor.Size = New System.Drawing.Size(57, 23)
+        Me.CheckTodosVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.CheckTodosVendedor.TabIndex = 248
+        Me.CheckTodosVendedor.Text = "Todos"
+        '
+        'checkUnaVendedor
+        '
+        '
+        '
+        '
+        Me.checkUnaVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.checkUnaVendedor.Location = New System.Drawing.Point(201, 118)
+        Me.checkUnaVendedor.Name = "checkUnaVendedor"
+        Me.checkUnaVendedor.Size = New System.Drawing.Size(44, 23)
+        Me.checkUnaVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.checkUnaVendedor.TabIndex = 246
+        Me.checkUnaVendedor.Text = "Una"
+        '
+        'lbvendedor
+        '
+        Me.lbvendedor.AutoSize = True
+        Me.lbvendedor.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbvendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbvendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbvendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbvendedor.Location = New System.Drawing.Point(24, 91)
+        Me.lbvendedor.Name = "lbvendedor"
+        Me.lbvendedor.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbvendedor.Size = New System.Drawing.Size(68, 16)
+        Me.lbvendedor.TabIndex = 247
+        Me.lbvendedor.Text = "Vendedor:"
+        '
+        'tbCodigoVendedor
+        '
+        '
+        '
+        '
+        Me.tbCodigoVendedor.Border.Class = "TextBoxBorder"
+        Me.tbCodigoVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCodigoVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCodigoVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbCodigoVendedor.Location = New System.Drawing.Point(311, 118)
+        Me.tbCodigoVendedor.Name = "tbCodigoVendedor"
+        Me.tbCodigoVendedor.PreventEnterBeep = True
+        Me.tbCodigoVendedor.Size = New System.Drawing.Size(22, 22)
+        Me.tbCodigoVendedor.TabIndex = 250
+        Me.tbCodigoVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tbCodigoVendedor.Visible = False
+        '
         'F03_Cabfac
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(558, 220)
+        Me.ClientSize = New System.Drawing.Size(718, 343)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Name = "F03_Cabfac"
@@ -433,6 +519,7 @@ Partial Class F03_Cabfac
         Me.MSuperTabControl.ResumeLayout(False)
         Me.MPanelSup.ResumeLayout(False)
         Me.GroupPanel1.ResumeLayout(False)
+        Me.GroupPanel1.PerformLayout()
         CType(Me.tbFecha, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -455,4 +542,9 @@ Partial Class F03_Cabfac
     Friend WithEvents tbFecha As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents tbVendedor As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents CheckTodosVendedor As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents checkUnaVendedor As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents lbvendedor As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbCodigoVendedor As DevComponents.DotNetBar.Controls.TextBoxX
 End Class

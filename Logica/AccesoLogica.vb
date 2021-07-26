@@ -11909,6 +11909,34 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prGenerarCabfacUnVendedor(_fecha As String, _codVen As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@codVendedor", _codVen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_ArchivosCSV", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_prGenerarDetfacUnVendedor(_fecha As String, _codVen As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@fecha", _fecha))
+        _listParam.Add(New Datos.DParametro("@codVendedor", _codVen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_ArchivosCSV", _listParam)
+
+        Return _Tabla
+    End Function
 #End Region
 
 End Class
