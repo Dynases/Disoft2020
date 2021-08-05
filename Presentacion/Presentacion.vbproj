@@ -836,6 +836,12 @@
     <Compile Include="R01_SaldoFisicoValorado.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_SaldoProductoProveedor.Designer.vb">
+      <DependentUpon>R01_SaldoProductoProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_SaldoProductoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_StockDisponible.Designer.vb">
       <DependentUpon>R01_StockDisponible.vb</DependentUpon>
     </Compile>
@@ -1141,6 +1147,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>R_SaldosFisicoValoradoSinAgrupacion.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_StockActualProveedor.vb">
+      <DependentUpon>R_StockActualProveedor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reportes\R_StockActualSinAgrupacion.vb">
       <AutoGen>True</AutoGen>
@@ -1801,6 +1813,9 @@
     <EmbeddedResource Include="R01_SaldoFisicoValorado.resx">
       <DependentUpon>R01_SaldoFisicoValorado.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_SaldoProductoProveedor.resx">
+      <DependentUpon>R01_SaldoProductoProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_StockDisponible.resx">
       <DependentUpon>R01_StockDisponible.vb</DependentUpon>
     </EmbeddedResource>
@@ -1993,6 +2008,10 @@
     <EmbeddedResource Include="Reportes\R_SaldosFisicoValoradoSinAgrupacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_SaldosFisicoValoradoSinAgrupacion.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_StockActualProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_StockActualProveedor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_StockActualSinAgrupacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

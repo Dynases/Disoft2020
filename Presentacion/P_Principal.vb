@@ -1781,6 +1781,16 @@ Public Class P_Principal
         frm.ShowDialog()
     End Sub
 
+    Private Sub btnSaldoProdProv_Click(sender As Object, e As EventArgs) Handles btnSaldoProdProv.Click
+
+        R01_SaldoProductoProveedor.AllowTransparency = True
+        Dim frm As New R01_SaldoProductoProveedor
+        frm._nameButton = btnSaldoProdProv.Name
+        frm._modulo = FP_Inventario
+        frm.Show()
+
+    End Sub
+
 
 
 #End Region

@@ -4876,6 +4876,19 @@ Public Class AccesoLogica
         _Tabla = D_Datos_Tabla(campos, "VR_stockActual", _Where + "group by canumi,cacod,cadesc,cadesc2,caest,iacprod, caconv, cenum,cedesc order by cadesc")
         Return _Tabla
     End Function
+    Shared Function L_VistaStockActualProveedor(Optional _where1 As String = "") As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _where1 = String.Empty Then
+            _Where = "1=1"
+        Else
+            _Where = _where1
+        End If
+        'SUM(b.obpcant) - CONVERT(INTEGER, SUM(b.obpcant) / c.caconv) * c.caconv AS Unidad
+        Dim campos As String = "canumi,cacod,cadesc,cadesc2,caest,iacprod,Sum(iacant) as iacant, caconv, cenum,cedesc,iaalm,cagr1,cmdesc,casmin "
+        _Tabla = D_Datos_Tabla(campos, "VR_StockActualProveedor", _Where + "group by canumi,cacod,cadesc,cadesc2,caest,iacprod, caconv, cenum,cedesc, iaalm,cagr1,cmdesc,casmin order by cadesc")
+        Return _Tabla
+    End Function
     Shared Function L_VistaSaldoFisicoValorado(Optional _where1 As String = "") As DataTable
         Dim _Tabla As DataTable
         Dim _Where As String
