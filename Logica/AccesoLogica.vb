@@ -4712,6 +4712,27 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
+    Public Shared Function L_prReporteDetallePedidoTodos(_fechaI As String, _FechaF As String, _Estado As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 9))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@oaest", _Estado))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prReporteDetallePedidoVendedorUno(_fechaI As String, _FechaF As String, _codPrevendedor As String, _Estado As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 10))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _listParam.Add(New Datos.DParametro("@oaest", _Estado))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
 #End Region
 #Region "Saldo Cliente"
 

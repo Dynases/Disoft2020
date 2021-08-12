@@ -1782,13 +1782,19 @@ Public Class P_Principal
     End Sub
 
     Private Sub btnSaldoProdProv_Click(sender As Object, e As EventArgs) Handles btnSaldoProdProv.Click
-
         R01_SaldoProductoProveedor.AllowTransparency = True
         Dim frm As New R01_SaldoProductoProveedor
         frm._nameButton = btnSaldoProdProv.Name
         frm._modulo = FP_Inventario
         frm.Show()
+    End Sub
 
+    Private Sub btnDetallePedidos_Click(sender As Object, e As EventArgs) Handles btnDetallePedidos.Click
+        R01_DetallePedidos.AllowTransparency = True
+        Dim frm As New R01_DetallePedidos
+        frm._nameButton = btnDetallePedidos.Name
+        frm._modulo = FP_Pedido
+        frm.Show()
     End Sub
 
 
