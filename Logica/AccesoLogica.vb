@@ -2281,7 +2281,7 @@ Public Class AccesoLogica
         Else
             where = where + " and pedido.oazona = B.lanumi " _
                     & " and B.laprovi = C.cenum  AND C.cecon = 3" _
-                    & " and B.laprovi = C2.cenum  AND C2.cecon  = 2 " _
+                    & " and B.lazona = C2.cenum  AND C2.cecon  = 2 " _
                     & " and pedido.oanumi = pedidoDis.oacoanumi " _
                     & " and pedidoDis.oaccbnumi = personalDist.cbnumi " _
                     & " and pedido.oarepa = personalRep.cbnumi "
