@@ -429,7 +429,7 @@ Public Class F02_Compra
         btBuscarProveedor.Enabled = flat
 
         'Switch Button
-        swTipoVenta.IsReadOnly = flat
+        swTipoVenta.IsReadOnly = Not flat
         swEmision.IsReadOnly = Not flat
         swConsigna.IsReadOnly = Not flat
         swRetencion.IsReadOnly = Not flat
