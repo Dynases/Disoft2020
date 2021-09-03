@@ -1496,7 +1496,7 @@ Public Class P_Principal
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
         F02_Compra.AllowTransparency = True
-        Dim frm As New F02_Compra
+        Dim frm As New F02_Compra2
         'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
         frm._nameButton = btInveMPCompraProducto.Name
         'frm._tab = tab3
