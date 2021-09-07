@@ -175,8 +175,14 @@ Public Class F02_Compra2
                 dgjDetalle.Col = c + 1
             End If
             If (c = dgjDetalle.RootTable.Columns("cabsubtot").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 5
+                'dgjDetalle.Row = f
+                'dgjDetalle.Col = c + 5
+                If (dgjDetalle.Row = dgjDetalle.RowCount - 1) Then
+                    P_prAddFilaDetalle()
+                End If
+                dgjDetalle.Row = f + 1
+                dgjDetalle.Col = dgjDetalle.RootTable.Columns("ntc1numi").Index
+                P_prArmarAyudaProducto()
             End If
             If (c = dgjDetalle.RootTable.Columns("cabdesccj").Index) Then
                 If (dgjDetalle.Row = dgjDetalle.RowCount - 1) Then
@@ -1334,7 +1340,7 @@ Public Class F02_Compra2
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
             .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
@@ -2336,6 +2342,9 @@ Public Class F02_Compra2
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabtot") = CostoTotal
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabpcostocj") = PrecioCostoCaja
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabpcostoun") = PrecioCostoCaja / CantidadUnitaria
+                        dgjDetalle.SetValue("cabtot", CostoTotal)
+                        dgjDetalle.SetValue("cabpcostocj", PrecioCostoCaja)
+                        dgjDetalle.SetValue("cabpcostoun", PrecioCostoCaja / CantidadUnitaria)
                     End If
                     '''''''''
                 End If
@@ -2376,6 +2385,9 @@ Public Class F02_Compra2
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabtot") = CostoTotal
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabpcostocj") = PrecioCostoCaja
                         CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabpcostoun") = PrecioCostoCaja / CantidadUnitaria
+                        dgjDetalle.SetValue("cabtot", CostoTotal)
+                        dgjDetalle.SetValue("cabpcostocj", PrecioCostoCaja)
+                        dgjDetalle.SetValue("cabpcostoun", PrecioCostoCaja / CantidadUnitaria)
                     End If
                     '''''''''
                 End If

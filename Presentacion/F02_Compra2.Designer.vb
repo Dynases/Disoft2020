@@ -877,7 +877,7 @@ Partial Class F02_Compra2
         Me.LabelX5.Location = New System.Drawing.Point(447, 10)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX5.Size = New System.Drawing.Size(82, 23)
+        Me.LabelX5.Size = New System.Drawing.Size(99, 23)
         Me.LabelX5.TabIndex = 374
         Me.LabelX5.Text = "Tipo Compra:"
         Me.LabelX5.Visible = False
