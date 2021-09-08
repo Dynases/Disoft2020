@@ -3575,7 +3575,7 @@ Partial Class P_Principal
         Me.btInveMPCompra2.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
         Me.btInveMPCompra2.Name = "btInveMPCompra2"
         Me.btInveMPCompra2.SymbolColor = System.Drawing.Color.Empty
-        Me.btInveMPCompra2.Text = "COMPRA"
+        Me.btInveMPCompra2.Text = "COMPRA2"
         Me.btInveMPCompra2.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
         Me.btInveMPCompra2.TileSize = New System.Drawing.Size(250, 135)
         '

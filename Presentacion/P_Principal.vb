@@ -79,7 +79,13 @@ Public Class P_Principal
         l_habilitar_prog()
     End Sub
     Private Sub l_habilitar_prog()
-        btInveMPCompraProducto.Visible = gs_Parametros(0).Item("sycompra")
+        gs_VentanaCompra = gs_Parametros(0).Item("syVentanaCompra")
+        If gs_VentanaCompra = 1 Then
+            btInveMPCompraProducto.Visible = gs_Parametros(0).Item("sycompra")
+        Else
+            btInveMPCompra2.Visible = gs_Parametros(0).Item("sycompra")
+        End If
+
         btConfEquipo.Visible = gs_Parametros(0).Item("syclienteequipo")
         ItemContainerInveEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
         btMovPack.Visible = gs_Parametros(0).Item("syproductopack")
@@ -101,6 +107,8 @@ Public Class P_Principal
         End If
         gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
         gs_LiberarPedido = gs_Parametros(0).Item("syliberarpedido")
+
+
     End Sub
 
     Private Sub _prCambiarStyle()
