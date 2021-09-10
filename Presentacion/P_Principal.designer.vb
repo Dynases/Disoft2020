@@ -41,6 +41,7 @@ Partial Class P_Principal
         Me.btInveMPKardexProducto = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btInveMPProveedor = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btInveMPCompraProducto = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btInveMPCompra2 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btPagosCompras = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btnExistenciaProducto = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btStockDisponible = New DevComponents.DotNetBar.Metro.MetroTileItem()
@@ -216,7 +217,6 @@ Partial Class P_Principal
         Me.MetroTileItem1 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btEscRepCronoClasesPrac = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btEscRepHorasTrabajadas = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btInveMPCompra2 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         MetroTileFrame1 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         MetroTileFrame2 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         Me.SideNav1.SuspendLayout()
@@ -273,13 +273,13 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
         Me.SideNav1.Controls.Add(Me.SideNavPanelInventario)
         Me.SideNav1.Controls.Add(Me.SideNavPanelCompra)
         Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
         Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVenta)
-        Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
         Me.SideNav1.Controls.Add(Me.SideNavPanelCerrarSesion)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVentana)
         Me.SideNav1.Controls.Add(Me.SideNavPanel1)
@@ -302,6 +302,7 @@ Partial Class P_Principal
         Me.SideNavPanelInventario.Name = "SideNavPanelInventario"
         Me.SideNavPanelInventario.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelInventario.TabIndex = 87
+        Me.SideNavPanelInventario.Visible = False
         '
         'PanelInventario
         '
@@ -586,6 +587,27 @@ Partial Class P_Principal
         Me.btInveMPCompraProducto.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
         Me.btInveMPCompraProducto.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
         Me.btInveMPCompraProducto.TitleTextColor = System.Drawing.Color.Red
+        '
+        'btInveMPCompra2
+        '
+        Me.btInveMPCompra2.Image = CType(resources.GetObject("btInveMPCompra2.Image"), System.Drawing.Image)
+        Me.btInveMPCompra2.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btInveMPCompra2.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
+        Me.btInveMPCompra2.Name = "btInveMPCompra2"
+        Me.btInveMPCompra2.SymbolColor = System.Drawing.Color.Empty
+        Me.btInveMPCompra2.Text = "COMPRA2"
+        Me.btInveMPCompra2.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
+        Me.btInveMPCompra2.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btInveMPCompra2.TileStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btInveMPCompra2.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btInveMPCompra2.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btInveMPCompra2.TileStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btInveMPCompra2.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
+        Me.btInveMPCompra2.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
+        Me.btInveMPCompra2.TitleTextColor = System.Drawing.Color.Red
         '
         'btPagosCompras
         '
@@ -2543,7 +2565,6 @@ Partial Class P_Principal
         Me.SideNavPanelLogistica.Name = "SideNavPanelLogistica"
         Me.SideNavPanelLogistica.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelLogistica.TabIndex = 164
-        Me.SideNavPanelLogistica.Visible = False
         '
         'PanelLogistica
         '
@@ -2568,7 +2589,7 @@ Partial Class P_Principal
         Me.MetroTilePanelLogistica.ContainerControlProcessDialogKey = True
         Me.MetroTilePanelLogistica.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTilePanelLogistica.DragDropSupport = True
-        Me.MetroTilePanelLogistica.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.ItemContainerLogiTransacciones, Me.ItemContainer3, Me.btVendedorZonas})
+        Me.MetroTilePanelLogistica.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.ItemContainerLogiTransacciones, Me.ItemContainer3})
         Me.MetroTilePanelLogistica.ItemSpacing = 10
         Me.MetroTilePanelLogistica.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical
         Me.MetroTilePanelLogistica.Location = New System.Drawing.Point(0, 0)
@@ -2691,7 +2712,7 @@ Partial Class P_Principal
         Me.ItemContainer3.ItemSpacing = 10
         Me.ItemContainer3.MultiLine = True
         Me.ItemContainer3.Name = "ItemContainer3"
-        Me.ItemContainer3.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btLogiRepVisitasDiarias, Me.tLogiRepProductosMesa, Me.btVisitaClientes})
+        Me.ItemContainer3.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btLogiRepVisitasDiarias, Me.tLogiRepProductosMesa, Me.btVisitaClientes, Me.btVendedorZonas})
         '
         '
         '
@@ -3248,6 +3269,7 @@ Partial Class P_Principal
         '
         'FP_Logistica
         '
+        Me.FP_Logistica.Checked = True
         Me.FP_Logistica.Name = "FP_Logistica"
         Me.FP_Logistica.Panel = Me.SideNavPanelLogistica
         Me.FP_Logistica.Symbol = ""
@@ -3262,7 +3284,6 @@ Partial Class P_Principal
         '
         'FP_Inventario
         '
-        Me.FP_Inventario.Checked = True
         Me.FP_Inventario.Name = "FP_Inventario"
         Me.FP_Inventario.Panel = Me.SideNavPanelInventario
         Me.FP_Inventario.Symbol = ""
@@ -3567,27 +3588,6 @@ Partial Class P_Principal
         '
         Me.btEscRepHorasTrabajadas.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.btEscRepHorasTrabajadas.TitleText = "VEHICULO"
-        '
-        'btInveMPCompra2
-        '
-        Me.btInveMPCompra2.Image = CType(resources.GetObject("btInveMPCompra2.Image"), System.Drawing.Image)
-        Me.btInveMPCompra2.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btInveMPCompra2.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
-        Me.btInveMPCompra2.Name = "btInveMPCompra2"
-        Me.btInveMPCompra2.SymbolColor = System.Drawing.Color.Empty
-        Me.btInveMPCompra2.Text = "COMPRA2"
-        Me.btInveMPCompra2.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
-        Me.btInveMPCompra2.TileSize = New System.Drawing.Size(250, 135)
-        '
-        '
-        '
-        Me.btInveMPCompra2.TileStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btInveMPCompra2.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btInveMPCompra2.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btInveMPCompra2.TileStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btInveMPCompra2.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
-        Me.btInveMPCompra2.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
-        Me.btInveMPCompra2.TitleTextColor = System.Drawing.Color.Red
         '
         'P_Principal
         '

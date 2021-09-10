@@ -23,7 +23,7 @@ Public Class F01_RepZonaVendedores
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
         Me.Close()
         _modulo.Select()
-        _tab.Close()
+        Close()
     End Sub
 
 #End Region
