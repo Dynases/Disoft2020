@@ -23,8 +23,8 @@ Partial Class F1_MapaCLientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_MapaCLientes))
         Dim cbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_MapaCLientes))
         Me.PanelPrincipal = New System.Windows.Forms.Panel()
         Me.PanelMapa = New System.Windows.Forms.Panel()
         Me.btnz2 = New DevComponents.DotNetBar.ButtonX()
@@ -49,6 +49,7 @@ Partial Class F1_MapaCLientes
         Me.grCliente = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.swMarcarZonas = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.swClientes = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.checkTodos = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.cbZona = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -359,9 +360,9 @@ Partial Class F1_MapaCLientes
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel1.Location = New System.Drawing.Point(6, 115)
+        Me.GroupPanel1.Location = New System.Drawing.Point(6, 136)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(346, 305)
+        Me.GroupPanel1.Size = New System.Drawing.Size(346, 284)
         '
         '
         '
@@ -413,7 +414,7 @@ Partial Class F1_MapaCLientes
         Me.grCliente.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.grCliente.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grCliente.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.grCliente.Size = New System.Drawing.Size(340, 282)
+        Me.grCliente.Size = New System.Drawing.Size(340, 261)
         Me.grCliente.TabIndex = 0
         Me.grCliente.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         Me.grCliente.VisualStyleAreas.CardsStyle = Janus.Windows.GridEX.VisualStyle.Office2007
@@ -427,7 +428,7 @@ Partial Class F1_MapaCLientes
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel2.Location = New System.Drawing.Point(6, 6)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(346, 109)
+        Me.GroupPanel2.Size = New System.Drawing.Size(346, 130)
         '
         '
         '
@@ -463,14 +464,33 @@ Partial Class F1_MapaCLientes
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.White
+        Me.Panel6.Controls.Add(Me.swMarcarZonas)
         Me.Panel6.Controls.Add(Me.swClientes)
         Me.Panel6.Controls.Add(Me.checkTodos)
         Me.Panel6.Controls.Add(Me.cbZona)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(340, 86)
+        Me.Panel6.Size = New System.Drawing.Size(340, 107)
         Me.Panel6.TabIndex = 0
+        '
+        'swMarcarZonas
+        '
+        '
+        '
+        '
+        Me.swMarcarZonas.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swMarcarZonas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swMarcarZonas.Location = New System.Drawing.Point(80, 68)
+        Me.swMarcarZonas.Name = "swMarcarZonas"
+        Me.swMarcarZonas.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swMarcarZonas.OffText = "No Marcar Zonas"
+        Me.swMarcarZonas.OffTextColor = System.Drawing.Color.White
+        Me.swMarcarZonas.OnBackColor = System.Drawing.Color.Gold
+        Me.swMarcarZonas.OnText = "Marcar Zonas"
+        Me.swMarcarZonas.Size = New System.Drawing.Size(197, 22)
+        Me.swMarcarZonas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swMarcarZonas.TabIndex = 8
         '
         'swClientes
         '
@@ -780,4 +800,5 @@ Partial Class F1_MapaCLientes
     Friend WithEvents Dt_Fecha As DateTimePicker
     Friend WithEvents Timer1 As Timer
     Friend WithEvents swClientes As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents swMarcarZonas As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

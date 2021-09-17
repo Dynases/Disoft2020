@@ -47,6 +47,12 @@ Public Class F1_MapaCLientes
         _prObtenerDatatableClientes(swClientes.Value)
         _prCargarClientesJanus(TableCliente)
 
+        If swMarcarZonas.Value = True Then
+            _PCargarZonas()
+        Else
+            _PCargarZonasLimpiar()
+        End If
+
         slpanelInfo.Width = 0
         Panel1.Visible = True
         btnz1.Visible = True
@@ -77,6 +83,48 @@ Public Class F1_MapaCLientes
         End With
     End Sub
 
+    Private Sub _PCargarZonas()
+        Dim dtZonas As DataTable
+        Dim i As Integer
+        'DIBUJAR ZONAS
+        dtZonas = L_ZonaCabecera_GeneralCompleto1(0).Tables(0)
+        Dim colorZona As String
+        Dim idRegZona As Integer
+        For i = 0 To dtZonas.Rows.Count - 1
+            idRegZona = dtZonas.Rows(i).Item("lanumi")
+            colorZona = dtZonas.Rows(i).Item("lacolor")
+            'dibujar zona
+            _PDibujarZona(idRegZona, _Overlay, colorZona)
+        Next
+
+    End Sub
+    Private Sub _PCargarZonasLimpiar()
+        _Overlay.Markers.Clear()
+        _Overlay.Polygons.Clear()
+    End Sub
+    Private Sub _PDibujarZona(idZona As Integer, ByRef objOverlay As GMapOverlay, colorZona As String)
+        'cargar zona en mapa
+        Dim tPuntos As DataTable = L_ZonaDetallePuntos_General(-1, idZona).Tables(0)
+        Dim i As Integer
+        Dim lati, longi As Double
+        Dim listPuntos As New List(Of PointLatLng)
+        For i = 0 To tPuntos.Rows.Count - 1
+            lati = tPuntos.Rows(i).Item(1)
+            longi = tPuntos.Rows(i).Item(2)
+            Dim plg As PointLatLng = New PointLatLng(lati, longi)
+            listPuntos.Add(plg)
+        Next
+
+        'Dim color1 As String = JGr_Zonas1.CurrentRow.Cells(7).Value
+        Dim colorFinal As Color = ColorTranslator.FromHtml(colorZona)
+
+        Dim polygon As New GMapPolygon(listPuntos, "mypolygon")
+        'agregar color
+        polygon.Fill = New SolidBrush(Color.FromArgb(50, colorFinal))
+        polygon.Stroke = New Pen(Color.Red, 1)
+        'objOverlay.Polygons.Clear()
+        objOverlay.Polygons.Add(polygon)
+    End Sub
     Public Sub _prCargarClientesJanus(Cliente As DataTable)
         Dim dt As New DataTable
         dt = Cliente
@@ -449,6 +497,15 @@ Public Class F1_MapaCLientes
         If (checkTodos.Checked = False) Then
             cbZona.Enabled = True
             cbZona.ReadOnly = False
+            swMarcarZonas.Visible = False
+            swMarcarZonas.Value = False
+
+            If swMarcarZonas.Value = True Then
+                _PCargarZonas()
+            Else
+                _PCargarZonasLimpiar()
+            End If
+
             If (CType(cbZona.DataSource, DataTable).Rows.Count > 0) Then
                 cbZona.SelectedIndex = 0
                 Dim dt As DataTable = L_prListarClienteZona(cbZona.Value)
@@ -461,6 +518,14 @@ Public Class F1_MapaCLientes
         If (checkTodos.Checked = True) Then
             cbZona.Enabled = False
             cbZona.ReadOnly = True
+            swMarcarZonas.Visible = True
+            swMarcarZonas.Value = False
+
+            If swMarcarZonas.Value = True Then
+                _PCargarZonas()
+            Else
+                _PCargarZonasLimpiar()
+            End If
 
             Dim dt As DataTable = L_prMapaCLienteGeneral(swClientes.Value)
             _prCargarClientesJanus(dt)
@@ -597,6 +662,12 @@ Public Class F1_MapaCLientes
 
         _prObtenerDatatableClientes(swClientes.Value)
         _prCargarClientesJanus(TableCliente)
+
+        If swMarcarZonas.Value = True Then
+            _PCargarZonas()
+        Else
+            _PCargarZonasLimpiar()
+        End If
 
         Dim dt As DataTable = CType(grCliente.DataSource, DataTable).Copy
         dt.Clear()
