@@ -61,6 +61,7 @@ Module P_Global
 
     Public gs_VentanaCompra As Integer = 1 'Corresponde al nombre de la ventana de la compra que se quiere mostrar 1=F02_Compra o 2=F02_Compra2
 
+    Public gs_ClientesNuevHist As Integer = 1 'En el programa Ubicacion del cliente 1 Muestra  los clientes de la TC004 y 2 Muestra clientes de la TC004 y TC004H
 #Region "Variables"
 
     Public gs_separadorDecimal As Char = Application.CurrentCulture.NumberFormat.NumberDecimalSeparator

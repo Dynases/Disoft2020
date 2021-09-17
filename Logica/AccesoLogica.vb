@@ -6531,14 +6531,19 @@ Public Class AccesoLogica
 
 #Region "METODOS MARCO"
 #Region "MApasClientes"
-    Public Shared Function L_prMapaCLienteGeneral() As DataTable
+    Public Shared Function L_prMapaCLienteGeneral(tipoCliente As Boolean) As DataTable
         Dim _Tabla As DataTable
-
         Dim _listParam As New List(Of Datos.DParametro)
 
-        _listParam.Add(New Datos.DParametro("@tipo", 8))
-        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
-        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+        If tipoCliente = True Then
+            _listParam.Add(New Datos.DParametro("@tipo", 8))
+            _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+            _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+        Else
+            _listParam.Add(New Datos.DParametro("@tipo", 18))
+            _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+            _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+        End If
 
         Return _Tabla
     End Function
@@ -9120,6 +9125,15 @@ Public Class AccesoLogica
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 11))
+        _listParam.Add(New Datos.DParametro("@zona", numizona))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prListarClienteZonaconTC004H(numizona As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 33))
         _listParam.Add(New Datos.DParametro("@zona", numizona))
         _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)

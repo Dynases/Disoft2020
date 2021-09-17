@@ -32,11 +32,19 @@ Public Class F1_MapaCLientes
         If (Not gb_ConexionAbierta) Then
             L_prAbrirConexion("localhost", "sersolinf", "321", "BDDistBHF")
         End If
+
+        If gs_ClientesNuevHist = 1 Then
+            swClientes.Visible = False
+        Else
+            swClientes.Visible = True
+        End If
+
+
         _prCargarComboLibreriaZona(cbZona)
         Me.Text = "U B I C A C I Ó N   D E   C L I E N T E S"
 
         _prInicarMapa()
-        _prObtenerDatatableClientes()
+        _prObtenerDatatableClientes(swClientes.Value)
         _prCargarClientesJanus(TableCliente)
 
         slpanelInfo.Width = 0
@@ -167,8 +175,8 @@ Public Class F1_MapaCLientes
 
 
     End Sub
-    Public Sub _prObtenerDatatableClientes()
-        TableCliente = L_prMapaCLienteGeneral()
+    Public Sub _prObtenerDatatableClientes(TipoCliente As Boolean)
+        TableCliente = L_prMapaCLienteGeneral(TipoCliente)
         _prDibujarMarketCliente(TableCliente.Rows.Count - 1, TableCliente)
     End Sub
 
@@ -454,7 +462,7 @@ Public Class F1_MapaCLientes
             cbZona.Enabled = False
             cbZona.ReadOnly = True
 
-            Dim dt As DataTable = L_prMapaCLienteGeneral()
+            Dim dt As DataTable = L_prMapaCLienteGeneral(swClientes.Value)
             _prCargarClientesJanus(dt)
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
@@ -463,7 +471,13 @@ Public Class F1_MapaCLientes
 
     Private Sub cbZona_ValueChanged(sender As Object, e As EventArgs) Handles cbZona.ValueChanged
         If (cbZona.SelectedIndex >= 0) Then
-            Dim dt As DataTable = L_prListarClienteZona(cbZona.Value)
+            Dim dt As DataTable
+            If swClientes.Value = True Then
+               dt = L_prListarClienteZona(cbZona.Value)
+            Else
+                dt = L_prListarClienteZonaconTC004H(cbZona.Value)
+            End If
+
             _prCargarClientesJanus(dt)
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
@@ -580,6 +594,10 @@ Public Class F1_MapaCLientes
     End Sub
 
     Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
+
+        _prObtenerDatatableClientes(swClientes.Value)
+        _prCargarClientesJanus(TableCliente)
+
         Dim dt As DataTable = CType(grCliente.DataSource, DataTable).Copy
         dt.Clear()
 
@@ -592,9 +610,6 @@ Public Class F1_MapaCLientes
 
 
         _Overlay.Markers.Clear()
-
-
-
         _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
     End Sub
 
@@ -635,7 +650,7 @@ Public Class F1_MapaCLientes
             cbZona.Enabled = False
             cbZona.ReadOnly = True
 
-            Dim dt As DataTable = L_prMapaCLienteGeneral()
+            Dim dt As DataTable = L_prMapaCLienteGeneral(swClientes.Value)
             _prCargarClientesJanus(dt)
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
@@ -665,4 +680,6 @@ Public Class F1_MapaCLientes
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+
 End Class

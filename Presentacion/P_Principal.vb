@@ -108,6 +108,8 @@ Public Class P_Principal
         gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
         gs_LiberarPedido = gs_Parametros(0).Item("syliberarpedido")
 
+        'Sirve para el Programa ubicacion del cliente para mostrar 1=solo de la tabla TC004 o  2=TC004 y TC004H
+        gs_ClientesNuevHist = gs_Parametros(0).Item("syClientesNuevHist")
 
     End Sub
 
