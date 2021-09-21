@@ -1482,6 +1482,27 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+    Public Shared Function L_prActualizarTO001C(oanumi As Integer, conciliacion As String) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 33))
+        _listParam.Add(New Datos.DParametro("@oanumi", oanumi))
+        _listParam.Add(New Datos.DParametro("@nconci", conciliacion))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
     Public Shared Function L_prListaPedidos() As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)

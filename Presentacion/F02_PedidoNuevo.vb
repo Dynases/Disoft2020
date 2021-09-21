@@ -1598,11 +1598,26 @@ Public Class F02_PedidoNuevo
 
                 End If
 
-                L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "1"), "1", "0")
+                L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), "1", "0")
                 L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0", dtpFechaVenc.Value.ToString("yyyy/MM/dd"))
                 If (swTipoVenta.Value = False) Then  ''''Grabar Credito
                     L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
                 End If
+
+                'Grabo en la TO001C
+                Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(cbDistribuidor.Value.ToString)
+                If (tabla.Rows.Count > 0) Then
+                    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
+                    L_prActualizarTO001C(Tb_Id.Text, tabla.Rows(0).Item("ibid"))
+
+                Else
+                    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
+                    '_IdConciliacion = 0
+
+                End If
+
+
+
                 'Cambiar de zona al cliente a la zona del chofer
                 L_GrabarModificarCliente("cczona=" + Tb_CliCodZona.Text, "ccnumi=" + Str(Tb_CliCod.Text))
 
@@ -1657,7 +1672,7 @@ Public Class F02_PedidoNuevo
 
 
                 'grabar estado del pedido
-                L_PedidoEstados_Grabar(Tb_Id.Text, IIf(_nuevoBasePeriodico = True, "10", "1"), Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
+                L_PedidoEstados_Grabar(Tb_Id.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
 
                 ''actualizar el promedio de pedidos del cliente
                 ''If _nuevoBasePeriodico = False Then
