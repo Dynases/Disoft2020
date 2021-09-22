@@ -1027,6 +1027,22 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_ProductosPedido_GeneralNuevoStockDisp(_Modo As Integer, Optional _CatClie As String = "", Optional Mayor0 As Boolean = True) As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = "canumi=canumi"
+        ElseIf Mayor0 = True Then
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi AND caserie=0 AND (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0))> 0 "
+        Else
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND caest=1 AND iacprod=canumi AND caserie=0 "
+        End If
+
+        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant, ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0) AS Pedidos, iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0) AS Disponible", "TC001,TC003, TI001", _Where + " order by canumi")
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_ProductosPedido_General2(_Modo As Integer, Optional _CatProd As String = "", Optional _CatClie As String = "", Optional _ordenEspecifico As String = "0", Optional _numiCli As String = "0") As DataTable
         Dim _Tabla As DataTable
         Dim _Where As String

@@ -588,7 +588,7 @@ Public Class F02_PedidoNuevo
     End Sub
     Private Sub _PCargarGridProductosNuevo(idCatCli As Integer)
         'Dim dtProd, dtCatPrecios As New DataTable
-        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo(-1, idCatCli)
+        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevoStockDisp(-1, idCatCli, swStock.Value)
 
         JGr_Productos.BoundMode = BoundMode.Bound
         JGr_Productos.DataSource = dtProd2
@@ -616,7 +616,7 @@ Public Class F02_PedidoNuevo
         With JGr_Productos.RootTable.Columns(2)
             .Caption = "Descripcion"
             .Key = "Descripcion"
-            .Width = 200
+            .Width = 150
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .AllowSort = False
@@ -649,7 +649,16 @@ Public Class F02_PedidoNuevo
             .Caption = "Stock"
             .Visible = False
         End With
-
+        With JGr_Productos.RootTable.Columns(9)
+            .Caption = "Pedidos"
+            .Visible = False
+        End With
+        With JGr_Productos.RootTable.Columns(10)
+            .Caption = "StockDisp."
+            .Width = 70
+            .FormatString = "0.00"
+            .Visible = True
+        End With
 
         'añadir columna de imagenes
         'JGr_Productos.RootTable.Columns.Add("Imagenes", ColumnType.Image)
@@ -1157,6 +1166,8 @@ Public Class F02_PedidoNuevo
         MBtGrabar.Enabled = True
         Tb_Fecha.Enabled = True
 
+        swStock.IsReadOnly = False
+
         'BBtn_Nuevo.Enabled = False
         'BBtn_Modificar.Enabled = False
         'BBtn_Eliminar.Enabled = False
@@ -1203,6 +1214,8 @@ Public Class F02_PedidoNuevo
         Tb_Obs2.ReadOnly = True
         Tb_PromCosumo.ReadOnly = True
         Tb_TotalPedidos3Meses.ReadOnly = True
+
+        swStock.IsReadOnly = True
 
         cbDistribuidor.ReadOnly = True
         cbPreVendedor.ReadOnly = True
