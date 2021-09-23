@@ -47,7 +47,16 @@ Public Class R01_SaldoProductoProveedor
         g_prArmarCombo(cbProveedor, DtP, 60, 200, "COD", "PROVEEDOR")
     End Sub
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
-        P_prCargarReporte()
+        If cbProveedor.SelectedIndex < 0 Then
+            ToastNotification.Show(Me, "Debe Seleccionar un Proveedor..!!!",
+                                      My.Resources.INFORMATION, 2000,
+                                      eToastGlowColor.Blue,
+                                      eToastPosition.TopCenter)
+        Else
+            P_prCargarReporte()
+        End If
+
+
     End Sub
 
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click

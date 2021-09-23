@@ -322,6 +322,7 @@ Public Class F02_MovimientoPack
 
         'Usuario del sistema
         MTbUsuario.Text = gs_user
+
     End Sub
 
     Private Sub P_prCambiarFuenteComponentes()
@@ -384,6 +385,8 @@ Public Class F02_MovimientoPack
 
         'Grillas
         dgjDetalle.AllowEdit = IIf(flat, 1, 2)
+
+        gpDesarmarPack.Enabled = Not flat
     End Sub
 
     Private Sub P_prLimpiar()
@@ -504,6 +507,7 @@ Public Class F02_MovimientoPack
         'dtiFechaDoc.Select()
         tbCodPack.Select()
         P_prAddFilaDetalle()
+
     End Sub
 
     Private Sub P_prModificarRegistro()
@@ -660,7 +664,6 @@ Public Class F02_MovimientoPack
         If (Not MBtGrabar.Enabled) Then
             Me.Close()
             _modulo.Select()
-            '_tab.Close()
         Else
             P_prLimpiar()
             P_prHDComponentes(False)
@@ -1055,7 +1058,7 @@ Public Class F02_MovimientoPack
         Dim res As Boolean = True
         'MEP.Clear()
 
-        If (Not IsNumeric(tbCantNP.Value) < 0) Then
+        If (tbCantNP.Value <= 0) Then
             tbCantNP.BackColor = Color.Red
             MEP.SetError(tbCantNP, "La cantidad debe ser mayor a cero!".ToUpper)
             res = False
@@ -1063,6 +1066,13 @@ Public Class F02_MovimientoPack
             tbCantNP.BackColor = Color.White
             MEP.SetError(tbCantNP, "")
         End If
+
+        If (dgjDesArmPack.RowCount = 0) Then
+            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            ToastNotification.Show(Me, "Usted debe apretar primero el botón Desarmar Pack.".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+            res = False
+        End If
+
         Return res
     End Function
 
@@ -1263,11 +1273,10 @@ Public Class F02_MovimientoPack
             Dim res As Boolean = L_fnGrabarDesarmado(tbCodigo.Text, tbCodPack.Text, tbCantNP.Value, dtiFechaDesarm.Value, dt)
 
             If (res) Then
-                P_prLimpiar()
-                BoNavegar = False
+                'P_prLimpiar()
+                'BoNavegar = False
                 P_prArmarGrillaBusqueda()
                 tbCodPack.Select()
-                'BoNavegar = True
 
                 ToastNotification.Show(Me, "Desarmado de Pack ".ToUpper + tbCodigo.Text + " Grabado con éxito.".ToUpper,
                                    My.Resources.GRABACION_EXITOSA,
