@@ -219,10 +219,12 @@ Public Class F01_Personal
     End Sub
 
     Private Sub P_Eliminar()
-        Dim _Nombre As String = "", _CVal As Integer
-        _CVal = L_Validartabla("TC002", TbCodigo.Text, _Nombre)
-        If _CVal > 0 Then
-            ToastNotification.Show(Me, "Personal esta siendo usado por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.".ToUpper,
+        Dim _Nombre As String = "", _CVal As Boolean
+
+        Dim mensajeError As String = ""
+        _CVal = L_fnbValidarEliminacion(TbCodigo.Text, "TC002", "cbnumi", mensajeError)
+        If _CVal = False Then
+            ToastNotification.Show(Me, mensajeError.ToString + ". Eliminacion Rechazada.".ToUpper,
                                            My.Resources.WARNING, InDuracion * 1000,
                                            eToastGlowColor.Red,
                                            eToastPosition.TopCenter)

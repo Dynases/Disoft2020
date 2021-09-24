@@ -101,7 +101,7 @@ Partial Class F02_MovimientoPack
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1318, 503)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
@@ -110,20 +110,20 @@ Partial Class F02_MovimientoPack
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(642, 455)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1276, 503)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1318, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -136,7 +136,7 @@ Partial Class F02_MovimientoPack
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(0, 573)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(1318, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -149,11 +149,11 @@ Partial Class F02_MovimientoPack
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1118, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -190,7 +190,7 @@ Partial Class F02_MovimientoPack
         'MPanelToolBarImprimir
         '
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1238, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBtImprimir
         '
@@ -887,7 +887,7 @@ Partial Class F02_MovimientoPack
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1318, 609)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F02_MovimientoPack"
         Me.Text = "F02_Movimiento"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)

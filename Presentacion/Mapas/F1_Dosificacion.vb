@@ -244,8 +244,18 @@ Public Class F1_Dosificacion
     End Function
 
     Public Overrides Sub _PMOEliminarRegistro()
-        Dim ef = New Efecto
+        Dim _Nombre As String = "", _CVal As Integer
+        _CVal = L_Validartabla("TS002", TbNroAutoriz.Text, _Nombre)
+        If _CVal > 0 Then
+            ToastNotification.Show(Me, "Esta Dosificación esta siendo usado por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.".ToUpper,
+                                            My.Resources.WARNING, 3000,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.TopCenter)
+            Exit Sub
+        End If
 
+
+        Dim ef = New Efecto
         ef.tipo = 2
         ef.Context = "¿esta seguro de eliminar el registro?".ToUpper
         ef.Header = "mensaje principal".ToUpper
@@ -254,7 +264,7 @@ Public Class F1_Dosificacion
         bandera = ef.band
         If (bandera = True) Then
             Dim mensajeError As String = ""
-            Dim res As Boolean = L_fnEliminarDosificacion(TbCodigo.Text, mensajeError)
+            Dim res As Boolean = L_fnEliminarDosificacion(TbNroAutoriz.Text, mensajeError)
             If res Then
                 Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
                 ToastNotification.Show(Me,

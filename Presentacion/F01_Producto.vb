@@ -449,15 +449,6 @@ Public Class F01_Producto
     End Sub
 
     Private Sub P_prEliminarRegistro()
-        Dim _Nombre As String = "", _CVal As Integer
-        _CVal = L_Validartabla("TC001", TbCodigo.Text, _Nombre)
-        If _CVal > 0 Then
-            ToastNotification.Show(Me, "Producto esta siendo usado por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.".ToUpper,
-                                   My.Resources.GRABACION_EXITOSA, InDuracion * 1000,
-                                   eToastGlowColor.Green,
-                                   eToastPosition.TopCenter)
-            Exit Sub
-        End If
 
         Dim numi As String = TbCodigo.Text 'Valor del código único
         Dim info As New TaskDialogInfo("¿esta seguro de eliminar el registro?".ToUpper,
@@ -491,7 +482,7 @@ Public Class F01_Producto
                 End If
             Else
                 ToastNotification.Show(Me, mensajeError.ToUpper,
-                                           My.Resources.I64x64_error, InDuracion * 1000,
+                                           My.Resources.WARNING, InDuracion * 1000,
                                            eToastGlowColor.Red,
                                            eToastPosition.TopCenter)
             End If

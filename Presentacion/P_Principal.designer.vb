@@ -273,9 +273,9 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanelInventario)
         Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
-        Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
         Me.SideNav1.Controls.Add(Me.SideNavPanelCompra)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
@@ -302,6 +302,7 @@ Partial Class P_Principal
         Me.SideNavPanelInventario.Name = "SideNavPanelInventario"
         Me.SideNavPanelInventario.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelInventario.TabIndex = 87
+        Me.SideNavPanelInventario.Visible = False
         '
         'PanelInventario
         '
@@ -1205,7 +1206,6 @@ Partial Class P_Principal
         Me.SideNavPaenlConf.Name = "SideNavPaenlConf"
         Me.SideNavPaenlConf.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPaenlConf.TabIndex = 2
-        Me.SideNavPaenlConf.Visible = False
         '
         'PanelConf
         '
@@ -1515,7 +1515,7 @@ Partial Class P_Principal
         Me.btConfDosificacion.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
         Me.btConfDosificacion.Name = "btConfDosificacion"
         Me.btConfDosificacion.SymbolColor = System.Drawing.Color.Empty
-        Me.btConfDosificacion.Text = "FORMULARIO"
+        Me.btConfDosificacion.Text = "DOSIFICACION"
         Me.btConfDosificacion.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Blue
         Me.btConfDosificacion.TileSize = New System.Drawing.Size(250, 135)
         '
@@ -3262,6 +3262,7 @@ Partial Class P_Principal
         '
         'FP_Configuracion
         '
+        Me.FP_Configuracion.Checked = True
         Me.FP_Configuracion.Name = "FP_Configuracion"
         Me.FP_Configuracion.Panel = Me.SideNavPaenlConf
         Me.FP_Configuracion.Symbol = ""
@@ -3283,7 +3284,6 @@ Partial Class P_Principal
         '
         'FP_Inventario
         '
-        Me.FP_Inventario.Checked = True
         Me.FP_Inventario.Name = "FP_Inventario"
         Me.FP_Inventario.Panel = Me.SideNavPanelInventario
         Me.FP_Inventario.Symbol = ""

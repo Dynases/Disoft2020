@@ -134,13 +134,19 @@ Public Class F1_Bancos
     End Function
 
     Private Sub _prAsignarPermisos()
+        Dim dtRolUsu() As DataRow = L_prRolDetalleGeneral(gi_userRol).Select("yaprog='" + _nameButton + "'")
 
-        Dim dtRolUsu As DataTable = L_prRolDetalleGeneral(gi_userRol)
+        Dim show As Boolean = False
+        Dim add As Boolean = False
+        Dim modif As Boolean = False
+        Dim del As Boolean = False
 
-        Dim show As Boolean = dtRolUsu.Rows(0).Item("ycshow")
-        Dim add As Boolean = dtRolUsu.Rows(0).Item("ycadd")
-        Dim modif As Boolean = dtRolUsu.Rows(0).Item("ycmod")
-        Dim del As Boolean = dtRolUsu.Rows(0).Item("ycdel")
+        If (dtRolUsu.Count = 1) Then
+            show = dtRolUsu(0).Item("ycshow")
+            add = dtRolUsu(0).Item("ycadd")
+            modif = dtRolUsu(0).Item("ycmod")
+            del = dtRolUsu(0).Item("ycdel")
+        End If
 
         If add = False Then
             btnNuevo.Visible = False

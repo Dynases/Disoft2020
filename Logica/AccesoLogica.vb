@@ -4236,6 +4236,8 @@ Public Class AccesoLogica
         End If
         Return 0
     End Function
+
+
     Public Shared Function L_Validar_Usuario(_Nom As String, _Pass As String) As DataTable
         Dim _Tabla As DataTable
         _Tabla = D_Datos_Tabla("ydnumi, yduser, ydrol, ydpass, ydest, ydcant, ydfontsize", "ZY003", "yduser = '" + _Nom + "' AND ydpass = '" + _Pass + "'")
@@ -10255,24 +10257,21 @@ Public Class AccesoLogica
 
     Public Shared Function L_fnEliminarDosificacion(numi As String, ByRef mensaje As String) As Boolean
         Dim _resultado As Boolean
-        If L_fnbValidarEliminacion(numi, "TS002", "sbnumi", mensaje) = True Then
-            Dim _Tabla As DataTable
-            Dim _listParam As New List(Of Datos.DParametro)
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
 
-            _listParam.Add(New Datos.DParametro("@tipo", -1))
-            _listParam.Add(New Datos.DParametro("@numi", numi))
-            _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@tipo", -1))
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 
-            _Tabla = D_ProcedimientoConParam("sp_go_TS002", _listParam)
+        _Tabla = D_ProcedimientoConParam("sp_go_TS002", _listParam)
 
-            If _Tabla.Rows.Count > 0 Then
-                _resultado = True
-            Else
-                _resultado = False
-            End If
+        If _Tabla.Rows.Count > 0 Then
+            _resultado = True
         Else
             _resultado = False
         End If
+
         Return _resultado
     End Function
 

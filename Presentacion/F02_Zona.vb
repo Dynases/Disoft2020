@@ -430,8 +430,8 @@ Public Class F02_Zona
         Dim _Nombre As String = "", _CVal As Integer
         _CVal = L_Validartabla("TL001", TbCodigo.Text, _Nombre)
         If _CVal > 0 Then
-            ToastNotification.Show(Me, "Zona esta siendo usada por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.",
-                                   My.Resources.GRABACION_EXITOSA, InDuracion * 1000,
+            ToastNotification.Show(Me, "Zona esta siendo usada por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.".ToUpper,
+                                   My.Resources.WARNING, InDuracion * 1000,
                                    eToastGlowColor.Green,
                                    eToastPosition.TopCenter)
             Exit Sub
