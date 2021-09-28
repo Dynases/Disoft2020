@@ -235,8 +235,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         '
         'SuperTabControlPanel2
         '
@@ -248,6 +248,7 @@ Partial Class F0_PedidosAsignacion
         'SuperTabItem2
         '
         Me.SuperTabItem2.Text = "PEDIDOS PENDIENTES"
+        Me.SuperTabItem2.Visible = False
         '
         'SuperTabControlPanel1
         '
@@ -2376,7 +2377,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 130)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 108)
         '
         'ToolStripMenuItem1
         '
@@ -2418,10 +2419,9 @@ Partial Class F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(1022, 602)
+        Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_PedidosAsignacion"
-        Me.Opacity = 0.05R
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
         Me.Controls.SetChildIndex(Me.SuperTabControl1, 0)
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControl1.ResumeLayout(False)
