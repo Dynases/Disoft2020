@@ -2376,7 +2376,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 108)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 130)
         '
         'ToolStripMenuItem1
         '

@@ -1689,6 +1689,23 @@ Public Class F0_PedidosAsignacion
             Exit Sub
         End If
 
+        Dim res1 As Boolean = L_fnVerificarPagosPedidos(codPedido)
+        If res1 Then
+            ToastNotification.Show(Me, "No se puede anular este pedido porque tiene pagos realizados, por favor primero elimine los pagos correspondientes a este pedido".ToUpper,
+                                                  img, 5000,
+                                                  eToastGlowColor.Green,
+                                                  eToastPosition.TopCenter)
+            Exit Sub
+        End If
+
+        Dim res2 As Boolean = L_fnVerificarCierreCaja(codPedido)
+        If res2 Then
+            ToastNotification.Show(Me, "No se puede anular este pedido porque ya tiene cierre de caja.".ToUpper,
+                                                  img, 3000,
+                                                  eToastGlowColor.Green,
+                                                  eToastPosition.TopCenter)
+            Exit Sub
+        End If
 
         Dim frm As New F0_IngresarReclamo(codPedido, "1", "3")
         frm.GroupPanel2.Text = "INGRESE EL MOTIVO DE LA ANULACION DEL PEDIDO"
@@ -1723,6 +1740,26 @@ Public Class F0_PedidosAsignacion
             End If
             Exit Sub
         End If
+
+
+        Dim res1 As Boolean = L_fnVerificarPagosPedidos(codPedido)
+        If res1 Then
+            ToastNotification.Show(Me, "No se puede anular este pedido porque tiene pagos realizados, por favor primero elimine los pagos correspondientes a este pedido".ToUpper,
+                                                  img, 5000,
+                                                  eToastGlowColor.Green,
+                                                  eToastPosition.TopCenter)
+            Exit Sub
+        End If
+
+        Dim res2 As Boolean = L_fnVerificarCierreCaja(codPedido)
+        If res2 Then
+            ToastNotification.Show(Me, "No se puede anular este pedido porque ya tiene cierre de caja.".ToUpper,
+                                                  img, 3000,
+                                                  eToastGlowColor.Green,
+                                                  eToastPosition.TopCenter)
+            Exit Sub
+        End If
+
 
         Dim frm As New F0_IngresarReclamo(codPedido, "2", "3")
         frm.GroupPanel2.Text = "INGRESE EL MOTIVO DE LA ANULACION DEL PEDIDO"

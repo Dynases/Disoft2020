@@ -9286,6 +9286,26 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnVerificarCierreCaja(numi As String) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 34))
+        _listParam.Add(New Datos.DParametro("@oanumi", numi))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
 
     Public Shared Function L_prLibreriaClienteLGeneral() As DataTable
         Dim _Tabla As DataTable
@@ -9467,6 +9487,23 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
 
         Return _Tabla
+    End Function
+    Public Shared Function L_fnVerificarPagosPedidos(numi As String) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@oanumi", numi))
+        _listParam.Add(New Datos.DParametro("@teuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+        Return _resultado
     End Function
 
 #End Region

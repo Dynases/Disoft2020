@@ -225,6 +225,15 @@ Public Class F01_Proveedor
     End Sub
 
     Private Sub P_Eliminar()
+        Dim _Nombre As String = "", _CVal As Integer
+        _CVal = L_Validartabla("TC010", TbCodigo.Text, _Nombre)
+        If _CVal > 0 Then
+            ToastNotification.Show(Me, "Proveedor esta siendo usado por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminacion Rechazada.".ToUpper,
+                                            My.Resources.WARNING, 3000,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.TopCenter)
+            Exit Sub
+        End If
         Dim info As New TaskDialogInfo("¿esta seguro de eliminar el registro?".ToUpper, eTaskDialogIcon.Delete, "advertencia".ToUpper, "Esta a punto de eliminar el proveedor con código -> ".ToUpper + TbCodigo.Text + " " + Chr(13) + "Desea continuar?".ToUpper, eTaskDialogButton.Yes Or eTaskDialogButton.Cancel, eTaskDialogBackgroundColor.Blue)
         Dim result As eTaskDialogResult = TaskDialog.Show(info)
         If result = eTaskDialogResult.Yes Then
