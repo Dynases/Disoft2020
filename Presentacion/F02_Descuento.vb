@@ -165,21 +165,21 @@ Public Class F02_Descuento
 
 
         'cargar datos de la tabla
-        Dim dtPreciosProd As DataTable
-        For i = 0 To dtProd.Rows.Count - 1
-            Dim where As String = "chcprod='" + dtProd.Rows(i).Item("canumi").ToString + "'"
-            dtPreciosProd = L_PrecioProd_GeneralConCatPrecio(-1, where).Tables(0)
-            Dim listPrecio = String.Empty
-            Dim k As Integer = 0
-            For j = 0 To dtPreciosProd.Rows.Count - 1
-                Dim catPrecio As String = dtPreciosProd.Rows(j).Item("cicod")
-                Dim precio As Double = dtPreciosProd.Rows(j).Item("chprecio")
-                dtProd.Rows(i).Item(catPrecio) = precio
-                listPrecio += precio.ToString + "|"
-            Next
-            dtProd.Rows(i).Item("huboCambio") = False
-            dtProd.Rows(i).Item("listPrecio") = listPrecio.Trim("|")
-        Next
+        'Dim dtPreciosProd As DataTable
+        'For i = 0 To dtProd.Rows.Count - 1
+        '    Dim where As String = "chcprod='" + dtProd.Rows(i).Item("canumi").ToString + "'"
+        '    dtPreciosProd = L_PrecioProd_GeneralConCatPrecio(-1, where).Tables(0)
+        '    Dim listPrecio = String.Empty
+        '    Dim k As Integer = 0
+        '    For j = 0 To dtPreciosProd.Rows.Count - 1
+        '        Dim catPrecio As String = dtPreciosProd.Rows(j).Item("cicod")
+        '        Dim precio As Double = dtPreciosProd.Rows(j).Item("chprecio")
+        '        dtProd.Rows(i).Item(catPrecio) = precio
+        '        listPrecio += precio.ToString + "|"
+        '    Next
+        '    dtProd.Rows(i).Item("huboCambio") = False
+        '    dtProd.Rows(i).Item("listPrecio") = listPrecio.Trim("|")
+        'Next
 
         JGr_Detalle.BoundMode = BoundMode.Bound
         JGr_Detalle.DataSource = dtProd
