@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class Factura
+Public Class FacturaTicket
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class Factura
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "Factura.rpt"
+            Return "FacturaTicket.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class Factura
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.Factura.rpt"
+            Return "Presentacion.FacturaTicket.rpt"
         End Get
         Set
             'Do nothing
@@ -238,7 +238,7 @@ Public Class Factura
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Telefono() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_EDuenho() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(17)
         End Get
@@ -246,7 +246,7 @@ Public Class Factura
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_EDuenho() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Telefono() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(18)
         End Get
@@ -254,7 +254,7 @@ Public Class Factura
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedFactura
+Public Class CachedFacturaTicket
     Inherits Component
     Implements ICachedReport
     
@@ -296,7 +296,7 @@ Public Class CachedFactura
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As Factura = New Factura()
+        Dim rpt As FacturaTicket = New FacturaTicket()
         rpt.Site = Me.Site
         Return rpt
     End Function

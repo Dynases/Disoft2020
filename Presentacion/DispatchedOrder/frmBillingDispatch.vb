@@ -151,6 +151,7 @@ Public Class frmBillingDispatch
         Dim ice, _Desc, _TotalLi As Decimal
         Dim _VistaPrevia As Integer = 0
         Dim QrFactura1 As String
+        Dim objrep
 
         _Desc = CDbl(0)
         If Not IsNothing(P_Global.Visualizador) Then
@@ -215,15 +216,31 @@ Public Class frmBillingDispatch
 
 
         updateTO001C(numi, Str(_NumFac))
-        _Ds = L_Reporte_Factura(numi, numi)
 
+        _Ds = L_Reporte_Factura(numi, numi)
         _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
 
         For I = 0 To _Ds.Tables(0).Rows.Count - 1
             _Ds.Tables(0).Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
         Next
         P_Global.Visualizador = New Visualizador
-        Dim objrep As New Factura
+
+        Dim empresaId = ObtenerEmpresaHabilitada()
+        Dim empresaHabilitada As DataTable = ObtenerEmpresaTipoReporte(empresaId, 3)
+        For Each fila As DataRow In empresaHabilitada.Rows
+            Select Case fila.Item("TipoReporte").ToString
+                Case ENReporteTipo.FACTURACARTA
+                    objrep = New Factura
+                    'SerParametros(lista, objrep)
+                Case ENReporteTipo.FACTURATICKET
+                    objrep = New FacturaTicket
+                    'SerParametros(lista, objrep)
+            End Select
+        Next
+
+
+
+        'Dim objrep As New Factura
         Dim dia, mes, ano As Integer
         Dim Fecliteral, mesl As String
         Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
@@ -276,15 +293,14 @@ Public Class frmBillingDispatch
         objrep.SetDataSource(_Ds.Tables(0))
 
         objrep.SetParameterValue("Fecliteral", Fecliteral)
-        objrep.SetParameterValue("Nota2", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
-        'objrep.PrintOptions.PrinterName = "L4150 Series(Red) (Copiar 1)"
-
-        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
         objrep.SetParameterValue("Literal1", _Literal)
         objrep.SetParameterValue("NroFactura", _NumFac)
         objrep.SetParameterValue("NroAutoriz", _Autorizacion)
-        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString) '?
+        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("EDuenho", _Ds2.Tables(0).Rows(0).Item("scnom").ToString)
         objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("ESFC", _Ds1.Tables(0).Rows(0).Item("yesfc").ToString)
         objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
@@ -292,6 +308,8 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Tipo", "ORIGINAL")
         objrep.SetParameterValue("TipoPago", tipoPago)
         objrep.SetParameterValue("Logo", gb_ubilogo)
+        objrep.SetParameterValue("ENota", _Ds1.Tables(0).Rows(0).Item("yenota").ToString())
+        objrep.SetParameterValue("ELey", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
         'If imp = 1 Then
         '    objrep.SetParameterValue("Tipo", "ORIGINAL")
         'Else
@@ -396,20 +414,21 @@ Public Class frmBillingDispatch
         Dim ice, _Desc, _TotalLi As Decimal
         Dim _VistaPrevia As Integer = 0
         Dim QrFactura1 As String
+        Dim objrep
 
         _Desc = CDbl(0)
         If Not IsNothing(P_Global.Visualizador) Then
             P_Global.Visualizador.Close()
         End If
 
-        _Fecha = Now.Date.ToString("dd/MM/yyyy")
+        _Ds = L_Reporte_Factura(numi, numi)
+        _Fecha = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
         _Ds1 = L_Dosificacion("1", "1", _Fecha)
-
-        _Ds = L_Reporte_Factura(numi, numi)
         _Autorizacion = _Ds1.Tables(0).Rows(0).Item("yeautoriz").ToString
-        _NumFac = CInt(_Ds1.Tables(0).Rows(0).Item("yenunf")) + 1
+        _NumFac = CInt(_Ds.Tables(0).Rows(0).Item("fvanfac").ToString)
         _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
+
         _Fechainv = Microsoft.VisualBasic.Right(_Fecha.ToShortDateString, 4) +
                     Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 5), 2) +
                     Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 2)
@@ -436,40 +455,52 @@ Public Class frmBillingDispatch
         _Ds2 = L_Reporte_Factura_Cia("1")
         QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
 
-        L_Modificar_Factura("fvanumi = " + CStr(numi),
-                            "",
-                            CStr(_NumFac),
-                            CStr(_Autorizacion),
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            _Cod_Control,
-                            _FechaAl.ToString("yyyy/MM/dd"),
-                            "",
-                            "",
-                            CStr(numi))
+        'L_Modificar_Factura("fvanumi = " + CStr(numi),
+        '                    "",
+        '                    CStr(_NumFac),
+        '                    CStr(_Autorizacion),
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    "",
+        '                    _Cod_Control,
+        '                    _FechaAl.ToString("yyyy/MM/dd"),
+        '                    "",
+        '                    "",
+        '                    CStr(numi))
+
+        'updateTO001C(numi, Str(_NumFac))
 
 
-        updateTO001C(numi, Str(_NumFac))
         _Ds = L_Reporte_Factura(numi, numi)
-
         _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
 
         For I = 0 To _Ds.Tables(0).Rows.Count - 1
             _Ds.Tables(0).Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
         Next
         P_Global.Visualizador = New Visualizador
-        Dim objrep As New Factura
+
+        Dim empresaId = ObtenerEmpresaHabilitada()
+        Dim empresaHabilitada As DataTable = ObtenerEmpresaTipoReporte(empresaId, 3)
+        For Each fila As DataRow In empresaHabilitada.Rows
+            Select Case fila.Item("TipoReporte").ToString
+                Case ENReporteTipo.FACTURACARTA
+                    objrep = New Factura
+                Case ENReporteTipo.FACTURATICKET
+                    objrep = New FacturaTicket
+            End Select
+        Next
+
+        'Dim objrep As New Factura
         Dim dia, mes, ano As Integer
         Dim Fecliteral, mesl As String
         Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
@@ -488,15 +519,17 @@ Public Class frmBillingDispatch
         objrep.SetDataSource(_Ds.Tables(0))
 
         objrep.SetParameterValue("Fecliteral", Fecliteral)
-        objrep.SetParameterValue("Nota2", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
-        'objrep.PrintOptions.PrinterName = "L4150 Series(Red) (Copiar 1)"
 
-        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+
+        objrep.SetParameterValue("Fecliteral", Fecliteral)
         objrep.SetParameterValue("Literal1", _Literal)
         objrep.SetParameterValue("NroFactura", _NumFac)
         objrep.SetParameterValue("NroAutoriz", _Autorizacion)
-        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString) '?
+        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("EDuenho", _Ds2.Tables(0).Rows(0).Item("scnom").ToString)
         objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("ESFC", _Ds1.Tables(0).Rows(0).Item("yesfc").ToString)
         objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
@@ -504,6 +537,8 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Tipo", "ORIGINAL")
         objrep.SetParameterValue("TipoPago", tipoPago)
         objrep.SetParameterValue("Logo", gb_ubilogo)
+        objrep.SetParameterValue("ENota", _Ds1.Tables(0).Rows(0).Item("yenota").ToString())
+        objrep.SetParameterValue("ELey", _Ds1.Tables(0).Rows(0).Item("yenota2").ToString())
         'If imp = 1 Then
         '    objrep.SetParameterValue("Tipo", "ORIGINAL")
         'Else
@@ -533,7 +568,8 @@ Public Class frmBillingDispatch
         '    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
 
         'End If
-        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
+        ' L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
 
     Public Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
@@ -1613,6 +1649,15 @@ Public Class frmBillingDispatch
                                     eToastGlowColor.Red,
                                     eToastPosition.TopCenter)
                 Return
+            End If
+
+            ''VALIDAR DOSIFICACION VÁLIDA
+            Dim fecha As String = Now.Date
+            Dim dtDosificacion As DataSet = L_Dosificacion("1", "1", fecha)
+            If dtDosificacion.Tables(0).Rows.Count = 0 Then
+                Dim img1 As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                ToastNotification.Show(Me, "La Dosificación para las facturas ya caducó, ingrese nueva dosificación".ToUpper, img1, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                Exit Sub
             End If
 
             For i As Integer = 0 To list1.Count - 1 Step 1
