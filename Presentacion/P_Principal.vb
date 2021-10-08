@@ -110,6 +110,8 @@ Public Class P_Principal
 
         'Sirve para el Programa ubicacion del cliente para mostrar 1=solo de la tabla TC004 o  2=TC004 y TC004H
         gs_ClientesNuevHist = gs_Parametros(0).Item("syClientesNuevHist")
+        'Sirve para saber si podra tener doble dosificacion 0=solo una dosificacion y 1= doble dosificacion
+        gs_DobleDosificacion = gs_Parametros(0).Item("syDobleDosificacion")
 
     End Sub
 

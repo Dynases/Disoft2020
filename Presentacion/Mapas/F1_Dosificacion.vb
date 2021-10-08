@@ -41,8 +41,8 @@ Public Class F1_Dosificacion
             .DropDownList.Columns.Clear()
             .DropDownList.Columns.Add("cod").Width = 60
             .DropDownList.Columns("cod").Caption = "COD"
-            .DropDownList.Columns.Add("desc").Width = 500
-            .DropDownList.Columns("desc").Caption = "COMPAÑIA"
+            .DropDownList.Columns.Add("desc").Width = 150
+            .DropDownList.Columns("desc").Caption = "DOSIFICACIÓN"
             .ValueMember = "cod"
             .DisplayMember = "desc"
             .DataSource = dt

@@ -165,6 +165,15 @@ Public Class F01_Producto
         P_prLlenarDatos(0)
         _Parametros()
 
+
+        If (gs_DobleDosificacion = 1) Then
+            lblDosificaion.Visible = True
+            cbDosificacion.Visible = True
+        Else
+            lblDosificaion.Visible = False
+            cbDosificacion.Visible = False
+        End If
+
     End Sub
     Private Sub _Parametros()
         'PACK
@@ -293,6 +302,7 @@ Public Class F01_Producto
         CbUnidVenta.ReadOnly = Not flat
         CbUnidMax.ReadOnly = Not flat
         TbConversion.IsInputReadOnly = Not flat
+        cbDosificacion.ReadOnly = Not flat
 
         swPack.IsReadOnly = Not flat
         JGProdPack.Enabled = flat
@@ -338,6 +348,7 @@ Public Class F01_Producto
         P_prArmarComboEmpresa()
         P_prArmarComboUnidVenta()
         P_prArmarComboUnidMax()
+        P_prArmarComboDosificacion()
 
         '_prCargarComboLibreria(cbgrupo1, 101)
         P_prArmarComboProveedor()
@@ -386,7 +397,9 @@ Public Class F01_Producto
                     Me.SbEquipo.Value = .GetValue("serie")
                     Me.DaFecha = .GetValue("fing")
                     Me.CbEmpresa.Value = .GetValue("cemp")
-                    'cacbarra, casmin, cagr1, cagr2, cagr3, cagr4, caumed, cauventa, caumax, caconv
+
+                    Me.cbDosificacion.Value = .GetValue("com")
+
                     Me.tbCodBarra.Text = .GetValue("cacbarra").ToString
                     Me.tbStockMinimo.Text = .GetValue("casmin")
                     Me.cbgrupo1.Value = .GetValue("cagr1")
@@ -527,7 +540,7 @@ Public Class F01_Producto
                 stc = IIf(SbStock.Value, "1", "0")
                 est = IIf(SbEstado.Value, "1", "0")
                 serie = IIf(InTipoForm = 1, "0", "1")
-                pcom = "0" 'Por apuro esta estatico
+                pcom = IIf(gs_DobleDosificacion = 1, cbDosificacion.Value, "1") 'Almacena con que dosificacion facturará 
                 fing = DaFecha.ToString("yyyy/MM/dd")
                 cemp = CbEmpresa.Value.ToString
                 uact = MTbUsuario.Text
@@ -596,7 +609,7 @@ Public Class F01_Producto
                 stc = IIf(SbStock.Value, "1", "0")
                 est = IIf(SbEstado.Value, "1", "0")
                 serie = IIf(SbEquipo.Value, "1", "0")
-                pcom = "0" 'Por apuro esta estatico
+                pcom = IIf(gs_DobleDosificacion = 1, cbDosificacion.Value, "1") 'Almacena con que dosificacion facturará 
                 fing = DaFecha.ToString("yyyy/MM/dd")
                 cemp = CbEmpresa.Value.ToString
                 uact = MTbUsuario.Text
@@ -924,7 +937,12 @@ Public Class F01_Producto
         ''   Dt = L_fnObtenerLibreria("5", IIf(TipoForm = 1, "cenum>0", "cenum<0"))
         g_prArmarCombo(CbUnidMax, Dt, 60, 200, "Código", "Categoría")
     End Sub
+    Private Sub P_prArmarComboDosificacion()
+        Dim Dt As DataTable
+        Dt = L_fnObteneterDosificacion()
 
+        g_prArmarCombo(cbDosificacion, Dt, 60, 200, "cod", "Des")
+    End Sub
     Private Sub P_prArmarGrillaBusqueda()
         DtBusqueda = New DataTable
         DtBusqueda = L_fnProductoGeneral(InTipoForm.ToString)
@@ -1659,6 +1677,16 @@ Public Class F01_Producto
         'Next
         Me.Opacity = 100
         Timer1.Enabled = False
+    End Sub
+
+
+    Private Sub MostrarMensajeError(mensaje As String)
+        ToastNotification.Show(Me,
+                               mensaje.ToUpper,
+                               My.Resources.WARNING,
+                               3500,
+                               eToastGlowColor.Red,
+                               eToastPosition.TopCenter)
     End Sub
 
 #End Region

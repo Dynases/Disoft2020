@@ -160,9 +160,10 @@ Public Class frmBillingDispatch
 
         _Fecha = Now.Date.ToString("dd/MM/yyyy")
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
-        _Ds1 = L_Dosificacion("1", "1", _Fecha)
 
         _Ds = L_Reporte_Factura(numi, numi)
+        _Ds1 = L_Dosificacion(IIf(gs_DobleDosificacion = 1, _Ds.Tables(0).Rows(0).Item("capcom").ToString, "1"), "1", _Fecha)
+
         _Autorizacion = _Ds1.Tables(0).Rows(0).Item("yeautoriz").ToString
         _NumFac = CInt(_Ds1.Tables(0).Rows(0).Item("yenunf")) + 1
         _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
@@ -188,7 +189,7 @@ Public Class frmBillingDispatch
 
         'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
-        _Ds2 = L_Reporte_Factura_Cia("1")
+        _Ds2 = L_Reporte_Factura_Cia(IIf(gs_DobleDosificacion = 1, _Ds.Tables(0).Rows(0).Item("capcom").ToString, "1"))
         QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
 
         L_Modificar_Factura("fvanumi = " + CStr(numi),
@@ -424,7 +425,7 @@ Public Class frmBillingDispatch
         _Ds = L_Reporte_Factura(numi, numi)
         _Fecha = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
-        _Ds1 = L_Dosificacion("1", "1", _Fecha)
+        _Ds1 = L_Dosificacion(IIf(gs_DobleDosificacion = 1, _Ds.Tables(0).Rows(0).Item("capcom").ToString, "1"), "1", _Fecha)
         _Autorizacion = _Ds1.Tables(0).Rows(0).Item("yeautoriz").ToString
         _NumFac = CInt(_Ds.Tables(0).Rows(0).Item("fvanfac").ToString)
         _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
@@ -452,7 +453,7 @@ Public Class frmBillingDispatch
 
         'Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_Total) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
         _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
-        _Ds2 = L_Reporte_Factura_Cia("1")
+        _Ds2 = L_Reporte_Factura_Cia(IIf(gs_DobleDosificacion = 1, _Ds.Tables(0).Rows(0).Item("capcom").ToString, "1"))
         QrFactura.Text = _Ds2.Tables(0).Rows(0).Item("scnit").ToString + "|" + Str(_NumFac).Trim + "|" + _Autorizacion + "|" + _Fecha + "|" + _Total + "|" + _TotalLi.ToString + "|" + _Cod_Control + "|" + nit + "|" + ice.ToString + "|0|0|" + Str(_Desc).Trim
 
         'L_Modificar_Factura("fvanumi = " + CStr(numi),
@@ -1652,13 +1653,16 @@ Public Class frmBillingDispatch
             End If
 
             ''VALIDAR DOSIFICACION VÁLIDA
-            Dim fecha As String = Now.Date
-            Dim dtDosificacion As DataSet = L_Dosificacion("1", "1", fecha)
-            If dtDosificacion.Tables(0).Rows.Count = 0 Then
-                Dim img1 As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
-                ToastNotification.Show(Me, "La Dosificación para las facturas ya caducó, ingrese nueva dosificación".ToUpper, img1, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
-                Exit Sub
+            If gs_DobleDosificacion = 0 Then
+                Dim fecha As String = Now.Date
+                Dim dtDosificacion As DataSet = L_Dosificacion("1", "1", fecha)
+                If dtDosificacion.Tables(0).Rows.Count = 0 Then
+                    Dim img1 As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                    ToastNotification.Show(Me, "La Dosificación para las facturas ya caducó, ingrese nueva dosificación".ToUpper, img1, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    Exit Sub
+                End If
             End If
+
 
             For i As Integer = 0 To list1.Count - 1 Step 1
                 If L_YaSeGraboTV001(list1(i).Id) = False Then
