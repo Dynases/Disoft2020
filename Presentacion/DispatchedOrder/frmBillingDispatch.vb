@@ -1665,6 +1665,34 @@ Public Class frmBillingDispatch
 
 
             For i As Integer = 0 To list1.Count - 1 Step 1
+                If gs_DobleDosificacion = 1 Then
+
+                    Dim DetallePedido As DataTable = ObtenerDetallePedido(Str(list1(i).Id))
+                    Dim dosificacion As String = DetallePedido.Rows(0).Item("capcom").ToString
+                    Dim VerificarDosif As Boolean = False
+
+                    For j As Integer = 0 To DetallePedido.Rows.Count - 1 Step 1
+                        If dosificacion = DetallePedido.Rows(j).Item("capcom").ToString Then
+                            VerificarDosif = True
+                        Else
+                            VerificarDosif = False
+                            Dim img1 As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                            ToastNotification.Show(Me, "En el pedido: ".ToUpper + Str(list1(i).Id) + " existe productos de diferentes dosificaciones, no se podrá facturar, rehaga el pedido".ToUpper, img1, 4000, eToastGlowColor.Red, eToastPosition.TopCenter)
+
+                            Exit Sub
+                        End If
+                    Next
+                    If VerificarDosif = True Then
+                        Dim fecha As String = Now.Date
+                        Dim dtDosificacion As DataSet = L_Dosificacion(DetallePedido.Rows(0).Item("capcom").ToString, "1", fecha)
+                        If dtDosificacion.Tables(0).Rows.Count = 0 Then
+                            Dim img1 As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                            ToastNotification.Show(Me, "La Dosificación para el pedido: ".ToUpper + Str(list1(i).Id) + " ya caducó, ingrese nueva dosificación".ToUpper, img1, 4000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                            Exit Sub
+                        End If
+                    End If
+                End If
+
                 If L_YaSeGraboTV001(list1(i).Id) = False Then
                     GrabarTV001(Str(list1(i).Id))
                 End If
