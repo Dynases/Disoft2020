@@ -274,7 +274,7 @@ Public Class F01_Proveedor
                 email = TbEmail.Text
                 rsocial = TbRazonSocial.Text
                 nit = TbNit.Text
-                cuenta = tbNcuenta.Text
+                cuenta = 1 'tbNcuenta.Text
                 If (SbEstado.Value) Then
                     est = "1"
                 Else
@@ -313,7 +313,7 @@ Public Class F01_Proveedor
                 email = TbEmail.Text
                 rsocial = TbRazonSocial.Text
                 nit = TbNit.Text
-                cuenta = tbNcuenta.Text
+                cuenta = 1 'tbNcuenta.Text
                 If (SbEstado.Value) Then
                     est = "1"
                 Else
@@ -647,9 +647,9 @@ Public Class F01_Proveedor
         If (TbObs.Text = String.Empty) Then
             TbObs.Text = "S/O"
         End If
-        If (tbCuentaProv.Text = String.Empty) Then
-            sms = "el campo de la cuenta no puede quedar vacio.".ToUpper
-        End If
+        'If (tbCuentaProv.Text = String.Empty) Then
+        '    sms = "el campo de la cuenta no puede quedar vacio.".ToUpper
+        'End If
         If (Not sms = String.Empty) Then
             ToastNotification.Show(Me, sms.ToUpper,
                        My.Resources.WARNING,
