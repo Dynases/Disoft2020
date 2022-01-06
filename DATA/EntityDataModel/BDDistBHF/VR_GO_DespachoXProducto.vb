@@ -22,8 +22,10 @@ Partial Public Class VR_GO_DespachoXProducto
     Public Property oaest As Nullable(Of Integer)
     Public Property oaap As Nullable(Of Integer)
     Public Property oafdoc As Nullable(Of Date)
-    Public Property caja As Nullable(Of Decimal)
+    Public Property caja As Nullable(Of Integer)
     Public Property Unidad As Nullable(Of Decimal)
     Public Property Total As Nullable(Of Decimal)
+    Public Property Conv As Nullable(Of Decimal)
+    Public Property PesoKg As Nullable(Of Decimal)
 
 End Class

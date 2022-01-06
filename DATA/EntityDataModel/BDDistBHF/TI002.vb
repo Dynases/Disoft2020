@@ -17,11 +17,11 @@ Partial Public Class TI002
     Public Property ibobs As String
     Public Property ibest As Nullable(Of Integer)
     Public Property ibalm As Nullable(Of Integer)
+    Public Property ibdepdest As Nullable(Of Integer)
+    Public Property ibiddestino As Nullable(Of Integer)
     Public Property ibiddc As Nullable(Of Integer)
     Public Property ibfact As Nullable(Of Date)
     Public Property ibhact As String
     Public Property ibuact As String
-    Public Property ibdepdest As Nullable(Of Integer)
-    Public Property ibiddestino As Nullable(Of Integer)
 
 End Class

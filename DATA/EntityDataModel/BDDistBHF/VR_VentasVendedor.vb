@@ -10,18 +10,18 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class vr_go_comprobanteSalidaItems
-    Public Property id As Integer
-    Public Property fecha As Nullable(Of Date)
-    Public Property concepto As Nullable(Of Integer)
-    Public Property nconcepto As String
-    Public Property obs As String
-    Public Property repatidor As Nullable(Of Integer)
-    Public Property nrepatidor As String
-    Public Property conciliacion As Nullable(Of Integer)
-    Public Property producto As Integer
-    Public Property codprod As String
-    Public Property nproducto As String
+Partial Public Class VR_VentasVendedor
+    Public Property codven As Integer
+    Public Property vendedor As String
+    Public Property cacat As Nullable(Of Integer)
+    Public Property categoria As String
+    Public Property numiProd As Integer
+    Public Property cacod As String
+    Public Property producto As String
     Public Property cantidad As Nullable(Of Decimal)
+    Public Property obpbase As Nullable(Of Decimal)
+    Public Property SubTotal As Nullable(Of Decimal)
+    Public Property Descuento As Nullable(Of Decimal)
+    Public Property TotalVenta As Nullable(Of Decimal)
 
 End Class

@@ -19,7 +19,7 @@ Partial Public Class TO001D
     Public Property oadcampo2 As Nullable(Of Decimal)
     Public Property oadcampo3 As String
     Public Property oadfecha As Nullable(Of Date)
-    Public Property oadusuario As String
     Public Property oadhora As String
+    Public Property oadusuario As String
 
 End Class

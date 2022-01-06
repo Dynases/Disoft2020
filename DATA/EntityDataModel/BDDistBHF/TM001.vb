@@ -24,5 +24,6 @@ Partial Public Class TM001
     Public Property ibfact As Nullable(Of Date)
     Public Property ibhact As String
     Public Property ibuact As String
+    Public Property AlmacenDestino As Nullable(Of Integer)
 
 End Class

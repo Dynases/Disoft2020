@@ -10,27 +10,21 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class VR_GO_DespachoNotaVenta
-    Public Property oanumi As Integer
-    Public Property oafdoc As Nullable(Of Date)
+Partial Public Class VR_Proforma
+    Public Property pmnumi As Integer
+    Public Property pmfdoc As Nullable(Of Date)
     Public Property ccdesc As String
     Public Property ccnomfac As String
     Public Property ccdirec As String
-    Public Property cbnumi As Integer
-    Public Property cbdesc As String
     Public Property canumi As Integer
-    Public Property cacod As String
     Public Property cadesc As String
-    Public Property oaobs As String
-    Public Property obpcant As Nullable(Of Decimal)
-    Public Property caja As Nullable(Of Integer)
-    Public Property unidad As Nullable(Of Decimal)
-    Public Property obpbase As Nullable(Of Decimal)
-    Public Property obptot As Nullable(Of Decimal)
-    Public Property obdesc As Nullable(Of Decimal)
-    Public Property obtotal As Nullable(Of Decimal)
-    Public Property oaest As Nullable(Of Integer)
-    Public Property oaccbnumi As Integer
+    Public Property pmobs As String
+    Public Property pnpcant As Nullable(Of Decimal)
+    Public Property pnpbase As Nullable(Of Decimal)
+    Public Property pnptot As Nullable(Of Decimal)
+    Public Property pndesc As Nullable(Of Decimal)
+    Public Property pntotal As Nullable(Of Decimal)
+    Public Property pmest As Nullable(Of Integer)
     Public Property Total As Nullable(Of Decimal)
     Public Property ccnit As String
     Public Property cctelf1 As String

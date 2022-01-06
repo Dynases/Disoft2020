@@ -10,17 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Vr_VentasVendidas
-    Public Property aanumi As Integer
-    Public Property aabdes As String
-    Public Property ydnumi As Integer
-    Public Property yddesc As String
-    Public Property CodVenta As Integer
-    Public Property ccnumi As Integer
-    Public Property cccod As String
+Partial Public Class App_Listado_CobrosPendientes
+    Public Property PedidoId As Integer
+    Public Property ClienteId As Nullable(Of Integer)
     Public Property cliente As String
-    Public Property facturas As String
-    Public Property FechaVenta As Nullable(Of Date)
-    Public Property total As Nullable(Of Decimal)
+    Public Property PersonalId As Nullable(Of Integer)
+    Public Property vendedor As String
+    Public Property FechaPedido As Nullable(Of Date)
+    Public Property totalfactura As Nullable(Of Decimal)
+    Public Property pendiente As Nullable(Of Decimal)
 
 End Class

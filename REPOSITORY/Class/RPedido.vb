@@ -155,7 +155,9 @@ Public Class RPedido
                                    .obpcant = a.obpcant,
                                    .Caja = a.caja,
                                    .Unidad = a.Unidad,
-                                   .Total = a.Total
+                                   .Total = a.Total,
+                                   .Conv = a.Conv,
+                                   .Pesokg = a.PesoKg
                                    }).ToList()
                 ' Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                 'Select New RDespachoXProducto With {
@@ -238,6 +240,40 @@ Public Class RPedido
         End Try
     End Function
 
+    'Public Function ListarDespachXNotaVentaDeChofer(idChofer As Integer, idPedido As Integer) As List(Of RDespachoNotaVenta) Implements IPedido.ListarDespachXNotaVentaDeChofer
+    '    Try
+    '        Using db = GetSchema()
+    '            Dim listResult = (From a In db.VR_GO_DespachoNotaVenta
+    '                              Where (a.oaest = ENEstadoPedido.DICTADO Or a.oaest = ENEstadoPedido.ENTREGADO) And a.oaccbnumi = idChofer And a.oanumi = idPedido
+    '                              Select New RDespachoNotaVenta With {
+    '                                  .oanumi = a.oanumi,
+    '                                  .oafdoc = a.oafdoc,
+    '                                  .ccdesc = a.ccdesc,
+    '                                  .cbdesc = a.cbdesc,
+    '                                  .ccnomfac = a.ccnomfac,
+    '                                  .ccdirec = a.ccdirec,
+    '                                  .canumi = a.canumi,
+    '                                  .cacod = a.cacod,
+    '                                  .cadesc = a.cadesc,
+    '                                  .obpcant = a.obpcant,
+    '                                  .caja = a.caja,
+    '                                  .unidad = a.unidad,
+    '                                  .obpbase = a.obpbase,
+    '                                  .obptot = a.obptot,
+    '                                  .obdesc = a.obdesc,
+    '                                  .obtotal = a.obtotal,
+    '                                  .Total = a.Total,
+    '                                  .oaobs = a.oaobs,
+    '                                  .ccnit = a.ccnit,
+    '                                  .cctelf1 = a.cctelf1,
+    '                                  .cedesc = a.cedesc
+    '                                  }).ToList()
+    '            Return listResult
+    '        End Using
+    '    Catch ex As Exception
+    '        Throw New Exception(ex.Message)
+    '    End Try
+    'End Function
     Public Function ListarDespachXNotaVentaDeChofer(idChofer As Integer, idPedido As Integer) As List(Of RDespachoNotaVenta) Implements IPedido.ListarDespachXNotaVentaDeChofer
         Try
             Using db = GetSchema()
@@ -251,8 +287,11 @@ Public Class RPedido
                                       .ccnomfac = a.ccnomfac,
                                       .ccdirec = a.ccdirec,
                                       .canumi = a.canumi,
+                                      .cacod = a.cacod,
                                       .cadesc = a.cadesc,
                                       .obpcant = a.obpcant,
+                                      .caja = a.caja,
+                                      .unidad = a.unidad,
                                       .obpbase = a.obpbase,
                                       .obptot = a.obptot,
                                       .obdesc = a.obdesc,
@@ -269,7 +308,6 @@ Public Class RPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
-
     Public Function ListarDespachXNotaVenta(idPedido As Integer) As List(Of RDespachoNotaVenta) Implements IPedido.ListarDespachXNotaVenta
         Try
             Using db = GetSchema()

@@ -15,5 +15,7 @@ Partial Public Class TM0011
     Public Property icibid As Nullable(Of Integer)
     Public Property iccprod As Nullable(Of Integer)
     Public Property iccant As Nullable(Of Decimal)
+    Public Property cantidadPreVenta As Nullable(Of Decimal)
+    Public Property cantidadAutoVenta As Nullable(Of Decimal)
 
 End Class

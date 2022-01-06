@@ -23,5 +23,7 @@ Partial Public Class TV00121
     Public Property tdfact As Nullable(Of Date)
     Public Property tdhact As String
     Public Property tduact As String
+    Public Property Estado As Nullable(Of Integer)
+    Public Property Cajaid As Nullable(Of Integer)
 
 End Class

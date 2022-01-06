@@ -76,7 +76,15 @@
             _canumi = value
         End Set
     End Property
-
+    Private _cacod As String
+    Public Property cacod() As String
+        Get
+            Return _cacod
+        End Get
+        Set(ByVal value As String)
+            _cacod = value
+        End Set
+    End Property
     Private _cadesc As String
     Public Property cadesc() As String
         Get
@@ -98,6 +106,25 @@
         End Set
     End Property
 
+    Private _caja As Integer
+    Public Property caja() As Integer
+        Get
+            Return _caja
+        End Get
+        Set(ByVal value As Integer)
+            _caja = value
+        End Set
+    End Property
+
+    Private _unidad As Decimal
+    Public Property unidad() As Decimal
+        Get
+            Return _unidad
+        End Get
+        Set(ByVal value As Decimal)
+            _unidad = value
+        End Set
+    End Property
 
     Private _obpbase As Decimal
     Public Property obpbase() As Decimal

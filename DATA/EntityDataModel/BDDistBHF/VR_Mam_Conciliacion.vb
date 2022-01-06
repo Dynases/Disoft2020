@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class VR_Mam_Conciliacion
     Public Property canumi As Integer
+    Public Property cacod As String
     Public Property cadesc As String
     Public Property columna1 As Nullable(Of Integer)
     Public Property columna2 As Nullable(Of Integer)
@@ -19,6 +20,5 @@ Partial Public Class VR_Mam_Conciliacion
     Public Property columna4 As Nullable(Of Integer)
     Public Property DEVOLUCION As Nullable(Of Integer)
     Public Property TOTAL As Nullable(Of Integer)
-    Public Property cacod As String
 
 End Class

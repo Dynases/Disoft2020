@@ -586,6 +586,8 @@ Public Class frmBillingDispatch
                 ReporteNotaVenta7(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "8"
                 ReporteNotaVenta8(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "9"
+                ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult)
         End Select
     End Sub
 
@@ -953,6 +955,42 @@ Public Class frmBillingDispatch
             End If
         End If
     End Sub
+
+    Private Sub ReporteNotaVenta9(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta9
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+    End Sub
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
         imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
@@ -1066,7 +1104,9 @@ Public Class frmBillingDispatch
                           .obpcant = grupo.Sum(Function(item) item.obpcant),
                           .Caja = grupo.Sum(Function(item) item.Caja),
                           .Unidad = grupo.Sum(Function(item) item.Unidad),
-                          .Total = grupo.Sum(Function(item) item.Total)
+                          .Total = grupo.Sum(Function(item) item.Total),
+                          .Conv = grupo.FirstOrDefault().Conv,
+                          .Pesokg = grupo.Sum(Function(item) item.Pesokg)
                         }).ToList()
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")

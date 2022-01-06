@@ -104,4 +104,24 @@
             _Total = value
         End Set
     End Property
+
+    Private _Conv As Decimal
+    Public Property Conv() As Decimal
+        Get
+            Return _Conv
+        End Get
+        Set(ByVal value As Decimal)
+            _Conv = value
+        End Set
+    End Property
+
+    Private _Pesokg As Decimal
+    Public Property Pesokg() As Decimal
+        Get
+            Return _Pesokg
+        End Get
+        Set(ByVal value As Decimal)
+            _Pesokg = value
+        End Set
+    End Property
 End Class

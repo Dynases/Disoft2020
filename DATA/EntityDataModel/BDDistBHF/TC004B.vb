@@ -14,5 +14,7 @@ Partial Public Class TC004B
     Public Property ccbnumi As Integer
     Public Property ccbzona As Nullable(Of Integer)
     Public Property ccbtcre As Nullable(Of Integer)
+    Public Property cclimite As Nullable(Of Decimal)
+    Public Property ccdias As Nullable(Of Integer)
 
 End Class

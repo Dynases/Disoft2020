@@ -76,6 +76,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityDataModel\BDDistBHF\App_Listado_CobrosPendientes.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\BDDistBHFModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +99,27 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\CM0011.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\detalle.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\detalleBackup.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Empresa.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\EmpresaReporte.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Reporte_ExistenciaProductos.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Reporte_KardexGeneral.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Reporte_VendedorZonas.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\sp_dg_RAsistencia_Result.vb">
@@ -122,10 +146,16 @@
     <Compile Include="EntityDataModel\BDDistBHF\sp_Mam_VentasCredito_Result.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Sucursales.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TA001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TB001.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TC0001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TC001.vb">
@@ -138,6 +168,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TC0013.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TC0014.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TC002.vb">
@@ -164,6 +197,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\TC004B.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TC004C.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TC005.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -180,6 +216,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TC0111.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TC012.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TCA001.vb">
@@ -326,6 +365,12 @@
     <Compile Include="EntityDataModel\BDDistBHF\TP0081.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TP009.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\TP0091.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TPA001.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -345,6 +390,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\TZ001.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Visita.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\vista_promconsumo.vb">
@@ -375,6 +423,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_EntregaPedidos.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_EstadoCuentasClientes.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_Facturas.vb">
@@ -488,6 +539,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\VR_ProductosMesas.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_Proforma.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_ResumenNotas.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -506,10 +560,19 @@
     <Compile Include="EntityDataModel\BDDistBHF\VR_UtilidadPorProducto.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_VentasComision.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_VentasVendedor.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\Vr_VentasVendedor12Meses.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\Vr_VentasVendidas.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_VisitaClientes.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_VistaPedido_PrecioCosto.vb">

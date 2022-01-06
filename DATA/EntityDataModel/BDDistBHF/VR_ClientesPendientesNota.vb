@@ -18,7 +18,7 @@ Partial Public Class VR_ClientesPendientesNota
     Public Property zon As Nullable(Of Integer)
     Public Property nzon As String
     Public Property codP As String
-    Public Property can As Nullable(Of Integer)
+    Public Property can As Nullable(Of Decimal)
     Public Property tot As Nullable(Of Decimal)
     Public Property ped As Integer
     Public Property cacat As Nullable(Of Integer)
