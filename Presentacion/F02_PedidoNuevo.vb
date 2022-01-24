@@ -1604,17 +1604,17 @@ Public Class F02_PedidoNuevo
                     L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
                 End If
 
-                'Grabo en la TO001C
-                Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(cbDistribuidor.Value.ToString)
-                If (tabla.Rows.Count > 0) Then
-                    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
-                    L_prActualizarTO001C(Tb_Id.Text, tabla.Rows(0).Item("ibid"))
+                ''Grabo en la TO001C
+                'Dim tabla As DataTable = L_prMovimientoChoferNoExisteConciliacion(cbDistribuidor.Value.ToString)
+                'If (tabla.Rows.Count > 0) Then
+                '    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
+                '    L_prActualizarTO001C(Tb_Id.Text, tabla.Rows(0).Item("ibid"))
 
-                Else
-                    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
-                    '_IdConciliacion = 0
+                'Else
+                '    L_prGrabarTO001C(Tb_Id.Text, cbDistribuidor.Value.ToString)
+                '    '_IdConciliacion = 0
 
-                End If
+                'End If
 
 
 
