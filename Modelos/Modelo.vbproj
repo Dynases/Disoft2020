@@ -157,22 +157,22 @@
       <HintPath>C:\librerias\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Data.v3">
-      <HintPath>C:\librerias\Janus.Data.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3">
-      <HintPath>C:\librerias\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3">
-      <HintPath>C:\librerias\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3">
-      <HintPath>C:\librerias\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3">
-      <HintPath>C:\librerias\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.Ribbon.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
-      <HintPath>C:\librerias\Janus.Windows.UI.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

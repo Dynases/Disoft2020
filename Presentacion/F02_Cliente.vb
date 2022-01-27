@@ -1085,7 +1085,7 @@ Public Class F02_Cliente
     Private Sub P_prArmarComboCatCliente()
 
         Dim Dt As New DataTable
-        Dt = L_CategoriaPrecioGeneral()
+        Dt = L_CategoriaPrecioGeneral("citcv='True'")
         With CbCategoria.DropDownList
             .Columns.Add(Dt.Columns(0).ToString).Width = 50
             .Columns(0).Caption = "Código"

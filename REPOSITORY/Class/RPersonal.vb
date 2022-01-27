@@ -11,7 +11,7 @@ Public Class RPersonal
         Try
             Using db = GetSchema()
                 Dim listResult As List(Of VCombo) = (From a In db.TC002
-                                                     Where a.cbcat = tipo
+                                                     Where a.cbcat = tipo And a.cbeciv = 0
                                                      Select New VCombo With {
                                                          .Id = a.cbnumi,
                                                          .Descripcion = a.cbdesc
