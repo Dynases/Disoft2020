@@ -812,6 +812,12 @@
     <Compile Include="R01_EquipoPrestadoVsVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_MorosidadProveedores.Designer.vb">
+      <DependentUpon>R01_MorosidadProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_MorosidadProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_NotaVenta.Designer.vb">
       <DependentUpon>R01_NotaVenta.vb</DependentUpon>
     </Compile>
@@ -924,6 +930,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MAM_ZonasRepartidor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_MorosidadProveedor.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_MorosidadProveedor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_Proforma.vb">
@@ -1793,6 +1805,9 @@
     <EmbeddedResource Include="R01_EquipoPrestadoVsVenta.resx">
       <DependentUpon>R01_EquipoPrestadoVsVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_MorosidadProveedores.resx">
+      <DependentUpon>R01_MorosidadProveedores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_NotaVenta.resx">
       <DependentUpon>R01_NotaVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1851,6 +1866,10 @@
     <EmbeddedResource Include="Reportes\MAM_ZonasRepartidor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MAM_ZonasRepartidor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_MorosidadProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_MorosidadProveedor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_Proforma.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

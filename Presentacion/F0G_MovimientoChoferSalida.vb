@@ -40,6 +40,8 @@ Public Class F0G_MovimientoChoferSalida
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
         'Me.WindowState = FormWindowState.Maximized
         _prCargarComboLibreriaConcepto(cbConcepto)
+        _prCargarComboLibreriaDeposito(cbalmacenOrigen)
+        _prCargarComboLibreriaDeposito(cbalmacenDestino)
         _prInhabiliitar()
         _prCargarVenta()
         'Dim blah As New Bitmap(New Bitmap(My.Resources.compra), 20, 20)
@@ -53,8 +55,7 @@ Public Class F0G_MovimientoChoferSalida
             _prMostrarRegistro(0)
         End If
 
-        _prCargarComboLibreriaDeposito(cbalmacenOrigen)
-        _prCargarComboLibreriaDeposito(cbalmacenDestino)
+
 
     End Sub
 
@@ -761,6 +762,7 @@ Public Class F0G_MovimientoChoferSalida
         listEstCeldas.Add(New Modelo.MCelda("cbnumi,", True, "CÓDIGO", 70))
         listEstCeldas.Add(New Modelo.MCelda("cbdesc", True, "NOMBRE", 280))
         listEstCeldas.Add(New Modelo.MCelda("descrip", False, "RUTA", 250))
+        listEstCeldas.Add(New Modelo.MCelda("cbalmacen", False, "Almacen".ToUpper, 150))
 
         Dim ef = New Efecto
         ef.tipo = 3
@@ -778,6 +780,7 @@ Public Class F0G_MovimientoChoferSalida
 
             _codChofer = Row.Cells("cbnumi").Value
             tbChofer.Text = Row.Cells("cbdesc").Value
+            cbalmacenDestino.Value = Row.Cells("cbalmacen").Value
             '_fechapedido = Row.Cells("oafdoc").Value
             cbConcepto.Focus()
 

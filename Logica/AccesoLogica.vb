@@ -11873,5 +11873,27 @@ Public Class AccesoLogica
     End Sub
 #End Region
 
+#Region "MOROSIDAD"
+    Public Shared Function L_fnReporteMorosidadTodosProveedores() As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_Morosidad", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnReporteMorosidadUnProveedor(numiProveedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@proveedor", numiProveedor))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_Morosidad", _listParam)
+
+        Return _Tabla
+    End Function
+#End Region
 End Class

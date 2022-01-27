@@ -1762,6 +1762,11 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btnMorosidadProveedor_Click(sender As Object, e As EventArgs) Handles btnMorosidadProveedor.Click
+        Dim frm As New R01_MorosidadProveedores
+        frm.Show()
+    End Sub
+
 
 
 #End Region

@@ -29,9 +29,6 @@ Public Class R01_EstadoCuentasPorCobrar
         tbVendedor.ReadOnly = True
         tbVendedor.Enabled = False
         CheckTodosClientes.CheckValue = True
-
-
-
     End Sub
 
 
