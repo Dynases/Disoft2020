@@ -874,7 +874,7 @@ Public Class F0G_MovimientoChoferEntrada
             For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
                 Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
                 Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
-                Dim cantidad = 0
+                Dim cantidad = 0.00
                 For i As Integer = 0 To result.Length - 1 Step 1
                     Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
                     Dim columnnumi As String = result(i).Item("ibid")
@@ -1002,6 +1002,7 @@ Public Class F0G_MovimientoChoferEntrada
                     .TextAlignment = TextAlignment.Far
                     .FormatString = "0"
                     .Caption = "Salida " + Str(c + 1)
+                    .FormatString = "0.00"
                 End With
             Next
 
