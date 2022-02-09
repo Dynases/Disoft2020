@@ -1160,7 +1160,7 @@ Public Class frmBillingDispatch
 
             P_Global.Visualizador.CRV1.ReportSource = objrep
             P_Global.Visualizador.Show()
-            P_Global.Visualizador.BringToFront()
+            'P_Global.Visualizador.BringToFront()
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
