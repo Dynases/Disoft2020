@@ -24,7 +24,7 @@ Public Class R01_PreciosPorCategoria
 
     Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
         Me.Close()
-        _modulo.Select()
+
         '_tab.Close()
     End Sub
 
@@ -33,48 +33,42 @@ Public Class R01_PreciosPorCategoria
 #Region "Metodos"
 
     Private Sub P_prInicio()
-        'Abrir conexion
-        If (Not gb_ConexionAbierta) Then
-            L_prAbrirConexion()
-        End If
 
         Me.Text = "PRECIOS POR CATEGORIA".ToUpper
         'Me.WindowState = FormWindowState.Maximized
         MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        _prCargarComboLibreriaDeposito(cbAlmacen)
+        _prCargarComboLibreriaDeposito(cbCategoria)
     End Sub
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
-        dt = L_fnMovimientoListarSucursales()
-        dt.Rows.Add(-1, "Todos")
+        dt = L_CategoriaPrecioGeneral()
+        'dt.Rows.Add(-1, "Todos")
         With mCombo
             .DropDownList.Columns.Clear()
-            .DropDownList.Columns.Add("aanumi").Width = 60
-            .DropDownList.Columns("aanumi").Caption = "COD"
-            .DropDownList.Columns.Add("aabdes").Width = 500
-            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
-            .ValueMember = "aanumi"
-            .DisplayMember = "aabdes"
+            .DropDownList.Columns.Add("cicod").Width = 60
+            .DropDownList.Columns("cicod").Caption = "COD"
+            .DropDownList.Columns.Add("cidesc").Width = 200
+            .DropDownList.Columns("cidesc").Caption = "CATEGORIA"
+            .ValueMember = "cinumi"
+            .DisplayMember = "cidesc"
             .DataSource = dt
             .Refresh()
         End With
 
-        mCombo.Value = -1
+        mCombo.Value = 2
     End Sub
 
     Private Sub P_prCargarReporte()
-        'Dim _dt As New DataTable
-        'If swTipo.Value Then
-        '    Dim objrep As New R_StockDisponible()
-        '    _dt = L_VistaStockDisponible()
-        '    objrep.SetDataSource(_dt)
-        '    MCrReporte.ReportSource = objrep
-        'Else
-        '    Dim objrep As New R_StockDisponiblesSinAgrupacion()
-        '    _dt = L_VistaStockDisponible()
-        '    objrep.SetDataSource(_dt)
-        '    MCrReporte.ReportSource = objrep
-        'End If
+        Dim _dt As New DataTable
+        _dt = L_fnReportePrecios(cbCategoria.Value)
+
+        Dim objrep As New R_ReportePrecios
+
+        objrep.SetDataSource(_dt)
+        objrep.SetParameterValue("usuario", L_Usuario)
+        objrep.SetParameterValue("categoria", cbCategoria.Text)
+        MCrReporte.ReportSource = objrep
+
     End Sub
 
 #End Region

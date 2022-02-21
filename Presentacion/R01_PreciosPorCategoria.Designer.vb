@@ -23,10 +23,10 @@ Partial Class R01_PreciosPorCategoria
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim cbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R01_PreciosPorCategoria))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.cbCategoria = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
@@ -36,7 +36,7 @@ Partial Class R01_PreciosPorCategoria
         Me.MPnUsuario.SuspendLayout()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MGpFiltro.SuspendLayout()
-        CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -52,7 +52,7 @@ Partial Class R01_PreciosPorCategoria
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2)
         Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -65,11 +65,11 @@ Partial Class R01_PreciosPorCategoria
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -105,9 +105,9 @@ Partial Class R01_PreciosPorCategoria
         '
         'MGpFiltro
         '
-        Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
+        Me.MGpFiltro.Controls.Add(Me.cbCategoria)
         Me.MGpFiltro.Controls.Add(Me.lbDepositoOrigen)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2)
         Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
@@ -138,11 +138,11 @@ Partial Class R01_PreciosPorCategoria
         '
         Me.MGpFiltro.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.MGpFiltro.Controls.SetChildIndex(Me.lbDepositoOrigen, 0)
-        Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.cbCategoria, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2)
         Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'Timer1
@@ -150,21 +150,21 @@ Partial Class R01_PreciosPorCategoria
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'cbAlmacen
+        'cbCategoria
         '
-        Me.cbAlmacen.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
-        cbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacen_DesignTimeLayout.LayoutString")
-        Me.cbAlmacen.DesignTimeLayout = cbAlmacen_DesignTimeLayout
-        Me.cbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacen.Location = New System.Drawing.Point(112, 24)
-        Me.cbAlmacen.Name = "cbAlmacen"
-        Me.cbAlmacen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbAlmacen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbAlmacen.SelectedIndex = -1
-        Me.cbAlmacen.SelectedItem = Nothing
-        Me.cbAlmacen.Size = New System.Drawing.Size(170, 22)
-        Me.cbAlmacen.TabIndex = 383
-        Me.cbAlmacen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        Me.cbCategoria.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbCategoria_DesignTimeLayout.LayoutString = resources.GetString("cbCategoria_DesignTimeLayout.LayoutString")
+        Me.cbCategoria.DesignTimeLayout = cbCategoria_DesignTimeLayout
+        Me.cbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCategoria.Location = New System.Drawing.Point(112, 24)
+        Me.cbCategoria.Name = "cbCategoria"
+        Me.cbCategoria.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbCategoria.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbCategoria.SelectedIndex = -1
+        Me.cbCategoria.SelectedItem = Nothing
+        Me.cbCategoria.Size = New System.Drawing.Size(170, 22)
+        Me.cbCategoria.TabIndex = 383
+        Me.cbCategoria.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'lbDepositoOrigen
         '
@@ -188,7 +188,7 @@ Partial Class R01_PreciosPorCategoria
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1186, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_PreciosPorCategoria"
         Me.Opacity = 0.05R
         Me.Text = "R01_PreciosPorCategoria"
@@ -206,12 +206,12 @@ Partial Class R01_PreciosPorCategoria
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MGpFiltro.ResumeLayout(False)
         Me.MGpFiltro.PerformLayout()
-        CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents cbAlmacen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents cbCategoria As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
 End Class

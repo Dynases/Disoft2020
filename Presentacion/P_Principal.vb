@@ -1767,6 +1767,11 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btnRepPrecios_Click(sender As Object, e As EventArgs) Handles btnRepPrecios.Click
+        Dim frm As New R01_PreciosPorCategoria
+        frm.Show()
+    End Sub
+
 
 
 #End Region

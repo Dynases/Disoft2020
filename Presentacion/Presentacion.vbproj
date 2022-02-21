@@ -1166,6 +1166,12 @@
       <DependentUpon>R_saldoCreditoCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_ReportePrecios.vb">
+      <DependentUpon>R_ReportePrecios.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\R_SaldosFisicoValorado.vb">
       <DependentUpon>R_SaldosFisicoValorado.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2033,6 +2039,10 @@
     <EmbeddedResource Include="Reportes\R_saldoCreditoCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_saldoCreditoCliente.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_ReportePrecios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ReportePrecios.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_SaldosFisicoValorado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

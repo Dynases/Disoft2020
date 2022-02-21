@@ -48,6 +48,7 @@ Partial Class P_Principal
         Me.btnEstadoCuentasProveedor = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btnReporteMovimiento = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btnReporteCompras = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btnMorosidadProveedor = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.PictureBox06 = New System.Windows.Forms.PictureBox()
         Me.SideNavPanelPedido = New DevComponents.DotNetBar.Controls.SideNavPanel()
         Me.PanelPedido = New System.Windows.Forms.Panel()
@@ -212,7 +213,7 @@ Partial Class P_Principal
         Me.MetroTileItem1 = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btEscRepCronoClasesPrac = New DevComponents.DotNetBar.Metro.MetroTileItem()
         Me.btEscRepHorasTrabajadas = New DevComponents.DotNetBar.Metro.MetroTileItem()
-        Me.btnMorosidadProveedor = New DevComponents.DotNetBar.Metro.MetroTileItem()
+        Me.btnRepPrecios = New DevComponents.DotNetBar.Metro.MetroTileItem()
         MetroTileFrame1 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         MetroTileFrame2 = New DevComponents.DotNetBar.Metro.MetroTileFrame()
         Me.SideNav1.SuspendLayout()
@@ -269,12 +270,12 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanelInventario)
         Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
         Me.SideNav1.Controls.Add(Me.SideNavPanelCompra)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVenta)
         Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
-        Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanelCerrarSesion)
         Me.SideNav1.Controls.Add(Me.SideNavPanelVentana)
@@ -298,6 +299,7 @@ Partial Class P_Principal
         Me.SideNavPanelInventario.Name = "SideNavPanelInventario"
         Me.SideNavPanelInventario.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelInventario.TabIndex = 87
+        Me.SideNavPanelInventario.Visible = False
         '
         'PanelInventario
         '
@@ -731,6 +733,27 @@ Partial Class P_Principal
         Me.btnReporteCompras.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
         Me.btnReporteCompras.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
         Me.btnReporteCompras.TitleTextColor = System.Drawing.Color.Red
+        '
+        'btnMorosidadProveedor
+        '
+        Me.btnMorosidadProveedor.Image = Global.Presentacion.My.Resources.Resources.CONTROL_PEDIDOS
+        Me.btnMorosidadProveedor.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnMorosidadProveedor.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
+        Me.btnMorosidadProveedor.Name = "btnMorosidadProveedor"
+        Me.btnMorosidadProveedor.SymbolColor = System.Drawing.Color.Empty
+        Me.btnMorosidadProveedor.Text = "REP. MOROSIDAD PROVEEDORES"
+        Me.btnMorosidadProveedor.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
+        Me.btnMorosidadProveedor.TileSize = New System.Drawing.Size(250, 135)
+        '
+        '
+        '
+        Me.btnMorosidadProveedor.TileStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnMorosidadProveedor.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnMorosidadProveedor.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btnMorosidadProveedor.TileStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMorosidadProveedor.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
+        Me.btnMorosidadProveedor.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnMorosidadProveedor.TitleTextColor = System.Drawing.Color.Red
         '
         'PictureBox06
         '
@@ -2183,7 +2206,6 @@ Partial Class P_Principal
         Me.SideNavPaenlConf.Name = "SideNavPaenlConf"
         Me.SideNavPaenlConf.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPaenlConf.TabIndex = 2
-        Me.SideNavPaenlConf.Visible = False
         '
         'PanelConf
         '
@@ -2227,7 +2249,7 @@ Partial Class P_Principal
         Me.ItemContainerConfTransacciones.ItemSpacing = 10
         Me.ItemContainerConfTransacciones.MultiLine = True
         Me.ItemContainerConfTransacciones.Name = "ItemContainerConfTransacciones"
-        Me.ItemContainerConfTransacciones.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfCliente, Me.btConfProducto, Me.btConfEquipo, Me.btConfPrecio, Me.btConfUsuario, Me.btConfFormulario, Me.btConfRol, Me.btConfLibreria, Me.btConfPersonal, Me.btConfcategoria, Me.btConfMesas, Me.btConfDosificacion, Me.btDescuentos, Me.btConfEmpresa, Me.btBancos})
+        Me.ItemContainerConfTransacciones.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfCliente, Me.btConfProducto, Me.btConfEquipo, Me.btConfPrecio, Me.btConfUsuario, Me.btConfFormulario, Me.btConfRol, Me.btConfLibreria, Me.btConfPersonal, Me.btConfcategoria, Me.btConfMesas, Me.btConfDosificacion, Me.btDescuentos, Me.btConfEmpresa, Me.btBancos, Me.btnRepPrecios})
         '
         '
         '
@@ -3153,6 +3175,7 @@ Partial Class P_Principal
         '
         'FP_Configuracion
         '
+        Me.FP_Configuracion.Checked = True
         Me.FP_Configuracion.Name = "FP_Configuracion"
         Me.FP_Configuracion.Panel = Me.SideNavPaenlConf
         Me.FP_Configuracion.Symbol = ""
@@ -3174,7 +3197,6 @@ Partial Class P_Principal
         '
         'FP_Inventario
         '
-        Me.FP_Inventario.Checked = True
         Me.FP_Inventario.Name = "FP_Inventario"
         Me.FP_Inventario.Panel = Me.SideNavPanelInventario
         Me.FP_Inventario.Symbol = ""
@@ -3480,26 +3502,27 @@ Partial Class P_Principal
         Me.btEscRepHorasTrabajadas.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.btEscRepHorasTrabajadas.TitleText = "VEHICULO"
         '
-        'btnMorosidadProveedor
+        'btnRepPrecios
         '
-        Me.btnMorosidadProveedor.Image = Global.Presentacion.My.Resources.Resources.CONTROL_PEDIDOS
-        Me.btnMorosidadProveedor.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        Me.btnMorosidadProveedor.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
-        Me.btnMorosidadProveedor.Name = "btnMorosidadProveedor"
-        Me.btnMorosidadProveedor.SymbolColor = System.Drawing.Color.Empty
-        Me.btnMorosidadProveedor.Text = "REP. MOROSIDAD PROVEEDORES"
-        Me.btnMorosidadProveedor.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Plum
-        Me.btnMorosidadProveedor.TileSize = New System.Drawing.Size(250, 135)
+        Me.btnRepPrecios.Image = Global.Presentacion.My.Resources.Resources.BONOS_DESC
+        Me.btnRepPrecios.ImageTextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnRepPrecios.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Center
+        Me.btnRepPrecios.Name = "btnRepPrecios"
+        Me.btnRepPrecios.SymbolColor = System.Drawing.Color.Empty
+        Me.btnRepPrecios.Text = "REPORTE PRECIOS"
+        Me.btnRepPrecios.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Blueish
+        Me.btnRepPrecios.TileSize = New System.Drawing.Size(250, 135)
         '
         '
         '
-        Me.btnMorosidadProveedor.TileStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.btnMorosidadProveedor.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnMorosidadProveedor.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.btnMorosidadProveedor.TileStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMorosidadProveedor.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
-        Me.btnMorosidadProveedor.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnMorosidadProveedor.TitleTextColor = System.Drawing.Color.Red
+        Me.btnRepPrecios.TileStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.btnRepPrecios.TileStyle.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnRepPrecios.TileStyle.BackColorGradientType = DevComponents.DotNetBar.eGradientType.Radial
+        Me.btnRepPrecios.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.btnRepPrecios.TileStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRepPrecios.TileStyle.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Far
+        Me.btnRepPrecios.TitleTextAlignment = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRepPrecios.TitleTextColor = System.Drawing.Color.Red
         '
         'P_Principal
         '
@@ -3740,4 +3763,5 @@ Partial Class P_Principal
     Friend WithEvents btBancos As DevComponents.DotNetBar.Metro.MetroTileItem
     Friend WithEvents btProforma As DevComponents.DotNetBar.Metro.MetroTileItem
     Friend WithEvents btnMorosidadProveedor As DevComponents.DotNetBar.Metro.MetroTileItem
+    Friend WithEvents btnRepPrecios As DevComponents.DotNetBar.Metro.MetroTileItem
 End Class

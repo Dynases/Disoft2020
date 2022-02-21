@@ -866,12 +866,13 @@ Public Class F0G_MovimientoChoferEntrada
             For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
                 Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
                 Dim result As DataRow() = Productos.Select("iccprod=" + Str(idprod))
-                Dim cantidad = 0
+                Dim cantidad = 0.00
                 For i As Integer = 0 To result.Length - 1 Step 1
                     Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
                     Dim columnnumi As String = result(i).Item("ibid")
                     cantidad = cantidad + result(i).Item("iccant")
                     TablaPrincipal.Rows(j).Item(columnnumi) = cantidad
+                    cantidad = 0.00
                 Next
             Next
             TablaPrincipal.Columns.Add("ID_TO1", Type.GetType("System.String"))
@@ -890,9 +891,11 @@ Public Class F0G_MovimientoChoferEntrada
             For j As Integer = 0 To TablaPrincipal.Rows.Count - 1 Step 1
                 Dim idprod As Integer = TablaPrincipal.Rows(j).Item("canumi")
                 Dim result As DataRow() = ProductosMovimientoSalida.Select("iccprod=" + Str(idprod))
+                Dim cant = 0.00
                 For i As Integer = 0 To result.Length - 1 Step 1
                     Dim rowIndex As Integer = TablaPrincipal.Rows.IndexOf(result(i))
-                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = result(i).Item("iccant")
+                    cant = cant + result(i).Item("iccant")
+                    TablaPrincipal.Rows(j).Item("DEVOLUCION") = cant  'result(i).Item("iccant")
                     TablaPrincipal.Rows(j).Item("estado") = 1
                     TablaPrincipal.Rows(j).Item("icid") = result(i).Item("icid")
                 Next

@@ -222,9 +222,10 @@ Public Class frmDispatch
                 .SelectionMode = SelectionMode.MultipleSelection
                 .AlternatingColors = True
                 .AllowEdit = InheritableBoolean.False
-                .AllowColumnDrag = False
-                .AutomaticSort = False
+                '.AllowColumnDrag = False
+                '.AutomaticSort = False
                 '.ColumnHeaders = InheritableBoolean.False
+
             End With
         Catch ex As Exception
             Throw New Exception(ex.Message)
