@@ -72,7 +72,7 @@ Partial Class frmBillingDispatch
         Me.PanelBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelBase.Location = New System.Drawing.Point(0, 0)
         Me.PanelBase.Name = "PanelBase"
-        Me.PanelBase.Size = New System.Drawing.Size(1284, 599)
+        Me.PanelBase.Size = New System.Drawing.Size(1284, 661)
         Me.PanelBase.TabIndex = 0
         '
         'PanelPedido
@@ -81,7 +81,7 @@ Partial Class frmBillingDispatch
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 60)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(1284, 424)
+        Me.PanelPedido.Size = New System.Drawing.Size(1284, 486)
         Me.PanelPedido.TabIndex = 1
         '
         'panelFondo
@@ -91,7 +91,7 @@ Partial Class frmBillingDispatch
         Me.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelFondo.Location = New System.Drawing.Point(0, 0)
         Me.panelFondo.Name = "panelFondo"
-        Me.panelFondo.Size = New System.Drawing.Size(1284, 424)
+        Me.panelFondo.Size = New System.Drawing.Size(1284, 486)
         Me.panelFondo.TabIndex = 70
         '
         'dgjPedido
@@ -99,7 +99,7 @@ Partial Class frmBillingDispatch
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjPedido.Location = New System.Drawing.Point(0, 37)
         Me.dgjPedido.Name = "dgjPedido"
-        Me.dgjPedido.Size = New System.Drawing.Size(1284, 387)
+        Me.dgjPedido.Size = New System.Drawing.Size(1284, 449)
         Me.dgjPedido.TabIndex = 2
         '
         'LblSubtitulo
@@ -123,7 +123,7 @@ Partial Class frmBillingDispatch
         Me.PanelProducto.Controls.Add(Me.QrFactura)
         Me.PanelProducto.Controls.Add(Me.dgjProducto)
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelProducto.Location = New System.Drawing.Point(0, 484)
+        Me.PanelProducto.Location = New System.Drawing.Point(0, 546)
         Me.PanelProducto.Name = "PanelProducto"
         Me.PanelProducto.Size = New System.Drawing.Size(1284, 115)
         Me.PanelProducto.TabIndex = 1
@@ -459,7 +459,7 @@ Partial Class frmBillingDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1284, 599)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Controls.Add(Me.PanelBase)
         Me.Name = "frmBillingDispatch"
         Me.Opacity = 0.05R
