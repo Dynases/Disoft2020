@@ -31,6 +31,7 @@ Public Class F01_ReporteVentaFact
         P_prArmarComboVendedores()
         P_prArmarComboRepartidor()
         P_prArmarComboProducto()
+        P_prArmarComboTipo()
 
     End Sub
     Private Sub P_prArmarComboProducto()
@@ -91,6 +92,7 @@ Public Class F01_ReporteVentaFact
         cbFactura.SelectedIndex = Convert.ToInt32(0)
 
     End Sub
+
     Private Sub P_prArmarComboCategoria()
         Dim Dt As DataTable
         Dt = L_fnObtenerCategoria()
@@ -99,7 +101,16 @@ Public Class F01_ReporteVentaFact
         cbCategoria.SelectedIndex = Convert.ToInt32(Dt.Rows.Count - 1)
 
     End Sub
-
+    Private Sub P_prArmarComboTipo()
+        Dim DtP As DataTable
+        DtP = L_fnObtenerProveedor()
+        DtP.Rows.Clear()
+        DtP.Rows.Add(0, "TODOS")
+        DtP.Rows.Add(1, "FACTURADOS")
+        DtP.Rows.Add(2, "NOTAS DE VENTA")
+        g_prArmarCombo(cbTipo, DtP, 60, 200, "COD", "ESTADO")
+        cbTipo.SelectedIndex = Convert.ToInt32(0)
+    End Sub
     Private Sub P_prCargarComboLibreria(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo, cod1 As String)
         Dim dt As New DataTable
         dt = L_prLibreriaProductoGeneral(cod1)
@@ -134,7 +145,7 @@ Public Class F01_ReporteVentaFact
     End Sub
 
     Private Sub F01_ReporteVentaFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Ventas Facturadas"
+        Me.Text = "Ventas Facturadas/ Notas de Venta"
         tbFechaI.Value = Now.Date
         tbFechaF.Value = Now.Date
         P_prInicio()
@@ -218,9 +229,18 @@ Public Class F01_ReporteVentaFact
         End If
     End Sub
     Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
-
-        Dim dt As DataTable = L_fnReporteFacturados(cbProveedor.Value, cbCategoria.Value, cbMarca.Value, cbAtributo.Value, cbDescripcion.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+        Dim dt As DataTable
+        If cbTipo.Value = 0 Then
+            dt = L_fnReporteFacturadosNotasVenta(cbProveedor.Value, cbCategoria.Value, cbMarca.Value, cbAtributo.Value, cbDescripcion.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+        End If
+        If cbTipo.Value = 1 Then
+            dt = L_fnReporteFacturados(cbProveedor.Value, cbCategoria.Value, cbMarca.Value, cbAtributo.Value, cbDescripcion.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+        End If
+        If cbTipo.Value = 2 Then
+            dt = L_fnReporteNotasVenta(cbProveedor.Value, cbCategoria.Value, cbMarca.Value, cbAtributo.Value, cbDescripcion.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+        End If
         Filtrar(dt)
+
         If (dt.Rows.Count > 0) Then
 
 
@@ -338,7 +358,7 @@ Public Class F01_ReporteVentaFact
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("NroFactura")
-                .Caption = "NroFactura"
+                .Caption = "NroFactura/Nota"
                 .FormatString = ""
                 .Visible = True
             End With

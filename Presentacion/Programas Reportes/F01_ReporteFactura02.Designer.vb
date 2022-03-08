@@ -71,6 +71,7 @@ Partial Class F01_ReporteFactura02
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanelBuscador)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.Panel1)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.Panel1, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanelBuscador, 0)
@@ -97,7 +98,9 @@ Partial Class F01_ReporteFactura02
         '
         'MTbUsuario
         '
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.MTbUsuario.ReadOnly = True
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MPanelToolBarNavegacion
@@ -152,10 +155,9 @@ Partial Class F01_ReporteFactura02
         Me.GroupPanelBuscador.Controls.Add(Me.grDatos)
         Me.GroupPanelBuscador.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelBuscador.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelBuscador.Location = New System.Drawing.Point(0, 128)
-        Me.GroupPanelBuscador.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelBuscador.Location = New System.Drawing.Point(0, 104)
         Me.GroupPanelBuscador.Name = "GroupPanelBuscador"
-        Me.GroupPanelBuscador.Size = New System.Drawing.Size(1270, 432)
+        Me.GroupPanelBuscador.Size = New System.Drawing.Size(942, 351)
         '
         '
         '
@@ -193,9 +195,8 @@ Partial Class F01_ReporteFactura02
         Me.grDatos.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
         Me.grDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grDatos.Location = New System.Drawing.Point(0, 0)
-        Me.grDatos.Margin = New System.Windows.Forms.Padding(4)
         Me.grDatos.Name = "grDatos"
-        Me.grDatos.Size = New System.Drawing.Size(1264, 403)
+        Me.grDatos.Size = New System.Drawing.Size(936, 326)
         Me.grDatos.TabIndex = 0
         '
         'Panel1
@@ -208,9 +209,9 @@ Partial Class F01_ReporteFactura02
         Me.Panel1.Controls.Add(Me.tbFechaI)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1270, 128)
+        Me.Panel1.Size = New System.Drawing.Size(942, 104)
         Me.Panel1.TabIndex = 32
         '
         'ButtonX1
@@ -221,11 +222,10 @@ Partial Class F01_ReporteFactura02
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.BT_ACTUALIZAR
         Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(45, 50)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonX1.Location = New System.Drawing.Point(370, 10)
-        Me.ButtonX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonX1.Location = New System.Drawing.Point(278, 8)
         Me.ButtonX1.Name = "ButtonX1"
-        Me.ButtonX1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 25)
-        Me.ButtonX1.Size = New System.Drawing.Size(79, 89)
+        Me.ButtonX1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.ButtonX1.Size = New System.Drawing.Size(59, 72)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.ButtonX1.TabIndex = 241
         Me.ButtonX1.Text = "Generar"
@@ -239,11 +239,10 @@ Partial Class F01_ReporteFactura02
         Me.btExcel.Image = Global.Presentacion.My.Resources.Resources.EXCEL
         Me.btExcel.ImageFixedSize = New System.Drawing.Size(45, 50)
         Me.btExcel.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btExcel.Location = New System.Drawing.Point(470, 10)
-        Me.btExcel.Margin = New System.Windows.Forms.Padding(4)
+        Me.btExcel.Location = New System.Drawing.Point(352, 8)
         Me.btExcel.Name = "btExcel"
-        Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 25)
-        Me.btExcel.Size = New System.Drawing.Size(79, 89)
+        Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.btExcel.Size = New System.Drawing.Size(59, 72)
         Me.btExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.btExcel.TabIndex = 240
         Me.btExcel.Text = "EXPORTAR"
@@ -258,11 +257,10 @@ Partial Class F01_ReporteFactura02
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(21, 60)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(16, 49)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(69, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(52, 23)
         Me.LabelX1.TabIndex = 239
         Me.LabelX1.Text = "Al:"
         '
@@ -277,8 +275,7 @@ Partial Class F01_ReporteFactura02
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(145, 62)
-        Me.tbFechaF.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaF.Location = New System.Drawing.Point(109, 50)
         '
         '
         '
@@ -309,7 +306,7 @@ Partial Class F01_ReporteFactura02
         Me.tbFechaF.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaF.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaF.Name = "tbFechaF"
-        Me.tbFechaF.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaF.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaF.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaF.TabIndex = 238
         '
@@ -322,11 +319,10 @@ Partial Class F01_ReporteFactura02
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(21, 25)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX4.Location = New System.Drawing.Point(16, 20)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(99, 28)
+        Me.LabelX4.Size = New System.Drawing.Size(74, 23)
         Me.LabelX4.TabIndex = 237
         Me.LabelX4.Text = "Fecha Del:"
         '
@@ -341,8 +337,7 @@ Partial Class F01_ReporteFactura02
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(145, 28)
-        Me.tbFechaI.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaI.Location = New System.Drawing.Point(109, 23)
         '
         '
         '
@@ -373,15 +368,16 @@ Partial Class F01_ReporteFactura02
         Me.tbFechaI.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaI.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaI.Name = "tbFechaI"
-        Me.tbFechaI.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaI.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaI.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaI.TabIndex = 236
         '
         'F01_ReporteFactura02
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1312, 690)
+        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "F01_ReporteFactura02"
         Me.Text = "F01_ReporteFactura02"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)

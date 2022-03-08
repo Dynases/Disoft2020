@@ -122,6 +122,7 @@ Partial Class F01_ReporteVentaAdmin
         Me.MPnSuperior.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.MPnSuperior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnSuperior.Style.GradientAngle = 90
+        Me.MPnSuperior.Visible = False
         '
         'MPnInferior
         '
@@ -137,6 +138,13 @@ Partial Class F01_ReporteVentaAdmin
         '
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Text = "DEFAULT"
+        '
+        'MPanelToolBarNavegacion
+        '
+        Me.MPanelToolBarNavegacion.Visible = False
+        '
+        'MBtSalir
+        '
         '
         'MBubbleBarUsuario
         '
@@ -504,15 +512,15 @@ Partial Class F01_ReporteVentaAdmin
         Me.ButtonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.ButtonX1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.BT_ACTUALIZAR
-        Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(45, 50)
+        Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(60, 50)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonX1.Location = New System.Drawing.Point(652, 18)
+        Me.ButtonX1.Location = New System.Drawing.Point(637, 18)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.ButtonX1.Size = New System.Drawing.Size(59, 72)
+        Me.ButtonX1.Size = New System.Drawing.Size(74, 72)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.ButtonX1.TabIndex = 241
-        Me.ButtonX1.Text = "Generar"
+        Me.ButtonX1.Text = "GENERAR"
         Me.ButtonX1.TextColor = System.Drawing.Color.Black
         '
         'btExcel
@@ -526,7 +534,7 @@ Partial Class F01_ReporteVentaAdmin
         Me.btExcel.Location = New System.Drawing.Point(727, 18)
         Me.btExcel.Name = "btExcel"
         Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.btExcel.Size = New System.Drawing.Size(59, 72)
+        Me.btExcel.Size = New System.Drawing.Size(86, 72)
         Me.btExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.btExcel.TabIndex = 240
         Me.btExcel.Text = "EXPORTAR"

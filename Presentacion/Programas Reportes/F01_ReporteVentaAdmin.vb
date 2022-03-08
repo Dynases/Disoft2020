@@ -119,7 +119,7 @@ Public Class F01_ReporteVentaAdmin
         cbDescripcion.SelectedIndex = Convert.ToInt32(Dt.Rows.Count - 1)
     End Sub
     Private Sub F01_ReporteVentaFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Ventas Facturadas"
+        Me.Text = "Venta Administrativa"
         tbFechaI.Value = Now.Date
         tbFechaF.Value = Now.Date
         P_prInicio()
@@ -245,7 +245,7 @@ Public Class F01_ReporteVentaAdmin
             Case 5
                 descripcion = "               " + descripcion
         End Select
-        _dt.Rows.Add(codigo, descripcion.ToUpper, tabla("caja"), tabla("Importe"), tabla("cantidadCliente"), tabla("Porcentaje"), tipoFila)
+        _dt.Rows.Add(codigo, descripcion.ToUpper, Format(tabla("caja"), "0.00"), Format(tabla("Importe"), "0.00"), tabla("cantidadCliente"), Format(tabla("Porcentaje"), "0.0000"), tipoFila)
     End Sub
     Public Sub Filtrar(ByRef _dt As DataTable)
         Dim table As DataTable = _dt.Copy
@@ -353,7 +353,7 @@ Public Class F01_ReporteVentaAdmin
                 .HeaderAlignment = TextAlignment.Center
                 .TextAlignment = TextAlignment.Far
                 .Caption = "Porcentaje"
-                .FormatString = "0.00"
+                .FormatString = "0.0000"
                 .Width = 160
                 .Visible = True
             End With
