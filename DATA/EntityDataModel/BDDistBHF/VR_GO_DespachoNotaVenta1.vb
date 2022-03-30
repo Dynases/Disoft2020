@@ -10,20 +10,27 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class VR_GO_DespachoXProducto
-    Public Property oaccbnumi As Integer
-    Public Property canumi As Integer
-    Public Property cacod As String
-    Public Property cadesc As String
-    Public Property cadesc2 As String
-    Public Property categoria As String
-    Public Property obpcant As Nullable(Of Decimal)
-    Public Property oacnconc As Nullable(Of Integer)
-    Public Property oaest As Nullable(Of Integer)
-    Public Property oaap As Nullable(Of Integer)
+Partial Public Class VR_GO_DespachoNotaVenta1
+    Public Property oanumi As Integer
     Public Property oafdoc As Nullable(Of Date)
-    Public Property caja As Nullable(Of Integer)
-    Public Property Unidad As Nullable(Of Decimal)
+    Public Property ccdesc As String
+    Public Property ccnomfac As String
+    Public Property ccdirec As String
+    Public Property cbnumi As Integer
+    Public Property cbdesc As String
+    Public Property canumi As Integer
+    Public Property cadesc As String
+    Public Property oaobs As String
+    Public Property obpcant As Nullable(Of Decimal)
+    Public Property obpbase As Nullable(Of Decimal)
+    Public Property obptot As Nullable(Of Decimal)
+    Public Property obdesc As Nullable(Of Decimal)
+    Public Property obtotal As Nullable(Of Decimal)
+    Public Property oaest As Nullable(Of Integer)
+    Public Property oaccbnumi As Integer
     Public Property Total As Nullable(Of Decimal)
+    Public Property ccnit As String
+    Public Property cctelf1 As String
+    Public Property cedesc As String
 
 End Class

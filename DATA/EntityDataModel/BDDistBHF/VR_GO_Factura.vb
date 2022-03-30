@@ -40,5 +40,14 @@ Partial Public Class VR_GO_Factura
     Public Property obdesc As Nullable(Of Decimal)
     Public Property obtotal As Nullable(Of Decimal)
     Public Property oazona As Nullable(Of Integer)
+    Public Property obptot As Nullable(Of Decimal)
+    Public Property oaanumiprev As Nullable(Of Integer)
+    Public Property vend As String
+    Public Property oaccbnumi As Integer
+    Public Property repartidor As String
+    Public Property oaccli As Nullable(Of Integer)
+    Public Property cliente As String
+    Public Property oanumi As Integer
+    Public Property capcom As Nullable(Of Integer)
 
 End Class

@@ -13,7 +13,7 @@ Imports System.Collections.Generic
 Partial Public Class VR_GO_CajaGeneral
     Public Property IdCaja As Integer
     Public Property FechaCaja As Nullable(Of Date)
-    Public Property Conciliacion As Nullable(Of Integer)
+    Public Property Conciliacion As Integer
     Public Property FechaPedido As Nullable(Of Date)
     Public Property Repartidor As String
     Public Property TotalConciliacion As Nullable(Of Decimal)

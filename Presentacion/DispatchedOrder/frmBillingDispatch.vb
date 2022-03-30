@@ -627,6 +627,9 @@ Public Class frmBillingDispatch
                 ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "10"
                 ReporteNotaVenta10(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "11"
+                Dim listResult1 = New LPedido().ListarDespachoXNotaVentaDeChofer1(idChofer, idPedido)
+                ReporteNotaVenta11(idPedido, _Ds2, _Ds3, _Literal, listResult1)
         End Select
     End Sub
 
@@ -1074,6 +1077,45 @@ Public Class frmBillingDispatch
         End If
     End Sub
 
+    Private Sub ReporteNotaVenta11(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta_Ticket_CodPro
+        Dim zona, repartidor, vendedor As String
+
+        Dim tZonaRepartidorVendedor As DataTable = L_fnObtenerZonaRepartidorDistribuidor("oanumi =" + idPedido)
+        If tZonaRepartidorVendedor.Rows.Count() > 0 Then
+            zona = tZonaRepartidorVendedor.Rows(0).Item("zona").ToString()
+            repartidor = tZonaRepartidorVendedor.Rows(0).Item("repartidor").ToString()
+            vendedor = tZonaRepartidorVendedor.Rows(0).Item("vendedor").ToString()
+        Else
+            zona = "--"
+            repartidor = "--"
+            vendedor = "--"
+        End If
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("zona", zona)
+        objrep.SetParameterValue("repartidor", repartidor)
+        objrep.SetParameterValue("vendedor", vendedor)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                Dim nrocopias As Integer = _Ds3.Tables(0).Rows(0).Item("cbnrocopias")
+                objrep.PrintToPrinter(nrocopias, False, 1, 1)
+            End If
+        End If
+    End Sub
     Public Function P_fnImageToByteArray(ByVal imageIn As Image) As Byte()
         Dim ms As New System.IO.MemoryStream()
         imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)

@@ -158,6 +158,7 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property TO001D() As DbSet(Of TO001D)
     Public Overridable Property VR_GO_Factura() As DbSet(Of VR_GO_Factura)
     Public Overridable Property v_VentasDetalleDespacho() As DbSet(Of v_VentasDetalleDespacho)
+    Public Overridable Property VR_GO_DespachoNotaVenta1() As DbSet(Of VR_GO_DespachoNotaVenta1)
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer
         Dim fechaParameter As ObjectParameter = If(fecha.HasValue, New ObjectParameter("fecha", fecha), New ObjectParameter("fecha", GetType(Date)))
@@ -531,7 +532,7 @@ Partial Public Class BDDistBHFEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_go_TC004", tipoParameter, ccnumiParameter, cccodParameter, ccdescParameter, cczonaParameter, ccdctParameter, ccdctnumParameter, ccdirecParameter, cctelf1Parameter, cctelf2Parameter, cccatParameter, ccestParameter, cclatParameter, cclongiParameter, ccprconsuParameter, ccevenParameter, ccobsParameter, ccfnacParameter, ccnomfacParameter, ccnitParameter, ccultpedParameter, ccfecingParameter, ccultventParameter, recvenParameter, supvenParameter, prevenParameter, ccuactParameter, tacuParameter, finiParameter, ffinParameter, freParameter, estParameter, obsParameter, productoParameter, categoriaParameter, tcreParameter, giFrecParameter, frecvisitaParameter, fechaproxParameter, lunesParameter, martesParameter, miercolesParameter, juevesParameter, viernesParameter, sabadoParameter, domingoParameter)
     End Function
 
-    Public Overridable Function sp_go_TC004_appMovil(tipo As Nullable(Of Integer), code_id As Nullable(Of Integer), full_name As String, business_name As String, nit As String, mail As String, phone As String, cell_phone As String, address As String, reference As String, location_lat As Nullable(Of Decimal), location_log As Nullable(Of Decimal), password_cli As String, old_password_cli As String, new_password_cli As String, observacion As String, categoria As String, pedido As Nullable(Of Integer), tO0011 As String, json As String, fingreso As Nullable(Of Date), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), fechapedido As Nullable(Of Date), idRepartidor As Nullable(Of Integer), oanumi As String, oafdoc As Nullable(Of Date), oahora As String, oaccli As Nullable(Of Integer), oarepa As Nullable(Of Integer), oaest As Nullable(Of Integer), oaobs As String, latitud As Nullable(Of Decimal), longitud As Nullable(Of Decimal), total As Nullable(Of Decimal), tipocobro As Nullable(Of Integer), codigogenerado As String, cczona As Nullable(Of Integer), razonSocial As String, reclamo As String, idzona As Nullable(Of Integer), body As String) As Integer
+    Public Overridable Function sp_go_TC004_appMovil(tipo As Nullable(Of Integer), code_id As Nullable(Of Integer), full_name As String, business_name As String, nit As String, mail As String, phone As String, cell_phone As String, address As String, reference As String, location_lat As Nullable(Of Decimal), location_log As Nullable(Of Decimal), password_cli As String, old_password_cli As String, new_password_cli As String, observacion As String, categoria As String, pedido As Nullable(Of Integer), tO0011 As String, json As String, fingreso As Nullable(Of Date), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), fechapedido As Nullable(Of Date), idRepartidor As Nullable(Of Integer), oanumi As String, oafdoc As Nullable(Of Date), oahora As String, oaccli As Nullable(Of Integer), oarepa As Nullable(Of Integer), oaest As Nullable(Of Integer), oaobs As String, latitud As Nullable(Of Decimal), longitud As Nullable(Of Decimal), total As Nullable(Of Decimal), tipocobro As Nullable(Of Integer), codigogenerado As String, cczona As Nullable(Of Integer), razonSocial As String, reclamo As String, idzona As Nullable(Of Integer), body As String, oaap As Nullable(Of Integer), idSincronizacion As String, pedidoId As Nullable(Of Integer), clienteId As Nullable(Of Integer), descripcion As String, estado As Nullable(Of Integer), fecha As Nullable(Of Date), hora As String, id As Nullable(Of Integer)) As Integer
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
         Dim code_idParameter As ObjectParameter = If(code_id.HasValue, New ObjectParameter("code_id", code_id), New ObjectParameter("code_id", GetType(Integer)))
@@ -616,7 +617,25 @@ Partial Public Class BDDistBHFEntities
 
         Dim bodyParameter As ObjectParameter = If(body IsNot Nothing, New ObjectParameter("body", body), New ObjectParameter("body", GetType(String)))
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_go_TC004_appMovil", tipoParameter, code_idParameter, full_nameParameter, business_nameParameter, nitParameter, mailParameter, phoneParameter, cell_phoneParameter, addressParameter, referenceParameter, location_latParameter, location_logParameter, password_cliParameter, old_password_cliParameter, new_password_cliParameter, observacionParameter, categoriaParameter, pedidoParameter, tO0011Parameter, jsonParameter, fingresoParameter, creditoParameter, choferParameter, fechapedidoParameter, idRepartidorParameter, oanumiParameter, oafdocParameter, oahoraParameter, oaccliParameter, oarepaParameter, oaestParameter, oaobsParameter, latitudParameter, longitudParameter, totalParameter, tipocobroParameter, codigogeneradoParameter, cczonaParameter, razonSocialParameter, reclamoParameter, idzonaParameter, bodyParameter)
+        Dim oaapParameter As ObjectParameter = If(oaap.HasValue, New ObjectParameter("oaap", oaap), New ObjectParameter("oaap", GetType(Integer)))
+
+        Dim idSincronizacionParameter As ObjectParameter = If(idSincronizacion IsNot Nothing, New ObjectParameter("IdSincronizacion", idSincronizacion), New ObjectParameter("IdSincronizacion", GetType(String)))
+
+        Dim pedidoIdParameter As ObjectParameter = If(pedidoId.HasValue, New ObjectParameter("PedidoId", pedidoId), New ObjectParameter("PedidoId", GetType(Integer)))
+
+        Dim clienteIdParameter As ObjectParameter = If(clienteId.HasValue, New ObjectParameter("ClienteId", clienteId), New ObjectParameter("ClienteId", GetType(Integer)))
+
+        Dim descripcionParameter As ObjectParameter = If(descripcion IsNot Nothing, New ObjectParameter("Descripcion", descripcion), New ObjectParameter("Descripcion", GetType(String)))
+
+        Dim estadoParameter As ObjectParameter = If(estado.HasValue, New ObjectParameter("Estado", estado), New ObjectParameter("Estado", GetType(Integer)))
+
+        Dim fechaParameter As ObjectParameter = If(fecha.HasValue, New ObjectParameter("Fecha", fecha), New ObjectParameter("Fecha", GetType(Date)))
+
+        Dim horaParameter As ObjectParameter = If(hora IsNot Nothing, New ObjectParameter("Hora", hora), New ObjectParameter("Hora", GetType(String)))
+
+        Dim idParameter As ObjectParameter = If(id.HasValue, New ObjectParameter("id", id), New ObjectParameter("id", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_go_TC004_appMovil", tipoParameter, code_idParameter, full_nameParameter, business_nameParameter, nitParameter, mailParameter, phoneParameter, cell_phoneParameter, addressParameter, referenceParameter, location_latParameter, location_logParameter, password_cliParameter, old_password_cliParameter, new_password_cliParameter, observacionParameter, categoriaParameter, pedidoParameter, tO0011Parameter, jsonParameter, fingresoParameter, creditoParameter, choferParameter, fechapedidoParameter, idRepartidorParameter, oanumiParameter, oafdocParameter, oahoraParameter, oaccliParameter, oarepaParameter, oaestParameter, oaobsParameter, latitudParameter, longitudParameter, totalParameter, tipocobroParameter, codigogeneradoParameter, cczonaParameter, razonSocialParameter, reclamoParameter, idzonaParameter, bodyParameter, oaapParameter, idSincronizacionParameter, pedidoIdParameter, clienteIdParameter, descripcionParameter, estadoParameter, fechaParameter, horaParameter, idParameter)
     End Function
 
     Public Overridable Function sp_go_TC009(tipo As Nullable(Of Integer), numi As Nullable(Of Integer), desc As String, est As Nullable(Of Integer), pdf As String, obs As String, codu As Nullable(Of Integer), uact As String) As Integer
@@ -1261,7 +1280,7 @@ Partial Public Class BDDistBHFEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TV00121", tipoParameter, tdnumiParameter, tduactParameter, creditoParameter)
     End Function
 
-    Public Overridable Function sp_Mam_TV00121Cheque(tipo As Nullable(Of Integer), tenumi As Nullable(Of Integer), tefdoc As Nullable(Of Date), tety4vend As Nullable(Of Integer), teobs As String, tdnumi As Nullable(Of Integer), teuact As String, credito As Nullable(Of Integer)) As Integer
+    Public Overridable Function sp_Mam_TV00121Cheque(tipo As Nullable(Of Integer), tenumi As Nullable(Of Integer), tefdoc As Nullable(Of Date), tety4vend As Nullable(Of Integer), teobs As String, tdnumi As Nullable(Of Integer), teuact As String, credito As Nullable(Of Integer), oanumi As Nullable(Of Integer)) As Integer
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
         Dim tenumiParameter As ObjectParameter = If(tenumi.HasValue, New ObjectParameter("tenumi", tenumi), New ObjectParameter("tenumi", GetType(Integer)))
@@ -1278,7 +1297,9 @@ Partial Public Class BDDistBHFEntities
 
         Dim creditoParameter As ObjectParameter = If(credito.HasValue, New ObjectParameter("credito", credito), New ObjectParameter("credito", GetType(Integer)))
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TV00121Cheque", tipoParameter, tenumiParameter, tefdocParameter, tety4vendParameter, teobsParameter, tdnumiParameter, teuactParameter, creditoParameter)
+        Dim oanumiParameter As ObjectParameter = If(oanumi.HasValue, New ObjectParameter("oanumi", oanumi), New ObjectParameter("oanumi", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TV00121Cheque", tipoParameter, tenumiParameter, tefdocParameter, tety4vendParameter, teobsParameter, tdnumiParameter, teuactParameter, creditoParameter, oanumiParameter)
     End Function
 
     Public Overridable Function sp_Mam_VentasCredito(tipo As Nullable(Of Integer), fechaI As Nullable(Of Date), fechaF As Nullable(Of Date), yduact As String, cliente As Nullable(Of Integer), codCredito As Nullable(Of Integer), catPrecio As Nullable(Of Integer), almacen As Nullable(Of Integer), vendedor As Nullable(Of Integer)) As ObjectResult(Of sp_Mam_VentasCredito_Result)
