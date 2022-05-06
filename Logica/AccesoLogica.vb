@@ -7362,6 +7362,29 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
+    Public Shared Function L_prVerificarStock(_canumi As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 28))
+        _listParam.Add(New Datos.DParametro("@canumi", _canumi))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_ListaProductoDeChoferSalida(_Chofer As String) As DataSet
+        Dim _Tabla As DataTable
+        Dim _Ds As New DataSet
+        Dim _Where As String
+        _Where = "oacnconc=0 And oaap=1 And oaest=2 And oaccbnumi=" + _Chofer
+
+
+        _Tabla = D_Datos_Tabla("*", "VR_GO_DespachoXProducto2", _Where)
+        _Ds.Tables.Add(_Tabla)
+        Return _Ds
+    End Function
 #End Region
 
 #Region "TO004 Venta"

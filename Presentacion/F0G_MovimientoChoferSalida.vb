@@ -481,7 +481,12 @@ Public Class F0G_MovimientoChoferSalida
             .Visible = True
             .Caption = "DESCRIPCION CORTA"
         End With
-
+        With grproducto.RootTable.Columns("iacant")
+            .Width = 100
+            .Visible = True
+            .Caption = "STOCK"
+            .FormatString = "0.00"
+        End With
 
 
         With grproducto
@@ -969,15 +974,34 @@ salirIf:
                     Dim lin As Integer = grdetalle.GetValue("icid")
                     Dim pos As Integer = -1
                     _fnObtenerFilaDetalle(pos, lin)
-                    Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
-                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta")
+                    'Verificar Stock
+                    Dim dtStock = L_prVerificarStock(CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccprod").ToString)
+                    Dim Stock As Decimal = dtStock.Rows(0).Item("iacant")
+                    Dim Cantidad As Decimal = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta")
+                    If Cantidad > Stock Then
+                        ToastNotification.Show(Me, "La cantidad no debe ser mayor al del stock" & vbCrLf &
+                            "Stock=" + Stock.ToString, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadAutoVenta") = 1
+                        grdetalle.SetValue("cantidadAutoVenta", 1)
+                        Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
+                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta")
+                        grdetalle.SetValue("iccant", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta"))
+                        If (estado = 1) Then
+                            CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                        End If
+                    Else
+                        Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
-                    grdetalle.SetValue("iccant", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta"))
+                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta")
 
-                    If (estado = 1) Then
-                        CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                        grdetalle.SetValue("iccant", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta"))
+
+                        If (estado = 1) Then
+                            CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
+                        End If
                     End If
+
                 Else
                     Dim lin As Integer = grdetalle.GetValue("icid")
                     Dim pos As Integer = -1
@@ -1303,7 +1327,7 @@ salirIf:
         listEstCeldas.Add(New Modelo.MCelda("oacnconc", False, "CONCILICACION", 150))
         listEstCeldas.Add(New Modelo.MCelda("oaest", False, "ESTADO", 150))
         listEstCeldas.Add(New Modelo.MCelda("oaap", False, "oaap".ToUpper, 150))
-        listEstCeldas.Add(New Modelo.MCelda("oafdoc", True, "FECHA PEDIDO", 220, "MM/dd/YYYY"))
+        'listEstCeldas.Add(New Modelo.MCelda("oafdoc", True, "FECHA PEDIDO", 220, "MM/dd/YYYY"))
         listEstCeldas.Add(New Modelo.MCelda("cbalmacen", False, "Almacen".ToUpper, 150))
 
         Dim ef = New Efecto
@@ -1322,7 +1346,7 @@ salirIf:
 
             _codChofer = Row.Cells("oaccbnumi").Value
             tbChofer.Text = Row.Cells("cbdesc").Value
-            _fechapedido = Row.Cells("oafdoc").Value
+            '_fechapedido = Row.Cells("oafdoc").Value
 
             cbalmacenDestino.Value = Row.Cells("cbalmacen").Value
 
@@ -1339,7 +1363,8 @@ salirIf:
             _prObtenerNumiConciliacionTI0022()
 
             If (P_Global.gb_despacho) Then
-                CargarDespachoDeChoferNuevo(_codChofer, _fechapedido)
+                'CargarDespachoDeChoferNuevo(_codChofer, _fechapedido)
+                CargarDespachoDeChoferNuevo2(_codChofer)
             End If
         End If
     End Sub
@@ -1402,6 +1427,44 @@ salirIf:
 
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("cantidadPreVenta") = item.obpcant
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = item.obpcant
+
+                        i += 1
+                    Next
+                    _prCargarProductos()
+                End If
+            Else
+                Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                ToastNotification.Show(Me, "No existe productos de despacho para el chofer".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                'MBtGrabar.Enabled = False
+            End If
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Sub
+    Private Sub CargarDespachoDeChoferNuevo2(codChofer As Integer)
+        Try
+            'Dim listResult = New LPedido().ListarDespachoXProductoDeChoferSalida(codChofer)
+            Dim listResult = L_ListaProductoDeChoferSalida(codChofer.ToString)
+
+            If (listResult.Tables.Count > 0) Then
+                Dim info As New TaskDialogInfo("¿desea carga los producto de despacho del chofer?".ToUpper,
+                                       eTaskDialogIcon.Information, "pregunta".ToUpper,
+                                       "esta a punto de sobreescribir todo los productos".ToUpper _
+                                       + vbCrLf + "Desea continuar?".ToUpper,
+                                       eTaskDialogButton.Yes Or eTaskDialogButton.Cancel,
+                                       eTaskDialogBackgroundColor.Blue)
+                Dim result As eTaskDialogResult = TaskDialog.Show(info)
+                If result = eTaskDialogResult.Yes Then
+                    CType(grdetalle.DataSource, DataTable).Clear()
+                    Dim i = 0
+                    For Each item As DataRow In listResult.Tables(0).Rows()
+                        _prAddDetalleVenta()
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccprod") = item("canumi")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("cacod") = item("cacod")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto") = item("cadesc")
+
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("cantidadPreVenta") = item("obpcant")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = item("obpcant")
 
                         i += 1
                     Next
