@@ -1089,7 +1089,15 @@ Public Class AccesoLogica
         Else
             _Where = "oanumi=oanumi And ccnumi=oaccli And oazona=lanumi And cecon=2 And lazona=cenum And oaato1numi=oanumi And oaanumiprev=cbnumi" + _Cadena
         End If
-        _Tabla = D_Datos_Tabla("DISTINCT TOP 1000 oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat,cczona as oazona, cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,ccultvent,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor, ccnumi, cceven, oaanumiprev, cbdesc, cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto ", "TO001,TC004,TC0051,TL001, TO001A, TC002 ", _Where + " order by oanumi desc")
+        '_Tabla = D_Datos_Tabla("DISTINCT TOP 1000 oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat,cczona as oazona, cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,ccultvent,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor, ccnumi, cceven, oaanumiprev, cbdesc, cast(total as decimal(18,2)) as monto ",
+        '                       "TO001,TC004,TC0051,TL001, TO001A, TC002 ", _Where + " order by oanumi desc")
+        _Tabla = D_Datos_Tabla("DISTINCT TOP 1000 oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat,cczona as oazona, cedesc,oaobs,oaobs2,oaest,cclat,
+                                cclongi,oaap,IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo,oapg,ccultvent,
+                                IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente,
+                                IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor, ccnumi, cceven,
+                                oaanumiprev, cbdesc, cast(total as decimal(18,2)) as monto ",
+                               "TO001,TC004,TC0051,TL001, TO001A, TC002, vr_Totalpedidos ",
+                               _Where + " AND vr_totalpedidos.obnumi = to001.oanumi " + " order by oanumi desc")
         Return _Tabla
     End Function
 
@@ -1129,15 +1137,24 @@ Public Class AccesoLogica
         Else
             _Where = "oanumi=oanumi And ccnumi=oaccli And cczona=lanumi And cecon=2 And lazona=cenum And tc004.cczona = tl001.lanumi And tl001.lanumi = tl0012.lcnumi And oaato1numi=oanumi And oaanumiprev=cbnumi " + _Cadena
         End If
-        _Tabla = D_Datos_Tabla("DISTINCT TOP 1000 oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat," _
+        '_Tabla = D_Datos_Tabla("DISTINCT TOP 1000 oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat," _
+        '                       + "cczona as oazona, cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap," _
+        '                       + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo," _
+        '                       + "oapg,ccultvent," _
+        '                       + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente," _
+        '                       + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor," _
+        '                        + "ccnumi, cceven, oaanumiprev, cbdesc, cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto ",
+        '                      "TO001,TC004,TC0051,TL001,TL0012,TO001A, TC002",
+        '                       _Where + " order by oanumi desc")
+        _Tabla = D_Datos_Tabla("DISTINCT oanumi,oafdoc,oahora,cccod,ccdesc,ccdirec,cctelf1,cccat," _
                                + "cczona as oazona, cedesc,oaobs,oaobs2,oaest,cclat,cclongi,oaap," _
                                + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi)>0,1,0 ) as reclamo," _
                                + "oapg,ccultvent," _
                                + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=1)>0,1,0 ) as tipoRecCliente," _
                                + "IIF((select COUNT(ofnumiped) from TO0014 where ofnumiped=oanumi And oftip=2)>0,1,0 ) as tipoRecRepartidor," _
-                                + "ccnumi, cceven, oaanumiprev, cbdesc, cast((select sum(obtotal )  from TO0011 where obnumi =oanumi) as decimal(18,2)) as monto ",
-                              "TO001,TC004,TC0051,TL001,TL0012,TO001A, TC002",
-                               _Where + " order by oanumi desc")
+                                + "ccnumi, cceven, oaanumiprev, cbdesc, cast(total as decimal(18,2)) as monto",
+                              "TO001,TC004,TC0051,TL001,TL0012,TO001A, TC002, VR_Totalpedidos",
+                               _Where + " AND vr_totalpedidos.obnumi = to001.oanumi " + " order by oanumi desc")
         Return _Tabla
     End Function
 
