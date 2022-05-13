@@ -7340,7 +7340,7 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
-    Public Shared Function L_prMovimientoChofeEliminarSalida(numi As String, _icibid As String) As Boolean
+    Public Shared Function L_prMovimientoChofeEliminarSalida(numi As String, _icibid As String, _conci As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -7349,6 +7349,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", -1))
         _listParam.Add(New Datos.DParametro("@ibid", numi))
         _listParam.Add(New Datos.DParametro("@ibiddc", _icibid))
+        _listParam.Add(New Datos.DParametro("@nconci", _conci))
         _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)

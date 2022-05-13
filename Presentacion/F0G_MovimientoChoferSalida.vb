@@ -1119,7 +1119,7 @@ salirIf:
                     bandera = ef.band
                     If (bandera = True) Then
                         Dim mensajeError As String = ""
-                        Dim res As Boolean = L_prMovimientoChofeEliminarSalida(tbCodigo.Text, _icibid)
+                        Dim res As Boolean = L_prMovimientoChofeEliminarSalida(tbCodigo.Text, _icibid, lbConciliacion.Text)
                         If res Then
 
 
