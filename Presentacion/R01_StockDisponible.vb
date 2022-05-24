@@ -46,7 +46,7 @@ Public Class R01_StockDisponible
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
         dt = L_fnMovimientoListarSucursales()
-        dt.Rows.Add(-1, "Todos")
+        'dt.Rows.Add(-1, "Todos")
         With mCombo
             .DropDownList.Columns.Clear()
             .DropDownList.Columns.Add("aanumi").Width = 60
@@ -59,19 +59,21 @@ Public Class R01_StockDisponible
             .Refresh()
         End With
 
-        mCombo.Value = -1
+        mCombo.Value = 1
     End Sub
 
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
         If swTipo.Value Then
             Dim objrep As New R_StockDisponible()
-            _dt = L_VistaStockDisponible()
+            '_dt = L_VistaStockDisponible()
+            _dt = L_fnStockDisponible(cbAlmacen.Value)
             objrep.SetDataSource(_dt)
             MCrReporte.ReportSource = objrep
         Else
             Dim objrep As New R_StockDisponiblesSinAgrupacion()
-            _dt = L_VistaStockDisponible()
+            '_dt = L_VistaStockDisponible()
+            _dt = L_fnStockDisponible(cbAlmacen.Value)
             objrep.SetDataSource(_dt)
             MCrReporte.ReportSource = objrep
         End If

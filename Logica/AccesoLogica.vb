@@ -8079,7 +8079,19 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+    Public Shared Function L_fnStockDisponible(almacen As Integer) As DataTable
+        Dim _Tabla As DataTable
 
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@alm", almacen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_go_TI002", _listParam)
+
+        Return _Tabla
+    End Function
 #End Region
 
 #Region "TI005 Movimientos Pack"
