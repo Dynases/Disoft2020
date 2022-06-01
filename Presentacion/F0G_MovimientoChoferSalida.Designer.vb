@@ -99,7 +99,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(884, 455)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1058, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
@@ -115,7 +115,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GPanelProductos)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
         Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(842, 455)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1016, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel1, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GPanelProductos, 0)
@@ -125,7 +125,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         Me.MPnSuperior.Controls.Add(Me.tbTablet)
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnSuperior.Size = New System.Drawing.Size(884, 70)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1058, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -141,7 +141,7 @@ Partial Class F0G_MovimientoChoferSalida
         'MPnInferior
         '
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnInferior.Size = New System.Drawing.Size(884, 36)
+        Me.MPnInferior.Size = New System.Drawing.Size(1058, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -152,7 +152,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(684, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(858, 0)
         Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
@@ -192,7 +192,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(804, 0)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(978, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBtImprimir
@@ -245,7 +245,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(842, 197)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1016, 197)
         '
         '
         '
@@ -300,7 +300,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(836, 174)
+        Me.Panel1.Size = New System.Drawing.Size(1010, 174)
         Me.Panel1.TabIndex = 0
         '
         'cbalmacenDestino
@@ -619,7 +619,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.GPanelProductos.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GPanelProductos.Location = New System.Drawing.Point(0, 237)
         Me.GPanelProductos.Name = "GPanelProductos"
-        Me.GPanelProductos.Size = New System.Drawing.Size(842, 218)
+        Me.GPanelProductos.Size = New System.Drawing.Size(1016, 218)
         '
         '
         '
@@ -664,7 +664,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.grproducto.Name = "grproducto"
         Me.grproducto.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grproducto.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grproducto.Size = New System.Drawing.Size(836, 196)
+        Me.grproducto.Size = New System.Drawing.Size(1010, 196)
         Me.grproducto.TabIndex = 0
         Me.grproducto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -678,7 +678,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 197)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(842, 40)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1016, 40)
         '
         '
         '
@@ -721,7 +721,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(836, 17)
+        Me.grdetalle.Size = New System.Drawing.Size(1010, 17)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -819,7 +819,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 561)
+        Me.ClientSize = New System.Drawing.Size(1058, 561)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0G_MovimientoChoferSalida"

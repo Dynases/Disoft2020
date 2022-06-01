@@ -604,8 +604,20 @@ Public Class F0G_MovimientoChoferSalida
             ToastNotification.Show(Me, "Por Favor Seleccione un Chofer con Ctrl+Enter".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             tbChofer.Focus()
             Return False
-
         End If
+
+        For i = 0 To grdetalle.RowCount - 1
+            Dim dtStock = L_prVerificarStock(CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccprod").ToString)
+            Dim Stock As Decimal = dtStock.Rows(0).Item("iacant")
+            Dim Cantidad As Decimal = CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant")
+            Dim IdProd As String = (CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccprod").ToString)
+            Dim NombreProd As String = (CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto").ToString)
+            If Cantidad > Stock Then
+                ToastNotification.Show(Me, "La cantidad del producto " + IdProd + " - " + NombreProd + " no debe ser mayor al del stock" & vbCrLf &
+                                "Stock=" + Stock.ToString, My.Resources.WARNING, 3500, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                Return False
+            End If
+        Next
 
 
         Return True
