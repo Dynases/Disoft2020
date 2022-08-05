@@ -3058,7 +3058,7 @@ Public Class F02_PedidoNuevo
             End If
 
             L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbDistribuidor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), "1", "0")
-            L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, cbPreVendedor.Value.ToString, "2", "0", dtpFechaVenc.Value.ToString("yyyy/MM/dd"))
+            L_PedidoCabecera_GrabarExtencion(Tb_Id.Text, 1, "2", "0", dtpFechaVenc.Value.ToString("yyyy/MM/dd")) 'Mando 1 porque ese sera el prevendedor por defecto para venta/cierres directos DYNASYS 1 (NO CAMBIAR)
             If (swTipoVenta.Value = False) Then  ''''Grabar Credito
                 L_prCajaGrabarCredito(Tb_Id.Text, Double.Parse(tbMontoCredito.Text))
             End If

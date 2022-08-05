@@ -111,4 +111,5 @@ Public Class LPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
+
 End Class

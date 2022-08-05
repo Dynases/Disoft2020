@@ -98,21 +98,21 @@ Partial Class F0_PreciosAlterno
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(803, 348)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.PanelDatos)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(761, 348)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.PanelDatos, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(2)
         Me.MPnSuperior.Size = New System.Drawing.Size(803, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -125,7 +125,7 @@ Partial Class F0_PreciosAlterno
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(0, 418)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2)
         Me.MPnInferior.Size = New System.Drawing.Size(803, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -138,11 +138,11 @@ Partial Class F0_PreciosAlterno
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(603, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -171,13 +171,13 @@ Partial Class F0_PreciosAlterno
         'MPanelToolBarImprimir
         '
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(588, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(2)
         Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(215, 70)
         '
         'MBtImprimir
         '
         Me.MBtImprimir.Location = New System.Drawing.Point(143, 0)
-        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(2)
         Me.MBtImprimir.Text = "Excel"
         '
         'MBubbleBarUsuario
@@ -225,7 +225,7 @@ Partial Class F0_PreciosAlterno
         Me.PanelDatos.Controls.Add(Me.PanelCategoria)
         Me.PanelDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelDatos.Location = New System.Drawing.Point(0, 0)
-        Me.PanelDatos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanelDatos.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelDatos.Name = "PanelDatos"
         Me.PanelDatos.Size = New System.Drawing.Size(761, 348)
         Me.PanelDatos.TabIndex = 29
@@ -701,13 +701,13 @@ Partial Class F0_PreciosAlterno
         Me.msModulos.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.msModulos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SELECCIONARTODOSDELToolStripMenuItem})
         Me.msModulos.Name = "msModulos"
-        Me.msModulos.Size = New System.Drawing.Size(194, 26)
+        Me.msModulos.Size = New System.Drawing.Size(193, 26)
         '
         'SELECCIONARTODOSDELToolStripMenuItem
         '
         Me.SELECCIONARTODOSDELToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SELECCIONARTODOSDELToolStripMenuItem.Name = "SELECCIONARTODOSDELToolStripMenuItem"
-        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.SELECCIONARTODOSDELToolStripMenuItem.Text = "ELIMINAR CATEGORIA"
         '
         'F0_PreciosAlterno
@@ -715,7 +715,7 @@ Partial Class F0_PreciosAlterno
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 454)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "F0_PreciosAlterno"
         Me.Text = "F0_PreciosAlterno"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

@@ -1772,6 +1772,11 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btListaPedidos_Click(sender As Object, e As EventArgs) Handles btListaPedidos.Click
+        Dim frm As New R01_ListaPedidos
+        frm.Show()
+    End Sub
+
 
 
 #End Region
