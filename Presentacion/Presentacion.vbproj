@@ -890,6 +890,12 @@
     <Compile Include="R01_ListaPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_VentasProductosInv.Designer.vb">
+      <DependentUpon>R01_VentasProductosInv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_VentasProductosInv.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_VentasVendedor.Designer.vb">
       <DependentUpon>R01_VentasVendedor.vb</DependentUpon>
     </Compile>
@@ -1216,6 +1222,12 @@
     </Compile>
     <Compile Include="Reportes\R_ListaPedidos.vb">
       <DependentUpon>R_ListaPedidos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\R_VentasProductosInventario.vb">
+      <DependentUpon>R_VentasProductosInventario.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -1874,6 +1886,9 @@
     <EmbeddedResource Include="R01_ListaPedidos.resx">
       <DependentUpon>R01_ListaPedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_VentasProductosInv.resx">
+      <DependentUpon>R01_VentasProductosInv.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_VentasVendedor.resx">
       <DependentUpon>R01_VentasVendedor.vb</DependentUpon>
     </EmbeddedResource>
@@ -2085,6 +2100,10 @@
     <EmbeddedResource Include="Reportes\R_ListaPedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ListaPedidos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasProductosInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasProductosInventario.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VentasVendedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

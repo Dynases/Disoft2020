@@ -616,7 +616,7 @@ Public Class F02_PedidoNuevo
         With JGr_Productos.RootTable.Columns(2)
             .Caption = "Descripcion"
             .Key = "Descripcion"
-            .Width = 200
+            .Width = 180
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .AllowSort = False
@@ -647,7 +647,12 @@ Public Class F02_PedidoNuevo
         End With
         With JGr_Productos.RootTable.Columns(8)
             .Caption = "Stock"
-            .Visible = False
+            .Visible = True
+            .Width = 60
+            .FormatString = "0.00"
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.FontSize = gi_fuenteTamano
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
         End With
 
 

@@ -1777,6 +1777,10 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btnRepProdInv_Click(sender As Object, e As EventArgs) Handles btnRepProdInv.Click
+        Dim frm As New R01_VentasProductosInv
+        frm.Show()
+    End Sub
 
 
 #End Region

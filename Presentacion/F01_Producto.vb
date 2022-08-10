@@ -285,6 +285,7 @@ Public Class F01_Producto
         TbCodFlex.ReadOnly = Not flat
         tbCodBarra.ReadOnly = Not flat
         tbStockMinimo.IsInputReadOnly = Not flat
+        tbPeso.IsInputReadOnly = Not flat
         cbgrupo1.ReadOnly = Not flat
         cbgrupo2.ReadOnly = Not flat
         cbgrupo3.ReadOnly = Not flat
@@ -312,6 +313,7 @@ Public Class F01_Producto
         SbEquipo.Value = False
         DaFecha = Now.Date
         swPack.Value = False
+        tbPeso.Value = 0
 
         If (Limpiar = False) Then
             _prSeleccionarCombo(cbgrupo1)
@@ -398,6 +400,7 @@ Public Class F01_Producto
                     Me.CbUnidMax.Value = .GetValue("caumax")
                     Me.TbConversion.Value = .GetValue("caconv")
                     Me.swPack.Value = .GetValue("capack")
+                    Me.tbPeso.Value = .GetValue("capeso")
 
                     Dim s As String = .GetValue("nimg").ToString
                     If (.GetValue("nimg").ToString.Equals("")) Then
@@ -563,7 +566,8 @@ Public Class F01_Producto
                 End If
 
                 'Grabar
-                Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv, pack, CType(JGProdPack.DataSource, DataTable))
+                Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin,
+                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -642,7 +646,8 @@ Public Class F01_Producto
 
 
                 'Grabar
-                Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv, pack, dt)
+                Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed,
+                                                           umin, umax, conv, pack, dt, tbPeso.Value)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -1230,6 +1235,16 @@ Public Class F01_Producto
         With DgjBusqueda.RootTable.Columns(28)
             .Caption = ""
             .Key = "capack"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With DgjBusqueda.RootTable.Columns(29)
+            .Caption = ""
+            .Key = "capeso"
             .Width = 0
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
