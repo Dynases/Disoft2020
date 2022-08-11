@@ -4257,7 +4257,19 @@ Public Class AccesoLogica
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
-
+    Public Shared Function L_ProductosGeneralPrecioCosto(_Modo As Integer, Optional _Cadena As String = "") As DataSet
+        Dim _Tabla As DataTable
+        Dim _Ds As New DataSet
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = " TC001.canumi = TC001.canumi"
+        Else
+            _Where = _Cadena
+        End If
+        _Tabla = D_Datos_Tabla("canumi,cacod, cadesc,cadesc2, caconv, chprecio", "TC001,TC003", _Where + " order by canumi")
+        _Ds.Tables.Add(_Tabla)
+        Return _Ds
+    End Function
 
     Public Shared Function L_MovimientosGeneral(_Modo As Integer, Optional _Cadena As String = "") As DataSet
         Dim _Tabla As DataTable

@@ -483,6 +483,12 @@
     <Compile Include="F02_Comisiones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F02_Compra2.Designer.vb">
+      <DependentUpon>F02_Compra2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F02_Compra2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F02_Descuento.designer.vb">
       <DependentUpon>F02_Descuento.vb</DependentUpon>
     </Compile>
@@ -1684,6 +1690,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F02_Comisiones.resx">
       <DependentUpon>F02_Comisiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F02_Compra2.resx">
+      <DependentUpon>F02_Compra2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F02_Descuento.resx">
       <DependentUpon>F02_Descuento.vb</DependentUpon>

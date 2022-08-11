@@ -101,6 +101,8 @@ Public Class P_Principal
         End If
         gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
         gs_LiberarPedido = gs_Parametros(0).Item("syliberarpedido")
+        gs_VentanaCompra = gs_Parametros(0).Item("syVentanaCompra")
+
     End Sub
 
     Private Sub _prCambiarStyle()
@@ -1496,7 +1498,13 @@ Public Class P_Principal
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
         F02_Compra.AllowTransparency = True
-        Dim frm As New F02_Compra
+        Dim frm
+        If gs_VentanaCompra = 1 Then
+            frm = New F02_Compra
+        Else
+            frm = New F02_Compra2
+        End If
+
         'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
         frm._nameButton = btInveMPCompraProducto.Name
         'frm._tab = tab3
