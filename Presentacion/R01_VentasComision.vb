@@ -33,24 +33,41 @@ Public Class R01_VentasComision
 
 
     Public Sub _prInterpretarDatos(ByRef _dt As DataTable)
+        If swTipo.Value = True Then
+            titulo = "VENDEDOR:"
+            If (CheckTodosVendedor.Checked) Then
+                _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                Return
+            End If
+            If (checkUnaVendedor.Checked) Then
+                _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                Return
+            End If
+        Else
+            titulo = "REPARTIDOR:"
+            If (CheckTodosVendedor.Checked) Then
+                _dt = L_prReporteVentasComisionTodosRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                Return
+            End If
+            If (checkUnaVendedor.Checked) Then
+                _dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                Return
+            End If
+        End If
 
-        titulo = "PRE VENDEDOR:"
-        If (CheckTodosVendedor.Checked) Then
-            _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
-            Return
-        End If
-        If (checkUnaVendedor.Checked) Then
-            _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
-            Return
-        End If
 
     End Sub
     Private Sub _prCargarReporte()
         Dim _dt As New DataTable
         _prInterpretarDatos(_dt)
         If (_dt.Rows.Count > 0) Then
+            Dim objrep
+            If swTipo.Value = True Then
+                objrep = New R_VentasComision
+            Else
+                objrep = New R_VentasComisionRepartidor
+            End If
 
-            Dim objrep As New R_VentasComision
             objrep.SetDataSource(_dt)
             Dim fechaI As String = tbFechaI.Value.ToString("dd/MM/yyyy")
             Dim fechaF As String = tbFechaF.Value.ToString("dd/MM/yyyy")
@@ -61,8 +78,6 @@ Public Class R01_VentasComision
             MCrReporte.ReportSource = objrep
             MCrReporte.Show()
             MCrReporte.BringToFront()
-
-
 
         Else
             ToastNotification.Show(Me, "NO HAY DATOS PARA LOS PARAMETROS SELECCIONADOS..!!!",
@@ -96,7 +111,12 @@ Public Class R01_VentasComision
     Public Sub _prListarPrevendedores()
 
         Dim dt As DataTable
-        dt = L_prListarPrevendedor()
+        If swTipo.Value = True Then
+            dt = L_prListarPrevendedor()
+        Else
+            dt = L_prListarDistribuidor()
+        End If
+
         'a.cbnumi , a.cbdesc As nombre, a.cbdirec, a.cbtelef, a.cbfnac 
         Dim listEstCeldas As New List(Of Modelo.MCelda)
         listEstCeldas.Add(New Modelo.MCelda("cbnumi", True, "ID", 50))
@@ -201,5 +221,13 @@ Public Class R01_VentasComision
             Timer1.Enabled = False
         End If
 
+    End Sub
+
+    Private Sub swTipo_ValueChanged(sender As Object, e As EventArgs) Handles swTipo.ValueChanged
+        If swTipo.Value = True Then
+            lbvendedor.Text = "Vendedor"
+        Else
+            lbvendedor.Text = "Repartidor"
+        End If
     End Sub
 End Class

@@ -4669,7 +4669,7 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_fnGrabarComisiones(ByRef numi As String, codpro As String, comision As String) As Boolean
+    Public Shared Function L_fnGrabarComisiones(ByRef numi As String, codpro As String, comision As String, comisionRep As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -4678,6 +4678,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", 1))
         _listParam.Add(New Datos.DParametro("@codpro", codpro))
         _listParam.Add(New Datos.DParametro("@comision", comision))
+        _listParam.Add(New Datos.DParametro("@comisionRep", comisionRep))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
@@ -4723,6 +4724,25 @@ Public Class AccesoLogica
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 8))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prReporteVentasComisionTodosRep(_fechaI As String, _FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 9))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prReporteVentasComisionUnoRep(_fechaI As String, _FechaF As String, _codPrevendedor As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 10))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
         _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))

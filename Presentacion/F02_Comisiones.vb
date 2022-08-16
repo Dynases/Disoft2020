@@ -242,7 +242,8 @@ Public Class F02_Comisiones
             '.AllowEdit = InheritableBoolean.False
         End With
 
-        tbComision.Text = JGr_Descuentos.GetValue("cqcomision")
+        tbComisionVend.Text = JGr_Descuentos.GetValue("cqcomision")
+        tbComisionRep.Text = JGr_Descuentos.GetValue("cqcomisionRep")
     End Sub
 
 
@@ -366,6 +367,7 @@ Public Class F02_Comisiones
                     lbProducto.Text = JGr_Detalle.CurrentRow.Cells("cadesc").Value.ToString + "    " + JGr_Detalle.CurrentRow.Cells("listprecio").Value.ToString
 
                     _PCargarGridCategoriasComisiones(tbCodPro.Text)
+
                     _Inhabilitar()
 
                     'P_prAddFilaDetallePrecio()
@@ -387,7 +389,7 @@ Public Class F02_Comisiones
     Private Sub btNuevoP_Click(sender As Object, e As EventArgs) Handles btNuevoP.Click
         If JGr_Descuentos.RowCount > 0 Then
             L_fnActualizarEstadoComision(tbCodPro.Text)
-            _PCargarGridCategoriasComisiones(tbCodPro.Text)
+            '_PCargarGridCategoriasComisiones(tbCodPro.Text)
         End If
 
         _Habilitar()
@@ -399,7 +401,7 @@ Public Class F02_Comisiones
         Dim numi As String = ""
         If (_ValidarCampos()) Then
             'Grabar
-            Dim res As Boolean = L_fnGrabarComisiones(numi, tbCodPro.Text, tbComision.Value)
+            Dim res As Boolean = L_fnGrabarComisiones(numi, tbCodPro.Text, tbComisionVend.Value, tbComisionRep.Value)
 
             If (res) Then
                 ToastNotification.Show(Me, "Comision del Producto Grabado con éxito.".ToUpper,
@@ -451,4 +453,6 @@ Public Class F02_Comisiones
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+
 End Class

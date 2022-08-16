@@ -25,6 +25,7 @@ Partial Class R01_VentasComision
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.tbVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.CheckTodosAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.CheckTodosVendedor = New DevComponents.DotNetBar.Controls.CheckBoxX()
@@ -154,6 +155,7 @@ Partial Class R01_VentasComision
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.swTipo)
         Me.GroupBox2.Controls.Add(Me.tbVendedor)
         Me.GroupBox2.Controls.Add(Me.CheckTodosAlmacen)
         Me.GroupBox2.Controls.Add(Me.CheckTodosVendedor)
@@ -173,6 +175,26 @@ Partial Class R01_VentasComision
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
         '
+        'swTipo
+        '
+        '
+        '
+        '
+        Me.swTipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swTipo.Location = New System.Drawing.Point(62, 35)
+        Me.swTipo.Name = "swTipo"
+        Me.swTipo.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swTipo.OffText = "Repartidor"
+        Me.swTipo.OffTextColor = System.Drawing.Color.White
+        Me.swTipo.OnBackColor = System.Drawing.Color.Gold
+        Me.swTipo.OnText = "Vendedor"
+        Me.swTipo.Size = New System.Drawing.Size(160, 22)
+        Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swTipo.TabIndex = 246
+        Me.swTipo.Value = True
+        Me.swTipo.ValueObject = "Y"
+        '
         'tbVendedor
         '
         Me.tbVendedor.BackColor = System.Drawing.Color.Gainsboro
@@ -183,7 +205,7 @@ Partial Class R01_VentasComision
         Me.tbVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbVendedor.Location = New System.Drawing.Point(9, 57)
+        Me.tbVendedor.Location = New System.Drawing.Point(9, 100)
         Me.tbVendedor.Name = "tbVendedor"
         Me.tbVendedor.PreventEnterBeep = True
         Me.tbVendedor.Size = New System.Drawing.Size(167, 22)
@@ -208,7 +230,7 @@ Partial Class R01_VentasComision
         '
         '
         Me.CheckTodosVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.CheckTodosVendedor.Location = New System.Drawing.Point(232, 56)
+        Me.CheckTodosVendedor.Location = New System.Drawing.Point(232, 99)
         Me.CheckTodosVendedor.Name = "CheckTodosVendedor"
         Me.CheckTodosVendedor.Size = New System.Drawing.Size(57, 23)
         Me.CheckTodosVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -221,7 +243,7 @@ Partial Class R01_VentasComision
         '
         '
         Me.checkUnaVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.checkUnaVendedor.Location = New System.Drawing.Point(185, 56)
+        Me.checkUnaVendedor.Location = New System.Drawing.Point(185, 99)
         Me.checkUnaVendedor.Name = "checkUnaVendedor"
         Me.checkUnaVendedor.Size = New System.Drawing.Size(44, 23)
         Me.checkUnaVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -237,7 +259,7 @@ Partial Class R01_VentasComision
         Me.tbCodigoVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbCodigoVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCodigoVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbCodigoVendedor.Location = New System.Drawing.Point(6, 95)
+        Me.tbCodigoVendedor.Location = New System.Drawing.Point(6, 138)
         Me.tbCodigoVendedor.Name = "tbCodigoVendedor"
         Me.tbCodigoVendedor.PreventEnterBeep = True
         Me.tbCodigoVendedor.Size = New System.Drawing.Size(22, 22)
@@ -255,12 +277,12 @@ Partial Class R01_VentasComision
         Me.lbvendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbvendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbvendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbvendedor.Location = New System.Drawing.Point(9, 30)
+        Me.lbvendedor.Location = New System.Drawing.Point(9, 73)
         Me.lbvendedor.Name = "lbvendedor"
         Me.lbvendedor.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbvendedor.Size = New System.Drawing.Size(92, 16)
+        Me.lbvendedor.Size = New System.Drawing.Size(68, 16)
         Me.lbvendedor.TabIndex = 236
-        Me.lbvendedor.Text = "Pre Vendedor:"
+        Me.lbvendedor.Text = "Vendedor:"
         '
         'LabelX1
         '
@@ -271,7 +293,7 @@ Partial Class R01_VentasComision
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(50, 139)
+        Me.LabelX1.Location = New System.Drawing.Point(50, 182)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX1.Size = New System.Drawing.Size(52, 23)
@@ -289,7 +311,7 @@ Partial Class R01_VentasComision
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(126, 139)
+        Me.tbFechaF.Location = New System.Drawing.Point(126, 182)
         '
         '
         '
@@ -333,7 +355,7 @@ Partial Class R01_VentasComision
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(47, 107)
+        Me.LabelX4.Location = New System.Drawing.Point(47, 150)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX4.Size = New System.Drawing.Size(74, 23)
@@ -351,7 +373,7 @@ Partial Class R01_VentasComision
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(126, 108)
+        Me.tbFechaI.Location = New System.Drawing.Point(126, 151)
         '
         '
         '
@@ -432,4 +454,5 @@ Partial Class R01_VentasComision
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbFechaI As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
 End Class
