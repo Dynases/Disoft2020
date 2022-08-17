@@ -50,6 +50,8 @@ Public Class F02_Comisiones
 
         'Asignar el menustrip quitar al grid JGr_Descuentos
         JGr_Descuentos.ContextMenuStrip = CmDetalle
+        tbComisionVend.IsInputReadOnly = True
+        tbComisionRep.IsInputReadOnly = True
     End Sub
 
     Private Sub _PAsignarPermisos()
@@ -384,6 +386,8 @@ Public Class F02_Comisiones
     Private Sub _Habilitar()
         JGr_Descuentos.Enabled = True
         btGrabarP.Enabled = True
+        tbComisionVend.IsInputReadOnly = False
+        tbComisionRep.IsInputReadOnly = False
     End Sub
 
     Private Sub btNuevoP_Click(sender As Object, e As EventArgs) Handles btNuevoP.Click

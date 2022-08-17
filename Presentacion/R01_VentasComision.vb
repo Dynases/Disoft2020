@@ -226,8 +226,12 @@ Public Class R01_VentasComision
     Private Sub swTipo_ValueChanged(sender As Object, e As EventArgs) Handles swTipo.ValueChanged
         If swTipo.Value = True Then
             lbvendedor.Text = "Vendedor"
+            tbVendedor.Text = ""
+            tbCodigoVendedor.Text = ""
         Else
             lbvendedor.Text = "Repartidor"
+            tbVendedor.Text = ""
+            tbCodigoVendedor.Text = ""
         End If
     End Sub
 End Class

@@ -155,6 +155,7 @@ Partial Class F02_PedidoNuevo
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.swStock = New DevComponents.DotNetBar.Controls.SwitchButton()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -260,6 +261,7 @@ Partial Class F02_PedidoNuevo
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Controls.Add(Me.swStock)
         Me.MPnSuperior.Controls.Add(Me.btnVentaDirecta)
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnSuperior.Size = New System.Drawing.Size(1349, 70)
@@ -274,6 +276,7 @@ Partial Class F02_PedidoNuevo
         Me.MPnSuperior.Controls.SetChildIndex(Me.MPanelToolBarImprimir, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.btnVentaDirecta, 0)
+        Me.MPnSuperior.Controls.SetChildIndex(Me.swStock, 0)
         '
         'MPnInferior
         '
@@ -2472,6 +2475,26 @@ Partial Class F02_PedidoNuevo
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'swStock
+        '
+        '
+        '
+        '
+        Me.swStock.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swStock.Location = New System.Drawing.Point(938, 23)
+        Me.swStock.Name = "swStock"
+        Me.swStock.OffBackColor = System.Drawing.Color.DarkSlateGray
+        Me.swStock.OffText = "Todos"
+        Me.swStock.OffTextColor = System.Drawing.Color.White
+        Me.swStock.OnBackColor = System.Drawing.Color.Gold
+        Me.swStock.OnText = "Stock>0"
+        Me.swStock.Size = New System.Drawing.Size(113, 22)
+        Me.swStock.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swStock.TabIndex = 247
+        Me.swStock.Value = True
+        Me.swStock.ValueObject = "Y"
+        '
         'F02_PedidoNuevo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2683,4 +2706,5 @@ Partial Class F02_PedidoNuevo
     Friend WithEvents QrFactura As Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl
     Friend WithEvents dtpFechaVenc As DateTimePicker
     Friend WithEvents lbFVenc As DevComponents.DotNetBar.LabelX
+    Friend WithEvents swStock As DevComponents.DotNetBar.Controls.SwitchButton
 End Class

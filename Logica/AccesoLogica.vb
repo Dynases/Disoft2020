@@ -1026,6 +1026,20 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_ProductosPedido_GeneralNuevoStock(_Modo As Integer, Optional _CatClie As String = "", Optional _alm As String = "", Optional Mayor0 As Boolean = True) As DataTable
+        Dim _Tabla As DataTable
+        Dim _Where As String
+        If _Modo = 0 Then
+            _Where = "canumi=canumi"
+        ElseIf Mayor0 = True Then
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0 and (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0))> 0 "
+        Else
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
+        End If
+        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
+
+        Return _Tabla
+    End Function
 
     Public Shared Function L_ProductosPedido_General2(_Modo As Integer, Optional _CatProd As String = "", Optional _CatClie As String = "", Optional _ordenEspecifico As String = "0", Optional _numiCli As String = "0") As DataTable
         Dim _Tabla As DataTable
@@ -4745,7 +4759,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", 10))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
-        _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _listParam.Add(New Datos.DParametro("@codRepartidor", _codPrevendedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function

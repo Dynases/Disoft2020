@@ -588,7 +588,7 @@ Public Class F02_PedidoNuevo
     End Sub
     Private Sub _PCargarGridProductosNuevo(idCatCli As Integer, alm As String)
         'Dim dtProd, dtCatPrecios As New DataTable
-        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevo(-1, idCatCli, alm)
+        Dim dtProd2 As DataTable = L_ProductosPedido_GeneralNuevoStock(-1, idCatCli, alm, swStock.Value)
 
         JGr_Productos.BoundMode = BoundMode.Bound
         JGr_Productos.DataSource = dtProd2
@@ -1161,6 +1161,7 @@ Public Class F02_PedidoNuevo
         MBtEliminar.Enabled = False
         MBtGrabar.Enabled = True
         Tb_Fecha.Enabled = True
+        swStock.Enabled = True
 
         'BBtn_Nuevo.Enabled = False
         'BBtn_Modificar.Enabled = False
@@ -1208,6 +1209,7 @@ Public Class F02_PedidoNuevo
         Tb_Obs2.ReadOnly = True
         Tb_PromCosumo.ReadOnly = True
         Tb_TotalPedidos3Meses.ReadOnly = True
+        swStock.Enabled = False
 
         cbDistribuidor.ReadOnly = True
         cbPreVendedor.ReadOnly = True
