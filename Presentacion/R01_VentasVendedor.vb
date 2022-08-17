@@ -34,7 +34,7 @@ Public Class R01_VentasVendedor
 
     Public Sub _prInterpretarDatos(ByRef _dt As DataTable)
 
-        titulo = "PRE VENDEDOR:"
+        titulo = "VENDEDOR:"
         If (CheckTodosVendedor.Checked) Then
             _dt = L_prReporteVentasVendedorTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
             Return
