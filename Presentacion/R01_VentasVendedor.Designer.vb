@@ -258,9 +258,9 @@ Partial Class R01_VentasVendedor
         Me.lbvendedor.Location = New System.Drawing.Point(9, 30)
         Me.lbvendedor.Name = "lbvendedor"
         Me.lbvendedor.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbvendedor.Size = New System.Drawing.Size(92, 16)
+        Me.lbvendedor.Size = New System.Drawing.Size(68, 16)
         Me.lbvendedor.TabIndex = 236
-        Me.lbvendedor.Text = "Pre Vendedor:"
+        Me.lbvendedor.Text = "Vendedor:"
         '
         'LabelX1
         '
@@ -391,13 +391,13 @@ Partial Class R01_VentasVendedor
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'R01_VentasComision
+        'R01_VentasVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "R01_VentasComision"
+        Me.Name = "R01_VentasVendedor"
         Me.Opacity = 0.05R
         Me.Text = "R01_VentasComision"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
