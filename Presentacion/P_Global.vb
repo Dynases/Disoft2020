@@ -43,6 +43,7 @@ Module P_Global
     Public gs_CantPersonal As Integer = 0 'Cantidad de registros para grabar personal sin contar los 4 primeros del sistema
     Public gs_LiberarPedido As Integer = 0 'Si esta en 1 se libera si esta en 0 no se libera
     Public gs_VentanaCompra As Integer = 1 '1=Muestra la ventana F02_Compra(Antigua), 2=Muestra la ventana F02_Compra2(Nueva) 
+    Public gs_MostrarSucursal As Integer = 0 '1=Muestra Sucursal, 0=No muestra sucursal
 
     'Datos para conexion FTP
     Public gs_ftpIp As String = "localhost"

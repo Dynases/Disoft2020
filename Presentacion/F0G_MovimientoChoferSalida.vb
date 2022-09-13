@@ -56,6 +56,13 @@ Public Class F0G_MovimientoChoferSalida
         End If
 
 
+        If gs_MostrarSucursal = 1 Then
+            lbAlmacen.Visible = True
+            cbalmacenDestino.Visible = True
+        Else
+            lbAlmacen.Visible = False
+            cbalmacenDestino.Visible = False
+        End If
 
     End Sub
 
@@ -290,13 +297,24 @@ Public Class F0G_MovimientoChoferSalida
             .FormatString = "0.00"
             .Caption = "Cant. Preventa"
         End With
-        With grdetalle.RootTable.Columns("cantidadAutoVenta")
-            .Width = 160
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
-            .FormatString = "0.00"
-            .Caption = "Cant. AutoVenta"
-        End With
+        If gs_MostrarSucursal = 1 Then
+            With grdetalle.RootTable.Columns("cantidadAutoVenta")
+                .Width = 160
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+                .Visible = True
+                .FormatString = "0.00"
+                .Caption = "Cant. AutoVenta"
+            End With
+        Else
+            With grdetalle.RootTable.Columns("cantidadAutoVenta")
+                .Width = 160
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+                .Visible = false
+                .FormatString = "0.00"
+                .Caption = "Cant. AutoVenta"
+            End With
+        End If
+
 
         With grdetalle.RootTable.Columns("estado")
             .Width = 50

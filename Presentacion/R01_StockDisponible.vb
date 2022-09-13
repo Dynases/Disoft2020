@@ -42,6 +42,13 @@ Public Class R01_StockDisponible
         'Me.WindowState = FormWindowState.Maximized
         MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         _prCargarComboLibreriaDeposito(cbAlmacen)
+        If gs_MostrarSucursal = 1 Then
+            lbDepositoOrigen.Visible = True
+            cbAlmacen.Visible = True
+        Else
+            lbDepositoOrigen.Visible = False
+            cbAlmacen.Visible = False
+        End If
     End Sub
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
@@ -59,7 +66,10 @@ Public Class R01_StockDisponible
             .Refresh()
         End With
 
-        mCombo.Value = 1
+        'mCombo.Value = 1
+        If (dt.Rows.Count > 0) Then
+            mCombo.SelectedIndex = 0
+        End If
     End Sub
 
     Private Sub P_prCargarReporte()
