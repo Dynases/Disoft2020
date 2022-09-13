@@ -313,6 +313,9 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(1, False, 1, 1)
             End If
         End If
+
+        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
         If (grabarPDF) Then
             'Copia de Factura en PDF
             If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
@@ -385,7 +388,7 @@ Public Class frmBillingDispatch
 
         'End If
         'End If
-        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
     End Sub
     Private Sub P_ReImprImprimirFacturar(numi As String, impFactura As Boolean, grabarPDF As Boolean, nit As String)
         Dim _Fecha, _FechaAl As Date

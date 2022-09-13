@@ -132,7 +132,9 @@ Public Class RPedido
                                       .oaobs = a.oaobs,
                                       .tipo = a.tipo,
                                       .contado = a.contado,
-                                      .credito = a.credito
+                                      .credito = a.credito,
+                                      .oaanumiprev = a.oaanumiprev,
+                                      .cbdesc = a.cbdesc
                                       }).ToList()
                 Return listResult
 

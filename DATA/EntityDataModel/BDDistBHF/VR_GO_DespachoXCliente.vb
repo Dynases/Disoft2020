@@ -28,5 +28,7 @@ Partial Public Class VR_GO_DespachoXCliente
     Public Property tipo As String
     Public Property contado As Nullable(Of Decimal)
     Public Property credito As Nullable(Of Decimal)
+    Public Property oaanumiprev As Nullable(Of Integer)
+    Public Property cbdesc As String
 
 End Class

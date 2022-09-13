@@ -144,4 +144,23 @@
             _credito = value
         End Set
     End Property
+
+    Private _oaanumiprev As Integer
+    Public Property oaanumiprev() As Integer
+        Get
+            Return _oaanumiprev
+        End Get
+        Set(ByVal value As Integer)
+            _oaanumiprev = value
+        End Set
+    End Property
+    Private _cbdesc As String
+    Public Property cbdesc() As String
+        Get
+            Return _cbdesc
+        End Get
+        Set(ByVal value As String)
+            _cbdesc = value
+        End Set
+    End Property
 End Class

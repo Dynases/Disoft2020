@@ -101,10 +101,10 @@
     <Compile Include="EntityDataModel\BDDistBHF\CM0011.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityDataModel\BDDistBHF\detalle.vb">
+    <Compile Include="EntityDataModel\BDDistBHF\Detalle.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityDataModel\BDDistBHF\detalleBackup.vb">
+    <Compile Include="EntityDataModel\BDDistBHF\DetalleBackup.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\Empresa.vb">
@@ -452,6 +452,9 @@
     <Compile Include="EntityDataModel\BDDistBHF\VR_GO_DespachoXProducto.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_GO_DespachoXProducto2.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_GO_DiferenciaPedidoNota.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -524,6 +527,12 @@
     <Compile Include="EntityDataModel\BDDistBHF\Vr_Mam_ProductoVenta.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\Vr_Mam_ProductoVentaInventario.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_MorosidadProveedores.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_MO_GetPedidos.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
@@ -540,6 +549,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_Proforma.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_ReportePrecios.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_ResumenNotas.vb">
@@ -561,6 +573,9 @@
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_VentasComision.vb">
+      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDataModel\BDDistBHF\VR_VentasComisionRep.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_VentasVendedor.vb">
