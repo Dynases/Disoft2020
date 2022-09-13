@@ -186,6 +186,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         'MBtModificar
         '
+        Me.MBtModificar.Visible = False
         '
         'MBtNuevo
         '
