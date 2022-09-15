@@ -24,7 +24,13 @@ Public Class LPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
-
+    Public Function ListarPedidoAsignadoAChoferFechas(idChofer As Integer, estado As Integer, fechaDesde As DateTime, fechaHasta As DateTime) As List(Of VPedido_BillingDispatch)
+        Try
+            Return iPedido.ListarPedidoAsignadoAChoferFechas(idChofer, estado, fechaDesde, fechaHasta)
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
     Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer, usuario As String) As Boolean
         Try
             Return iPedido.GuardarPedidoDeChofer(listIdPedido, idChofer, usuario)
