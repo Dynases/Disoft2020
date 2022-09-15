@@ -1365,11 +1365,11 @@ Public Class frmBillingDispatch
             Throw New Exception("Debe seleccionar un chofer.")
         End If
 
-        Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
-        Dim lista = (From a In listResult
-                     Where a.Fecha >= Tb_Fecha.Value And
-                           a.Fecha <= Tb_FechaHasta.Value).ToList
-        Return lista
+        Dim listResult = New LPedido().ListarPedidoAsignadoAChoferFechas(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
+        'Dim lista = (From a In listResult
+        '             Where a.Fecha >= Tb_Fecha.Value And
+        '                   a.Fecha <= Tb_FechaHasta.Value).ToList
+        Return listResult
     End Function
 
     Private Sub ArmarListaPedido(lista As List(Of VPedido_BillingDispatch))
