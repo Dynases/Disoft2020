@@ -606,7 +606,7 @@ Public Class frmBillingDispatch
 
         mesl = ObtenerMesLiberal(mes)
 
-        Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Fecliteral = "Santa Cruz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Literal", _Literal)
         objrep.SetParameterValue("Fechali", Fecliteral)

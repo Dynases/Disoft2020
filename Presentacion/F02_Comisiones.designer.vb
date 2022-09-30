@@ -29,6 +29,8 @@ Partial Class F02_Comisiones
         Me.TableLayoutPanelDatos2 = New System.Windows.Forms.TableLayoutPanel()
         Me.GpCategoria = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.tbComisionRep = New DevComponents.Editors.DoubleInput()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.tbComisionVend = New DevComponents.Editors.DoubleInput()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.tbCodPro = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -54,8 +56,10 @@ Partial Class F02_Comisiones
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.tbComisionRep = New DevComponents.Editors.DoubleInput()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
+        Me.tbComisionMayVend = New DevComponents.Editors.DoubleInput()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.tbComisionMayRep = New DevComponents.Editors.DoubleInput()
+        Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -72,6 +76,7 @@ Partial Class F02_Comisiones
         Me.TableLayoutPanelDatos2.SuspendLayout()
         Me.GpCategoria.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.tbComisionRep, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbComisionVend, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx1.SuspendLayout()
         Me.PnCategoria.SuspendLayout()
@@ -86,7 +91,8 @@ Partial Class F02_Comisiones
         Me.PnListaPrecio.SuspendLayout()
         CType(Me.JGr_Detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmDetalle.SuspendLayout()
-        CType(Me.tbComisionRep, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbComisionMayVend, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbComisionMayRep, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -297,6 +303,10 @@ Partial Class F02_Comisiones
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.tbComisionMayRep)
+        Me.Panel1.Controls.Add(Me.LabelX5)
+        Me.Panel1.Controls.Add(Me.tbComisionMayVend)
+        Me.Panel1.Controls.Add(Me.LabelX3)
         Me.Panel1.Controls.Add(Me.tbComisionRep)
         Me.Panel1.Controls.Add(Me.LabelX2)
         Me.Panel1.Controls.Add(Me.tbComisionVend)
@@ -311,6 +321,33 @@ Partial Class F02_Comisiones
         Me.Panel1.Size = New System.Drawing.Size(355, 247)
         Me.Panel1.TabIndex = 32
         '
+        'tbComisionRep
+        '
+        '
+        '
+        '
+        Me.tbComisionRep.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbComisionRep.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbComisionRep.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbComisionRep.Increment = 1.0R
+        Me.tbComisionRep.Location = New System.Drawing.Point(217, 176)
+        Me.tbComisionRep.Name = "tbComisionRep"
+        Me.tbComisionRep.Size = New System.Drawing.Size(80, 20)
+        Me.tbComisionRep.TabIndex = 247
+        '
+        'LabelX2
+        '
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.FontBold = True
+        Me.LabelX2.Location = New System.Drawing.Point(22, 173)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(139, 23)
+        Me.LabelX2.TabIndex = 246
+        Me.LabelX2.Text = "Comisión Repartidor (%):"
+        '
         'tbComisionVend
         '
         '
@@ -320,9 +357,9 @@ Partial Class F02_Comisiones
         Me.tbComisionVend.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbComisionVend.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
         Me.tbComisionVend.Increment = 1.0R
-        Me.tbComisionVend.Location = New System.Drawing.Point(167, 126)
+        Me.tbComisionVend.Location = New System.Drawing.Point(217, 126)
         Me.tbComisionVend.Name = "tbComisionVend"
-        Me.tbComisionVend.Size = New System.Drawing.Size(132, 20)
+        Me.tbComisionVend.Size = New System.Drawing.Size(80, 20)
         Me.tbComisionVend.TabIndex = 239
         '
         'LabelX4
@@ -717,32 +754,59 @@ Partial Class F02_Comisiones
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
-        'tbComisionRep
+        'tbComisionMayVend
         '
         '
         '
         '
-        Me.tbComisionRep.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.tbComisionRep.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbComisionRep.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbComisionRep.Increment = 1.0R
-        Me.tbComisionRep.Location = New System.Drawing.Point(167, 152)
-        Me.tbComisionRep.Name = "tbComisionRep"
-        Me.tbComisionRep.Size = New System.Drawing.Size(132, 20)
-        Me.tbComisionRep.TabIndex = 247
+        Me.tbComisionMayVend.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbComisionMayVend.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbComisionMayVend.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbComisionMayVend.Increment = 1.0R
+        Me.tbComisionMayVend.Location = New System.Drawing.Point(217, 151)
+        Me.tbComisionMayVend.Name = "tbComisionMayVend"
+        Me.tbComisionMayVend.Size = New System.Drawing.Size(80, 20)
+        Me.tbComisionMayVend.TabIndex = 255
         '
-        'LabelX2
-        '
-        '
+        'LabelX3
         '
         '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.FontBold = True
-        Me.LabelX2.Location = New System.Drawing.Point(22, 149)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(139, 23)
-        Me.LabelX2.TabIndex = 246
-        Me.LabelX2.Text = "Comisión Repartidor (%):"
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.FontBold = True
+        Me.LabelX3.Location = New System.Drawing.Point(22, 148)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(189, 23)
+        Me.LabelX3.TabIndex = 254
+        Me.LabelX3.Text = "Comisión Vendedor Mayorista (%):"
+        '
+        'tbComisionMayRep
+        '
+        '
+        '
+        '
+        Me.tbComisionMayRep.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbComisionMayRep.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbComisionMayRep.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbComisionMayRep.Increment = 1.0R
+        Me.tbComisionMayRep.Location = New System.Drawing.Point(217, 201)
+        Me.tbComisionMayRep.Name = "tbComisionMayRep"
+        Me.tbComisionMayRep.Size = New System.Drawing.Size(80, 20)
+        Me.tbComisionMayRep.TabIndex = 257
+        '
+        'LabelX5
+        '
+        '
+        '
+        '
+        Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX5.FontBold = True
+        Me.LabelX5.Location = New System.Drawing.Point(22, 198)
+        Me.LabelX5.Name = "LabelX5"
+        Me.LabelX5.Size = New System.Drawing.Size(189, 23)
+        Me.LabelX5.TabIndex = 256
+        Me.LabelX5.Text = "Comisión Repartidor Mayorista (%):"
         '
         'F02_Comisiones
         '
@@ -775,6 +839,7 @@ Partial Class F02_Comisiones
         Me.TableLayoutPanelDatos2.ResumeLayout(False)
         Me.GpCategoria.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        CType(Me.tbComisionRep, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbComisionVend, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx1.ResumeLayout(False)
         Me.PnCategoria.ResumeLayout(False)
@@ -790,7 +855,8 @@ Partial Class F02_Comisiones
         Me.PnListaPrecio.ResumeLayout(False)
         CType(Me.JGr_Detalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CmDetalle.ResumeLayout(False)
-        CType(Me.tbComisionRep, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbComisionMayVend, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbComisionMayRep, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -825,4 +891,8 @@ Partial Class F02_Comisiones
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbComisionRep As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbComisionMayRep As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbComisionMayVend As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
 End Class

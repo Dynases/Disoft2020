@@ -1725,6 +1725,7 @@ Public Class P_Principal
         Dim frm As New R01_VentasComision
         frm._nameButton = btVentaComision.Name
         frm._modulo = FP_CRM
+        frm.global1 = 0
         frm.Show()
     End Sub
 
@@ -1787,6 +1788,15 @@ Public Class P_Principal
 
     Private Sub btnRepProdInv_Click(sender As Object, e As EventArgs) Handles btnRepProdInv.Click
         Dim frm As New R01_VentasProductosInv
+        frm.Show()
+    End Sub
+
+    Private Sub btVentaComisionGrupo_Click(sender As Object, e As EventArgs) Handles btVentaComisionGrupo.Click
+        R01_VentasComision.AllowTransparency = True
+        Dim frm As New R01_VentasComision
+        frm._nameButton = btVentaComision.Name
+        frm._modulo = FP_CRM
+        frm.global1 = 1
         frm.Show()
     End Sub
 

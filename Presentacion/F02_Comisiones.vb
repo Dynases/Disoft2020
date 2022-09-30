@@ -52,6 +52,8 @@ Public Class F02_Comisiones
         JGr_Descuentos.ContextMenuStrip = CmDetalle
         tbComisionVend.IsInputReadOnly = True
         tbComisionRep.IsInputReadOnly = True
+        tbComisionMayVend.IsInputReadOnly = True
+        tbComisionMayRep.IsInputReadOnly = True
     End Sub
 
     Private Sub _PAsignarPermisos()
@@ -246,6 +248,8 @@ Public Class F02_Comisiones
 
         tbComisionVend.Text = JGr_Descuentos.GetValue("cqcomision")
         tbComisionRep.Text = JGr_Descuentos.GetValue("cqcomisionRep")
+        tbComisionMayVend.Text = JGr_Descuentos.GetValue("cqcomisionMayVend")
+        tbComisionMayRep.Text = JGr_Descuentos.GetValue("cqcomisionMayRep")
     End Sub
 
 
@@ -388,6 +392,8 @@ Public Class F02_Comisiones
         btGrabarP.Enabled = True
         tbComisionVend.IsInputReadOnly = False
         tbComisionRep.IsInputReadOnly = False
+        tbComisionMayVend.IsInputReadOnly = False
+        tbComisionMayRep.IsInputReadOnly = False
     End Sub
 
     Private Sub btNuevoP_Click(sender As Object, e As EventArgs) Handles btNuevoP.Click
@@ -405,7 +411,7 @@ Public Class F02_Comisiones
         Dim numi As String = ""
         If (_ValidarCampos()) Then
             'Grabar
-            Dim res As Boolean = L_fnGrabarComisiones(numi, tbCodPro.Text, tbComisionVend.Value, tbComisionRep.Value)
+            Dim res As Boolean = L_fnGrabarComisiones(numi, tbCodPro.Text, tbComisionVend.Value, tbComisionRep.Value, tbComisionMayVend.Value, tbComisionMayRep.Value)
 
             If (res) Then
                 ToastNotification.Show(Me, "Comision del Producto Grabado con éxito.".ToUpper,

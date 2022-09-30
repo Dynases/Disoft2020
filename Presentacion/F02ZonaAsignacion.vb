@@ -265,50 +265,50 @@ Public Class F02ZonaAsignacion
         If (index <= DgjBusqueda.GetRows.Count - 1 And index >= 0) Then
 
             With DgjBusqueda
-                    Me.TbCodigo.Text = .GetValue("numi").ToString
-                    MLbFecha.Text = CType(.GetValue("fact").ToString, Date).ToString("dd/MM/yyyy")
-                    MLbHora.Text = .GetValue("hact").ToString
-                    MLbUsuario.Text = .GetValue("uact").ToString
-                End With
+                Me.TbCodigo.Text = .GetValue("numi").ToString
+                MLbFecha.Text = CType(.GetValue("fact").ToString, Date).ToString("dd/MM/yyyy")
+                MLbHora.Text = .GetValue("hact").ToString
+                MLbUsuario.Text = .GetValue("uact").ToString
+            End With
 
 
-                'cargar lista repartidores
-                P_prArmarGrillaRepartidor()
-                '' Dim tRep As DataTable = L_ZonaDetalleRepartidor_General(-1, TbCodigo.Text).Tables(0)
-                Dim tRep As DataTable = ObtenerDetalleZonas(TbCodigo.Text)
-                Dim codRep As Integer
-                For Each fil1 As GridEXRow In dgjRepartidor.GetRows
-                    codRep = fil1.Cells("numi").Value
-                    For Each fil2 As DataRow In tRep.Rows
-                        If (codRep = fil2.Item("lccbnumi")) Then
-                            fil1.BeginEdit()
-                            fil1.Cells("check").Value = True
-                            fil1.EndEdit()
-                            Exit For
-                        End If
-                    Next
+            'cargar lista repartidores
+            P_prArmarGrillaRepartidor()
+            '' Dim tRep As DataTable = L_ZonaDetalleRepartidor_General(-1, TbCodigo.Text).Tables(0)
+            Dim tRep As DataTable = ObtenerDetalleZonas(TbCodigo.Text)
+            Dim codRep As Integer
+            For Each fil1 As GridEXRow In dgjRepartidor.GetRows
+                codRep = fil1.Cells("numi").Value
+                For Each fil2 As DataRow In tRep.Rows
+                    If (codRep = fil2.Item("lccbnumi")) Then
+                        fil1.BeginEdit()
+                        fil1.Cells("check").Value = True
+                        fil1.EndEdit()
+                        Exit For
+                    End If
                 Next
+            Next
 
-                'cargar lista prevendedor
-                P_prArmarGrillaPrevendedor()
-                ''  Dim tPre As DataTable = L_ZonaDetalleRepartidor_General(-1, TbCodigo.Text).Tables(0)
-                Dim tPre As DataTable = ObtenerDetalleZonas(TbCodigo.Text)
-                Dim codPre As Integer
-                For Each fil1 As GridEXRow In dgjPrevendedor.GetRows
-                    codPre = fil1.Cells("numi").Value
-                    For Each fil2 As DataRow In tPre.Rows
-                        If (codPre = fil2.Item("lccbnumi")) Then
-                            fil1.BeginEdit()
-                            fil1.Cells("check").Value = True
-                            fil1.EndEdit()
-                            Exit For
-                        End If
-                    Next
+            'cargar lista prevendedor
+            P_prArmarGrillaPrevendedor()
+            ''  Dim tPre As DataTable = L_ZonaDetalleRepartidor_General(-1, TbCodigo.Text).Tables(0)
+            Dim tPre As DataTable = ObtenerDetalleZonas(TbCodigo.Text)
+            Dim codPre As Integer
+            For Each fil1 As GridEXRow In dgjPrevendedor.GetRows
+                codPre = fil1.Cells("numi").Value
+                For Each fil2 As DataRow In tPre.Rows
+                    If (codPre = fil2.Item("lccbnumi")) Then
+                        fil1.BeginEdit()
+                        fil1.Cells("check").Value = True
+                        fil1.EndEdit()
+                        Exit For
+                    End If
                 Next
+            Next
 
-                P_prActualizarPaginacion(DgjBusqueda.Row)
+            P_prActualizarPaginacion(DgjBusqueda.Row)
 
-            Else
+        Else
             If (DgjBusqueda.GetRows.Count > 0) Then
                 DgjBusqueda.MoveTo(CInt(MLbPaginacion.Text.Trim.Split(" ")(1).Trim))
             End If

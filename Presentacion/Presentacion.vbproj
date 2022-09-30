@@ -235,7 +235,7 @@
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
     <Reference Include="Interop.AcroPDFLib">
-      <HintPath>C:\librerias\PDF\Interop.AcroPDFLib.dll</HintPath>
+      <HintPath>C:\libreriasDiego\PDF\Interop.AcroPDFLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="itextsharp">
@@ -363,6 +363,12 @@
       <DependentUpon>DespachoNotaVentaXCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DispatchedOrder\Report\DespachoXProducto11.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DespachoXProducto1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DispatchedOrder\Report\DespachoXProductoSinAgrupacion.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -378,8 +384,8 @@
     <Compile Include="DispatchedOrder\Report\NotaVenta.vb">
       <DependentUpon>NotaVenta.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DispatchedOrder\Report\DespachoXCliente.vb">
       <AutoGen>True</AutoGen>
@@ -390,7 +396,7 @@
     <Compile Include="DispatchedOrder\Report\DespachoXProducto.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DespachoXProducto.rpt</DependentUpon>
+      <DependentUpon>DespachoXProducto1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DispatchedOrder\Report\NotaVenta2.vb">
@@ -426,14 +432,14 @@
     <Compile Include="DispatchedOrder\Report\NotaVenta10.vb">
       <DependentUpon>NotaVenta10.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DispatchedOrder\Report\NotaVenta9.vb">
       <DependentUpon>NotaVenta9.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DispatchedOrder\Report\NotaVenta8.vb">
       <AutoGen>True</AutoGen>
@@ -971,8 +977,8 @@
     <Compile Include="Reportes\R_Proforma.vb">
       <DependentUpon>R_Proforma.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_CajaCortes.vb">
       <AutoGen>True</AutoGen>
@@ -1043,14 +1049,14 @@
     <Compile Include="Reportes\R_ConciliacionChofer.vb">
       <DependentUpon>R_ConciliacionChofer.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_CuentaPorCobrarResumen.vb">
       <DependentUpon>R_CuentaPorCobrarResumen.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_CuentaPorCobrarDetallado.vb">
       <AutoGen>True</AutoGen>
@@ -1085,8 +1091,8 @@
     <Compile Include="Reportes\R_FacturaPreImpresa1.vb">
       <DependentUpon>R_FacturaPreImpresa1.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_FacturaPreImpresa.vb">
       <AutoGen>True</AutoGen>
@@ -1187,14 +1193,14 @@
     <Compile Include="Reportes\R_ReportePrecios.vb">
       <DependentUpon>R_ReportePrecios.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_SaldosFisicoValorado.vb">
       <DependentUpon>R_SaldosFisicoValorado.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_SaldosFisicoValoradoSinAgrupacion.vb">
       <AutoGen>True</AutoGen>
@@ -1211,8 +1217,8 @@
     <Compile Include="Reportes\R_StockDisponible.vb">
       <DependentUpon>R_StockDisponible.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_StockDisponiblesSinAgrupacion.vb">
       <AutoGen>True</AutoGen>
@@ -1229,32 +1235,44 @@
     <Compile Include="Reportes\R_ListaPedidos.vb">
       <DependentUpon>R_ListaPedidos.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_VentasComision1.vb">
+      <DependentUpon>R_VentasComision1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\R_VentasComisionRepartidor1.vb">
+      <DependentUpon>R_VentasComisionRepartidor1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reportes\R_VentasComisionRepartidor.vb">
       <DependentUpon>R_VentasComisionRepartidor.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VentasProductosInventario.vb">
       <DependentUpon>R_VentasProductosInventario.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VentasVendedor.vb">
       <DependentUpon>R_VentasVendedor.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VentasComision.vb">
       <DependentUpon>R_VentasComision.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VentasAtendidasAlmacenVendedor.vb">
       <AutoGen>True</AutoGen>
@@ -1265,8 +1283,8 @@
     <Compile Include="Reportes\R_Clientes_R.vb">
       <DependentUpon>R_Clientes_R.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_Ventasdespacho.vb">
       <AutoGen>True</AutoGen>
@@ -1438,8 +1456,8 @@
     <Compile Include="Reportes\R_KardexInventarioProducto.vb">
       <DependentUpon>R_KardexInventarioProducto.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_KardexInventarioEquipos.vb">
       <AutoGen>True</AutoGen>
@@ -1455,9 +1473,9 @@
     </Compile>
     <Compile Include="Reportes\R_PlanillaSueldoGrabado.vb">
       <DependentUpon>R_PlanillaSueldoGrabado.rpt</DependentUpon>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_PlanillaSueldosResumenGrabado.vb">
       <AutoGen>True</AutoGen>
@@ -1540,8 +1558,8 @@
     <Compile Include="Reportes\R_SaldoClientes.vb">
       <DependentUpon>R_SaldoClientes.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_SaldoInventario.vb">
       <AutoGen>True</AutoGen>
@@ -1640,8 +1658,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DespachoXCliente.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispatchedOrder\Report\DespachoXProducto.rpt">
+    <EmbeddedResource Include="DispatchedOrder\Report\DespachoXProducto1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DespachoXProducto11.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2115,6 +2134,14 @@
     <EmbeddedResource Include="Reportes\R_ListaPedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ListaPedidos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasComision1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasComision1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasComisionRepartidor1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasComisionRepartidor1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VentasComisionRepartidor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -172,6 +172,35 @@ Public Class F1_MapaCLientes
         _prDibujarMarketCliente(TableCliente.Rows.Count - 1, TableCliente)
     End Sub
 
+    'Public Sub dibujarMapa()
+    '    Dim checks = Me.dgjZona.GetCheckedRows()
+    '    Dim listIdZona = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+    '    'MessageBox.Show(listIdZona.Count)
+    '    Dim i As Integer
+    '    Dim objMapa As New GMapControl
+    '    Dim _overlay As New GMapOverlay
+    '    _LimpiarMapa(gi_mapa, _overlay)
+    '    For Each item As String In listIdZona
+
+    '        Dim dtZonas As DataTable
+    '        'DIBUJAR ZONAS
+    '        dtZonas = L_ZonaCabecera_GeneralCompletoDistribucion(0, item).Tables(0)
+    '        Dim colorZona As String
+    '        Dim idRegZona As Integer
+
+    '        For i = 0 To dtZonas.Rows.Count - 1
+
+    '            _PCargarMapa(gi_mapa, _overlay)
+
+    '            idRegZona = dtZonas.Rows(i).Item("lanumi")
+    '            colorZona = dtZonas.Rows(i).Item("lacolor")
+
+    '            'dibujar zona
+    '            _PDibujarZona(idRegZona, _overlay, colorZona)
+    '        Next
+    '    Next
+    'End Sub
+
     Public Sub _prDibujarMarketCliente(n As Integer, Cliente As DataTable)
         If (n < 0) Then
             Return
@@ -447,17 +476,36 @@ Public Class F1_MapaCLientes
                 _prCargarClientesJanus(dt)
                 _Overlay.Markers.Clear()
                 _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
+
             End If
         End If
 
         If (checkTodos.Checked = True) Then
             cbZona.Enabled = False
             cbZona.ReadOnly = True
+            Dim dtZonas As DataTable
+            'DIBUJAR ZONAS
+            dtZonas = L_prMapaCLienteGeneral1()
+            Dim colorZona As String
+            Dim idRegZona As Integer
+
+            For i = 0 To dtZonas.Rows.Count - 1
+
+
+                '_LimpiarMapa(Gmc_Cliente, _Overlay)
+                idRegZona = dtZonas.Rows(i).Item("lanumi")
+                colorZona = dtZonas.Rows(i).Item("lacolor")
+
+                'dibujar zona
+                _PDibujarZona(idRegZona, _Overlay, colorZona)
+                _PCargarMapa(Gmc_Cliente, _Overlay)
+            Next
 
             Dim dt As DataTable = L_prMapaCLienteGeneral()
             _prCargarClientesJanus(dt)
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
+
         End If
     End Sub
 
@@ -468,8 +516,75 @@ Public Class F1_MapaCLientes
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
         End If
+
+        Dim dtZonas As DataTable
+        'DIBUJAR ZONAS
+        dtZonas = L_ZonaCabecera_GeneralCompletoDistribucion(0, cbZona.Value).Tables(0)
+        Dim colorZona As String
+            Dim idRegZona As Integer
+
+            For i = 0 To dtZonas.Rows.Count - 1
+
+
+            _LimpiarMapa(Gmc_Cliente, _Overlay)
+            idRegZona = dtZonas.Rows(i).Item("lanumi")
+                colorZona = dtZonas.Rows(i).Item("lacolor")
+
+            'dibujar zona
+            _PDibujarZona(idRegZona, _Overlay, colorZona)
+            _PCargarMapa(Gmc_Cliente, _Overlay)
+        Next
+
+    End Sub
+    Private Sub _LimpiarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
+        objMapa.Overlays.Clear()
+        objMapa.Overlays.Add(objOverlay)
+
     End Sub
 
+    Private Sub _PCargarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
+        'objMapa.Overlays.Clear()
+        objOverlay = New GMapOverlay("polygons")
+
+        objMapa.Overlays.Add(objOverlay)
+
+        objMapa.DragButton = MouseButtons.Left
+        objMapa.CanDragMap = True
+        objMapa.MapProvider = GMapProviders.GoogleMap
+        'objMapa.Position = New PointLatLng(-17.380941, -66.15976)
+        objMapa.Position = New PointLatLng(-17.782814, -63.182386)
+        objMapa.MinZoom = 0
+        objMapa.MaxZoom = 24
+        objMapa.Zoom = 13
+        objMapa.AutoScroll = True
+        GMapProvider.Language = LanguageType.Spanish
+    End Sub
+
+    Private Sub _PDibujarZona(idZona As Integer, ByRef objOverlay As GMapOverlay, colorZona As String)
+        'cargar zona en mapa
+
+        Dim tPuntos As DataTable = L_ZonaDetallePuntos_General(-1, idZona).Tables(0)
+        Dim i As Integer
+        Dim lati, longi As Double
+        Dim listPuntos As New List(Of PointLatLng)
+
+        For i = 0 To tPuntos.Rows.Count - 1
+            lati = tPuntos.Rows(i).Item(1)
+            longi = tPuntos.Rows(i).Item(2)
+            Dim plg As PointLatLng = New PointLatLng(lati, longi)
+            listPuntos.Add(plg)
+        Next
+
+        'Dim color1 As String = JGr_Zonas1.CurrentRow.Cells(7).Value
+        Dim colorFinal As Color = ColorTranslator.FromHtml(colorZona)
+
+        Dim polygon As New GMapPolygon(listPuntos, "mypolygon")
+        'agregar color
+        polygon.Fill = New SolidBrush(Color.FromArgb(50, colorFinal))
+        polygon.Stroke = New Pen(Color.Red, 1)
+        'objOverlay.Polygons.Clear()
+        objOverlay.Polygons.Add(polygon)
+    End Sub
     Private Sub grCliente_DoubleClick_1(sender As Object, e As EventArgs) Handles grCliente.DoubleClick
         Dim _MPos As Integer
         If grCliente.Row >= 0 Then

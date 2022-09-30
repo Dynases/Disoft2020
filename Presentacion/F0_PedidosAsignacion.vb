@@ -166,19 +166,19 @@ Public Class F0_PedidosAsignacion
         Dim dtReg As DataTable
         If codZona = "" Then
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oaap=1")
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
             Else
                 If estado = "1" Then
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " ) AND oaap=1" + " AND tl0012.lccbnumi=" + codRep)
+                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
                 Else
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " ) AND oaap=1" + " AND tl0012.lccbnumi=" + codRep)
+                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
                 End If
             End If
         Else
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " AND oaap=1")
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
             Else
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " AND oaap=1")
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
             End If
 
         End If
@@ -1928,7 +1928,7 @@ Public Class F0_PedidosAsignacion
         Try
             Dim iIni, iFin As Integer
 
-            Select Case e.OldValue.ToString
+            Select Case e.NewValue.ToString
                 Case "PEDIDOS PENDIENTES"
                     iIni = 1
                 Case "PEDIDOS DICTADOS"

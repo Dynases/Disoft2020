@@ -4,6 +4,7 @@ Imports DevComponents.DotNetBar.Controls
 
 Public Class R01_VentasComision
     Dim _Inter As Integer = 0
+    Public global1 As Integer = 0
 #Region "VARIABLES GLOBALES"
     Public _nameButton As String
     Public _tab As SuperTabItem
@@ -36,21 +37,46 @@ Public Class R01_VentasComision
         If swTipo.Value = True Then
             titulo = "VENDEDOR:"
             If (CheckTodosVendedor.Checked) Then
-                _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                If global1 = 0 Then
+                    _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                Else
+                    _dt = L_prReporteVentasComisionTodos1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                End If
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
-                _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+
+                If global1 = 0 Then
+                    _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+
+                Else
+                    _dt = L_prReporteVentasComisionUno1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+
+                End If
                 Return
             End If
         Else
             titulo = "REPARTIDOR:"
             If (CheckTodosVendedor.Checked) Then
-                _dt = L_prReporteVentasComisionTodosRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+
+                If global1 = 0 Then
+                    _dt = L_prReporteVentasComisionTodosRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+
+                Else
+
+                    _dt = L_prReporteVentasComisionTodosRep1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                End If
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
                 _dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                If global1 = 0 Then
+                    _dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+
+                Else
+
+                    _dt = L_prReporteVentasComisionUnoRep1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                End If
                 Return
             End If
         End If
@@ -63,9 +89,18 @@ Public Class R01_VentasComision
         If (_dt.Rows.Count > 0) Then
             Dim objrep
             If swTipo.Value = True Then
-                objrep = New R_VentasComision
+                If global1 = 0 Then
+                    objrep = New R_VentasComision
+                Else
+                    objrep = New R_VentasComision1
+                End If
             Else
-                objrep = New R_VentasComisionRepartidor
+                If global1 = 0 Then
+                    objrep = New R_VentasComisionRepartidor
+                Else
+                    objrep = New R_VentasComisionRepartidor1
+                End If
+
             End If
 
             objrep.SetDataSource(_dt)
@@ -96,6 +131,7 @@ Public Class R01_VentasComision
     End Sub
 
     Private Sub R01_VentasAtendidas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         _prIniciarTodo()
     End Sub
 #End Region

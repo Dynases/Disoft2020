@@ -27,7 +27,7 @@ Public Class DespachoXProducto
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "DespachoXProducto.rpt"
+            Return "DespachoXProducto1.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class DespachoXProducto
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.DespachoXProducto.rpt"
+            Return "Presentacion.DespachoXProducto1.rpt"
         End Get
         Set
             'Do nothing

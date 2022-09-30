@@ -50,7 +50,7 @@ Public Class F01_MonitoreoPedido
         'cargar mapas
         _PCargarMapa(GM_Mapa, _overlay)
         _PCargarZonas()
-        _PCargarComboPersonas
+        _PCargarcombopersonas()
 
 
         ''_PCargarPedidos()
@@ -1343,7 +1343,7 @@ Public Class F01_MonitoreoPedido
 
                 'dibujar etiqueta del cliente en el mapa
                 Dim plg As New PointLatLng(latitud, longitud)
-                _PDibujarPunto(_overlay, plg, nombre + vbCrLf + _
+                _PDibujarPunto(_overlay, plg, nombre + vbCrLf +
                                         "Hora Pedido: " + fechaPedido + " - " + horaPedido, "")
             Next
 
@@ -1375,7 +1375,7 @@ Public Class F01_MonitoreoPedido
         Dim dtRuta As DataTable
         Dim Fecha As String = "'" + DtFecha.Value.Day.ToString + "/" + DtFecha.Value.Month.ToString + "/" + DtFecha.Value.Year.ToString + "'"
         For Each elem As DataRow In _listRepAct.ToArray
-            dtRuta = L_RutaUltimoPunto("ldchof=" + elem.Item("cbnumi").ToString.Trim + " And ldfec =" + fecha)
+            dtRuta = L_RutaUltimoPunto("ldchof=" + elem.Item("cbnumi").ToString.Trim + " And ldfec =" + Fecha)
             If dtRuta.Rows.Count > 0 Then
                 color = elem.Item("color")
                 nombre = elem.Item("cbdesc") + dtRuta.Rows(0).Item("ldfec") + " " + dtRuta.Rows(0).Item("ldhora")

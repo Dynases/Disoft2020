@@ -1,7 +1,13 @@
 ﻿Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports ENTITY
+Imports GMap.NET
+Imports GMap.NET.MapProviders
+Imports GMap.NET.WindowsForms
+Imports GMap.NET.WindowsForms.Markers
+Imports GMap.NET.WindowsForms.ToolTips
 Imports Janus.Windows.GridEX
+Imports Logica.AccesoLogica
 Imports LOGIC
 Imports UTILITIES
 
@@ -10,6 +16,8 @@ Public Class frmDispatch
     Public _nameButton As String
     Public _tab As SuperTabItem
     Public _modulo As SideNavItem
+
+
 #Region "Eventos"
     Private Sub frmDispatch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init()
@@ -51,6 +59,35 @@ Public Class frmDispatch
             MostrarMensajeError(ex.Message)
         End Try
     End Sub
+
+    Private Sub dgjZona_RowCheckStateChanged(sender As Object, e As EventArgs) Handles dgjZona.RowCheckStateChanged
+        Dim checks = Me.dgjZona.GetCheckedRows()
+        Dim listIdZona = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+        'MessageBox.Show(listIdZona.Count)
+        Dim i As Integer
+        Dim objMapa As New GMapControl
+        Dim _overlay As New GMapOverlay
+        _LimpiarMapa(GM_Mapa, _overlay)
+        For Each item As String In listIdZona
+
+            Dim dtZonas As DataTable
+            'DIBUJAR ZONAS
+            dtZonas = L_ZonaCabecera_GeneralCompletoDistribucion(0, item).Tables(0)
+            Dim colorZona As String
+            Dim idRegZona As Integer
+
+            For i = 0 To dtZonas.Rows.Count - 1
+
+                _PCargarMapa(GM_Mapa, _overlay)
+
+                idRegZona = dtZonas.Rows(i).Item("lanumi")
+                colorZona = dtZonas.Rows(i).Item("lacolor")
+
+                'dibujar zona
+                _PDibujarZona(idRegZona, _overlay, colorZona)
+            Next
+        Next
+    End Sub
 #End Region
 
 #Region "Privado, metodos y funciones"
@@ -64,6 +101,24 @@ Public Class frmDispatch
         End Try
     End Sub
 
+    Private Sub _prDibujarPunto(ByRef objOverlay As GMapOverlay, pointLatLng As PointLatLng, Optional etiqueta As String = "")
+
+        'añadir puntos
+        ''Dim markersOverlay As New GMapOverlay("markers")
+        Dim marker As New GMarkerGoogle(pointLatLng, GMarkerGoogleType.blue)
+        'añadir tooltip
+        If etiqueta <> "" Then
+            Dim mode As MarkerTooltipMode = MarkerTooltipMode.OnMouseOver
+            marker.ToolTip = New GMapBaloonToolTip(marker)
+            marker.ToolTipMode = mode
+            Dim ToolTipBackColor As New SolidBrush(Color.WhiteSmoke)
+            marker.ToolTip.Fill = ToolTipBackColor
+            marker.ToolTipText = etiqueta
+        End If
+        objOverlay.Markers.Clear()
+        objOverlay.Markers.Add(marker)
+        'mapa.Overlays.Add(markersOverlay)
+    End Sub
     Private Sub ConfigForm()
         Try
             Me.Text = "DISTRIBUCIÓN"
@@ -71,6 +126,54 @@ Public Class frmDispatch
         Catch ex As Exception
             Throw New Exception(ex.Message)
         End Try
+    End Sub
+    Private Sub _LimpiarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
+        objMapa.Overlays.Clear()
+        objMapa.Overlays.Add(objOverlay)
+
+    End Sub
+    Private Sub _PCargarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
+        'objMapa.Overlays.Clear()
+        objOverlay = New GMapOverlay("polygons")
+
+        objMapa.Overlays.Add(objOverlay)
+
+        objMapa.DragButton = MouseButtons.Left
+        objMapa.CanDragMap = True
+        objMapa.MapProvider = GMapProviders.GoogleMap
+        'objMapa.Position = New PointLatLng(-17.380941, -66.15976)
+        objMapa.Position = New PointLatLng(-17.782814, -63.182386)
+        objMapa.MinZoom = 0
+        objMapa.MaxZoom = 24
+        objMapa.Zoom = 13
+        objMapa.AutoScroll = True
+        GMapProvider.Language = LanguageType.Spanish
+    End Sub
+
+    Private Sub _PDibujarZona(idZona As Integer, ByRef objOverlay As GMapOverlay, colorZona As String)
+        'cargar zona en mapa
+
+        Dim tPuntos As DataTable = L_ZonaDetallePuntos_General(-1, idZona).Tables(0)
+        Dim i As Integer
+        Dim lati, longi As Double
+        Dim listPuntos As New List(Of PointLatLng)
+
+        For i = 0 To tPuntos.Rows.Count - 1
+            lati = tPuntos.Rows(i).Item(1)
+            longi = tPuntos.Rows(i).Item(2)
+            Dim plg As PointLatLng = New PointLatLng(lati, longi)
+            listPuntos.Add(plg)
+        Next
+
+        'Dim color1 As String = JGr_Zonas1.CurrentRow.Cells(7).Value
+        Dim colorFinal As Color = ColorTranslator.FromHtml(colorZona)
+
+        Dim polygon As New GMapPolygon(listPuntos, "mypolygon")
+        'agregar color
+        polygon.Fill = New SolidBrush(Color.FromArgb(50, colorFinal))
+        polygon.Stroke = New Pen(Color.Red, 1)
+        'objOverlay.Polygons.Clear()
+        objOverlay.Polygons.Add(polygon)
     End Sub
 
     Public Sub CargarZonas()
@@ -150,6 +253,7 @@ Public Class frmDispatch
         End Try
     End Sub
 
+
     Private Sub CargarPedidos()
         Try
             Dim checks = Me.dgjZona.GetCheckedRows()
@@ -174,7 +278,7 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("NombreCliente")
                 .Caption = "Cliente"
-                .Width = 400
+                .Width = 200
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = True
                 .Position = 1
@@ -182,7 +286,7 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("Id")
                 .Caption = "Pedido"
-                .Width = 60
+                .Width = 50
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                 .Visible = True
                 .Position = 2
@@ -190,14 +294,14 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("NombreVendedor")
                 .Caption = "Vendedor"
-                .Width = 250
+                .Width = 200
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = True
                 .Position = 3
             End With
             With dgjPedido.RootTable.Columns("idZona")
                 .Caption = "Zona"
-                .Width = 150
+                .Width = 70
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
                 .Visible = True
                 .Position = 4
@@ -206,7 +310,7 @@ Public Class frmDispatch
             dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
             With dgjPedido.RootTable.Columns("Check")
                 .Caption = "Despacho"
-                .Width = 80
+                .Width = 60
                 .ShowRowSelector = True
                 .UseHeaderSelector = True
                 .FilterEditType = FilterEditType.NoEdit
@@ -375,6 +479,18 @@ Public Class frmDispatch
 
         ' Add any initialization after the InitializeComponent() call.
 
+    End Sub
+
+    Private Sub Btn_ZoomMas_Click(sender As Object, e As EventArgs) Handles Btn_ZoomMas.Click
+        If GM_Mapa.Zoom <> GM_Mapa.MaxZoom Then
+            GM_Mapa.Zoom = GM_Mapa.Zoom + 1
+        End If
+    End Sub
+
+    Private Sub Btn_ZoomMenos_Click(sender As Object, e As EventArgs) Handles Btn_ZoomMenos.Click
+        If GM_Mapa.Zoom <> GM_Mapa.MinZoom Then
+            GM_Mapa.Zoom = GM_Mapa.Zoom - 1
+        End If
     End Sub
 #End Region
 End Class
