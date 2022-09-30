@@ -1660,6 +1660,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\DespachoXProducto1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DespachoXProducto1.vb</LastGenOutput>
       <LastGenOutput>DespachoXProducto11.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\NotaVenta2.rpt">

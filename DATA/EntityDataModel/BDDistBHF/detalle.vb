@@ -10,7 +10,7 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class detalle
+Partial Public Class Detalle
     Public Property obnumi As Integer
     Public Property obcprod As String
     Public Property obpcant As Nullable(Of Decimal)

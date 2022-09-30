@@ -31,7 +31,7 @@ Partial Class F0G_MovimientoChoferSalida
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cbalmacenDestino = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
+        Me.lbAlmacen = New DevComponents.DotNetBar.LabelX()
         Me.cbalmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
         Me.btBuscarChofer = New DevComponents.DotNetBar.ButtonX()
@@ -186,6 +186,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         'MBtModificar
         '
+        Me.MBtModificar.Visible = False
         '
         'MBtNuevo
         '
@@ -281,7 +282,7 @@ Partial Class F0G_MovimientoChoferSalida
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.cbalmacenDestino)
-        Me.Panel1.Controls.Add(Me.LabelX8)
+        Me.Panel1.Controls.Add(Me.lbAlmacen)
         Me.Panel1.Controls.Add(Me.cbalmacenOrigen)
         Me.Panel1.Controls.Add(Me.LabelX7)
         Me.Panel1.Controls.Add(Me.btBuscarChofer)
@@ -318,22 +319,22 @@ Partial Class F0G_MovimientoChoferSalida
         Me.cbalmacenDestino.TabIndex = 240
         Me.cbalmacenDestino.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
-        'LabelX8
+        'lbAlmacen
         '
-        Me.LabelX8.AutoSize = True
-        Me.LabelX8.BackColor = System.Drawing.Color.Transparent
+        Me.lbAlmacen.AutoSize = True
+        Me.lbAlmacen.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
-        Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX8.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX8.Location = New System.Drawing.Point(422, 136)
-        Me.LabelX8.Name = "LabelX8"
-        Me.LabelX8.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX8.Size = New System.Drawing.Size(168, 16)
-        Me.LabelX8.TabIndex = 239
-        Me.LabelX8.Text = "Almacen Destino (Chofer):"
+        Me.lbAlmacen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbAlmacen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbAlmacen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbAlmacen.Location = New System.Drawing.Point(422, 136)
+        Me.lbAlmacen.Name = "lbAlmacen"
+        Me.lbAlmacen.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbAlmacen.Size = New System.Drawing.Size(168, 16)
+        Me.lbAlmacen.TabIndex = 239
+        Me.lbAlmacen.Text = "Almacen Destino (Chofer):"
         '
         'cbalmacenOrigen
         '
@@ -882,7 +883,7 @@ Partial Class F0G_MovimientoChoferSalida
     Friend WithEvents tbTablet As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents Timer1 As Timer
     Friend WithEvents cbalmacenDestino As Janus.Windows.GridEX.EditControls.MultiColumnCombo
-    Friend WithEvents LabelX8 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbAlmacen As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbalmacenOrigen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
 End Class

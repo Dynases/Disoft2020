@@ -439,6 +439,17 @@ Public Class F0_Categoria
 
     Private Sub MBtEliminar_Click(sender As Object, e As EventArgs) Handles MBtEliminar.Click
         If (grBuscador.RowCount > 0) Then
+            Dim _Nombre As String = "", _CVal As Integer
+            _CVal = L_Validartabla("TC005C", tbcodigo.Text, _Nombre)
+            If _CVal > 0 Then
+                ToastNotification.Show(Me, "No se puede eliminar Categoria porque esta siendo usado por ".ToUpper + _CVal.ToString + " " + _Nombre.ToUpper + ". Eliminación Rechazada.".ToUpper,
+                                           My.Resources.WARNING, 3500,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.TopCenter)
+                Exit Sub
+            End If
+
+
             Dim ef = New Efecto
 
             ef.tipo = 2

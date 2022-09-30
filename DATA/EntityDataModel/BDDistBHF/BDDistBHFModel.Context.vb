@@ -77,8 +77,8 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property TZ001() As DbSet(Of TZ001)
     Public Overridable Property Visita() As DbSet(Of Visita)
     Public Overridable Property ZY0021() As DbSet(Of ZY0021)
-    Public Overridable Property detalle() As DbSet(Of detalle)
-    Public Overridable Property detalleBackup() As DbSet(Of detalleBackup)
+    Public Overridable Property Detalle() As DbSet(Of Detalle)
+    Public Overridable Property DetalleBackup() As DbSet(Of DetalleBackup)
     Public Overridable Property TC0001() As DbSet(Of TC0001)
     Public Overridable Property TC0011() As DbSet(Of TC0011)
     Public Overridable Property TC0012() As DbSet(Of TC0012)
@@ -137,6 +137,7 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_GO_DespachoNotaVenta() As DbSet(Of VR_GO_DespachoNotaVenta)
     Public Overridable Property VR_GO_DespachoXCliente() As DbSet(Of VR_GO_DespachoXCliente)
     Public Overridable Property VR_GO_DespachoXProducto() As DbSet(Of VR_GO_DespachoXProducto)
+    Public Overridable Property VR_GO_DespachoXProducto2() As DbSet(Of VR_GO_DespachoXProducto2)
     Public Overridable Property VR_GO_DiferenciaPedidoNota() As DbSet(Of VR_GO_DiferenciaPedidoNota)
     Public Overridable Property VR_GO_EquipoPrestadoVsUltimaVenta() As DbSet(Of VR_GO_EquipoPrestadoVsUltimaVenta)
     Public Overridable Property VR_GO_EquiposPrestadoCliente() As DbSet(Of VR_GO_EquiposPrestadoCliente)
@@ -161,12 +162,15 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_Mam_Conciliacion() As DbSet(Of VR_Mam_Conciliacion)
     Public Overridable Property Vr_Mam_Credito_Cliente() As DbSet(Of Vr_Mam_Credito_Cliente)
     Public Overridable Property Vr_Mam_ProductoVenta() As DbSet(Of Vr_Mam_ProductoVenta)
+    Public Overridable Property Vr_Mam_ProductoVentaInventario() As DbSet(Of Vr_Mam_ProductoVentaInventario)
     Public Overridable Property VR_MO_GetPedidos() As DbSet(Of VR_MO_GetPedidos)
+    Public Overridable Property VR_MorosidadProveedores() As DbSet(Of VR_MorosidadProveedores)
     Public Overridable Property VR_Nota_de_Venta() As DbSet(Of VR_Nota_de_Venta)
     Public Overridable Property VR_NotaCompra() As DbSet(Of VR_NotaCompra)
     Public Overridable Property VR_Pagos() As DbSet(Of VR_Pagos)
     Public Overridable Property VR_ProductosMesas() As DbSet(Of VR_ProductosMesas)
     Public Overridable Property VR_Proforma() As DbSet(Of VR_Proforma)
+    Public Overridable Property VR_ReportePrecios() As DbSet(Of VR_ReportePrecios)
     Public Overridable Property VR_ResumenNotas() As DbSet(Of VR_ResumenNotas)
     Public Overridable Property VR_SaldoCliente() As DbSet(Of VR_SaldoCliente)
     Public Overridable Property VR_SaldoFisicoValorado() As DbSet(Of VR_SaldoFisicoValorado)
@@ -174,6 +178,7 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_StockDisponible() As DbSet(Of VR_StockDisponible)
     Public Overridable Property VR_UtilidadPorProducto() As DbSet(Of VR_UtilidadPorProducto)
     Public Overridable Property VR_VentasComision() As DbSet(Of VR_VentasComision)
+    Public Overridable Property VR_VentasComisionRep() As DbSet(Of VR_VentasComisionRep)
     Public Overridable Property VR_VentasVendedor() As DbSet(Of VR_VentasVendedor)
     Public Overridable Property Vr_VentasVendedor12Meses() As DbSet(Of Vr_VentasVendedor12Meses)
     Public Overridable Property Vr_VentasVendidas() As DbSet(Of Vr_VentasVendidas)
@@ -332,7 +337,7 @@ Partial Public Class BDDistBHFEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_go_Reportes_Result)("sp_go_Reportes", tipoParameter, cprodParameter, finiParameter, ffinParameter, codigoParameter, clienteParameter, banParameter, anhoParameter, mesParameter)
     End Function
 
-    Public Overridable Function sp_go_TC001(tipo As Nullable(Of Integer), numi As Nullable(Of Integer), cod As String, desc As String, desc2 As String, cat As Nullable(Of Integer), img As String, stc As Nullable(Of Boolean), est As Nullable(Of Boolean), serie As Nullable(Of Boolean), pcom As Nullable(Of Integer), fing As Nullable(Of Date), cemp As Nullable(Of Integer), uact As String, filtro As Nullable(Of Integer), cbarra As String, smin As Nullable(Of Integer), gr1 As Nullable(Of Integer), gr2 As Nullable(Of Integer), gr3 As Nullable(Of Integer), gr4 As Nullable(Of Integer), umed As Nullable(Of Integer), uventa As Nullable(Of Integer), umax As Nullable(Of Integer), conv As Nullable(Of Integer), cecon As Nullable(Of Integer), cedesc As String, pack As Nullable(Of Integer), numipro As Nullable(Of Integer), ygnumi As Nullable(Of Integer), ygcod As String, ygdesc As String, ygpcv As Nullable(Of Integer), yguact As String, almacen As Nullable(Of Integer), categoria As Nullable(Of Integer), cod1 As Nullable(Of Integer), cod2 As Nullable(Of Integer), ygmer As Nullable(Of Decimal)) As ObjectResult(Of Nullable(Of Integer))
+    Public Overridable Function sp_go_TC001(tipo As Nullable(Of Integer), numi As Nullable(Of Integer), cod As String, desc As String, desc2 As String, cat As Nullable(Of Integer), img As String, stc As Nullable(Of Boolean), est As Nullable(Of Boolean), serie As Nullable(Of Boolean), pcom As Nullable(Of Integer), fing As Nullable(Of Date), cemp As Nullable(Of Integer), uact As String, filtro As Nullable(Of Integer), cbarra As String, smin As Nullable(Of Integer), gr1 As Nullable(Of Integer), gr2 As Nullable(Of Integer), gr3 As Nullable(Of Integer), gr4 As Nullable(Of Integer), umed As Nullable(Of Integer), uventa As Nullable(Of Integer), umax As Nullable(Of Integer), conv As Nullable(Of Integer), cecon As Nullable(Of Integer), cedesc As String, pack As Nullable(Of Integer), numipro As Nullable(Of Integer), ygnumi As Nullable(Of Integer), ygcod As String, ygdesc As String, ygpcv As Nullable(Of Integer), yguact As String, almacen As Nullable(Of Integer), categoria As Nullable(Of Integer), cod1 As Nullable(Of Integer), cod2 As Nullable(Of Integer), ygmer As Nullable(Of Decimal), peso As Nullable(Of Integer)) As ObjectResult(Of Nullable(Of Integer))
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
         Dim numiParameter As ObjectParameter = If(numi.HasValue, New ObjectParameter("numi", numi), New ObjectParameter("numi", GetType(Integer)))
@@ -411,7 +416,9 @@ Partial Public Class BDDistBHFEntities
 
         Dim ygmerParameter As ObjectParameter = If(ygmer.HasValue, New ObjectParameter("ygmer", ygmer), New ObjectParameter("ygmer", GetType(Decimal)))
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of Nullable(Of Integer))("sp_go_TC001", tipoParameter, numiParameter, codParameter, descParameter, desc2Parameter, catParameter, imgParameter, stcParameter, estParameter, serieParameter, pcomParameter, fingParameter, cempParameter, uactParameter, filtroParameter, cbarraParameter, sminParameter, gr1Parameter, gr2Parameter, gr3Parameter, gr4Parameter, umedParameter, uventaParameter, umaxParameter, convParameter, ceconParameter, cedescParameter, packParameter, numiproParameter, ygnumiParameter, ygcodParameter, ygdescParameter, ygpcvParameter, yguactParameter, almacenParameter, categoriaParameter, cod1Parameter, cod2Parameter, ygmerParameter)
+        Dim pesoParameter As ObjectParameter = If(peso.HasValue, New ObjectParameter("peso", peso), New ObjectParameter("peso", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of Nullable(Of Integer))("sp_go_TC001", tipoParameter, numiParameter, codParameter, descParameter, desc2Parameter, catParameter, imgParameter, stcParameter, estParameter, serieParameter, pcomParameter, fingParameter, cempParameter, uactParameter, filtroParameter, cbarraParameter, sminParameter, gr1Parameter, gr2Parameter, gr3Parameter, gr4Parameter, umedParameter, uventaParameter, umaxParameter, convParameter, ceconParameter, cedescParameter, packParameter, numiproParameter, ygnumiParameter, ygcodParameter, ygdescParameter, ygpcvParameter, yguactParameter, almacenParameter, categoriaParameter, cod1Parameter, cod2Parameter, ygmerParameter, pesoParameter)
     End Function
 
     Public Overridable Function sp_go_TC002(tipo As Nullable(Of Integer), numi As Nullable(Of Integer), desc As String, direc As String, telef As String, cat As Nullable(Of Integer), sal As Nullable(Of Decimal), ci As String, obs As String, fnac As Nullable(Of Date), fing As Nullable(Of Date), fret As Nullable(Of Date), fot As String, est As Nullable(Of Boolean), eciv As String, plan As Nullable(Of Integer), reloj As Nullable(Of Integer), uact As String, cbalmacen As Nullable(Of Integer)) As ObjectResult(Of Nullable(Of Integer))
@@ -1192,7 +1199,7 @@ Partial Public Class BDDistBHFEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TM001", tipoParameter, ibidParameter, ibfdocParameter, ibconcepParameter, ibobsParameter, ibestParameter, ibalmParameter, ibiddcParameter, ibidchofParameter, ibidventParameter, ibidconcilParameter, ibuactParameter, choferParameter, conceptoParameter, almacenDestinoParameter)
     End Function
 
-    Public Overridable Function sp_Mam_TM001SalidaChofer(tipo As Nullable(Of Integer), ibid As Nullable(Of Integer), ibfdoc As Nullable(Of Date), ibconcep As Nullable(Of Integer), ibobs As String, ibest As Nullable(Of Integer), ibalm As Nullable(Of Integer), ibiddc As Nullable(Of Integer), ibidchof As Nullable(Of Integer), ibidvent As Nullable(Of Integer), ibidconcil As Nullable(Of Integer), ibuact As String, chofer As Nullable(Of Integer), concepto As Nullable(Of Integer), nconci As Nullable(Of Integer), fechapedido As String, almacenDestino As Nullable(Of Integer)) As Integer
+    Public Overridable Function sp_Mam_TM001SalidaChofer(tipo As Nullable(Of Integer), ibid As Nullable(Of Integer), ibfdoc As Nullable(Of Date), ibconcep As Nullable(Of Integer), ibobs As String, ibest As Nullable(Of Integer), ibalm As Nullable(Of Integer), ibiddc As Nullable(Of Integer), ibidchof As Nullable(Of Integer), ibidvent As Nullable(Of Integer), ibidconcil As Nullable(Of Integer), ibuact As String, chofer As Nullable(Of Integer), concepto As Nullable(Of Integer), nconci As Nullable(Of Integer), fechapedido As String, almacenDestino As Nullable(Of Integer), canumi As Nullable(Of Integer)) As Integer
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
         Dim ibidParameter As ObjectParameter = If(ibid.HasValue, New ObjectParameter("ibid", ibid), New ObjectParameter("ibid", GetType(Integer)))
@@ -1227,7 +1234,9 @@ Partial Public Class BDDistBHFEntities
 
         Dim almacenDestinoParameter As ObjectParameter = If(almacenDestino.HasValue, New ObjectParameter("AlmacenDestino", almacenDestino), New ObjectParameter("AlmacenDestino", GetType(Integer)))
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TM001SalidaChofer", tipoParameter, ibidParameter, ibfdocParameter, ibconcepParameter, ibobsParameter, ibestParameter, ibalmParameter, ibiddcParameter, ibidchofParameter, ibidventParameter, ibidconcilParameter, ibuactParameter, choferParameter, conceptoParameter, nconciParameter, fechapedidoParameter, almacenDestinoParameter)
+        Dim canumiParameter As ObjectParameter = If(canumi.HasValue, New ObjectParameter("canumi", canumi), New ObjectParameter("canumi", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TM001SalidaChofer", tipoParameter, ibidParameter, ibfdocParameter, ibconcepParameter, ibobsParameter, ibestParameter, ibalmParameter, ibiddcParameter, ibidchofParameter, ibidventParameter, ibidconcilParameter, ibuactParameter, choferParameter, conceptoParameter, nconciParameter, fechapedidoParameter, almacenDestinoParameter, canumiParameter)
     End Function
 
     Public Overridable Function sp_Mam_TO004(tipo As Nullable(Of Integer), ohnumi As Nullable(Of Integer), ohfec As Nullable(Of Date), ohconc As Nullable(Of Integer), ohest As String, ohuact As String, ojnumi As Nullable(Of Integer), cliente As Nullable(Of Integer), producto As Nullable(Of Integer)) As Integer
@@ -1252,7 +1261,7 @@ Partial Public Class BDDistBHFEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TO004", tipoParameter, ohnumiParameter, ohfecParameter, ohconcParameter, ohestParameter, ohuactParameter, ojnumiParameter, clienteParameter, productoParameter)
     End Function
 
-    Public Overridable Function sp_Mam_TO005(tipo As Nullable(Of Integer), olnumi As Nullable(Of Integer), olnumichof As Nullable(Of Integer), olnumiconci As Nullable(Of Integer), olfecha As Nullable(Of Date), oluact As String, pedido As Nullable(Of Integer), zona As Nullable(Of Integer), mrec As Nullable(Of Decimal), cliente As Nullable(Of Integer), fechai As Nullable(Of Date), fechaf As Nullable(Of Date), numi As Nullable(Of Integer), nroFactura As Nullable(Of Integer), nconci As Nullable(Of Integer), oanumi As Nullable(Of Integer), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), olCredito As Nullable(Of Decimal), olTipoCambio As Nullable(Of Decimal)) As Integer
+    Public Overridable Function sp_Mam_TO005(tipo As Nullable(Of Integer), olnumi As Nullable(Of Integer), olnumichof As Nullable(Of Integer), olnumiconci As Nullable(Of Integer), olfecha As Nullable(Of Date), oluact As String, pedido As Nullable(Of Integer), zona As Nullable(Of Integer), mrec As Nullable(Of Decimal), cliente As Nullable(Of Integer), fechai As Nullable(Of Date), fechaf As Nullable(Of Date), numi As Nullable(Of Integer), nroFactura As Nullable(Of Integer), nconci As Nullable(Of Integer), oanumi As Nullable(Of Integer), credito As Nullable(Of Decimal), chofer As Nullable(Of Integer), olCredito As Nullable(Of Decimal), olTipoCambio As Nullable(Of Decimal), vendedor As Nullable(Of Integer)) As Integer
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
         Dim olnumiParameter As ObjectParameter = If(olnumi.HasValue, New ObjectParameter("olnumi", olnumi), New ObjectParameter("olnumi", GetType(Integer)))
@@ -1293,7 +1302,9 @@ Partial Public Class BDDistBHFEntities
 
         Dim olTipoCambioParameter As ObjectParameter = If(olTipoCambio.HasValue, New ObjectParameter("olTipoCambio", olTipoCambio), New ObjectParameter("olTipoCambio", GetType(Decimal)))
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TO005", tipoParameter, olnumiParameter, olnumichofParameter, olnumiconciParameter, olfechaParameter, oluactParameter, pedidoParameter, zonaParameter, mrecParameter, clienteParameter, fechaiParameter, fechafParameter, numiParameter, nroFacturaParameter, nconciParameter, oanumiParameter, creditoParameter, choferParameter, olCreditoParameter, olTipoCambioParameter)
+        Dim vendedorParameter As ObjectParameter = If(vendedor.HasValue, New ObjectParameter("vendedor", vendedor), New ObjectParameter("vendedor", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TO005", tipoParameter, olnumiParameter, olnumichofParameter, olnumiconciParameter, olfechaParameter, oluactParameter, pedidoParameter, zonaParameter, mrecParameter, clienteParameter, fechaiParameter, fechafParameter, numiParameter, nroFacturaParameter, nconciParameter, oanumiParameter, creditoParameter, choferParameter, olCreditoParameter, olTipoCambioParameter, vendedorParameter)
     End Function
 
     Public Overridable Function sp_Mam_TV00121(tipo As Nullable(Of Integer), tdnumi As Nullable(Of Integer), tduact As String, credito As Nullable(Of Integer)) As Integer

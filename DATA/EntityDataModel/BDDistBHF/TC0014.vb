@@ -14,6 +14,7 @@ Partial Public Class TC0014
     Public Property cqnumi As Integer
     Public Property cqprod As Nullable(Of Integer)
     Public Property cqcomision As Nullable(Of Decimal)
+    Public Property cqcomisionRep As Nullable(Of Decimal)
     Public Property cqestado As Nullable(Of Integer)
     Public Property cqfact As Nullable(Of Date)
     Public Property cqhact As String

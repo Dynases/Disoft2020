@@ -18,6 +18,13 @@ Public Class R01_SaldoProducto
     Private Sub My_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         P_prInicio()
         _prCargarComboLibreriaDeposito(cbAlmacen)
+        If gs_MostrarSucursal = 1 Then
+            lbDepositoOrigen.Visible = True
+            cbAlmacen.Visible = True
+        Else
+            lbDepositoOrigen.Visible = False
+            cbAlmacen.Visible = False
+        End If
     End Sub
 
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
@@ -36,7 +43,10 @@ Public Class R01_SaldoProducto
             .Refresh()
         End With
 
-        mCombo.Value = -1
+        'mCombo.Value = -1
+        If (dt.Rows.Count > 0) Then
+            mCombo.SelectedIndex = 0
+        End If
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click

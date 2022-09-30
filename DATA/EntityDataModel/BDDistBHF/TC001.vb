@@ -37,5 +37,9 @@ Partial Public Class TC001
     Public Property caumax As Nullable(Of Integer)
     Public Property caconv As Nullable(Of Decimal)
     Public Property capack As Nullable(Of Integer)
+    Public Property capeso As Nullable(Of Integer)
+    Public Property cacampo1 As String
+    Public Property cacampo2 As Nullable(Of Decimal)
+    Public Property cacampo3 As Nullable(Of Decimal)
 
 End Class

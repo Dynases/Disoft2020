@@ -140,7 +140,7 @@ Public Class F02_Libreria
     End Sub
 
     Private Sub _PHabilitar()
-        Tb_Desc.ReadOnly = False
+        'Tb_Desc.ReadOnly = False
 
         MBtNuevo.Enabled = False
         MBtModificar.Enabled = False

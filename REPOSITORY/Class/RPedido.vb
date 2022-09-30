@@ -77,6 +77,36 @@ Public Class RPedido
             Throw New Exception(ex.Message)
         End Try
     End Function
+    Public Function ListarPedidoAsignadoAChoferFechas(idChofer As Integer, estado As Integer, fecha As Date, fechaHasta As Date) As List(Of VPedido_BillingDispatch) Implements IPedido.ListarPedidoAsignadoAChoferFechas
+        Try
+            Using db = GetSchema()
+
+                Dim listResult = (From a In db.TO001
+                                  Join a1 In db.TO001A On a.oanumi Equals a1.oaato1numi
+                                  Join b In db.TC004 On a.oaccli Equals b.ccnumi
+                                  Join c In db.TC002 On a1.oaanumiprev Equals c.cbnumi
+                                  Join d In db.TO001C On a.oanumi Equals d.oacoanumi
+                                  Join e In db.TO0011 On e.obnumi Equals a.oanumi
+                                  Where a.oaest = estado And d.oaccbnumi = idChofer And a.oaap = 1 And (a.oafdoc >= fecha And a.oafdoc <= fechaHasta)
+                                  Group By a.oanumi, a.oafdoc, b.ccdesc, c.cbdesc, d.oacnrofac, a.oazona, a.oaobs Into grupo = Group
+                                  Select New VPedido_BillingDispatch With {
+                                      .Id = oanumi,
+                                      .Fecha = oafdoc,
+                                      .NombreCliente = ccdesc,
+                                      .NombreVendedor = cbdesc,
+                                      .NroFactura = oacnrofac,
+                                      .idZona = oazona,
+                                      .observacion = oaobs,
+                                      .Subtotal = grupo.Sum(Function(item) item.e.obptot).Value,
+                                      .Descuento = grupo.Sum(Function(item) item.e.obdesc).Value,
+                                      .Total = grupo.Sum(Function(item) item.e.obtotal).Value
+                                      }).ToList()
+                Return listResult
+            End Using
+        Catch ex As Exception
+            Throw New Exception(ex.Message)
+        End Try
+    End Function
 
     Public Function GuardarPedidoDeChofer(listIdPedido As List(Of Integer), idChofer As Integer, usuario As String) As Boolean Implements IPedido.GuardarPedidoDeChofer
         Try
@@ -132,7 +162,9 @@ Public Class RPedido
                                       .oaobs = a.oaobs,
                                       .tipo = a.tipo,
                                       .contado = a.contado,
-                                      .credito = a.credito
+                                      .credito = a.credito,
+                                      .oaanumiprev = a.oaanumiprev,
+                                      .cbdesc = a.cbdesc
                                       }).ToList()
                 Return listResult
 

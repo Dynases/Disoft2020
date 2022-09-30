@@ -138,6 +138,7 @@ Public Class F02_Zona
         BoNavegar = True
 
         P_prActualizarPaginacion(0)
+
         P_prLlenarDatos(0)
     End Sub
 
@@ -163,7 +164,7 @@ Public Class F02_Zona
         'Form
         Me.Text = Titulo
         'Me.WindowState = FormWindowState.Maximized
-        Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
+        Me.MSuperTabControlPrincipal.SelectedTabIndex = 0
 
         'Visializacion del mapa
         If (gb_mostrarMapa = False) Then

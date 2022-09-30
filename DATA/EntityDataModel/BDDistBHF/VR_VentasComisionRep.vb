@@ -10,16 +10,18 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class DetalleBackup
-    Public Property obnumi As Integer
-    Public Property obcprod As String
-    Public Property obpcant As Nullable(Of Decimal)
+Partial Public Class VR_VentasComisionRep
+    Public Property codrep As Integer
+    Public Property repartidor As String
+    Public Property cacat As Nullable(Of Integer)
+    Public Property categoria As String
+    Public Property numiProd As Integer
+    Public Property cacod As String
+    Public Property producto As String
+    Public Property cantidad As Nullable(Of Decimal)
     Public Property obpbase As Nullable(Of Decimal)
-    Public Property obptot As Nullable(Of Decimal)
-    Public Property obdesc As Nullable(Of Decimal)
-    Public Property obtotal As Nullable(Of Decimal)
-    Public Property obfamilia As Nullable(Of Integer)
-    Public Property obcampo1 As Nullable(Of Integer)
-    Public Property obcampo2 As Nullable(Of Decimal)
+    Public Property TotalVenta As Nullable(Of Decimal)
+    Public Property cqcomisionRep As Nullable(Of Decimal)
+    Public Property mcomision As Nullable(Of Decimal)
 
 End Class

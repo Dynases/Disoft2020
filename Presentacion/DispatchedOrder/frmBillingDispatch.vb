@@ -313,6 +313,9 @@ Public Class frmBillingDispatch
                 objrep.PrintToPrinter(1, False, 1, 1)
             End If
         End If
+
+        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
         If (grabarPDF) Then
             'Copia de Factura en PDF
             If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
@@ -385,7 +388,7 @@ Public Class frmBillingDispatch
 
         'End If
         'End If
-        L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
+
     End Sub
     Private Sub P_ReImprImprimirFacturar(numi As String, impFactura As Boolean, grabarPDF As Boolean, nit As String)
         Dim _Fecha, _FechaAl As Date
@@ -1279,11 +1282,11 @@ Public Class frmBillingDispatch
             Throw New Exception("Debe seleccionar un chofer.")
         End If
 
-        Dim listResult = New LPedido().ListarPedidoAsignadoAChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
-        Dim lista = (From a In listResult
-                     Where a.Fecha >= Tb_Fecha.Value And
-                           a.Fecha <= Tb_FechaHasta.Value).ToList
-        Return lista
+        Dim listResult = New LPedido().ListarPedidoAsignadoAChoferFechas(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
+        'Dim lista = (From a In listResult
+        '             Where a.Fecha >= Tb_Fecha.Value And
+        '                   a.Fecha <= Tb_FechaHasta.Value).ToList
+        Return listResult
     End Function
 
     Private Sub ArmarListaPedido(lista As List(Of VPedido_BillingDispatch))

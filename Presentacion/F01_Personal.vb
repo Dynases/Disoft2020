@@ -175,6 +175,15 @@ Public Class F01_Personal
         Bool = True
         _prCargarComboLibreriaDeposito(cbSucursal)
         MTbUsuario.Text = gs_user
+
+
+        If gs_MostrarSucursal = 1 Then
+            lbAlmacen.Visible = True
+            cbSucursal.Visible = True
+        Else
+            lbAlmacen.Visible = False
+            cbSucursal.Visible = False
+        End If
     End Sub
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
@@ -583,14 +592,23 @@ Public Class F01_Personal
             .Visible = True
         End With
 
-        With Dgj1Busqueda.RootTable.Columns("Almacen")
-            .Caption = "Almacen"
-            .Width = 120
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.FontSize = gi_fuenteTamano
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
-        End With
+        If gs_MostrarSucursal = 1 Then
+            With Dgj1Busqueda.RootTable.Columns("Almacen")
+                .Caption = "Almacen"
+                .Width = 120
+                .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+                .CellStyle.FontSize = gi_fuenteTamano
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+                .Visible = True
+            End With
+        Else
+            With Dgj1Busqueda.RootTable.Columns("Almacen")
+                .Caption = "Almacen"
+                .Visible = False
+            End With
+        End If
+
+
         With Dgj1Busqueda.RootTable.Columns("cbdirec")
             .Visible = False
         End With

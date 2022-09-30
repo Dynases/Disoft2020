@@ -102,6 +102,7 @@ Public Class P_Principal
         gs_CantPersonal = gs_Parametros(0).Item("sycantpersonal")
         gs_LiberarPedido = gs_Parametros(0).Item("syliberarpedido")
         gs_VentanaCompra = gs_Parametros(0).Item("syVentanaCompra")
+        gs_MostrarSucursal = gs_Parametros(0).Item("syMostrarSucursal")
 
     End Sub
 

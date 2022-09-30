@@ -35,6 +35,7 @@ Partial Class F02_Libreria
         Me.GroupPanelBusqueda = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.JGr_Buscador = New Janus.Windows.GridEX.GridEX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.MicroChartItem1 = New DevComponents.DotNetBar.MicroChartItem()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -72,30 +73,30 @@ Partial Class F02_Libreria
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(5)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1582, 560)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(5)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(789, 560)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(592, 455)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1540, 560)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1144, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(5)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1582, 86)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -106,8 +107,8 @@ Partial Class F02_Libreria
         '
         'MPnInferior
         '
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5)
-        Me.MPnInferior.Size = New System.Drawing.Size(1582, 44)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Size = New System.Drawing.Size(1186, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -118,14 +119,14 @@ Partial Class F02_Libreria
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1315, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(986, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
@@ -151,14 +152,16 @@ Partial Class F02_Libreria
         '
         'MBtModificar
         '
+        Me.MBtModificar.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MicroChartItem1})
         '
         'MBtNuevo
         '
+        Me.MBtNuevo.Visible = False
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1475, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(5)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         '
         'MBubbleBarUsuario
         '
@@ -205,12 +208,11 @@ Partial Class F02_Libreria
         Me.TableLayoutPanelPrincipal.Controls.Add(Me.GroupPanelDetalle, 0, 1)
         Me.TableLayoutPanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanelPrincipal.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelPrincipal.Name = "TableLayoutPanelPrincipal"
         Me.TableLayoutPanelPrincipal.RowCount = 2
-        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123.0!))
+        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1540, 560)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1144, 455)
         Me.TableLayoutPanelPrincipal.TabIndex = 29
         '
         'GroupPanelDatosGenerales
@@ -221,10 +223,9 @@ Partial Class F02_Libreria
         Me.GroupPanelDatosGenerales.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(4, 4)
-        Me.GroupPanelDatosGenerales.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(1532, 115)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(1138, 94)
         '
         '
         '
@@ -268,9 +269,8 @@ Partial Class F02_Libreria
         Me.PanelExDatosGenerales.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
-        Me.PanelExDatosGenerales.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(1526, 93)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(1132, 72)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -286,12 +286,11 @@ Partial Class F02_Libreria
         '
         Me.Tb_Desc.Border.Class = "TextBoxBorder"
         Me.Tb_Desc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_Desc.Location = New System.Drawing.Point(143, 42)
-        Me.Tb_Desc.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb_Desc.Location = New System.Drawing.Point(107, 34)
         Me.Tb_Desc.MaxLength = 50
         Me.Tb_Desc.Name = "Tb_Desc"
         Me.Tb_Desc.PreventEnterBeep = True
-        Me.Tb_Desc.Size = New System.Drawing.Size(333, 21)
+        Me.Tb_Desc.Size = New System.Drawing.Size(250, 21)
         Me.Tb_Desc.TabIndex = 17
         '
         'Tb_id
@@ -301,11 +300,10 @@ Partial Class F02_Libreria
         '
         Me.Tb_id.Border.Class = "TextBoxBorder"
         Me.Tb_id.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_id.Location = New System.Drawing.Point(143, 6)
-        Me.Tb_id.Margin = New System.Windows.Forms.Padding(4)
+        Me.Tb_id.Location = New System.Drawing.Point(107, 5)
         Me.Tb_id.Name = "Tb_id"
         Me.Tb_id.PreventEnterBeep = True
-        Me.Tb_id.Size = New System.Drawing.Size(133, 21)
+        Me.Tb_id.Size = New System.Drawing.Size(100, 21)
         Me.Tb_id.TabIndex = 16
         '
         'LabelX2
@@ -314,10 +312,9 @@ Partial Class F02_Libreria
         '
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Location = New System.Drawing.Point(8, 39)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(6, 32)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(127, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(95, 23)
         Me.LabelX2.TabIndex = 15
         Me.LabelX2.Text = "DESCRIPCION:"
         '
@@ -327,10 +324,9 @@ Partial Class F02_Libreria
         '
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Location = New System.Drawing.Point(8, 4)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(6, 3)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(127, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(95, 23)
         Me.LabelX1.TabIndex = 14
         Me.LabelX1.Text = "CODIGO:"
         '
@@ -341,10 +337,9 @@ Partial Class F02_Libreria
         Me.GroupPanelDetalle.Controls.Add(Me.JGr_Detalle)
         Me.GroupPanelDetalle.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelDetalle.Location = New System.Drawing.Point(4, 127)
-        Me.GroupPanelDetalle.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelDetalle.Location = New System.Drawing.Point(3, 103)
         Me.GroupPanelDetalle.Name = "GroupPanelDetalle"
-        Me.GroupPanelDetalle.Size = New System.Drawing.Size(1532, 429)
+        Me.GroupPanelDetalle.Size = New System.Drawing.Size(1138, 349)
         '
         '
         '
@@ -380,9 +375,8 @@ Partial Class F02_Libreria
         '
         Me.JGr_Detalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Detalle.Location = New System.Drawing.Point(0, 0)
-        Me.JGr_Detalle.Margin = New System.Windows.Forms.Padding(4)
         Me.JGr_Detalle.Name = "JGr_Detalle"
-        Me.JGr_Detalle.Size = New System.Drawing.Size(1526, 406)
+        Me.JGr_Detalle.Size = New System.Drawing.Size(1132, 328)
         Me.JGr_Detalle.TabIndex = 1
         '
         'GroupPanelBusqueda
@@ -394,9 +388,8 @@ Partial Class F02_Libreria
         Me.GroupPanelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
-        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(789, 560)
+        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(592, 455)
         '
         '
         '
@@ -432,9 +425,8 @@ Partial Class F02_Libreria
         '
         Me.JGr_Buscador.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Buscador.Location = New System.Drawing.Point(0, 0)
-        Me.JGr_Buscador.Margin = New System.Windows.Forms.Padding(4)
         Me.JGr_Buscador.Name = "JGr_Buscador"
-        Me.JGr_Buscador.Size = New System.Drawing.Size(783, 538)
+        Me.JGr_Buscador.Size = New System.Drawing.Size(586, 433)
         Me.JGr_Buscador.TabIndex = 1
         '
         'Timer1
@@ -442,13 +434,18 @@ Partial Class F02_Libreria
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
+        'MicroChartItem1
+        '
+        Me.MicroChartItem1.GlobalItem = False
+        Me.MicroChartItem1.Name = "MicroChartItem1"
+        '
         'F02_Libreria
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 690)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "F02_Libreria"
         Me.Opacity = 0.02R
         Me.Text = "F02_Libreria"
@@ -492,4 +489,5 @@ Partial Class F02_Libreria
     Friend WithEvents JGr_Detalle As Janus.Windows.GridEX.GridEX
     Friend WithEvents JGr_Buscador As Janus.Windows.GridEX.GridEX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents MicroChartItem1 As DevComponents.DotNetBar.MicroChartItem
 End Class
