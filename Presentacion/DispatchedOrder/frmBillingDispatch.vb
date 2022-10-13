@@ -1011,6 +1011,8 @@ Public Class frmBillingDispatch
         Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Direccion", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
         objrep.SetParameterValue("Logo", gb_ubilogo)
 
@@ -1726,6 +1728,14 @@ Public Class frmBillingDispatch
 
     Private Sub cbEstado_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbEstado.SelectedValueChanged
         Try
+            If cbEstado.SelectedIndex = 1 Then
+                btVolverDist.Enabled = False
+
+            Else
+                btVolverDist.Enabled = True
+
+            End If
+
             If (_cargaCompleta) Then
                 CargarPedidos()
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString

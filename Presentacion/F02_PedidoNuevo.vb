@@ -2583,7 +2583,7 @@ Public Class F02_PedidoNuevo
             Tb_TotalPedidos3Meses.Text = dtTop3meses.Rows.Count
 
             Try
-                Tb_DireccionDetalle.Text = IIf(IsDBNull(JGr_Clientes.CurrentRow.Cells("CliDireccion").Value), "", JGr_Clientes.CurrentRow.Cells("CliDireccion").Value)
+                ' Tb_DireccionDetalle.Text = IIf(IsDBNull(JGr_Clientes.CurrentRow.Cells("CliDireccion").Value), "", JGr_Clientes.CurrentRow.Cells("CliDireccion").Value)
             Catch ex As Exception
 
             End Try

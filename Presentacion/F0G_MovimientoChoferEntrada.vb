@@ -417,6 +417,9 @@ Public Class F0G_MovimientoChoferEntrada
                 Dim dt2 As DataTable = L_BuscarIdPedido3(_codChofer, lbcodigo.Text)
                 If dt2.Rows.Count > 0 Then
                     For i = 0 To dt2.Rows.Count - 1
+                        If dt2.Rows(i).Item("oaest") = 4 Then
+                            L_EditarTO001(dt2.Rows(i).Item("idpedido"))
+                        End If
                         L_EliminarTO001C(dt2.Rows(i).Item("idpedido"))
                         L_EliminarTO001DEstado7(dt2.Rows(i).Item("idpedido"))
                     Next

@@ -1801,6 +1801,15 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btReporteRechazado_Click(sender As Object, e As EventArgs) Handles btReporteRechazado.Click
+        R01_VentasComision.AllowTransparency = True
+        Dim frm As New R01_PedidosRechazados
+        frm._nameButton = btReporteRechazado.Name
+        frm._modulo = FP_CRM
+        frm.global1 = 1
+        frm.Show()
+    End Sub
+
 
 #End Region
 

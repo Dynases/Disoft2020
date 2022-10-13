@@ -4734,6 +4734,16 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
+
+    Public Shared Function L_prReportePedidosRechazados(_fechaI As String, _FechaF As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 11))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
+        Return _Tabla
+    End Function
     Public Shared Function L_prReporteVentasComisionTodos1(_fechaI As String, _FechaF As String) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
@@ -12079,6 +12089,14 @@ Public Class AccesoLogica
 
         _Where = "oacoanumi = " + _Id
         _Err = D_Eliminar_Datos("TO001C", _Where)
+    End Sub
+
+    Public Shared Sub L_EditarTO001(_Id As String)
+        Dim _Where As String
+        Dim _Err As Boolean
+
+        _Where = "oanumi = " + _Id
+        _Err = D_Modificar_Datos("TO001", "oaest=2", _Where)
     End Sub
 #End Region
 

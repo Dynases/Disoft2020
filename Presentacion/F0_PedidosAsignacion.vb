@@ -41,7 +41,7 @@ Public Class F0_PedidosAsignacion
 
         Me.Text = "A S I G N A C I O N    D E    P E D I D O S"
         'Me.WindowState = FormWindowState.Maximized
-        SuperTabControl1.SelectedTabIndex = 1
+        SuperTabControl1.SelectedTabIndex = 2
         SuperTabItem1.Visible = False
 
         'cargar mapas
@@ -1262,14 +1262,14 @@ Public Class F0_PedidosAsignacion
             End If
             'el comentado de arriba
             If _soloRepartidor = 0 Then
-                _PCargarGridRegistrosPedidos(JGr_Registros1, "1", Str(idRegZona))
+                _PCargarGridRegistrosPedidos(JGr_Registros1, "4", Str(idRegZona))
                 P_prPonerCodicion()
             Else
-                _PCargarGridRegistrosPedidos(JGr_Registros1, "1", , Tb_CodRep1.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros1, "4", , Tb_CodRep1.Text)
                 P_prPonerCodicion()
             End If
 
-            JGr_Registros1.ContextMenuStrip = ConMenu_Opciones1
+            JGr_Registros1.ContextMenuStrip = ConMenu_Rechazado
         End If
 
     End Sub
@@ -2035,14 +2035,14 @@ Public Class F0_PedidosAsignacion
 
     Private Sub Btn_MostrarTodos1_Click(sender As Object, e As EventArgs) Handles Btn_MostrarTodos1.Click
         If _soloRepartidor = 0 Then
-            _PCargarGridRegistrosPedidos(JGr_Registros1, "1", )
+            _PCargarGridRegistrosPedidos(JGr_Registros1, "4", )
             P_prPonerCodicion()
         Else
-            _PCargarGridRegistrosPedidos(JGr_Registros1, "1", , )
+            _PCargarGridRegistrosPedidos(JGr_Registros1, "4", , )
             P_prPonerCodicion()
         End If
 
-        JGr_Registros1.ContextMenuStrip = ConMenu_Opciones1
+        JGr_Registros1.ContextMenuStrip = ConMenu_Rechazado
     End Sub
 
     Private Sub btn_MostrarTodos2_Click(sender As Object, e As EventArgs) Handles btn_MostrarTodos2.Click
@@ -2127,5 +2127,34 @@ Public Class F0_PedidosAsignacion
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        'P_RetornarPedidoaDictado()
+        Try
+            Dim codPedido As Integer = JGr_Registros1.GetValue("CodPedido")
+            Dim codZonaSelected2 As Integer
+            Dim codZonaSelected3 As Integer
+
+            L_PedidoEstados_Grabar(codPedido, "2", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+            L_PedidoCabacera_ModificarEstado(codPedido, "2")
+            L_PedidoCabacera_ModificarEntrega(codPedido, "0")
+
+            If _soloRepartidor = 0 Then
+                codZonaSelected2 = JGr_Zonas2.GetValue("Codigo")
+                codZonaSelected3 = JGr_Zonas3.GetValue("Codigo")
+                'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
+                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", codZonaSelected2, Tb_CodRep2.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros3, "3", codZonaSelected3, Tb_CodRep3.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros1, "4", codZonaSelected3, Tb_CodRep3.Text)
+            Else
+                'actualizo  la tabla de registros del asignacion de pedidos y confirmacion de entregas
+                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros3, "3", , Tb_CodRep3.Text)
+                _PCargarGridRegistrosPedidos(JGr_Registros1, "4", , Tb_CodRep3.Text)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class

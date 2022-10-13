@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class F0_PedidosAsignacion
     Inherits Modelo.ModeloHor
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,7 +17,7 @@ Partial Class F0_PedidosAsignacion
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PanelEx6 = New DevComponents.DotNetBar.PanelEx()
@@ -146,6 +146,8 @@ Partial Class F0_PedidosAsignacion
         Me.ANULARPEDIDOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ConMenu_Rechazado = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl1.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
@@ -209,6 +211,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel6.SuspendLayout()
         Me.ConMenu_Opciones3.SuspendLayout()
         Me.ConMenu_Opciones1.SuspendLayout()
+        Me.ConMenu_Rechazado.SuspendLayout()
         Me.SuspendLayout()
         '
         'SuperTabControl1
@@ -226,17 +229,17 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1022, 602)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         '
         'SuperTabControlPanel2
         '
@@ -247,7 +250,7 @@ Partial Class F0_PedidosAsignacion
         '
         'SuperTabItem2
         '
-        Me.SuperTabItem2.Text = "PEDIDOS PENDIENTES"
+        Me.SuperTabItem2.Text = "PEDIDOS RECHAZADOS"
         '
         'SuperTabControlPanel1
         '
@@ -2414,6 +2417,20 @@ Partial Class F0_PedidosAsignacion
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'ConMenu_Rechazado
+        '
+        Me.ConMenu_Rechazado.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ConMenu_Rechazado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
+        Me.ConMenu_Rechazado.Name = "ConMenu_Opciones"
+        Me.ConMenu_Rechazado.Size = New System.Drawing.Size(247, 30)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Image = Global.Presentacion.My.Resources.Resources.ANTERIOR
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(246, 26)
+        Me.ToolStripMenuItem2.Text = "RETORNAR A PEDIDO DICTADO "
+        '
         'F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2488,6 +2505,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel6.ResumeLayout(False)
         Me.ConMenu_Opciones3.ResumeLayout(False)
         Me.ConMenu_Opciones1.ResumeLayout(False)
+        Me.ConMenu_Rechazado.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2617,4 +2635,6 @@ Partial Class F0_PedidosAsignacion
     Friend WithEvents IMPRIMIRPEDIDOToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ConMenu_Rechazado As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
 End Class

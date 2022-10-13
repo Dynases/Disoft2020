@@ -270,7 +270,7 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("Fecha")
                 .Caption = "Fecha"
-                .Width = 80
+                .Width = 70
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                 .Visible = True
                 .Position = 0
@@ -278,7 +278,7 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("NombreCliente")
                 .Caption = "Cliente"
-                .Width = 200
+                .Width = 140
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = True
                 .Position = 1
@@ -286,7 +286,7 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("Id")
                 .Caption = "Pedido"
-                .Width = 50
+                .Width = 40
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                 .Visible = True
                 .Position = 2
@@ -294,14 +294,14 @@ Public Class frmDispatch
 
             With dgjPedido.RootTable.Columns("NombreVendedor")
                 .Caption = "Vendedor"
-                .Width = 200
+                .Width = 134
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = True
                 .Position = 3
             End With
             With dgjPedido.RootTable.Columns("idZona")
                 .Caption = "Zona"
-                .Width = 70
+                .Width = 38
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
                 .Visible = True
                 .Position = 4
@@ -310,7 +310,7 @@ Public Class frmDispatch
             dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
             With dgjPedido.RootTable.Columns("Check")
                 .Caption = "Despacho"
-                .Width = 60
+                .Width = 50
                 .ShowRowSelector = True
                 .UseHeaderSelector = True
                 .FilterEditType = FilterEditType.NoEdit

@@ -208,13 +208,13 @@
       <HintPath>C:\librerias\FlashControlV71.dll</HintPath>
     </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
-      <HintPath>C:\librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <HintPath>C:\libreriasDiego\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.Core">
-      <HintPath>C:\librerias\Gmap\GMap.NET.Core.dll</HintPath>
+      <HintPath>C:\libreriasDiego\Gmap\GMap.NET.Core.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.WindowsForms">
-      <HintPath>C:\librerias\Gmap\GMap.NET.WindowsForms.dll</HintPath>
+      <HintPath>C:\libreriasDiego\Gmap\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis, Version=1.32.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.dll</HintPath>
@@ -241,21 +241,18 @@
     <Reference Include="itextsharp">
       <HintPath>C:\librerias\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\librerias\Janus\Janus.Data.v3.dll</HintPath>
+    <Reference Include="Janus.Data.v3">
+      <HintPath>C:\libreriasDiego\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
+    <Reference Include="Janus.Windows.Common.v3">
+      <HintPath>C:\libreriasDiego\Janus\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
+    <Reference Include="Janus.Windows.GridEX.v3">
+      <HintPath>C:\libreriasDiego\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -362,6 +359,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DespachoNotaVentaXCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DispatchedOrder\Report\PedidosRechazados.vb">
+      <DependentUpon>PedidosRechazados.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="DispatchedOrder\Report\DespachoXProducto11.vb">
       <AutoGen>True</AutoGen>
@@ -840,6 +843,12 @@
       <DependentUpon>R01_NotaVenta.vb</DependentUpon>
     </Compile>
     <Compile Include="R01_NotaVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_PedidosRechazados.Designer.vb">
+      <DependentUpon>R01_PedidosRechazados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_PedidosRechazados.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="R01_PrestamoEquiposAgrupado.Designer.vb">
@@ -1642,6 +1651,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DespachoNotaVentaXCliente.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="DispatchedOrder\Report\PedidosRechazados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PedidosRechazados.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DispatchedOrder\Report\DespachoXProductoSinAgrupacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DespachoXProductoSinAgrupacion.vb</LastGenOutput>
@@ -1890,6 +1903,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="R01_NotaVenta.resx">
       <DependentUpon>R01_NotaVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_PedidosRechazados.resx">
+      <DependentUpon>R01_PedidosRechazados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_PrestamoEquiposAgrupado.resx">
       <DependentUpon>R01_PrestamoEquiposAgrupado.vb</DependentUpon>

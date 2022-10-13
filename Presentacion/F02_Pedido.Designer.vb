@@ -69,6 +69,8 @@ Partial Class F02_Pedido
         Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
         Me.GroupPanel4 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
+        Me.dtpFechaVenc = New System.Windows.Forms.DateTimePicker()
+        Me.lbFVenc = New DevComponents.DotNetBar.LabelX()
         Me.tb_EstadoPedido = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.btAplicarDesc = New DevComponents.DotNetBar.ButtonX()
         Me.tbMontoCredito = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -153,8 +155,6 @@ Partial Class F02_Pedido
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.btnVentaDirecta = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.dtpFechaVenc = New System.Windows.Forms.DateTimePicker()
-        Me.lbFVenc = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -1147,6 +1147,26 @@ Partial Class F02_Pedido
         Me.PanelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx2.Style.GradientAngle = 90
         Me.PanelEx2.TabIndex = 8
+        '
+        'dtpFechaVenc
+        '
+        Me.dtpFechaVenc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaVenc.Location = New System.Drawing.Point(748, 77)
+        Me.dtpFechaVenc.Name = "dtpFechaVenc"
+        Me.dtpFechaVenc.Size = New System.Drawing.Size(120, 23)
+        Me.dtpFechaVenc.TabIndex = 48
+        '
+        'lbFVenc
+        '
+        '
+        '
+        '
+        Me.lbFVenc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbFVenc.Location = New System.Drawing.Point(748, 54)
+        Me.lbFVenc.Name = "lbFVenc"
+        Me.lbFVenc.Size = New System.Drawing.Size(94, 23)
+        Me.lbFVenc.TabIndex = 49
+        Me.lbFVenc.Text = "FECHA VENC.:"
         '
         'tb_EstadoPedido
         '
@@ -2450,26 +2470,6 @@ Partial Class F02_Pedido
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'dtpFechaVenc
-        '
-        Me.dtpFechaVenc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaVenc.Location = New System.Drawing.Point(748, 77)
-        Me.dtpFechaVenc.Name = "dtpFechaVenc"
-        Me.dtpFechaVenc.Size = New System.Drawing.Size(120, 23)
-        Me.dtpFechaVenc.TabIndex = 48
-        '
-        'lbFVenc
-        '
-        '
-        '
-        '
-        Me.lbFVenc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbFVenc.Location = New System.Drawing.Point(748, 54)
-        Me.lbFVenc.Name = "lbFVenc"
-        Me.lbFVenc.Size = New System.Drawing.Size(94, 23)
-        Me.lbFVenc.TabIndex = 49
-        Me.lbFVenc.Text = "FECHA VENC.:"
         '
         'F02_Pedido
         '

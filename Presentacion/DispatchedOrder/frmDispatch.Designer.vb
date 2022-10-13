@@ -77,9 +77,9 @@ Partial Class frmDispatch
         Me.PanelSubBase.Controls.Add(Me.PanelProducto)
         Me.PanelSubBase.Controls.Add(Me.PanelAccion)
         Me.PanelSubBase.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelSubBase.Location = New System.Drawing.Point(270, 0)
+        Me.PanelSubBase.Location = New System.Drawing.Point(165, 0)
         Me.PanelSubBase.Name = "PanelSubBase"
-        Me.PanelSubBase.Size = New System.Drawing.Size(1212, 701)
+        Me.PanelSubBase.Size = New System.Drawing.Size(1317, 701)
         Me.PanelSubBase.TabIndex = 1
         '
         'PanelPedido
@@ -89,7 +89,7 @@ Partial Class frmDispatch
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 60)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(1212, 526)
+        Me.PanelPedido.Size = New System.Drawing.Size(1317, 526)
         Me.PanelPedido.TabIndex = 2
         '
         'GroupPanelGeoreferencia
@@ -101,9 +101,9 @@ Partial Class frmDispatch
         Me.GroupPanelGeoreferencia.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelGeoreferencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelGeoreferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanelGeoreferencia.Location = New System.Drawing.Point(409, 0)
+        Me.GroupPanelGeoreferencia.Location = New System.Drawing.Point(457, 0)
         Me.GroupPanelGeoreferencia.Name = "GroupPanelGeoreferencia"
-        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(803, 526)
+        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(860, 526)
         '
         '
         '
@@ -205,7 +205,7 @@ Partial Class frmDispatch
         Me.GM_Mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa.ShowTileGridLines = False
-        Me.GM_Mapa.Size = New System.Drawing.Size(797, 502)
+        Me.GM_Mapa.Size = New System.Drawing.Size(854, 502)
         Me.GM_Mapa.TabIndex = 1
         Me.GM_Mapa.Zoom = 0R
         '
@@ -214,7 +214,7 @@ Partial Class frmDispatch
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Left
         Me.dgjPedido.Location = New System.Drawing.Point(0, 0)
         Me.dgjPedido.Name = "dgjPedido"
-        Me.dgjPedido.Size = New System.Drawing.Size(409, 526)
+        Me.dgjPedido.Size = New System.Drawing.Size(457, 526)
         Me.dgjPedido.TabIndex = 1
         '
         'PanelProducto
@@ -223,7 +223,7 @@ Partial Class frmDispatch
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelProducto.Location = New System.Drawing.Point(0, 586)
         Me.PanelProducto.Name = "PanelProducto"
-        Me.PanelProducto.Size = New System.Drawing.Size(1212, 115)
+        Me.PanelProducto.Size = New System.Drawing.Size(1317, 115)
         Me.PanelProducto.TabIndex = 1
         '
         'dgjProducto
@@ -231,7 +231,7 @@ Partial Class frmDispatch
         Me.dgjProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjProducto.Location = New System.Drawing.Point(0, 0)
         Me.dgjProducto.Name = "dgjProducto"
-        Me.dgjProducto.Size = New System.Drawing.Size(1212, 115)
+        Me.dgjProducto.Size = New System.Drawing.Size(1317, 115)
         Me.dgjProducto.TabIndex = 2
         '
         'PanelAccion
@@ -243,7 +243,7 @@ Partial Class frmDispatch
         Me.PanelAccion.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelAccion.Location = New System.Drawing.Point(0, 0)
         Me.PanelAccion.Name = "PanelAccion"
-        Me.PanelAccion.Size = New System.Drawing.Size(1212, 60)
+        Me.PanelAccion.Size = New System.Drawing.Size(1317, 60)
         Me.PanelAccion.TabIndex = 0
         '
         'btGrabar
@@ -254,7 +254,7 @@ Partial Class frmDispatch
         Me.btGrabar.Image = Global.Presentacion.My.Resources.Resources.GRABAR
         Me.btGrabar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btGrabar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btGrabar.Location = New System.Drawing.Point(1062, 0)
+        Me.btGrabar.Location = New System.Drawing.Point(1167, 0)
         Me.btGrabar.Name = "btGrabar"
         Me.btGrabar.Size = New System.Drawing.Size(75, 60)
         Me.btGrabar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -269,7 +269,7 @@ Partial Class frmDispatch
         Me.btActualizar.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
         Me.btActualizar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btActualizar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btActualizar.Location = New System.Drawing.Point(1137, 0)
+        Me.btActualizar.Location = New System.Drawing.Point(1242, 0)
         Me.btActualizar.Name = "btActualizar"
         Me.btActualizar.Size = New System.Drawing.Size(75, 60)
         Me.btActualizar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -305,7 +305,7 @@ Partial Class frmDispatch
         Me.PanelZona.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelZona.Location = New System.Drawing.Point(0, 0)
         Me.PanelZona.Name = "PanelZona"
-        Me.PanelZona.Size = New System.Drawing.Size(270, 701)
+        Me.PanelZona.Size = New System.Drawing.Size(165, 701)
         Me.PanelZona.TabIndex = 0
         '
         'PanelZonaGrilla
@@ -315,7 +315,7 @@ Partial Class frmDispatch
         Me.PanelZonaGrilla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelZonaGrilla.Location = New System.Drawing.Point(0, 0)
         Me.PanelZonaGrilla.Name = "PanelZonaGrilla"
-        Me.PanelZonaGrilla.Size = New System.Drawing.Size(270, 701)
+        Me.PanelZonaGrilla.Size = New System.Drawing.Size(165, 701)
         Me.PanelZonaGrilla.TabIndex = 1
         '
         'dgjZona
@@ -323,7 +323,7 @@ Partial Class frmDispatch
         Me.dgjZona.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjZona.Location = New System.Drawing.Point(0, 0)
         Me.dgjZona.Name = "dgjZona"
-        Me.dgjZona.Size = New System.Drawing.Size(270, 651)
+        Me.dgjZona.Size = New System.Drawing.Size(165, 651)
         Me.dgjZona.TabIndex = 0
         '
         'btConsultar
@@ -335,7 +335,7 @@ Partial Class frmDispatch
         Me.btConsultar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btConsultar.Location = New System.Drawing.Point(0, 651)
         Me.btConsultar.Name = "btConsultar"
-        Me.btConsultar.Size = New System.Drawing.Size(270, 50)
+        Me.btConsultar.Size = New System.Drawing.Size(165, 50)
         Me.btConsultar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btConsultar.TabIndex = 1
         Me.btConsultar.Text = "CONSULTAR"
