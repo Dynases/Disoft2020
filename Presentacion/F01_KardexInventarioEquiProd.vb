@@ -73,7 +73,8 @@ Public Class F01_KardexInventarioEquiProd
 
         Me.Text = Titulo
         'Me.WindowState = FormWindowState.Maximized
-
+        _prCargarComboLibreriaDeposito(cbAlmacenOrigen)
+        cbAlmacenOrigen.SelectedIndex = 0
         MRlAccion.Text = IIf(Tipo = 1, "KARDEX DE EQUIPO", "KARDEX DE PRODUCTO")
         lbEquiProd.Text = IIf(Tipo = 1, "Equipo", "Producto")
         GroupPanelKardex.Text = IIf(Tipo = 1, "HISTORIAL KARDEX DE EQUIPO", "HISTORIAL KARDEX DE PRODUCTO")
@@ -98,14 +99,28 @@ Public Class F01_KardexInventarioEquiProd
     End Sub
 
 #End Region
-
+    Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnMovimientoListarSucursales()
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("aanumi").Width = 60
+            .DropDownList.Columns("aanumi").Caption = "COD"
+            .DropDownList.Columns.Add("aabdes").Width = 500
+            .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
+            .ValueMember = "aanumi"
+            .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+    End Sub
     Private Sub P_ArmarGrillaDatos() 'Para los datos de Kardex de Cliente
         'Datos
         Dt1Kardex = New DataTable
         Dt2KardexTotal = New DataTable
         If (Tb1CodEquipo.Text.Length > 0) Then
-            Dt2KardexTotal = L_VistaKardexInventarioTodo(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd")).Tables(0)
-            Dt1Kardex = L_VistaKardexInventario(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd")).Tables(0)
+            Dt2KardexTotal = L_VistaKardexInventarioTodo(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
+            Dt1Kardex = L_VistaKardexInventario(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
             If (Dt1Kardex.Rows.Count > 0) Then
                 P_ArmarKardex()
             Else
@@ -116,7 +131,7 @@ Public Class F01_KardexInventarioEquiProd
                        eToastPosition.BottomLeft)
             End If
         Else
-            Dt1Kardex = L_VistaKardexInventario("-1", Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd")).Tables(0)
+            Dt1Kardex = L_VistaKardexInventario("-1", Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
         End If
 
         Dgj1Datos.BoundMode = Janus.Data.BoundMode.Bound
@@ -188,9 +203,9 @@ Public Class F01_KardexInventarioEquiProd
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With Dgj1Datos.RootTable.Columns(6)
-            .Caption = ""
+            .Caption = "Almacen"
             .Key = "alm"
-            .Width = 0
+            .Width = 30
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near

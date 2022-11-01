@@ -5183,15 +5183,15 @@ Public Class AccesoLogica
 
 #Region "Kardex de Inventario"
 
-    Shared Function L_VistaKardexInventario(cod As String, fIni As String, fFin As String) As DataSet
+    Shared Function L_VistaKardexInventario(cod As String, fIni As String, fFin As String, Optional sucursal As String = "") As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
         Dim _Where As String
 
         If (cod.Equals("-1")) Then
-            _Where = "cprod = " + cod + " And fdoc >= '" + fIni + "' And fdoc <= '" + fFin + "'"
+            _Where = "alm=" + sucursal + " and " + "cprod = " + cod + " And fdoc >= '" + fIni + "' And fdoc <= '" + fFin + "'"
         Else
-            _Where = "cprod = " + cod + " And fdoc >= '" + fIni + "' And fdoc <= '" + fFin + "'"
+            _Where = "alm=" + sucursal + " and " + "cprod = " + cod + " And fdoc >= '" + fIni + "' And fdoc <= '" + fFin + "'"
         End If
 
         Dim campos As String = "*"
@@ -5200,10 +5200,10 @@ Public Class AccesoLogica
         Return _Ds
     End Function
 
-    Shared Function L_VistaKardexInventarioTodo(cod As String, Optional fFin As String = "") As DataSet
+    Shared Function L_VistaKardexInventarioTodo(cod As String, Optional fFin As String = "", Optional sucursal As String = "") As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet
-        Dim _Where As String = "cprod = " + cod + IIf(fFin.Equals(""), "", " And fdoc < '" + fFin + "'")
+        Dim _Where As String = "alm=" + sucursal + " and " + "cprod = " + cod + IIf(fFin.Equals(""), "", " And fdoc < '" + fFin + "'")
         Dim campos As String = "*"
         _Tabla = D_Datos_Tabla(campos, "VR_KardexInventario", _Where + " order by fdoc")
         _Ds.Tables.Add(_Tabla)
