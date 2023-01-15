@@ -1810,6 +1810,10 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub FP_CRM_Click(sender As Object, e As EventArgs) Handles FP_CRM.Click
+
+    End Sub
+
 
 #End Region
 

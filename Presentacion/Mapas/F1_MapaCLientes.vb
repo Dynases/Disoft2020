@@ -510,30 +510,33 @@ Public Class F1_MapaCLientes
     End Sub
 
     Private Sub cbZona_ValueChanged(sender As Object, e As EventArgs) Handles cbZona.ValueChanged
+
         If (cbZona.SelectedIndex >= 0) Then
             Dim dt As DataTable = L_prListarClienteZona(cbZona.Value)
             _prCargarClientesJanus(dt)
             _Overlay.Markers.Clear()
             _prDibujarMarketCliente(dt.Rows.Count - 1, dt)
-        End If
-
-        Dim dtZonas As DataTable
-        'DIBUJAR ZONAS
-        dtZonas = L_ZonaCabecera_GeneralCompletoDistribucion(0, cbZona.Value).Tables(0)
-        Dim colorZona As String
+            Dim dtZonas As DataTable
+            'DIBUJAR ZONAS
+            dtZonas = L_ZonaCabecera_GeneralCompletoDistribucion(0, cbZona.Value).Tables(0)
+            Dim colorZona As String
             Dim idRegZona As Integer
 
             For i = 0 To dtZonas.Rows.Count - 1
 
 
-            _LimpiarMapa(Gmc_Cliente, _Overlay)
-            idRegZona = dtZonas.Rows(i).Item("lanumi")
+                _LimpiarMapa(Gmc_Cliente, _Overlay)
+                idRegZona = dtZonas.Rows(i).Item("lanumi")
                 colorZona = dtZonas.Rows(i).Item("lacolor")
 
-            'dibujar zona
-            _PDibujarZona(idRegZona, _Overlay, colorZona)
-            _PCargarMapa(Gmc_Cliente, _Overlay)
-        Next
+                'dibujar zona
+                _PDibujarZona(idRegZona, _Overlay, colorZona)
+
+            Next
+            '_PCargarMapa(Gmc_Cliente, _Overlay)
+        End If
+
+
 
     End Sub
     Private Sub _LimpiarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
@@ -582,7 +585,7 @@ Public Class F1_MapaCLientes
         'agregar color
         polygon.Fill = New SolidBrush(Color.FromArgb(50, colorFinal))
         polygon.Stroke = New Pen(Color.Red, 1)
-        'objOverlay.Polygons.Clear()
+        objOverlay.Polygons.Clear()
         objOverlay.Polygons.Add(polygon)
     End Sub
     Private Sub grCliente_DoubleClick_1(sender As Object, e As EventArgs) Handles grCliente.DoubleClick

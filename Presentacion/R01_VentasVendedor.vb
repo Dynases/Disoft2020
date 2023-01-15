@@ -36,7 +36,7 @@ Public Class R01_VentasVendedor
 
         titulo = "VENDEDOR:"
         If (CheckTodosVendedor.Checked) Then
-            _dt = L_prReporteVentasVendedorTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+            _dt = L_prReporteVentasVendedorTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), IIf(swTipo.Value = True, 3, 1))
             Return
         End If
         If (checkUnaVendedor.Checked) Then
@@ -57,6 +57,7 @@ Public Class R01_VentasVendedor
             objrep.SetParameterValue("usuario", L_Usuario)
             objrep.SetParameterValue("fechaI", fechaI)
             objrep.SetParameterValue("fechaF", fechaF)
+            objrep.SetParameterValue("tipo", IIf(swTipo.Value = True, "VENDEDOR", "REPARTIDOR"))
             MCrReporte.ReportSource = objrep
             MCrReporte.Show()
             MCrReporte.BringToFront()
@@ -91,7 +92,12 @@ Public Class R01_VentasVendedor
     Public Sub _prListarPrevendedores()
 
         Dim dt As DataTable
-        dt = L_prListarPrevendedor()
+        If swTipo.Value = True Then
+            dt = L_prListarPrevendedor()
+        Else
+            dt = L_prListarDistribuidor()
+        End If
+
         'a.cbnumi , a.cbdesc As nombre, a.cbdirec, a.cbtelef, a.cbfnac 
         Dim listEstCeldas As New List(Of Modelo.MCelda)
         listEstCeldas.Add(New Modelo.MCelda("cbnumi", True, "ID", 50))
@@ -137,6 +143,7 @@ Public Class R01_VentasVendedor
     Private Sub tbVendedor_KeyDown_1(sender As Object, e As KeyEventArgs) Handles tbVendedor.KeyDown
         If (checkUnaVendedor.Checked) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
+
                 _prListarPrevendedores()
             End If
         End If
@@ -158,5 +165,10 @@ Public Class R01_VentasVendedor
             Timer1.Enabled = False
         End If
 
+    End Sub
+
+    Private Sub swTipo_ValueChanged(sender As Object, e As EventArgs) Handles swTipo.ValueChanged
+        tbVendedor.Clear()
+        tbCodigoVendedor.Clear()
     End Sub
 End Class

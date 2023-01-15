@@ -1044,7 +1044,7 @@ Public Class F02_Pedido
         Tb_Estado.Enabled = True
 
         cbDistribuidor.ReadOnly = False
-        'cbPreVendedor.ReadOnly = False
+        cbPreVendedor.ReadOnly = True
 
         If _nuevoBasePeriodico = True Then
             GrPan_PeriodoPedido.Enabled = True

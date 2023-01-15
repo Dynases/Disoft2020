@@ -141,7 +141,7 @@ Public Class frmDispatch
         objMapa.DragButton = MouseButtons.Left
         objMapa.CanDragMap = True
         objMapa.MapProvider = GMapProviders.GoogleMap
-        'objMapa.Position = New PointLatLng(-17.380941, -66.15976)
+        'objMapa.Position = New PointLatLng(-19.589143, -65.753427)
         objMapa.Position = New PointLatLng(-17.782814, -63.182386)
         objMapa.MinZoom = 0
         objMapa.MaxZoom = 24
