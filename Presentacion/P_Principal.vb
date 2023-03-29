@@ -1814,6 +1814,16 @@ Public Class P_Principal
 
     End Sub
 
+    Private Sub btnSaldoProdProv_Click(sender As Object, e As EventArgs) Handles btnSaldoProdProv.Click
+        Dim frm As New R01_SaldoProveedor
+        frm.Show()
+    End Sub
+
+    Private Sub btnSugerenciaPedidos_Click(sender As Object, e As EventArgs) Handles btnSugerenciaPedidos.Click
+        Dim frm As New R01_SugerenciaPedidos
+        frm.Show()
+    End Sub
+
 
 #End Region
 

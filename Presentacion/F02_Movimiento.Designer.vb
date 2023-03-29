@@ -180,6 +180,9 @@ Partial Class F02_Movimiento
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
+        'MBtImprimir
+        '
+        '
         'MBubbleBarUsuario
         '
         '

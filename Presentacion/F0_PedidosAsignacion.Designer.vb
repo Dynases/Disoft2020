@@ -20,6 +20,7 @@ Partial Class F0_PedidosAsignacion
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_PedidosAsignacion))
         Me.PanelEx6 = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx10 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -229,17 +230,17 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1022, 602)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
         '
         'SuperTabControlPanel2
         '
@@ -649,7 +650,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_Actualizar1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_Actualizar1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_Actualizar1.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
+        Me.Btn_Actualizar1.Image = CType(resources.GetObject("Btn_Actualizar1.Image"), System.Drawing.Image)
         Me.Btn_Actualizar1.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.Btn_Actualizar1.Location = New System.Drawing.Point(520, 0)
@@ -971,10 +972,10 @@ Partial Class F0_PedidosAsignacion
         'Btn_ZoomMenos
         '
         Me.Btn_ZoomMenos.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btn_ZoomMenos.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.Btn_ZoomMenos.BackgroundImage = CType(resources.GetObject("Btn_ZoomMenos.BackgroundImage"), System.Drawing.Image)
         Me.Btn_ZoomMenos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Btn_ZoomMenos.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.Btn_ZoomMenos.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.Btn_ZoomMenos.Image = CType(resources.GetObject("Btn_ZoomMenos.Image"), System.Drawing.Image)
         Me.Btn_ZoomMenos.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.Btn_ZoomMenos.Location = New System.Drawing.Point(3, 45)
         Me.Btn_ZoomMenos.Name = "Btn_ZoomMenos"
@@ -985,10 +986,10 @@ Partial Class F0_PedidosAsignacion
         'Btn_ZoomMas
         '
         Me.Btn_ZoomMas.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btn_ZoomMas.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.Btn_ZoomMas.BackgroundImage = CType(resources.GetObject("Btn_ZoomMas.BackgroundImage"), System.Drawing.Image)
         Me.Btn_ZoomMas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Btn_ZoomMas.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.Btn_ZoomMas.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.Btn_ZoomMas.Image = CType(resources.GetObject("Btn_ZoomMas.Image"), System.Drawing.Image)
         Me.Btn_ZoomMas.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.Btn_ZoomMas.Location = New System.Drawing.Point(3, 3)
         Me.Btn_ZoomMas.Name = "Btn_ZoomMas"
@@ -1027,47 +1028,47 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirObsToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1, Me.VERHISTORIALToolStripMenuItem1, Me.ANULARPEDIDOToolStripMenuItem1, Me.IMPRIMIRPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones2.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 160)
+        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(268, 160)
         '
         'AñadirObsToolStripMenuItem
         '
         Me.AñadirObsToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.ANTERIOR
         Me.AñadirObsToolStripMenuItem.Name = "AñadirObsToolStripMenuItem"
-        Me.AñadirObsToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
+        Me.AñadirObsToolStripMenuItem.Size = New System.Drawing.Size(267, 26)
         Me.AñadirObsToolStripMenuItem.Text = "RETORNAR PEDIDO A ASIGNACION"
         '
         'GRABARRECLAMOToolStripMenuItem1
         '
         Me.GRABARRECLAMOToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOToolStripMenuItem1.Name = "GRABARRECLAMOToolStripMenuItem1"
-        Me.GRABARRECLAMOToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
+        Me.GRABARRECLAMOToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
         Me.GRABARRECLAMOToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem1
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem1"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem1
         '
         Me.VERHISTORIALToolStripMenuItem1.Name = "VERHISTORIALToolStripMenuItem1"
-        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
+        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
         Me.VERHISTORIALToolStripMenuItem1.Text = "VER ESTADOS"
         '
         'ANULARPEDIDOToolStripMenuItem1
         '
         Me.ANULARPEDIDOToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.I64x64_error
         Me.ANULARPEDIDOToolStripMenuItem1.Name = "ANULARPEDIDOToolStripMenuItem1"
-        Me.ANULARPEDIDOToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
+        Me.ANULARPEDIDOToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
         Me.ANULARPEDIDOToolStripMenuItem1.Text = "ANULAR PEDIDO"
         '
         'IMPRIMIRPEDIDOToolStripMenuItem
         '
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.I32x32_printer
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Name = "IMPRIMIRPEDIDOToolStripMenuItem"
-        Me.IMPRIMIRPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
+        Me.IMPRIMIRPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(267, 26)
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Text = "IMPRIMIR PEDIDO"
         '
         'SuperTabItem3
@@ -1150,10 +1151,10 @@ Partial Class F0_PedidosAsignacion
         'ButtonX2
         '
         Me.ButtonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.ButtonX2.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.ButtonX2.BackgroundImage = CType(resources.GetObject("ButtonX2.BackgroundImage"), System.Drawing.Image)
         Me.ButtonX2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.ButtonX2.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.ButtonX2.Image = CType(resources.GetObject("ButtonX2.Image"), System.Drawing.Image)
         Me.ButtonX2.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.ButtonX2.Location = New System.Drawing.Point(3, 45)
         Me.ButtonX2.Name = "ButtonX2"
@@ -1164,10 +1165,10 @@ Partial Class F0_PedidosAsignacion
         'ButtonX3
         '
         Me.ButtonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.ButtonX3.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.ButtonX3.BackgroundImage = CType(resources.GetObject("ButtonX3.BackgroundImage"), System.Drawing.Image)
         Me.ButtonX3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.ButtonX3.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.ButtonX3.Image = CType(resources.GetObject("ButtonX3.Image"), System.Drawing.Image)
         Me.ButtonX3.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.ButtonX3.Location = New System.Drawing.Point(3, 3)
         Me.ButtonX3.Name = "ButtonX3"
@@ -1546,7 +1547,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_Actualizar2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_Actualizar2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_Actualizar2.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
+        Me.Btn_Actualizar2.Image = CType(resources.GetObject("Btn_Actualizar2.Image"), System.Drawing.Image)
         Me.Btn_Actualizar2.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.Btn_Actualizar2.Location = New System.Drawing.Point(509, 0)
@@ -1851,10 +1852,10 @@ Partial Class F0_PedidosAsignacion
         'ButtonX4
         '
         Me.ButtonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.ButtonX4.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.ButtonX4.BackgroundImage = CType(resources.GetObject("ButtonX4.BackgroundImage"), System.Drawing.Image)
         Me.ButtonX4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.ButtonX4.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
+        Me.ButtonX4.Image = CType(resources.GetObject("ButtonX4.Image"), System.Drawing.Image)
         Me.ButtonX4.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.ButtonX4.Location = New System.Drawing.Point(3, 45)
         Me.ButtonX4.Name = "ButtonX4"
@@ -1865,10 +1866,10 @@ Partial Class F0_PedidosAsignacion
         'ButtonX5
         '
         Me.ButtonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.ButtonX5.BackgroundImage = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.ButtonX5.BackgroundImage = CType(resources.GetObject("ButtonX5.BackgroundImage"), System.Drawing.Image)
         Me.ButtonX5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ButtonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
-        Me.ButtonX5.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
+        Me.ButtonX5.Image = CType(resources.GetObject("ButtonX5.Image"), System.Drawing.Image)
         Me.ButtonX5.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.ButtonX5.Location = New System.Drawing.Point(3, 3)
         Me.ButtonX5.Name = "ButtonX5"
@@ -2145,7 +2146,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_Actualizar3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_Actualizar3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_Actualizar3.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
+        Me.Btn_Actualizar3.Image = CType(resources.GetObject("Btn_Actualizar3.Image"), System.Drawing.Image)
         Me.Btn_Actualizar3.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.Btn_Actualizar3.Location = New System.Drawing.Point(608, 0)
@@ -2348,30 +2349,30 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.VERHISTORIALToolStripMenuItem2})
         Me.ConMenu_Opciones3.Name = "ConMenu_Opciones3"
-        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 92)
+        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(354, 92)
         '
         'RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem
         '
         Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Name = "RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem"
-        Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Size = New System.Drawing.Size(350, 22)
+        Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Size = New System.Drawing.Size(353, 22)
         Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Text = "RETORNAR PEDIDO A CONFIRMACION DE ENTREGA"
         '
         'GRABARRECLAMOToolStripMenuItem
         '
         Me.GRABARRECLAMOToolStripMenuItem.Name = "GRABARRECLAMOToolStripMenuItem"
-        Me.GRABARRECLAMOToolStripMenuItem.Size = New System.Drawing.Size(350, 22)
+        Me.GRABARRECLAMOToolStripMenuItem.Size = New System.Drawing.Size(353, 22)
         Me.GRABARRECLAMOToolStripMenuItem.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem2
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem2"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Size = New System.Drawing.Size(350, 22)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Size = New System.Drawing.Size(353, 22)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem2
         '
         Me.VERHISTORIALToolStripMenuItem2.Name = "VERHISTORIALToolStripMenuItem2"
-        Me.VERHISTORIALToolStripMenuItem2.Size = New System.Drawing.Size(350, 22)
+        Me.VERHISTORIALToolStripMenuItem2.Size = New System.Drawing.Size(353, 22)
         Me.VERHISTORIALToolStripMenuItem2.Text = "VER ESTADOS"
         '
         'ConMenu_Opciones1
@@ -2379,33 +2380,33 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 108)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(254, 108)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(250, 26)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(253, 26)
         Me.ToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem
         '
         Me.VERHISTORIALToolStripMenuItem.Name = "VERHISTORIALToolStripMenuItem"
-        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
+        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
         Me.VERHISTORIALToolStripMenuItem.Text = "VER ESTADOS"
         '
         'ANULARPEDIDOToolStripMenuItem
         '
         Me.ANULARPEDIDOToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.I64x64_error
         Me.ANULARPEDIDOToolStripMenuItem.Name = "ANULARPEDIDOToolStripMenuItem"
-        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
+        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
         Me.ANULARPEDIDOToolStripMenuItem.Text = "ANULAR PEDIDO"
         '
         'PrintDialog1
@@ -2422,13 +2423,13 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Rechazado.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Rechazado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
         Me.ConMenu_Rechazado.Name = "ConMenu_Opciones"
-        Me.ConMenu_Rechazado.Size = New System.Drawing.Size(247, 30)
+        Me.ConMenu_Rechazado.Size = New System.Drawing.Size(251, 30)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.Presentacion.My.Resources.Resources.ANTERIOR
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(246, 26)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(250, 26)
         Me.ToolStripMenuItem2.Text = "RETORNAR A PEDIDO DICTADO "
         '
         'F0_PedidosAsignacion

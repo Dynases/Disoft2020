@@ -1820,7 +1820,7 @@ Public Class F02_PedidoNuevo
                     'Reimprimo Nota de venta
                     Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
                     If idChofer <> String.Empty Then
-                        frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer)
+                        frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer, cbPreVendedor.Text)
                     End If
 
                 End If
@@ -2367,7 +2367,7 @@ Public Class F02_PedidoNuevo
             Dim existe As Boolean = _fnExisteProducto(JGr_Productos.GetValue("Codigo"))
 
             ''Validación para que solo pueda ingresar 20 productos
-            If JGr_DetallePedido.RowCount < 20 Then
+            If JGr_DetallePedido.RowCount < 100 Then
                 If JGr_Productos.CurrentRow.Cells("iacant").Value > 0 Then
 
                     If (Not existe) Then
@@ -3181,7 +3181,7 @@ Public Class F02_PedidoNuevo
             Else
                 Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
                 If idChofer <> String.Empty Then
-                    frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer)
+                    frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer, cbPreVendedor.Text)
                 End If
             End If
 

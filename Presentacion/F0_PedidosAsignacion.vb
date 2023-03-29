@@ -856,6 +856,7 @@ Public Class F0_PedidosAsignacion
 
     End Sub
 
+
     Private Sub _PGrabarAsignaciones()
         Dim i, cant, codPedido As Integer
         Dim estado As Boolean
@@ -865,6 +866,7 @@ Public Class F0_PedidosAsignacion
             estado = JGr_Registros1.GetValue("Check")
             If estado = True Then
                 codPedido = JGr_Registros1.GetValue("CodPedido")
+
                 L_PedidoEstados_Grabar(codPedido, "2", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
                 L_PedidoCabacera_ModificarEstado(codPedido, "2")
                 L_PedidoCabacera_ModificarCodRep(codPedido, Tb_CodRep1.Text)
@@ -946,10 +948,13 @@ Public Class F0_PedidosAsignacion
             estado = JGr_Registros2.GetValue("Check")
             If estado = True Then
                 codPedido = JGr_Registros2.GetValue("CodPedido")
-                L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
-                L_PedidoCabacera_ModificarEstado(codPedido, "3")
-                L_PedidoCabacera_ModificarEntrega(codPedido, "1")
-                cant = cant + 1
+                Dim res As Boolean = evaluarEntrega(codPedido)
+                If res Then
+                    L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+                    L_PedidoCabacera_ModificarEstado(codPedido, "3")
+                    L_PedidoCabacera_ModificarEntrega(codPedido, "1")
+                    cant = cant + 1
+                End If
             End If
         Next
 

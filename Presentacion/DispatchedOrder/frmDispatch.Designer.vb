@@ -68,7 +68,7 @@ Partial Class frmDispatch
         Me.PanelBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelBase.Location = New System.Drawing.Point(0, 0)
         Me.PanelBase.Name = "PanelBase"
-        Me.PanelBase.Size = New System.Drawing.Size(1482, 701)
+        Me.PanelBase.Size = New System.Drawing.Size(1362, 701)
         Me.PanelBase.TabIndex = 0
         '
         'PanelSubBase
@@ -79,7 +79,7 @@ Partial Class frmDispatch
         Me.PanelSubBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelSubBase.Location = New System.Drawing.Point(165, 0)
         Me.PanelSubBase.Name = "PanelSubBase"
-        Me.PanelSubBase.Size = New System.Drawing.Size(1317, 701)
+        Me.PanelSubBase.Size = New System.Drawing.Size(1197, 701)
         Me.PanelSubBase.TabIndex = 1
         '
         'PanelPedido
@@ -89,7 +89,7 @@ Partial Class frmDispatch
         Me.PanelPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelPedido.Location = New System.Drawing.Point(0, 60)
         Me.PanelPedido.Name = "PanelPedido"
-        Me.PanelPedido.Size = New System.Drawing.Size(1317, 526)
+        Me.PanelPedido.Size = New System.Drawing.Size(1197, 526)
         Me.PanelPedido.TabIndex = 2
         '
         'GroupPanelGeoreferencia
@@ -103,7 +103,7 @@ Partial Class frmDispatch
         Me.GroupPanelGeoreferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelGeoreferencia.Location = New System.Drawing.Point(457, 0)
         Me.GroupPanelGeoreferencia.Name = "GroupPanelGeoreferencia"
-        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(860, 526)
+        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(740, 526)
         '
         '
         '
@@ -205,7 +205,7 @@ Partial Class frmDispatch
         Me.GM_Mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa.ShowTileGridLines = False
-        Me.GM_Mapa.Size = New System.Drawing.Size(854, 502)
+        Me.GM_Mapa.Size = New System.Drawing.Size(734, 502)
         Me.GM_Mapa.TabIndex = 1
         Me.GM_Mapa.Zoom = 0R
         '
@@ -223,7 +223,7 @@ Partial Class frmDispatch
         Me.PanelProducto.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelProducto.Location = New System.Drawing.Point(0, 586)
         Me.PanelProducto.Name = "PanelProducto"
-        Me.PanelProducto.Size = New System.Drawing.Size(1317, 115)
+        Me.PanelProducto.Size = New System.Drawing.Size(1197, 115)
         Me.PanelProducto.TabIndex = 1
         '
         'dgjProducto
@@ -231,7 +231,7 @@ Partial Class frmDispatch
         Me.dgjProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjProducto.Location = New System.Drawing.Point(0, 0)
         Me.dgjProducto.Name = "dgjProducto"
-        Me.dgjProducto.Size = New System.Drawing.Size(1317, 115)
+        Me.dgjProducto.Size = New System.Drawing.Size(1197, 115)
         Me.dgjProducto.TabIndex = 2
         '
         'PanelAccion
@@ -243,7 +243,7 @@ Partial Class frmDispatch
         Me.PanelAccion.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelAccion.Location = New System.Drawing.Point(0, 0)
         Me.PanelAccion.Name = "PanelAccion"
-        Me.PanelAccion.Size = New System.Drawing.Size(1317, 60)
+        Me.PanelAccion.Size = New System.Drawing.Size(1197, 60)
         Me.PanelAccion.TabIndex = 0
         '
         'btGrabar
@@ -254,7 +254,7 @@ Partial Class frmDispatch
         Me.btGrabar.Image = Global.Presentacion.My.Resources.Resources.GRABAR
         Me.btGrabar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btGrabar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btGrabar.Location = New System.Drawing.Point(1167, 0)
+        Me.btGrabar.Location = New System.Drawing.Point(1047, 0)
         Me.btGrabar.Name = "btGrabar"
         Me.btGrabar.Size = New System.Drawing.Size(75, 60)
         Me.btGrabar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -269,7 +269,7 @@ Partial Class frmDispatch
         Me.btActualizar.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
         Me.btActualizar.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btActualizar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btActualizar.Location = New System.Drawing.Point(1242, 0)
+        Me.btActualizar.Location = New System.Drawing.Point(1122, 0)
         Me.btActualizar.Name = "btActualizar"
         Me.btActualizar.Size = New System.Drawing.Size(75, 60)
         Me.btActualizar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -349,7 +349,7 @@ Partial Class frmDispatch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1482, 701)
+        Me.ClientSize = New System.Drawing.Size(1362, 701)
         Me.Controls.Add(Me.PanelBase)
         Me.Name = "frmDispatch"
         Me.Opacity = 0.05R

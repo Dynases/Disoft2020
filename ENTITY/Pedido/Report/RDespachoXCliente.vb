@@ -144,7 +144,7 @@
             _credito = value
         End Set
     End Property
-
+    
     Private _oaanumiprev As Integer
     Public Property oaanumiprev() As Integer
         Get
@@ -163,4 +163,6 @@
             _cbdesc = value
         End Set
     End Property
+    Private _oaest As Integer
+
 End Class

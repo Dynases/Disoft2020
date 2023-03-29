@@ -23,26 +23,30 @@ Partial Class Visualizador
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.CRV1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.R_ReporteMovimiento1 = New Presentacion.R_ReporteMovimiento()
         Me.SuspendLayout()
         '
         'CRV1
         '
-        Me.CRV1.ActiveViewIndex = -1
+        Me.CRV1.ActiveViewIndex = 0
         Me.CRV1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CRV1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CRV1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CRV1.Location = New System.Drawing.Point(0, 0)
+        Me.CRV1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CRV1.Name = "CRV1"
-        Me.CRV1.Size = New System.Drawing.Size(896, 425)
+        Me.CRV1.ReportSource = Me.R_ReporteMovimiento1
+        Me.CRV1.Size = New System.Drawing.Size(672, 345)
         Me.CRV1.TabIndex = 0
+        Me.CRV1.ToolPanelWidth = 150
         '
         'Visualizador
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(896, 425)
+        Me.ClientSize = New System.Drawing.Size(672, 345)
         Me.Controls.Add(Me.CRV1)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Visualizador"
         Me.Text = "Visualizador"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -51,4 +55,5 @@ Partial Class Visualizador
     End Sub
 
     Friend WithEvents CRV1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents R_ReporteMovimiento1 As R_ReporteMovimiento
 End Class

@@ -208,13 +208,13 @@
       <HintPath>C:\librerias\FlashControlV71.dll</HintPath>
     </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
-      <HintPath>C:\libreriasDiego\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <HintPath>C:\librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.Core">
-      <HintPath>C:\libreriasDiego\Gmap\GMap.NET.Core.dll</HintPath>
+      <HintPath>C:\librerias\Gmap\GMap.NET.Core.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.WindowsForms">
-      <HintPath>C:\libreriasDiego\Gmap\GMap.NET.WindowsForms.dll</HintPath>
+      <HintPath>C:\librerias\Gmap\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis, Version=1.32.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.dll</HintPath>
@@ -235,24 +235,24 @@
       <HintPath>..\packages\Google.Apis.1.32.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
     <Reference Include="Interop.AcroPDFLib">
-      <HintPath>C:\libreriasDiego\PDF\Interop.AcroPDFLib.dll</HintPath>
+      <HintPath>C:\librerias\PDF\Interop.AcroPDFLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="itextsharp">
       <HintPath>C:\librerias\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Data.v3">
-      <HintPath>C:\libreriasDiego\Janus\Janus.Data.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\librerias\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3">
-      <HintPath>C:\libreriasDiego\Janus\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3">
-      <HintPath>C:\libreriasDiego\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>C:\librerias\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -510,6 +510,12 @@
     <Compile Include="F02_MovimientoPack.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F02_Pedido.Designer.vb">
+      <DependentUpon>F02_Pedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F02_Pedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F02_ProformaPedido.designer.vb">
       <DependentUpon>F02_ProformaPedido.vb</DependentUpon>
     </Compile>
@@ -526,6 +532,12 @@
       <DependentUpon>F02_Precio.vb</DependentUpon>
     </Compile>
     <Compile Include="F02_Precio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F0G_MovimientoChoferEntrada.Designer.vb">
+      <DependentUpon>F0G_MovimientoChoferEntrada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F0G_MovimientoChoferEntrada.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F0G_MovimientoChoferSalida.Designer.vb">
@@ -744,22 +756,10 @@
     <Compile Include="F02_Movimiento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F02_Pedido.Designer.vb">
-      <DependentUpon>F02_Pedido.vb</DependentUpon>
-    </Compile>
-    <Compile Include="F02_Pedido.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="F02_Zona.Designer.vb">
       <DependentUpon>F02_Zona.vb</DependentUpon>
     </Compile>
     <Compile Include="F02_Zona.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="F0G_MovimientoChoferEntrada.Designer.vb">
-      <DependentUpon>F0G_MovimientoChoferEntrada.vb</DependentUpon>
-    </Compile>
-    <Compile Include="F0G_MovimientoChoferEntrada.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F0G_VentaChoferConciliacion.Designer.vb">
@@ -887,6 +887,12 @@
     <Compile Include="R01_PreciosPorCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_SaldoProveedor.Designer.vb">
+      <DependentUpon>R01_SaldoProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_SaldoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_StockDisponible.Designer.vb">
       <DependentUpon>R01_StockDisponible.vb</DependentUpon>
     </Compile>
@@ -897,6 +903,12 @@
       <DependentUpon>R01_SaldoProducto.vb</DependentUpon>
     </Compile>
     <Compile Include="R01_SaldoProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_SugerenciaPedidos.Designer.vb">
+      <DependentUpon>R01_SugerenciaPedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_SugerenciaPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="R01_UltimaVentaCliente.Designer.vb">
@@ -1325,6 +1337,24 @@
       <DependentUpon>R_VisitasDiarias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="R_ReporteMovimiento.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_ReporteMovimiento.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_SaldoActualFiltrado.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_SaldoActualFiltrado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_SugerenciaPedido.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_SugerenciaPedido.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControl\UCImagen.Designer.vb">
       <DependentUpon>UCImagen.vb</DependentUpon>
     </Compile>
@@ -1748,9 +1778,8 @@
     <EmbeddedResource Include="F02_Precio.resx">
       <DependentUpon>F02_Precio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F0G_MovimientoChoferSalida.resx">
-      <DependentUpon>F0G_MovimientoChoferSalida.vb</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="F0G_MovimientoChoferEntrada.resx" />
+    <EmbeddedResource Include="F0G_MovimientoChoferSalida.resx" />
     <EmbeddedResource Include="F0_CreditosPedidos.resx">
       <DependentUpon>F0_CreditosPedidos.vb</DependentUpon>
     </EmbeddedResource>
@@ -1856,14 +1885,8 @@
     <EmbeddedResource Include="F02_Movimiento.resx">
       <DependentUpon>F02_Movimiento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F02_Pedido.resx">
-      <DependentUpon>F02_Pedido.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="F02_Zona.resx">
       <DependentUpon>F02_Zona.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="F0G_MovimientoChoferEntrada.resx">
-      <DependentUpon>F0G_MovimientoChoferEntrada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F0G_VentaChoferConciliacion.resx">
       <DependentUpon>F0G_VentaChoferConciliacion.vb</DependentUpon>
@@ -1925,11 +1948,17 @@
     <EmbeddedResource Include="R01_PreciosPorCategoria.resx">
       <DependentUpon>R01_PreciosPorCategoria.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_SaldoProveedor.resx">
+      <DependentUpon>R01_SaldoProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_StockDisponible.resx">
       <DependentUpon>R01_StockDisponible.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_SaldoProducto.resx">
       <DependentUpon>R01_SaldoProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_SugerenciaPedidos.resx">
+      <DependentUpon>R01_SugerenciaPedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_UltimaVentaCliente.resx">
       <DependentUpon>R01_UltimaVentaCliente.vb</DependentUpon>
@@ -2203,6 +2232,18 @@
     <EmbeddedResource Include="Reportes\R_VisitasDiarias.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VisitasDiarias.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_ReporteMovimiento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ReporteMovimiento.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_SaldoActualFiltrado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_SaldoActualFiltrado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_SugerenciaPedido.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_SugerenciaPedido.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UCImagen.resx">
       <DependentUpon>UCImagen.vb</DependentUpon>

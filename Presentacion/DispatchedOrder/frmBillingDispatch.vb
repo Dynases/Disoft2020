@@ -84,7 +84,7 @@ Public Class frmBillingDispatch
 
                 'P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
                 'P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
-                P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer)
+                P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer, list1(i).NombreVendedor)
 
             Next
 
@@ -539,7 +539,7 @@ Public Class frmBillingDispatch
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
 
-    Public Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
+    Public Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String, nomVendedor As String)
         Dim _Fecha, _FechaAl As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
         Dim _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
@@ -592,7 +592,7 @@ Public Class frmBillingDispatch
             Case "9"
                 ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "10"
-                ReporteNotaVenta10(idPedido, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta10(idPedido, _Ds2, _Ds3, _Literal, listResult, nomVendedor)
         End Select
     End Sub
 
@@ -996,7 +996,7 @@ Public Class frmBillingDispatch
             End If
         End If
     End Sub
-    Private Sub ReporteNotaVenta10(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta10(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta), nomVendedor As String)
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta10
         Dim dia, mes, ano As Integer
@@ -1014,7 +1014,9 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Direccion", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
         objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
-        objrep.SetParameterValue("Logo", gb_ubilogo)
+        objrep.SetParameterValue("idPedido", idPedido)
+        objrep.SetParameterValue("vendedor", nomVendedor)
+
 
         If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
             P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar

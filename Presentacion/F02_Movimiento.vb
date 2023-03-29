@@ -337,7 +337,8 @@ Public Class F02_Movimiento
         MSuperTabControlPrincipal.SelectedTabIndex = 0
 
         'Visible
-        MBtImprimir.Visible = False
+
+        MBtImprimir.Visible = True
         btAddConcepto.Visible = False
         QuitarProductoToolStripMenuItem.Visible = False
 
@@ -444,7 +445,7 @@ Public Class F02_Movimiento
         dtiFechaDoc.Value = Now.Date
 
         'Switch Button
-
+        MBtImprimir.Enabled = True
         'Radio Button
 
         'Grillas
@@ -1146,6 +1147,25 @@ Public Class F02_Movimiento
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        P_Global.Visualizador = New Visualizador
+        Dim dt As DataTable = TraerMovimiento(tbCodigo.Text, cbAlmacenOrigen.Value)
+        Dim objrep As New R_ReporteMovimiento
+        objrep.SetDataSource(dt)
+        objrep.SetParameterValue("concepto", cbConcepto.Text)
+        objrep.SetParameterValue("almacen", cbAlmacenOrigen.Text)
+        objrep.SetParameterValue("cod", tbCodigo.Text)
+        objrep.SetParameterValue("observacion", tbObs.Text)
+        'objrep.SetParameterValue("idPedido", idPedido)
+        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        P_Global.Visualizador.ShowDialog() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
+    End Sub
+
+    Private Sub tbCodigo_TextChanged(sender As Object, e As EventArgs) Handles tbCodigo.TextChanged
+
     End Sub
 
 #End Region

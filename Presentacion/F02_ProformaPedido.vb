@@ -2324,6 +2324,8 @@ Public Class F02_ProformaPedido
 
     Private Sub JGr_Clientes_SelectionChanged(sender As Object, e As EventArgs) Handles JGr_Clientes.SelectionChanged
         If JGr_Clientes.Row >= 0 Then
+            Dim aux As DataTable
+            aux = JGr_Clientes.DataSource
             Dim codCliente As Integer = JGr_Clientes.GetValue(0)
             _PCargarGridRegistrosPedidos(JGr_UltimosPedidos, codCliente)
             If IsDBNull(L_GetCliente2(codCliente).Tables(0).Rows(0).Item("ccprconsu")) = False Then
@@ -2928,7 +2930,7 @@ Public Class F02_ProformaPedido
             Else
                 Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
                 If idChofer <> String.Empty Then
-                    frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer)
+                    frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer, "")
                 End If
             End If
 

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class R01_SaldoProducto
     Inherits Modelo.ModeloR01
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -56,7 +56,7 @@ Partial Class R01_SaldoProducto
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -69,11 +69,11 @@ Partial Class R01_SaldoProducto
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -115,7 +115,7 @@ Partial Class R01_SaldoProducto
         Me.MGpFiltro.Controls.Add(Me.lbDepositoOrigen)
         Me.MGpFiltro.Controls.Add(Me.LabelX5)
         Me.MGpFiltro.Controls.Add(Me.swTipo)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
@@ -154,7 +154,7 @@ Partial Class R01_SaldoProducto
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4)
         Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
         '
         'Timer1
@@ -176,7 +176,7 @@ Partial Class R01_SaldoProducto
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX5.Size = New System.Drawing.Size(82, 23)
         Me.LabelX5.TabIndex = 376
-        Me.LabelX5.Text = "Agrupado"
+        Me.LabelX5.Text = "Agrupar:"
         '
         'swTipo
         '
@@ -259,7 +259,7 @@ Partial Class R01_SaldoProducto
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1186, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_SaldoProducto"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
