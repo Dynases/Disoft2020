@@ -30,6 +30,8 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Dgj1Datos = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.cbAlmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.lbEquiProd = New DevComponents.DotNetBar.LabelX()
         Me.Tb1CodEquipo = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Tb3Saldo = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -44,8 +46,6 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelBusqueda = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgj2Busqueda = New Janus.Windows.GridEX.GridEX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cbAlmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -64,11 +64,11 @@ Partial Class F01_KardexInventarioEquiProd
         CType(Me.Dgj1Datos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PanelExDatosGenerales.SuspendLayout()
+        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dti1FechaIni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dti2FechaFin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelBusqueda.SuspendLayout()
         CType(Me.Dgj2Busqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -86,6 +86,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 555)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
@@ -99,12 +100,13 @@ Partial Class F01_KardexInventarioEquiProd
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
         Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 555)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -115,6 +117,8 @@ Partial Class F01_KardexInventarioEquiProd
         '
         'MPnInferior
         '
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 625)
+        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -122,6 +126,10 @@ Partial Class F01_KardexInventarioEquiProd
         Me.MPnInferior.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
+        '
+        'MPanelToolBarUsuario
+        '
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
         '
         'MTbUsuario
         '
@@ -132,6 +140,10 @@ Partial Class F01_KardexInventarioEquiProd
         '
         'MBtSalir
         '
+        '
+        'MPanelToolBarImprimir
+        '
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1204, 0)
         '
         'MBtImprimir
         '
@@ -188,7 +200,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.TableLayoutPanelPrincipal.RowCount = 2
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(942, 455)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1242, 555)
         Me.TableLayoutPanelPrincipal.TabIndex = 30
         '
         'GroupPanelKardex
@@ -200,7 +212,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelKardex.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelKardex.Location = New System.Drawing.Point(3, 153)
         Me.GroupPanelKardex.Name = "GroupPanelKardex"
-        Me.GroupPanelKardex.Size = New System.Drawing.Size(936, 299)
+        Me.GroupPanelKardex.Size = New System.Drawing.Size(1236, 399)
         '
         '
         '
@@ -237,7 +249,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Dgj1Datos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgj1Datos.Location = New System.Drawing.Point(0, 0)
         Me.Dgj1Datos.Name = "Dgj1Datos"
-        Me.Dgj1Datos.Size = New System.Drawing.Size(930, 277)
+        Me.Dgj1Datos.Size = New System.Drawing.Size(1230, 377)
         Me.Dgj1Datos.TabIndex = 0
         '
         'GroupPanelDatosGenerales
@@ -249,7 +261,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(936, 144)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(1236, 144)
         '
         '
         '
@@ -303,7 +315,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(930, 122)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(1230, 122)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -311,6 +323,39 @@ Partial Class F01_KardexInventarioEquiProd
         Me.PanelExDatosGenerales.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 14
+        '
+        'cbAlmacenOrigen
+        '
+        Me.cbAlmacenOrigen.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbAlmacenOrigen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacenOrigen_DesignTimeLayout.LayoutString")
+        Me.cbAlmacenOrigen.DesignTimeLayout = cbAlmacenOrigen_DesignTimeLayout
+        Me.cbAlmacenOrigen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAlmacenOrigen.Location = New System.Drawing.Point(91, 90)
+        Me.cbAlmacenOrigen.Name = "cbAlmacenOrigen"
+        Me.cbAlmacenOrigen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbAlmacenOrigen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbAlmacenOrigen.SelectedIndex = -1
+        Me.cbAlmacenOrigen.SelectedItem = Nothing
+        Me.cbAlmacenOrigen.Size = New System.Drawing.Size(176, 22)
+        Me.cbAlmacenOrigen.TabIndex = 239
+        Me.cbAlmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbDepositoOrigen
+        '
+        Me.lbDepositoOrigen.AutoSize = True
+        Me.lbDepositoOrigen.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbDepositoOrigen.Location = New System.Drawing.Point(23, 90)
+        Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
+        Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbDepositoOrigen.Size = New System.Drawing.Size(62, 16)
+        Me.lbDepositoOrigen.TabIndex = 240
+        Me.lbDepositoOrigen.Text = "Deposito:"
         '
         'lbEquiProd
         '
@@ -578,44 +623,11 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'cbAlmacenOrigen
-        '
-        Me.cbAlmacenOrigen.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
-        cbAlmacenOrigen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacenOrigen_DesignTimeLayout.LayoutString")
-        Me.cbAlmacenOrigen.DesignTimeLayout = cbAlmacenOrigen_DesignTimeLayout
-        Me.cbAlmacenOrigen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacenOrigen.Location = New System.Drawing.Point(91, 90)
-        Me.cbAlmacenOrigen.Name = "cbAlmacenOrigen"
-        Me.cbAlmacenOrigen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbAlmacenOrigen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbAlmacenOrigen.SelectedIndex = -1
-        Me.cbAlmacenOrigen.SelectedItem = Nothing
-        Me.cbAlmacenOrigen.Size = New System.Drawing.Size(176, 22)
-        Me.cbAlmacenOrigen.TabIndex = 239
-        Me.cbAlmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'lbDepositoOrigen
-        '
-        Me.lbDepositoOrigen.AutoSize = True
-        Me.lbDepositoOrigen.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbDepositoOrigen.Location = New System.Drawing.Point(23, 90)
-        Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
-        Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbDepositoOrigen.Size = New System.Drawing.Size(62, 16)
-        Me.lbDepositoOrigen.TabIndex = 240
-        Me.lbDepositoOrigen.Text = "Deposito:"
-        '
         'F01_KardexInventarioEquiProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_KardexInventarioEquiProd"
@@ -644,11 +656,11 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.ResumeLayout(False)
         Me.PanelExDatosGenerales.PerformLayout()
+        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Dti1FechaIni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Dti2FechaFin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelBusqueda.ResumeLayout(False)
         CType(Me.Dgj2Busqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbAlmacenOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

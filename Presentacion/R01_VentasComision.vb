@@ -69,7 +69,7 @@ Public Class R01_VentasComision
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
- _ 'dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                'dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
                 If global1 = 0 Then
                     _dt = L_prReporteVentasComisionUnoRep(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
 

@@ -184,7 +184,7 @@ Public Class F01_KardexInventarioEquiProd
         With Dgj1Datos.RootTable.Columns(4)
             .Caption = "Observación"
             .Key = "obs"
-            .Width = 200
+            .Width = 300
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -585,7 +585,7 @@ Public Class F01_KardexInventarioEquiProd
         If (Dt1Kardex.Rows.Count > 0) Then
             If (Now.Date = Dti2FechaFin.Value) Then
                 If (CDbl(Tb3Saldo.Text) <> CDbl(Dt1Kardex.Rows(Dt1Kardex.Rows.Count - 1).Item("saldo").ToString)) Then
-                    L_Actualizar_SaldoInventario(Tb1CodEquipo.Text, Dt1Kardex.Rows(Dt1Kardex.Rows.Count - 1).Item("saldo").ToString, "1") 'Cambiar luego por el almacen al que corresponde
+                    L_Actualizar_SaldoInventario(Tb1CodEquipo.Text, Dt1Kardex.Rows(Dt1Kardex.Rows.Count - 1).Item("saldo").ToString, cbAlmacenOrigen.Value) 'Cambiar luego por el almacen al que corresponde
                     Tb3Saldo.Text = Dt1Kardex.Rows(Dt1Kardex.Rows.Count - 1).Item("saldo").ToString
                 End If
             End If
