@@ -1137,7 +1137,7 @@ Public Class F0G_MovimientoChoferEntrada
         _prCargarVenta()
     End Sub
 
-    Private Sub grdetalle_Error(sender As Object, e As Janus.Windows.GridEX.ErrorEventArgs) Handles grdetalle.[Error]
-
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        _IniciarTodo()
     End Sub
 End Class

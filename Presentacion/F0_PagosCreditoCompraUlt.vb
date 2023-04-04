@@ -1491,4 +1491,8 @@ Public Class F0_PagosCreditoCompraUlt
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+    Private Sub grPendiente_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grPendiente.EditingCell
+        e.Cancel = True
+    End Sub
 End Class

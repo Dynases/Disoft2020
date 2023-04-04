@@ -234,7 +234,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
-        Me.SuperTabControl1.Size = New System.Drawing.Size(1022, 602)
+        Me.SuperTabControl1.Size = New System.Drawing.Size(1284, 661)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
@@ -256,7 +256,7 @@ Partial Class F0_PedidosAsignacion
         'SuperTabControlPanel1
         '
         Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(4)
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1022, 577)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1284, 636)
         Me.SuperTabControlPanel1.Controls.SetChildIndex(Me.PanelEx1, 0)
         Me.SuperTabControlPanel1.Controls.SetChildIndex(Me.PanelEx2, 0)
         Me.SuperTabControlPanel1.Controls.SetChildIndex(Me.PanelEx3, 0)
@@ -265,7 +265,7 @@ Partial Class F0_PedidosAsignacion
         'PanelEx1
         '
         Me.PanelEx1.Margin = New System.Windows.Forms.Padding(4)
-        Me.PanelEx1.Size = New System.Drawing.Size(1022, 64)
+        Me.PanelEx1.Size = New System.Drawing.Size(1284, 64)
         Me.PanelEx1.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx1.Style.BackColor1.Color = System.Drawing.Color.Blue
         Me.PanelEx1.Style.BackColor2.Color = System.Drawing.Color.Blue
@@ -325,16 +325,16 @@ Partial Class F0_PedidosAsignacion
         Me.BubbleBar2.ButtonBackAreaStyle.PaddingLeft = 3
         Me.BubbleBar2.ButtonBackAreaStyle.PaddingRight = 3
         Me.BubbleBar2.ButtonBackAreaStyle.PaddingTop = 3
-        Me.BubbleBar2.Location = New System.Drawing.Point(958, 0)
+        Me.BubbleBar2.Location = New System.Drawing.Point(1220, 0)
         Me.BubbleBar2.Margin = New System.Windows.Forms.Padding(4)
         Me.BubbleBar2.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.BubbleBar2.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         '
         'PanelEx2
         '
-        Me.PanelEx2.Location = New System.Drawing.Point(0, 541)
+        Me.PanelEx2.Location = New System.Drawing.Point(0, 600)
         Me.PanelEx2.Margin = New System.Windows.Forms.Padding(4)
-        Me.PanelEx2.Size = New System.Drawing.Size(1022, 36)
+        Me.PanelEx2.Size = New System.Drawing.Size(1284, 36)
         Me.PanelEx2.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx2.Style.BackColor1.Color = System.Drawing.Color.Blue
         Me.PanelEx2.Style.BackColor2.Color = System.Drawing.Color.Blue
@@ -350,7 +350,7 @@ Partial Class F0_PedidosAsignacion
         'PanelEx3
         '
         Me.PanelEx3.Margin = New System.Windows.Forms.Padding(4)
-        Me.PanelEx3.Size = New System.Drawing.Size(1022, 200)
+        Me.PanelEx3.Size = New System.Drawing.Size(1284, 200)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -362,7 +362,7 @@ Partial Class F0_PedidosAsignacion
         'PanelEx4
         '
         Me.PanelEx4.Margin = New System.Windows.Forms.Padding(4)
-        Me.PanelEx4.Size = New System.Drawing.Size(1022, 277)
+        Me.PanelEx4.Size = New System.Drawing.Size(1284, 336)
         Me.PanelEx4.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx4.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -442,7 +442,7 @@ Partial Class F0_PedidosAsignacion
         '
         'PanelEx5
         '
-        Me.PanelEx5.Location = New System.Drawing.Point(822, 0)
+        Me.PanelEx5.Location = New System.Drawing.Point(1084, 0)
         Me.PanelEx5.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelEx5.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx5.Style.BackColor1.Color = System.Drawing.Color.Blue
@@ -1028,47 +1028,47 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirObsToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1, Me.VERHISTORIALToolStripMenuItem1, Me.ANULARPEDIDOToolStripMenuItem1, Me.IMPRIMIRPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones2.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(268, 160)
+        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 160)
         '
         'AñadirObsToolStripMenuItem
         '
         Me.AñadirObsToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.ANTERIOR
         Me.AñadirObsToolStripMenuItem.Name = "AñadirObsToolStripMenuItem"
-        Me.AñadirObsToolStripMenuItem.Size = New System.Drawing.Size(267, 26)
+        Me.AñadirObsToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
         Me.AñadirObsToolStripMenuItem.Text = "RETORNAR PEDIDO A ASIGNACION"
         '
         'GRABARRECLAMOToolStripMenuItem1
         '
         Me.GRABARRECLAMOToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOToolStripMenuItem1.Name = "GRABARRECLAMOToolStripMenuItem1"
-        Me.GRABARRECLAMOToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
+        Me.GRABARRECLAMOToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.GRABARRECLAMOToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem1
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem1"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem1
         '
         Me.VERHISTORIALToolStripMenuItem1.Name = "VERHISTORIALToolStripMenuItem1"
-        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
+        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.VERHISTORIALToolStripMenuItem1.Text = "VER ESTADOS"
         '
         'ANULARPEDIDOToolStripMenuItem1
         '
         Me.ANULARPEDIDOToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.I64x64_error
         Me.ANULARPEDIDOToolStripMenuItem1.Name = "ANULARPEDIDOToolStripMenuItem1"
-        Me.ANULARPEDIDOToolStripMenuItem1.Size = New System.Drawing.Size(267, 26)
+        Me.ANULARPEDIDOToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.ANULARPEDIDOToolStripMenuItem1.Text = "ANULAR PEDIDO"
         '
         'IMPRIMIRPEDIDOToolStripMenuItem
         '
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.I32x32_printer
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Name = "IMPRIMIRPEDIDOToolStripMenuItem"
-        Me.IMPRIMIRPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(267, 26)
+        Me.IMPRIMIRPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Text = "IMPRIMIR PEDIDO"
         '
         'SuperTabItem3
@@ -2349,30 +2349,30 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.VERHISTORIALToolStripMenuItem2})
         Me.ConMenu_Opciones3.Name = "ConMenu_Opciones3"
-        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(354, 92)
+        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 92)
         '
         'RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem
         '
         Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Name = "RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem"
-        Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Size = New System.Drawing.Size(353, 22)
+        Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Size = New System.Drawing.Size(350, 22)
         Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem.Text = "RETORNAR PEDIDO A CONFIRMACION DE ENTREGA"
         '
         'GRABARRECLAMOToolStripMenuItem
         '
         Me.GRABARRECLAMOToolStripMenuItem.Name = "GRABARRECLAMOToolStripMenuItem"
-        Me.GRABARRECLAMOToolStripMenuItem.Size = New System.Drawing.Size(353, 22)
+        Me.GRABARRECLAMOToolStripMenuItem.Size = New System.Drawing.Size(350, 22)
         Me.GRABARRECLAMOToolStripMenuItem.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem2
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem2"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Size = New System.Drawing.Size(353, 22)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Size = New System.Drawing.Size(350, 22)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem2
         '
         Me.VERHISTORIALToolStripMenuItem2.Name = "VERHISTORIALToolStripMenuItem2"
-        Me.VERHISTORIALToolStripMenuItem2.Size = New System.Drawing.Size(353, 22)
+        Me.VERHISTORIALToolStripMenuItem2.Size = New System.Drawing.Size(350, 22)
         Me.VERHISTORIALToolStripMenuItem2.Text = "VER ESTADOS"
         '
         'ConMenu_Opciones1
@@ -2380,33 +2380,33 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(254, 108)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(251, 108)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(253, 26)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(250, 26)
         Me.ToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.ADICIONAR
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem
         '
         Me.VERHISTORIALToolStripMenuItem.Name = "VERHISTORIALToolStripMenuItem"
-        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
+        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
         Me.VERHISTORIALToolStripMenuItem.Text = "VER ESTADOS"
         '
         'ANULARPEDIDOToolStripMenuItem
         '
         Me.ANULARPEDIDOToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.I64x64_error
         Me.ANULARPEDIDOToolStripMenuItem.Name = "ANULARPEDIDOToolStripMenuItem"
-        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(253, 26)
+        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(250, 26)
         Me.ANULARPEDIDOToolStripMenuItem.Text = "ANULAR PEDIDO"
         '
         'PrintDialog1
@@ -2423,19 +2423,19 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Rechazado.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Rechazado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
         Me.ConMenu_Rechazado.Name = "ConMenu_Opciones"
-        Me.ConMenu_Rechazado.Size = New System.Drawing.Size(251, 30)
+        Me.ConMenu_Rechazado.Size = New System.Drawing.Size(247, 30)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.Presentacion.My.Resources.Resources.ANTERIOR
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(250, 26)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(246, 26)
         Me.ToolStripMenuItem2.Text = "RETORNAR A PEDIDO DICTADO "
         '
         'F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.ClientSize = New System.Drawing.Size(1022, 602)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0_PedidosAsignacion"
         Me.Opacity = 0.05R

@@ -83,17 +83,19 @@ Partial Class F01_Proveedor
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 555)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 555)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -104,6 +106,8 @@ Partial Class F01_Proveedor
         '
         'MPnInferior
         '
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 625)
+        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -112,9 +116,13 @@ Partial Class F01_Proveedor
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
         '
+        'MPanelToolBarUsuario
+        '
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
+        '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -145,6 +153,10 @@ Partial Class F01_Proveedor
         '
         'MBtNuevo
         '
+        '
+        'MPanelToolBarImprimir
+        '
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1204, 0)
         '
         'MBubbleBarUsuario
         '
@@ -195,7 +207,7 @@ Partial Class F01_Proveedor
         Me.TableLayoutPanelPrincipal.RowCount = 2
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(942, 455)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1242, 555)
         Me.TableLayoutPanelPrincipal.TabIndex = 29
         '
         'Gp3Proveedores
@@ -207,8 +219,8 @@ Partial Class F01_Proveedor
         Me.Gp3Proveedores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gp3Proveedores.Location = New System.Drawing.Point(3, 203)
         Me.Gp3Proveedores.Name = "Gp3Proveedores"
-        Me.Gp3Proveedores.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
-        Me.Gp3Proveedores.Size = New System.Drawing.Size(936, 249)
+        Me.Gp3Proveedores.Padding = New System.Windows.Forms.Padding(5)
+        Me.Gp3Proveedores.Size = New System.Drawing.Size(1236, 349)
         '
         '
         '
@@ -245,7 +257,7 @@ Partial Class F01_Proveedor
         Me.Dgj1Busqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgj1Busqueda.Location = New System.Drawing.Point(5, 5)
         Me.Dgj1Busqueda.Name = "Dgj1Busqueda"
-        Me.Dgj1Busqueda.Size = New System.Drawing.Size(920, 218)
+        Me.Dgj1Busqueda.Size = New System.Drawing.Size(1220, 318)
         Me.Dgj1Busqueda.TabIndex = 0
         '
         'GroupPanelDatosGenerales
@@ -257,7 +269,7 @@ Partial Class F01_Proveedor
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(936, 194)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(1236, 194)
         '
         '
         '
@@ -318,7 +330,7 @@ Partial Class F01_Proveedor
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(930, 173)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(1230, 173)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -621,8 +633,8 @@ Partial Class F01_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_Proveedor"
         Me.Opacity = 0.05R
         Me.Text = "F01_Proveedor"

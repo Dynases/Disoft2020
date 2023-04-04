@@ -453,7 +453,7 @@ Public Class F01_Proveedor
                 TbNit.Text = .Cells("nit").Value.ToString
                 SbEstado.Value = (.Cells("est").Value.ToString.Equals("ACTIVO"))
                 TbObs.Text = .Cells("obs").Value.ToString
-                tbCuentaProv.Text = .Cells("cuenta").Value.ToString
+                'tbCuentaProv.Text = .Cells("cuenta").Value.ToString
                 tbNcuenta.Text = .Cells("cmncuenta").Value.ToString
             End With
         Else
@@ -583,15 +583,15 @@ Public Class F01_Proveedor
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
         End With
-        With Dgj1Busqueda.RootTable.Columns(12)
-            .Caption = ""
-            .Key = "cuenta"
-            .Width = 0
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.FontSize = gi_fuenteTamano
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = False
-        End With
+        'With Dgj1Busqueda.RootTable.Columns(12)
+        '    .Caption = ""
+        '    .Key = "cuenta"
+        '    .Width = 0
+        '    .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+        '    .CellStyle.FontSize = gi_fuenteTamano
+        '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+        '    .Visible = False
+        'End With
 
         'Habilitar Filtradores
         With Dgj1Busqueda
