@@ -24,6 +24,8 @@ Partial Class R01_VentasComision
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim cbProveedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R01_VentasComision))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.tbVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -37,6 +39,8 @@ Partial Class R01_VentasComision
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -48,6 +52,7 @@ Partial Class R01_VentasComision
         Me.GroupBox2.SuspendLayout()
         CType(Me.tbFechaF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbFechaI, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -155,6 +160,8 @@ Partial Class R01_VentasComision
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.cbProveedor)
+        Me.GroupBox2.Controls.Add(Me.LabelX2)
         Me.GroupBox2.Controls.Add(Me.swTipo)
         Me.GroupBox2.Controls.Add(Me.tbVendedor)
         Me.GroupBox2.Controls.Add(Me.CheckTodosAlmacen)
@@ -259,7 +266,7 @@ Partial Class R01_VentasComision
         Me.tbCodigoVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbCodigoVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCodigoVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbCodigoVendedor.Location = New System.Drawing.Point(6, 138)
+        Me.tbCodigoVendedor.Location = New System.Drawing.Point(9, 188)
         Me.tbCodigoVendedor.Name = "tbCodigoVendedor"
         Me.tbCodigoVendedor.PreventEnterBeep = True
         Me.tbCodigoVendedor.Size = New System.Drawing.Size(22, 22)
@@ -293,7 +300,7 @@ Partial Class R01_VentasComision
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(50, 182)
+        Me.LabelX1.Location = New System.Drawing.Point(53, 232)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX1.Size = New System.Drawing.Size(52, 23)
@@ -311,7 +318,7 @@ Partial Class R01_VentasComision
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(126, 182)
+        Me.tbFechaF.Location = New System.Drawing.Point(129, 232)
         '
         '
         '
@@ -355,7 +362,7 @@ Partial Class R01_VentasComision
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(47, 150)
+        Me.LabelX4.Location = New System.Drawing.Point(50, 200)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX4.Size = New System.Drawing.Size(74, 23)
@@ -373,7 +380,7 @@ Partial Class R01_VentasComision
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(126, 151)
+        Me.tbFechaI.Location = New System.Drawing.Point(129, 201)
         '
         '
         '
@@ -413,6 +420,39 @@ Partial Class R01_VentasComision
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'cbProveedor
+        '
+        Me.cbProveedor.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
+        Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
+        Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProveedor.Location = New System.Drawing.Point(6, 153)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbProveedor.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbProveedor.SelectedIndex = -1
+        Me.cbProveedor.SelectedItem = Nothing
+        Me.cbProveedor.Size = New System.Drawing.Size(176, 22)
+        Me.cbProveedor.TabIndex = 390
+        Me.cbProveedor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'LabelX2
+        '
+        Me.LabelX2.AutoSize = True
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX2.Location = New System.Drawing.Point(9, 131)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX2.Size = New System.Drawing.Size(72, 16)
+        Me.LabelX2.TabIndex = 389
+        Me.LabelX2.Text = "Proveedor:"
+        '
         'R01_VentasComision
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -439,6 +479,7 @@ Partial Class R01_VentasComision
         Me.GroupBox2.PerformLayout()
         CType(Me.tbFechaF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbFechaI, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -455,4 +496,6 @@ Partial Class R01_VentasComision
     Friend WithEvents tbFechaI As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents Timer1 As Timer
     Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents cbProveedor As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
 End Class

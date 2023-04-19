@@ -29,28 +29,37 @@ Public Class R01_VentasComision
         tbVendedor.ReadOnly = True
         tbVendedor.Enabled = False
         CheckTodosVendedor.CheckValue = True
-
+        P_prArmarComboProveedor()
     End Sub
 
+    Private Sub P_prArmarComboProveedor()
+        Dim DtP As DataTable
+        DtP = L_fnObtenerProveedor()
+        DtP.Rows.Add(0, "TODOS")
+
+        g_prArmarCombo(cbProveedor, DtP, 60, 200, "COD", "PROVEEDOR")
+        cbProveedor.SelectedIndex = Convert.ToInt32(DtP.Rows.Count - 1)
+
+    End Sub
 
     Public Sub _prInterpretarDatos(ByRef _dt As DataTable)
         If swTipo.Value = True Then
             titulo = "VENDEDOR:"
             If (CheckTodosVendedor.Checked) Then
                 If global1 = 0 Then
-                    _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    _dt = L_prReporteVentasComisionTodos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), cbProveedor.Value)
                 Else
-                    _dt = L_prReporteVentasComisionTodos1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    _dt = L_prReporteVentasComisionTodos1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), cbProveedor.Value)
                 End If
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
 
                 If global1 = 0 Then
-                    _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                    _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, cbProveedor.Value)
 
                 Else
-                    _dt = L_prReporteVentasComisionUno1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                    _dt = L_prReporteVentasComisionUno1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, cbProveedor.Value)
 
                 End If
                 Return
@@ -269,5 +278,17 @@ Public Class R01_VentasComision
             tbVendedor.Text = ""
             tbCodigoVendedor.Text = ""
         End If
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
+    Private Sub CheckTodosVendedor_CheckedChanged(sender As Object, e As EventArgs) Handles CheckTodosVendedor.CheckedChanged
+
+    End Sub
+
+    Private Sub checkUnaVendedor_CheckedChanged(sender As Object, e As EventArgs) Handles checkUnaVendedor.CheckedChanged
+
     End Sub
 End Class

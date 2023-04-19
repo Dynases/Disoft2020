@@ -38,7 +38,7 @@ Public Class R01_PedidosRechazados
             titulo = "VENDEDOR:"
             If (CheckTodosVendedor.Checked) Then
                 If global1 = 0 Then
-                    _dt = L_prReporteVentasComisionTodos1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    _dt = L_prReporteVentasComisionTodos1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), 0)
 
                 Else
                     _dt = L_prReportePedidosRechazados(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
@@ -48,10 +48,10 @@ Public Class R01_PedidosRechazados
             If (checkUnaVendedor.Checked) Then
 
                 If global1 = 0 Then
-                    _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                    _dt = L_prReporteVentasComisionUno(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, 0)
 
                 Else
-                    _dt = L_prReporteVentasComisionUno1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                    _dt = L_prReporteVentasComisionUno1(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, 0)
 
                 End If
                 Return

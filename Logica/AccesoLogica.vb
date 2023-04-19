@@ -4762,12 +4762,13 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_prReporteVentasComisionTodos(_fechaI As String, _FechaF As String) As DataTable
+    Public Shared Function L_prReporteVentasComisionTodos(_fechaI As String, _FechaF As String, Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 5))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@id", Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
@@ -4781,52 +4782,57 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
-    Public Shared Function L_prReporteVentasComisionTodos1(_fechaI As String, _FechaF As String) As DataTable
+    Public Shared Function L_prReporteVentasComisionTodos1(_fechaI As String, _FechaF As String, Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 55))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@id", Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
-    Public Shared Function L_prReporteVentasComisionUno(_fechaI As String, _FechaF As String, _codPrevendedor As String) As DataTable
+    Public Shared Function L_prReporteVentasComisionUno(_fechaI As String, _FechaF As String, _codPrevendedor As String, Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 6))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
         _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _listParam.Add(New Datos.DParametro("@id", Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
-    Public Shared Function L_prReporteVentasComisionUno1(_fechaI As String, _FechaF As String, _codPrevendedor As String) As DataTable
+    Public Shared Function L_prReporteVentasComisionUno1(_fechaI As String, _FechaF As String, _codPrevendedor As String, Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 66))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
         _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _listParam.Add(New Datos.DParametro("@id", Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
-    Public Shared Function L_prReporteVentasVendedorTodos(_fechaI As String, _FechaF As String, _Tipo As Integer) As DataTable
+    Public Shared Function L_prReporteVentasVendedorTodos(_fechaI As String, _FechaF As String, _Tipo As Integer, Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 7))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
         _listParam.Add(New Datos.DParametro("@codpro", _Tipo))
+        _listParam.Add(New Datos.DParametro("@id", Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
-    Public Shared Function L_prReporteVentasVendedorUno(_fechaI As String, _FechaF As String, _codPrevendedor As String) As DataTable
+    Public Shared Function L_prReporteVentasVendedorUno(_fechaI As String, _FechaF As String, _codPrevendedor As String, _Proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 8))
         _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
         _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
         _listParam.Add(New Datos.DParametro("@codVendedor", _codPrevendedor))
+        _listParam.Add(New Datos.DParametro("@id", _Proveedor))
         _Tabla = D_ProcedimientoConParam("sp_go_TC0014", _listParam)
         Return _Tabla
     End Function
