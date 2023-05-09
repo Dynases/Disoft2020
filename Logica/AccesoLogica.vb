@@ -1049,7 +1049,7 @@ Public Class AccesoLogica
         If _Modo = 0 Then
             _Where = "canumi=canumi"
         ElseIf Mayor0 = True Then
-            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0 and (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0))> 0 "
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0 and (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND to001.oanumi NOT IN (Select oacoanumi from to001C where oacnconc > 0) AND oaest IN (1, 2)), 0))> 0 "
         Else
             _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
@@ -8295,12 +8295,13 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
-    Public Shared Function L_fnStockDisponible(almacen As Integer) As DataTable
+    Public Shared Function L_fnStockDisponible(almacen As Integer, proveedor As Integer) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@concep", proveedor))
         _listParam.Add(New Datos.DParametro("@alm", almacen))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
 

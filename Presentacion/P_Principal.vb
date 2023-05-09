@@ -1824,6 +1824,10 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub FP_Inventario_Click(sender As Object, e As EventArgs) Handles FP_Inventario.Click
+
+    End Sub
+
 
 #End Region
 

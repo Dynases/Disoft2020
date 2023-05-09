@@ -42,6 +42,7 @@ Public Class R01_StockDisponible
         'Me.WindowState = FormWindowState.Maximized
         MCrReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         _prCargarComboLibreriaDeposito(cbAlmacen)
+        P_prArmarComboProveedor()
         If gs_MostrarSucursal = 1 Then
             lbDepositoOrigen.Visible = True
             cbAlmacen.Visible = True
@@ -49,6 +50,16 @@ Public Class R01_StockDisponible
             lbDepositoOrigen.Visible = False
             cbAlmacen.Visible = False
         End If
+    End Sub
+
+    Private Sub P_prArmarComboProveedor()
+        Dim DtP As DataTable
+        DtP = L_fnObtenerProveedor()
+        DtP.Rows.Add(0, "TODOS")
+
+        g_prArmarCombo(cbProveedor, DtP, 60, 200, "COD", "PROVEEDOR")
+        cbProveedor.SelectedIndex = Convert.ToInt32(DtP.Rows.Count - 1)
+
     End Sub
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
@@ -77,13 +88,15 @@ Public Class R01_StockDisponible
         If swTipo.Value Then
             Dim objrep As New R_StockDisponible()
             '_dt = L_VistaStockDisponible()
-            _dt = L_fnStockDisponible(cbAlmacen.Value)
+            _dt = L_fnStockDisponible(cbAlmacen.Value, cbProveedor.Value)
+
             objrep.SetDataSource(_dt)
+            objrep.SetParameterValue("proveedor", cbProveedor.Text)
             MCrReporte.ReportSource = objrep
         Else
             Dim objrep As New R_StockDisponiblesSinAgrupacion()
             '_dt = L_VistaStockDisponible()
-            _dt = L_fnStockDisponible(cbAlmacen.Value)
+            _dt = L_fnStockDisponible(cbAlmacen.Value, cbProveedor.Value)
             objrep.SetDataSource(_dt)
             MCrReporte.ReportSource = objrep
         End If

@@ -24,6 +24,7 @@ Partial Class R01_StockDisponible
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim cbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbProveedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R01_StockDisponible))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
@@ -31,6 +32,8 @@ Partial Class R01_StockDisponible
         Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.cbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
+        Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -40,6 +43,7 @@ Partial Class R01_StockDisponible
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MGpFiltro.SuspendLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -54,9 +58,9 @@ Partial Class R01_StockDisponible
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 646)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MPnInferior.Size = New System.Drawing.Size(1181, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Size = New System.Drawing.Size(722, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -67,14 +71,14 @@ Partial Class R01_StockDisponible
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(914, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(522, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -108,13 +112,15 @@ Partial Class R01_StockDisponible
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.cbProveedor)
+        Me.MGpFiltro.Controls.Add(Me.LabelX1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
         Me.MGpFiltro.Controls.Add(Me.lbDepositoOrigen)
         Me.MGpFiltro.Controls.Add(Me.LabelX5)
         Me.MGpFiltro.Controls.Add(Me.swTipo)
         Me.MGpFiltro.Controls.Add(Me.Label1)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
         '
@@ -148,11 +154,13 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX5, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.lbDepositoOrigen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX1, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.cbProveedor, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.MCrReporte.Size = New System.Drawing.Size(1181, 690)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MCrReporte.Size = New System.Drawing.Size(722, 561)
         '
         'Timer1
         '
@@ -162,9 +170,10 @@ Partial Class R01_StockDisponible
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(48, 80)
+        Me.Label1.Location = New System.Drawing.Point(36, 65)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 18)
+        Me.Label1.Size = New System.Drawing.Size(57, 15)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Stock > 0"
         '
@@ -177,11 +186,10 @@ Partial Class R01_StockDisponible
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX5.Location = New System.Drawing.Point(40, 34)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LabelX5.Location = New System.Drawing.Point(30, 28)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX5.Size = New System.Drawing.Size(109, 28)
+        Me.LabelX5.Size = New System.Drawing.Size(82, 23)
         Me.LabelX5.TabIndex = 378
         Me.LabelX5.Text = "Agrupado"
         '
@@ -192,14 +200,13 @@ Partial Class R01_StockDisponible
         '
         Me.swTipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swTipo.Location = New System.Drawing.Point(157, 34)
-        Me.swTipo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.swTipo.Location = New System.Drawing.Point(118, 28)
         Me.swTipo.Name = "swTipo"
         Me.swTipo.OffBackColor = System.Drawing.Color.LawnGreen
         Me.swTipo.OffText = "NO"
         Me.swTipo.OnBackColor = System.Drawing.Color.Gold
         Me.swTipo.OnText = "SI"
-        Me.swTipo.Size = New System.Drawing.Size(171, 27)
+        Me.swTipo.Size = New System.Drawing.Size(128, 22)
         Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swTipo.TabIndex = 377
         Me.swTipo.Value = True
@@ -211,14 +218,13 @@ Partial Class R01_StockDisponible
         cbAlmacen_DesignTimeLayout.LayoutString = resources.GetString("cbAlmacen_DesignTimeLayout.LayoutString")
         Me.cbAlmacen.DesignTimeLayout = cbAlmacen_DesignTimeLayout
         Me.cbAlmacen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAlmacen.Location = New System.Drawing.Point(155, 103)
-        Me.cbAlmacen.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbAlmacen.Location = New System.Drawing.Point(116, 84)
         Me.cbAlmacen.Name = "cbAlmacen"
         Me.cbAlmacen.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbAlmacen.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.cbAlmacen.SelectedIndex = -1
         Me.cbAlmacen.SelectedItem = Nothing
-        Me.cbAlmacen.Size = New System.Drawing.Size(235, 26)
+        Me.cbAlmacen.Size = New System.Drawing.Size(176, 22)
         Me.cbAlmacen.TabIndex = 383
         Me.cbAlmacen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -232,20 +238,52 @@ Partial Class R01_StockDisponible
         Me.lbDepositoOrigen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbDepositoOrigen.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbDepositoOrigen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbDepositoOrigen.Location = New System.Drawing.Point(37, 108)
-        Me.lbDepositoOrigen.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbDepositoOrigen.Location = New System.Drawing.Point(28, 88)
         Me.lbDepositoOrigen.Name = "lbDepositoOrigen"
         Me.lbDepositoOrigen.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbDepositoOrigen.Size = New System.Drawing.Size(76, 20)
+        Me.lbDepositoOrigen.Size = New System.Drawing.Size(61, 16)
         Me.lbDepositoOrigen.TabIndex = 384
         Me.lbDepositoOrigen.Text = "Almacen:"
         '
+        'cbProveedor
+        '
+        Me.cbProveedor.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
+        Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
+        Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProveedor.Location = New System.Drawing.Point(116, 124)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbProveedor.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbProveedor.SelectedIndex = -1
+        Me.cbProveedor.SelectedItem = Nothing
+        Me.cbProveedor.Size = New System.Drawing.Size(176, 22)
+        Me.cbProveedor.TabIndex = 390
+        Me.cbProveedor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'LabelX1
+        '
+        Me.LabelX1.AutoSize = True
+        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX1.Location = New System.Drawing.Point(17, 129)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX1.Size = New System.Drawing.Size(72, 16)
+        Me.LabelX1.TabIndex = 389
+        Me.LabelX1.Text = "Proveedor:"
+        '
         'R01_StockDisponible
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1581, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.ClientSize = New System.Drawing.Size(1022, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "R01_StockDisponible"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -264,6 +302,7 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.ResumeLayout(False)
         Me.MGpFiltro.PerformLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -274,4 +313,6 @@ Partial Class R01_StockDisponible
     Friend WithEvents swTipo As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents cbAlmacen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
+    Friend WithEvents cbProveedor As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
 End Class
