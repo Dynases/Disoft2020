@@ -103,7 +103,7 @@ Public Class F0_PreciosAlterno
                     Dim rowIndex As Integer = precio.Rows.IndexOf(result(i))
                     Dim columnprecio As String = result(i).Item("yhcatpre")
                     Dim columnestado As String = "estado_" + result(i).Item("ygcod")
-                    productos.Rows(j).Item(columnprecio) = Math.Round(result(i).Item("yhprecio"), 2)
+                    productos.Rows(j).Item(columnprecio) = Math.Round(result(i).Item("yhprecio"), 5)
                     productos.Rows(j).Item(columnestado) = Str(result(i).Item("estado")) + "_" + Str(rowIndex).Trim
 
                 Next
@@ -129,7 +129,7 @@ Public Class F0_PreciosAlterno
                     .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
                     .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                     .Visible = True
-                    .FormatString = "0.00"
+                    .FormatString = "0.00000"
                 End With
 
             Next

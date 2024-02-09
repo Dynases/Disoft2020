@@ -394,7 +394,7 @@ Public Class F02_PedidoNuevo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .FormatString = "0.00"
+            .FormatString = "0.00000"
         End With
         With JGr_DetallePedido.RootTable.Columns(6)
             .Caption = "Monto Bs."
@@ -545,7 +545,7 @@ Public Class F02_PedidoNuevo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .FormatString = "0.00"
+            .FormatString = "0.00000"
         End With
         With JGr_Productos.RootTable.Columns(3)
             .Visible = False
@@ -629,7 +629,7 @@ Public Class F02_PedidoNuevo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .FormatString = "0.00"
+            .FormatString = "0.00000"
         End With
         With JGr_Productos.RootTable.Columns(4)
             .Visible = False
@@ -2553,7 +2553,12 @@ Public Class F02_PedidoNuevo
             If dt1.Rows(0).Item("ieest") = 2 Or dt1.Rows(0).Item("ieest") = 3 Then
                 ToastNotification.Show(Me, "Este pedido ya fue consolidado no puede modificarlo".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
             Else
-                _PModificarRegistro()
+                If dt1.Rows(0).Item("oaest") = 3 Then
+                    ToastNotification.Show(Me, "Este pedido ya fue entregado no puede modificarlo".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                Else
+                    _PModificarRegistro()
+                End If
+
             End If
         Else
             _PModificarRegistro()
@@ -3630,4 +3635,552 @@ Public Class F02_PedidoNuevo
         'Me.Opacity = 100
         'Timer1.Enabled = False
     End Sub
+
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        'Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
+        'If idChofer <> String.Empty Then
+        'frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer, cbPreVendedor.Text)
+        'End If
+        P_prImprimirNotaVenta(Tb_Id.Text, False, False)
+    End Sub
+
+    Private Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean)
+        Dim _Fecha, _FechaAl As Date
+        Dim _Ds, _Ds2, _Ds3 As New DataSet
+        Dim _Hora, _Literal, _TotalDecimal, _TotalDecimal2 As String
+        Dim _Desc, _TotalLi As Decimal
+        Dim _VistaPrevia As Boolean = True
+
+        _Desc = CDbl(0)
+
+        Dim listResult = New LPedido().ListarDespachoXNotaVenta(idPedido)
+        If (listResult.Count = 0) Then
+            Throw New Exception("No hay registros para generar el reporte.")
+        End If
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+
+        _Fecha = Now.Date.ToString("dd/MM/yyyy")
+        _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
+
+        'Literal 
+        _TotalLi = listResult.Item(0).Total
+        _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+        _TotalDecimal2 = CDbl(_TotalDecimal) * 100
+
+        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+
+
+        '_Ds2 = L_Reporte_Factura_Cia("1")
+        '_Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+
+        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " con " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+        _Ds2 = L_Reporte_Factura_Cia("1")
+        _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+        Dim objrep As Object = Nothing
+        Select Case _Ds3.Tables(0).Rows(0).Item("cbtimp").ToString
+            Case "1"
+                ReporteNotaVenta2(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            'Case "2"
+            '    ReporteNotaVenta(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "3"
+                ReporteNotaVenta3(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "4"
+                ReporteNotaVenta4(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "5"
+                ReporteNotaVenta5(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "6"
+                ReporteNotaVenta6(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "7"
+                ReporteNotaVenta7(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "8"
+                ReporteNotaVenta8(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "9"
+                ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult)
+            Case "10"
+                ReporteNotaVenta10(idPedido, _Ds2, _Ds3, _Literal, listResult, cbPreVendedor.Text)
+        End Select
+        ' P_Global.Visualizador = New Visualizador
+        'Dim objrep As New NotaVenta
+        'Dim dia, mes, ano As Integer
+        'Dim Fecliteral, mesl As String
+        ''Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        'Fecliteral = listResult.Item(0).oafdoc
+        'dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        'mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        'ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        'If mes = 1 Then
+        '    mesl = "Enero"
+        'End If
+        'If mes = 2 Then
+        '    mesl = "Febrero"
+        'End If
+        'If mes = 3 Then
+        '    mesl = "Marzo"
+        'End If
+        'If mes = 4 Then
+        '    mesl = "Abril"
+        'End If
+        'If mes = 5 Then
+        '    mesl = "Mayo"
+        'End If
+        'If mes = 6 Then
+        '    mesl = "Junio"
+        'End If
+        'If mes = 7 Then
+        '    mesl = "Julio"
+        'End If
+        'If mes = 8 Then
+        '    mesl = "Agosto"
+        'End If
+        'If mes = 9 Then
+        '    mesl = "Septiembre"
+        'End If
+        'If mes = 10 Then
+        '    mesl = "Octubre"
+        'End If
+        'If mes = 11 Then
+        '    mesl = "Noviembre"
+        'End If
+        'If mes = 12 Then
+        '    mesl = "Diciembre"
+        'End If
+
+        'Fecliteral = "La Paz, " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        'objrep.SetDataSource(listResult)
+        'objrep.SetParameterValue("Literal", _Literal)
+        'objrep.SetParameterValue("Fechali", Fecliteral)
+        'objrep.SetParameterValue("Telefono", 70000000)
+        'objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        'objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+
+
+        'If (_VistaPrevia = True) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+        '    P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        '    P_Global.Visualizador.ShowDialog() 'Comentar
+        '    P_Global.Visualizador.BringToFront() 'Comentar
+        'End If
+
+        'Dim pd As New PrintDocument()
+        'pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        'If (Not pd.PrinterSettings.IsValid) Then
+        '    ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+        '                           My.Resources.WARNING, 5 * 1000,
+        '                           eToastGlowColor.Blue, eToastPosition.BottomRight)
+        'Else
+        '    objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+        '    objrep.PrintToPrinter(1, False, 1, 1)
+        'End If
+
+        ''If (grabarPDF) Then
+        ''    'Copia de Factura en PDF
+        ''    If (Not Directory.Exists(gs_CarpetaRaiz + "\Facturas")) Then
+        ''        Directory.CreateDirectory(gs_CarpetaRaiz + "\Facturas")
+        ''    End If
+        ''    objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(idPedido) + ".pdf")
+
+        ''End If
+
+    End Sub
+
+    Private Shared Function ObtenerMesLiberal(mes As Integer) As String
+        Dim mesl As String = ""
+        If mes = 1 Then
+            mesl = "Enero"
+        End If
+        If mes = 2 Then
+            mesl = "Febrero"
+        End If
+        If mes = 3 Then
+            mesl = "Marzo"
+        End If
+        If mes = 4 Then
+            mesl = "Abril"
+        End If
+        If mes = 5 Then
+            mesl = "Mayo"
+        End If
+        If mes = 6 Then
+            mesl = "Junio"
+        End If
+        If mes = 7 Then
+            mesl = "Julio"
+        End If
+        If mes = 8 Then
+            mesl = "Agosto"
+        End If
+        If mes = 9 Then
+            mesl = "Septiembre"
+        End If
+        If mes = 10 Then
+            mesl = "Octubre"
+        End If
+        If mes = 11 Then
+            mesl = "Noviembre"
+        End If
+        If mes = 12 Then
+            mesl = "Diciembre"
+        End If
+
+        Return mesl
+    End Function
+    Private Sub ReporteNotaVenta2(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta2
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Literal", _Literal)
+        objrep.SetParameterValue("Fechali", Fecliteral)
+        objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+    End Sub
+
+    Private Sub ReporteNotaVenta3(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta3
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        Dim tipoZona As String = L_fnVerificarZona("oanumi =" + idPedido)
+        Dim esZonaLaPaz = IIf(tipoZona = "ES LA PAZ", "*", "")
+        Dim esZonaElAlto = IIf(tipoZona = "ES EL ALTO", "*", "")
+
+
+        objrep.Subreports.Item("NotaVenta3.rpt").SetDataSource(listResult)
+        objrep.SetDataSource(listResult)
+        'objrep.SetParameterValue("Literal", _Literal)
+        'objrep.SetParameterValue("Fechali", Fecliteral)
+
+        objrep.SetParameterValue("tipoZonaLaPaz", esZonaLaPaz)
+        objrep.SetParameterValue("tipoZonaElAlto", esZonaElAlto)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        objrep.SetParameterValue("tipoZonaLaPaz", esZonaLaPaz, "NotaVenta3.rpt")
+        objrep.SetParameterValue("tipoZonaElAlto", esZonaElAlto, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta3.rpt")
+        objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta3.rpt")
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub ReporteNotaVenta4(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta4
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        ' objrep.Subreports.Item("NotaVenta4.rpt").SetDataSource(listResult)
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        'objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString, "NotaVenta4.rpt")
+        'objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString, "NotaVenta4.rpt")
+        'objrep.SetParameterValue("Logo", gb_ubilogo, "NotaVenta4.rpt")
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+
+    End Sub
+    Private Sub ReporteNotaVenta5(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta5
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+        'Fecliteral = _Ds.Tables(0).Rows(0).Item("fvafec").ToString
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Literal", _Literal)
+        objrep.SetParameterValue("Fechali", Fecliteral)
+        objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
+            End If
+        End If
+
+    End Sub
+    Private Sub ReporteNotaVenta7(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta7
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Literal", _Literal)
+        objrep.SetParameterValue("Fechali", Fecliteral)
+        objrep.SetParameterValue("nombreUsuario", P_Global.gs_user)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(2, False, 1, 1)
+            End If
+        End If
+    End Sub
+    Private Sub ReporteNotaVenta6(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta_Ticket
+        Dim zona, repartidor, vendedor As String
+
+        Dim tZonaRepartidorVendedor As DataTable = L_fnObtenerZonaRepartidorDistribuidor("oanumi =" + idPedido)
+        If tZonaRepartidorVendedor.Rows.Count() > 0 Then
+            zona = tZonaRepartidorVendedor.Rows(0).Item("zona").ToString()
+            repartidor = tZonaRepartidorVendedor.Rows(0).Item("repartidor").ToString()
+            vendedor = tZonaRepartidorVendedor.Rows(0).Item("vendedor").ToString()
+        Else
+            zona = "--"
+            repartidor = "--"
+            vendedor = "--"
+        End If
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("zona", zona)
+        objrep.SetParameterValue("repartidor", repartidor)
+        objrep.SetParameterValue("vendedor", vendedor)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                Dim nrocopias As Integer = _Ds3.Tables(0).Rows(0).Item("cbnrocopias")
+                objrep.PrintToPrinter(nrocopias, False, 1, 1)
+            End If
+        End If
+    End Sub
+
+    Private Sub ReporteNotaVenta8(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta8
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+    End Sub
+
+    Private Sub ReporteNotaVenta9(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta9
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Logo", gb_ubilogo)
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+    End Sub
+    Private Sub ReporteNotaVenta10(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta), nomVendedor As String)
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New NotaVenta10
+        Dim dia, mes, ano As Integer
+        Dim Fecliteral, mesl As String
+
+        Fecliteral = listResult.Item(0).oafdoc
+        dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
+        mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
+        ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
+        mesl = ObtenerMesLiberal(mes)
+
+        Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
+        objrep.SetDataSource(listResult)
+        objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Direccion", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
+        objrep.SetParameterValue("Empresa", gs_empresaDescSistema)
+        objrep.SetParameterValue("idPedido", idPedido)
+        objrep.SetParameterValue("vendedor", nomVendedor)
+
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+    End Sub
+
 End Class

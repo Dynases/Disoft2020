@@ -100,6 +100,7 @@ Partial Class F0_PedidosAsignacion
         Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.Btn_ConfirmEntregaPedidos = New DevComponents.DotNetBar.ButtonX()
+        Me.btConfirmarPedidosCredito = New DevComponents.DotNetBar.ButtonX()
         Me.ConMenu_Imprimir = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem_ImprimirFiltrado = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuperTabItem4 = New DevComponents.DotNetBar.SuperTabItem()
@@ -237,8 +238,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.Size = New System.Drawing.Size(1284, 661)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
         '
@@ -247,7 +248,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel2.Controls.Add(Me.PanelEx6)
         Me.SuperTabControlPanel2.Controls.Add(Me.PanelEx7)
         Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(1022, 577)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(1284, 636)
         '
         'SuperTabItem2
         '
@@ -469,7 +470,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx6.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx6.Location = New System.Drawing.Point(323, 0)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(696, 576)
+        Me.PanelEx6.Size = New System.Drawing.Size(958, 635)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx6.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -492,7 +493,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx10.Location = New System.Drawing.Point(0, 512)
         Me.PanelEx10.Name = "PanelEx10"
         Me.PanelEx10.Padding = New System.Windows.Forms.Padding(3)
-        Me.PanelEx10.Size = New System.Drawing.Size(696, 65)
+        Me.PanelEx10.Size = New System.Drawing.Size(958, 124)
         Me.PanelEx10.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx10.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx10.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -508,7 +509,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox2.Location = New System.Drawing.Point(491, 97)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(202, 61)
+        Me.GroupBox2.Size = New System.Drawing.Size(464, 61)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "OBSERVACION ADICIONAL"
@@ -518,7 +519,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_AddObsAdicional1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_AddObsAdicional1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_AddObsAdicional1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_AddObsAdicional1.Location = New System.Drawing.Point(148, 16)
+        Me.Btn_AddObsAdicional1.Location = New System.Drawing.Point(410, 16)
         Me.Btn_AddObsAdicional1.Name = "Btn_AddObsAdicional1"
         Me.Btn_AddObsAdicional1.Size = New System.Drawing.Size(51, 42)
         Me.Btn_AddObsAdicional1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -542,7 +543,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObsAdicional1.Multiline = True
         Me.Tb_PedidoObsAdicional1.Name = "Tb_PedidoObsAdicional1"
         Me.Tb_PedidoObsAdicional1.PreventEnterBeep = True
-        Me.Tb_PedidoObsAdicional1.Size = New System.Drawing.Size(139, 42)
+        Me.Tb_PedidoObsAdicional1.Size = New System.Drawing.Size(401, 42)
         Me.Tb_PedidoObsAdicional1.TabIndex = 7
         '
         'GroupBox1
@@ -551,7 +552,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(491, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(202, 94)
+        Me.GroupBox1.Size = New System.Drawing.Size(464, 94)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "OBSERVACION DEL PEDIDO"
@@ -571,7 +572,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObs1.Multiline = True
         Me.Tb_PedidoObs1.Name = "Tb_PedidoObs1"
         Me.Tb_PedidoObs1.PreventEnterBeep = True
-        Me.Tb_PedidoObs1.Size = New System.Drawing.Size(196, 75)
+        Me.Tb_PedidoObs1.Size = New System.Drawing.Size(458, 75)
         Me.Tb_PedidoObs1.TabIndex = 7
         '
         'JGr_Detalles1
@@ -579,7 +580,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Detalles1.Dock = System.Windows.Forms.DockStyle.Left
         Me.JGr_Detalles1.Location = New System.Drawing.Point(3, 3)
         Me.JGr_Detalles1.Name = "JGr_Detalles1"
-        Me.JGr_Detalles1.Size = New System.Drawing.Size(488, 59)
+        Me.JGr_Detalles1.Size = New System.Drawing.Size(488, 118)
         Me.JGr_Detalles1.TabIndex = 1
         '
         'PanelEx11
@@ -591,7 +592,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx11.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx11.Location = New System.Drawing.Point(0, 92)
         Me.PanelEx11.Name = "PanelEx11"
-        Me.PanelEx11.Size = New System.Drawing.Size(696, 417)
+        Me.PanelEx11.Size = New System.Drawing.Size(958, 417)
         Me.PanelEx11.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx11.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx11.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -606,7 +607,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Registros1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Registros1.Location = New System.Drawing.Point(0, 0)
         Me.JGr_Registros1.Name = "JGr_Registros1"
-        Me.JGr_Registros1.Size = New System.Drawing.Size(696, 417)
+        Me.JGr_Registros1.Size = New System.Drawing.Size(958, 417)
         Me.JGr_Registros1.TabIndex = 0
         '
         'PanelEx9
@@ -621,7 +622,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx9.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx9.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx9.Name = "PanelEx9"
-        Me.PanelEx9.Size = New System.Drawing.Size(696, 92)
+        Me.PanelEx9.Size = New System.Drawing.Size(958, 92)
         Me.PanelEx9.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx9.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx9.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -638,7 +639,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_MostrarTodos1.Image = Global.Presentacion.My.Resources.Resources.MOSTRAR_TODOS
         Me.Btn_MostrarTodos1.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_MostrarTodos1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_MostrarTodos1.Location = New System.Drawing.Point(432, 0)
+        Me.Btn_MostrarTodos1.Location = New System.Drawing.Point(694, 0)
         Me.Btn_MostrarTodos1.Name = "Btn_MostrarTodos1"
         Me.Btn_MostrarTodos1.Size = New System.Drawing.Size(88, 92)
         Me.Btn_MostrarTodos1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -653,7 +654,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar1.Image = CType(resources.GetObject("Btn_Actualizar1.Image"), System.Drawing.Image)
         Me.Btn_Actualizar1.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_Actualizar1.Location = New System.Drawing.Point(520, 0)
+        Me.Btn_Actualizar1.Location = New System.Drawing.Point(782, 0)
         Me.Btn_Actualizar1.Name = "Btn_Actualizar1"
         Me.Btn_Actualizar1.Size = New System.Drawing.Size(88, 92)
         Me.Btn_Actualizar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -853,7 +854,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_AsignarPedidos.Image = Global.Presentacion.My.Resources.Resources.ASIGNAR_PEDIDOS
         Me.Btn_AsignarPedidos.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_AsignarPedidos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_AsignarPedidos.Location = New System.Drawing.Point(608, 0)
+        Me.Btn_AsignarPedidos.Location = New System.Drawing.Point(870, 0)
         Me.Btn_AsignarPedidos.Name = "Btn_AsignarPedidos"
         Me.Btn_AsignarPedidos.Size = New System.Drawing.Size(88, 92)
         Me.Btn_AsignarPedidos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -920,7 +921,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx7.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelEx7.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx7.Name = "PanelEx7"
-        Me.PanelEx7.Size = New System.Drawing.Size(320, 577)
+        Me.PanelEx7.Size = New System.Drawing.Size(320, 636)
         Me.PanelEx7.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx7.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -941,7 +942,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx8.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx8.Name = "PanelEx8"
         Me.PanelEx8.Padding = New System.Windows.Forms.Padding(5)
-        Me.PanelEx8.Size = New System.Drawing.Size(317, 225)
+        Me.PanelEx8.Size = New System.Drawing.Size(317, 284)
         Me.PanelEx8.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx8.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx8.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1019,7 +1020,7 @@ Partial Class F0_PedidosAsignacion
         Me.GM_Mapa1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa1.ShowTileGridLines = False
-        Me.GM_Mapa1.Size = New System.Drawing.Size(307, 215)
+        Me.GM_Mapa1.Size = New System.Drawing.Size(307, 274)
         Me.GM_Mapa1.TabIndex = 0
         Me.GM_Mapa1.Zoom = 0R
         '
@@ -1085,7 +1086,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 25)
         Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(1022, 577)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(1284, 636)
         Me.SuperTabControlPanel3.TabIndex = 0
         Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem3
         '
@@ -1099,7 +1100,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx16.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelEx16.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx16.Name = "PanelEx16"
-        Me.PanelEx16.Size = New System.Drawing.Size(320, 577)
+        Me.PanelEx16.Size = New System.Drawing.Size(320, 636)
         Me.PanelEx16.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx16.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx16.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1120,7 +1121,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx17.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx17.Name = "PanelEx17"
         Me.PanelEx17.Padding = New System.Windows.Forms.Padding(5)
-        Me.PanelEx17.Size = New System.Drawing.Size(317, 223)
+        Me.PanelEx17.Size = New System.Drawing.Size(317, 282)
         Me.PanelEx17.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx17.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx17.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1198,7 +1199,7 @@ Partial Class F0_PedidosAsignacion
         Me.GM_Mapa2.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa2.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa2.ShowTileGridLines = False
-        Me.GM_Mapa2.Size = New System.Drawing.Size(307, 213)
+        Me.GM_Mapa2.Size = New System.Drawing.Size(307, 272)
         Me.GM_Mapa2.TabIndex = 0
         Me.GM_Mapa2.Zoom = 0R
         '
@@ -1265,7 +1266,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx12.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx12.Location = New System.Drawing.Point(323, 2)
         Me.PanelEx12.Name = "PanelEx12"
-        Me.PanelEx12.Size = New System.Drawing.Size(696, 574)
+        Me.PanelEx12.Size = New System.Drawing.Size(958, 633)
         Me.PanelEx12.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx12.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx12.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1288,7 +1289,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx13.Location = New System.Drawing.Point(0, 510)
         Me.PanelEx13.Name = "PanelEx13"
         Me.PanelEx13.Padding = New System.Windows.Forms.Padding(3)
-        Me.PanelEx13.Size = New System.Drawing.Size(696, 62)
+        Me.PanelEx13.Size = New System.Drawing.Size(958, 121)
         Me.PanelEx13.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx13.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx13.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1304,7 +1305,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(491, 97)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(202, 61)
+        Me.GroupBox3.Size = New System.Drawing.Size(464, 61)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "OBSERVACION ADICIONAL"
@@ -1314,7 +1315,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_AddObsAdicional2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_AddObsAdicional2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_AddObsAdicional2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_AddObsAdicional2.Location = New System.Drawing.Point(148, 16)
+        Me.Btn_AddObsAdicional2.Location = New System.Drawing.Point(410, 16)
         Me.Btn_AddObsAdicional2.Name = "Btn_AddObsAdicional2"
         Me.Btn_AddObsAdicional2.Size = New System.Drawing.Size(51, 42)
         Me.Btn_AddObsAdicional2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1338,7 +1339,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObsAdicional2.Multiline = True
         Me.Tb_PedidoObsAdicional2.Name = "Tb_PedidoObsAdicional2"
         Me.Tb_PedidoObsAdicional2.PreventEnterBeep = True
-        Me.Tb_PedidoObsAdicional2.Size = New System.Drawing.Size(139, 42)
+        Me.Tb_PedidoObsAdicional2.Size = New System.Drawing.Size(401, 42)
         Me.Tb_PedidoObsAdicional2.TabIndex = 7
         '
         'GroupBox4
@@ -1347,7 +1348,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox4.Location = New System.Drawing.Point(491, 3)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(202, 94)
+        Me.GroupBox4.Size = New System.Drawing.Size(464, 94)
         Me.GroupBox4.TabIndex = 9
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "OBSERVACION DEL PEDIDO"
@@ -1367,7 +1368,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObs2.Multiline = True
         Me.Tb_PedidoObs2.Name = "Tb_PedidoObs2"
         Me.Tb_PedidoObs2.PreventEnterBeep = True
-        Me.Tb_PedidoObs2.Size = New System.Drawing.Size(196, 75)
+        Me.Tb_PedidoObs2.Size = New System.Drawing.Size(458, 75)
         Me.Tb_PedidoObs2.TabIndex = 7
         '
         'JGr_Detalles2
@@ -1375,7 +1376,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Detalles2.Dock = System.Windows.Forms.DockStyle.Left
         Me.JGr_Detalles2.Location = New System.Drawing.Point(3, 3)
         Me.JGr_Detalles2.Name = "JGr_Detalles2"
-        Me.JGr_Detalles2.Size = New System.Drawing.Size(488, 56)
+        Me.JGr_Detalles2.Size = New System.Drawing.Size(488, 115)
         Me.JGr_Detalles2.TabIndex = 1
         '
         'PanelEx14
@@ -1387,7 +1388,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx14.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx14.Location = New System.Drawing.Point(0, 92)
         Me.PanelEx14.Name = "PanelEx14"
-        Me.PanelEx14.Size = New System.Drawing.Size(696, 415)
+        Me.PanelEx14.Size = New System.Drawing.Size(958, 415)
         Me.PanelEx14.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx14.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx14.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1402,7 +1403,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Registros2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Registros2.Location = New System.Drawing.Point(0, 0)
         Me.JGr_Registros2.Name = "JGr_Registros2"
-        Me.JGr_Registros2.Size = New System.Drawing.Size(696, 415)
+        Me.JGr_Registros2.Size = New System.Drawing.Size(958, 415)
         Me.JGr_Registros2.TabIndex = 0
         '
         'PanelEx15
@@ -1414,11 +1415,12 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx15.Controls.Add(Me.Btn_Actualizar2)
         Me.PanelEx15.Controls.Add(Me.GroupPanel4)
         Me.PanelEx15.Controls.Add(Me.Btn_ConfirmEntregaPedidos)
+        Me.PanelEx15.Controls.Add(Me.btConfirmarPedidosCredito)
         Me.PanelEx15.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx15.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx15.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx15.Name = "PanelEx15"
-        Me.PanelEx15.Size = New System.Drawing.Size(696, 92)
+        Me.PanelEx15.Size = New System.Drawing.Size(958, 92)
         Me.PanelEx15.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx15.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx15.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1434,7 +1436,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupPanel7.Controls.Add(Me.Panel1)
         Me.GroupPanel7.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupPanel7.Location = New System.Drawing.Point(185, 0)
+        Me.GroupPanel7.Location = New System.Drawing.Point(348, 0)
         Me.GroupPanel7.Name = "GroupPanel7"
         Me.GroupPanel7.Size = New System.Drawing.Size(236, 92)
         '
@@ -1535,7 +1537,7 @@ Partial Class F0_PedidosAsignacion
         Me.btn_MostrarTodos2.Image = Global.Presentacion.My.Resources.Resources.MOSTRAR_TODOS
         Me.btn_MostrarTodos2.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btn_MostrarTodos2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btn_MostrarTodos2.Location = New System.Drawing.Point(421, 0)
+        Me.btn_MostrarTodos2.Location = New System.Drawing.Point(584, 0)
         Me.btn_MostrarTodos2.Name = "btn_MostrarTodos2"
         Me.btn_MostrarTodos2.Size = New System.Drawing.Size(88, 92)
         Me.btn_MostrarTodos2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1550,7 +1552,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar2.Image = CType(resources.GetObject("Btn_Actualizar2.Image"), System.Drawing.Image)
         Me.Btn_Actualizar2.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar2.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_Actualizar2.Location = New System.Drawing.Point(509, 0)
+        Me.Btn_Actualizar2.Location = New System.Drawing.Point(672, 0)
         Me.Btn_Actualizar2.Name = "Btn_Actualizar2"
         Me.Btn_Actualizar2.Size = New System.Drawing.Size(88, 92)
         Me.Btn_Actualizar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1750,12 +1752,27 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_ConfirmEntregaPedidos.Image = Global.Presentacion.My.Resources.Resources.ASIGNAR_PEDIDOS
         Me.Btn_ConfirmEntregaPedidos.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_ConfirmEntregaPedidos.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_ConfirmEntregaPedidos.Location = New System.Drawing.Point(597, 0)
+        Me.Btn_ConfirmEntregaPedidos.Location = New System.Drawing.Point(760, 0)
         Me.Btn_ConfirmEntregaPedidos.Name = "Btn_ConfirmEntregaPedidos"
         Me.Btn_ConfirmEntregaPedidos.Size = New System.Drawing.Size(99, 92)
         Me.Btn_ConfirmEntregaPedidos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Btn_ConfirmEntregaPedidos.TabIndex = 2
         Me.Btn_ConfirmEntregaPedidos.Text = "CONFIRMAR ENTREGA DE PEDIDOS"
+        '
+        'btConfirmarPedidosCredito
+        '
+        Me.btConfirmarPedidosCredito.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btConfirmarPedidosCredito.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btConfirmarPedidosCredito.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btConfirmarPedidosCredito.Image = Global.Presentacion.My.Resources.Resources.ASIGNAR_PEDIDOS
+        Me.btConfirmarPedidosCredito.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btConfirmarPedidosCredito.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btConfirmarPedidosCredito.Location = New System.Drawing.Point(859, 0)
+        Me.btConfirmarPedidosCredito.Name = "btConfirmarPedidosCredito"
+        Me.btConfirmarPedidosCredito.Size = New System.Drawing.Size(99, 92)
+        Me.btConfirmarPedidosCredito.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btConfirmarPedidosCredito.TabIndex = 12
+        Me.btConfirmarPedidosCredito.Text = "CONFIRMAR PEDIDOS A CREDITO"
         '
         'ConMenu_Imprimir
         '
@@ -1786,7 +1803,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 25)
         Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
-        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(1022, 577)
+        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(1284, 636)
         Me.SuperTabControlPanel4.TabIndex = 0
         Me.SuperTabControlPanel4.TabItem = Me.SuperTabItem4
         '
@@ -1800,7 +1817,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx18.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelEx18.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx18.Name = "PanelEx18"
-        Me.PanelEx18.Size = New System.Drawing.Size(320, 577)
+        Me.PanelEx18.Size = New System.Drawing.Size(320, 636)
         Me.PanelEx18.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx18.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx18.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1821,7 +1838,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx19.Location = New System.Drawing.Point(0, 354)
         Me.PanelEx19.Name = "PanelEx19"
         Me.PanelEx19.Padding = New System.Windows.Forms.Padding(5)
-        Me.PanelEx19.Size = New System.Drawing.Size(317, 223)
+        Me.PanelEx19.Size = New System.Drawing.Size(317, 282)
         Me.PanelEx19.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx19.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx19.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1899,7 +1916,7 @@ Partial Class F0_PedidosAsignacion
         Me.GM_Mapa3.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa3.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa3.ShowTileGridLines = False
-        Me.GM_Mapa3.Size = New System.Drawing.Size(307, 213)
+        Me.GM_Mapa3.Size = New System.Drawing.Size(307, 272)
         Me.GM_Mapa3.TabIndex = 0
         Me.GM_Mapa3.Zoom = 0R
         '
@@ -1966,7 +1983,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx20.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx20.Location = New System.Drawing.Point(323, 2)
         Me.PanelEx20.Name = "PanelEx20"
-        Me.PanelEx20.Size = New System.Drawing.Size(696, 574)
+        Me.PanelEx20.Size = New System.Drawing.Size(958, 633)
         Me.PanelEx20.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx20.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx20.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -1989,7 +2006,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx21.Location = New System.Drawing.Point(0, 506)
         Me.PanelEx21.Name = "PanelEx21"
         Me.PanelEx21.Padding = New System.Windows.Forms.Padding(3)
-        Me.PanelEx21.Size = New System.Drawing.Size(696, 62)
+        Me.PanelEx21.Size = New System.Drawing.Size(958, 121)
         Me.PanelEx21.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx21.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx21.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -2005,7 +2022,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox5.Location = New System.Drawing.Point(491, 97)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(202, 61)
+        Me.GroupBox5.Size = New System.Drawing.Size(464, 61)
         Me.GroupBox5.TabIndex = 10
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "OBSERVACION ADICIONAL"
@@ -2015,7 +2032,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_AddObsAdicional3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btn_AddObsAdicional3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btn_AddObsAdicional3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Btn_AddObsAdicional3.Location = New System.Drawing.Point(148, 16)
+        Me.Btn_AddObsAdicional3.Location = New System.Drawing.Point(410, 16)
         Me.Btn_AddObsAdicional3.Name = "Btn_AddObsAdicional3"
         Me.Btn_AddObsAdicional3.Size = New System.Drawing.Size(51, 42)
         Me.Btn_AddObsAdicional3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -2039,7 +2056,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObsAdicional3.Multiline = True
         Me.Tb_PedidoObsAdicional3.Name = "Tb_PedidoObsAdicional3"
         Me.Tb_PedidoObsAdicional3.PreventEnterBeep = True
-        Me.Tb_PedidoObsAdicional3.Size = New System.Drawing.Size(139, 42)
+        Me.Tb_PedidoObsAdicional3.Size = New System.Drawing.Size(401, 42)
         Me.Tb_PedidoObsAdicional3.TabIndex = 7
         '
         'GroupBox6
@@ -2048,7 +2065,7 @@ Partial Class F0_PedidosAsignacion
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox6.Location = New System.Drawing.Point(491, 3)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(202, 94)
+        Me.GroupBox6.Size = New System.Drawing.Size(464, 94)
         Me.GroupBox6.TabIndex = 9
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "OBSERVACION DEL PEDIDO"
@@ -2068,7 +2085,7 @@ Partial Class F0_PedidosAsignacion
         Me.Tb_PedidoObs3.Multiline = True
         Me.Tb_PedidoObs3.Name = "Tb_PedidoObs3"
         Me.Tb_PedidoObs3.PreventEnterBeep = True
-        Me.Tb_PedidoObs3.Size = New System.Drawing.Size(196, 75)
+        Me.Tb_PedidoObs3.Size = New System.Drawing.Size(458, 75)
         Me.Tb_PedidoObs3.TabIndex = 7
         '
         'JGr_Detalles3
@@ -2076,7 +2093,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Detalles3.Dock = System.Windows.Forms.DockStyle.Left
         Me.JGr_Detalles3.Location = New System.Drawing.Point(3, 3)
         Me.JGr_Detalles3.Name = "JGr_Detalles3"
-        Me.JGr_Detalles3.Size = New System.Drawing.Size(488, 56)
+        Me.JGr_Detalles3.Size = New System.Drawing.Size(488, 115)
         Me.JGr_Detalles3.TabIndex = 1
         '
         'PanelEx22
@@ -2088,7 +2105,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx22.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx22.Location = New System.Drawing.Point(0, 92)
         Me.PanelEx22.Name = "PanelEx22"
-        Me.PanelEx22.Size = New System.Drawing.Size(696, 408)
+        Me.PanelEx22.Size = New System.Drawing.Size(958, 408)
         Me.PanelEx22.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx22.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx22.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -2103,7 +2120,7 @@ Partial Class F0_PedidosAsignacion
         Me.JGr_Registros3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Registros3.Location = New System.Drawing.Point(0, 0)
         Me.JGr_Registros3.Name = "JGr_Registros3"
-        Me.JGr_Registros3.Size = New System.Drawing.Size(696, 408)
+        Me.JGr_Registros3.Size = New System.Drawing.Size(958, 408)
         Me.JGr_Registros3.TabIndex = 0
         '
         'PanelEx23
@@ -2117,7 +2134,7 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx23.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx23.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx23.Name = "PanelEx23"
-        Me.PanelEx23.Size = New System.Drawing.Size(696, 92)
+        Me.PanelEx23.Size = New System.Drawing.Size(958, 92)
         Me.PanelEx23.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx23.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx23.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -2134,7 +2151,7 @@ Partial Class F0_PedidosAsignacion
         Me.btn_MostrarTodos3.Image = Global.Presentacion.My.Resources.Resources.MOSTRAR_TODOS
         Me.btn_MostrarTodos3.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btn_MostrarTodos3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btn_MostrarTodos3.Location = New System.Drawing.Point(520, 0)
+        Me.btn_MostrarTodos3.Location = New System.Drawing.Point(782, 0)
         Me.btn_MostrarTodos3.Name = "btn_MostrarTodos3"
         Me.btn_MostrarTodos3.Size = New System.Drawing.Size(88, 92)
         Me.btn_MostrarTodos3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -2149,7 +2166,7 @@ Partial Class F0_PedidosAsignacion
         Me.Btn_Actualizar3.Image = CType(resources.GetObject("Btn_Actualizar3.Image"), System.Drawing.Image)
         Me.Btn_Actualizar3.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.Btn_Actualizar3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_Actualizar3.Location = New System.Drawing.Point(608, 0)
+        Me.Btn_Actualizar3.Location = New System.Drawing.Point(870, 0)
         Me.Btn_Actualizar3.Name = "Btn_Actualizar3"
         Me.Btn_Actualizar3.Size = New System.Drawing.Size(88, 92)
         Me.Btn_Actualizar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -2638,4 +2655,5 @@ Partial Class F0_PedidosAsignacion
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ConMenu_Rechazado As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents btConfirmarPedidosCredito As DevComponents.DotNetBar.ButtonX
 End Class

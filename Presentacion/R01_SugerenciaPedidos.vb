@@ -56,7 +56,7 @@ Public Class R01_SugerenciaPedidos
 
     Private Sub CargarReporte()
         Dim _dt As New DataTable
-        _dt = L_fnPedidoSugerencia(cbAlmacen.Value, cbProveedor.Value)
+        _dt = L_fnPedidoSugerencia(cbAlmacen.Value, cbProveedor.Value, CInt(tbAnio.Text))
 
         If _dt.Rows.Count > 0 Then
             'Dim provee As String = cbProv.Text

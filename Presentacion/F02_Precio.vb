@@ -306,7 +306,7 @@ Public Class F02_Precio
                 .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
                 .CellStyle.FontSize = gi_fuenteTamano
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .FormatString = "0.00"
+                .FormatString = "0.00000"
             End With
         Next
 

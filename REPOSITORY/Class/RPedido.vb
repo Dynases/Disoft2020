@@ -149,6 +149,7 @@ Public Class RPedido
             Using db = GetSchema()
                 Dim listResult = (From a In db.VR_GO_DespachoXCliente
                                   Where a.oaccbnumi = idChofer And a.oaest = estado And a.oaap = 1
+                                  Order By a.oanumi Ascending
                                   Select New RDespachoxCliente With {
                                       .oaccbnumi = a.oaccbnumi,
                                       .ccnumi = a.ccnumi,
@@ -454,6 +455,7 @@ Public Class RPedido
                                       .cacod = a.cacod,
                                       .cadesc = a.cadesc,
                                       .cauventa = a.cauventa,
+                                      .cedesc = a.cedesc,
                                       .obpbase = a.obpbase,
                                       .obpcant = a.obpcant,
                                       .obptot = a.obptot,

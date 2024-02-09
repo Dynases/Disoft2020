@@ -577,16 +577,16 @@ Public Class F0_MCaja
                 .Visible = False
             End With
 
-            With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
-                .Width = 150
-                .Caption = "NRO. FACTURA"
-                .Visible = False
+            With Dgv_PedidoTotal.RootTable.Columns("ccnumi")
+                .Width = 100
+                .Caption = "COD. CLI."
+                .Visible = True
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
                 .Caption = "CLIENTE"
-                .Width = 400
-                .Visible = False
+                .Width = 150
+                .Visible = True
             End With
             With Dgv_PedidoTotal.RootTable.Columns("total")
                 .Caption = "TOTAL"
@@ -675,21 +675,21 @@ Public Class F0_MCaja
             End With
 
 
-            With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
-                .Width = 150
-                .Caption = "Nro Factura"
-                .Visible = False
+            With Dgv_PedidoTotal.RootTable.Columns("ccnumi")
+                .Width = 100
+                .Caption = "COD. CLI."
+                .Visible = True
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
-                .Caption = "cliente"
+                .Caption = "CLIENTE"
                 .Width = 150
-                .Visible = False
+                .Visible = True
             End With
             With Dgv_PedidoTotal.RootTable.Columns("total")
                 .Caption = "TOTAL"
                 .Width = 200
-                .Visible = True
+                .Visible = False
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
             End With
@@ -721,7 +721,18 @@ Public Class F0_MCaja
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = False
             End With
-
+            With Dgv_PedidoTotal.RootTable.Columns("concepto")
+                .Caption = "CONCEPTO"
+                .Width = 150
+                .Visible = True
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("gasto")
+                .Caption = "GASTOS"
+                .Width = 200
+                .Visible = True
+                .FormatString = "0.00"
+                .AggregateFunction = AggregateFunction.Sum
+            End With
             With Dgv_PedidoTotal
                 .GroupByBoxVisible = False
                 'diseño de la grilla
@@ -1054,7 +1065,11 @@ Public Class F0_MCaja
                 If dt.Rows.Count > 0 Then
                     For i = 0 To dt.Rows.Count - 1
                         'Grabar Estado 8 de Cierre de Caja en la TO001D
-                        L_GrabarTO001D(dt.Rows(i).Item("oanumi"), "8", "Cierre de Caja")
+                        If dt.Rows(i).Item("oaest") = 4 Then
+                            ActualizarTIE001(dt.Rows(i).Item("oanumi"), numi)
+                        Else
+                            L_GrabarTO001D(dt.Rows(i).Item("oanumi"), "8", "Cierre de Caja")
+                        End If
                     Next
                 End If
 
@@ -1434,7 +1449,10 @@ Public Class F0_MCaja
             End If
             totalCorteDol = Dgv_Cortes.GetTotal(Dgv_Cortes.RootTable.Columns("TotalD"), AggregateFunction.Sum)
             TotalDeposito = Dgv_Depositos.GetTotal(Dgv_Depositos.RootTable.Columns("Monto"), AggregateFunction.Sum)
-            totalConciliacion = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("total"), AggregateFunction.Sum)
+
+            totalConciliacion = (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("contado"), AggregateFunction.Sum)) + (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("credito"), AggregateFunction.Sum))
+
+            'totalConciliacion = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("total"), AggregateFunction.Sum)
             Tb_TEfectivo.Value = totalCorteBol + (totalCorteDol * Tb_TipoCambio.Value)
             Tb_TDeposito.Value = TotalDeposito
             Tb_TCredito.Value = credito

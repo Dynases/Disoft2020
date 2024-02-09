@@ -184,6 +184,16 @@ Public Class F01_Personal
             lbAlmacen.Visible = False
             cbSucursal.Visible = False
         End If
+
+
+        Dim parametro As Integer = 1
+        If parametro = 1 Then
+            GroupPanelPreferencias.Visible = True
+            GroupPanelDatosGenerales.Dock = DockStyle.Left
+        Else
+            GroupPanelPreferencias.Visible = False
+            GroupPanelDatosGenerales.Dock = DockStyle.Fill
+        End If
     End Sub
     Private Sub _prCargarComboLibreriaDeposito(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
@@ -273,7 +283,8 @@ Public Class F01_Personal
         Dim eciv As String
         Dim plan As String
         Dim reloj As String
-
+        Dim pre As Integer
+        Dim zon As Integer
         TbNombre.Select()
         If (Nuevo) Then
             If (P_Validar()) Then
@@ -302,11 +313,19 @@ Public Class F01_Personal
                 'Else
                 reloj = "1"
                 'End If
-
-
+                If (swPrecio.Value) Then
+                    pre = "1"
+                Else
+                    pre = "0"
+                End If
+                If (swZona.Value) Then
+                    zon = "1"
+                Else
+                    zon = "0"
+                End If
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                        fret, fot, est, eciv, plan, reloj, cbSucursal.Value)
+                                                        fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon)
 
                 If (res) Then
                     P_Limpiar()
@@ -354,11 +373,20 @@ Public Class F01_Personal
                 'Else
                 reloj = "0"
                 'End If
-
+                If (swPrecio.Value) Then
+                    pre = "1"
+                Else
+                    pre = "0"
+                End If
+                If (swZona.Value) Then
+                    zon = "1"
+                Else
+                    zon = "0"
+                End If
 
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value)
+                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon)
 
                 If (res) Then
                     Bool = False
@@ -432,6 +460,8 @@ Public Class F01_Personal
         cbSucursal.ReadOnly = False
         'Botones
         SbEstado.IsReadOnly = False
+        swPrecio.IsReadOnly = False
+        swZona.IsReadOnly = False
     End Sub
 
     Private Sub P_Deshabilitar()
@@ -446,6 +476,10 @@ Public Class F01_Personal
         cbSucursal.ReadOnly = True
         'Botones
         SbEstado.IsReadOnly = True
+
+        swPrecio.IsReadOnly = True
+        swZona.IsReadOnly = True
+
     End Sub
 
     Private Sub P_Limpiar()
@@ -476,6 +510,8 @@ Public Class F01_Personal
         End If
         'Botones
         SbEstado.Value = True
+        swPrecio.Value = False
+        swZona.Value = False
     End Sub
 
     Private Sub P_prArmarCombos()
@@ -549,6 +585,8 @@ Public Class F01_Personal
                 'End If
 
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))
+                'swPrecio.Value = IIf(.Cells("precio").Value = 0, False, True)
+                'swZona.Value = IIf(.Cells("zona").Value = 0, False, True)
             End With
 
         Else
@@ -684,6 +722,12 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("cbuact")
             .Visible = False
         End With
+        'With Dgj1Busqueda.RootTable.Columns("precio")
+        '    .Visible = False
+        'End With
+        'With Dgj1Busqueda.RootTable.Columns("zona")
+        '    .Visible = False
+        'End With
 
         'Habilitar Filtradores
         With Dgj1Busqueda
@@ -698,7 +742,6 @@ Public Class F01_Personal
             .AlternatingColors = True
             .RecordNavigator = True
         End With
-
     End Sub
 
     Public Function P_Validar() As Boolean
@@ -723,13 +766,15 @@ Public Class F01_Personal
                 sms = sms + vbCrLf + "debe elegir un tipo de personal valido de la lista."
             End If
         End If
-
-        Dim dt As DataTable = L_fnContarPersonal()
-        If (SbEstado.Value = True And Nuevo = True) Or (SbEstado.Value = True And Modificar = True) Then
-            If (dt.Rows(0).Item("cantidad") + 1 > gs_CantPersonal) Then
-                sms = "Ya llegó al limite de registros de Personal, comuniquese con el Administrador del Sistema."
+        If Nuevo = True Then
+            Dim dt As DataTable = L_fnContarPersonal()
+            If (SbEstado.Value = True And Nuevo = True) Or (SbEstado.Value = True And Modificar = True) Then
+                If (dt.Rows(0).Item("cantidad") + 1 > gs_CantPersonal) Then
+                    sms = "Ya llegó al limite de registros de Personal, comuniquese con el Administrador del Sistema."
+                End If
             End If
         End If
+
 
 
         If (Not sms = String.Empty) Then

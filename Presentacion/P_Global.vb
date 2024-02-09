@@ -28,6 +28,7 @@ Module P_Global
     Public gb_ubilogo As String = ""
     Public gi_frecvisita As Byte = 0 '0=no mostrará ni registrará frec de visitas, 1=mostrará y registrará frec de visitas
     Public gi_CRM As Byte = 0 '0=no mostrará menu CRM, 1=mostrará menu CRM
+    Public gi_pdev As Byte = 0 '0=no volvera a cargar los productos devueltos a la salida, 1=si volvera a cargar los productos devueltos a la salida
 #End Region
 
     Public gs_Ip As String = "localhost"

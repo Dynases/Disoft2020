@@ -30,6 +30,8 @@ Partial Class R01_SugerenciaPedidos
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.tbAnio = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -104,6 +106,8 @@ Partial Class R01_SugerenciaPedidos
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.LabelX2)
+        Me.MGpFiltro.Controls.Add(Me.tbAnio)
         Me.MGpFiltro.Controls.Add(Me.cbProveedor)
         Me.MGpFiltro.Controls.Add(Me.LabelX1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
@@ -141,6 +145,8 @@ Partial Class R01_SugerenciaPedidos
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX1, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbProveedor, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.tbAnio, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX2, 0)
         '
         'MCrReporte
         '
@@ -189,7 +195,7 @@ Partial Class R01_SugerenciaPedidos
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(3, 69)
+        Me.LabelX1.Location = New System.Drawing.Point(3, 106)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX1.Size = New System.Drawing.Size(91, 16)
@@ -202,7 +208,7 @@ Partial Class R01_SugerenciaPedidos
         cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
         Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
         Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProveedor.Location = New System.Drawing.Point(104, 64)
+        Me.cbProveedor.Location = New System.Drawing.Point(104, 101)
         Me.cbProveedor.Name = "cbProveedor"
         Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbProveedor.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -211,6 +217,36 @@ Partial Class R01_SugerenciaPedidos
         Me.cbProveedor.Size = New System.Drawing.Size(176, 22)
         Me.cbProveedor.TabIndex = 388
         Me.cbProveedor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'tbAnio
+        '
+        '
+        '
+        '
+        Me.tbAnio.Border.Class = "TextBoxBorder"
+        Me.tbAnio.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbAnio.Location = New System.Drawing.Point(104, 64)
+        Me.tbAnio.Name = "tbAnio"
+        Me.tbAnio.PreventEnterBeep = True
+        Me.tbAnio.Size = New System.Drawing.Size(176, 21)
+        Me.tbAnio.TabIndex = 389
+        '
+        'LabelX2
+        '
+        Me.LabelX2.AutoSize = True
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX2.Location = New System.Drawing.Point(58, 66)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX2.Size = New System.Drawing.Size(36, 16)
+        Me.LabelX2.TabIndex = 390
+        Me.LabelX2.Text = "AÑO:"
         '
         'R01_SugerenciaPedidos
         '
@@ -243,4 +279,6 @@ Partial Class R01_SugerenciaPedidos
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbProveedor As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbAnio As DevComponents.DotNetBar.Controls.TextBoxX
 End Class

@@ -237,6 +237,8 @@ Public Class F02_Movimiento
                             'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
                             DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
                             DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
+
+
                             DtDetalle.Rows(dgjDetalle.Row).Item("stock") = Row.Cells("stock").Value
 
                         Else

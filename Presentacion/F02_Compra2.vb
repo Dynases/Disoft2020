@@ -150,6 +150,7 @@ Public Class F02_Compra2
 
     Private Sub dgjDetalle_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjDetalle.KeyDown
 
+
         If (e.KeyData = Keys.Control + Keys.Enter) Then
             P_prArmarAyudaProducto()
         ElseIf (e.KeyData = Keys.Enter) Then
@@ -210,7 +211,7 @@ Public Class F02_Compra2
     End Sub
     Private Sub dgjDetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles dgjDetalle.EditingCell
         If (BoNuevo Or BoModificar) Then
-            If (e.Column.Key.Equals("cabcantcj") Or e.Column.Key.Equals("cabcantun") Or e.Column.Key.Equals("cabsubtot") Or e.Column.Key.Equals("cabdesccj")) Then
+            If (e.Column.Key.Equals("cabcantcj") Or e.Column.Key.Equals("cabcantun") Or e.Column.Key.Equals("cabsubtot") Or e.Column.Key.Equals("cabdesccj") Or e.Column.Key.Equals("cabpcostoun") Or e.Column.Key.Equals("caflot") Or e.Column.Key.Equals("cafven")) Then
                 e.Cancel = False
             Else
                 e.Cancel = True
@@ -222,7 +223,7 @@ Public Class F02_Compra2
 
     Private Sub dgjDetalle_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles dgjDetalle.CellEdited
         If (BoModificar Or BoNuevo) Then
-            If (e.Column.Key.Equals("cabcantcj") Or e.Column.Key.Equals("cabcantun") Or e.Column.Key.Equals("cabsubtot") Or e.Column.Key.Equals("cabdesccj")) Then
+            If (e.Column.Key.Equals("cabcantcj") Or e.Column.Key.Equals("cabcantun") Or e.Column.Key.Equals("cabsubtot") Or e.Column.Key.Equals("cabdesccj") Or e.Column.Key.Equals("cabpcostoun")) Then
 
                 'If (e.Column.Key.Equals("cabcant")) Then
                 '    'dgjDetalle.SetValue("total", dgjDetalle.GetValue("cabcant") * dgjDetalle.GetValue("cabpcom"))
@@ -728,7 +729,7 @@ Public Class F02_Compra2
 
                 dtiFechaCompra.Select()
 
-                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
+                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado", "PP", "caflot", "cafven")
 
                 RecuperarDatosTFC001()  'Recupera datos para grabar en la BDDiconCF en la Tabla TFC001
                 If ValidarDescuentos() = False Then
@@ -783,7 +784,7 @@ Public Class F02_Compra2
                 dtiFechaCompra.Select()
 
                 'Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcant", "cabpcom", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
-                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
+                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado", "PP", "caflot", "cafven")
 
                 RecuperarDatosTFC001()  'Recupera datos para grabar en la BDDiconCF en la Tabla TFC001
                 'Grabar
@@ -1366,9 +1367,9 @@ Public Class F02_Compra2
             .CellStyle.Font = FtTitulo
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            .FormatString = "0.0000"
+            .FormatString = "0.00000"
             .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
-            .TotalFormatString = "0.0000"
+            .TotalFormatString = "0.00000"
         End With
         With dgjDetalle.RootTable.Columns("cabputi")
             .Caption = "% Utilidad"
@@ -1447,7 +1448,39 @@ Public Class F02_Compra2
         With dgjDetalle.RootTable.Columns("estado")
             .Visible = False
         End With
-
+        With dgjDetalle.RootTable.Columns("PP")
+            .Caption = "Promedio Ponderado"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            '.CellStyle.BackColor = Color.AliceBlue
+            .FormatString = "0.00"
+        End With
+        'With dgjDetalle.RootTable.Columns("caflot")
+        '    .Caption = "Lote"
+        '    .Width = 100
+        '    .HeaderStyle.Font = FtTitulo
+        '    .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+        '    .CellStyle.Font = FtNormal
+        '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+        '    .Visible = True
+        '    '.EditType = EditType.CalendarCombo
+        '    '.CellStyle.BackColor = Color.AliceBlue
+        'End With
+        With dgjDetalle.RootTable.Columns("cafven")
+            .Caption = "F. Vencimiento"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .EditType = EditType.CalendarCombo
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
         'Habilitar Filtradores
         With dgjDetalle
             .GroupByBoxVisible = False
@@ -1532,10 +1565,10 @@ Public Class F02_Compra2
 
     Private Sub P_prArmarAyudaProveedor()
         Dim frmAyuda As Modelo.ModeloAyuda
-        Dim dt As DataTable = L_fnObtenerTabla("cmnumi, cmdesc, cmnit", "TC010", "cmest=1")
+        Dim dt As DataTable = L_fnObtenerTabla("cmnumi, cmrsocial, cmnit", "TC010", "cmest=1")
         Dim listEstCeldas As New List(Of Modelo.MCelda)
         listEstCeldas.Add(New Modelo.MCelda("cmnumi", True, "Código", 70))
-        listEstCeldas.Add(New Modelo.MCelda("cmdesc", True, "Proveedor", 280))
+        listEstCeldas.Add(New Modelo.MCelda("cmrsocial", True, "Proveedor", 280))
         listEstCeldas.Add(New Modelo.MCelda("cmnit", False, "Proveedor", 100))
 
         frmAyuda = New Modelo.ModeloAyuda(300, 360, dt, "Seleccionar proveedor".ToUpper, listEstCeldas)
@@ -1544,19 +1577,26 @@ Public Class F02_Compra2
 
         If frmAyuda.seleccionado = True Then
             Dim id As String = frmAyuda.filaSelect.Cells("cmnumi").Value
-            Dim desc As String = frmAyuda.filaSelect.Cells("cmdesc").Value
+            Dim desc As String = frmAyuda.filaSelect.Cells("cmrsocial").Value
             Dim nit As String = frmAyuda.filaSelect.Cells("cmnit").Value
             tbCodProveedor.Text = id
             tbProveedor.Text = desc
             tbNitProv.Text = nit
         End If
     End Sub
-
+    Private Function VerificarSiExisteDetalle(cod As Integer) As Boolean
+        For i = 0 To CType(dgjDetalle.DataSource, DataTable).Rows.Count - 1 Step 1
+            If CType(dgjDetalle.DataSource, DataTable).Rows(i).Item(1) = cod Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub P_prArmarAyudaProducto()
         Dim frmAyuda As Modelo.ModeloAyuda
 
         'Dim dt As DataTable = L_ProductosGeneral(1, "caest=1 and caserie=0").Tables(0)
-        Dim dt As DataTable = L_ProductosGeneralPrecioCosto(1, "caest=1 and caserie=0 and chcprod=canumi and chcatcl=1 and cagr1= " + tbCodProveedor.Text + " ").Tables(0)
+        Dim dt As DataTable = L_ProductosGeneralPrecioCosto(1, "caest=1 and caserie=0 and chcprod=canumi and chcatcl=1 and cagr1= " + tbCodProveedor.Text).Tables(0) 'cagr1= " + tbCodProveedor.Text + "
 
         Dim listEstCeldas As New List(Of Modelo.MCelda)
         listEstCeldas.Add(New Modelo.MCelda("canumi", True, "Código", 80))
@@ -1571,20 +1611,40 @@ Public Class F02_Compra2
         frmAyuda.ShowDialog()
 
         If frmAyuda.seleccionado = True Then
-            Dim id As String = frmAyuda.filaSelect.Cells("canumi").Value
-            Dim cod As String = frmAyuda.filaSelect.Cells("cacod").Value
-            Dim desc As String = frmAyuda.filaSelect.Cells("cadesc").Value
-            Dim preciocosto As String = frmAyuda.filaSelect.Cells("chprecio").Value
-            conv = frmAyuda.filaSelect.Cells("caconv").Value
+            If VerificarSiExisteDetalle(frmAyuda.filaSelect.Cells("canumi").Value) Then
+                ToastNotification.Show(Me,
+                                   "El producto ya existe en el detalle".ToUpper,
+                                   My.Resources.INFORMATION,
+                                   InDuracion * 1000,
+                                   eToastGlowColor.Red,
+                                   eToastPosition.TopCenter)
+            Else
+                Dim id As String = frmAyuda.filaSelect.Cells("canumi").Value
+                Dim cod As String = frmAyuda.filaSelect.Cells("cacod").Value
+                Dim desc As String = frmAyuda.filaSelect.Cells("cadesc").Value
+                Dim preciocosto As String = frmAyuda.filaSelect.Cells("chprecio").Value
+                conv = frmAyuda.filaSelect.Cells("caconv").Value
 
 
-            dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantcj").Index
-            dgjDetalle.SetValue(1, id)
-            dgjDetalle.SetValue(2, cod)
-            dgjDetalle.SetValue(3, desc)
-            dgjDetalle.SetValue(18, preciocosto)
-            '_prCalcularPrecioTotal()
+                dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantcj").Index
+                dgjDetalle.SetValue(1, id)
+                dgjDetalle.SetValue(2, cod)
+                dgjDetalle.SetValue(3, desc)
+                dgjDetalle.SetValue(18, preciocosto)
+                '_prCalcularPrecioTotal()
+
+                CalcularPrecioPonderado(id, preciocosto, 0)
+            End If
+
         End If
+    End Sub
+
+    Private Sub CalcularPrecioPonderado(numi As Integer, precio As Double, cantidad As Integer)
+        Dim dt As DataTable = TraerStockPrecio(numi)
+        Dim comp As Double = (precio * cantidad)
+        Dim actual As Double = (dt.Rows(0).Item("precio") * dt.Rows(0).Item("stock"))
+        Dim PP As Double = 0 '(comp + actual) / (cantidad + dt.Rows(0).Item("stock"))
+        dgjDetalle.SetValue("PP", PP)
     End Sub
 
     Private Sub P_prAddFilaDetalle()
@@ -1766,8 +1826,18 @@ Public Class F02_Compra2
                             'Vuelvo a actualizar 
                             CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantun") = dgjDetalle.GetValue("cabcantun")
                             CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = dgjDetalle.GetValue("cabsubtot")
+
+
+                            Dim lin2 = dgjDetalle.GetValue("cabnumi")
+                            Dim pos2 As Integer = -1
+                            _fnObtenerFilaDetalle(pos2, lin2)
+                            Dim costo As String = dgjDetalle.GetValue("cabpcostoun")
+                            If costo <> "" Then
+                                CalcularPrecioPonderado(dgjDetalle.GetValue("cabtc1numi"), costo, dgjDetalle.GetValue("cabcantun"))
+                            End If
                         End If
                     End If
+
                 End If
 
                 If (e.Column.Key.Equals("cabsubtot")) Then
@@ -1872,6 +1942,44 @@ Public Class F02_Compra2
             'End If
 
             '''''''''''''''''''''MONTO DE DESCUENTO '''''''''''''''''''''
+            If (e.Column.Index = dgjDetalle.RootTable.Columns("cabpcostoun").Index) Then
+                Dim lin As Integer = dgjDetalle.GetValue("cabnumi")
+                Dim pos As Integer = -1
+                _fnObtenerFilaDetalle(pos, lin)
+
+                If (Not IsNumeric(dgjDetalle.GetValue("cabpcostoun")) Or dgjDetalle.GetValue("cabpcostoun").ToString = String.Empty) Then
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantcj") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantcj")
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot")
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot")
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcostoun") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcostoun")
+
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro1cj") = 0
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro1un") = 0
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro2cj") = 0
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro2un") = 0
+
+                Else
+
+
+                    Dim lin2 = dgjDetalle.GetValue("cabnumi")
+                    Dim pos2 As Integer = -1
+                    _fnObtenerFilaDetalle(pos2, lin2)
+                    Dim costo As String = dgjDetalle.GetValue("cabpcostoun")
+                    If costo <> "" Then
+                        CalcularPrecioPonderado(dgjDetalle.GetValue("cabtc1numi"), costo, dgjDetalle.GetValue("cabcantun"))
+                        Dim subt As Double = costo * dgjDetalle.GetValue("cabcantun")
+                        'CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = subt
+                        'CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = subt
+
+                        dgjDetalle.SetValue("cabsubtot", subt)
+                        dgjDetalle.SetValue("cabtot", subt)
+                    End If
+                End If
+
+
+            End If
+            End If
+
 
             If (e.Column.Index = dgjDetalle.RootTable.Columns("cabdesccj").Index) Then
                 If (Not IsNumeric(dgjDetalle.GetValue("cabdesccj")) Or dgjDetalle.GetValue("cabdesccj").ToString = String.Empty) Then
@@ -1930,7 +2038,6 @@ Public Class F02_Compra2
                 End If
             End If
 
-        End If
     End Sub
     Public Sub _fnObtenerFilaDetalle(ByRef pos As Integer, numi As Integer)
         For i As Integer = 0 To CType(dgjDetalle.DataSource, DataTable).Rows.Count - 1 Step 1

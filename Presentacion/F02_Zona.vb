@@ -173,7 +173,7 @@ Public Class F02_Zona
         End If
 
         'Visible
-        MBtImprimir.Visible = False
+        'MBtImprimir.Visible = False
         BtAddCiudad.Visible = False
         BtAddProvincia.Visible = False
         BtAddZona.Visible = False
@@ -804,7 +804,7 @@ Public Class F02_Zona
 
     Private Sub P_prArmarGrillaRepartidor()
         Dim dt As New DataTable
-        dt = L_fnObtenerTabla("cast(0 as bit) as [check], a.cbnumi as numi, a.cbdesc as [desc]", "TC002 a", "a.cbcat=1 and a.cbest=1")
+        dt = L_fnObtenerTabla("cast(0 as bit) as [check], a.cbnumi as numi, a.cbdesc as [desc]", "TC002 a", "a.cbcat=1 and a.cbest=1 and a.cbnumi > 4")
 
         dgjRepartidor.BoundMode = Janus.Data.BoundMode.Bound
         dgjRepartidor.DataSource = dt
@@ -849,7 +849,7 @@ Public Class F02_Zona
 
     Private Sub P_prArmarGrillaPrevendedor()
         Dim dt As New DataTable
-        dt = L_fnObtenerTabla("cast(0 as bit) as [check], a.cbnumi as numi, a.cbdesc as [desc]", "TC002 a", "a.cbcat=3 and a.cbest=1")
+        dt = L_fnObtenerTabla("cast(0 as bit) as [check], a.cbnumi as numi, a.cbdesc as [desc]", "TC002 a", "a.cbcat=3 and a.cbest=1 and a.cbnumi > 2")
 
         dgjPrevendedor.BoundMode = Janus.Data.BoundMode.Bound
         dgjPrevendedor.DataSource = dt
@@ -1119,6 +1119,10 @@ Public Class F02_Zona
                 GmMapa.Position = New PointLatLng(-14.835274, -64.903832)
             Case "PANDO"
                 GmMapa.Position = New PointLatLng(-11.023571, -68.766266)
+            Case "JUJUY"
+                GmMapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
+            Case "SALTA"
+                GmMapa.Position = New PointLatLng(-24.789496, -65.410377)
         End Select
 
         MEP.SetError(CbCiudad, "")
@@ -1128,6 +1132,7 @@ Public Class F02_Zona
         If CbProvincia.SelectedIndex >= 0 Then
             MEP.SetError(CbProvincia, "")
             CbProvincia.BackColor = Color.White
+            BtAddProvincia.Visible = False
         Else
             If CbProvincia.Value <> Nothing Then
                 BtAddProvincia.Visible = True
@@ -1143,6 +1148,7 @@ Public Class F02_Zona
         If CbZona.SelectedIndex >= 0 Then
             MEP.SetError(CbZona, "")
             CbZona.BackColor = Color.White
+            BtAddZona.Visible = False
         Else
             If CbZona.Value <> Nothing Then
                 BtAddZona.Visible = True
@@ -1216,6 +1222,7 @@ Public Class F02_Zona
         _LlenarComboLibreria(CbProvincia, gi_LibProv)
         CbProvincia.SelectedIndex = CType(CbProvincia.DataSource, DataTable).Rows.Count - 1
         CbProvincia.Focus()
+
     End Sub
 
     Private Sub btAgregarZona_Click(sender As Object, e As EventArgs) Handles BtAddZona.Click
@@ -1277,5 +1284,46 @@ Public Class F02_Zona
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+    Private Sub _PDibujarZona(idZona As Integer, ByRef objOverlay As GMapOverlay, colorZona As String)
+        'cargar zona en mapa
+        Dim tPuntos As DataTable = L_ZonaDetallePuntos_General(-1, idZona).Tables(0)
+        Dim i As Integer
+        Dim lati, longi As Double
+        Dim listPuntos As New List(Of PointLatLng)
+        For i = 0 To tPuntos.Rows.Count - 1
+            lati = tPuntos.Rows(i).Item(1)
+            longi = tPuntos.Rows(i).Item(2)
+            Dim plg As PointLatLng = New PointLatLng(lati, longi)
+            listPuntos.Add(plg)
+        Next
+
+        'Dim color1 As String = JGr_Zonas1.CurrentRow.Cells(7).Value
+        Dim colorFinal As Color = ColorTranslator.FromHtml(colorZona)
+
+        Dim polygon As New GMapPolygon(listPuntos, "mypolygon")
+        'agregar color
+        polygon.Fill = New SolidBrush(Color.FromArgb(50, colorFinal))
+        polygon.Stroke = New Pen(Color.Red, 1)
+        'objOverlay.Polygons.Clear()
+        objOverlay.Polygons.Add(polygon)
+    End Sub
+    Private Sub _PCargarZonas()
+        Dim dtZonas As DataTable
+        Dim i As Integer
+        'DIBUJAR ZONAS
+        dtZonas = L_ZonaCabecera_GeneralCompleto1(0).Tables(0)
+        Dim colorZona As String
+        Dim idRegZona As Integer
+        For i = 0 To dtZonas.Rows.Count - 1
+            idRegZona = dtZonas.Rows(i).Item("lanumi")
+            colorZona = dtZonas.Rows(i).Item("lacolor")
+            'dibujar zona
+            _PDibujarZona(idRegZona, _overlay, colorZona)
+        Next
+
+    End Sub
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        _PCargarZonas()
     End Sub
 End Class

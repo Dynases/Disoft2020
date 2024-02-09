@@ -87,6 +87,10 @@ Public Class R01_VisitasClientes
 
         _prCargarReporte()
     End Sub
+
+    Private Sub cbZona_ValueChanged(sender As Object, e As EventArgs) Handles cbZona.ValueChanged
+
+    End Sub
 #End Region
 
 End Class

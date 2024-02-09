@@ -201,6 +201,14 @@ Partial Class F02_Zona
         Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
+        'MBtImprimir
+        '
+        Me.MBtImprimir.AccessibleRole = System.Windows.Forms.AccessibleRole.ListItem
+        Me.MBtImprimir.Image = Global.Presentacion.My.Resources.Resources.BUSQUEDA
+        Me.MBtImprimir.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.MBtImprimir.ImageTextSpacing = -10
+        Me.MBtImprimir.Text = "" & Global.Microsoft.VisualBasic.ChrW(10) & "TODAS LAS ZONAS"
+        '
         'MBubbleBarUsuario
         '
         '
@@ -528,8 +536,8 @@ Partial Class F02_Zona
         Me.SuperTabControlPersonal.ControlBox.MenuBox.Name = ""
         Me.SuperTabControlPersonal.ControlBox.Name = ""
         Me.SuperTabControlPersonal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControlPersonal.ControlBox.MenuBox, Me.SuperTabControlPersonal.ControlBox.CloseBox})
-        Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel1)
         Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel2)
+        Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel1)
         Me.SuperTabControlPersonal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPersonal.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControlPersonal.Name = "SuperTabControlPersonal"
@@ -572,9 +580,9 @@ Partial Class F02_Zona
         '
         Me.SuperTabControlPanel2.Controls.Add(Me.dgjPrevendedor)
         Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 25)
+        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 23)
         Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(234, 218)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(325, 220)
         Me.SuperTabControlPanel2.TabIndex = 0
         Me.SuperTabControlPanel2.TabItem = Me.SuperTabItem2
         '
@@ -583,7 +591,7 @@ Partial Class F02_Zona
         Me.dgjPrevendedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjPrevendedor.Location = New System.Drawing.Point(0, 0)
         Me.dgjPrevendedor.Name = "dgjPrevendedor"
-        Me.dgjPrevendedor.Size = New System.Drawing.Size(234, 218)
+        Me.dgjPrevendedor.Size = New System.Drawing.Size(325, 220)
         Me.dgjPrevendedor.TabIndex = 118
         '
         'SuperTabItem2

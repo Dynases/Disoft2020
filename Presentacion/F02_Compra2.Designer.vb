@@ -82,6 +82,7 @@ Partial Class F02_Compra2
         Me.dgjBusqueda = New Janus.Windows.GridEX.GridEX()
         Me.btnContabilizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.FVencimiento = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -113,6 +114,7 @@ Partial Class F02_Compra2
         CType(Me.tbSubtotalC, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelBuscador.SuspendLayout()
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FVencimiento, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -164,6 +166,7 @@ Partial Class F02_Compra2
         '
         'MPnInferior
         '
+        Me.MPnInferior.Controls.Add(Me.FVencimiento)
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
@@ -173,6 +176,9 @@ Partial Class F02_Compra2
         Me.MPnInferior.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
+        Me.MPnInferior.Controls.SetChildIndex(Me.MPanelToolBarNavegacion, 0)
+        Me.MPnInferior.Controls.SetChildIndex(Me.MPanelToolBarUsuario, 0)
+        Me.MPnInferior.Controls.SetChildIndex(Me.FVencimiento, 0)
         '
         'MPanelToolBarUsuario
         '
@@ -1428,6 +1434,52 @@ Partial Class F02_Compra2
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'FVencimiento
+        '
+        '
+        '
+        '
+        Me.FVencimiento.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.FVencimiento.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.FVencimiento.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
+        Me.FVencimiento.ButtonDropDown.Visible = True
+        Me.FVencimiento.IsPopupCalendarOpen = False
+        Me.FVencimiento.Location = New System.Drawing.Point(616, 34)
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.FVencimiento.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.FVencimiento.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
+        Me.FVencimiento.MonthCalendar.ClearButtonVisible = True
+        '
+        '
+        '
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
+        Me.FVencimiento.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.FVencimiento.MonthCalendar.DisplayMonth = New Date(2024, 1, 1, 0, 0, 0, 0)
+        Me.FVencimiento.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
+        '
+        '
+        '
+        Me.FVencimiento.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.FVencimiento.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
+        Me.FVencimiento.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.FVencimiento.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.FVencimiento.MonthCalendar.TodayButtonVisible = True
+        Me.FVencimiento.Name = "FVencimiento"
+        Me.FVencimiento.Size = New System.Drawing.Size(200, 20)
+        Me.FVencimiento.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.FVencimiento.TabIndex = 10
+        Me.FVencimiento.Visible = False
+        '
         'F02_Compra2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1473,6 +1525,7 @@ Partial Class F02_Compra2
         CType(Me.tbSubtotalC, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelBuscador.ResumeLayout(False)
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FVencimiento, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1535,4 +1588,5 @@ Partial Class F02_Compra2
     Friend WithEvents tbDescuentoPro1 As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents FVencimiento As DevComponents.Editors.DateTimeAdv.DateTimeInput
 End Class

@@ -56,6 +56,8 @@ Partial Class F02_Descuento
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.grImportacion = New Janus.Windows.GridEX.GridEX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -87,6 +89,7 @@ Partial Class F02_Descuento
         Me.PnListaPrecio.SuspendLayout()
         CType(Me.JGr_Detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmDetalle.SuspendLayout()
+        CType(Me.grImportacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -104,23 +107,24 @@ Partial Class F02_Descuento
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
-        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(5)
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1582, 560)
+        Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(5)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1540, 560)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1144, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Controls.Add(Me.grImportacion)
         Me.MPnSuperior.Controls.Add(Me.btExportarExcel)
-        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(5)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1582, 86)
+        Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -132,11 +136,12 @@ Partial Class F02_Descuento
         Me.MPnSuperior.Controls.SetChildIndex(Me.MPanelToolBarImprimir, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
         Me.MPnSuperior.Controls.SetChildIndex(Me.btExportarExcel, 0)
+        Me.MPnSuperior.Controls.SetChildIndex(Me.grImportacion, 0)
         '
         'MPnInferior
         '
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(5)
-        Me.MPnInferior.Size = New System.Drawing.Size(1582, 44)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPnInferior.Size = New System.Drawing.Size(1186, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -147,19 +152,19 @@ Partial Class F02_Descuento
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1315, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(986, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
         '
-        Me.MBtUltimo.Location = New System.Drawing.Point(178, 0)
+        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MBtSiguiente
         '
@@ -179,8 +184,8 @@ Partial Class F02_Descuento
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1475, 0)
-        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(5)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
+        Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         '
         'MBtImprimir
         '
@@ -231,11 +236,10 @@ Partial Class F02_Descuento
         Me.TableLayoutPanelPrincipal.Controls.Add(Me.TableLayoutPanelDatos1, 0, 0)
         Me.TableLayoutPanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanelPrincipal.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelPrincipal.Name = "TableLayoutPanelPrincipal"
         Me.TableLayoutPanelPrincipal.RowCount = 1
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1540, 560)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1144, 455)
         Me.TableLayoutPanelPrincipal.TabIndex = 29
         '
         'TableLayoutPanelDatos2
@@ -245,13 +249,12 @@ Partial Class F02_Descuento
         Me.TableLayoutPanelDatos2.Controls.Add(Me.GpCategoria, 0, 0)
         Me.TableLayoutPanelDatos2.Controls.Add(Me.GpListaCategoria, 0, 1)
         Me.TableLayoutPanelDatos2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanelDatos2.Location = New System.Drawing.Point(1082, 4)
-        Me.TableLayoutPanelDatos2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanelDatos2.Location = New System.Drawing.Point(803, 3)
         Me.TableLayoutPanelDatos2.Name = "TableLayoutPanelDatos2"
         Me.TableLayoutPanelDatos2.RowCount = 2
         Me.TableLayoutPanelDatos2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.TableLayoutPanelDatos2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanelDatos2.Size = New System.Drawing.Size(454, 552)
+        Me.TableLayoutPanelDatos2.Size = New System.Drawing.Size(338, 449)
         Me.TableLayoutPanelDatos2.TabIndex = 2
         '
         'GpCategoria
@@ -261,10 +264,9 @@ Partial Class F02_Descuento
         Me.GpCategoria.Controls.Add(Me.Panel1)
         Me.GpCategoria.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpCategoria.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GpCategoria.Location = New System.Drawing.Point(4, 4)
-        Me.GpCategoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.GpCategoria.Location = New System.Drawing.Point(3, 3)
         Me.GpCategoria.Name = "GpCategoria"
-        Me.GpCategoria.Size = New System.Drawing.Size(446, 185)
+        Me.GpCategoria.Size = New System.Drawing.Size(332, 151)
         '
         '
         '
@@ -308,9 +310,8 @@ Partial Class F02_Descuento
         Me.Panel1.Controls.Add(Me.PnCategoria)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(440, 162)
+        Me.Panel1.Size = New System.Drawing.Size(326, 130)
         Me.Panel1.TabIndex = 32
         '
         'tbCodPro
@@ -320,11 +321,10 @@ Partial Class F02_Descuento
         '
         Me.tbCodPro.Border.Class = "TextBoxBorder"
         Me.tbCodPro.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbCodPro.Location = New System.Drawing.Point(160, 139)
-        Me.tbCodPro.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbCodPro.Location = New System.Drawing.Point(120, 113)
         Me.tbCodPro.MaxLength = 10
         Me.tbCodPro.Name = "tbCodPro"
-        Me.tbCodPro.Size = New System.Drawing.Size(133, 22)
+        Me.tbCodPro.Size = New System.Drawing.Size(100, 20)
         Me.tbCodPro.TabIndex = 45
         Me.tbCodPro.Visible = False
         '
@@ -335,10 +335,9 @@ Partial Class F02_Descuento
         '
         Me.lbProducto.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbProducto.Location = New System.Drawing.Point(16, 2)
-        Me.lbProducto.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbProducto.Location = New System.Drawing.Point(12, 2)
         Me.lbProducto.Name = "lbProducto"
-        Me.lbProducto.Size = New System.Drawing.Size(387, 43)
+        Me.lbProducto.Size = New System.Drawing.Size(290, 35)
         Me.lbProducto.TabIndex = 38
         Me.lbProducto.TextAlignment = System.Drawing.StringAlignment.Center
         '
@@ -349,10 +348,9 @@ Partial Class F02_Descuento
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.FontBold = True
-        Me.LabelX3.Location = New System.Drawing.Point(241, 112)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX3.Location = New System.Drawing.Point(181, 91)
         Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(20, 28)
+        Me.LabelX3.Size = New System.Drawing.Size(15, 23)
         Me.LabelX3.TabIndex = 37
         Me.LabelX3.Text = "Al:"
         '
@@ -366,8 +364,7 @@ Partial Class F02_Descuento
         Me.dtiFechaFin.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.dtiFechaFin.ButtonDropDown.Visible = True
         Me.dtiFechaFin.IsPopupCalendarOpen = False
-        Me.dtiFechaFin.Location = New System.Drawing.Point(273, 113)
-        Me.dtiFechaFin.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtiFechaFin.Location = New System.Drawing.Point(205, 92)
         '
         '
         '
@@ -398,7 +395,7 @@ Partial Class F02_Descuento
         Me.dtiFechaFin.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.dtiFechaFin.MonthCalendar.TodayButtonVisible = True
         Me.dtiFechaFin.Name = "dtiFechaFin"
-        Me.dtiFechaFin.Size = New System.Drawing.Size(120, 22)
+        Me.dtiFechaFin.Size = New System.Drawing.Size(90, 20)
         Me.dtiFechaFin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.dtiFechaFin.TabIndex = 36
         '
@@ -409,10 +406,9 @@ Partial Class F02_Descuento
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.FontBold = True
-        Me.LabelX2.Location = New System.Drawing.Point(29, 111)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(22, 90)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(77, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(58, 23)
         Me.LabelX2.TabIndex = 35
         Me.LabelX2.Text = "Fecha Del:"
         '
@@ -426,8 +422,7 @@ Partial Class F02_Descuento
         Me.dtiFechaIni.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.dtiFechaIni.ButtonDropDown.Visible = True
         Me.dtiFechaIni.IsPopupCalendarOpen = False
-        Me.dtiFechaIni.Location = New System.Drawing.Point(113, 113)
-        Me.dtiFechaIni.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtiFechaIni.Location = New System.Drawing.Point(85, 92)
         '
         '
         '
@@ -458,7 +453,7 @@ Partial Class F02_Descuento
         Me.dtiFechaIni.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.dtiFechaIni.MonthCalendar.TodayButtonVisible = True
         Me.dtiFechaIni.Name = "dtiFechaIni"
-        Me.dtiFechaIni.Size = New System.Drawing.Size(120, 22)
+        Me.dtiFechaIni.Size = New System.Drawing.Size(90, 20)
         Me.dtiFechaIni.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.dtiFechaIni.TabIndex = 34
         '
@@ -469,10 +464,9 @@ Partial Class F02_Descuento
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.PanelEx1.Controls.Add(Me.btGrabarP)
         Me.PanelEx1.DisabledBackColor = System.Drawing.Color.Empty
-        Me.PanelEx1.Location = New System.Drawing.Point(233, 50)
-        Me.PanelEx1.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelEx1.Location = New System.Drawing.Point(175, 41)
         Me.PanelEx1.Name = "PanelEx1"
-        Me.PanelEx1.Size = New System.Drawing.Size(163, 49)
+        Me.PanelEx1.Size = New System.Drawing.Size(122, 40)
         Me.PanelEx1.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx1.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelEx1.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -490,9 +484,8 @@ Partial Class F02_Descuento
         Me.btGrabarP.Image = Global.Presentacion.My.Resources.Resources.GRABAR
         Me.btGrabarP.ImageFixedSize = New System.Drawing.Size(25, 25)
         Me.btGrabarP.Location = New System.Drawing.Point(0, 0)
-        Me.btGrabarP.Margin = New System.Windows.Forms.Padding(4)
         Me.btGrabarP.Name = "btGrabarP"
-        Me.btGrabarP.Size = New System.Drawing.Size(163, 49)
+        Me.btGrabarP.Size = New System.Drawing.Size(122, 40)
         Me.btGrabarP.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btGrabarP.TabIndex = 8
         Me.btGrabarP.Text = "Grabar"
@@ -506,10 +499,9 @@ Partial Class F02_Descuento
         Me.PnCategoria.Controls.Add(Me.btNuevoP)
         Me.PnCategoria.DisabledBackColor = System.Drawing.Color.Empty
         Me.PnCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PnCategoria.Location = New System.Drawing.Point(28, 50)
-        Me.PnCategoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.PnCategoria.Location = New System.Drawing.Point(21, 41)
         Me.PnCategoria.Name = "PnCategoria"
-        Me.PnCategoria.Size = New System.Drawing.Size(163, 49)
+        Me.PnCategoria.Size = New System.Drawing.Size(122, 40)
         Me.PnCategoria.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PnCategoria.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PnCategoria.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -526,9 +518,8 @@ Partial Class F02_Descuento
         Me.btNuevoP.Image = Global.Presentacion.My.Resources.Resources.add21
         Me.btNuevoP.ImageFixedSize = New System.Drawing.Size(25, 25)
         Me.btNuevoP.Location = New System.Drawing.Point(0, 0)
-        Me.btNuevoP.Margin = New System.Windows.Forms.Padding(4)
         Me.btNuevoP.Name = "btNuevoP"
-        Me.btNuevoP.Size = New System.Drawing.Size(163, 49)
+        Me.btNuevoP.Size = New System.Drawing.Size(122, 40)
         Me.btNuevoP.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btNuevoP.TabIndex = 8
         Me.btNuevoP.Text = "Nuevo"
@@ -540,10 +531,9 @@ Partial Class F02_Descuento
         Me.GpListaCategoria.Controls.Add(Me.PnListaCategoria)
         Me.GpListaCategoria.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpListaCategoria.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GpListaCategoria.Location = New System.Drawing.Point(4, 197)
-        Me.GpListaCategoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.GpListaCategoria.Location = New System.Drawing.Point(3, 160)
         Me.GpListaCategoria.Name = "GpListaCategoria"
-        Me.GpListaCategoria.Size = New System.Drawing.Size(446, 351)
+        Me.GpListaCategoria.Size = New System.Drawing.Size(332, 286)
         '
         '
         '
@@ -584,9 +574,8 @@ Partial Class F02_Descuento
         Me.PnListaCategoria.DisabledBackColor = System.Drawing.Color.Empty
         Me.PnListaCategoria.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnListaCategoria.Location = New System.Drawing.Point(0, 0)
-        Me.PnListaCategoria.Margin = New System.Windows.Forms.Padding(4)
         Me.PnListaCategoria.Name = "PnListaCategoria"
-        Me.PnListaCategoria.Size = New System.Drawing.Size(440, 328)
+        Me.PnListaCategoria.Size = New System.Drawing.Size(326, 265)
         Me.PnListaCategoria.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PnListaCategoria.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PnListaCategoria.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -600,9 +589,8 @@ Partial Class F02_Descuento
         Me.JGr_Descuentos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Descuentos.DynamicFiltering = True
         Me.JGr_Descuentos.Location = New System.Drawing.Point(0, 0)
-        Me.JGr_Descuentos.Margin = New System.Windows.Forms.Padding(4)
         Me.JGr_Descuentos.Name = "JGr_Descuentos"
-        Me.JGr_Descuentos.Size = New System.Drawing.Size(440, 328)
+        Me.JGr_Descuentos.Size = New System.Drawing.Size(326, 265)
         Me.JGr_Descuentos.TabIndex = 2
         '
         'TableLayoutPanelDatos1
@@ -612,13 +600,12 @@ Partial Class F02_Descuento
         Me.TableLayoutPanelDatos1.Controls.Add(Me.GpDatosGenerales, 0, 0)
         Me.TableLayoutPanelDatos1.Controls.Add(Me.GpListaPrecio, 0, 1)
         Me.TableLayoutPanelDatos1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanelDatos1.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanelDatos1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanelDatos1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanelDatos1.Name = "TableLayoutPanelDatos1"
         Me.TableLayoutPanelDatos1.RowCount = 2
         Me.TableLayoutPanelDatos1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TableLayoutPanelDatos1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
-        Me.TableLayoutPanelDatos1.Size = New System.Drawing.Size(1070, 552)
+        Me.TableLayoutPanelDatos1.Size = New System.Drawing.Size(794, 449)
         Me.TableLayoutPanelDatos1.TabIndex = 1
         '
         'GpDatosGenerales
@@ -628,10 +615,9 @@ Partial Class F02_Descuento
         Me.GpDatosGenerales.Controls.Add(Me.PnDatosGenerales)
         Me.GpDatosGenerales.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GpDatosGenerales.Location = New System.Drawing.Point(4, 4)
-        Me.GpDatosGenerales.Margin = New System.Windows.Forms.Padding(4)
+        Me.GpDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GpDatosGenerales.Name = "GpDatosGenerales"
-        Me.GpDatosGenerales.Size = New System.Drawing.Size(1062, 74)
+        Me.GpDatosGenerales.Size = New System.Drawing.Size(788, 61)
         '
         '
         '
@@ -674,9 +660,8 @@ Partial Class F02_Descuento
         Me.PnDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PnDatosGenerales.Location = New System.Drawing.Point(0, 0)
-        Me.PnDatosGenerales.Margin = New System.Windows.Forms.Padding(4)
         Me.PnDatosGenerales.Name = "PnDatosGenerales"
-        Me.PnDatosGenerales.Size = New System.Drawing.Size(1056, 51)
+        Me.PnDatosGenerales.Size = New System.Drawing.Size(782, 40)
         Me.PnDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PnDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PnDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -691,10 +676,9 @@ Partial Class F02_Descuento
         '
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Location = New System.Drawing.Point(4, 4)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(3, 3)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(184, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(138, 23)
         Me.LabelX1.TabIndex = 2
         Me.LabelX1.Text = "Categoria de Producto:"
         '
@@ -702,12 +686,11 @@ Partial Class F02_Descuento
         '
         JCb_CatProducto_DesignTimeLayout.LayoutString = resources.GetString("JCb_CatProducto_DesignTimeLayout.LayoutString")
         Me.JCb_CatProducto.DesignTimeLayout = JCb_CatProducto_DesignTimeLayout
-        Me.JCb_CatProducto.Location = New System.Drawing.Point(196, 4)
-        Me.JCb_CatProducto.Margin = New System.Windows.Forms.Padding(4)
+        Me.JCb_CatProducto.Location = New System.Drawing.Point(147, 3)
         Me.JCb_CatProducto.Name = "JCb_CatProducto"
         Me.JCb_CatProducto.SelectedIndex = -1
         Me.JCb_CatProducto.SelectedItem = Nothing
-        Me.JCb_CatProducto.Size = New System.Drawing.Size(333, 26)
+        Me.JCb_CatProducto.Size = New System.Drawing.Size(250, 23)
         Me.JCb_CatProducto.TabIndex = 1
         '
         'GpListaPrecio
@@ -717,10 +700,9 @@ Partial Class F02_Descuento
         Me.GpListaPrecio.Controls.Add(Me.PnListaPrecio)
         Me.GpListaPrecio.DisabledBackColor = System.Drawing.Color.Empty
         Me.GpListaPrecio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GpListaPrecio.Location = New System.Drawing.Point(4, 86)
-        Me.GpListaPrecio.Margin = New System.Windows.Forms.Padding(4)
+        Me.GpListaPrecio.Location = New System.Drawing.Point(3, 70)
         Me.GpListaPrecio.Name = "GpListaPrecio"
-        Me.GpListaPrecio.Size = New System.Drawing.Size(1062, 462)
+        Me.GpListaPrecio.Size = New System.Drawing.Size(788, 376)
         '
         '
         '
@@ -761,9 +743,8 @@ Partial Class F02_Descuento
         Me.PnListaPrecio.DisabledBackColor = System.Drawing.Color.Empty
         Me.PnListaPrecio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnListaPrecio.Location = New System.Drawing.Point(0, 0)
-        Me.PnListaPrecio.Margin = New System.Windows.Forms.Padding(4)
         Me.PnListaPrecio.Name = "PnListaPrecio"
-        Me.PnListaPrecio.Size = New System.Drawing.Size(1056, 439)
+        Me.PnListaPrecio.Size = New System.Drawing.Size(782, 355)
         Me.PnListaPrecio.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PnListaPrecio.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PnListaPrecio.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -777,9 +758,8 @@ Partial Class F02_Descuento
         Me.JGr_Detalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_Detalle.DynamicFiltering = True
         Me.JGr_Detalle.Location = New System.Drawing.Point(0, 0)
-        Me.JGr_Detalle.Margin = New System.Windows.Forms.Padding(4)
         Me.JGr_Detalle.Name = "JGr_Detalle"
-        Me.JGr_Detalle.Size = New System.Drawing.Size(1056, 439)
+        Me.JGr_Detalle.Size = New System.Drawing.Size(782, 355)
         Me.JGr_Detalle.TabIndex = 1
         '
         'GridEXPrintDocumentListaPrecios
@@ -800,10 +780,9 @@ Partial Class F02_Descuento
         '
         Me.btExportarExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.btExportarExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btExportarExcel.Location = New System.Drawing.Point(912, 16)
-        Me.btExportarExcel.Margin = New System.Windows.Forms.Padding(4)
+        Me.btExportarExcel.Location = New System.Drawing.Point(684, 13)
         Me.btExportarExcel.Name = "btExportarExcel"
-        Me.btExportarExcel.Size = New System.Drawing.Size(100, 63)
+        Me.btExportarExcel.Size = New System.Drawing.Size(75, 51)
         Me.btExportarExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btExportarExcel.TabIndex = 10
         Me.btExportarExcel.Text = "ButtonX1"
@@ -814,14 +793,14 @@ Partial Class F02_Descuento
         Me.CmDetalle.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CmDetalle.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitarProductoToolStripMenuItem})
         Me.CmDetalle.Name = "CmDetalle"
-        Me.CmDetalle.Size = New System.Drawing.Size(158, 36)
+        Me.CmDetalle.Size = New System.Drawing.Size(138, 36)
         '
         'QuitarProductoToolStripMenuItem
         '
         Me.QuitarProductoToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.eliminar
         Me.QuitarProductoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.QuitarProductoToolStripMenuItem.Name = "QuitarProductoToolStripMenuItem"
-        Me.QuitarProductoToolStripMenuItem.Size = New System.Drawing.Size(157, 32)
+        Me.QuitarProductoToolStripMenuItem.Size = New System.Drawing.Size(137, 32)
         Me.QuitarProductoToolStripMenuItem.Text = "Quitar Fila"
         '
         'Timer1
@@ -829,12 +808,24 @@ Partial Class F02_Descuento
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'grImportacion
+        '
+        Me.grImportacion.Location = New System.Drawing.Point(416, 4)
+        Me.grImportacion.Name = "grImportacion"
+        Me.grImportacion.Size = New System.Drawing.Size(19, 19)
+        Me.grImportacion.TabIndex = 2
+        Me.grImportacion.Visible = False
+        '
         'F02_Descuento
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1582, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F02_Descuento"
         Me.Opacity = 0.05R
         Me.Text = "F02_Descuento"
@@ -876,6 +867,7 @@ Partial Class F02_Descuento
         Me.PnListaPrecio.ResumeLayout(False)
         CType(Me.JGr_Detalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CmDetalle.ResumeLayout(False)
+        CType(Me.grImportacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -910,4 +902,6 @@ Partial Class F02_Descuento
     Friend WithEvents CmDetalle As ContextMenuStrip
     Friend WithEvents QuitarProductoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents grImportacion As Janus.Windows.GridEX.GridEX
 End Class

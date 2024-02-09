@@ -102,4 +102,8 @@ Public Class F0_IngresarReclamo
     Private Sub F0_IngresarReclamo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _prIniciarTodo()
     End Sub
+
+    Private Sub tbConcep_ValueChanged(sender As Object, e As EventArgs) Handles tbConcep.ValueChanged
+
+    End Sub
 End Class

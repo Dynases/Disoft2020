@@ -1013,7 +1013,7 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("Direccion", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
         objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
-        objrep.SetParameterValue("Empresa", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("Empresa", gs_empresaDescSistema)
         objrep.SetParameterValue("idPedido", idPedido)
         objrep.SetParameterValue("vendedor", nomVendedor)
 
@@ -1098,11 +1098,14 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoXClienteDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
-            Dim lista = (From a In listResult
-                         Where a.oafdoc >= Tb_Fecha.Value And
-                                a.oafdoc <= Tb_FechaHasta.Value).ToList
-            If (lista.Count = 0) Then
+            'Dim listResult = New LPedido().ListarDespachoXClienteDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
+            'Dim lista = (From a In listResult
+            '             Where a.oafdoc >= Tb_Fecha.Value And
+            '                    a.oafdoc <= Tb_FechaHasta.Value
+            '             Order By a.oanumi Ascending).ToList
+            Dim dt As DataTable = ListarDespachoXcLIENTE(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+
+            If (dt.Rows.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
 
@@ -1113,7 +1116,7 @@ Public Class frmBillingDispatch
             P_Global.Visualizador = New Visualizador
             Dim objrep As New DespachoXCliente
 
-            objrep.SetDataSource(lista)
+            objrep.SetDataSource(dt)
             objrep.SetParameterValue("nroDespacho", String.Empty)
             objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
             objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)
@@ -1615,11 +1618,12 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
-            Dim lista = (From a In listResult
-                         Where a.oafdoc >= Tb_Fecha.Value And
-                                a.oafdoc <= Tb_FechaHasta.Value).ToList
-            If (lista.Count = 0) Then
+            'Dim listResult = New LPedido().ListarDespachoDetalleXChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO))
+            'Dim lista = (From a In listResult
+            '             Where a.oafdoc >= Tb_Fecha.Value And
+            '                    a.oafdoc <= Tb_FechaHasta.Value).ToList
+            Dim dt As DataTable = ListarDespachoXChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+            If (dt.Rows.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
 
@@ -1630,7 +1634,7 @@ Public Class frmBillingDispatch
             P_Global.Visualizador = New Visualizador
             Dim objrep As New R_Ventasdespacho
 
-            objrep.SetDataSource(lista)
+            objrep.SetDataSource(dt)
             'objrep.SetParameterValue("nroDespacho", String.Empty)
             'objrep.SetParameterValue("nombreDistribuidor", cbChoferes.Text)
             'objrep.SetParameterValue("FechaDocumento", Tb_Fecha.Value)

@@ -55,11 +55,11 @@
         End Set
     End Property
     Private _oaap As Integer
-    Public Property oaap() As String
+    Public Property oaap() As Integer
         Get
             Return _oaap
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _oaap = value
         End Set
     End Property
@@ -100,6 +100,15 @@
         End Get
         Set(ByVal value As Integer)
             _cauventa = value
+        End Set
+    End Property
+    Private _cedesc As String
+    Public Property cedesc() As String
+        Get
+            Return _cedesc
+        End Get
+        Set(ByVal value As String)
+            _cedesc = value
         End Set
     End Property
     Private _obpbase As Decimal

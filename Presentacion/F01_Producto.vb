@@ -1484,11 +1484,11 @@ Public Class F01_Producto
         End If
     End Sub
     Private Sub cbgrupo1_ValueChanged(sender As Object, e As EventArgs) Handles cbgrupo1.ValueChanged
-        'If cbgrupo1.SelectedIndex < 0 And cbgrupo1.Text <> String.Empty Then
-        '    btgrupo1.Visible = True
-        'Else
-        '    btgrupo1.Visible = False
-        'End If
+        If cbgrupo1.SelectedIndex < 0 And cbgrupo1.Text <> String.Empty Then
+            btgrupo1.Visible = True
+        Else
+            btgrupo1.Visible = False
+        End If
     End Sub
 
     Private Sub cbgrupo2_ValueChanged(sender As Object, e As EventArgs) Handles cbgrupo2.ValueChanged
@@ -1517,7 +1517,7 @@ Public Class F01_Producto
 
     Private Sub cbUMed_ValueChanged(sender As Object, e As EventArgs) Handles cbUMed.ValueChanged
         If cbUMed.SelectedIndex < 0 And cbUMed.Text <> String.Empty Then
-            btUMedida.Visible = True
+            btUMedida.Visible = False
         Else
             btUMedida.Visible = False
         End If

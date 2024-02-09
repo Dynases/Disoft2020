@@ -23,6 +23,8 @@ Public Class F02_Descuento
 
     Dim dtPreciosDesc As New DataTable
 
+    Public Import As New DataTable
+
 #End Region
 
 #Region "Metodos"
@@ -149,7 +151,7 @@ Public Class F02_Descuento
 
     Private Sub _PCargarDetalle(idTipoProd As String)
         Dim dtProd, dtCatPrecios As New DataTable
-        dtProd = L_Productos_GeneralFiltrado3(-1, "cacat= " + idTipoProd + "AND caest=1 AND caserie=0 AND cecon=103 AND cenum=cagr3")
+        dtProd = L_Productos_Descuento(CInt(idTipoProd)) 'L_Productos_GeneralFiltrado3(-1, "cacat= " + idTipoProd + "AND caest=1 AND caserie=0 AND cecon=103 AND cenum=cagr3")
         'dtCatPrecios = L_General_LibreriaDetalle(-1, 8).Tables(0)
         dtCatPrecios = L_CategoriaPrecioGeneral()
 
@@ -207,13 +209,31 @@ Public Class F02_Descuento
         ''JGr_Detalle.RootTable.Columns.Add()
         With JGr_Detalle.RootTable.Columns(2)
             .Caption = "Descripción"
-            .Width = 450
+            .Width = 350
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.BackColor = Color.AliceBlue
         End With
+        With JGr_Detalle.RootTable.Columns(4)
+            .Caption = "Costo"
+            .Width = 100
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.FontSize = gi_fuenteTamano
+            .CellStyle.BackColor = Color.AliceBlue
+            .FormatString = "0.00"
+            .TextAlignment = 3
+        End With
+        With JGr_Detalle.RootTable.Columns(5)
+            .Caption = "Venta"
+            .Width = 100
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.FontSize = gi_fuenteTamano
+            .CellStyle.BackColor = Color.AliceBlue
+            .FormatString = "0.00"
+            .TextAlignment = 3
+        End With
 
-        For i = 3 To JGr_Detalle.RootTable.Columns.Count - 1
+        For i = 6 To JGr_Detalle.RootTable.Columns.Count - 1
             With JGr_Detalle.RootTable.Columns(i)
                 .Width = 65
                 .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -408,7 +428,7 @@ Public Class F02_Descuento
     End Sub
 
     Private Sub JGr_Detalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGr_Detalle.EditingCell
-        If e.Column.Index = 0 Or e.Column.Index = 1 Or e.Column.Index = 2 Or e.Column.Index = 3 Then
+        If e.Column.Index = 0 Or e.Column.Index = 1 Or e.Column.Index = 2 Or e.Column.Index = 3 Or e.Column.Index = 4 Or e.Column.Index = 5 Or e.Column.Index = 6 Or e.Column.Index = 6 Then
             e.Cancel = True
         End If
 
@@ -467,7 +487,7 @@ Public Class F02_Descuento
             If JGr_Detalle.Focused Then
                 If JGr_Detalle.GetValue("canumi") > 0 Then
                     tbCodPro.Text = JGr_Detalle.CurrentRow.Cells("canumi").Value.ToString
-                    lbProducto.Text = JGr_Detalle.CurrentRow.Cells("cadesc").Value.ToString + "    " + JGr_Detalle.CurrentRow.Cells("listprecio").Value.ToString
+                    lbProducto.Text = JGr_Detalle.CurrentRow.Cells("cadesc").Value.ToString ' + "    " + JGr_Detalle.CurrentRow.Cells("listprecio").Value.ToString
 
                     _PCargarGridCategoriasPrecios(tbCodPro.Text)
                     _MostrarFechas(JGr_Descuentos.Row)
@@ -622,5 +642,100 @@ Public Class F02_Descuento
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub ImportarExcel(ByRef dt As DataTable)
+        If OpenFileDialog1.ShowDialog Then
+            dt.Clear()
+            Dim Cabecera As String = IO.File.ReadLines(OpenFileDialog1.FileName)(0)
+            Dim columnas As String() = Cabecera.Split(";")
+            For j = 0 To columnas.Count - 1
+                dt.Columns.Add(columnas(j))
+            Next
+
+            'Import.DataSet = columnas
+            For i = 1 To IO.File.ReadLines(OpenFileDialog1.FileName).Count - 1
+                Dim Fila As String() = IO.File.ReadLines(OpenFileDialog1.FileName)(i).Split(";")
+                dt.Rows.Add(Fila)
+            Next
+        End If
+    End Sub
+
+    Private Sub ArmarGrid(dt As DataTable)
+
+        grImportacion.BoundMode = Janus.Data.BoundMode.Bound
+        grImportacion.DataSource = dt
+        grImportacion.RetrieveStructure()
+
+        'dar formato a las columnas
+        With grImportacion.RootTable.Columns("CODIGO")
+
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0"
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+
+        With grImportacion.RootTable.Columns("FLEX")
+
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0"
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+
+        With grImportacion.RootTable.Columns("DESCRIPCION")
+            .Visible = False
+        End With
+        With grImportacion.RootTable.Columns("DESDE")
+            .Visible = False
+            .FormatString = "0"
+        End With
+        With grImportacion.RootTable.Columns("HASTA")
+
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+            .FormatString = "0"
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With grImportacion.RootTable.Columns("PRECIO")
+            .Visible = False
+            .FormatString = "0.00"
+        End With
+        With grImportacion.RootTable.Columns("FECHAI")
+
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "dd/MM/yyyy"
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+
+        With grImportacion.RootTable.Columns("FECHAF")
+
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+            .FormatString = "dd/MM/yyyy"
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+
+
+        With grImportacion
+            .GroupByBoxVisible = False
+            '.FilterRowFormatStyle.BackColor = Color.Blue
+            .DefaultFilterRowComparison = FilterConditionOperator.Contains
+            .FilterMode = FilterMode.Automatic
+            .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
+            'Diseño de la tabla
+            .VisualStyle = VisualStyle.Office2007
+            .SelectionMode = SelectionMode.MultipleSelection
+            .AlternatingColors = True
+            .RecordNavigator = True
+        End With
+    End Sub
+    Private Sub btExportarExcel_Click(sender As Object, e As EventArgs) Handles btExportarExcel.Click
+        Import.Clear()
+        ImportarExcel(Import)
+        ArmarGrid(Import)
+        L_Grabar_Descuento(CType(grImportacion.DataSource, DataTable))
     End Sub
 End Class

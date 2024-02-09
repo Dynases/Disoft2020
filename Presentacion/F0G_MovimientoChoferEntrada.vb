@@ -184,9 +184,9 @@ Public Class F0G_MovimientoChoferEntrada
                 swestado.Value = True
                 rlEstado.Text = "Accesible"
             Case 2
-                MBtModificar.Enabled = True
-                MBtEliminar.Enabled = True
-                swestado.Value = True
+                MBtModificar.Enabled = False
+                MBtEliminar.Enabled = False
+                swestado.Value = False
                 rlEstado.Text = "Consolidado"
             Case 3
                 MBtModificar.Enabled = False
@@ -354,10 +354,10 @@ Public Class F0G_MovimientoChoferEntrada
             'a.icid ,a.icibid ,a.iccprod ,b.cadesc as producto,a.iccant ,Cast(null as image ) as img,1 as estado
             If (estado >= 1) Then
                 If (data > 0) Then
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, Bin.GetBuffer, estado)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, 0, 0, "", Bin.GetBuffer, estado)
                     contador += 1
                 Else
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, Bin.GetBuffer, -1)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, 0, 0, "", Bin.GetBuffer, -1)
                 End If
             Else
                 If (estado = 0) Then
@@ -608,6 +608,18 @@ Public Class F0G_MovimientoChoferEntrada
 
     End Sub
 
+    Private Sub verificarCamion(cod As Integer)
+        Dim res As Boolean = L_verificarCamionStock(cod)
+        If res = False Then
+            Dim img As Bitmap = New Bitmap(My.Resources.WARNING, 50, 50)
+
+            ToastNotification.Show(Me, "El almacen del distribuidor no quedo vacio. Consultar a Soporte Dynasys".ToUpper,
+                                          img, 5000,
+                                          eToastGlowColor.Green,
+                                          eToastPosition.TopCenter)
+
+        End If
+    End Sub
     Private Sub MBtGrabar_Click(sender As Object, e As EventArgs) Handles MBtGrabar.Click
         If _ValidarCampos() = False Then
             Exit Sub
@@ -617,6 +629,7 @@ Public Class F0G_MovimientoChoferEntrada
         Else
             If (lbcodigo.Text <> String.Empty) Then
                 _prGuardarModificado()
+                verificarCamion(_codChofer)
             End If
         End If
     End Sub
@@ -1137,7 +1150,7 @@ Public Class F0G_MovimientoChoferEntrada
         _prCargarVenta()
     End Sub
 
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        _IniciarTodo()
-    End Sub
+    'Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+    '    _IniciarTodo()
+    'End Sub
 End Class

@@ -1098,7 +1098,7 @@ Public Class F02_Cliente
         End With
 
         CbCategoria.ValueMember = Dt.Columns(0).ToString
-        CbCategoria.DisplayMember = Dt.Columns(1).ToString
+        CbCategoria.DisplayMember = Dt.Columns(2).ToString
         CbCategoria.DataSource = Dt
         CbCategoria.Refresh()
     End Sub

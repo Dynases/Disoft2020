@@ -971,6 +971,42 @@ Public Class F0_PedidosAsignacion
         End If
     End Sub
 
+    Private Sub _PGrabarConfirmacionesEntregasCredito()
+        Dim i, cant, codPedido As Integer
+        Dim estado As Boolean
+        Dim monto As Double
+        cant = 0
+        For i = 0 To JGr_Registros2.RowCount - 1
+            JGr_Registros2.Row = i
+            estado = JGr_Registros2.GetValue("Check")
+            If estado = True Then
+                codPedido = JGr_Registros2.GetValue("CodPedido")
+                monto = JGr_Registros2.GetValue("monto")
+
+                Dim res As Boolean = evaluarEntrega(codPedido)
+                If res Then
+                    L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+                    L_PedidoCabacera_ModificarEstado(codPedido, "3")
+                    L_PedidoCabacera_ModificarEntrega(codPedido, "1")
+                    L_Pedido_ModififcarCredito(codPedido, Date.Now.ToString("dd/MM/yyyy"), monto)
+                    cant = cant + 1
+                End If
+            End If
+        Next
+
+        ToastNotification.Show(Me, Str(cant) + " Pedidos Entregados Exitosamente", My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
+
+        If _soloRepartidor = 0 Then
+            'actualizar registros PENDIENTE:TIENE QUE CARGAR LOS REGISTROS DE LA ZONA SELECCIONADA
+            Dim codZonaSelected As Integer = JGr_Zonas2.CurrentRow.Cells("Codigo").Value
+            _PCargarGridRegistrosPedidos(JGr_Registros2, "2", codZonaSelected)
+        Else
+            'actualizar registros PENDIENTE:TIENE QUE CARGAR LOS REGISTROS DE LA ZONA SELECCIONADA
+            ''Dim codZonaSelected As Integer = JGr_Zonas2.CurrentRow.Cells("Codigo").Value
+            _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
+        End If
+    End Sub
+
     Private Sub _PCargarMapa(ByRef objMapa As GMapControl, ByRef objOverlay As GMapOverlay)
 
         objOverlay = New GMapOverlay("polygons")
@@ -2077,14 +2113,23 @@ Public Class F0_PedidosAsignacion
 
     Private Sub P_ImprimirRecibos(numi As String, printerName As String)
         Dim dt As DataTable
-
-        dt = L_fnObtenerTabla("oanumi, oafdoc, cedesc, oarepa, cbdesc, ccnumi, cccod, ccdesc, obpcant, cadesc2, obpbase, obptot, cctelf1, ccdirec, oaobs, oaanumiprev, cbdesc2",
+        Dim desc As Double = 0
+        dt = L_fnObtenerTabla("oanumi, oafdoc, cedesc, oarepa, cbdesc, ccnumi, cccod, ccdesc, obpcant, cadesc2, obpbase,obdesc, obptot, cctelf1, ccdirec, oaobs, oaanumiprev, cbdesc2",
                               "vr_go_reciboCliente", "oanumi=" + numi)
 
+        For i = 0 To dt.Rows.Count - 1 Step 1
+            desc = desc + dt.Rows(i).Item("obdesc")
+        Next
+        'P_Global.Visualizador = New Visualizador
         Dim objrep As New R_ReciboCliente
+
         objrep.SetDataSource(dt)
+        objrep.SetParameterValue("descuento", desc)
+
         objrep.PrintOptions.PrinterName = printerName
         objrep.PrintToPrinter(1, False, 1, 1)
+
+
     End Sub
 
     Private Sub IMPRIMIRPEDIDOToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IMPRIMIRPEDIDOToolStripMenuItem.Click
@@ -2161,5 +2206,13 @@ Public Class F0_PedidosAsignacion
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub GroupPanel4_Click(sender As Object, e As EventArgs) Handles GroupPanel4.Click
+
+    End Sub
+
+    Private Sub btConfirmarPedidosCredito_Click(sender As Object, e As EventArgs) Handles btConfirmarPedidosCredito.Click
+        _PGrabarConfirmacionesEntregasCredito()
     End Sub
 End Class

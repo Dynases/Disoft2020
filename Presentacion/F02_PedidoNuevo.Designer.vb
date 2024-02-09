@@ -242,8 +242,8 @@ Partial Class F02_PedidoNuevo
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1349, 562)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemCliente})
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
@@ -362,7 +362,6 @@ Partial Class F02_PedidoNuevo
         '
         Me.MBtImprimir.Location = New System.Drawing.Point(88, 0)
         Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(4)
-        Me.MBtImprimir.Visible = False
         '
         'MBubbleBarUsuario
         '

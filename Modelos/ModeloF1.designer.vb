@@ -474,8 +474,7 @@ Partial Class ModeloF1
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelSuperior.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP
+        Me.PanelSuperior.CanvasColor = System.Drawing.Color.Transparent
         Me.PanelSuperior.Controls.Add(Me.MRlAccion)
         Me.PanelSuperior.Controls.Add(Me.PanelToolBar2)
         Me.PanelSuperior.Controls.Add(Me.PanelToolBar1)

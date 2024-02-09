@@ -221,6 +221,7 @@ Public Class P_Principal
             gb_ubilogo = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccubilogo")), "", dtConfSistema.Rows(0).Item("cccubilogo"))
             gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
             gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
+            gi_pdev = dtConfSistema.Rows(0).Item("cccPDev")
             If gi_CRM = 1 Then
                 FP_CRM.Visible = True
             Else
@@ -1828,7 +1829,48 @@ Public Class P_Principal
 
     End Sub
 
+    Private Sub FP_Logistica_Click(sender As Object, e As EventArgs) Handles FP_Logistica.Click
+
+    End Sub
+
+    Private Sub FP_Configuracion_Click(sender As Object, e As EventArgs) Handles FP_Configuracion.Click
+
+    End Sub
+
+    Private Sub FP_Pedido_Click(sender As Object, e As EventArgs) Handles FP_Pedido.Click
+
+    End Sub
+
+    Private Sub FP_Venta_Click(sender As Object, e As EventArgs) Handles FP_Venta.Click
+
+    End Sub
+
+    Private Sub btSaldoMinimo_Click(sender As Object, e As EventArgs) Handles btSaldoMinimo.Click
+        Dim frm As New R01_SaldoMinimo
+        frm.Show()
+    End Sub
+
+    Private Sub btPresupuesto_Click(sender As Object, e As EventArgs) Handles btPresupuesto.Click
+        Dim frm As New F01_Presupuesto
+        frm.Show()
+
+    End Sub
+
+    Private Sub FP_RecursosHumanos_Click(sender As Object, e As EventArgs) Handles FP_RecursosHumanos.Click
+
+    End Sub
+
+    Private Sub btIngresosEgresos_Click(sender As Object, e As EventArgs) Handles btIngresosEgresos.Click
+        Dim frm As New F1_IngresosEgresos
+        frm.Show()
+    End Sub
+
+
+    Private Sub btKPI_click(sender As Object, e As EventArgs) Handles btKPI.Click
+        Dim frm As New Dashboard
+        frm.Show()
+
+    End Sub
+End Class
 
 #End Region
-
-End Class

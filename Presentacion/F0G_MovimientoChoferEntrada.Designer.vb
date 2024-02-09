@@ -48,7 +48,6 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbTablet = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.swDevolucion = New DevComponents.DotNetBar.Controls.SwitchButton()
-        Me.btnActualizar = New DevComponents.DotNetBar.ButtonX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -89,7 +88,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 555)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
@@ -104,7 +103,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel3)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
         Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 555)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1144, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel1, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel3, 0)
@@ -114,7 +113,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MPnSuperior.Controls.Add(Me.swDevolucion)
         Me.MPnSuperior.Controls.Add(Me.tbTablet)
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -130,9 +129,8 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(0, 625)
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
+        Me.MPnInferior.Size = New System.Drawing.Size(1186, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -143,7 +141,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(986, 0)
         Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
@@ -183,16 +181,11 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Controls.Add(Me.btnActualizar)
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1124, 0)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(160, 70)
-        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
-        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btnActualizar, 0)
         '
         'MBtImprimir
         '
-        Me.MBtImprimir.Location = New System.Drawing.Point(88, 0)
         '
         'MBubbleBarUsuario
         '
@@ -241,7 +234,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1242, 191)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1144, 191)
         '
         '
         '
@@ -293,7 +286,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1236, 168)
+        Me.Panel1.Size = New System.Drawing.Size(1138, 168)
         Me.Panel1.TabIndex = 0
         '
         'rlEstado
@@ -551,7 +544,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 191)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1242, 364)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1144, 264)
         '
         '
         '
@@ -594,7 +587,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(1236, 341)
+        Me.grdetalle.Size = New System.Drawing.Size(1138, 241)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -669,7 +662,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.tbTablet.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTablet.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTablet.Location = New System.Drawing.Point(461, 28)
+        Me.tbTablet.Location = New System.Drawing.Point(588, 28)
         Me.tbTablet.Name = "tbTablet"
         Me.tbTablet.OffBackColor = System.Drawing.Color.DodgerBlue
         Me.tbTablet.OffText = "TODOS LOS REGISTROS"
@@ -695,7 +688,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.swDevolucion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swDevolucion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swDevolucion.Location = New System.Drawing.Point(688, 28)
+        Me.swDevolucion.Location = New System.Drawing.Point(852, 28)
         Me.swDevolucion.Name = "swDevolucion"
         Me.swDevolucion.OffBackColor = System.Drawing.Color.DodgerBlue
         Me.swDevolucion.OffText = "SOLO DEVOLUCIÓN"
@@ -709,29 +702,11 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.swDevolucion.Value = True
         Me.swDevolucion.ValueObject = "Y"
         '
-        'btnActualizar
-        '
-        Me.btnActualizar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
-        Me.btnActualizar.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
-        Me.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnActualizar.Image = Global.Presentacion.My.Resources.Resources.ACTUALIZAR
-        Me.btnActualizar.ImageFixedSize = New System.Drawing.Size(48, 48)
-        Me.btnActualizar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnActualizar.Location = New System.Drawing.Point(8, 0)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(80, 70)
-        Me.btnActualizar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnActualizar.TabIndex = 15
-        Me.btnActualizar.Text = "ACTUALIZAR"
-        Me.btnActualizar.TextColor = System.Drawing.Color.Black
-        '
         'F0G_MovimientoChoferEntrada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1284, 661)
+        Me.ClientSize = New System.Drawing.Size(1186, 561)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0G_MovimientoChoferEntrada"
@@ -788,5 +763,4 @@ Partial Class F0G_MovimientoChoferEntrada
     Friend WithEvents tbTablet As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents Timer1 As Timer
     Friend WithEvents swDevolucion As DevComponents.DotNetBar.Controls.SwitchButton
-    Friend WithEvents btnActualizar As DevComponents.DotNetBar.ButtonX
 End Class
