@@ -37,6 +37,7 @@ Public Class F02_Cliente
     Dim BoModificar As Boolean = False
     Dim BoEliminar As Boolean = False
     Dim BoNavegar As Boolean = False
+    Dim UserSpecial As Boolean = False
 
     'Dim StCod As String
 
@@ -45,6 +46,12 @@ Public Class F02_Cliente
     Dim Overlay As GMapOverlay
 
     Dim DtProductoCompuesto As DataTable
+
+    Dim TablaImagenes As DataTable
+    Dim dtImagenesAll As DataTable
+    Dim RutaGlobal As String = gs_CarpetaRaiz
+    Dim RutaTemporal As String = "C:\Temporal"
+    Dim nameImg As String = "Default.jpg"
 
 #End Region
 
@@ -121,6 +128,9 @@ Public Class F02_Cliente
             Return
         End If
 
+        If VerificarUsuario() Then
+            UserSpecial = True
+        End If
         'Inicializar componentes
         P_prInicializarComponentes()
 
@@ -141,6 +151,7 @@ Public Class F02_Cliente
         End If
 
         P_prActualizarPaginacion(0)
+        dtImagenesAll = L_prCargarImagenesClienteAll()
         P_prLlenarDatos(0)
         _Habilitar()
 
@@ -150,6 +161,16 @@ Public Class F02_Cliente
             stiFrecuencia.Visible = False
         End If
     End Sub
+
+    Private Function VerificarUsuario() As Boolean
+        Dim dt As DataTable = TraerUsuariosEspeciales()
+        For i = 0 To dt.Rows.Count - 1 Step 1
+            If gi_userNumi = dt.Rows(i).Item("especial") Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub _Habilitar()
         GroupPanelEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
     End Sub
@@ -286,6 +307,7 @@ Public Class F02_Cliente
         cbSupervisor.ReadOnly = Not flat
         cbPrevendedor.ReadOnly = Not flat
         cbTipoCredito.ReadOnly = Not flat
+        cbCatCliente.ReadOnly = Not flat
 
         'DateTimer
         DtiFechaNac.IsInputReadOnly = Not flat
@@ -332,6 +354,9 @@ Public Class F02_Cliente
         chbViernes.Enabled = flat
         chbSabado.Enabled = flat
         chbDomingo.Enabled = flat
+
+        btnImagen.Visible = flat
+        btnDelete.Visible = flat
     End Sub
 
     Private Sub P_prLimpiar()
@@ -361,7 +386,7 @@ Public Class F02_Cliente
         cbSupervisor.SelectedIndex = 0
         cbPrevendedor.SelectedIndex = 0
         cbTipoCredito.SelectedIndex = 0
-
+        cbCatCliente.SelectedIndex = 0
         'DateTimer
         DtiFechaNac.Value = Now.Date
         DtiFechaIng.Value = Now.Date
@@ -407,6 +432,8 @@ Public Class F02_Cliente
         chbSabado.Checked = False
         chbDomingo.Checked = False
 
+        TablaImagenes = L_prCargarImagenesCliente(-1)
+        _prCargarImagen()
     End Sub
 
     Private Sub P_prArmarCombos()
@@ -417,7 +444,7 @@ Public Class F02_Cliente
         P_prArmarComboSupervisor()
         P_prArmarComboPrevendedor()
         P_prArmarComboTipoCredito()
-
+        P_prArmarComboCliente()
         If (gi_vacu = 1) Then
             'Combos acuerdo
             P_prArmarComboTipoAcuerdo()
@@ -468,7 +495,7 @@ Public Class F02_Cliente
                     Me.DtiFechaNac.Value = .GetValue("fnac")
                     Me.DtiFechaIng.Value = .GetValue("fing")
                     Me.TbDireccion.Text = .GetValue("direc").ToString
-
+                    Me.cbCatCliente.Value = .GetValue("ccuesp")
                     If (.GetValue("ultped").ToString.Equals("")) Then
                         Me.DtiUltimoPedido.Value = DtiFechaIng.Value
                     Else
@@ -486,6 +513,9 @@ Public Class F02_Cliente
                     ElseIf (.GetValue("est").ToString.Equals("2")) Then 'devueto
                         RbDevuelto.Checked = True
                     End If
+
+                    TablaImagenes = filtrarImagenes(TbCodigo.Text)
+                    _prCargarImagen()
 
                     Me.TbObs.Text = .GetValue("obs").ToString
 
@@ -584,6 +614,8 @@ Public Class F02_Cliente
 
                             P_prArmarGrillaDias("-1")
                             P_prArmarGrillaProducto("-1")
+
+
                         End If
                     End If
 
@@ -627,6 +659,20 @@ Public Class F02_Cliente
         _prCargarGridCategoria(TbCodigo.Text)
     End Sub
 
+    Public Function filtrarImagenes(Id As Integer) As DataTable
+        Dim dt As DataTable = dtImagenesAll.Copy
+        dt.Rows.Clear()
+
+        For i As Integer = 0 To dtImagenesAll.Rows.Count - 1
+
+            If (dtImagenesAll.Rows(i).Item("idty005") = Id) Then
+                dt.ImportRow(dtImagenesAll.Rows(i))
+            End If
+
+        Next
+        Return dt
+
+    End Function
     Private Sub P_prNuevoRegistro()
         P_prLimpiar()
         P_prEstadoNueModEli(1)
@@ -696,6 +742,30 @@ Public Class F02_Cliente
         End If
     End Sub
 
+    Private Sub _prCrearCarpetaImagenes(carpetaFinal As String)
+        Dim rutaDestino As String = RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal + "\"
+
+        If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal) = False Then
+            If System.IO.Directory.Exists(RutaGlobal + "\Imagenes") = False Then
+                System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes")
+                If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes Productos") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes Productos")
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal + "\")
+                End If
+            Else
+                If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes Productos") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes Productos")
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal + "\")
+                Else
+                    If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal) = False Then
+                        System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes Productos\" + carpetaFinal + "\")
+                    End If
+
+                End If
+            End If
+        End If
+    End Sub
+
     Private Sub P_prGrabarRegistro()
         Dim numi As String
         Dim cod As String
@@ -734,6 +804,7 @@ Public Class F02_Cliente
 
         Dim giFrec As String
         Dim frecvisita As String
+        Dim usuesp As Integer
 
 
 
@@ -808,7 +879,7 @@ Public Class F02_Cliente
                 'Para registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-
+                usuesp = cbCatCliente.Value
 
 
                 BtAddEquipo.Select()
@@ -823,14 +894,19 @@ Public Class F02_Cliente
                                                        IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                        IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                        IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                       IIf(chbDomingo.Checked, 1, 0))
+                                                       IIf(chbDomingo.Checked, 1, 0), TablaImagenes, usuesp)
 
 
                 If (res) Then
+
+                    _prCrearCarpetaImagenes("ProductosTodos")
+                    _prGuardarImagenes(RutaGlobal + "\Imagenes\Imagenes Productos\" + "ProductosTodos" + "\")
                     P_prLimpiar()
                     BoNavegar = False
                     P_prArmarGrillaBusqueda()
                     P_ArmarGrillaSugerencia()
+
+                    dtImagenesAll = L_prCargarImagenesClienteAll()
                     BoNavegar = True
 
                     TbNombre.Select()
@@ -914,7 +990,7 @@ Public Class F02_Cliente
                 'Para modificar o registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-
+                usuesp = cbCatCliente.Value
                 BtAddEquipo.Select()
 
                 Dim dt As DataTable = CType(DgjEquipo.DataSource, DataTable).DefaultView.ToTable(False, "chnumi", "chfec", "chcod", "chdesc", "chtmov", "chnrem", "chcan", "chmonbs", "chmonsus", "chnota", "chlin", "chobs", "estado")
@@ -927,10 +1003,12 @@ Public Class F02_Cliente
                                                           IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                           IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                           IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                          IIf(chbDomingo.Checked, 1, 0))
+                                                          IIf(chbDomingo.Checked, 1, 0), TablaImagenes, usuesp)
 
                 If (res) Then
-
+                    _prCrearCarpetaImagenes("ProductosTodos")
+                    _prGuardarImagenes(RutaGlobal + "\Imagenes\Imagenes Productos\" + "ProductosTodos" + "\")
+                    dtImagenesAll = L_prCargarImagenesClienteAll()
                     BoNavegar = False
                     P_prArmarGrillaBusqueda()
                     P_ArmarGrillaSugerencia()
@@ -1139,7 +1217,12 @@ Public Class F02_Cliente
 
     Private Sub P_prArmarGrillaBusqueda()
         DtBusqueda = New DataTable
-        DtBusqueda = L_fnClientes()
+        If UserSpecial Then
+            DtBusqueda = L_fnClientes2()
+        Else
+            DtBusqueda = L_fnClientes()
+        End If
+
 
         DgjBusqueda.BoundMode = Janus.Data.BoundMode.Bound
         DgjBusqueda.DataSource = DtBusqueda
@@ -2883,6 +2966,11 @@ Public Class F02_Cliente
         dt = L_fnObtenerTabla("cenum as [cod], cedesc as [desc]", "TC0051", "cecon=16")
         g_prArmarCombo(cbTipoCredito, dt, 60, 200, "Código", "Tipo Crédito")
     End Sub
+    Private Sub P_prArmarComboCliente()
+        Dim dt As DataTable
+        dt = L_fnObtenerTabla("cenum as [cod], cedesc as [desc]", "TC0051", "cecon=107")
+        g_prArmarCombo(cbCatCliente, dt, 60, 200, "Código", "Categoria")
+    End Sub
     'Private Sub P_prArmarComboDias()
     '    Dim dt As New DataTable
 
@@ -3132,6 +3220,200 @@ Public Class F02_Cliente
     End Sub
 
     Private Sub StcFrecuencia_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles StcFrecuencia.SelectedTabChanged
+
+    End Sub
+
+    Private Sub btnImagen_Click(sender As Object, e As EventArgs) Handles btnImagen.Click
+        _fnCopiarImagenRutaDefinida()
+        _prCargarImagen()
+    End Sub
+
+    Public Sub _prCargarImagen()
+        PanelListImagenes.Controls.Clear()
+
+        pbImgProdu.Image = Nothing
+
+        Dim i As Integer = 0
+        For Each fila As DataRow In TablaImagenes.Rows
+            Dim elemImg As UCLavadero = New UCLavadero
+            Dim rutImg = fila.Item("nameImage").ToString
+            Dim estado As Integer = fila.Item("estado")
+
+            If (estado = 0) Then
+                elemImg.pbImg.SizeMode = PictureBoxSizeMode.StretchImage
+                Dim bm As Bitmap = Nothing
+                Dim by As Byte() = fila.Item("img")
+                Dim ms As New MemoryStream(by)
+                bm = New Bitmap(ms)
+
+
+                elemImg.pbImg.Image = bm
+
+                pbImgProdu.SizeMode = PictureBoxSizeMode.StretchImage
+                pbImgProdu.Image = bm
+                elemImg.pbImg.Tag = i
+                elemImg.Dock = DockStyle.Top
+                pbImgProdu.Tag = i
+                AddHandler elemImg.pbImg.MouseEnter, AddressOf pbImg_MouseEnter
+
+                PanelListImagenes.Controls.Add(elemImg)
+                ms.Dispose()
+
+            Else
+                If (estado = 1) Then
+                    If (File.Exists(RutaGlobal + "\Imagenes\Imagenes Productos\ProductosTodos" + rutImg)) Then
+                        Dim bm As Bitmap = New Bitmap(RutaGlobal + "\Imagenes\Imagenes Productos\ProductosTodos" + rutImg)
+                        elemImg.pbImg.SizeMode = PictureBoxSizeMode.StretchImage
+                        elemImg.pbImg.Image = bm
+                        pbImgProdu.SizeMode = PictureBoxSizeMode.StretchImage
+                        pbImgProdu.Image = bm
+                        elemImg.pbImg.Tag = i
+                        elemImg.Dock = DockStyle.Top
+                        pbImgProdu.Tag = i
+                        AddHandler elemImg.pbImg.MouseEnter, AddressOf pbImg_MouseEnter
+
+                        PanelListImagenes.Controls.Add(elemImg)
+                    End If
+
+                End If
+            End If
+
+
+
+
+            i += 1
+        Next
+
+    End Sub
+
+    Private Sub _prCrearCarpetaImagenes()
+        Dim rutaDestino As String = RutaGlobal + "\Imagenes\Imagenes ProductoDino\"
+
+        If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes ProductoDino\") = False Then
+            If System.IO.Directory.Exists(RutaGlobal + "\Imagenes") = False Then
+                System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes")
+                If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes ProductoDino") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes ProductoDino")
+                End If
+            Else
+                If System.IO.Directory.Exists(RutaGlobal + "\Imagenes\Imagenes ProductoDino") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Imagenes\Imagenes ProductoDino")
+
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub pbImg_MouseEnter(sender As Object, e As EventArgs)
+        Dim pb As PictureBox = CType(sender, PictureBox)
+        pbImgProdu.Image = pb.Image
+        pbImgProdu.Tag = pb.Tag
+
+    End Sub
+    Private Function _fnCopiarImagenRutaDefinida() As String
+        'copio la imagen en la carpeta del sistema
+
+        Dim file As New OpenFileDialog()
+        'file.InitialDirectory = gs_RutaImg
+        file.Filter = "Ficheros JPG o JPEG o PNG|*.jpg;*.jpeg;*.png" &
+                      "|Ficheros GIF|*.gif" &
+                      "|Ficheros BMP|*.bmp" &
+                      "|Ficheros PNG|*.png" &
+                      "|Ficheros TIFF|*.tif"
+        If file.ShowDialog() = DialogResult.OK Then
+            Dim ruta As String = file.FileName
+            Dim nombre As String = ""
+
+            If file.CheckFileExists = True Then
+                Dim img As New Bitmap(New Bitmap(ruta), 1000, 800)
+                Dim a As Object = file.GetType.ToString
+
+                Dim da As String = Str(Now.Day).Trim + Str(Now.Month).Trim + Str(Now.Year).Trim + Str(Now.Hour).Trim + Str(Now.Minute).Trim + Str(Now.Second).Trim
+
+                nombre = "\Imagen_" + da + ".jpg".Trim
+
+                If (_fnActionNuevo()) Then
+                    Dim mstream = New MemoryStream()
+
+                    img.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                    TablaImagenes.Rows.Add(0, 0, nombre, mstream.ToArray(), 0)
+                    mstream.Dispose()
+                    img.Dispose()
+
+                Else
+                    Dim mstream = New MemoryStream()
+
+                    img.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                    TablaImagenes.Rows.Add(0, TbCodigo.Text, nombre, mstream.ToArray(), 0)
+                    mstream.Dispose()
+
+                End If
+
+                'img.Save(RutaTemporal + nombre, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+            End If
+            Return nombre
+        End If
+
+        Return "default.jpg"
+    End Function
+
+    Public Function _fnActionNuevo() As Boolean
+        Return TbCodigo.Text = String.Empty
+    End Function
+    Public Sub _prGuardarImagenes(_ruta As String)
+        PanelListImagenes.Controls.Clear()
+
+
+        For i As Integer = 0 To TablaImagenes.Rows.Count - 1 Step 1
+            Dim estado As Integer = TablaImagenes.Rows(i).Item("estado")
+            If (estado = 0) Then
+
+                Dim bm As Bitmap = Nothing
+                Dim by As Byte() = TablaImagenes.Rows(i).Item("img")
+                Dim ms As New MemoryStream(by)
+                bm = New Bitmap(ms)
+                Try
+                    bm.Save(_ruta + TablaImagenes.Rows(i).Item("nameImage"), System.Drawing.Imaging.ImageFormat.Jpeg)
+                Catch ex As Exception
+
+                End Try
+
+
+
+
+            End If
+            If (estado = -1) Then
+                Try
+                    Me.pbImgProdu.Image.Dispose()
+                    Me.pbImgProdu.Image = Nothing
+                    Application.DoEvents()
+                    TablaImagenes.Rows(i).Item("img") = Nothing
+
+
+
+                    If (File.Exists(_ruta + TablaImagenes.Rows(i).Item("nameImage"))) Then
+                        My.Computer.FileSystem.DeleteFile(_ruta + TablaImagenes.Rows(i).Item("nameImage"))
+                    End If
+
+                Catch ex As Exception
+
+                End Try
+            End If
+        Next
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+        Dim pos As Integer = CType(pbImgProdu.Tag, Integer)
+        If (IsDBNull(TablaImagenes)) Then
+            Return
+
+        End If
+        If (pos >= 0 And TablaImagenes.Rows.Count > 0) Then
+            TablaImagenes.Rows(pos).Item("estado") = -1
+            _prCargarImagen()
+        End If
 
     End Sub
 End Class

@@ -34,7 +34,7 @@ Public Class F02_PedidoNuevo
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
         'L_prAbrirConexion()
-
+        L_prJobDuplicados()
         Me.Text = "P E D I D O S"
         'Me.WindowState = FormWindowState.Maximized
         MSuperTabControlPrincipal.SelectedTabIndex = 0
@@ -397,7 +397,7 @@ Public Class F02_PedidoNuevo
             .FormatString = "0.00000"
         End With
         With JGr_DetallePedido.RootTable.Columns(6)
-            .Caption = "Monto Bs."
+            .Caption = "Monto " + gs_Mon
             .Key = "Monto"
             .Width = 90
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -418,7 +418,7 @@ Public Class F02_PedidoNuevo
         End With
         With JGr_DetallePedido.RootTable.Columns(8)
             .Visible = True
-            .Caption = "Total Bs."
+            .Caption = "Total " + gs_Mon
             .Key = "Total"
             .Width = 90
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center

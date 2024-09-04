@@ -28,6 +28,7 @@ Public Class F01_ReporteVentaAdmin
         P_prArmarComboVendedores()
         P_prArmarComboRepartidor()
         P_prArmarComboProducto()
+        P_prArmarComboEstado()
 
     End Sub
     Private Sub P_prArmarComboProducto()
@@ -37,6 +38,18 @@ Public Class F01_ReporteVentaAdmin
 
         g_prArmarCombo(cbProducto, DtP, 60, 200, "COD", "PRODUCTOS")
         cbProducto.SelectedIndex = Convert.ToInt32(DtP.Rows.Count - 1)
+
+    End Sub
+    Private Sub P_prArmarComboEstado()
+        Dim DtE As New DataTable
+        DtE.Columns.Add("cod")
+        DtE.Columns.Add("desc")
+        DtE.Rows.Add(1, "TODOS")
+        DtE.Rows.Add(2, "PENDIENTE")
+        DtE.Rows.Add(3, "ENTREGADO")
+
+        g_prArmarCombo(cbEstado, DtE, 60, 200, "COD", "ESTADO")
+        cbEstado.SelectedIndex = Convert.ToInt32(DtE.Rows.Count - 1)
 
     End Sub
     Private Sub P_prArmarComboProveedor()
@@ -140,7 +153,7 @@ Public Class F01_ReporteVentaAdmin
             table.Rows.Clear()
             Dim ventaGeneral, ventaProveedor, ventaCategoria, ventaMarca, ventaAtributo, ventaProducto As DataTable
 
-            Dim idProveedor, idCategoria, idMarca, idAtributo, idProducto, idCliente, idRepartidor,idVendedor As Integer
+            Dim idProveedor, idCategoria, idMarca, idAtributo, idProducto, idCliente, idRepartidor, idVendedor As Integer
 
             idProveedor = IIf(cbProveedor.Value = 0, 0, cbProveedor.Value)
             idCategoria = IIf(cbCategoria.Value = 0, 0, cbCategoria.Value)
@@ -300,66 +313,147 @@ Public Class F01_ReporteVentaAdmin
         End If
     End Sub
     Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
-        Dim dt As DataTable = L_fnReporteVentaAdminEstructura()
-        ConstruirTabla(dt)
+        'Dim dt As DataTable = L_fnReporteVentaAdminEstructura()
+        ''ConstruirTabla(dt)
         '  Filtrar(dt)
+        Dim dt As DataTable = L_fnReporteVentaAdmin(tbFechaI.Value.ToString("dd/MM/yyyy"), tbFechaF.Value.ToString("dd/MM/yyyy"), cbEstado.Value)
         If (dt.Rows.Count > 0) Then
             grDatos.DataSource = dt
             grDatos.RetrieveStructure()
             grDatos.AlternatingColors = True
 
-            With grDatos.RootTable.Columns("Codigo")
-                .Caption = "Codigo"
+            With grDatos.RootTable.Columns("oafdoc")
+                .Caption = "FECHA"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = "dd/MM/yyyy"
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("cbdesc")
+                .Caption = "DISTRIBUIDOR"
                 .Width = 120
                 .HeaderAlignment = TextAlignment.Center
                 .TextAlignment = TextAlignment.Center
                 .FormatString = ""
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("Descripcion")
-                .Caption = "Empresa/Categoria/Marca/Atributo/Producto"
+            With grDatos.RootTable.Columns("cbdesc1")
+                .Caption = "PROMOTOR"
+                .Width = 120
                 .HeaderAlignment = TextAlignment.Center
-                .TextAlignment = TextAlignment.Near
+                .TextAlignment = TextAlignment.Center
                 .FormatString = ""
-                .Width = 500
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("Cajas")
+            With grDatos.RootTable.Columns("oahora")
+                .Caption = "HORA"
+                .Width = 120
                 .HeaderAlignment = TextAlignment.Center
-                .TextAlignment = TextAlignment.Far
-                .Caption = "Cajas"
-                .FormatString = "0.00"
-                .Width = 160
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
                 .Visible = True
             End With
+            With grDatos.RootTable.Columns("oaccli")
+                .Caption = "CODIGO"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("ccdesc")
+                .Caption = "CLIENTE"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("oaobs")
+                .Caption = "OBSERVACION"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("ccbzona")
+                .Caption = "RUTA"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("oanumi")
+                .Caption = "NOTA"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("total")
+                .Caption = "PREVENTA"
+                .Width = 120
+                .HeaderAlignment = TextAlignment.Center
+                .TextAlignment = TextAlignment.Center
+                .FormatString = ""
+                .Visible = True
+            End With
+            'With grDatos.RootTable.Columns("Codigo")
+            '    .Caption = "Codigo"
+            '    .Width = 120
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Center
+            '    .FormatString = ""
+            '    .Visible = True
+            'End With
+            'With grDatos.RootTable.Columns("Descripcion")
+            '    .Caption = "Empresa/Categoria/Marca/Atributo/Producto"
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Near
+            '    .FormatString = ""
+            '    .Width = 500
+            '    .Visible = True
+            'End With
+            'With grDatos.RootTable.Columns("Cajas")
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Far
+            '    .Caption = "Cajas"
+            '    .FormatString = "0.00"
+            '    .Width = 160
+            '    .Visible = True
+            'End With
 
-            With grDatos.RootTable.Columns("Importe")
-                .HeaderAlignment = TextAlignment.Center
-                .TextAlignment = TextAlignment.Far
-                .Caption = "Importe"
-                .FormatString = "0.00"
-                .Width = 160
-                .Visible = True
-            End With
-            With grDatos.RootTable.Columns("NroClientes")
-                .HeaderAlignment = TextAlignment.Center
-                .TextAlignment = TextAlignment.Far
-                .Caption = "NroClientes"
-                .FormatString = "0.00"
-                .Width = 160
-                .Visible = True
-            End With
-            With grDatos.RootTable.Columns("Porcentaje")
-                .HeaderAlignment = TextAlignment.Center
-                .TextAlignment = TextAlignment.Far
-                .Caption = "Porcentaje"
-                .FormatString = "0.00"
-                .Width = 160
-                .Visible = True
-            End With
-            With grDatos.RootTable.Columns("tipo")
-                .Visible = False
-            End With
+            'With grDatos.RootTable.Columns("Importe")
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Far
+            '    .Caption = "Importe"
+            '    .FormatString = "0.00"
+            '    .Width = 160
+            '    .Visible = True
+            'End With
+            'With grDatos.RootTable.Columns("NroClientes")
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Far
+            '    .Caption = "NroClientes"
+            '    .FormatString = "0.00"
+            '    .Width = 160
+            '    .Visible = True
+            'End With
+            'With grDatos.RootTable.Columns("Porcentaje")
+            '    .HeaderAlignment = TextAlignment.Center
+            '    .TextAlignment = TextAlignment.Far
+            '    .Caption = "Porcentaje"
+            '    .FormatString = "0.00"
+            '    .Width = 160
+            '    .Visible = True
+            'End With
+            'With grDatos.RootTable.Columns("tipo")
+            '    .Visible = False
+            'End With
             With grDatos
                 .DefaultFilterRowComparison = FilterConditionOperator.Contains
                 .FilterMode = FilterMode.Automatic
@@ -368,7 +462,7 @@ Public Class F01_ReporteVentaAdmin
                 'diseño de la grilla
                 .VisualStyle = VisualStyle.Office2007
             End With
-            aplicarCondicionJanues()
+            'aplicarCondicionJanues()
         Else
             If (Not IsNothing(grDatos) And Not IsNothing(grDatos.DataSource)) Then
 

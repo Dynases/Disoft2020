@@ -719,8 +719,8 @@ Partial Class F0_MCaja
         Me.SuperTabControl2.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl2.ControlBox.Name = ""
         Me.SuperTabControl2.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl2.ControlBox.MenuBox, Me.SuperTabControl2.ControlBox.CloseBox})
-        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel4)
+        Me.SuperTabControl2.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControl2.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControl2.Margin = New System.Windows.Forms.Padding(2)
@@ -788,6 +788,7 @@ Partial Class F0_MCaja
         Me.DEPÓSITO.GlobalItem = False
         Me.DEPÓSITO.Name = "DEPÓSITO"
         Me.DEPÓSITO.Text = "DEPOSITO"
+        Me.DEPÓSITO.Visible = False
         '
         'GroupPanel2
         '

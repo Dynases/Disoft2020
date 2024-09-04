@@ -83,15 +83,19 @@ Public Class F01_MonitoreoPedido
         CbPersonal.Refresh()
     End Sub
     Private Sub _prCargarComboCiudades()
-        J_Cb_Ciudad.Items.Add("SANTA CRUZ")
-        J_Cb_Ciudad.Items.Add("LA PAZ")
-        J_Cb_Ciudad.Items.Add("COCHABAMBA")
-        J_Cb_Ciudad.Items.Add("ORURO")
-        J_Cb_Ciudad.Items.Add("SUCRE")
-        J_Cb_Ciudad.Items.Add("TARIJA")
-        J_Cb_Ciudad.Items.Add("POTOSI")
-        J_Cb_Ciudad.Items.Add("BENI")
-        J_Cb_Ciudad.Items.Add("PANDO")
+        'J_Cb_Ciudad.Items.Add("SANTA CRUZ")
+        'J_Cb_Ciudad.Items.Add("LA PAZ")
+        'J_Cb_Ciudad.Items.Add("COCHABAMBA")
+        'J_Cb_Ciudad.Items.Add("ORURO")
+        'J_Cb_Ciudad.Items.Add("SUCRE")
+        'J_Cb_Ciudad.Items.Add("TARIJA")
+        'J_Cb_Ciudad.Items.Add("POTOSI")
+        'J_Cb_Ciudad.Items.Add("BENI")
+        'J_Cb_Ciudad.Items.Add("PANDO")
+        Dim Dt As DataTable
+
+        Dt = L_fnObtenerLibreria("4", " 1=1 ")
+        g_prArmarCombo(J_Cb_Ciudad, Dt, 60, 200, "Código", "Ciudad")
         J_Cb_Ciudad.SelectedIndex = gs_Parametros(0).Item("syciudad") - 1
 
     End Sub
@@ -1476,29 +1480,29 @@ Public Class F01_MonitoreoPedido
         End If
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles J_Cb_Ciudad.SelectedIndexChanged
-        Dim ciudad As String = J_Cb_Ciudad.Text
-        Select Case ciudad
-            Case "COCHABAMBA"
-                GM_Mapa.Position = New PointLatLng(-17.380941, -66.15976)
-            Case "LA PAZ"
-                GM_Mapa.Position = New PointLatLng(-16.499225, -68.122866)
-            Case "SANTA CRUZ"
-                GM_Mapa.Position = New PointLatLng(-17.782814, -63.182386)
-            Case "ORURO"
-                GM_Mapa.Position = New PointLatLng(-17.968869, -67.1271257)
-            Case "SUCRE"
-                GM_Mapa.Position = New PointLatLng(-19.047917, -65.259568)
-            Case "TARIJA"
-                GM_Mapa.Position = New PointLatLng(-21.533896, -64.734134)
-            Case "POTOSI"
-                GM_Mapa.Position = New PointLatLng(-19.589143, -65.753427)
-            Case "BENI"
-                GM_Mapa.Position = New PointLatLng(-14.835274, -64.903832)
-            Case "PANDO"
-                GM_Mapa.Position = New PointLatLng(-11.023571, -68.766266)
-        End Select
-    End Sub
+    'Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles J_Cb_Ciudad.SelectedIndexChanged
+    'Dim ciudad As String = J_Cb_Ciudad.Text
+    'Select Case ciudad
+    '    Case "COCHABAMBA"
+    '        GM_Mapa.Position = New PointLatLng(-17.380941, -66.15976)
+    '    Case "LA PAZ"
+    '        GM_Mapa.Position = New PointLatLng(-16.499225, -68.122866)
+    '    Case "SANTA CRUZ"
+    '        GM_Mapa.Position = New PointLatLng(-17.782814, -63.182386)
+    '    Case "ORURO"
+    '        GM_Mapa.Position = New PointLatLng(-17.968869, -67.1271257)
+    '    Case "SUCRE"
+    '        GM_Mapa.Position = New PointLatLng(-19.047917, -65.259568)
+    '    Case "TARIJA"
+    '        GM_Mapa.Position = New PointLatLng(-21.533896, -64.734134)
+    '    Case "POTOSI"
+    '        GM_Mapa.Position = New PointLatLng(-19.589143, -65.753427)
+    '    Case "BENI"
+    '        GM_Mapa.Position = New PointLatLng(-14.835274, -64.903832)
+    '    Case "PANDO"
+    '        GM_Mapa.Position = New PointLatLng(-11.023571, -68.766266)
+    'End Select
+    'End Sub
 
     Private Sub grRepartidores_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grRepartidores.EditingCell
         If (tbTracking.Value) Then
@@ -1621,5 +1625,33 @@ Public Class F01_MonitoreoPedido
 
     Private Sub CbPersonal_ValueChanged(sender As Object, e As EventArgs) Handles CbPersonal.ValueChanged
         _CargarRecorrido(CbPersonal.Value)
+    End Sub
+
+    Private Sub J_Cb_Ciudad_ValueChanged(sender As Object, e As EventArgs) Handles J_Cb_Ciudad.ValueChanged
+        Dim ciudad As String = J_Cb_Ciudad.Text
+        Select Case ciudad
+            Case "COCHABAMBA"
+                GM_Mapa.Position = New PointLatLng(-17.380941, -66.15976)
+            Case "LA PAZ"
+                GM_Mapa.Position = New PointLatLng(-16.499225, -68.122866)
+            Case "SANTA CRUZ"
+                GM_Mapa.Position = New PointLatLng(-17.782814, -63.182386)
+            Case "ORURO"
+                GM_Mapa.Position = New PointLatLng(-17.968869, -67.1271257)
+            Case "SUCRE"
+                GM_Mapa.Position = New PointLatLng(-19.047917, -65.259568)
+            Case "TARIJA"
+                GM_Mapa.Position = New PointLatLng(-21.533896, -64.734134)
+            Case "POTOSI"
+                GM_Mapa.Position = New PointLatLng(-19.589143, -65.753427)
+            Case "BENI"
+                GM_Mapa.Position = New PointLatLng(-14.835274, -64.903832)
+            Case "PANDO"
+                GM_Mapa.Position = New PointLatLng(-11.023571, -68.766266)
+            Case "JUJUY"
+                GM_Mapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
+            Case "SALTA"
+                GM_Mapa.Position = New PointLatLng(-24.789496, -65.410377)
+        End Select
     End Sub
 End Class

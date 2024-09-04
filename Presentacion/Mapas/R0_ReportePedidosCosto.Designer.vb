@@ -24,6 +24,10 @@ Partial Class R0_ReportePedidosCosto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.tbCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.CheckBoxX1 = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.CheckBoxX2 = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.tbVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.CheckTodosAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.CheckTodosVendedor = New DevComponents.DotNetBar.Controls.CheckBoxX()
@@ -35,6 +39,7 @@ Partial Class R0_ReportePedidosCosto
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbCodigoCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -60,8 +65,9 @@ Partial Class R0_ReportePedidosCosto
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(400, 646)
-        Me.MPnInferior.Size = New System.Drawing.Size(912, 44)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2)
+        Me.MPnInferior.Size = New System.Drawing.Size(684, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -72,11 +78,14 @@ Partial Class R0_ReportePedidosCosto
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(645, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(484, 0)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2)
         '
         'MTbUsuario
         '
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2)
         Me.MTbUsuario.ReadOnly = True
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -111,7 +120,8 @@ Partial Class R0_ReportePedidosCosto
         'MGpFiltro
         '
         Me.MGpFiltro.Controls.Add(Me.GroupBox1)
-        Me.MGpFiltro.Size = New System.Drawing.Size(400, 604)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
         '
@@ -144,11 +154,17 @@ Partial Class R0_ReportePedidosCosto
         '
         'MCrReporte
         '
-        Me.MCrReporte.Size = New System.Drawing.Size(912, 690)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2)
+        Me.MCrReporte.Size = New System.Drawing.Size(684, 561)
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.tbCodigoCliente)
+        Me.GroupBox1.Controls.Add(Me.LabelX1)
+        Me.GroupBox1.Controls.Add(Me.tbCliente)
+        Me.GroupBox1.Controls.Add(Me.CheckBoxX1)
+        Me.GroupBox1.Controls.Add(Me.CheckBoxX2)
         Me.GroupBox1.Controls.Add(Me.tbVendedor)
         Me.GroupBox1.Controls.Add(Me.CheckTodosAlmacen)
         Me.GroupBox1.Controls.Add(Me.CheckTodosVendedor)
@@ -162,13 +178,70 @@ Partial Class R0_ReportePedidosCosto
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(394, 493)
+        Me.GroupBox1.Size = New System.Drawing.Size(294, 399)
         Me.GroupBox1.TabIndex = 236
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos"
+        '
+        'LabelX1
+        '
+        Me.LabelX1.AutoSize = True
+        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX1.Location = New System.Drawing.Point(9, 157)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX1.Size = New System.Drawing.Size(51, 16)
+        Me.LabelX1.TabIndex = 249
+        Me.LabelX1.Text = "Cliente:"
+        '
+        'tbCliente
+        '
+        Me.tbCliente.BackColor = System.Drawing.Color.Gainsboro
+        '
+        '
+        '
+        Me.tbCliente.Border.Class = "TextBoxBorder"
+        Me.tbCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbCliente.Location = New System.Drawing.Point(9, 188)
+        Me.tbCliente.Name = "tbCliente"
+        Me.tbCliente.PreventEnterBeep = True
+        Me.tbCliente.Size = New System.Drawing.Size(167, 22)
+        Me.tbCliente.TabIndex = 248
+        '
+        'CheckBoxX1
+        '
+        '
+        '
+        '
+        Me.CheckBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.CheckBoxX1.Location = New System.Drawing.Point(232, 187)
+        Me.CheckBoxX1.Name = "CheckBoxX1"
+        Me.CheckBoxX1.Size = New System.Drawing.Size(57, 23)
+        Me.CheckBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.CheckBoxX1.TabIndex = 247
+        Me.CheckBoxX1.Text = "Todos"
+        '
+        'CheckBoxX2
+        '
+        '
+        '
+        '
+        Me.CheckBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.CheckBoxX2.Location = New System.Drawing.Point(185, 187)
+        Me.CheckBoxX2.Name = "CheckBoxX2"
+        Me.CheckBoxX2.Size = New System.Drawing.Size(44, 23)
+        Me.CheckBoxX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.CheckBoxX2.TabIndex = 246
+        Me.CheckBoxX2.Text = "Una"
         '
         'tbVendedor
         '
@@ -180,11 +253,10 @@ Partial Class R0_ReportePedidosCosto
         Me.tbVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbVendedor.Location = New System.Drawing.Point(12, 142)
-        Me.tbVendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbVendedor.Location = New System.Drawing.Point(9, 115)
         Me.tbVendedor.Name = "tbVendedor"
         Me.tbVendedor.PreventEnterBeep = True
-        Me.tbVendedor.Size = New System.Drawing.Size(223, 26)
+        Me.tbVendedor.Size = New System.Drawing.Size(167, 22)
         Me.tbVendedor.TabIndex = 245
         '
         'CheckTodosAlmacen
@@ -193,10 +265,9 @@ Partial Class R0_ReportePedidosCosto
         '
         '
         Me.CheckTodosAlmacen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.CheckTodosAlmacen.Location = New System.Drawing.Point(392, 204)
-        Me.CheckTodosAlmacen.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckTodosAlmacen.Location = New System.Drawing.Point(294, 166)
         Me.CheckTodosAlmacen.Name = "CheckTodosAlmacen"
-        Me.CheckTodosAlmacen.Size = New System.Drawing.Size(73, 28)
+        Me.CheckTodosAlmacen.Size = New System.Drawing.Size(55, 23)
         Me.CheckTodosAlmacen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.CheckTodosAlmacen.TabIndex = 244
         Me.CheckTodosAlmacen.Text = "Todos"
@@ -207,10 +278,9 @@ Partial Class R0_ReportePedidosCosto
         '
         '
         Me.CheckTodosVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.CheckTodosVendedor.Location = New System.Drawing.Point(309, 140)
-        Me.CheckTodosVendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckTodosVendedor.Location = New System.Drawing.Point(232, 114)
         Me.CheckTodosVendedor.Name = "CheckTodosVendedor"
-        Me.CheckTodosVendedor.Size = New System.Drawing.Size(76, 28)
+        Me.CheckTodosVendedor.Size = New System.Drawing.Size(57, 23)
         Me.CheckTodosVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.CheckTodosVendedor.TabIndex = 239
         Me.CheckTodosVendedor.Text = "Todos"
@@ -221,10 +291,9 @@ Partial Class R0_ReportePedidosCosto
         '
         '
         Me.checkUnaVendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.checkUnaVendedor.Location = New System.Drawing.Point(247, 140)
-        Me.checkUnaVendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.checkUnaVendedor.Location = New System.Drawing.Point(185, 114)
         Me.checkUnaVendedor.Name = "checkUnaVendedor"
-        Me.checkUnaVendedor.Size = New System.Drawing.Size(59, 28)
+        Me.checkUnaVendedor.Size = New System.Drawing.Size(44, 23)
         Me.checkUnaVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.checkUnaVendedor.TabIndex = 1
         Me.checkUnaVendedor.Text = "Una"
@@ -238,11 +307,10 @@ Partial Class R0_ReportePedidosCosto
         Me.tbCodigoVendedor.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbCodigoVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbCodigoVendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbCodigoVendedor.Location = New System.Drawing.Point(8, 188)
-        Me.tbCodigoVendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbCodigoVendedor.Location = New System.Drawing.Point(9, 226)
         Me.tbCodigoVendedor.Name = "tbCodigoVendedor"
         Me.tbCodigoVendedor.PreventEnterBeep = True
-        Me.tbCodigoVendedor.Size = New System.Drawing.Size(29, 26)
+        Me.tbCodigoVendedor.Size = New System.Drawing.Size(22, 22)
         Me.tbCodigoVendedor.TabIndex = 238
         Me.tbCodigoVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.tbCodigoVendedor.Visible = False
@@ -257,11 +325,10 @@ Partial Class R0_ReportePedidosCosto
         Me.lbvendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbvendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbvendedor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbvendedor.Location = New System.Drawing.Point(12, 108)
-        Me.lbvendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbvendedor.Location = New System.Drawing.Point(9, 88)
         Me.lbvendedor.Name = "lbvendedor"
         Me.lbvendedor.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbvendedor.Size = New System.Drawing.Size(115, 20)
+        Me.lbvendedor.Size = New System.Drawing.Size(92, 16)
         Me.lbvendedor.TabIndex = 236
         Me.lbvendedor.Text = "Pre Vendedor:"
         '
@@ -274,11 +341,10 @@ Partial Class R0_ReportePedidosCosto
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(92, 60)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(69, 49)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX2.Size = New System.Drawing.Size(69, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(52, 23)
         Me.LabelX2.TabIndex = 235
         Me.LabelX2.Text = "Al:"
         '
@@ -293,8 +359,7 @@ Partial Class R0_ReportePedidosCosto
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(193, 60)
-        Me.tbFechaF.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaF.Location = New System.Drawing.Point(145, 49)
         '
         '
         '
@@ -325,7 +390,7 @@ Partial Class R0_ReportePedidosCosto
         Me.tbFechaF.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaF.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaF.Name = "tbFechaF"
-        Me.tbFechaF.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaF.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaF.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaF.TabIndex = 234
         '
@@ -338,11 +403,10 @@ Partial Class R0_ReportePedidosCosto
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX3.Location = New System.Drawing.Point(88, 21)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX3.Location = New System.Drawing.Point(66, 17)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX3.Size = New System.Drawing.Size(99, 28)
+        Me.LabelX3.Size = New System.Drawing.Size(74, 23)
         Me.LabelX3.TabIndex = 233
         Me.LabelX3.Text = "Fecha Del:"
         '
@@ -357,8 +421,7 @@ Partial Class R0_ReportePedidosCosto
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(193, 22)
-        Me.tbFechaI.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbFechaI.Location = New System.Drawing.Point(145, 18)
         '
         '
         '
@@ -389,7 +452,7 @@ Partial Class R0_ReportePedidosCosto
         Me.tbFechaI.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbFechaI.MonthCalendar.TodayButtonVisible = True
         Me.tbFechaI.Name = "tbFechaI"
-        Me.tbFechaI.Size = New System.Drawing.Size(160, 26)
+        Me.tbFechaI.Size = New System.Drawing.Size(120, 22)
         Me.tbFechaI.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaI.TabIndex = 232
         '
@@ -398,11 +461,29 @@ Partial Class R0_ReportePedidosCosto
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'tbCodigoCliente
+        '
+        '
+        '
+        '
+        Me.tbCodigoCliente.Border.Class = "TextBoxBorder"
+        Me.tbCodigoCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCodigoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCodigoCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbCodigoCliente.Location = New System.Drawing.Point(66, 226)
+        Me.tbCodigoCliente.Name = "tbCodigoCliente"
+        Me.tbCodigoCliente.PreventEnterBeep = True
+        Me.tbCodigoCliente.Size = New System.Drawing.Size(22, 22)
+        Me.tbCodigoCliente.TabIndex = 250
+        Me.tbCodigoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tbCodigoCliente.Visible = False
+        '
         'R0_ReportePedidosCosto
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1312, 690)
+        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "R0_ReportePedidosCosto"
         Me.Opacity = 0.05R
         Me.Text = "R0_ReportePedidosCosto"
@@ -438,4 +519,9 @@ Partial Class R0_ReportePedidosCosto
     Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbFechaI As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbCliente As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents CheckBoxX1 As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents CheckBoxX2 As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents tbCodigoCliente As DevComponents.DotNetBar.Controls.TextBoxX
 End Class

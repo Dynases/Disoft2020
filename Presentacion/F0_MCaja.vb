@@ -72,6 +72,51 @@ Public Class F0_MCaja
         End Try
 
     End Sub
+    Private Function _prArmarListaCambio2() As List(Of VCajaCambio)
+        Try
+            ListaCambio = New List(Of VCajaCambio)
+            Dim Lista As VCajaCambio = Nothing
+            _prLlenarListaCambio(Lista, 10000, 100)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 2000, 50)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 1000, 50)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 500, 50)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 200, 50)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 100, 50)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 50, 20)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 20, 10)
+            ListaCambio.Add(Lista)
+
+            Lista = Nothing
+            _prLlenarListaCambio(Lista, 10, 5)
+            ListaCambio.Add(Lista)
+
+
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Function
+
     Private Function _prArmarListaCambio() As List(Of VCajaCambio)
         Try
             ListaCambio = New List(Of VCajaCambio)
@@ -154,7 +199,7 @@ Public Class F0_MCaja
             End With
 
             With Dgv_Cortes.RootTable.Columns("CorteBol")
-                .Caption = "CORTE BS."
+                .Caption = "CORTE "
                 .Width = 130
                 .FormatString = "0.00"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -162,7 +207,7 @@ Public Class F0_MCaja
                 .Position = 3
             End With
             With Dgv_Cortes.RootTable.Columns("CantidadBo")
-                .Caption = "CANTIDAD BS."
+                .Caption = "CANTIDAD "
                 .Width = 130
                 .FormatString = "0.00"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -170,7 +215,7 @@ Public Class F0_MCaja
                 .Position = 4
             End With
             With Dgv_Cortes.RootTable.Columns("TotalBo")
-                .Caption = "TOTAL BS."
+                .Caption = "TOTAL "
                 .Width = 170
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
@@ -183,7 +228,7 @@ Public Class F0_MCaja
                 .Width = 130
                 .FormatString = "0"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 6
             End With
 
@@ -192,7 +237,7 @@ Public Class F0_MCaja
                 .Width = 130
                 .FormatString = "0"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 7
             End With
             With Dgv_Cortes.RootTable.Columns("TotalD")
@@ -201,7 +246,7 @@ Public Class F0_MCaja
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = True
+                .Visible = False
                 .Position = 8
             End With
             With Dgv_Cortes
@@ -559,6 +604,7 @@ Public Class F0_MCaja
                 .Width = 120
                 .Caption = "NOTA VENTA"
                 .Visible = True
+                .CellStyle.TextAlignment = 3
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
                 .Width = 90
@@ -581,6 +627,7 @@ Public Class F0_MCaja
                 .Width = 100
                 .Caption = "COD. CLI."
                 .Visible = True
+                .CellStyle.TextAlignment = 3
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
@@ -592,7 +639,8 @@ Public Class F0_MCaja
                 .Caption = "TOTAL"
                 .Width = 200
                 .AggregateFunction = AggregateFunction.Sum
-                .Visible = True
+                .Visible = False
+                .CellStyle.TextAlignment = 3
                 .FormatString = "0.00"
             End With
             With Dgv_PedidoTotal.RootTable.Columns("contado")
@@ -600,6 +648,7 @@ Public Class F0_MCaja
                 .Width = 200
                 .AggregateFunction = AggregateFunction.Sum
                 .Visible = True
+                .CellStyle.TextAlignment = 3
                 .FormatString = "0.00"
             End With
             With Dgv_PedidoTotal.RootTable.Columns("credito")
@@ -608,6 +657,16 @@ Public Class F0_MCaja
                 .AggregateFunction = AggregateFunction.Sum
                 '.Visible = (gi_vcre2 = 1)
                 .Visible = True
+                .CellStyle.TextAlignment = 3
+                .FormatString = "0.00"
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("transferencia")
+                .Caption = "TRASPASO"
+                .Width = 200
+                .AggregateFunction = AggregateFunction.Sum
+                '.Visible = (gi_vcre2 = 1)
+                .Visible = True
+                .CellStyle.TextAlignment = 3
                 .FormatString = "0.00"
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oarepa")
@@ -616,6 +675,16 @@ Public Class F0_MCaja
                 .Visible = False
             End With
             With Dgv_PedidoTotal.RootTable.Columns("tcre")
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("gasto")
+                .Width = 50
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("concepto")
+                .Width = 50
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
                 .Visible = False
             End With
             With Dgv_PedidoTotal.RootTable.Columns("estado")
@@ -656,6 +725,7 @@ Public Class F0_MCaja
                 .Width = 120
                 .Caption = "NOTA VENTA"
                 .Visible = True
+                .CellStyle.TextAlignment = 3
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
                 .Width = 90
@@ -679,6 +749,7 @@ Public Class F0_MCaja
                 .Width = 100
                 .Caption = "COD. CLI."
                 .Visible = True
+                .CellStyle.TextAlignment = 3
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
@@ -698,6 +769,7 @@ Public Class F0_MCaja
                 .Width = 200
                 .Visible = True
                 .FormatString = "0.00"
+                .CellStyle.TextAlignment = 3
                 .AggregateFunction = AggregateFunction.Sum
             End With
             With Dgv_PedidoTotal.RootTable.Columns("credito")
@@ -706,6 +778,16 @@ Public Class F0_MCaja
                 '.Visible = (gi_vcre2 = 1)
                 .Visible = True
                 .FormatString = "0.00"
+                .CellStyle.TextAlignment = 3
+                .AggregateFunction = AggregateFunction.Sum
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("transferencia")
+                .Caption = "TRASPASO"
+                .Width = 200
+                '.Visible = (gi_vcre2 = 1)
+                .Visible = True
+                .FormatString = "0.00"
+                .CellStyle.TextAlignment = 3
                 .AggregateFunction = AggregateFunction.Sum
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oarepa")
@@ -730,6 +812,7 @@ Public Class F0_MCaja
                 .Caption = "GASTOS"
                 .Width = 200
                 .Visible = True
+                .CellStyle.TextAlignment = 3
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
             End With
@@ -766,6 +849,7 @@ Public Class F0_MCaja
                 With Dgv_PedidoTotal.RootTable.Columns("oanumi")
                     .Width = 120
                     .Caption = "NOTA VENTA"
+                    .CellStyle.TextAlignment = 3
                     .Visible = True
                 End With
                 With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
@@ -809,6 +893,7 @@ Public Class F0_MCaja
                     .Width = 200
                     .Visible = True
                     .FormatString = "0.00"
+                    .CellStyle.TextAlignment = 3
                     .AggregateFunction = AggregateFunction.Sum
                 End With
                 With Dgv_PedidoTotal.RootTable.Columns("credito")
@@ -817,6 +902,7 @@ Public Class F0_MCaja
                     '.Visible = (gi_vcre2 = 1)
                     .Visible = True
                     .FormatString = "0.00"
+                    .CellStyle.TextAlignment = 3
                     .AggregateFunction = AggregateFunction.Sum
                 End With
                 With Dgv_PedidoTotal.RootTable.Columns("oarepa")
@@ -1026,7 +1112,7 @@ Public Class F0_MCaja
     Private Sub _LimpiarLista()
         ListaCambio = New List(Of VCajaCambio)
         ListaDeposito = New List(Of VCajaDeposito)
-        _prArmarListaCambio()
+        _prArmarListaCambio2()
         _prArmarListaDeposito()
         _prCrearListaCambio(2, 0)
         _prCrearListaDeposito(2, 0)
@@ -1055,8 +1141,18 @@ Public Class F0_MCaja
     Public Sub _GuardarNuevo()
 
         Try
+            Dim dt1 As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable).Clone()
+            For Each row As DataRow In CType(Dgv_PedidoTotal.DataSource, DataTable).Rows
+                ' Crear una nueva fila con los mismos datos que la fila original
+                Dim newRow As DataRow = dt1.NewRow()
+                newRow.ItemArray = row.ItemArray.Clone()
+
+                ' Agregar la nueva fila al DataTable clonado
+                dt1.Rows.Add(newRow)
+            Next
+            dt1.Columns.RemoveAt(11)
             Dim numi As String = ""
-            Dim res As Boolean = L_prCajaGrabar(numi, Numi_Chofer, Numi_Conciliacion, tbFecha.Value.ToString("yyyy/MM/dd"), Tb_TConciliacion.Value.ToString, CType(Dgv_PedidoTotal.DataSource, DataTable), Tb_TCredito.Value, Tb_TipoCambio.Value)
+            Dim res As Boolean = L_prCajaGrabar(numi, Numi_Chofer, Numi_Conciliacion, tbFecha.Value.ToString("yyyy/MM/dd"), Tb_TConciliacion.Value.ToString, dt1, Tb_TCredito.Value, Tb_TipoCambio.Value)
             If res Then
                 Dim ListaCambios = New LCajaCambio().GuardarCajaCambio(ListaCambio, Convert.ToInt32(numi))
                 Dim ListaDepositos = New LCajaDeposito().GuardarDepositoCambio(ListaDeposito, Convert.ToInt32(numi))
@@ -1127,8 +1223,18 @@ Public Class F0_MCaja
                 Dim bandera As Boolean = False
                 bandera = ef.band
                 If (bandera = True) Then
+                    Dim dt1 As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable).Clone()
+                    For Each row As DataRow In CType(Dgv_PedidoTotal.DataSource, DataTable).Rows
+                        ' Crear una nueva fila con los mismos datos que la fila original
+                        Dim newRow As DataRow = dt1.NewRow()
+                        newRow.ItemArray = row.ItemArray.Clone()
+
+                        ' Agregar la nueva fila al DataTable clonado
+                        dt1.Rows.Add(newRow)
+                    Next
+                    dt1.Columns.RemoveAt(11)
                     Dim mensajeError As String = ""
-                    Dim res As Boolean = L_fnCajaEliminar(TbCodigo.Text, CType(Dgv_PedidoTotal.DataSource, DataTable))
+                    Dim res As Boolean = L_fnCajaEliminar(TbCodigo.Text, dt1)
                     If res Then
                         Dim dt As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable)
                         If dt.Rows.Count > 0 Then
@@ -1317,9 +1423,9 @@ Public Class F0_MCaja
             End If
 
             P_Global.Visualizador = New Visualizador
-            Dim objrep As New R_CierreCaja
-            objrep.Subreports.Item("R_CajaCortes.rpt").SetDataSource(dtCortes)
-            objrep.Subreports.Item("R_CajaDepositos.rpt").SetDataSource(dtDepositos)
+            Dim objrep As New R_CierreCaja___Copia
+            'objrep.Subreports.Item("R_CajaCortes.rpt").SetDataSource(dtCortes)
+            'objrep.Subreports.Item("R_CajaDepositos.rpt").SetDataSource(dtDepositos)
             objrep.Subreports.Item("R_CajaDetalle.rpt").SetDataSource(dtCliente)
             objrep.SetDataSource(dtCliente)
             objrep.SetParameterValue("idcaja", TbCodigo.Text)
@@ -1448,15 +1554,15 @@ Public Class F0_MCaja
                 credito = credito
             End If
             totalCorteDol = Dgv_Cortes.GetTotal(Dgv_Cortes.RootTable.Columns("TotalD"), AggregateFunction.Sum)
-            TotalDeposito = Dgv_Depositos.GetTotal(Dgv_Depositos.RootTable.Columns("Monto"), AggregateFunction.Sum)
-
+            'TotalDeposito = Dgv_Depositos.GetTotal(Dgv_Depositos.RootTable.Columns("Monto"), AggregateFunction.Sum)
+            TotalDeposito = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("transferencia"), AggregateFunction.Sum)
             totalConciliacion = (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("contado"), AggregateFunction.Sum)) + (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("credito"), AggregateFunction.Sum))
 
             'totalConciliacion = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("total"), AggregateFunction.Sum)
             Tb_TEfectivo.Value = totalCorteBol + (totalCorteDol * Tb_TipoCambio.Value)
             Tb_TDeposito.Value = TotalDeposito
             Tb_TCredito.Value = credito
-            Tb_TGeneral.Value = Tb_TEfectivo.Value + Tb_TDeposito.Value + Tb_TCredito.Value
+            Tb_TGeneral.Value = Tb_TEfectivo.Value + Tb_TCredito.Value '+ Tb_TDeposito.Value
             Tb_TConciliacion.Value = totalConciliacion
             Tb_TDiferencia.Value = Tb_TGeneral.Value - Tb_TConciliacion.Value
         Catch ex As Exception

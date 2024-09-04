@@ -291,7 +291,7 @@ Public Class F02_Movimiento
         If (Not gb_ConexionAbierta) Then
             L_prAbrirConexion()
         End If
-
+        L_prJobDuplicados()
         'Validar requisitos del programa
         If (Not P_fnValidarRequisitos() = String.Empty) Then
             Return

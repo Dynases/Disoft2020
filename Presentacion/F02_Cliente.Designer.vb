@@ -24,6 +24,7 @@ Partial Class F02_Cliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbFiltroResumenEquipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbCatCliente_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbTipoCredito_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbPrevendedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbSupervisor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -55,6 +56,15 @@ Partial Class F02_Cliente
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
         Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
+        Me.SuperTabControlPanel8 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PanelImagenes = New System.Windows.Forms.Panel()
+        Me.PanelVerImagen = New System.Windows.Forms.Panel()
+        Me.btnImagen = New DevComponents.DotNetBar.ButtonX()
+        Me.btnDelete = New DevComponents.DotNetBar.ButtonX()
+        Me.pbImgProdu = New System.Windows.Forms.PictureBox()
+        Me.PanelListImagenes = New System.Windows.Forms.Panel()
+        Me.SuperTabItem1 = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel7 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.gpFrecuencia = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
@@ -91,6 +101,8 @@ Partial Class F02_Cliente
         Me.StiUbicacion = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PnDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.cbCatCliente = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX37 = New DevComponents.DotNetBar.LabelX()
         Me.cbTipoCredito = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX36 = New DevComponents.DotNetBar.LabelX()
         Me.tbCodCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -203,6 +215,11 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.SuspendLayout()
         Me.SuperTabControlPanel3.SuspendLayout()
         CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuperTabControlPanel8.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.PanelImagenes.SuspendLayout()
+        Me.PanelVerImagen.SuspendLayout()
+        CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel7.SuspendLayout()
         Me.gpFrecuencia.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
@@ -219,6 +236,7 @@ Partial Class F02_Cliente
         Me.GroupPanelCoordenadas.SuspendLayout()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PnDatosGenerales.SuspendLayout()
+        CType(Me.cbCatCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbTipoCredito, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelEncargados.SuspendLayout()
         CType(Me.cbPrevendedor, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -699,6 +717,7 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.ControlBox.Name = ""
         Me.StcFrecuencia.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StcFrecuencia.ControlBox.MenuBox, Me.StcFrecuencia.ControlBox.CloseBox})
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel3)
+        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel8)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel7)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel6)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel4)
@@ -712,7 +731,7 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.Size = New System.Drawing.Size(337, 337)
         Me.StcFrecuencia.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StcFrecuencia.TabIndex = 24
-        Me.StcFrecuencia.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StiFiltroCliente, Me.StiUbicacion, Me.catProd, Me.stiFrecuencia})
+        Me.StcFrecuencia.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StiFiltroCliente, Me.StiUbicacion, Me.catProd, Me.stiFrecuencia, Me.SuperTabItem1})
         Me.StcFrecuencia.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.StcFrecuencia.Text = "SuperTabControl2"
         '
@@ -742,6 +761,115 @@ Partial Class F02_Cliente
         Me.StiFiltroCliente.GlobalItem = False
         Me.StiFiltroCliente.Name = "StiFiltroCliente"
         Me.StiFiltroCliente.Text = "SUGERENCIAS"
+        '
+        'SuperTabControlPanel8
+        '
+        Me.SuperTabControlPanel8.Controls.Add(Me.Panel1)
+        Me.SuperTabControlPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel8.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanel8.Name = "SuperTabControlPanel8"
+        Me.SuperTabControlPanel8.Size = New System.Drawing.Size(337, 314)
+        Me.SuperTabControlPanel8.TabIndex = 0
+        Me.SuperTabControlPanel8.TabItem = Me.SuperTabItem1
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.AutoSize = True
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.PanelImagenes)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(337, 314)
+        Me.Panel1.TabIndex = 224
+        '
+        'PanelImagenes
+        '
+        Me.PanelImagenes.BackColor = System.Drawing.Color.White
+        Me.PanelImagenes.Controls.Add(Me.PanelVerImagen)
+        Me.PanelImagenes.Controls.Add(Me.PanelListImagenes)
+        Me.PanelImagenes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelImagenes.Location = New System.Drawing.Point(0, 0)
+        Me.PanelImagenes.Margin = New System.Windows.Forms.Padding(2)
+        Me.PanelImagenes.Name = "PanelImagenes"
+        Me.PanelImagenes.Size = New System.Drawing.Size(337, 314)
+        Me.PanelImagenes.TabIndex = 3
+        '
+        'PanelVerImagen
+        '
+        Me.PanelVerImagen.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.PanelVerImagen.Controls.Add(Me.btnImagen)
+        Me.PanelVerImagen.Controls.Add(Me.btnDelete)
+        Me.PanelVerImagen.Controls.Add(Me.pbImgProdu)
+        Me.PanelVerImagen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelVerImagen.Location = New System.Drawing.Point(157, 0)
+        Me.PanelVerImagen.Name = "PanelVerImagen"
+        Me.PanelVerImagen.Size = New System.Drawing.Size(180, 314)
+        Me.PanelVerImagen.TabIndex = 2
+        '
+        'btnImagen
+        '
+        Me.btnImagen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnImagen.BackColor = System.Drawing.Color.Transparent
+        Me.btnImagen.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btnImagen.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImagen.Image = Global.Presentacion.My.Resources.Resources.I512x512_image_add
+        Me.btnImagen.ImageFixedSize = New System.Drawing.Size(50, 50)
+        Me.btnImagen.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnImagen.Location = New System.Drawing.Point(6, 8)
+        Me.btnImagen.Name = "btnImagen"
+        Me.btnImagen.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.btnImagen.Size = New System.Drawing.Size(57, 61)
+        Me.btnImagen.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
+        Me.btnImagen.TabIndex = 15
+        Me.btnImagen.TextColor = System.Drawing.Color.White
+        '
+        'btnDelete
+        '
+        Me.btnDelete.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnDelete.BackColor = System.Drawing.Color.Transparent
+        Me.btnDelete.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = Global.Presentacion.My.Resources.Resources.I512x512_image_remove
+        Me.btnDelete.ImageFixedSize = New System.Drawing.Size(50, 50)
+        Me.btnDelete.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnDelete.Location = New System.Drawing.Point(9, 73)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.btnDelete.Size = New System.Drawing.Size(52, 50)
+        Me.btnDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
+        Me.btnDelete.TabIndex = 14
+        Me.btnDelete.TextColor = System.Drawing.Color.White
+        '
+        'pbImgProdu
+        '
+        Me.pbImgProdu.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbImgProdu.BackColor = System.Drawing.Color.White
+        Me.pbImgProdu.Location = New System.Drawing.Point(0, 0)
+        Me.pbImgProdu.Name = "pbImgProdu"
+        Me.pbImgProdu.Size = New System.Drawing.Size(180, 316)
+        Me.pbImgProdu.TabIndex = 0
+        Me.pbImgProdu.TabStop = False
+        '
+        'PanelListImagenes
+        '
+        Me.PanelListImagenes.AutoScroll = True
+        Me.PanelListImagenes.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.PanelListImagenes.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelListImagenes.Location = New System.Drawing.Point(0, 0)
+        Me.PanelListImagenes.Name = "PanelListImagenes"
+        Me.PanelListImagenes.Size = New System.Drawing.Size(157, 314)
+        Me.PanelListImagenes.TabIndex = 3
+        '
+        'SuperTabItem1
+        '
+        Me.SuperTabItem1.AttachedControl = Me.SuperTabControlPanel8
+        Me.SuperTabItem1.GlobalItem = False
+        Me.SuperTabItem1.Name = "SuperTabItem1"
+        Me.SuperTabItem1.Text = "IMAGENES"
         '
         'SuperTabControlPanel7
         '
@@ -1352,6 +1480,8 @@ Partial Class F02_Cliente
         Me.PnDatosGenerales.AutoScroll = True
         Me.PnDatosGenerales.CanvasColor = System.Drawing.SystemColors.Control
         Me.PnDatosGenerales.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PnDatosGenerales.Controls.Add(Me.cbCatCliente)
+        Me.PnDatosGenerales.Controls.Add(Me.LabelX37)
         Me.PnDatosGenerales.Controls.Add(Me.cbTipoCredito)
         Me.PnDatosGenerales.Controls.Add(Me.LabelX36)
         Me.PnDatosGenerales.Controls.Add(Me.tbCodCliente)
@@ -1403,11 +1533,37 @@ Partial Class F02_Cliente
         Me.PnDatosGenerales.Style.GradientAngle = 90
         Me.PnDatosGenerales.TabIndex = 38
         '
+        'cbCatCliente
+        '
+        Me.cbCatCliente.BackColor = System.Drawing.SystemColors.ActiveCaption
+        cbCatCliente_DesignTimeLayout.LayoutString = resources.GetString("cbCatCliente_DesignTimeLayout.LayoutString")
+        Me.cbCatCliente.DesignTimeLayout = cbCatCliente_DesignTimeLayout
+        Me.cbCatCliente.DisabledBackColor = System.Drawing.SystemColors.ButtonFace
+        Me.cbCatCliente.Location = New System.Drawing.Point(728, 118)
+        Me.cbCatCliente.Name = "cbCatCliente"
+        Me.cbCatCliente.SelectedIndex = -1
+        Me.cbCatCliente.SelectedItem = Nothing
+        Me.cbCatCliente.Size = New System.Drawing.Size(127, 23)
+        Me.cbCatCliente.TabIndex = 47
+        '
+        'LabelX37
+        '
+        '
+        '
+        '
+        Me.LabelX37.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX37.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX37.Location = New System.Drawing.Point(647, 120)
+        Me.LabelX37.Name = "LabelX37"
+        Me.LabelX37.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX37.TabIndex = 48
+        Me.LabelX37.Text = "Cat. Cliente."
+        '
         'cbTipoCredito
         '
         cbTipoCredito_DesignTimeLayout.LayoutString = resources.GetString("cbTipoCredito_DesignTimeLayout.LayoutString")
         Me.cbTipoCredito.DesignTimeLayout = cbTipoCredito_DesignTimeLayout
-        Me.cbTipoCredito.Location = New System.Drawing.Point(743, 147)
+        Me.cbTipoCredito.Location = New System.Drawing.Point(746, 169)
         Me.cbTipoCredito.Name = "cbTipoCredito"
         Me.cbTipoCredito.SelectedIndex = -1
         Me.cbTipoCredito.SelectedItem = Nothing
@@ -1421,7 +1577,7 @@ Partial Class F02_Cliente
         '
         Me.LabelX36.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX36.Location = New System.Drawing.Point(644, 146)
+        Me.LabelX36.Location = New System.Drawing.Point(647, 168)
         Me.LabelX36.Name = "LabelX36"
         Me.LabelX36.Size = New System.Drawing.Size(100, 23)
         Me.LabelX36.TabIndex = 46
@@ -1466,7 +1622,7 @@ Partial Class F02_Cliente
         Me.GroupPanelEncargados.Controls.Add(Me.tbRecorrido)
         Me.GroupPanelEncargados.Controls.Add(Me.LabelX24)
         Me.GroupPanelEncargados.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelEncargados.Location = New System.Drawing.Point(0, 345)
+        Me.GroupPanelEncargados.Location = New System.Drawing.Point(3, 368)
         Me.GroupPanelEncargados.Name = "GroupPanelEncargados"
         Me.GroupPanelEncargados.Size = New System.Drawing.Size(855, 53)
         '
@@ -1761,7 +1917,7 @@ Partial Class F02_Cliente
         Me.GpEstado.Controls.Add(Me.RbPasivo)
         Me.GpEstado.Controls.Add(Me.RbActivo)
         Me.GpEstado.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GpEstado.Location = New System.Drawing.Point(398, 125)
+        Me.GpEstado.Location = New System.Drawing.Point(401, 147)
         Me.GpEstado.Name = "GpEstado"
         Me.GpEstado.Size = New System.Drawing.Size(240, 45)
         '
@@ -1837,7 +1993,7 @@ Partial Class F02_Cliente
         Me.GroupPanelDatosFactura.Controls.Add(Me.LabelX10)
         Me.GroupPanelDatosFactura.Controls.Add(Me.LabelX16)
         Me.GroupPanelDatosFactura.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelDatosFactura.Location = New System.Drawing.Point(0, 286)
+        Me.GroupPanelDatosFactura.Location = New System.Drawing.Point(7, 309)
         Me.GroupPanelDatosFactura.Name = "GroupPanelDatosFactura"
         Me.GroupPanelDatosFactura.Size = New System.Drawing.Size(855, 53)
         '
@@ -1942,7 +2098,7 @@ Partial Class F02_Cliente
         CbCategoria_DesignTimeLayout.LayoutString = resources.GetString("CbCategoria_DesignTimeLayout.LayoutString")
         Me.CbCategoria.DesignTimeLayout = CbCategoria_DesignTimeLayout
         Me.CbCategoria.DisabledBackColor = System.Drawing.SystemColors.ButtonFace
-        Me.CbCategoria.Location = New System.Drawing.Point(515, 96)
+        Me.CbCategoria.Location = New System.Drawing.Point(518, 118)
         Me.CbCategoria.Name = "CbCategoria"
         Me.CbCategoria.SelectedIndex = -1
         Me.CbCategoria.SelectedItem = Nothing
@@ -1956,7 +2112,7 @@ Partial Class F02_Cliente
         '
         Me.TbDireccion.Border.Class = "TextBoxBorder"
         Me.TbDireccion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.TbDireccion.Location = New System.Drawing.Point(111, 234)
+        Me.TbDireccion.Location = New System.Drawing.Point(111, 259)
         Me.TbDireccion.MaxLength = 200
         Me.TbDireccion.Multiline = True
         Me.TbDireccion.Name = "TbDireccion"
@@ -2085,7 +2241,7 @@ Partial Class F02_Cliente
         '
         Me.TbObs.Border.Class = "TextBoxBorder"
         Me.TbObs.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.TbObs.Location = New System.Drawing.Point(515, 176)
+        Me.TbObs.Location = New System.Drawing.Point(518, 198)
         Me.TbObs.MaxLength = 150
         Me.TbObs.Multiline = True
         Me.TbObs.Name = "TbObs"
@@ -2182,7 +2338,7 @@ Partial Class F02_Cliente
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(6, 234)
+        Me.LabelX6.Location = New System.Drawing.Point(6, 259)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.Size = New System.Drawing.Size(100, 23)
         Me.LabelX6.TabIndex = 15
@@ -2234,7 +2390,7 @@ Partial Class F02_Cliente
         '
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX9.Location = New System.Drawing.Point(417, 96)
+        Me.LabelX9.Location = New System.Drawing.Point(420, 118)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.Size = New System.Drawing.Size(100, 23)
         Me.LabelX9.TabIndex = 18
@@ -2286,7 +2442,7 @@ Partial Class F02_Cliente
         '
         Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX13.Location = New System.Drawing.Point(417, 176)
+        Me.LabelX13.Location = New System.Drawing.Point(420, 198)
         Me.LabelX13.Name = "LabelX13"
         Me.LabelX13.Size = New System.Drawing.Size(100, 23)
         Me.LabelX13.TabIndex = 23
@@ -2951,6 +3107,12 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.ResumeLayout(False)
         Me.SuperTabControlPanel3.ResumeLayout(False)
         CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SuperTabControlPanel8.ResumeLayout(False)
+        Me.SuperTabControlPanel8.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.PanelImagenes.ResumeLayout(False)
+        Me.PanelVerImagen.ResumeLayout(False)
+        CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel7.ResumeLayout(False)
         Me.gpFrecuencia.ResumeLayout(False)
         Me.PanelEx3.ResumeLayout(False)
@@ -2968,6 +3130,7 @@ Partial Class F02_Cliente
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.PerformLayout()
+        CType(Me.cbCatCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbTipoCredito, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelEncargados.ResumeLayout(False)
         Me.GroupPanelEncargados.PerformLayout()
@@ -3146,4 +3309,15 @@ Partial Class F02_Cliente
     Friend WithEvents chbMiercoles As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents chbMartes As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents chbLunes As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents SuperTabControlPanel8 As DevComponents.DotNetBar.SuperTabControlPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PanelImagenes As Panel
+    Friend WithEvents PanelVerImagen As Panel
+    Friend WithEvents btnImagen As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents btnDelete As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents pbImgProdu As PictureBox
+    Friend WithEvents PanelListImagenes As Panel
+    Friend WithEvents SuperTabItem1 As DevComponents.DotNetBar.SuperTabItem
+    Friend WithEvents cbCatCliente As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX37 As DevComponents.DotNetBar.LabelX
 End Class

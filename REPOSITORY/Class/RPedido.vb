@@ -87,8 +87,9 @@ Public Class RPedido
                                   Join c In db.TC002 On a1.oaanumiprev Equals c.cbnumi
                                   Join d In db.TO001C On a.oanumi Equals d.oacoanumi
                                   Join e In db.TO0011 On e.obnumi Equals a.oanumi
+                                  Group Join f In db.TFV001 On f.fvanumi Equals a.oanumi Into Group From f In Group.DefaultIfEmpty()
                                   Where a.oaest = estado And d.oaccbnumi = idChofer And a.oaap = 1 And (a.oafdoc >= fecha And a.oafdoc <= fechaHasta)
-                                  Group By a.oanumi, a.oafdoc, b.ccdesc, c.cbdesc, d.oacnrofac, a.oazona, a.oaobs Into grupo = Group
+                                  Group By a.oanumi, a.oafdoc, b.ccdesc, c.cbdesc, d.oacnrofac, a.oazona, a.oaobs, f.fvanfac Into grupo = Group
                                   Select New VPedido_BillingDispatch With {
                                       .Id = oanumi,
                                       .Fecha = oafdoc,
@@ -99,7 +100,8 @@ Public Class RPedido
                                       .observacion = oaobs,
                                       .Subtotal = grupo.Sum(Function(item) item.e.obptot).Value,
                                       .Descuento = grupo.Sum(Function(item) item.e.obdesc).Value,
-                                      .Total = grupo.Sum(Function(item) item.e.obtotal).Value
+                                      .Total = grupo.Sum(Function(item) item.e.obtotal).Value,
+                                      .Factura = If(fvanfac Is Nothing, "", "FACTURADO")
                                       }).ToList()
                 Return listResult
             End Using

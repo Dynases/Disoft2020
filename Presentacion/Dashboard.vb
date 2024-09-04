@@ -34,8 +34,8 @@ Public Class Dashboard
     Private Sub _PIniciarTodo()
 
 
-
-
+        cbProducto1.Text = "PRODUCTO MAS VENDIDO (" + gs_Mon + ")"
+        cbVendedorMas.Text = "VENDEDOR QUE GENERA MAS VENTAS (" + gs_Mon + ")"
         Me.Text = "K P I"
         'Me.WindowState = FormWindowState.Maximized
         SuperTabControl1.SelectedTabIndex = 1
@@ -49,6 +49,10 @@ Public Class Dashboard
         tbFechaIni.Value = Date.Now
         tbFechaF3.Value = Date.Now
         tbFechaI3.Value = Date.Now
+        tbFechaF.Value = Date.Now
+        tbFechaI.Value = Date.Now
+
+        cbConci.Checked = True
         '_PCargarGridRegistrosPedidos()
 
         'cargar zonas
@@ -151,8 +155,12 @@ Public Class Dashboard
         panel.DefaultVisualStyles.CellStyles.Default.Alignment = Alignment.MiddleCenter
         panel.DefaultVisualStyles.ColumnHeaderStyles.Default.Alignment = Alignment.MiddleCenter
 
-        Dim dt As DataTable = TraerKPI2()
-
+        Dim dt As DataTable
+        If cbConci.Checked = True Then
+            dt = TraerKPI2()
+        Else
+            dt = TraerKPI21(tbFechaI.Value.ToString("dd/MM/yyyy"), tbFechaF.Value.ToString("dd/MM/yyyy"))
+        End If
         panel.DataSource = dt
         'AplicarFiltroColor2()
 
@@ -1422,7 +1430,12 @@ Public Class Dashboard
             panel.DefaultVisualStyles.CellStyles.Default.Alignment = Alignment.MiddleCenter
             panel.DefaultVisualStyles.ColumnHeaderStyles.Default.Alignment = Alignment.MiddleCenter
 
-            Dim dt As DataTable = TraerKPI2detalle(crow.Cells("CONCILIACION").Value)
+            Dim dt As DataTable
+            If cbConci.Checked = True Then
+                dt = TraerKPI2detalle(crow.Cells("CONCILIACION").Value)
+            Else
+                dt = TraerKPI21detalle(crow.Cells("CODIGO").Value, tbFechaI.Value.ToString("dd/MM/yyyy"), tbFechaF.Value.ToString("dd/MM/yyyy"))
+            End If
 
             panel.DataSource = dt
 
@@ -1673,5 +1686,27 @@ Public Class Dashboard
 
     Private Sub ButtonX4_Click(sender As Object, e As EventArgs) Handles ButtonX4.Click
         CargarReporte3()
+    End Sub
+
+    Private Sub cbConci_CheckedChanged(sender As Object, e As EventArgs) Handles cbConci.CheckedChanged
+        If cbConci.Checked = True Then
+            Label2.Visible = False
+            Label4.Visible = False
+            tbFechaI.Visible = False
+            tbFechaF.Visible = False
+            Dim loc As Point = (New Point(126, 142))
+            btGenerar2.Location = loc
+        End If
+    End Sub
+
+    Private Sub cbFecha_CheckedChanged(sender As Object, e As EventArgs) Handles cbFecha.CheckedChanged
+        If cbFecha.Checked = True Then
+            Label2.Visible = True
+            Label4.Visible = True
+            tbFechaI.Visible = True
+            tbFechaF.Visible = True
+            Dim loc As Point = (New Point(126, 259))
+            btGenerar2.Location = loc
+        End If
     End Sub
 End Class

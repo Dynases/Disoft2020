@@ -225,4 +225,14 @@
             _cedesc = value
         End Set
     End Property
+
+    Public _tgrupo As String
+    Public Property tgrupo() As String
+        Get
+            Return _tgrupo
+        End Get
+        Set(ByVal value As String)
+            _tgrupo = value
+        End Set
+    End Property
 End Class

@@ -585,8 +585,8 @@ Public Class F01_Personal
                 'End If
 
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))
-                'swPrecio.Value = IIf(.Cells("precio").Value = 0, False, True)
-                'swZona.Value = IIf(.Cells("zona").Value = 0, False, True)
+                swPrecio.Value = IIf(.Cells("precio").Value = 0, False, True)
+                swZona.Value = IIf(.Cells("zona").Value = 0, False, True)
             End With
 
         Else
@@ -722,12 +722,12 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("cbuact")
             .Visible = False
         End With
-        'With Dgj1Busqueda.RootTable.Columns("precio")
-        '    .Visible = False
-        'End With
-        'With Dgj1Busqueda.RootTable.Columns("zona")
-        '    .Visible = False
-        'End With
+        With Dgj1Busqueda.RootTable.Columns("precio")
+            .Visible = False
+        End With
+        With Dgj1Busqueda.RootTable.Columns("zona")
+            .Visible = False
+        End With
 
         'Habilitar Filtradores
         With Dgj1Busqueda

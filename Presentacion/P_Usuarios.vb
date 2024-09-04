@@ -94,7 +94,7 @@ Public Class P_Usuarios
             Tb_Nombre.Text = .Item("yduser").ToString
             TextBoxX1.Text = .Item("ydpass").ToString
             Tb_Estado.Value = CBool(.Item("ydest").ToString)
-            Tb_DiasPedidos.Value = CInt(.Item("ydcant").ToString)
+            swClientesEsp.Value = IIf(CInt(.Item("ydcant").ToString) = 0, False, True)
             Tb_fuenteTam.Value = CInt(.Item("ydfontsize").ToString)
 
             JMC_Categoria.Value = CInt(.Item("ybnumi").ToString)
@@ -105,7 +105,8 @@ Public Class P_Usuarios
         Tb_Id.Enabled = False
         Tb_Nombre.Enabled = False
         TextBoxX1.Enabled = False
-        Tb_DiasPedidos.Enabled = False
+        ' Tb_DiasPedidos.Enabled = False
+        swClientesEsp.IsReadOnly = True
         Tb_fuenteTam.Enabled = False
 
         BBtn_Nuevo.Enabled = True
@@ -225,7 +226,8 @@ Public Class P_Usuarios
         TextBoxX1.Enabled = True
         JMC_Categoria.Enabled = True
         Tb_Estado.Enabled = True
-        Tb_DiasPedidos.Enabled = True
+        'Tb_DiasPedidos.Enabled = True
+        swClientesEsp.IsReadOnly = False
         Tb_fuenteTam.Enabled = True
 
         BBtn_Nuevo.Enabled = False
@@ -241,7 +243,8 @@ Public Class P_Usuarios
         JMC_Categoria.Value = Nothing
         JMC_Categoria.SelectedIndex = -1
         Tb_Estado.Value = True
-        Tb_DiasPedidos.Value = 0
+        'Tb_DiasPedidos.Value = 0
+        swClientesEsp.Value = False
         Tb_fuenteTam.Value = 7
 
         Txt_Paginacion.Text = String.Empty
@@ -277,14 +280,14 @@ Public Class P_Usuarios
             EP1.SetError(JMC_Categoria, String.Empty)
         End If
 
-        If Tb_DiasPedidos.Text.Trim = String.Empty Then
-            Tb_DiasPedidos.BackColor = Color.Red
-            EP1.SetError(Tb_DiasPedidos, "Ingrese dias vencimiento!")
-            _Error = False
-        Else
-            Tb_DiasPedidos.BackColor = Color.White
-            EP1.SetError(Tb_DiasPedidos, String.Empty)
-        End If
+        'If Tb_DiasPedidos.Text.Trim = String.Empty Then
+        '    Tb_DiasPedidos.BackColor = Color.Red
+        '    EP1.SetError(Tb_DiasPedidos, "Ingrese dias vencimiento!")
+        '    _Error = False
+        'Else
+        '    Tb_DiasPedidos.BackColor = Color.White
+        '    EP1.SetError(Tb_DiasPedidos, String.Empty)
+        'End If
 
         If Tb_fuenteTam.Text.Trim = String.Empty Then
             Tb_fuenteTam.BackColor = Color.Red
@@ -334,7 +337,7 @@ Public Class P_Usuarios
             End If
 
             If _Nuevo Then
-                L_Usuario_Grabar(Tb_Id.Text, Tb_Nombre.Text, TextBoxX1.Text, JMC_Categoria.Value, Tb_Estado.Value, Tb_DiasPedidos.Value, Tb_fuenteTam.Value)
+                L_Usuario_Grabar(Tb_Id.Text, Tb_Nombre.Text, TextBoxX1.Text, JMC_Categoria.Value, Tb_Estado.Value, IIf(swClientesEsp.Value = False, 0, 1), Tb_fuenteTam.Value)
 
                 'actualizar el grid de buscador
                 _PCargarBuscador()
@@ -343,7 +346,7 @@ Public Class P_Usuarios
                 ToastNotification.Show(Me, "Codigo Usuario " + Tb_Id.Text + " Grabado con Exito.", My.Resources.OK, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
                 _PLimpiar()
             Else
-                L_Usuario_Modificar(Tb_Id.Text, Tb_Nombre.Text, TextBoxX1.Text, JMC_Categoria.Value, Tb_Estado.Value, Tb_DiasPedidos.Value, Tb_fuenteTam.Value)
+                L_Usuario_Modificar(Tb_Id.Text, Tb_Nombre.Text, TextBoxX1.Text, JMC_Categoria.Value, Tb_Estado.Value, IIf(swClientesEsp.Value = False, 0, 1), Tb_fuenteTam.Value)
 
 
                 ToastNotification.Show(Me, "Codigo Usuario " + Tb_Id.Text + " Modificado con Exito.", My.Resources.OK, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)

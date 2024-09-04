@@ -63,7 +63,7 @@ Public Class F01_ReporteVentaFact
     End Sub
     Private Sub P_prArmarComboRepartidor()
         Dim DtP As DataTable
-        DtP = L_fnObtenerPersonal(3)
+        DtP = L_fnObtenerPersonal(1)
         DtP.Rows.Add(0, "TODOS")
 
         g_prArmarCombo(cbRepartidor, DtP, 60, 200, "COD", "REPARTIDORES")
@@ -72,7 +72,7 @@ Public Class F01_ReporteVentaFact
     End Sub
     Private Sub P_prArmarComboVendedores()
         Dim DtP As DataTable
-        DtP = L_fnObtenerPersonal(1)
+        DtP = L_fnObtenerPersonal(3)
         DtP.Rows.Add(0, "TODOS")
 
         g_prArmarCombo(cbVendedor, DtP, 60, 200, "COD", "VENDEDORES")
@@ -247,7 +247,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("Atributo")
                 .Caption = "Atributo"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Descripcion")
                 .Caption = "Descripcion"
@@ -263,17 +263,17 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("Unidad")
                 .Caption = "Unidad"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("TipoPago")
                 .Caption = "TipoPago"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Proveedor")
                 .Caption = "Proveedor"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Categoria")
                 .Caption = "Categoria"
@@ -283,13 +283,13 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("Marca")
                 .Caption = "Marca"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
 
             With grDatos.RootTable.Columns("Zona")
                 .Caption = "Zona"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Vendedor")
                 .Caption = "Vendedor"
@@ -309,7 +309,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("Codigo")
                 .Caption = "Cod. ZonaPed"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("CodCli")
                 .Caption = "Cod. Cliente"
@@ -329,18 +329,18 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("CodigoVendedor")
                 .Caption = "CodigoVendedor"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("CodigoVendedor")
                 .Caption = "CodigoVendedor"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
 
             With grDatos.RootTable.Columns("Mes")
                 .Caption = "Mes"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Fecha")
                 .Caption = "Fecha"

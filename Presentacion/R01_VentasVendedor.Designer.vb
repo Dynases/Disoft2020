@@ -27,6 +27,8 @@ Partial Class R01_VentasVendedor
         Dim cbProveedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R01_VentasVendedor))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.swTipo = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.tbVendedor = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.CheckTodosAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
@@ -39,8 +41,6 @@ Partial Class R01_VentasVendedor
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -50,9 +50,9 @@ Partial Class R01_VentasVendedor
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MGpFiltro.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbFechaF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbFechaI, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -181,6 +181,39 @@ Partial Class R01_VentasVendedor
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
+        '
+        'cbProveedor
+        '
+        Me.cbProveedor.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
+        cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
+        Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
+        Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProveedor.Location = New System.Drawing.Point(6, 155)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbProveedor.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbProveedor.SelectedIndex = -1
+        Me.cbProveedor.SelectedItem = Nothing
+        Me.cbProveedor.Size = New System.Drawing.Size(176, 22)
+        Me.cbProveedor.TabIndex = 392
+        Me.cbProveedor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'LabelX2
+        '
+        Me.LabelX2.AutoSize = True
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX2.Location = New System.Drawing.Point(9, 133)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX2.Size = New System.Drawing.Size(72, 16)
+        Me.LabelX2.TabIndex = 391
+        Me.LabelX2.Text = "Proveedor:"
         '
         'swTipo
         '
@@ -420,39 +453,6 @@ Partial Class R01_VentasVendedor
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'cbProveedor
-        '
-        Me.cbProveedor.ComboStyle = Janus.Windows.GridEX.ComboStyle.DropDownList
-        cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
-        Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
-        Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProveedor.Location = New System.Drawing.Point(6, 155)
-        Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbProveedor.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbProveedor.SelectedIndex = -1
-        Me.cbProveedor.SelectedItem = Nothing
-        Me.cbProveedor.Size = New System.Drawing.Size(176, 22)
-        Me.cbProveedor.TabIndex = 392
-        Me.cbProveedor.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'LabelX2
-        '
-        Me.LabelX2.AutoSize = True
-        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(9, 133)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX2.Size = New System.Drawing.Size(72, 16)
-        Me.LabelX2.TabIndex = 391
-        Me.LabelX2.Text = "Proveedor:"
-        '
         'R01_VentasVendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -477,9 +477,9 @@ Partial Class R01_VentasVendedor
         Me.MGpFiltro.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbFechaF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbFechaI, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

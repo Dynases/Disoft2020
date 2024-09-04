@@ -75,4 +75,14 @@
             _Total = value
         End Set
     End Property
+
+    Private _Factura As String
+    Public Property Factura() As String
+        Get
+            Return _Factura
+        End Get
+        Set(ByVal value As String)
+            _Factura = value
+        End Set
+    End Property
 End Class

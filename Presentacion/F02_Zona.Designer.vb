@@ -406,7 +406,7 @@ Partial Class F02_Zona
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 48)
+        Me.Label4.Location = New System.Drawing.Point(7, 19)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(70, 17)
         Me.Label4.TabIndex = 4
@@ -415,7 +415,7 @@ Partial Class F02_Zona
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 19)
+        Me.Label3.Location = New System.Drawing.Point(7, 48)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 17)
         Me.Label3.TabIndex = 3
@@ -536,8 +536,8 @@ Partial Class F02_Zona
         Me.SuperTabControlPersonal.ControlBox.MenuBox.Name = ""
         Me.SuperTabControlPersonal.ControlBox.Name = ""
         Me.SuperTabControlPersonal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControlPersonal.ControlBox.MenuBox, Me.SuperTabControlPersonal.ControlBox.CloseBox})
-        Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel2)
         Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel1)
+        Me.SuperTabControlPersonal.Controls.Add(Me.SuperTabControlPanel2)
         Me.SuperTabControlPersonal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPersonal.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControlPersonal.Name = "SuperTabControlPersonal"

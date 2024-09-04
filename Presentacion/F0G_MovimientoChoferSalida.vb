@@ -36,6 +36,7 @@ Public Class F0G_MovimientoChoferSalida
 
 #Region "Metodos Privados"
     Private Sub _IniciarTodo()
+        L_prJobDuplicados()
         MSuperTabControlPrincipal.SelectedTabIndex = 0
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
         'Me.WindowState = FormWindowState.Maximized
@@ -283,6 +284,27 @@ Public Class F0G_MovimientoChoferSalida
             .Visible = True
         End With
 
+        With grdetalle.RootTable.Columns("cajas")
+            .Width = 160
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0.00"
+            .Caption = "cajas".ToUpper
+        End With
+        With grdetalle.RootTable.Columns("unidades")
+            .Width = 160
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .FormatString = "0.00"
+            .Caption = "uni.".ToUpper
+        End With
+        With grdetalle.RootTable.Columns("caconv")
+            .Width = 160
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
+            .FormatString = "0"
+            .Caption = "Conversion".ToUpper
+        End With
         With grdetalle.RootTable.Columns("iccant")
             .Width = 160
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -327,26 +349,26 @@ Public Class F0G_MovimientoChoferSalida
             .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
             .Visible = False
         End With
-        'With grdetalle.RootTable.Columns("precio")
-        '    .Width = 80
-        '    .Caption = "Precio".ToUpper
-        '    .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
-        '    .FormatString = "0.00"
-        '    .Visible = False
-        'End With
-        'With grdetalle.RootTable.Columns("precioT")
-        '    .Width = 150
-        '    .Caption = "Precio Total".ToUpper
-        '    .TextAlignment = TextAlignment.Far
-        '    .FormatString = "0.00"
-        '    .Visible = True
-        'End With
-        'With grdetalle.RootTable.Columns("unidad")
-        '    .Width = 80
-        '    .Caption = "Unidad".ToUpper
-        '    .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
-        '    .Visible = True
-        'End With
+        With grdetalle.RootTable.Columns("precio")
+            .Width = 80
+            .Caption = "Precio".ToUpper
+            .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
+            .FormatString = "0.00"
+            .Visible = False
+        End With
+        With grdetalle.RootTable.Columns("precioT")
+            .Width = 150
+            .Caption = "Precio Total".ToUpper
+            .TextAlignment = TextAlignment.Far
+            .FormatString = "0.00"
+            .Visible = True
+        End With
+        With grdetalle.RootTable.Columns("unidad")
+            .Width = 80
+            .Caption = "Unidad".ToUpper
+            .CellStyle.ImageHorizontalAlignment = ImageHorizontalAlignment.Center
+            .Visible = True
+        End With
         With grdetalle
             .GroupByBoxVisible = False
             'diseño de la grilla
@@ -485,10 +507,13 @@ Public Class F0G_MovimientoChoferSalida
 
     End Sub
     Private Sub _prCargarProductos()
-
+        Dim Aux As DataTable = CType(grdetalle.DataSource, DataTable)
+        'Aux.Columns.RemoveAt(7)
+        'Aux.Columns.RemoveAt(7)
+        'Aux.Columns.RemoveAt(8)
 
         Dim dt As New DataTable
-        dt = L_prMovimientoChoferListarProductosSalida(CType(grdetalle.DataSource, DataTable))  ''1=Almacen
+        dt = L_prMovimientoChoferListarProductosSalida(Aux)  ''1=Almacen
         grproducto.DataSource = dt
         grproducto.RetrieveStructure()
         grproducto.AlternatingColors = True
@@ -555,7 +580,7 @@ Public Class F0G_MovimientoChoferSalida
         Dim img As New Bitmap(My.Resources.delete, 28, 28)
         img.Save(Bin, Imaging.ImageFormat.Png)
         'CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", 0, Bin.GetBuffer, 0)
-        CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", "", 0, 0, 0, 0, 0, "", Bin.GetBuffer, 0)
+        CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", "", 0, 0, 0, 0.00, 0.00, 0, 0, 0, "", Bin.GetBuffer, 0)
 
     End Sub
 
@@ -858,13 +883,27 @@ Public Class F0G_MovimientoChoferSalida
                 .Width = 300
                 .Visible = True
             End With
-
+            With grdetalle.RootTable.Columns("cajas")
+                .Caption = "PRODUCTOS"
+                .Width = 300
+                .Visible = False
+            End With
+            With grdetalle.RootTable.Columns("unidades")
+                .Caption = "PRODUCTOS"
+                .Width = 300
+                .Visible = False
+            End With
             With grdetalle.RootTable.Columns("iccant")
                 .Width = 160
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
                 .Visible = True
                 .FormatString = "0.00"
                 .Caption = "Total".ToUpper
+            End With
+            With grdetalle.RootTable.Columns("caconv")
+                .Caption = "PRODUCTOS"
+                .Width = 300
+                .Visible = False
             End With
             With grdetalle.RootTable.Columns("cantidadPreVenta")
                 .Width = 160
@@ -916,6 +955,7 @@ Public Class F0G_MovimientoChoferSalida
                 .TextAlignment = TextAlignment.Far
                 .FormatString = "0.00"
                 .Visible = True
+                .AggregateFunction = AggregateFunction.Sum
             End With
             With grdetalle.RootTable.Columns("unidad")
                 .Width = 80
@@ -927,6 +967,14 @@ Public Class F0G_MovimientoChoferSalida
                 .GroupByBoxVisible = False
                 'diseño de la grilla
                 .VisualStyle = VisualStyle.Office2007
+
+
+
+                .RowHeaders = InheritableBoolean.True
+                .TotalRow = InheritableBoolean.True
+                .TotalRowFormatStyle.BackColor = Color.Gold
+                .TotalRowPosition = TotalRowPosition.BottomFixed
+                '.TotalRow = Format("0.00")
             End With
         Else
             _prAddDetalleVenta()
@@ -1107,6 +1155,7 @@ salirIf:
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("precio") = grproducto.GetValue("chprecio")
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("precioT") = 0.00
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("unidad") = grproducto.GetValue("cedesc")
+                    CType(grdetalle.DataSource, DataTable).Rows(pos).Item("caconv") = grproducto.GetValue("caconv")
                     CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 0
                     _prCargarProductos()
 
@@ -1145,6 +1194,7 @@ salirIf:
                 CType(grdetalle.DataSource, DataTable).Rows(pos).Item("precioT") = 0
                 grdetalle.SetValue("iccant", grdetalle.GetValue("cantidadPreVenta"))
 
+
                 Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
                 If (estado = 1) Then
@@ -1181,6 +1231,8 @@ salirIf:
                         grdetalle.SetValue("iccant", CType(grdetalle.DataSource, DataTable).Rows(pos).Item("cantidadPreVenta") + grdetalle.GetValue("cantidadAutoVenta"))
                         Dim total As Double = (CType(grdetalle.DataSource, DataTable).Rows(pos).Item("iccant")) * CType(grdetalle.DataSource, DataTable).Rows(pos).Item("precio")
                         grdetalle.SetValue("precioT", total)
+                        grdetalle.SetValue("cajas", grdetalle.GetValue("iccant") \ grdetalle.GetValue("caconv"))
+                        grdetalle.SetValue("unidades", grdetalle.GetValue("iccant") Mod grdetalle.GetValue("caconv"))
                         If (estado = 1) Then
                             CType(grdetalle.DataSource, DataTable).Rows(pos).Item("estado") = 2
                         End If
@@ -1646,7 +1698,9 @@ salirIf:
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccprod") = item("canumi")
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("cacod") = item("cacod")
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("producto") = item("cadesc")
-
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("caconv") = item("Conv")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("cajas") = item("caja")
+                        CType(grdetalle.DataSource, DataTable).Rows(i).Item("unidades") = item("Unidad")
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("cantidadPreVenta") = item("obpcant")
                         CType(grdetalle.DataSource, DataTable).Rows(i).Item("iccant") = item("obpcant")
 
@@ -1679,7 +1733,7 @@ salirIf:
         End If
 
         P_Global.Visualizador = New Visualizador
-        Dim objrep As New R_ComprobanteSalidaItems
+        Dim objrep As New R_ComprobanteSalidaItemsDavid
 
         objrep.SetDataSource(dt)
 

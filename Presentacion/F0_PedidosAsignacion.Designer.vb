@@ -64,6 +64,9 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.PanelEx16 = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx17 = New DevComponents.DotNetBar.PanelEx()
+        Me.ButtonX6 = New DevComponents.DotNetBar.ButtonX()
+        Me.PanelListImagenes = New System.Windows.Forms.Panel()
+        Me.pbImgProdu = New System.Windows.Forms.PictureBox()
         Me.PanelEx25 = New DevComponents.DotNetBar.PanelEx()
         Me.ButtonX2 = New DevComponents.DotNetBar.ButtonX()
         Me.ButtonX3 = New DevComponents.DotNetBar.ButtonX()
@@ -150,6 +153,9 @@ Partial Class F0_PedidosAsignacion
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ConMenu_Rechazado = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuImprimir = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl1.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
@@ -180,6 +186,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel3.SuspendLayout()
         Me.PanelEx16.SuspendLayout()
         Me.PanelEx17.SuspendLayout()
+        CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx25.SuspendLayout()
         Me.GroupPanel2.SuspendLayout()
         CType(Me.JGr_Zonas2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -214,6 +221,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.SuspendLayout()
         Me.ConMenu_Opciones1.SuspendLayout()
         Me.ConMenu_Rechazado.SuspendLayout()
+        Me.ContextMenuImprimir.SuspendLayout()
         Me.SuspendLayout()
         '
         'SuperTabControl1
@@ -231,8 +239,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1284, 661)
@@ -240,8 +248,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         '
         'SuperTabControlPanel2
         '
@@ -1115,6 +1123,9 @@ Partial Class F0_PedidosAsignacion
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PanelEx17.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx17.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx17.Controls.Add(Me.ButtonX6)
+        Me.PanelEx17.Controls.Add(Me.PanelListImagenes)
+        Me.PanelEx17.Controls.Add(Me.pbImgProdu)
         Me.PanelEx17.Controls.Add(Me.PanelEx25)
         Me.PanelEx17.Controls.Add(Me.GM_Mapa2)
         Me.PanelEx17.DisabledBackColor = System.Drawing.Color.Empty
@@ -1129,6 +1140,39 @@ Partial Class F0_PedidosAsignacion
         Me.PanelEx17.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx17.Style.GradientAngle = 90
         Me.PanelEx17.TabIndex = 1
+        '
+        'ButtonX6
+        '
+        Me.ButtonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.ButtonX6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.ButtonX6.Location = New System.Drawing.Point(221, 201)
+        Me.ButtonX6.Name = "ButtonX6"
+        Me.ButtonX6.Size = New System.Drawing.Size(88, 42)
+        Me.ButtonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.ButtonX6.TabIndex = 11
+        Me.ButtonX6.Text = "ABRIR EN CARPETA"
+        '
+        'PanelListImagenes
+        '
+        Me.PanelListImagenes.AutoScroll = True
+        Me.PanelListImagenes.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.PanelListImagenes.Location = New System.Drawing.Point(8, 172)
+        Me.PanelListImagenes.Name = "PanelListImagenes"
+        Me.PanelListImagenes.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.PanelListImagenes.Size = New System.Drawing.Size(207, 102)
+        Me.PanelListImagenes.TabIndex = 10
+        '
+        'pbImgProdu
+        '
+        Me.pbImgProdu.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbImgProdu.BackColor = System.Drawing.Color.White
+        Me.pbImgProdu.Location = New System.Drawing.Point(0, 0)
+        Me.pbImgProdu.Name = "pbImgProdu"
+        Me.pbImgProdu.Size = New System.Drawing.Size(317, 282)
+        Me.pbImgProdu.TabIndex = 9
+        Me.pbImgProdu.TabStop = False
         '
         'PanelEx25
         '
@@ -2364,9 +2408,9 @@ Partial Class F0_PedidosAsignacion
         'ConMenu_Opciones3
         '
         Me.ConMenu_Opciones3.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.VERHISTORIALToolStripMenuItem2})
+        Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.ToolStripMenuItem3, Me.VERHISTORIALToolStripMenuItem2})
         Me.ConMenu_Opciones3.Name = "ConMenu_Opciones3"
-        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 92)
+        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 114)
         '
         'RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem
         '
@@ -2449,6 +2493,26 @@ Partial Class F0_PedidosAsignacion
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(246, 26)
         Me.ToolStripMenuItem2.Text = "RETORNAR A PEDIDO DICTADO "
         '
+        'ContextMenuImprimir
+        '
+        Me.ContextMenuImprimir.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuImprimir.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8})
+        Me.ContextMenuImprimir.Name = "ConMenu_Opciones"
+        Me.ContextMenuImprimir.Size = New System.Drawing.Size(175, 30)
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Image = Global.Presentacion.My.Resources.Resources.I32x32_printer
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(184, 26)
+        Me.ToolStripMenuItem8.Text = "IMPRIMIR PEDIDO"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(350, 22)
+        Me.ToolStripMenuItem3.Text = "IMPRIMIR RECIBO"
+        '
         'F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2490,6 +2554,7 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControlPanel3.ResumeLayout(False)
         Me.PanelEx16.ResumeLayout(False)
         Me.PanelEx17.ResumeLayout(False)
+        CType(Me.pbImgProdu, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx25.ResumeLayout(False)
         Me.GroupPanel2.ResumeLayout(False)
         CType(Me.JGr_Zonas2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2524,6 +2589,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.ResumeLayout(False)
         Me.ConMenu_Opciones1.ResumeLayout(False)
         Me.ConMenu_Rechazado.ResumeLayout(False)
+        Me.ContextMenuImprimir.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2656,4 +2722,10 @@ Partial Class F0_PedidosAsignacion
     Friend WithEvents ConMenu_Rechazado As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents btConfirmarPedidosCredito As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents pbImgProdu As PictureBox
+    Friend WithEvents PanelListImagenes As Panel
+    Friend WithEvents ButtonX6 As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents ContextMenuImprimir As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
 End Class

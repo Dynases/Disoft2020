@@ -29,6 +29,8 @@ Module P_Global
     Public gi_frecvisita As Byte = 0 '0=no mostrará ni registrará frec de visitas, 1=mostrará y registrará frec de visitas
     Public gi_CRM As Byte = 0 '0=no mostrará menu CRM, 1=mostrará menu CRM
     Public gi_pdev As Byte = 0 '0=no volvera a cargar los productos devueltos a la salida, 1=si volvera a cargar los productos devueltos a la salida
+    Public gs_Mon As String = "" 'Abreviatura de la moneda
+    Public gs_MonLar As String = "" 'Abreviatura de la moneda
 #End Region
 
     Public gs_Ip As String = "localhost"
@@ -67,6 +69,8 @@ Module P_Global
     Public gs_separadorDecimal As Char = Application.CurrentCulture.NumberFormat.NumberDecimalSeparator
     Public Visualizador As Visualizador
 
+
+    Public Visualizador2 As Visualizador2
 #End Region
 
 #Region "Librerias"

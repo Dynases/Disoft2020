@@ -32,18 +32,19 @@ Public Class R0_ReportePedidosCosto
         CheckTodosVendedor.CheckValue = True
         tbFechaI.Value = Now.Date
         tbFechaF.Value = Now.Date
-
+        CheckBoxX1.Checked = True
     End Sub
 
     Public Sub _prInterpretarDatos(ByRef _dt As DataTable)
 
+
         If (CheckTodosVendedor.Checked) Then
-            _dt = L_prListarReportePEdidosVsCosto(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+            _dt = L_prListarReportePEdidosVsCosto(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), IIf(CheckBoxX2.Checked, CInt(tbCodigoCliente.Text), -1))
             Return
-            End If
+        End If
         If (checkUnaVendedor.Checked) Then
             If (tbCodigoVendedor.Text <> String.Empty) Then
-                _dt = L_prListarReportePEdidosVsCostoUnVendedor(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
+                _dt = L_prListarReportePEdidosVsCostoUnVendedor(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, IIf(CheckBoxX2.Checked, CInt(tbCodigoCliente.Text), -1))
                 Return
             End If
 
@@ -155,6 +156,43 @@ Public Class R0_ReportePedidosCosto
 
     End Sub
 
+    Public Sub _prListarClientes()
+
+        Dim dt As DataTable
+        dt = L_prListarCliente()
+        'a.cbnumi , a.cbdesc As nombre, a.cbdirec, a.cbtelef, a.cbfnac 
+        Dim listEstCeldas As New List(Of Modelo.MCelda)
+        listEstCeldas.Add(New Modelo.MCelda("ccnumi", True, "ID", 50))
+        listEstCeldas.Add(New Modelo.MCelda("cccod", False))
+        listEstCeldas.Add(New Modelo.MCelda("ccdesc", True, "NOMBRE", 280))
+        listEstCeldas.Add(New Modelo.MCelda("cctelf2", True, "Telefono".ToUpper, 200))
+        listEstCeldas.Add(New Modelo.MCelda("ccobs", False))
+        Dim ef = New Efecto
+        ef.tipo = 3
+        ef.dt = dt
+        ef.SeleclCol = 1
+        ef.listEstCeldas = listEstCeldas
+        ef.alto = 50
+        ef.ancho = 350
+        ef.Context = "Seleccione CLIENTE".ToUpper
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
+        bandera = ef.band
+        If (bandera = True) Then
+            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+            If (IsNothing(Row)) Then
+                tbVendedor.Focus()
+                Return
+            End If
+            tbCodigoCliente.Text = Row.Cells("ccnumi").Value
+            tbCliente.Text = Row.Cells("ccdesc").Value
+            MBtGenerar.Select()
+
+        End If
+
+
+    End Sub
+
     Private Sub CheckTodosVendedor_CheckValueChanged(sender As Object, e As EventArgs) Handles CheckTodosVendedor.CheckValueChanged
         If (CheckTodosVendedor.Checked) Then
             checkUnaVendedor.CheckValue = False
@@ -187,5 +225,36 @@ Public Class R0_ReportePedidosCosto
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub CheckBoxX2_CheckValueChanged(sender As Object, e As EventArgs) Handles CheckBoxX2.CheckValueChanged
+        If (CheckBoxX2.Checked) Then
+            CheckBoxX1.CheckValue = False
+            tbCliente.Enabled = True
+            tbCliente.BackColor = Color.White
+            tbCliente.Focus()
+
+        End If
+    End Sub
+
+    Private Sub CheckBoxX1_CheckValueChanged(sender As Object, e As EventArgs) Handles CheckBoxX1.CheckValueChanged
+        If (CheckBoxX1.Checked) Then
+            CheckBoxX2.CheckValue = False
+            tbCliente.Enabled = True
+            tbCliente.BackColor = Color.Gainsboro
+            tbCliente.Clear()
+            tbCodigoCliente.Text = -1
+
+        End If
+    End Sub
+
+    Private Sub tbCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles tbCliente.KeyDown
+        If (CheckBoxX2.Checked) Then
+            If e.KeyData = Keys.Control + Keys.Enter Then
+                _prListarClientes()
+
+            End If
+
+        End If
     End Sub
 End Class

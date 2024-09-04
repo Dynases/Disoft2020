@@ -650,7 +650,7 @@ Public Class F02_Zona
 
         Dt = L_fnObtenerLibreria("4", " 1=1 ")
         g_prArmarCombo(CbCiudad, Dt, 60, 200, "Código", "Ciudad")
-        CbCiudad.SelectedIndex = gs_Parametros(0).Item("syciudad")
+        CbCiudad.SelectedIndex = gs_Parametros(0).Item("syciudad") - 1
     End Sub
 
     Private Sub P_prArmarComboProvincia()
@@ -956,7 +956,7 @@ Public Class F02_Zona
     Private Sub P_prCargarMapa()
         GmMapa.DragButton = MouseButtons.Left
         GmMapa.CanDragMap = True
-        GmMapa.MapProvider = GMapProviders.GoogleMap
+        GmMapa.MapProvider = GMapProviders.BingSatelliteMap
         GmMapa.Position = New PointLatLng(-17.782814, -63.182386)
         GmMapa.MinZoom = 0
         GmMapa.MaxZoom = 24
@@ -1123,6 +1123,10 @@ Public Class F02_Zona
                 GmMapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
             Case "SALTA"
                 GmMapa.Position = New PointLatLng(-24.789496, -65.410377)
+            Case "JUJUY"
+                GmMapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
+            Case "TUCUMAN"
+                GmMapa.Position = New PointLatLng(-26.823925, -65.223834)
         End Select
 
         MEP.SetError(CbCiudad, "")

@@ -16,6 +16,8 @@ Public Class R01_UltimaVentaCliente
 
     Dim InDuracion As Byte = 5
 
+    Dim UserSpecial As Boolean = False
+
 #End Region
 
 #Region "Eventos"
@@ -76,8 +78,18 @@ Public Class R01_UltimaVentaCliente
 
         DtiDesde.Value = Now.Date
         DtiHasta.Value = Now.Date
-    End Sub
+        VerificarUsuario()
 
+    End Sub
+    Private Sub VerificarUsuario()
+        Dim dt As DataTable = TraerUsuariosEspeciales()
+        For i = 0 To dt.Rows.Count - 1 Step 1
+            If gi_userNumi = dt.Rows(i).Item("especial") Then
+                UserSpecial = True
+            End If
+        Next
+
+    End Sub
     Private Sub P_prCargarReporte()
         If (P_fnValidar()) Then
             Dim dt As New DataTable
@@ -107,10 +119,18 @@ Public Class R01_UltimaVentaCliente
     End Sub
     Public Sub _prInterpretarDatos(ByRef dt As DataTable)
         If (swZonas.Value = True) Then
-            dt = L_VistaUltimaVentaClientesTodos(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCriterio.Text.Trim)
+            If UserSpecial = False Then
+                dt = L_VistaUltimaVentaClientesTodos(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCriterio.Text.Trim)
+            Else
+                'aqui poder codigo
+            End If
         Else
             If (TbCodigo.Text.Length > 0) Then
-                dt = L_VistaUltimaVentaCliente(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCodigo.Text, TbCriterio.Text.Trim)
+                If UserSpecial = False Then
+                    dt = L_VistaUltimaVentaCliente(DtiDesde.Value.ToString("yyyy/MM/dd"), DtiHasta.Value.ToString("yyyy/MM/dd"), TbCodigo.Text, TbCriterio.Text.Trim)
+                Else
+                    'aqui poner codigo
+                End If
 
             End If
         End If

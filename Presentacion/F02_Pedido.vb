@@ -29,7 +29,7 @@ Public Class F02_Pedido
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
         'L_prAbrirConexion()
-
+        'L_prJobDuplicados()
         Me.Text = "P E D I D O S"
         'Me.WindowState = FormWindowState.Maximized
         MSuperTabControlPrincipal.SelectedTabIndex = 0

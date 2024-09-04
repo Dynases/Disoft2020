@@ -179,4 +179,8 @@ Public Class R01_VentasVendedor
         tbVendedor.Clear()
         tbCodigoVendedor.Clear()
     End Sub
+
+    Private Sub tbVendedor_TextChanged(sender As Object, e As EventArgs) Handles tbVendedor.TextChanged
+
+    End Sub
 End Class

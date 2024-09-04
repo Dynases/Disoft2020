@@ -38,6 +38,8 @@ Partial Class Dashboard
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx8 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbFecha = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.cbConci = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbFechaF = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
@@ -194,8 +196,8 @@ Partial Class Dashboard
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel6)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel6)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel5)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
@@ -206,9 +208,9 @@ Partial Class Dashboard
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel5, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel6, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel6, 0)
         '
         'SuperTabControlPanel2
         '
@@ -220,7 +222,7 @@ Partial Class Dashboard
         Me.SuperTabControlPanel2.Controls.Add(Me.SuperGridControl1)
         Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.None
         Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(6484, 1936)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(26484, 6936)
         '
         'SuperTabItem2
         '
@@ -633,6 +635,8 @@ Partial Class Dashboard
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.cbFecha)
+        Me.GroupBox2.Controls.Add(Me.cbConci)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.tbFechaF)
@@ -641,14 +645,42 @@ Partial Class Dashboard
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(5, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(310, 283)
+        Me.GroupBox2.Size = New System.Drawing.Size(310, 306)
         Me.GroupBox2.TabIndex = 113
         Me.GroupBox2.TabStop = False
+        '
+        'cbFecha
+        '
+        '
+        '
+        '
+        Me.cbFecha.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.cbFecha.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.cbFecha.Location = New System.Drawing.Point(18, 81)
+        Me.cbFecha.Name = "cbFecha"
+        Me.cbFecha.Size = New System.Drawing.Size(100, 23)
+        Me.cbFecha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.cbFecha.TabIndex = 120
+        Me.cbFecha.Text = "Por Fecha"
+        '
+        'cbConci
+        '
+        '
+        '
+        '
+        Me.cbConci.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.cbConci.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.cbConci.Location = New System.Drawing.Point(18, 39)
+        Me.cbConci.Name = "cbConci"
+        Me.cbConci.Size = New System.Drawing.Size(147, 23)
+        Me.cbConci.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.cbConci.TabIndex = 119
+        Me.cbConci.Text = "Por Conciliación"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 118)
+        Me.Label2.Location = New System.Drawing.Point(15, 210)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(24, 17)
         Me.Label2.TabIndex = 118
@@ -658,7 +690,7 @@ Partial Class Dashboard
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(16, 56)
+        Me.Label4.Location = New System.Drawing.Point(15, 148)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(33, 17)
         Me.Label4.TabIndex = 117
@@ -675,7 +707,7 @@ Partial Class Dashboard
         Me.tbFechaF.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(93, 118)
+        Me.tbFechaF.Location = New System.Drawing.Point(92, 210)
         '
         '
         '
@@ -721,7 +753,7 @@ Partial Class Dashboard
         Me.tbFechaI.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(93, 56)
+        Me.tbFechaI.Location = New System.Drawing.Point(92, 148)
         '
         '
         '
@@ -761,7 +793,7 @@ Partial Class Dashboard
         '
         Me.btGenerar2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.btGenerar2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btGenerar2.Location = New System.Drawing.Point(115, 185)
+        Me.btGenerar2.Location = New System.Drawing.Point(119, 259)
         Me.btGenerar2.Name = "btGenerar2"
         Me.btGenerar2.Size = New System.Drawing.Size(75, 23)
         Me.btGenerar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1225,7 +1257,7 @@ Partial Class Dashboard
         Me.SuperGridControl1.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
         Me.SuperGridControl1.Location = New System.Drawing.Point(0, 0)
         Me.SuperGridControl1.Name = "SuperGridControl1"
-        Me.SuperGridControl1.Size = New System.Drawing.Size(6484, 1936)
+        Me.SuperGridControl1.Size = New System.Drawing.Size(26484, 6936)
         Me.SuperGridControl1.TabIndex = 8
         Me.SuperGridControl1.Text = "Eficiencia"
         '
@@ -1239,7 +1271,7 @@ Partial Class Dashboard
         Me.PanelEx6.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx6.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(324, 1936)
+        Me.PanelEx6.Size = New System.Drawing.Size(324, 6936)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx6.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -1258,7 +1290,7 @@ Partial Class Dashboard
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(324, 1936)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(324, 6936)
         '
         '
         '
@@ -1300,7 +1332,7 @@ Partial Class Dashboard
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(318, 1915)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(318, 6915)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -1384,7 +1416,7 @@ Partial Class Dashboard
         Me.grPresupuesto.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
         Me.grPresupuesto.Location = New System.Drawing.Point(327, 0)
         Me.grPresupuesto.Name = "grPresupuesto"
-        Me.grPresupuesto.Size = New System.Drawing.Size(6157, 1936)
+        Me.grPresupuesto.Size = New System.Drawing.Size(26157, 6936)
         Me.grPresupuesto.TabIndex = 120
         Me.grPresupuesto.Text = "SuperGridControl2"
         '
@@ -2198,4 +2230,6 @@ Partial Class Dashboard
     Friend WithEvents CRVendedores As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents SuperGridControl4 As DevComponents.DotNetBar.SuperGrid.SuperGridControl
     Friend WithEvents SuperTabItem6 As DevComponents.DotNetBar.SuperTabItem
+    Friend WithEvents cbFecha As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents cbConci As DevComponents.DotNetBar.Controls.CheckBoxX
 End Class

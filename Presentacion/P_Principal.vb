@@ -59,7 +59,7 @@ Public Class P_Principal
         'btConfLibreria.Visible = True
         'btConfEquipo.Visible = True
         'btDescuentos.Visible = True
-
+        'L_prJobDuplicados()
     End Sub
     Private Sub EmpresaSeleccion()
         Dim frmEmpresa As New P_LoginEmpresa
@@ -222,6 +222,8 @@ Public Class P_Principal
             gi_frecvisita = dtConfSistema.Rows(0).Item("cccfrecvisita")
             gi_CRM = dtConfSistema.Rows(0).Item("cccCRM")
             gi_pdev = dtConfSistema.Rows(0).Item("cccPDev")
+            gs_Mon = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccMon")), "Bs", dtConfSistema.Rows(0).Item("cccMon"))
+            gs_MonLar = IIf(IsDBNull(dtConfSistema.Rows(0).Item("cccMonLar")), "Bolivianos", dtConfSistema.Rows(0).Item("cccMonLar"))
             If gi_CRM = 1 Then
                 FP_CRM.Visible = True
             Else
@@ -1716,7 +1718,7 @@ Public Class P_Principal
 
     Private Sub btComisiones_Click(sender As Object, e As EventArgs) Handles btComisiones.Click
         F02_Comisiones.AllowTransparency = True
-        Dim frm As New F02_Comisiones
+        Dim frm As New F02_ComisionesCategoria
         frm._nameButton = btComisiones.Name
         frm._modulo = FP_CRM
         frm.Show()
@@ -1870,6 +1872,63 @@ Public Class P_Principal
         Dim frm As New Dashboard
         frm.Show()
 
+    End Sub
+
+    Private Sub btEstCuentasxCobrar_Click(sender As Object, e As EventArgs)
+        R01_EstadoCuentasPorCobrar.AllowTransparency = True
+        Dim frm As New R01_EstadoCuentasPorCobrar
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btVentRepVentasG.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Venta
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        'tab3.Text = frm.Text
+        'tab3.Icon = frm.Icon
+    End Sub
+
+    Private Sub SideNavItem1_Click(sender As Object, e As EventArgs) Handles SideNavItem1.Click
+
+    End Sub
+
+    Private Sub btIngresoCategoria_Click(sender As Object, e As EventArgs) Handles btIngresoCategoria.Click
+        Dim frm As New F0_IngresoStock
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btIngresoCategoria.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+    End Sub
+
+    Private Sub btAjustoStock_Click(sender As Object, e As EventArgs) Handles btAjustoStock.Click
+        Dim frm As New F0_AjusteStock
+        'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
+        frm._nameButton = btIngresoCategoria.Name
+        'frm._tab = tab3
+        frm._modulo = FP_Inventario
+        'Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        'superTabControlVentana.SelectedTabIndex = superTabControlVentana.Tabs.Count - 1
+        'tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+    End Sub
+
+    Private Sub btReporteCobertura_Click(sender As Object, e As EventArgs) Handles btReporteCobertura.Click
+        Dim frm As New R01_CoberturaVendedor
+        frm._nameButton = btReporteCobertura.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
+    Private Sub btEfectividadVendedor_Click(sender As Object, e As EventArgs) Handles btEfectividadVendedor.Click
+        Dim frm As New R01_EfectividadCliente
+        frm._nameButton = btReporteCobertura.Name
+        frm._modulo = FP_Venta
+        frm.Show()
     End Sub
 End Class
 

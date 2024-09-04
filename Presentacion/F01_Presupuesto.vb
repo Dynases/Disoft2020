@@ -194,6 +194,8 @@ Public Class F01_Presupuesto
             .AlternatingColors = True
 
         End With
+
+
     End Sub
     Private Sub CargarDetallePresupuestos(cod As Integer)
         Dim dt As DataTable = CargarDetallePresupuesto(cod)
@@ -267,6 +269,9 @@ Public Class F01_Presupuesto
         MBtNuevo.Enabled = False
         MBtModificar.Enabled = False
         MBtGrabar.Enabled = True
+
+        grVendedor.SelectedFormatStyle.BackColor = Color.DodgerBlue
+
     End Sub
     Private Sub InHabilitar()
         cbMes.Enabled = False
@@ -275,12 +280,23 @@ Public Class F01_Presupuesto
         MBtNuevo.Enabled = True
         MBtModificar.Enabled = True
         MBtGrabar.Enabled = False
+
+        grVendedor.SelectedFormatStyle.BackColor = Color.White ' Puedes ajustar esto según tus necesidades
+
+        ' Opcional: Cambiar el color de fondo de la selección
+
     End Sub
     Private Sub Limpiar()
         tbId.Clear()
         cbMes.Value = 1
         tbAño.Clear()
         CargarDetallePresupuestos(-1)
+
+        Dim fc As GridEXFormatCondition
+        fc = New GridEXFormatCondition(grVendedor.RootTable.Columns("cbnumi"), Janus.Windows.GridEX.ConditionOperator.GreaterThan, 0)
+        fc.FormatStyle.BackColor = Color.White
+        fc.FormatStyle.ForeColor = Color.Black
+        grVendedor.RootTable.FormatConditions.Add(fc)
     End Sub
     Private Function ValidarCampos() As Boolean
         If cbMes.SelectedIndex < 0 Then
@@ -353,8 +369,23 @@ Public Class F01_Presupuesto
     End Sub
     Private Sub grVendedor_SelectionChanged(sender As Object, e As EventArgs) Handles grVendedor.SelectionChanged
         If MBtGrabar.Enabled = True Then
+            AplicarFiltroColorSeleccionado(grVendedor.GetValue("cbnumi"))
             CargarDetallePresupuestos(-1)
         End If
+    End Sub
+
+    Private Sub AplicarFiltroColorSeleccionado(codVend As Integer)
+        Dim fc As GridEXFormatCondition
+        fc = New GridEXFormatCondition(grVendedor.RootTable.Columns("cbnumi"), Janus.Windows.GridEX.ConditionOperator.Equal, codVend)
+        fc.FormatStyle.BackColor = Color.DodgerBlue
+        fc.FormatStyle.ForeColor = Color.Black
+        grVendedor.RootTable.FormatConditions.Add(fc)
+
+
+        fc = New GridEXFormatCondition(grVendedor.RootTable.Columns("cbnumi"), Janus.Windows.GridEX.ConditionOperator.NotEqual, codVend)
+        fc.FormatStyle.BackColor = Color.White
+        fc.FormatStyle.ForeColor = Color.Black
+        grVendedor.RootTable.FormatConditions.Add(fc)
     End Sub
 
     Private Sub MBtModificar_Click(sender As Object, e As EventArgs) Handles MBtModificar.Click
@@ -383,9 +414,24 @@ Public Class F01_Presupuesto
             cbMes.Value = .GetValue("psmes")
             tbAño.Text = .GetValue("psaño")
             CargarDetallePresupuestos(.GetValue("psnumi"))
+            AplicarFiltroColor(.GetValue("psidven"))
         End With
 
+        MLbPaginacion.Text = (grPresupuesto.Row + 1).ToString + " / " + (grPresupuesto.RowCount).ToString
+    End Sub
 
+    Private Sub AplicarFiltroColor(cod As Integer)
+        Dim fc As GridEXFormatCondition
+        fc = New GridEXFormatCondition(grVendedor.RootTable.Columns("cbnumi"), Janus.Windows.GridEX.ConditionOperator.Equal, cod)
+        fc.FormatStyle.BackColor = Color.LightGreen
+        fc.FormatStyle.ForeColor = Color.Black
+        grVendedor.RootTable.FormatConditions.Add(fc)
+
+
+        fc = New GridEXFormatCondition(grVendedor.RootTable.Columns("cbnumi"), Janus.Windows.GridEX.ConditionOperator.NotEqual, cod)
+        fc.FormatStyle.BackColor = Color.White
+        fc.FormatStyle.ForeColor = Color.Black
+        grVendedor.RootTable.FormatConditions.Add(fc)
     End Sub
     Private Sub grPresupuesto_SelectionChanged(sender As Object, e As EventArgs) Handles grPresupuesto.SelectionChanged
         ' grPresupuesto.Row = row
@@ -397,6 +443,7 @@ Public Class F01_Presupuesto
     Private Sub grPresupuesto_KeyDown(sender As Object, e As KeyEventArgs) Handles grPresupuesto.KeyDown
 
         If e.KeyData = Keys.Enter Then
+            grPresupuesto.EnterKeyBehavior = EnterKeyBehavior.None
             MSuperTabControlPrincipal.SelectedTabIndex = 0
             grdetalle.Focus()
             '    'row = grPresupuesto.Row
@@ -464,6 +511,45 @@ Public Class F01_Presupuesto
                 .SelectionMode = SelectionMode.MultipleSelection
                 .AlternatingColors = True
             End With
+        End If
+    End Sub
+
+    Private Sub grdetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grdetalle.EditingCell
+        If MBtGrabar.Enabled = False Then
+            e.Cancel = True
+            Return
+        End If
+
+        'Deshabilitar la columna de Productos y solo habilitar la de los precios
+        If (e.Column.Index = grdetalle.RootTable.Columns("cadesc").Index) Then 'Or e.Column.Index = grprecio.RootTable.Columns("73").Index
+            e.Cancel = True
+        Else
+            e.Cancel = False
+        End If
+
+    End Sub
+
+    Private Sub MBtSiguiente_Click(sender As Object, e As EventArgs) Handles MBtSiguiente.Click
+        If (grPresupuesto.RowCount > 0) Then
+            grPresupuesto.MoveNext()
+        End If
+    End Sub
+
+    Private Sub MBtAnterior_Click(sender As Object, e As EventArgs) Handles MBtAnterior.Click
+        If (grPresupuesto.RowCount > 0) Then
+            grPresupuesto.MovePrevious()
+        End If
+    End Sub
+
+    Private Sub MBtPrimero_Click(sender As Object, e As EventArgs) Handles MBtPrimero.Click
+        If (grPresupuesto.RowCount > 0) Then
+            grPresupuesto.MoveFirst()
+        End If
+    End Sub
+
+    Private Sub MBtUltimo_Click(sender As Object, e As EventArgs) Handles MBtUltimo.Click
+        If (grPresupuesto.RowCount > 0) Then
+            grPresupuesto.MoveLast()
         End If
     End Sub
 End Class

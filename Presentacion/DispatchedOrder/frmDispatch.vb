@@ -93,6 +93,7 @@ Public Class frmDispatch
 #Region "Privado, metodos y funciones"
     Private Sub Init()
         Try
+            L_prJobDuplicados()
             ConfigForm()
             CargarZonas()
             CargarChoferes()

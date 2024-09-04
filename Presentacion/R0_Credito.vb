@@ -102,7 +102,7 @@ Public Class R0_Credito
             Dim ParEmp4 As String = ""
 
 
-            Dim objrep As New R_Mam_CreditoGeneral
+            Dim objrep As New R_Mam_CreditoGeneral2
             objrep.SetDataSource(_dt)
             Dim fechaI As String = tbFechaI.Value.ToString("dd/MM/yyyy")
             Dim fechaF As String = tbFechaF.Value.ToString("dd/MM/yyyy")
@@ -166,45 +166,43 @@ Public Class R0_Credito
 
 
     Private Sub tbVendedor_KeyDown_1(sender As Object, e As KeyEventArgs) Handles tbCliente.KeyDown
-        'If (swCreditoCliente.Value = False) Then
-        '    If e.KeyData = Keys.Control + Keys.Enter Then
-        '        Dim dt As DataTable
-        '        dt = L_fnListarClienteCreditos()
-        '        '              a.ydnumi, a.ydcod, a.yddesc, a.yddctnum, a.yddirec
-        '        ',a.ydtelf1 ,a.ydfnac 
-        '        Dim listEstCeldas As New List(Of Modelo.Celda)
-        '        listEstCeldas.Add(New Modelo.Celda("ydnumi,", False, "ID", 50))
-        '        listEstCeldas.Add(New Modelo.Celda("ydcod", True, "ID", 50))
-        '        listEstCeldas.Add(New Modelo.Celda("yddesc", True, "NOMBRE", 280))
-        '        listEstCeldas.Add(New Modelo.Celda("yddctnum", True, "N. Documento".ToUpper, 150))
-        '        listEstCeldas.Add(New Modelo.Celda("yddirec", True, "DIRECCION", 220))
-        '        listEstCeldas.Add(New Modelo.Celda("ydtelf1", True, "Telefono".ToUpper, 200))
-        '        listEstCeldas.Add(New Modelo.Celda("ydfnac", True, "F.Nacimiento".ToUpper, 150, "MM/dd,YYYY"))
-        '        Dim ef = New Efecto
-        '        ef.tipo = 3
-        '        ef.dt = dt
-        '        ef.SeleclCol = 1
-        '        ef.listEstCeldas = listEstCeldas
-        '        ef.alto = 50
-        '        ef.ancho = 350
-        '        ef.Context = "Seleccione Cliente".ToUpper
-        '        ef.ShowDialog()
-        '        Dim bandera As Boolean = False
-        '        bandera = ef.band
-        '        If (bandera = True) Then
-        '            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
-        '            If (IsNothing(Row)) Then
-        '                tbCliente.Focus()
-        '                Return
-        '            End If
-        '            tbCodigoCliente.Text = Row.Cells("ydnumi").Value
-        '            tbCliente.Text = Row.Cells("yddesc").Value
-        '            MBtGenerar.Focus()
-        '        End If
+        If (swCreditoCliente.Value = False) Then
+            If e.KeyData = Keys.Control + Keys.Enter Then
+                Dim dt As DataTable
+                dt = L_prListarCliente()
+                '              a.ydnumi, a.ydcod, a.yddesc, a.yddctnum, a.yddirec
+                ',a.ydtelf1 ,a.ydfnac 
+                Dim listEstCeldas As New List(Of Modelo.MCelda)
+                listEstCeldas.Add(New Modelo.MCelda("ccnumi", True, "ID", 50))
+                listEstCeldas.Add(New Modelo.MCelda("cccod", True, "CODIGO", 70))
+                listEstCeldas.Add(New Modelo.MCelda("ccdesc", True, "NOMBRE", 280))
+                listEstCeldas.Add(New Modelo.MCelda("cctelf2", True, "TELEFONO", 220))
+                listEstCeldas.Add(New Modelo.MCelda("ccobs", True, "DIRECCION".ToUpper, 200))
+                Dim ef = New Efecto
+                ef.tipo = 3
+                ef.dt = dt
+                ef.SeleclCol = 1
+                ef.listEstCeldas = listEstCeldas
+                ef.alto = 50
+                ef.ancho = 350
+                ef.Context = "Seleccione Cliente".ToUpper
+                ef.ShowDialog()
+                Dim bandera As Boolean = False
+                bandera = ef.band
+                If (bandera = True) Then
+                    Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                    If (IsNothing(Row)) Then
+                        tbCliente.Focus()
+                        Return
+                    End If
+                    tbCodigoCliente.Text = Row.Cells("ccnumi").Value
+                    tbCliente.Text = Row.Cells("ccdesc").Value
+                    MBtGenerar.Focus()
+                End If
 
-        '    End If
+            End If
 
-        'End If
+        End If
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click

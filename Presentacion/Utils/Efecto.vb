@@ -14,6 +14,12 @@ Public Class Efecto
     Public ancho As Integer
     Public Row As Janus.Windows.GridEX.GridEXRow
     Public SeleclCol As Integer = -1
+    Public cliente As Integer = -1
+
+    Public nit As String
+    Public razonsocial As String
+    Public email As String
+    Public tipoDoc As Integer
 
     Private Sub Efecto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
@@ -27,6 +33,8 @@ Public Class Efecto
                 _prMostrarFormAyuda()
             Case 4
                 _prLogin()
+            Case 5
+                _prDatosFactura()
         End Select
     End Sub
     Public Sub _prLogin()
@@ -82,6 +90,28 @@ Public Class Efecto
             band = False
             Me.Close()
 
+        End If
+    End Sub
+
+    Sub _prDatosFactura()
+
+        Dim frmAyuda As F1_Cantidad
+        frmAyuda = New F1_Cantidad
+        frmAyuda.cliente = cliente
+        'frmAyuda.Cantidad = 1
+        frmAyuda.ShowDialog()
+
+        If frmAyuda.bandera = True Then
+
+            nit = frmAyuda.nit
+            razonsocial = frmAyuda.razonsocial
+            email = frmAyuda.email
+            tipoDoc = frmAyuda.tipoDoc
+            band = True
+            Me.Close()
+        Else
+            band = False
+            Me.Close()
         End If
     End Sub
 End Class

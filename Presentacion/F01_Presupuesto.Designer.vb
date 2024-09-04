@@ -27,6 +27,8 @@ Partial Class F01_Presupuesto
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Presupuesto))
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.tbId = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbAño = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,8 +40,6 @@ Partial Class F01_Presupuesto
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.grdetalle = New Janus.Windows.GridEX.GridEX()
         Me.grPresupuesto = New Janus.Windows.GridEX.GridEX()
-        Me.tbId = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -82,8 +82,8 @@ Partial Class F01_Presupuesto
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1166, 531)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
@@ -130,6 +130,18 @@ Partial Class F01_Presupuesto
         '
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Text = "DEFAULT"
+        '
+        'MBtUltimo
+        '
+        '
+        'MBtSiguiente
+        '
+        '
+        'MBtAnterior
+        '
+        '
+        'MBtPrimero
+        '
         '
         'MBtSalir
         '
@@ -254,6 +266,34 @@ Partial Class F01_Presupuesto
         Me.PanelExDatosGenerales.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 0
+        '
+        'LabelX1
+        '
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.LabelX1.ForeColor = System.Drawing.Color.Black
+        Me.LabelX1.Location = New System.Drawing.Point(31, 12)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.Size = New System.Drawing.Size(50, 23)
+        Me.LabelX1.TabIndex = 115
+        Me.LabelX1.Text = "Codigo:"
+        '
+        'tbId
+        '
+        '
+        '
+        '
+        Me.tbId.Border.Class = "TextBoxBorder"
+        Me.tbId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbId.Location = New System.Drawing.Point(87, 15)
+        Me.tbId.Name = "tbId"
+        Me.tbId.PreventEnterBeep = True
+        Me.tbId.ReadOnly = True
+        Me.tbId.Size = New System.Drawing.Size(60, 20)
+        Me.tbId.TabIndex = 114
         '
         'GroupBox1
         '
@@ -419,34 +459,6 @@ Partial Class F01_Presupuesto
         Me.grPresupuesto.Name = "grPresupuesto"
         Me.grPresupuesto.Size = New System.Drawing.Size(1124, 531)
         Me.grPresupuesto.TabIndex = 0
-        '
-        'tbId
-        '
-        '
-        '
-        '
-        Me.tbId.Border.Class = "TextBoxBorder"
-        Me.tbId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbId.Location = New System.Drawing.Point(87, 15)
-        Me.tbId.Name = "tbId"
-        Me.tbId.PreventEnterBeep = True
-        Me.tbId.ReadOnly = True
-        Me.tbId.Size = New System.Drawing.Size(60, 20)
-        Me.tbId.TabIndex = 114
-        '
-        'LabelX1
-        '
-        '
-        '
-        '
-        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.LabelX1.ForeColor = System.Drawing.Color.Black
-        Me.LabelX1.Location = New System.Drawing.Point(31, 12)
-        Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(50, 23)
-        Me.LabelX1.TabIndex = 115
-        Me.LabelX1.Text = "Codigo:"
         '
         'F01_Presupuesto
         '

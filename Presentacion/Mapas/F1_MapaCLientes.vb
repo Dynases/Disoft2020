@@ -254,7 +254,7 @@ Public Class F1_MapaCLientes
         Else
 
             _Overlay.Markers.Clear()
-            Gmc_Cliente.Position = New PointLatLng(-17.782814, -63.182386)
+            Gmc_Cliente.Position = New PointLatLng(-24.789496, -65.410377)
         End If
 
         Gmc_Cliente.MinZoom = 0

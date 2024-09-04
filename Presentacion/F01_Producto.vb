@@ -3,6 +3,20 @@ Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports Janus.Windows.GridEX
 Imports Logica.AccesoLogica
+Imports Facturacion
+Imports Newtonsoft.Json
+Imports Presentacion.LoginResp
+Imports Presentacion.UmedidaResp
+Imports Presentacion.AeconomicaResp
+Imports Presentacion.ListarPServResp
+Imports Presentacion.LoginEnvio
+Imports Presentacion.EmisorResp
+Imports Presentacion.RespTipoDoc
+Imports Presentacion.NitResp
+Imports System.Xml
+
+Imports System.Net
+
 
 Public Class F01_Producto
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
@@ -142,7 +156,13 @@ Public Class F01_Producto
         If (Not P_fnValidarRequisitos() = String.Empty) Then
             Return
         End If
-
+        'Dim tokenSifac As String = ObtToken()
+        'UnidadMedida(tokenSifac)
+        'CbUmedida.SelectedIndex = -1
+        'ActividadesEconomicas(tokenSifac)
+        'CbAeconomica.SelectedIndex = -1
+        'ListarProductoServicio(tokenSifac)
+        'CbProdServ.SelectedIndex = -1
         'Inicializar componentes
         P_prInicializarComponentes()
 
@@ -1684,6 +1704,218 @@ Public Class F01_Producto
         Me.Opacity = 100
         Timer1.Enabled = False
     End Sub
+
+#End Region
+
+#Region "Facturacion"
+    Public Shared Function ObtToken() As String
+        'Dim api = New DBApi()
+        'Dim Lenvio = New LoginEnvio()
+        'Lenvio.username = "wil"
+        'Lenvio.password = "12345"
+
+        'Dim url = "https://contadores.sige.company/api/v1.0.0/users/get-token"
+
+        'Dim headers = New List(Of Parametro) From {
+        '    New Parametro("Authorization", "bearer "),
+        '    New Parametro("Content-Type", "Accept:application/json; charset=utf-8")
+        '}
+
+        'Dim parametros = New List(Of Parametro)
+        'Dim response = api.Post(url, headers, parametros, Lenvio)
+        'Dim json = JsonConvert.SerializeObject(Lenvio)
+        '''MsgBox(json)
+
+        'Dim result = JsonConvert.DeserializeObject(Of LoginResp.RespuestLogin)(response)
+        'Dim Token As String
+        'Dim json1 = JsonConvert.SerializeObject(response)
+        ''' MsgBox(json1)
+        'Token = result.data.access_token.ToString
+        'Return Token
+        Try
+            ServicePointManager.Expect100Continue = True
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+            Dim request = TryCast(System.Net.WebRequest.Create("https://contadores.sige.company/api/v1.0.0/users/get-token"), System.Net.HttpWebRequest)
+
+            request.Method = "POST"
+
+            request.ContentType = "application/json"
+
+            Using writer As BinaryWriter = New BinaryWriter(request.GetRequestStream())
+                'writer.AutoFlush = True
+
+
+
+                Dim byteArray As Byte()
+
+                byteArray = System.Text.Encoding.UTF8.GetBytes("{
+                     ""username"": ""wil"",
+                     ""password"": ""12345""
+                }")
+                'request.ContentLength = byteArray.Length
+
+                Dim TxtEncodedValue As String = System.Text.Encoding.UTF8.GetString(byteArray)
+
+                writer.Write(byteArray)
+
+                'Dim lectura As StreamReader = New System.IO.StreamReader(request.GetRequestStream())
+
+                'Dim stringReader As String
+                'stringReader = lectura.ReadToEnd()
+
+                writer.Close()
+
+
+            End Using
+
+            '
+
+
+            Dim responseContent As String
+            Using response = TryCast(request.GetResponse(), System.Net.HttpWebResponse)
+                Using reader = New System.IO.StreamReader(response.GetResponseStream())
+                    responseContent = reader.ReadToEnd
+                    responseContent = responseContent.Replace("\", "")
+                    Dim result = JsonConvert.DeserializeObject(Of RespuestLogin)(responseContent)
+                    Dim Token As String
+                    Dim json1 = JsonConvert.SerializeObject(responseContent)
+                    Token = result.data.token.ToString
+                    Return Token
+                End Using
+            End Using
+
+
+        Catch ex As WebException
+            If Not ex.Response Is Nothing Then
+                Dim data As StreamReader = New StreamReader(ex.Response.GetResponseStream)
+                'Al asignar el data.ReadToEnd al string se puede apreciar la respuesta del WebService en la variable str
+                Dim str As String = data.ReadToEnd
+
+            End If
+
+        End Try
+    End Function
+
+    Public Function UnidadMedida(tokenObtenido)
+
+        Dim request = TryCast(System.Net.WebRequest.Create("https://contadores.sige.company/api/invoices/siat/v2/sync-unidades-medida"), System.Net.HttpWebRequest)
+
+        request.Method = "GET"
+
+        request.ContentType = "application/json"
+        Dim head As String = "Bearer " + tokenObtenido + ""
+        request.Headers.Add("authorization", head)
+
+        request.ContentLength = 0
+        Dim responseContent As String
+        Using response = TryCast(request.GetResponse(), System.Net.HttpWebResponse)
+            Using reader = New System.IO.StreamReader(response.GetResponseStream())
+                responseContent = reader.ReadToEnd()
+
+                Dim result = JsonConvert.DeserializeObject(Of Umedida)(responseContent)
+                With CbUmedida
+                    .DropDownList.Columns.Clear()
+                    .DropDownList.Columns.Add("codigoClasificador").Width = 70
+                    .DropDownList.Columns("codigoClasificador").Caption = "COD"
+                    .DropDownList.Columns.Add("descripcion").Width = 350
+                    .DropDownList.Columns("descripcion").Caption = "DESCRIPCION"
+                    .ValueMember = "codigoClasificador"
+                    .DisplayMember = "descripcion"
+                    .DataSource = result.data.RespuestaListaParametricas.listaCodigos
+                    .Refresh()
+                End With
+                Return ""
+            End Using
+        End Using
+    End Function
+
+
+    Public Function ActividadesEconomicas(tokenObtenido)
+
+        Dim request = TryCast(System.Net.WebRequest.Create("https://contadores.sige.company/api/invoices/siat/v2/actividades"), System.Net.HttpWebRequest)
+
+        request.Method = "GET"
+
+        request.ContentType = "application/json"
+        Dim head As String = "Bearer " + tokenObtenido + ""
+        request.Headers.Add("authorization", head)
+
+        request.ContentLength = 0
+        Dim responseContent As String
+        Using response = TryCast(request.GetResponse(), System.Net.HttpWebResponse)
+            Using reader = New System.IO.StreamReader(response.GetResponseStream())
+                responseContent = reader.ReadToEnd()
+                Dim result = JsonConvert.DeserializeObject(Of Aecono)(responseContent)
+
+                With CbAeconomica
+                    .DropDownList.Columns.Clear()
+                    .DropDownList.Columns.Add("codigoActividad").Width = 70
+                    .DropDownList.Columns("codigoActividad").Caption = "COD"
+                    .DropDownList.Columns.Add("descripcion").Width = 300
+                    .DropDownList.Columns("descripcion").Caption = "DESCRIPCION"
+                    .ValueMember = "codigoActividad"
+                    .DisplayMember = "descripcion"
+                    .DataSource = result.data.RespuestaListaActividades.listaActividades
+                    .Refresh()
+                End With
+            End Using
+        End Using
+
+
+
+    End Function
+
+    Public Function ListarProductoServicio(tokenObtenido As String, Optional ae As Integer = 5)
+        Dim request = TryCast(System.Net.WebRequest.Create("https://contadores.sige.company/api/invoices/siat/v2/lista-productos-servicios"), System.Net.HttpWebRequest)
+
+        request.Method = "GET"
+
+        request.ContentType = "application/json"
+        Dim bearer As String = "Bearer " + tokenObtenido
+        request.Headers.Add("authorization", bearer)
+
+        request.ContentLength = 0
+        Dim responseContent As String
+        Using response = TryCast(request.GetResponse(), System.Net.HttpWebResponse)
+            Using reader = New System.IO.StreamReader(response.GetResponseStream())
+                responseContent = reader.ReadToEnd()
+                Dim result = JsonConvert.DeserializeObject(Of ProServ)(responseContent)
+
+                With CbProdServ
+                    .DropDownList.Columns.Clear()
+                    .DropDownList.Columns.Add("codigoActividad").Width = 80
+                    .DropDownList.Columns("codigoActividad").Caption = "COD"
+                    .DropDownList.Columns.Add("codigoProducto").Width = 80
+                    .DropDownList.Columns("codigoProducto").Caption = "COD. PROD"
+                    .DropDownList.Columns.Add("descripcionProducto").Width = 1150
+                    .DropDownList.Columns("descripcionProducto").Caption = "DESCRIPCION"
+                    .ValueMember = "codigoProducto"
+                    .DisplayMember = "descripcionProducto"
+                    .DataSource = result.data.RespuestaListaProductos.listaCodigos
+                    .Refresh()
+                End With
+            End Using
+        End Using
+
+        'Dim result = JsonConvert.DeserializeObject(Of ProServ)(responseContent)
+        'Dim resultError = JsonConvert.DeserializeObject(Of ProServ1)(responseContent)
+
+        'Dim codigo = result.meta.code
+
+
+
+        'Dim json = JsonConvert.SerializeObject(result)
+        'MsgBox(json)
+        'For Each y In result.data
+
+        'Next
+        ' Mid(cadena, 8, 6)
+        'If codigo = 200 Then
+
+
+        'End If
+        Return ""
+    End Function
 
 #End Region
 End Class

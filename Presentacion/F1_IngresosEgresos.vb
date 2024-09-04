@@ -105,7 +105,7 @@ Public Class F1_IngresosEgresos
             .DataSource = dt
             .Refresh()
         End With
-        mCombo.SelectedIndex = 0
+        'mCombo.SelectedIndex = 0
     End Sub
     Private Sub MostrarMensajeError(mensaje As String)
         ToastNotification.Show(Me,

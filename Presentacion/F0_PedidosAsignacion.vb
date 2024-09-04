@@ -9,6 +9,7 @@ Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports System.Drawing.Printing
 Imports Entidades
+Imports System.IO
 
 Public Class F0_PedidosAsignacion
     Dim _inter As Integer
@@ -23,11 +24,23 @@ Public Class F0_PedidosAsignacion
     Public _tab As SuperTabItem
     Public _modulo As SideNavItem
 
+    Dim dtImagenesAll As DataTable
+    Dim TablaImagenes As DataTable
+
+    Dim RutaGlobal As String = gs_CarpetaRaiz
+
+    Dim UserSpecial As Boolean = False
+
 #End Region
 
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
 
+        If VerificarUsuario() Then
+            UserSpecial = True
+        End If
+        dtImagenesAll = L_prCargarImagenesClienteAll()
+        'L_prJobDuplicados()
         If gb_mostrarMapa = False Then
             GM_Mapa1.Visible = False
             GM_Mapa2.Visible = False
@@ -80,6 +93,15 @@ Public Class F0_PedidosAsignacion
         'SuperTabItem4.Visible = False
     End Sub
 
+    Private Function VerificarUsuario() As Boolean
+        Dim dt As DataTable = TraerUsuariosEspeciales()
+        For i = 0 To dt.Rows.Count - 1 Step 1
+            If gi_userNumi = dt.Rows(i).Item("especial") Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub _PAsignarPermisos()
         'Dim idRolUsu As String = L_Usuario_General(-1, " AND yduser='" + gs_user + "' ").Tables(0).Rows(0).Item("ybnumi")
         'Dim dtRolUsu As DataTable = L_RolDetalle_General2(-1, idRolUsu, "ycyanumi=9")
@@ -166,22 +188,42 @@ Public Class F0_PedidosAsignacion
         Dim dtReg As DataTable
         If codZona = "" Then
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " )   and ccuesp > 0")
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
+                End If
             Else
                 If estado = "1" Then
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
+                    If UserSpecial Then
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0")
+                    Else
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ")
+                    End If
                 Else
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
+                    If UserSpecial Then
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0")
+                    Else
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ")
+                    End If
                 End If
             End If
         Else
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " and ccuesp > 0")
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
+                End If
             Else
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " and ccuesp > 0")
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
+                End If
             End If
 
-        End If
+            End If
 
 
         'añadir columna de check box
@@ -378,20 +420,20 @@ Public Class F0_PedidosAsignacion
         'fc.FormatStyle.BackColor = Color.LightYellow
         fc.FormatStyle.ForeColor = Color.Red
 
-        fc1 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 1)
-        fc1.FormatStyle.BackColor = Color.LightGreen
+        'fc1 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 1)
+        'fc1.FormatStyle.BackColor = Color.LightGreen
 
         'pedido generado desde el celular
-        fc66 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 11)
-        fc66.FormatStyle.BackColor = Color.LightCyan
+        'fc66 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 11)
+        'fc66.FormatStyle.BackColor = Color.LightCyan
 
         'formato para decir si es un pedido esta entregado y con nota
         fc2 = New GridEXFormatCondition(objGrid.RootTable.Columns("oaest"), ConditionOperator.Equal, 4)
         fc2.FormatStyle.BackColor = Color.LightGray
 
         'formato para decir si es un pedido fue regerado a partir de otro pedido
-        fc3 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 2)
-        fc3.FormatStyle.BackColor = Color.Yellow
+        'fc3 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 2)
+        'fc3.FormatStyle.BackColor = Color.Yellow
 
         'formato para decir si es un pedido tiene reclamo de un repartidor
         fcRecRepart = New GridEXFormatCondition(objGrid.RootTable.Columns("tipoRecRepartidor"), ConditionOperator.Equal, 1)
@@ -402,10 +444,10 @@ Public Class F0_PedidosAsignacion
         fcRecClient.FormatStyle.BackColor = Color.LightGreen
 
         objGrid.RootTable.FormatConditions.Add(fc)
-        objGrid.RootTable.FormatConditions.Add(fc1)
+        'objGrid.RootTable.FormatConditions.Add(fc1)
         objGrid.RootTable.FormatConditions.Add(fc2)
-        objGrid.RootTable.FormatConditions.Add(fc3)
-        objGrid.RootTable.FormatConditions.Add(fc66)
+        'objGrid.RootTable.FormatConditions.Add(fc3)
+        'objGrid.RootTable.FormatConditions.Add(fc66)
 
         objGrid.RootTable.FormatConditions.Add(fcRecRepart)
         objGrid.RootTable.FormatConditions.Add(fcRecClient)
@@ -670,7 +712,7 @@ Public Class F0_PedidosAsignacion
             .FormatString = "0.00"
         End With
         With objGrid.RootTable.Columns(5)
-            .Caption = "Monto Bs."
+            .Caption = "Monto " + gs_Mon
             .Key = "Monto"
             .Width = 60
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -690,7 +732,7 @@ Public Class F0_PedidosAsignacion
             .AggregateFunction = AggregateFunction.Sum
         End With
         With objGrid.RootTable.Columns(7)
-            .Caption = "Total Bs."
+            .Caption = "Total " + gs_Mon
             .Key = "Total"
             .Width = 70
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -1453,8 +1495,90 @@ Public Class F0_PedidosAsignacion
             _PDibujarPunto(_overlay2, plg, nombre)
 
             'posicionar en la zona
-            GM_Mapa2.Position = New PointLatLng(latitud, longitud)
+            'GM_Mapa2.Position = New PointLatLng(latitud, longitud)
+
+            TablaImagenes = filtrarImagenes(JGr_Registros2.GetValue("ccnumi"))
+            _prCargarImagen()
         End If
+    End Sub
+
+    Public Function filtrarImagenes(Id As Integer) As DataTable
+        Dim dt As DataTable = dtImagenesAll.Copy
+        dt.Rows.Clear()
+
+        For i As Integer = 0 To dtImagenesAll.Rows.Count - 1
+
+            If (dtImagenesAll.Rows(i).Item("idty005") = Id) Then
+                dt.ImportRow(dtImagenesAll.Rows(i))
+            End If
+
+        Next
+        Return dt
+
+    End Function
+
+    Private Sub pbImg_MouseEnter(sender As Object, e As EventArgs)
+        Dim pb As PictureBox = CType(sender, PictureBox)
+        pbImgProdu.Image = pb.Image
+        pbImgProdu.Tag = pb.Tag
+
+    End Sub
+    Public Sub _prCargarImagen()
+        PanelListImagenes.Controls.Clear()
+
+        pbImgProdu.Image = Nothing
+
+        Dim i As Integer = 0
+        For Each fila As DataRow In TablaImagenes.Rows
+            Dim elemImg As UCLavadero = New UCLavadero
+            Dim rutImg = fila.Item("nameImage").ToString
+            Dim estado As Integer = fila.Item("estado")
+
+            If (estado = 0) Then
+                elemImg.pbImg.SizeMode = PictureBoxSizeMode.StretchImage
+                Dim bm As Bitmap = Nothing
+                Dim by As Byte() = fila.Item("img")
+                Dim ms As New MemoryStream(by)
+                bm = New Bitmap(ms)
+
+
+                elemImg.pbImg.Image = bm
+
+                pbImgProdu.SizeMode = PictureBoxSizeMode.StretchImage
+                pbImgProdu.Image = bm
+                elemImg.pbImg.Tag = i
+                elemImg.Dock = DockStyle.Top
+                pbImgProdu.Tag = i
+                AddHandler elemImg.pbImg.MouseEnter, AddressOf pbImg_MouseEnter
+
+                PanelListImagenes.Controls.Add(elemImg)
+                ms.Dispose()
+
+            Else
+                If (estado = 1) Then
+                    If (File.Exists(RutaGlobal + "\Imagenes\Imagenes Productos\ProductosTodos" + rutImg)) Then
+                        Dim bm As Bitmap = New Bitmap(RutaGlobal + "\Imagenes\Imagenes Productos\ProductosTodos" + rutImg)
+                        elemImg.pbImg.SizeMode = PictureBoxSizeMode.StretchImage
+                        elemImg.pbImg.Image = bm
+                        pbImgProdu.SizeMode = PictureBoxSizeMode.StretchImage
+                        pbImgProdu.Image = bm
+                        elemImg.pbImg.Tag = i
+                        elemImg.Dock = DockStyle.Top
+                        pbImgProdu.Tag = i
+                        AddHandler elemImg.pbImg.MouseEnter, AddressOf pbImg_MouseEnter
+
+                        PanelListImagenes.Controls.Add(elemImg)
+                    End If
+
+                End If
+            End If
+
+
+
+
+            i += 1
+        Next
+
     End Sub
 
     Private Sub JGr_Registros3_SelectionChanged(sender As Object, e As EventArgs) Handles JGr_Registros3.SelectionChanged
@@ -2127,7 +2251,7 @@ Public Class F0_PedidosAsignacion
         objrep.SetParameterValue("descuento", desc)
 
         objrep.PrintOptions.PrinterName = printerName
-        objrep.PrintToPrinter(1, False, 1, 1)
+        objrep.PrintToPrinter(1, True, 1, 1)
 
 
     End Sub
@@ -2214,5 +2338,78 @@ Public Class F0_PedidosAsignacion
 
     Private Sub btConfirmarPedidosCredito_Click(sender As Object, e As EventArgs) Handles btConfirmarPedidosCredito.Click
         _PGrabarConfirmacionesEntregasCredito()
+    End Sub
+
+    Private Sub ButtonX6_Click(sender As Object, e As EventArgs) Handles ButtonX6.Click
+        EliminarImagenes()
+
+
+        For i = 0 To TablaImagenes.Rows.Count - 1 Step 1
+            Dim ORIGEN As String = RutaGlobal + "\Imagenes\Imagenes Productos\ProductosTodos\" + TablaImagenes.Rows(i).Item("nameImage")
+            Dim Destino As String = RutaGlobal + "\Imagenes\Temporal\" + TablaImagenes.Rows(i).Item("nameImage")
+            FileCopy(ORIGEN, Destino)
+        Next
+        Process.Start("explorer.exe", RutaGlobal + "\Imagenes\Temporal")
+    End Sub
+
+    Private Sub EliminarImagenes()
+        Dim Ruta As String
+        Dim Archivo As String
+        Ruta = RutaGlobal + "\Imagenes\Temporal\*.*"
+        Archivo = Dir(Ruta, vbArchive)
+        If Archivo <> "" Then
+            'Archivo = Dir()
+            If Archivo IsNot Nothing Then
+                Kill(RutaGlobal + "\Imagenes\Temporal\" + Archivo)
+
+            End If
+        Else
+            Exit Sub
+        End If
+        EliminarImagenes()
+    End Sub
+
+    Private Sub ContextMenuImprimir_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuImprimir.Opening
+
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        If (JGr_Registros3.GetRows.Count > 0) Then
+            Dim dPrinter As New PrintDialog
+
+            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
+                For Each fil As GridEXRow In JGr_Registros3.GetRows
+                    P_ImprimirRecibos(fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
+                Next
+            End If
+        Else
+            ToastNotification.Show(Me,
+                                   "No hay ningún pedido para imprimir.".ToUpper,
+                                   My.Resources.WARNING,
+                                   3 * 1000,
+                                   eToastGlowColor.Red,
+                                   eToastPosition.TopCenter)
+
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        If (JGr_Registros3.GetRows.Count > 0) Then
+            Dim dPrinter As New PrintDialog
+
+            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
+                'For Each fil As GridEXRow In JGr_Registros3.GetRows
+                P_ImprimirRecibos(JGr_Registros3.GetValue("CodPedido"), dPrinter.PrinterSettings.PrinterName) 'fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
+                'Next
+            End If
+        Else
+            ToastNotification.Show(Me,
+                                   "No hay ningún pedido para imprimir.".ToUpper,
+                                   My.Resources.WARNING,
+                                   3 * 1000,
+                                   eToastGlowColor.Red,
+                                   eToastPosition.TopCenter)
+
+        End If
     End Sub
 End Class

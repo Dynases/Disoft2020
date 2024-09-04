@@ -33,6 +33,7 @@ Public Class F0G_MovimientoChoferEntrada
 
 #Region "Metodos Privados"
     Private Sub _IniciarTodo()
+        'L_prJobDuplicados()
         MSuperTabControlPrincipal.SelectedTabIndex = 0
         If (Not gb_ConexionAbierta) Then
             L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
@@ -51,9 +52,9 @@ Public Class F0G_MovimientoChoferEntrada
         MBtEliminar.Visible = False
         _prAsignarPermisos()
 
-        If (grmovimiento.RowCount > 0) Then
-            _prMostrarRegistro(0)
-        End If
+        'If (grmovimiento.RowCount > 0) Then
+        '    _prMostrarRegistro(0)
+        'End If
     End Sub
 
     Private Sub _prCargarComboLibreriaConcepto(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
@@ -347,6 +348,7 @@ Public Class F0G_MovimientoChoferEntrada
         img.Save(Bin, Imaging.ImageFormat.Png)
         Dim contador As Integer = 0 ''Este contador me indicara si hay detalle de devolucion insertado para cambiar el estado o poner en estado sin devolucion
         Dim detalleCopia As DataTable = L_prMovimientoChoferDetalleSalida(-1)
+
         For i As Integer = 0 To CType(grdetalle.DataSource, DataTable).Rows.Count - 1 Step 1
             'icid,icibid,iccprod ,iccant
             Dim data As Decimal = IIf(IsDBNull(CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION")), 0, CType(grdetalle.DataSource, DataTable).Rows(i).Item("DEVOLUCION"))
@@ -354,10 +356,10 @@ Public Class F0G_MovimientoChoferEntrada
             'a.icid ,a.icibid ,a.iccprod ,b.cadesc as producto,a.iccant ,Cast(null as image ) as img,1 as estado
             If (estado >= 1) Then
                 If (data > 0) Then
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, 0, 0, "", Bin.GetBuffer, estado)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, 0, 0, data, 1, 0, 0, "", Bin.GetBuffer, estado)
                     contador += 1
                 Else
-                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, data, 0, 0, "", Bin.GetBuffer, -1)
+                    detalleCopia.Rows.Add(CType(grdetalle.DataSource, DataTable).Rows(i).Item("icid"), numi, CType(grdetalle.DataSource, DataTable).Rows(i).Item("canumi"), "", "", 0, 0, 0, 0, data, 1, 0, 0, "", Bin.GetBuffer, -1)
                 End If
             Else
                 If (estado = 0) Then
@@ -856,6 +858,7 @@ Public Class F0G_MovimientoChoferEntrada
         objrep.SetParameterValue("nro", lbcodigo.Text.Trim)
         objrep.SetParameterValue("fecha", tbFecha.Value.ToLongDateString)
         objrep.SetParameterValue("obs", tbObservacion.Text.Trim)
+        objrep.SetParameterValue("Usuario", gs_user)
 
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar

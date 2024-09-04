@@ -75,6 +75,10 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\librerias\PDF\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\librerias\CrystalDecisions.CrystalReports.Design.dll</HintPath>
@@ -156,6 +160,15 @@
     <Reference Include="GMap.NET.WindowsForms">
       <HintPath>C:\librerias\Gmap\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\librerias\PDF\Interop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.AcroPDFLib.1.0">
+      <HintPath>C:\librerias\PDF\Interop.AcroPDFLib.1.0.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Janus.Data.v3">
       <HintPath>C:\librerias\Janus\Janus.Data.v3.dll</HintPath>
     </Reference>
@@ -173,6 +186,12 @@
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
       <HintPath>C:\librerias\Janus\Janus.Windows.UI.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\librerias\ZKTeco-dll64\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.0.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -351,6 +370,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\anterior.png" />
   </ItemGroup>
   <ItemGroup>
@@ -505,6 +525,44 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\I32x32_hand-holding-up-a-financial-graph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ACROIEHELPERLib">
+      <Guid>{5F226421-415D-408D-9A09-0DCD94E25B48}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AcroIEHelperShimLib">
+      <Guid>{2991F100-D9C3-4243-82A2-A718747FC0CF}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="PDFShellLib">
+      <Guid>{67E94227-7662-4050-9C72-746983CF37A2}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

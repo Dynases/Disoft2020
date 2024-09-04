@@ -60,7 +60,12 @@ Public Class MetodoDatos
             _adaptador.Fill(_tabla)
             Comando.CommandTimeout = 1200
         Catch ex As Exception
-            MsgBox(ex.Message)
+            If Comando.Connection.State = False Then
+                Comando.Connection.Open()
+                EjecutarComandoSelect(Comando)
+            Else
+                MsgBox(ex.Message)
+            End If
             'Finally
             '    Comando.Connection.Close()
         End Try
@@ -78,9 +83,14 @@ Public Class MetodoDatos
             Comando.ExecuteNonQuery()
             transaction.Commit()
         Catch ex As Exception
-            transaction.Rollback()
-            MsgBox(ex.Message)
-            _Err = True
+            If Comando.Connection.State = False Then
+                Comando.Connection.Open()
+                EjecutarInsert(Comando)
+            Else
+                transaction.Rollback()
+                MsgBox(ex.Message)
+                _Err = True
+            End If
             'Finally
             '    Comando.Connection.Close()
         End Try
@@ -96,7 +106,12 @@ Public Class MetodoDatos
             _adaptador.Fill(_tabla)
             Comando.CommandTimeout = 0
         Catch ex As Exception
-            MsgBox(ex.Message)
+            If Comando.Connection.State = False Then
+                Comando.Connection.Open()
+                EjecutarProcedimiento(Comando)
+            Else
+                MsgBox(ex.Message)
+            End If
             'Finally
             '    Comando.Connection.Close()
         End Try
@@ -109,7 +124,12 @@ Public Class MetodoDatos
             Dim i As Integer = Comando.ExecuteNonQuery
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message)
+            If Comando.Connection.State = False Then
+                Comando.Connection.Open()
+                EjecutarProcedimientoSABM(Comando)
+            Else
+                MsgBox(ex.Message)
+            End If
             'Finally
             '    Comando.Connection.Close()
             Return False

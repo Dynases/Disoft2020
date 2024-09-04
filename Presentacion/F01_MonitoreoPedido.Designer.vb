@@ -23,12 +23,17 @@ Partial Class F01_MonitoreoPedido
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim CbPersonal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim J_Cb_Ciudad_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_MonitoreoPedido))
+        Dim CbPersonal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelExTrakingRepartidor = New DevComponents.DotNetBar.PanelEx()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
+        Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.GroupPanelRepartidores = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.grRepartidores = New Janus.Windows.GridEX.GridEX()
+        Me.Rep = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.TabControlPanel3 = New DevComponents.DotNetBar.TabControlPanel()
         Me.GrRecorrido = New Janus.Windows.GridEX.GridEX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
@@ -36,12 +41,10 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanelVendedores = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Gr_vendedores = New Janus.Windows.GridEX.GridEX()
         Me.Ven = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.GroupPanelRepartidores = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.grRepartidores = New Janus.Windows.GridEX.GridEX()
-        Me.Rep = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.GroupPanelTrak = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExTraking = New DevComponents.DotNetBar.PanelEx()
+        Me.J_Cb_Ciudad = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.CbPersonal = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.SwitchButton1 = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.LabelX6 = New DevComponents.DotNetBar.LabelX()
         Me.DtFecha = New System.Windows.Forms.DateTimePicker()
@@ -50,7 +53,7 @@ Partial Class F01_MonitoreoPedido
         Me.Sw_Repartidor = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
-        Me.J_Cb_Ciudad = New System.Windows.Forms.ComboBox()
+        Me.J_Cb_Ciudad1 = New System.Windows.Forms.ComboBox()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.tbTracking = New DevComponents.DotNetBar.Controls.SwitchButton()
@@ -61,7 +64,6 @@ Partial Class F01_MonitoreoPedido
         Me.GM_Mapa = New GMap.NET.WindowsForms.GMapControl()
         Me.TimerRuta = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.CbPersonal = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -79,19 +81,20 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanel1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        Me.TabControlPanel1.SuspendLayout()
+        Me.GroupPanelRepartidores.SuspendLayout()
+        CType(Me.grRepartidores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControlPanel3.SuspendLayout()
         CType(Me.GrRecorrido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControlPanel2.SuspendLayout()
         Me.GroupPanelVendedores.SuspendLayout()
         CType(Me.Gr_vendedores, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControlPanel1.SuspendLayout()
-        Me.GroupPanelRepartidores.SuspendLayout()
-        CType(Me.grRepartidores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelTrak.SuspendLayout()
         Me.PanelExTraking.SuspendLayout()
+        CType(Me.J_Cb_Ciudad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CbPersonal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelGeoreferencia.SuspendLayout()
         Me.PanelEx6.SuspendLayout()
-        CType(Me.CbPersonal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -114,6 +117,7 @@ Partial Class F01_MonitoreoPedido
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
@@ -139,9 +143,9 @@ Partial Class F01_MonitoreoPedido
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(5)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
-        Me.MTbUsuario.Size = New System.Drawing.Size(179, 38)
+        Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
@@ -183,8 +187,8 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(5)
-        Me.MRlAccion.Size = New System.Drawing.Size(733, 74)
+        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.MRlAccion.Size = New System.Drawing.Size(550, 60)
         '
         'TableLayoutPanelPrincipal
         '
@@ -195,11 +199,10 @@ Partial Class F01_MonitoreoPedido
         Me.TableLayoutPanelPrincipal.Controls.Add(Me.GroupPanelGeoreferencia, 1, 0)
         Me.TableLayoutPanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanelPrincipal.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelPrincipal.Name = "TableLayoutPanelPrincipal"
         Me.TableLayoutPanelPrincipal.RowCount = 1
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1270, 560)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(942, 455)
         Me.TableLayoutPanelPrincipal.TabIndex = 29
         '
         'PanelExTrakingRepartidor
@@ -210,10 +213,9 @@ Partial Class F01_MonitoreoPedido
         Me.PanelExTrakingRepartidor.Controls.Add(Me.GroupPanelTrak)
         Me.PanelExTrakingRepartidor.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelExTrakingRepartidor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelExTrakingRepartidor.Location = New System.Drawing.Point(4, 4)
-        Me.PanelExTrakingRepartidor.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelExTrakingRepartidor.Location = New System.Drawing.Point(3, 3)
         Me.PanelExTrakingRepartidor.Name = "PanelExTrakingRepartidor"
-        Me.PanelExTrakingRepartidor.Size = New System.Drawing.Size(373, 552)
+        Me.PanelExTrakingRepartidor.Size = New System.Drawing.Size(276, 449)
         Me.PanelExTrakingRepartidor.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExTrakingRepartidor.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExTrakingRepartidor.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -230,9 +232,10 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanel1.Controls.Add(Me.TabControl1)
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel1.Location = New System.Drawing.Point(0, 215)
+        Me.GroupPanel1.Location = New System.Drawing.Point(0, 175)
+        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(373, 337)
+        Me.GroupPanel1.Size = New System.Drawing.Size(276, 274)
         '
         '
         '
@@ -272,10 +275,11 @@ Partial Class F01_MonitoreoPedido
         Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(367, 331)
+        Me.TabControl1.Size = New System.Drawing.Size(270, 268)
         Me.TabControl1.TabIndex = 1
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.Rep)
@@ -283,141 +287,16 @@ Partial Class F01_MonitoreoPedido
         Me.TabControl1.Tabs.Add(Me.TabItem1)
         Me.TabControl1.Text = "TabControl1"
         '
-        'TabControlPanel3
-        '
-        Me.TabControlPanel3.Controls.Add(Me.GrRecorrido)
-        Me.TabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty
-        Me.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControlPanel3.Location = New System.Drawing.Point(0, 26)
-        Me.TabControlPanel3.Name = "TabControlPanel3"
-        Me.TabControlPanel3.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel3.Size = New System.Drawing.Size(367, 305)
-        Me.TabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
-        Me.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.TabControlPanel3.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
-            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
-        Me.TabControlPanel3.Style.GradientAngle = 90
-        Me.TabControlPanel3.TabIndex = 9
-        Me.TabControlPanel3.TabItem = Me.TabItem1
-        '
-        'GrRecorrido
-        '
-        Me.GrRecorrido.AlternatingRowFormatStyle.BackgroundGradientMode = Janus.Windows.GridEX.BackgroundGradientMode.Solid
-        Me.GrRecorrido.BackColor = System.Drawing.Color.Linen
-        Me.GrRecorrido.BorderStyle = Janus.Windows.GridEX.BorderStyle.Sunken
-        Me.GrRecorrido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GrRecorrido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrRecorrido.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrRecorrido.Location = New System.Drawing.Point(1, 1)
-        Me.GrRecorrido.Margin = New System.Windows.Forms.Padding(4)
-        Me.GrRecorrido.Name = "GrRecorrido"
-        Me.GrRecorrido.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.GrRecorrido.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.GrRecorrido.Size = New System.Drawing.Size(365, 303)
-        Me.GrRecorrido.TabIndex = 1
-        Me.GrRecorrido.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'TabItem1
-        '
-        Me.TabItem1.AttachedControl = Me.TabControlPanel3
-        Me.TabItem1.Name = "TabItem1"
-        Me.TabItem1.Text = "Recorrido"
-        '
-        'TabControlPanel2
-        '
-        Me.TabControlPanel2.Controls.Add(Me.GroupPanelVendedores)
-        Me.TabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty
-        Me.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControlPanel2.Location = New System.Drawing.Point(0, 26)
-        Me.TabControlPanel2.Name = "TabControlPanel2"
-        Me.TabControlPanel2.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel2.Size = New System.Drawing.Size(367, 305)
-        Me.TabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
-        Me.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.TabControlPanel2.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
-            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
-        Me.TabControlPanel2.Style.GradientAngle = 90
-        Me.TabControlPanel2.TabIndex = 5
-        Me.TabControlPanel2.TabItem = Me.Ven
-        '
-        'GroupPanelVendedores
-        '
-        Me.GroupPanelVendedores.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelVendedores.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanelVendedores.Controls.Add(Me.Gr_vendedores)
-        Me.GroupPanelVendedores.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelVendedores.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelVendedores.Location = New System.Drawing.Point(1, 1)
-        Me.GroupPanelVendedores.Margin = New System.Windows.Forms.Padding(4)
-        Me.GroupPanelVendedores.Name = "GroupPanelVendedores"
-        Me.GroupPanelVendedores.Size = New System.Drawing.Size(365, 303)
-        '
-        '
-        '
-        Me.GroupPanelVendedores.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanelVendedores.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanelVendedores.Style.BackColorGradientAngle = 90
-        Me.GroupPanelVendedores.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelVendedores.Style.BorderBottomWidth = 1
-        Me.GroupPanelVendedores.Style.BorderColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanelVendedores.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelVendedores.Style.BorderLeftWidth = 1
-        Me.GroupPanelVendedores.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelVendedores.Style.BorderRightWidth = 1
-        Me.GroupPanelVendedores.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelVendedores.Style.BorderTopWidth = 1
-        Me.GroupPanelVendedores.Style.CornerDiameter = 4
-        Me.GroupPanelVendedores.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanelVendedores.Style.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanelVendedores.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanelVendedores.Style.TextColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.GroupPanelVendedores.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanelVendedores.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanelVendedores.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanelVendedores.TabIndex = 3
-        '
-        'Gr_vendedores
-        '
-        Me.Gr_vendedores.AlternatingRowFormatStyle.BackgroundGradientMode = Janus.Windows.GridEX.BackgroundGradientMode.Solid
-        Me.Gr_vendedores.BackColor = System.Drawing.Color.Linen
-        Me.Gr_vendedores.BorderStyle = Janus.Windows.GridEX.BorderStyle.Sunken
-        Me.Gr_vendedores.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Gr_vendedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Gr_vendedores.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Gr_vendedores.Location = New System.Drawing.Point(0, 0)
-        Me.Gr_vendedores.Margin = New System.Windows.Forms.Padding(4)
-        Me.Gr_vendedores.Name = "Gr_vendedores"
-        Me.Gr_vendedores.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.Gr_vendedores.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.Gr_vendedores.Size = New System.Drawing.Size(359, 297)
-        Me.Gr_vendedores.TabIndex = 0
-        Me.Gr_vendedores.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'Ven
-        '
-        Me.Ven.AttachedControl = Me.TabControlPanel2
-        Me.Ven.Name = "Ven"
-        Me.Ven.Text = "Vendedores"
-        '
         'TabControlPanel1
         '
         Me.TabControlPanel1.Controls.Add(Me.GroupPanelRepartidores)
         Me.TabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
+        Me.TabControlPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(367, 305)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(270, 242)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -436,9 +315,8 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanelRepartidores.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelRepartidores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelRepartidores.Location = New System.Drawing.Point(1, 1)
-        Me.GroupPanelRepartidores.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanelRepartidores.Name = "GroupPanelRepartidores"
-        Me.GroupPanelRepartidores.Size = New System.Drawing.Size(365, 303)
+        Me.GroupPanelRepartidores.Size = New System.Drawing.Size(268, 240)
         '
         '
         '
@@ -479,11 +357,10 @@ Partial Class F01_MonitoreoPedido
         Me.grRepartidores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grRepartidores.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grRepartidores.Location = New System.Drawing.Point(0, 0)
-        Me.grRepartidores.Margin = New System.Windows.Forms.Padding(4)
         Me.grRepartidores.Name = "grRepartidores"
         Me.grRepartidores.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grRepartidores.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grRepartidores.Size = New System.Drawing.Size(359, 297)
+        Me.grRepartidores.Size = New System.Drawing.Size(262, 234)
         Me.grRepartidores.TabIndex = 0
         Me.grRepartidores.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -493,6 +370,131 @@ Partial Class F01_MonitoreoPedido
         Me.Rep.Name = "Rep"
         Me.Rep.Text = "Repartidores"
         '
+        'TabControlPanel3
+        '
+        Me.TabControlPanel3.Controls.Add(Me.GrRecorrido)
+        Me.TabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty
+        Me.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControlPanel3.Location = New System.Drawing.Point(0, 26)
+        Me.TabControlPanel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.TabControlPanel3.Name = "TabControlPanel3"
+        Me.TabControlPanel3.Padding = New System.Windows.Forms.Padding(1)
+        Me.TabControlPanel3.Size = New System.Drawing.Size(270, 242)
+        Me.TabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.TabControlPanel3.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
+            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
+        Me.TabControlPanel3.Style.GradientAngle = 90
+        Me.TabControlPanel3.TabIndex = 9
+        Me.TabControlPanel3.TabItem = Me.TabItem1
+        '
+        'GrRecorrido
+        '
+        Me.GrRecorrido.AlternatingRowFormatStyle.BackgroundGradientMode = Janus.Windows.GridEX.BackgroundGradientMode.Solid
+        Me.GrRecorrido.BackColor = System.Drawing.Color.Linen
+        Me.GrRecorrido.BorderStyle = Janus.Windows.GridEX.BorderStyle.Sunken
+        Me.GrRecorrido.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GrRecorrido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrRecorrido.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrRecorrido.Location = New System.Drawing.Point(1, 1)
+        Me.GrRecorrido.Name = "GrRecorrido"
+        Me.GrRecorrido.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.GrRecorrido.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.GrRecorrido.Size = New System.Drawing.Size(268, 240)
+        Me.GrRecorrido.TabIndex = 1
+        Me.GrRecorrido.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'TabItem1
+        '
+        Me.TabItem1.AttachedControl = Me.TabControlPanel3
+        Me.TabItem1.Name = "TabItem1"
+        Me.TabItem1.Text = "Recorrido"
+        '
+        'TabControlPanel2
+        '
+        Me.TabControlPanel2.Controls.Add(Me.GroupPanelVendedores)
+        Me.TabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty
+        Me.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControlPanel2.Location = New System.Drawing.Point(0, 26)
+        Me.TabControlPanel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.TabControlPanel2.Name = "TabControlPanel2"
+        Me.TabControlPanel2.Padding = New System.Windows.Forms.Padding(1)
+        Me.TabControlPanel2.Size = New System.Drawing.Size(270, 242)
+        Me.TabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.TabControlPanel2.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
+            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
+        Me.TabControlPanel2.Style.GradientAngle = 90
+        Me.TabControlPanel2.TabIndex = 5
+        Me.TabControlPanel2.TabItem = Me.Ven
+        '
+        'GroupPanelVendedores
+        '
+        Me.GroupPanelVendedores.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelVendedores.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelVendedores.Controls.Add(Me.Gr_vendedores)
+        Me.GroupPanelVendedores.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanelVendedores.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanelVendedores.Location = New System.Drawing.Point(1, 1)
+        Me.GroupPanelVendedores.Name = "GroupPanelVendedores"
+        Me.GroupPanelVendedores.Size = New System.Drawing.Size(268, 240)
+        '
+        '
+        '
+        Me.GroupPanelVendedores.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanelVendedores.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanelVendedores.Style.BackColorGradientAngle = 90
+        Me.GroupPanelVendedores.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelVendedores.Style.BorderBottomWidth = 1
+        Me.GroupPanelVendedores.Style.BorderColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanelVendedores.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelVendedores.Style.BorderLeftWidth = 1
+        Me.GroupPanelVendedores.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelVendedores.Style.BorderRightWidth = 1
+        Me.GroupPanelVendedores.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelVendedores.Style.BorderTopWidth = 1
+        Me.GroupPanelVendedores.Style.CornerDiameter = 4
+        Me.GroupPanelVendedores.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanelVendedores.Style.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanelVendedores.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanelVendedores.Style.TextColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupPanelVendedores.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanelVendedores.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanelVendedores.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanelVendedores.TabIndex = 3
+        '
+        'Gr_vendedores
+        '
+        Me.Gr_vendedores.AlternatingRowFormatStyle.BackgroundGradientMode = Janus.Windows.GridEX.BackgroundGradientMode.Solid
+        Me.Gr_vendedores.BackColor = System.Drawing.Color.Linen
+        Me.Gr_vendedores.BorderStyle = Janus.Windows.GridEX.BorderStyle.Sunken
+        Me.Gr_vendedores.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Gr_vendedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Gr_vendedores.HeaderFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Gr_vendedores.Location = New System.Drawing.Point(0, 0)
+        Me.Gr_vendedores.Name = "Gr_vendedores"
+        Me.Gr_vendedores.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.Gr_vendedores.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.Gr_vendedores.Size = New System.Drawing.Size(262, 234)
+        Me.Gr_vendedores.TabIndex = 0
+        Me.Gr_vendedores.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'Ven
+        '
+        Me.Ven.AttachedControl = Me.TabControlPanel2
+        Me.Ven.Name = "Ven"
+        Me.Ven.Text = "Vendedores"
+        '
         'GroupPanelTrak
         '
         Me.GroupPanelTrak.CanvasColor = System.Drawing.SystemColors.Control
@@ -501,8 +503,9 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanelTrak.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelTrak.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanelTrak.Location = New System.Drawing.Point(0, 0)
+        Me.GroupPanelTrak.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanelTrak.Name = "GroupPanelTrak"
-        Me.GroupPanelTrak.Size = New System.Drawing.Size(373, 215)
+        Me.GroupPanelTrak.Size = New System.Drawing.Size(276, 175)
         '
         '
         '
@@ -522,6 +525,7 @@ Partial Class F01_MonitoreoPedido
         Me.PanelExTraking.AutoScroll = True
         Me.PanelExTraking.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelExTraking.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelExTraking.Controls.Add(Me.J_Cb_Ciudad)
         Me.PanelExTraking.Controls.Add(Me.CbPersonal)
         Me.PanelExTraking.Controls.Add(Me.SwitchButton1)
         Me.PanelExTraking.Controls.Add(Me.LabelX6)
@@ -531,16 +535,15 @@ Partial Class F01_MonitoreoPedido
         Me.PanelExTraking.Controls.Add(Me.Sw_Repartidor)
         Me.PanelExTraking.Controls.Add(Me.LabelX4)
         Me.PanelExTraking.Controls.Add(Me.LabelX3)
-        Me.PanelExTraking.Controls.Add(Me.J_Cb_Ciudad)
+        Me.PanelExTraking.Controls.Add(Me.J_Cb_Ciudad1)
         Me.PanelExTraking.Controls.Add(Me.LabelX1)
         Me.PanelExTraking.Controls.Add(Me.LabelX2)
         Me.PanelExTraking.Controls.Add(Me.tbTracking)
         Me.PanelExTraking.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelExTraking.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExTraking.Location = New System.Drawing.Point(0, 0)
-        Me.PanelExTraking.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelExTraking.Name = "PanelExTraking"
-        Me.PanelExTraking.Size = New System.Drawing.Size(373, 215)
+        Me.PanelExTraking.Size = New System.Drawing.Size(276, 175)
         Me.PanelExTraking.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExTraking.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExTraking.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -549,6 +552,32 @@ Partial Class F01_MonitoreoPedido
         Me.PanelExTraking.Style.GradientAngle = 90
         Me.PanelExTraking.TabIndex = 0
         '
+        'J_Cb_Ciudad
+        '
+        J_Cb_Ciudad_DesignTimeLayout.LayoutString = resources.GetString("J_Cb_Ciudad_DesignTimeLayout.LayoutString")
+        Me.J_Cb_Ciudad.DesignTimeLayout = J_Cb_Ciudad_DesignTimeLayout
+        Me.J_Cb_Ciudad.Location = New System.Drawing.Point(84, 33)
+        Me.J_Cb_Ciudad.Name = "J_Cb_Ciudad"
+        Me.J_Cb_Ciudad.SelectedIndex = -1
+        Me.J_Cb_Ciudad.SelectedItem = Nothing
+        Me.J_Cb_Ciudad.Size = New System.Drawing.Size(180, 20)
+        Me.J_Cb_Ciudad.TabIndex = 19
+        '
+        'CbPersonal
+        '
+        Me.CbPersonal.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.CbPersonal.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat
+        Me.CbPersonal.ControlStyle.ButtonAppearance = Janus.Windows.GridEX.ButtonAppearance.FlatBorderless
+        CbPersonal_DesignTimeLayout.LayoutString = resources.GetString("CbPersonal_DesignTimeLayout.LayoutString")
+        Me.CbPersonal.DesignTimeLayout = CbPersonal_DesignTimeLayout
+        Me.CbPersonal.Enabled = False
+        Me.CbPersonal.Location = New System.Drawing.Point(167, 144)
+        Me.CbPersonal.Name = "CbPersonal"
+        Me.CbPersonal.SelectedIndex = -1
+        Me.CbPersonal.SelectedItem = Nothing
+        Me.CbPersonal.Size = New System.Drawing.Size(113, 20)
+        Me.CbPersonal.TabIndex = 18
+        '
         'SwitchButton1
         '
         '
@@ -556,12 +585,11 @@ Partial Class F01_MonitoreoPedido
         '
         Me.SwitchButton1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.SwitchButton1.Enabled = False
-        Me.SwitchButton1.Location = New System.Drawing.Point(112, 176)
-        Me.SwitchButton1.Margin = New System.Windows.Forms.Padding(4)
+        Me.SwitchButton1.Location = New System.Drawing.Point(84, 143)
         Me.SwitchButton1.Name = "SwitchButton1"
         Me.SwitchButton1.OffText = "NO"
         Me.SwitchButton1.OnText = "SI"
-        Me.SwitchButton1.Size = New System.Drawing.Size(104, 27)
+        Me.SwitchButton1.Size = New System.Drawing.Size(78, 22)
         Me.SwitchButton1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.SwitchButton1.TabIndex = 17
         '
@@ -571,21 +599,21 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX6.Location = New System.Drawing.Point(4, 176)
-        Me.LabelX6.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX6.Location = New System.Drawing.Point(3, 143)
         Me.LabelX6.Name = "LabelX6"
-        Me.LabelX6.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX6.Size = New System.Drawing.Size(75, 23)
         Me.LabelX6.TabIndex = 16
         Me.LabelX6.Text = "RECORRIDO:"
         '
         'DtFecha
         '
         Me.DtFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFecha.Location = New System.Drawing.Point(112, 140)
+        Me.DtFecha.Location = New System.Drawing.Point(84, 114)
+        Me.DtFecha.Margin = New System.Windows.Forms.Padding(2)
         Me.DtFecha.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.DtFecha.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
         Me.DtFecha.Name = "DtFecha"
-        Me.DtFecha.Size = New System.Drawing.Size(104, 22)
+        Me.DtFecha.Size = New System.Drawing.Size(79, 20)
         Me.DtFecha.TabIndex = 15
         '
         'LabelX5
@@ -594,10 +622,9 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX5.Location = New System.Drawing.Point(4, 140)
-        Me.LabelX5.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX5.Location = New System.Drawing.Point(3, 114)
         Me.LabelX5.Name = "LabelX5"
-        Me.LabelX5.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX5.Size = New System.Drawing.Size(75, 23)
         Me.LabelX5.TabIndex = 10
         Me.LabelX5.Text = "FECHA:"
         '
@@ -608,12 +635,11 @@ Partial Class F01_MonitoreoPedido
         '
         Me.Sw_Vendedor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Sw_Vendedor.Enabled = False
-        Me.Sw_Vendedor.Location = New System.Drawing.Point(112, 104)
-        Me.Sw_Vendedor.Margin = New System.Windows.Forms.Padding(4)
+        Me.Sw_Vendedor.Location = New System.Drawing.Point(84, 84)
         Me.Sw_Vendedor.Name = "Sw_Vendedor"
         Me.Sw_Vendedor.OffText = "UNO"
         Me.Sw_Vendedor.OnText = "TODOS"
-        Me.Sw_Vendedor.Size = New System.Drawing.Size(104, 27)
+        Me.Sw_Vendedor.Size = New System.Drawing.Size(78, 22)
         Me.Sw_Vendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Sw_Vendedor.TabIndex = 9
         '
@@ -624,12 +650,11 @@ Partial Class F01_MonitoreoPedido
         '
         Me.Sw_Repartidor.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.Sw_Repartidor.Enabled = False
-        Me.Sw_Repartidor.Location = New System.Drawing.Point(112, 72)
-        Me.Sw_Repartidor.Margin = New System.Windows.Forms.Padding(4)
+        Me.Sw_Repartidor.Location = New System.Drawing.Point(84, 58)
         Me.Sw_Repartidor.Name = "Sw_Repartidor"
         Me.Sw_Repartidor.OffText = "UNO"
         Me.Sw_Repartidor.OnText = "TODOS"
-        Me.Sw_Repartidor.Size = New System.Drawing.Size(104, 27)
+        Me.Sw_Repartidor.Size = New System.Drawing.Size(78, 22)
         Me.Sw_Repartidor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Sw_Repartidor.TabIndex = 8
         '
@@ -639,10 +664,9 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX4.Location = New System.Drawing.Point(4, 104)
-        Me.LabelX4.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX4.Location = New System.Drawing.Point(3, 84)
         Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX4.Size = New System.Drawing.Size(75, 23)
         Me.LabelX4.TabIndex = 7
         Me.LabelX4.Text = "VENDEDOR:"
         '
@@ -652,22 +676,21 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Location = New System.Drawing.Point(4, 74)
-        Me.LabelX3.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX3.Location = New System.Drawing.Point(3, 60)
         Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX3.Size = New System.Drawing.Size(75, 23)
         Me.LabelX3.TabIndex = 6
         Me.LabelX3.Text = "REPARTIDOR:"
         '
-        'J_Cb_Ciudad
+        'J_Cb_Ciudad1
         '
-        Me.J_Cb_Ciudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.J_Cb_Ciudad.FormattingEnabled = True
-        Me.J_Cb_Ciudad.Location = New System.Drawing.Point(112, 41)
-        Me.J_Cb_Ciudad.Margin = New System.Windows.Forms.Padding(4)
-        Me.J_Cb_Ciudad.Name = "J_Cb_Ciudad"
-        Me.J_Cb_Ciudad.Size = New System.Drawing.Size(239, 24)
-        Me.J_Cb_Ciudad.TabIndex = 5
+        Me.J_Cb_Ciudad1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.J_Cb_Ciudad1.FormattingEnabled = True
+        Me.J_Cb_Ciudad1.Location = New System.Drawing.Point(84, 33)
+        Me.J_Cb_Ciudad1.Name = "J_Cb_Ciudad1"
+        Me.J_Cb_Ciudad1.Size = New System.Drawing.Size(180, 21)
+        Me.J_Cb_Ciudad1.TabIndex = 5
+        Me.J_Cb_Ciudad1.Visible = False
         '
         'LabelX1
         '
@@ -675,10 +698,9 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Location = New System.Drawing.Point(4, 5)
-        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Location = New System.Drawing.Point(3, 4)
         Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX1.Size = New System.Drawing.Size(75, 23)
         Me.LabelX1.TabIndex = 2
         Me.LabelX1.Text = "TRACKING:"
         '
@@ -688,10 +710,9 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Location = New System.Drawing.Point(4, 41)
-        Me.LabelX2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX2.Location = New System.Drawing.Point(3, 33)
         Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(100, 28)
+        Me.LabelX2.Size = New System.Drawing.Size(75, 23)
         Me.LabelX2.TabIndex = 4
         Me.LabelX2.Text = "CIUDAD:"
         '
@@ -701,10 +722,9 @@ Partial Class F01_MonitoreoPedido
         '
         '
         Me.tbTracking.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbTracking.Location = New System.Drawing.Point(112, 6)
-        Me.tbTracking.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbTracking.Location = New System.Drawing.Point(84, 5)
         Me.tbTracking.Name = "tbTracking"
-        Me.tbTracking.Size = New System.Drawing.Size(88, 27)
+        Me.tbTracking.Size = New System.Drawing.Size(66, 22)
         Me.tbTracking.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbTracking.TabIndex = 1
         '
@@ -717,10 +737,9 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanelGeoreferencia.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelGeoreferencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelGeoreferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanelGeoreferencia.Location = New System.Drawing.Point(385, 4)
-        Me.GroupPanelGeoreferencia.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupPanelGeoreferencia.Location = New System.Drawing.Point(285, 3)
         Me.GroupPanelGeoreferencia.Name = "GroupPanelGeoreferencia"
-        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(881, 552)
+        Me.GroupPanelGeoreferencia.Size = New System.Drawing.Size(654, 449)
         '
         '
         '
@@ -760,10 +779,9 @@ Partial Class F01_MonitoreoPedido
         Me.PanelEx6.Controls.Add(Me.Btn_ZoomMenos)
         Me.PanelEx6.Controls.Add(Me.Btn_ZoomMas)
         Me.PanelEx6.DisabledBackColor = System.Drawing.Color.Empty
-        Me.PanelEx6.Location = New System.Drawing.Point(4, 6)
-        Me.PanelEx6.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelEx6.Location = New System.Drawing.Point(3, 5)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(61, 107)
+        Me.PanelEx6.Size = New System.Drawing.Size(46, 87)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx6.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -781,10 +799,9 @@ Partial Class F01_MonitoreoPedido
         Me.Btn_ZoomMenos.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.Btn_ZoomMenos.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MENOS_ORI
         Me.Btn_ZoomMenos.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.Btn_ZoomMenos.Location = New System.Drawing.Point(4, 55)
-        Me.Btn_ZoomMenos.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_ZoomMenos.Location = New System.Drawing.Point(3, 45)
         Me.Btn_ZoomMenos.Name = "Btn_ZoomMenos"
-        Me.Btn_ZoomMenos.Size = New System.Drawing.Size(53, 49)
+        Me.Btn_ZoomMenos.Size = New System.Drawing.Size(40, 40)
         Me.Btn_ZoomMenos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Btn_ZoomMenos.TabIndex = 1
         '
@@ -796,10 +813,9 @@ Partial Class F01_MonitoreoPedido
         Me.Btn_ZoomMas.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.Btn_ZoomMas.Image = Global.Presentacion.My.Resources.Resources.ZOOM_MAS_ORI
         Me.Btn_ZoomMas.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.Btn_ZoomMas.Location = New System.Drawing.Point(4, 4)
-        Me.Btn_ZoomMas.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_ZoomMas.Location = New System.Drawing.Point(3, 3)
         Me.Btn_ZoomMas.Name = "Btn_ZoomMas"
-        Me.Btn_ZoomMas.Size = New System.Drawing.Size(53, 49)
+        Me.Btn_ZoomMas.Size = New System.Drawing.Size(40, 40)
         Me.Btn_ZoomMas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Btn_ZoomMas.TabIndex = 0
         '
@@ -813,7 +829,6 @@ Partial Class F01_MonitoreoPedido
         Me.GM_Mapa.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GM_Mapa.LevelsKeepInMemmory = 5
         Me.GM_Mapa.Location = New System.Drawing.Point(0, 0)
-        Me.GM_Mapa.Margin = New System.Windows.Forms.Padding(4)
         Me.GM_Mapa.MarkersEnabled = True
         Me.GM_Mapa.MaxZoom = 2
         Me.GM_Mapa.MinZoom = 2
@@ -826,7 +841,7 @@ Partial Class F01_MonitoreoPedido
         Me.GM_Mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GM_Mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GM_Mapa.ShowTileGridLines = False
-        Me.GM_Mapa.Size = New System.Drawing.Size(875, 528)
+        Me.GM_Mapa.Size = New System.Drawing.Size(648, 425)
         Me.GM_Mapa.TabIndex = 1
         Me.GM_Mapa.Zoom = 0R
         '
@@ -839,28 +854,12 @@ Partial Class F01_MonitoreoPedido
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'CbPersonal
-        '
-        Me.CbPersonal.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.CbPersonal.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat
-        Me.CbPersonal.ControlStyle.ButtonAppearance = Janus.Windows.GridEX.ButtonAppearance.FlatBorderless
-        CbPersonal_DesignTimeLayout.LayoutString = resources.GetString("CbPersonal_DesignTimeLayout.LayoutString")
-        Me.CbPersonal.DesignTimeLayout = CbPersonal_DesignTimeLayout
-        Me.CbPersonal.Enabled = False
-        Me.CbPersonal.Location = New System.Drawing.Point(223, 177)
-        Me.CbPersonal.Margin = New System.Windows.Forms.Padding(4)
-        Me.CbPersonal.Name = "CbPersonal"
-        Me.CbPersonal.SelectedIndex = -1
-        Me.CbPersonal.SelectedItem = Nothing
-        Me.CbPersonal.Size = New System.Drawing.Size(151, 22)
-        Me.CbPersonal.TabIndex = 18
-        '
         'F01_MonitoreoPedido
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1312, 690)
-        Me.Margin = New System.Windows.Forms.Padding(5)
+        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_MonitoreoPedido"
         Me.Opacity = 0.05R
         Me.Text = "F01_MonitoreoPedido"
@@ -887,25 +886,26 @@ Partial Class F01_MonitoreoPedido
         Me.GroupPanel1.ResumeLayout(False)
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabControlPanel1.ResumeLayout(False)
+        Me.GroupPanelRepartidores.ResumeLayout(False)
+        CType(Me.grRepartidores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControlPanel3.ResumeLayout(False)
         CType(Me.GrRecorrido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControlPanel2.ResumeLayout(False)
         Me.GroupPanelVendedores.ResumeLayout(False)
         CType(Me.Gr_vendedores, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControlPanel1.ResumeLayout(False)
-        Me.GroupPanelRepartidores.ResumeLayout(False)
-        CType(Me.grRepartidores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelTrak.ResumeLayout(False)
         Me.PanelExTraking.ResumeLayout(False)
         Me.PanelExTraking.PerformLayout()
+        CType(Me.J_Cb_Ciudad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CbPersonal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelGeoreferencia.ResumeLayout(False)
         Me.PanelEx6.ResumeLayout(False)
-        CType(Me.CbPersonal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TableLayoutPanelPrincipal As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents J_Cb_Ciudad As System.Windows.Forms.ComboBox
+    Friend WithEvents J_Cb_Ciudad1 As System.Windows.Forms.ComboBox
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbTracking As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
@@ -941,4 +941,5 @@ Partial Class F01_MonitoreoPedido
     Friend WithEvents SwitchButton1 As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents LabelX6 As DevComponents.DotNetBar.LabelX
     Friend WithEvents CbPersonal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents J_Cb_Ciudad As Janus.Windows.GridEX.EditControls.MultiColumnCombo
 End Class
