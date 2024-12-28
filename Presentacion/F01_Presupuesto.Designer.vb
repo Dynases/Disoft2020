@@ -82,8 +82,8 @@ Partial Class F01_Presupuesto
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1166, 531)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
@@ -130,18 +130,6 @@ Partial Class F01_Presupuesto
         '
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Text = "DEFAULT"
-        '
-        'MBtUltimo
-        '
-        '
-        'MBtSiguiente
-        '
-        '
-        'MBtAnterior
-        '
-        '
-        'MBtPrimero
-        '
         '
         'MBtSalir
         '

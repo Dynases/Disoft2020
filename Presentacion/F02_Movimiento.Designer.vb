@@ -50,6 +50,7 @@ Partial Class F02_Movimiento
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btAddTarea = New DevComponents.DotNetBar.ButtonX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -95,14 +96,14 @@ Partial Class F02_Movimiento
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(642, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1144, 455)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -177,11 +178,16 @@ Partial Class F02_Movimiento
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
+        Me.MPanelToolBarImprimir.Controls.Add(Me.btAddTarea)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1036, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(150, 70)
+        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
+        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btAddTarea, 0)
         '
         'MBtImprimir
         '
+        Me.MBtImprimir.Location = New System.Drawing.Point(78, 0)
         '
         'MBubbleBarUsuario
         '
@@ -357,6 +363,7 @@ Partial Class F02_Movimiento
         Me.cbAlmacenOrigen.SelectedItem = Nothing
         Me.cbAlmacenOrigen.Size = New System.Drawing.Size(176, 22)
         Me.cbAlmacenOrigen.TabIndex = 237
+        Me.cbAlmacenOrigen.Visible = False
         Me.cbAlmacenOrigen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'lbDepositoOrigen
@@ -375,6 +382,7 @@ Partial Class F02_Movimiento
         Me.lbDepositoOrigen.Size = New System.Drawing.Size(62, 16)
         Me.lbDepositoOrigen.TabIndex = 238
         Me.lbDepositoOrigen.Text = "Deposito:"
+        Me.lbDepositoOrigen.Visible = False
         '
         'LabelX4
         '
@@ -579,7 +587,7 @@ Partial Class F02_Movimiento
         Me.GroupPanelBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
-        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(642, 455)
+        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(1144, 455)
         '
         '
         '
@@ -616,7 +624,7 @@ Partial Class F02_Movimiento
         Me.dgjBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.dgjBusqueda.Name = "dgjBusqueda"
-        Me.dgjBusqueda.Size = New System.Drawing.Size(636, 431)
+        Me.dgjBusqueda.Size = New System.Drawing.Size(1138, 431)
         Me.dgjBusqueda.TabIndex = 0
         '
         'CmDetalle
@@ -638,6 +646,23 @@ Partial Class F02_Movimiento
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
+        '
+        'btAddTarea
+        '
+        Me.btAddTarea.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btAddTarea.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btAddTarea.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btAddTarea.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btAddTarea.Image = Global.Presentacion.My.Resources.Resources.EDITAR2
+        Me.btAddTarea.ImageFixedSize = New System.Drawing.Size(45, 45)
+        Me.btAddTarea.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btAddTarea.Location = New System.Drawing.Point(0, 0)
+        Me.btAddTarea.Name = "btAddTarea"
+        Me.btAddTarea.Size = New System.Drawing.Size(75, 70)
+        Me.btAddTarea.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btAddTarea.TabIndex = 236
+        Me.btAddTarea.Text = "CERRAR DIA"
+        Me.btAddTarea.TextColor = System.Drawing.Color.Black
         '
         'F02_Movimiento
         '
@@ -705,4 +730,5 @@ Partial Class F02_Movimiento
     Friend WithEvents lbDepositoDestino As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbAlmacenOrigen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
+    Friend WithEvents btAddTarea As DevComponents.DotNetBar.ButtonX
 End Class

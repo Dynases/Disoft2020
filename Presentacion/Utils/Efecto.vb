@@ -35,6 +35,8 @@ Public Class Efecto
                 _prLogin()
             Case 5
                 _prDatosFactura()
+            Case 6
+                _prAddTarea()
         End Select
     End Sub
     Public Sub _prLogin()
@@ -108,6 +110,29 @@ Public Class Efecto
             email = frmAyuda.email
             tipoDoc = frmAyuda.tipoDoc
             band = True
+            Me.Close()
+        Else
+            band = False
+            Me.Close()
+        End If
+    End Sub
+
+    Sub _prAddTarea()
+
+        Dim frmAyuda As F1_AgregarTarea
+        frmAyuda = New F1_AgregarTarea
+        'frmAyuda.Cantidad = 1
+        frmAyuda.ShowDialog()
+
+        If frmAyuda.bandera = True Then
+
+            nit = frmAyuda.nit
+            razonsocial = frmAyuda.razonsocial
+            email = frmAyuda.email
+            Header = frmAyuda.direccion
+            Context = frmAyuda.observacion
+            band = True
+
             Me.Close()
         Else
             band = False

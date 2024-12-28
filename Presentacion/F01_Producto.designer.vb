@@ -122,6 +122,8 @@ Partial Class F01_Producto
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbAbrev = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.LabelX21 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -1246,6 +1248,8 @@ Partial Class F01_Producto
         Me.PanelExDatosGenerales.AutoScroll = True
         Me.PanelExDatosGenerales.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelExDatosGenerales.Controls.Add(Me.tbAbrev)
+        Me.PanelExDatosGenerales.Controls.Add(Me.LabelX21)
         Me.PanelExDatosGenerales.Controls.Add(Me.tbPeso)
         Me.PanelExDatosGenerales.Controls.Add(Me.LabelX16)
         Me.PanelExDatosGenerales.Controls.Add(Me.tbStockMinimo)
@@ -1385,7 +1389,7 @@ Partial Class F01_Producto
         '
         Me.TbCodFlex.Border.Class = "TextBoxBorder"
         Me.TbCodFlex.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.TbCodFlex.Location = New System.Drawing.Point(309, 3)
+        Me.TbCodFlex.Location = New System.Drawing.Point(314, 0)
         Me.TbCodFlex.MaxLength = 10
         Me.TbCodFlex.Name = "TbCodFlex"
         Me.TbCodFlex.Size = New System.Drawing.Size(100, 23)
@@ -1399,7 +1403,7 @@ Partial Class F01_Producto
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.3!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(222, 3)
+        Me.LabelX4.Location = New System.Drawing.Point(227, 0)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(84, 23)
         Me.LabelX4.TabIndex = 23
@@ -1532,7 +1536,7 @@ Partial Class F01_Producto
         '
         '
         Me.SbEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.SbEstado.Location = New System.Drawing.Point(309, 183)
+        Me.SbEstado.Location = New System.Drawing.Point(317, 159)
         Me.SbEstado.Name = "SbEstado"
         Me.SbEstado.OffText = "INACTIVO"
         Me.SbEstado.OffTextColor = System.Drawing.Color.Red
@@ -1598,7 +1602,7 @@ Partial Class F01_Producto
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.3!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX6.Location = New System.Drawing.Point(243, 184)
+        Me.LabelX6.Location = New System.Drawing.Point(251, 160)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.Size = New System.Drawing.Size(60, 23)
         Me.LabelX6.TabIndex = 12
@@ -1706,6 +1710,33 @@ Partial Class F01_Producto
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
+        '
+        'tbAbrev
+        '
+        '
+        '
+        '
+        Me.tbAbrev.Border.Class = "TextBoxBorder"
+        Me.tbAbrev.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbAbrev.Location = New System.Drawing.Point(314, 185)
+        Me.tbAbrev.MaxLength = 10
+        Me.tbAbrev.Name = "tbAbrev"
+        Me.tbAbrev.Size = New System.Drawing.Size(100, 23)
+        Me.tbAbrev.TabIndex = 32
+        '
+        'LabelX21
+        '
+        '
+        '
+        '
+        Me.LabelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.3!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX21.Location = New System.Drawing.Point(251, 185)
+        Me.LabelX21.Name = "LabelX21"
+        Me.LabelX21.Size = New System.Drawing.Size(64, 23)
+        Me.LabelX21.TabIndex = 31
+        Me.LabelX21.Text = "Abrev.:"
         '
         'F01_Producto
         '
@@ -1870,4 +1901,6 @@ Partial Class F01_Producto
     Friend WithEvents SuperTabItem1 As DevComponents.DotNetBar.SuperTabItem
     Friend WithEvents LabelX20 As DevComponents.DotNetBar.LabelX
     Friend WithEvents CbProdServ As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents tbAbrev As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents LabelX21 As DevComponents.DotNetBar.LabelX
 End Class

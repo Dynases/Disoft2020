@@ -25,17 +25,6 @@ Partial Class Pr_ReporteVentasGrafico
         Me.components = New System.ComponentModel.Container()
         Me.PanelData = New System.Windows.Forms.Panel()
         Me.SideNav1 = New DevComponents.DotNetBar.Controls.SideNav()
-        Me.SideNavPanel1 = New DevComponents.DotNetBar.Controls.SideNavPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MReportViewerVendedor = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.btnGenerarVendedor = New DevComponents.DotNetBar.ButtonX()
-        Me.FechaFVendedor = New System.Windows.Forms.MonthCalendar()
-        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
-        Me.FechaIVendedor = New System.Windows.Forms.MonthCalendar()
-        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.SideNavPanel3 = New DevComponents.DotNetBar.Controls.SideNavPanel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -63,6 +52,17 @@ Partial Class Pr_ReporteVentasGrafico
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.FechaIAlmacen = New System.Windows.Forms.MonthCalendar()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.SideNavPanel1 = New DevComponents.DotNetBar.Controls.SideNavPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.MReportViewerVendedor = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.btnGenerarVendedor = New DevComponents.DotNetBar.ButtonX()
+        Me.FechaFVendedor = New System.Windows.Forms.MonthCalendar()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.FechaIVendedor = New System.Windows.Forms.MonthCalendar()
+        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.SideNavItem1 = New DevComponents.DotNetBar.Controls.SideNavItem()
         Me.Separator1 = New DevComponents.DotNetBar.Separator()
         Me.SideNavItem2 = New DevComponents.DotNetBar.Controls.SideNavItem()
@@ -71,11 +71,6 @@ Partial Class Pr_ReporteVentasGrafico
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelData.SuspendLayout()
         Me.SideNav1.SuspendLayout()
-        Me.SideNavPanel1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.GroupPanel1.SuspendLayout()
         Me.SideNavPanel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -92,6 +87,11 @@ Partial Class Pr_ReporteVentasGrafico
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.GroupPanel2.SuspendLayout()
+        Me.SideNavPanel1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.GroupPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelData
@@ -107,9 +107,9 @@ Partial Class Pr_ReporteVentasGrafico
         '
         'SideNav1
         '
+        Me.SideNav1.Controls.Add(Me.SideNavPanel1)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
         Me.SideNav1.Controls.Add(Me.SideNavPanel2)
-        Me.SideNav1.Controls.Add(Me.SideNavPanel1)
         Me.SideNav1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SideNav1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SideNavItem1, Me.Separator1, Me.SideNavItem2, Me.almacen, Me.SideNavItem4})
         Me.SideNav1.Location = New System.Drawing.Point(0, 0)
@@ -120,177 +120,6 @@ Partial Class Pr_ReporteVentasGrafico
         Me.SideNav1.TabIndex = 0
         Me.SideNav1.Text = "SideNav1"
         '
-        'SideNavPanel1
-        '
-        Me.SideNavPanel1.Controls.Add(Me.Panel1)
-        Me.SideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideNavPanel1.Location = New System.Drawing.Point(191, 36)
-        Me.SideNavPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.SideNavPanel1.Name = "SideNavPanel1"
-        Me.SideNavPanel1.Size = New System.Drawing.Size(990, 565)
-        Me.SideNavPanel1.TabIndex = 2
-        Me.SideNavPanel1.Visible = False
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.Controls.Add(Me.Panel3)
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(990, 565)
-        Me.Panel1.TabIndex = 0
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.MReportViewerVendedor)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(199, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(791, 565)
-        Me.Panel3.TabIndex = 1
-        '
-        'MReportViewerVendedor
-        '
-        Me.MReportViewerVendedor.ActiveViewIndex = -1
-        Me.MReportViewerVendedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MReportViewerVendedor.Cursor = System.Windows.Forms.Cursors.Default
-        Me.MReportViewerVendedor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MReportViewerVendedor.Location = New System.Drawing.Point(0, 0)
-        Me.MReportViewerVendedor.Margin = New System.Windows.Forms.Padding(2)
-        Me.MReportViewerVendedor.Name = "MReportViewerVendedor"
-        Me.MReportViewerVendedor.Size = New System.Drawing.Size(791, 565)
-        Me.MReportViewerVendedor.TabIndex = 0
-        Me.MReportViewerVendedor.ToolPanelWidth = 150
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.GroupPanel1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(199, 565)
-        Me.Panel2.TabIndex = 0
-        '
-        'GroupPanel1
-        '
-        Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel1.Controls.Add(Me.btnGenerarVendedor)
-        Me.GroupPanel1.Controls.Add(Me.FechaFVendedor)
-        Me.GroupPanel1.Controls.Add(Me.LabelX1)
-        Me.GroupPanel1.Controls.Add(Me.FechaIVendedor)
-        Me.GroupPanel1.Controls.Add(Me.LabelX4)
-        Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(199, 565)
-        '
-        '
-        '
-        Me.GroupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.GroupPanel1.Style.BackColorGradientAngle = 90
-        Me.GroupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderBottomWidth = 1
-        Me.GroupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderLeftWidth = 1
-        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderRightWidth = 1
-        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderTopWidth = 1
-        Me.GroupPanel1.Style.CornerDiameter = 4
-        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanel1.TabIndex = 0
-        Me.GroupPanel1.Text = "ELEGIR FECHAS"
-        '
-        'btnGenerarVendedor
-        '
-        Me.btnGenerarVendedor.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btnGenerarVendedor.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
-        Me.btnGenerarVendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerarVendedor.Image = Global.Presentacion.My.Resources.Resources.reload_5
-        Me.btnGenerarVendedor.ImageFixedSize = New System.Drawing.Size(48, 48)
-        Me.btnGenerarVendedor.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnGenerarVendedor.Location = New System.Drawing.Point(49, 435)
-        Me.btnGenerarVendedor.Name = "btnGenerarVendedor"
-        Me.btnGenerarVendedor.Size = New System.Drawing.Size(80, 72)
-        Me.btnGenerarVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnGenerarVendedor.TabIndex = 239
-        Me.btnGenerarVendedor.Text = "GENERAR"
-        Me.btnGenerarVendedor.TextColor = System.Drawing.Color.Black
-        '
-        'FechaFVendedor
-        '
-        Me.FechaFVendedor.Location = New System.Drawing.Point(7, 253)
-        Me.FechaFVendedor.Margin = New System.Windows.Forms.Padding(7)
-        Me.FechaFVendedor.Name = "FechaFVendedor"
-        Me.FechaFVendedor.TabIndex = 237
-        Me.FechaFVendedor.TitleBackColor = System.Drawing.Color.Maroon
-        Me.FechaFVendedor.TitleForeColor = System.Drawing.Color.Maroon
-        Me.FechaFVendedor.TrailingForeColor = System.Drawing.Color.Maroon
-        '
-        'LabelX1
-        '
-        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(3, 219)
-        Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(74, 23)
-        Me.LabelX1.TabIndex = 236
-        Me.LabelX1.Text = "AL:"
-        '
-        'FechaIVendedor
-        '
-        Me.FechaIVendedor.Location = New System.Drawing.Point(7, 37)
-        Me.FechaIVendedor.Margin = New System.Windows.Forms.Padding(7)
-        Me.FechaIVendedor.Name = "FechaIVendedor"
-        Me.FechaIVendedor.TabIndex = 235
-        Me.FechaIVendedor.TitleBackColor = System.Drawing.Color.Maroon
-        Me.FechaIVendedor.TitleForeColor = System.Drawing.Color.Maroon
-        Me.FechaIVendedor.TrailingForeColor = System.Drawing.Color.Maroon
-        '
-        'LabelX4
-        '
-        Me.LabelX4.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(3, 3)
-        Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(74, 23)
-        Me.LabelX4.TabIndex = 234
-        Me.LabelX4.Text = "Fecha Del:"
-        '
         'SideNavPanel3
         '
         Me.SideNavPanel3.Controls.Add(Me.Panel7)
@@ -300,6 +129,7 @@ Partial Class Pr_ReporteVentasGrafico
         Me.SideNavPanel3.Name = "SideNavPanel3"
         Me.SideNavPanel3.Size = New System.Drawing.Size(990, 565)
         Me.SideNavPanel3.TabIndex = 10
+        Me.SideNavPanel3.Visible = False
         '
         'Panel7
         '
@@ -637,7 +467,7 @@ Partial Class Pr_ReporteVentasGrafico
         Me.SideNavPanel2.Location = New System.Drawing.Point(191, 36)
         Me.SideNavPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.SideNavPanel2.Name = "SideNavPanel2"
-        Me.SideNavPanel2.Size = New System.Drawing.Size(990, 565)
+        Me.SideNavPanel2.Size = New System.Drawing.Size(991, 565)
         Me.SideNavPanel2.TabIndex = 6
         Me.SideNavPanel2.Visible = False
         '
@@ -650,7 +480,7 @@ Partial Class Pr_ReporteVentasGrafico
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(990, 565)
+        Me.Panel4.Size = New System.Drawing.Size(991, 565)
         Me.Panel4.TabIndex = 1
         '
         'Panel5
@@ -660,7 +490,7 @@ Partial Class Pr_ReporteVentasGrafico
         Me.Panel5.Location = New System.Drawing.Point(199, 0)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(791, 565)
+        Me.Panel5.Size = New System.Drawing.Size(792, 565)
         Me.Panel5.TabIndex = 1
         '
         'MReportViewerAlmacen
@@ -672,7 +502,7 @@ Partial Class Pr_ReporteVentasGrafico
         Me.MReportViewerAlmacen.Location = New System.Drawing.Point(0, 0)
         Me.MReportViewerAlmacen.Margin = New System.Windows.Forms.Padding(2)
         Me.MReportViewerAlmacen.Name = "MReportViewerAlmacen"
-        Me.MReportViewerAlmacen.Size = New System.Drawing.Size(791, 565)
+        Me.MReportViewerAlmacen.Size = New System.Drawing.Size(792, 565)
         Me.MReportViewerAlmacen.TabIndex = 0
         Me.MReportViewerAlmacen.ToolPanelWidth = 150
         '
@@ -801,6 +631,176 @@ Partial Class Pr_ReporteVentasGrafico
         Me.LabelX3.TabIndex = 234
         Me.LabelX3.Text = "Fecha Del:"
         '
+        'SideNavPanel1
+        '
+        Me.SideNavPanel1.Controls.Add(Me.Panel1)
+        Me.SideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SideNavPanel1.Location = New System.Drawing.Point(191, 36)
+        Me.SideNavPanel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.SideNavPanel1.Name = "SideNavPanel1"
+        Me.SideNavPanel1.Size = New System.Drawing.Size(990, 565)
+        Me.SideNavPanel1.TabIndex = 2
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(990, 565)
+        Me.Panel1.TabIndex = 0
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.MReportViewerVendedor)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(199, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(791, 565)
+        Me.Panel3.TabIndex = 1
+        '
+        'MReportViewerVendedor
+        '
+        Me.MReportViewerVendedor.ActiveViewIndex = -1
+        Me.MReportViewerVendedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MReportViewerVendedor.Cursor = System.Windows.Forms.Cursors.Default
+        Me.MReportViewerVendedor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MReportViewerVendedor.Location = New System.Drawing.Point(0, 0)
+        Me.MReportViewerVendedor.Margin = New System.Windows.Forms.Padding(2)
+        Me.MReportViewerVendedor.Name = "MReportViewerVendedor"
+        Me.MReportViewerVendedor.Size = New System.Drawing.Size(791, 565)
+        Me.MReportViewerVendedor.TabIndex = 0
+        Me.MReportViewerVendedor.ToolPanelWidth = 150
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.GroupPanel1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(199, 565)
+        Me.Panel2.TabIndex = 0
+        '
+        'GroupPanel1
+        '
+        Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel1.Controls.Add(Me.btnGenerarVendedor)
+        Me.GroupPanel1.Controls.Add(Me.FechaFVendedor)
+        Me.GroupPanel1.Controls.Add(Me.LabelX1)
+        Me.GroupPanel1.Controls.Add(Me.FechaIVendedor)
+        Me.GroupPanel1.Controls.Add(Me.LabelX4)
+        Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupPanel1.Name = "GroupPanel1"
+        Me.GroupPanel1.Size = New System.Drawing.Size(199, 565)
+        '
+        '
+        '
+        Me.GroupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.GroupPanel1.Style.BackColorGradientAngle = 90
+        Me.GroupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderBottomWidth = 1
+        Me.GroupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderLeftWidth = 1
+        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderRightWidth = 1
+        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderTopWidth = 1
+        Me.GroupPanel1.Style.CornerDiameter = 4
+        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel1.TabIndex = 0
+        Me.GroupPanel1.Text = "ELEGIR FECHAS"
+        '
+        'btnGenerarVendedor
+        '
+        Me.btnGenerarVendedor.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnGenerarVendedor.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnGenerarVendedor.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGenerarVendedor.Image = Global.Presentacion.My.Resources.Resources.reload_5
+        Me.btnGenerarVendedor.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnGenerarVendedor.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnGenerarVendedor.Location = New System.Drawing.Point(49, 435)
+        Me.btnGenerarVendedor.Name = "btnGenerarVendedor"
+        Me.btnGenerarVendedor.Size = New System.Drawing.Size(80, 72)
+        Me.btnGenerarVendedor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnGenerarVendedor.TabIndex = 239
+        Me.btnGenerarVendedor.Text = "GENERAR"
+        Me.btnGenerarVendedor.TextColor = System.Drawing.Color.Black
+        '
+        'FechaFVendedor
+        '
+        Me.FechaFVendedor.Location = New System.Drawing.Point(7, 253)
+        Me.FechaFVendedor.Margin = New System.Windows.Forms.Padding(7)
+        Me.FechaFVendedor.Name = "FechaFVendedor"
+        Me.FechaFVendedor.TabIndex = 237
+        Me.FechaFVendedor.TitleBackColor = System.Drawing.Color.Maroon
+        Me.FechaFVendedor.TitleForeColor = System.Drawing.Color.Maroon
+        Me.FechaFVendedor.TrailingForeColor = System.Drawing.Color.Maroon
+        '
+        'LabelX1
+        '
+        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX1.Location = New System.Drawing.Point(3, 219)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX1.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX1.TabIndex = 236
+        Me.LabelX1.Text = "AL:"
+        '
+        'FechaIVendedor
+        '
+        Me.FechaIVendedor.Location = New System.Drawing.Point(7, 37)
+        Me.FechaIVendedor.Margin = New System.Windows.Forms.Padding(7)
+        Me.FechaIVendedor.Name = "FechaIVendedor"
+        Me.FechaIVendedor.TabIndex = 235
+        Me.FechaIVendedor.TitleBackColor = System.Drawing.Color.Maroon
+        Me.FechaIVendedor.TitleForeColor = System.Drawing.Color.Maroon
+        Me.FechaIVendedor.TrailingForeColor = System.Drawing.Color.Maroon
+        '
+        'LabelX4
+        '
+        Me.LabelX4.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX4.Location = New System.Drawing.Point(3, 3)
+        Me.LabelX4.Name = "LabelX4"
+        Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX4.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX4.TabIndex = 234
+        Me.LabelX4.Text = "Fecha Del:"
+        '
         'SideNavItem1
         '
         Me.SideNavItem1.IsSystemMenu = True
@@ -820,6 +820,7 @@ Partial Class Pr_ReporteVentasGrafico
         '
         'SideNavItem2
         '
+        Me.SideNavItem2.Checked = True
         Me.SideNavItem2.Name = "SideNavItem2"
         Me.SideNavItem2.Panel = Me.SideNavPanel1
         Me.SideNavItem2.Symbol = ""
@@ -835,7 +836,6 @@ Partial Class Pr_ReporteVentasGrafico
         '
         'SideNavItem4
         '
-        Me.SideNavItem4.Checked = True
         Me.SideNavItem4.Name = "SideNavItem4"
         Me.SideNavItem4.Panel = Me.SideNavPanel3
         Me.SideNavItem4.Symbol = "59621"
@@ -860,11 +860,6 @@ Partial Class Pr_ReporteVentasGrafico
         Me.PanelData.ResumeLayout(False)
         Me.SideNav1.ResumeLayout(False)
         Me.SideNav1.PerformLayout()
-        Me.SideNavPanel1.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.GroupPanel1.ResumeLayout(False)
         Me.SideNavPanel3.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
@@ -882,6 +877,11 @@ Partial Class Pr_ReporteVentasGrafico
         Me.Panel5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.GroupPanel2.ResumeLayout(False)
+        Me.SideNavPanel1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.GroupPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

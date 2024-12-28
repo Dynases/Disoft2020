@@ -24,7 +24,6 @@ Partial Class frmBillingDispatch
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBillingDispatch))
-        Dim cbEstados_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbChoferes_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.PanelBase = New System.Windows.Forms.Panel()
         Me.PanelPedido = New System.Windows.Forms.Panel()
@@ -35,12 +34,10 @@ Partial Class frmBillingDispatch
         Me.QrFactura = New Gma.QrCodeNet.Encoding.Windows.Forms.QrCodeImgControl()
         Me.dgjProducto = New Janus.Windows.GridEX.GridEX()
         Me.PanelSuperior = New System.Windows.Forms.Panel()
-        Me.cbEstados = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.cbEstado = New System.Windows.Forms.ComboBox()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.btnFactura = New DevComponents.DotNetBar.ButtonX()
-        Me.btVentasDirectas = New DevComponents.DotNetBar.ButtonX()
         Me.lblCantidadPedido = New DevComponents.DotNetBar.LabelX()
         Me.lblPedido = New DevComponents.DotNetBar.LabelX()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
@@ -63,7 +60,6 @@ Partial Class frmBillingDispatch
         CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgjProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperior.SuspendLayout()
-        CType(Me.cbEstados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tb_Fecha, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbChoferes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,7 +98,6 @@ Partial Class frmBillingDispatch
         'dgjPedido
         '
         Me.dgjPedido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgjPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgjPedido.Location = New System.Drawing.Point(0, 37)
         Me.dgjPedido.Name = "dgjPedido"
         Me.dgjPedido.Size = New System.Drawing.Size(1284, 387)
@@ -159,12 +154,10 @@ Partial Class frmBillingDispatch
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Controls.Add(Me.cbEstados)
         Me.PanelSuperior.Controls.Add(Me.ButtonX1)
         Me.PanelSuperior.Controls.Add(Me.cbEstado)
         Me.PanelSuperior.Controls.Add(Me.LabelX4)
         Me.PanelSuperior.Controls.Add(Me.btnFactura)
-        Me.PanelSuperior.Controls.Add(Me.btVentasDirectas)
         Me.PanelSuperior.Controls.Add(Me.lblCantidadPedido)
         Me.PanelSuperior.Controls.Add(Me.lblPedido)
         Me.PanelSuperior.Controls.Add(Me.LabelX3)
@@ -184,18 +177,6 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Size = New System.Drawing.Size(1284, 60)
         Me.PanelSuperior.TabIndex = 0
         '
-        'cbEstados
-        '
-        cbEstados_DesignTimeLayout.LayoutString = resources.GetString("cbEstados_DesignTimeLayout.LayoutString")
-        Me.cbEstados.DesignTimeLayout = cbEstados_DesignTimeLayout
-        Me.cbEstados.Location = New System.Drawing.Point(347, 40)
-        Me.cbEstados.Name = "cbEstados"
-        Me.cbEstados.SelectedIndex = -1
-        Me.cbEstados.SelectedItem = Nothing
-        Me.cbEstados.Size = New System.Drawing.Size(120, 20)
-        Me.cbEstados.TabIndex = 245
-        Me.cbEstados.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
         'ButtonX1
         '
         Me.ButtonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
@@ -204,7 +185,7 @@ Partial Class frmBillingDispatch
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.printee
         Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonX1.Location = New System.Drawing.Point(684, 0)
+        Me.ButtonX1.Location = New System.Drawing.Point(759, 0)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Size = New System.Drawing.Size(75, 60)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -216,11 +197,10 @@ Partial Class frmBillingDispatch
         '
         Me.cbEstado.FormattingEnabled = True
         Me.cbEstado.Items.AddRange(New Object() {"DICTADO", "ENTREGADO"})
-        Me.cbEstado.Location = New System.Drawing.Point(552, 37)
+        Me.cbEstado.Location = New System.Drawing.Point(369, 38)
         Me.cbEstado.Name = "cbEstado"
         Me.cbEstado.Size = New System.Drawing.Size(121, 21)
         Me.cbEstado.TabIndex = 243
-        Me.cbEstado.Visible = False
         '
         'LabelX4
         '
@@ -228,7 +208,7 @@ Partial Class frmBillingDispatch
         '
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX4.Location = New System.Drawing.Point(268, 35)
+        Me.LabelX4.Location = New System.Drawing.Point(290, 35)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(55, 23)
         Me.LabelX4.TabIndex = 242
@@ -242,28 +222,13 @@ Partial Class frmBillingDispatch
         Me.btnFactura.Image = CType(resources.GetObject("btnFactura.Image"), System.Drawing.Image)
         Me.btnFactura.ImageFixedSize = New System.Drawing.Size(30, 30)
         Me.btnFactura.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnFactura.Location = New System.Drawing.Point(759, 0)
+        Me.btnFactura.Location = New System.Drawing.Point(834, 0)
         Me.btnFactura.Name = "btnFactura"
         Me.btnFactura.Size = New System.Drawing.Size(75, 60)
         Me.btnFactura.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnFactura.TabIndex = 240
         Me.btnFactura.Text = "Factura"
         Me.btnFactura.Visible = False
-        '
-        'btVentasDirectas
-        '
-        Me.btVentasDirectas.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btVentasDirectas.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btVentasDirectas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btVentasDirectas.Image = Global.Presentacion.My.Resources.Resources.ENTRADA_SALIDA_ALM
-        Me.btVentasDirectas.ImageFixedSize = New System.Drawing.Size(30, 30)
-        Me.btVentasDirectas.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btVentasDirectas.Location = New System.Drawing.Point(834, 0)
-        Me.btVentasDirectas.Name = "btVentasDirectas"
-        Me.btVentasDirectas.Size = New System.Drawing.Size(75, 60)
-        Me.btVentasDirectas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btVentasDirectas.TabIndex = 246
-        Me.btVentasDirectas.Text = "Ventas Directas"
         '
         'lblCantidadPedido
         '
@@ -296,7 +261,7 @@ Partial Class frmBillingDispatch
         '
         '
         Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Location = New System.Drawing.Point(473, 13)
+        Me.LabelX3.Location = New System.Drawing.Point(495, 13)
         Me.LabelX3.Name = "LabelX3"
         Me.LabelX3.Size = New System.Drawing.Size(74, 23)
         Me.LabelX3.TabIndex = 237
@@ -313,7 +278,7 @@ Partial Class frmBillingDispatch
         Me.Tb_FechaHasta.ButtonDropDown.Visible = True
         Me.Tb_FechaHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tb_FechaHasta.IsPopupCalendarOpen = False
-        Me.Tb_FechaHasta.Location = New System.Drawing.Point(553, 13)
+        Me.Tb_FechaHasta.Location = New System.Drawing.Point(575, 13)
         '
         '
         '
@@ -369,7 +334,7 @@ Partial Class frmBillingDispatch
         '
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Location = New System.Drawing.Point(268, 12)
+        Me.LabelX1.Location = New System.Drawing.Point(290, 12)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(73, 23)
         Me.LabelX1.TabIndex = 233
@@ -386,7 +351,7 @@ Partial Class frmBillingDispatch
         Me.Tb_Fecha.ButtonDropDown.Visible = True
         Me.Tb_Fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tb_Fecha.IsPopupCalendarOpen = False
-        Me.Tb_Fecha.Location = New System.Drawing.Point(347, 12)
+        Me.Tb_Fecha.Location = New System.Drawing.Point(369, 12)
         '
         '
         '
@@ -501,9 +466,8 @@ Partial Class frmBillingDispatch
         Me.cbChoferes.Name = "cbChoferes"
         Me.cbChoferes.SelectedIndex = -1
         Me.cbChoferes.SelectedItem = Nothing
-        Me.cbChoferes.Size = New System.Drawing.Size(183, 20)
+        Me.cbChoferes.Size = New System.Drawing.Size(200, 20)
         Me.cbChoferes.TabIndex = 2
-        Me.cbChoferes.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'Timer1
         '
@@ -530,7 +494,6 @@ Partial Class frmBillingDispatch
         CType(Me.dgjProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSuperior.ResumeLayout(False)
         Me.PanelSuperior.PerformLayout()
-        CType(Me.cbEstados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_FechaHasta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tb_Fecha, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbChoferes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -565,6 +528,4 @@ Partial Class frmBillingDispatch
     Friend WithEvents cbEstado As ComboBox
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents ButtonX1 As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents cbEstados As Janus.Windows.GridEX.EditControls.MultiColumnCombo
-    Friend WithEvents btVentasDirectas As DevComponents.DotNetBar.ButtonX
 End Class

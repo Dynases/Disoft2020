@@ -304,6 +304,7 @@ Public Class F01_Producto
         SbEquipo.IsReadOnly = Not flat
         TbCodFlex.ReadOnly = Not flat
         tbCodBarra.ReadOnly = Not flat
+        tbAbrev.ReadOnly = Not flat
         tbStockMinimo.IsInputReadOnly = Not flat
         tbPeso.IsInputReadOnly = Not flat
         cbgrupo1.ReadOnly = Not flat
@@ -334,6 +335,7 @@ Public Class F01_Producto
         DaFecha = Now.Date
         swPack.Value = False
         tbPeso.Value = 0
+        tbAbrev.Clear()
 
         If (Limpiar = False) Then
             _prSeleccionarCombo(cbgrupo1)
@@ -408,6 +410,7 @@ Public Class F01_Producto
                     Me.SbEquipo.Value = .GetValue("serie")
                     Me.DaFecha = .GetValue("fing")
                     Me.CbEmpresa.Value = .GetValue("cemp")
+                    Me.tbAbrev.Text = .GetValue("cacampo1")
                     'cacbarra, casmin, cagr1, cagr2, cagr3, cagr4, caumed, cauventa, caumax, caconv
                     Me.tbCodBarra.Text = .GetValue("cacbarra").ToString
                     Me.tbStockMinimo.Text = .GetValue("casmin")
@@ -546,7 +549,7 @@ Public Class F01_Producto
         Dim umax As String
         Dim conv As Integer
         Dim pack As Integer
-
+        Dim campo1 As String
 
         If (BoNuevo) Then
             If (P_fnValidarGrabacion()) Then
@@ -573,6 +576,7 @@ Public Class F01_Producto
                 umin = CbUnidVenta.Value
                 umax = CbUnidMax.Value
                 pack = IIf(swPack.Value, "1", "0")
+                campo1 = tbAbrev.Text
                 If (TbConversion.Text.Trim = "") Then
                     conv = 0
                 Else
@@ -587,7 +591,7 @@ Public Class F01_Producto
 
                 'Grabar
                 Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin,
-                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value)
+                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value, campo1)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -643,7 +647,7 @@ Public Class F01_Producto
                 umin = CbUnidVenta.Value
                 umax = CbUnidMax.Value
                 pack = IIf(swPack.Value, "1", "0")
-
+                campo1 = tbAbrev.Text
                 If (TbConversion.Text.Trim = "") Then
                     conv = 0
                 Else
@@ -667,7 +671,7 @@ Public Class F01_Producto
 
                 'Grabar
                 Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed,
-                                                           umin, umax, conv, pack, dt, tbPeso.Value)
+                                                           umin, umax, conv, pack, dt, tbPeso.Value, campo1)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -1262,16 +1266,16 @@ Public Class F01_Producto
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
         End With
-        With DgjBusqueda.RootTable.Columns(29)
-            .Caption = ""
-            .Key = "capeso"
-            .Width = 0
-            .HeaderStyle.Font = FtTitulo
-            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .CellStyle.Font = FtNormal
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = False
-        End With
+        'With DgjBusqueda.RootTable.Columns(29)
+        '    .Caption = ""
+        '    .Key = "capeso"
+        '    .Width = 0
+        '    .HeaderStyle.Font = FtTitulo
+        '    .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+        '    .CellStyle.Font = FtNormal
+        '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+        '    .Visible = False
+        'End With
         'Habilitar Filtradores
         With DgjBusqueda
             .GroupByBoxVisible = False

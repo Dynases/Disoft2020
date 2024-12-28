@@ -515,12 +515,6 @@
     <Compile Include="F02ZonaAsignacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F02_ComisionesCategoria.designer.vb">
-      <DependentUpon>F02_ComisionesCategoria.vb</DependentUpon>
-    </Compile>
-    <Compile Include="F02_ComisionesCategoria.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="F02_Compra.Designer.vb">
       <DependentUpon>F02_Compra.vb</DependentUpon>
     </Compile>
@@ -587,16 +581,22 @@
     <Compile Include="F0G_MovimientoChoferSalida.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F0_Camion.Designer.vb">
+      <DependentUpon>F0_Camion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F0_Camion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F0_CreditosPedidos.Designer.vb">
       <DependentUpon>F0_CreditosPedidos.vb</DependentUpon>
     </Compile>
     <Compile Include="F0_CreditosPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F0_AjusteStock.Designer.vb">
-      <DependentUpon>F0_AjusteStock.vb</DependentUpon>
+    <Compile Include="F0_Despacho.Designer.vb">
+      <DependentUpon>F0_Despacho.vb</DependentUpon>
     </Compile>
-    <Compile Include="F0_AjusteStock.vb">
+    <Compile Include="F0_Despacho.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F0_PagosCreditoCompraUlt.designer.vb">
@@ -611,10 +611,10 @@
     <Compile Include="Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F0_IngresoStock.Designer.vb">
-      <DependentUpon>F0_IngresoStock.vb</DependentUpon>
+    <Compile Include="F0_PreciosAlterno2.Designer.vb">
+      <DependentUpon>F0_PreciosAlterno2.vb</DependentUpon>
     </Compile>
-    <Compile Include="F0_IngresoStock.vb">
+    <Compile Include="F0_PreciosAlterno2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F0_Ventas.designer.vb">
@@ -643,10 +643,7 @@
     </Compile>
     <Compile Include="Facturacion\AeconomicaResp.vb" />
     <Compile Include="Facturacion\DBApi.vb" />
-    <Compile Include="Facturacion\ResNumeracion.vb" />
-    <Compile Include="Facturacion\Numeracion.vb" />
     <Compile Include="Facturacion\EmisorEnvio.vb" />
-    <Compile Include="Facturacion\EmisorResp.vb" />
     <Compile Include="Facturacion\ListarPServResp.vb" />
     <Compile Include="Facturacion\LoginEnvio.vb" />
     <Compile Include="Facturacion\ClieResp.vb" />
@@ -666,6 +663,12 @@
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
     <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F0_HojaRuta.Designer.vb">
+      <DependentUpon>F0_HojaRuta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F0_HojaRuta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCajaGeneral.Designer.vb">
@@ -794,12 +797,6 @@
     <Compile Include="P_Mesas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="R01_EfectividadCliente.Designer.vb">
-      <DependentUpon>R01_EfectividadCliente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="R01_EfectividadCliente.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="R01_Concepto_Ventas_Meses.Designer.vb">
       <DependentUpon>R01_Concepto_Ventas_Meses.vb</DependentUpon>
     </Compile>
@@ -925,6 +922,12 @@
     <Compile Include="R01_EquipoPrestadoVsVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_CanastilloChofer.Designer.vb">
+      <DependentUpon>R01_CanastilloChofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_CanastilloChofer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_MorosidadProveedores.Designer.vb">
       <DependentUpon>R01_MorosidadProveedores.vb</DependentUpon>
     </Compile>
@@ -941,6 +944,12 @@
       <DependentUpon>R01_PedidosRechazados.vb</DependentUpon>
     </Compile>
     <Compile Include="R01_PedidosRechazados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_KardexPrestamoCanastillos.Designer.vb">
+      <DependentUpon>R01_KardexPrestamoCanastillos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_KardexPrestamoCanastillos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="R01_PrestamoEquiposAgrupado.Designer.vb">
@@ -1027,10 +1036,10 @@
     <Compile Include="R01_VentasProductosInv.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="R01_CoberturaVendedor.Designer.vb">
-      <DependentUpon>R01_CoberturaVendedor.vb</DependentUpon>
+    <Compile Include="R01_HistoricoPrecios.Designer.vb">
+      <DependentUpon>R01_HistoricoPrecios.vb</DependentUpon>
     </Compile>
-    <Compile Include="R01_CoberturaVendedor.vb">
+    <Compile Include="R01_HistoricoPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="R01_VentasVendedor.Designer.vb">
@@ -1093,17 +1102,23 @@
       <DependentUpon>MAM_ZonasRepartidor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_CierreCaja - Copia.vb">
-      <DependentUpon>R_CierreCaja - Copia.rpt</DependentUpon>
+    <Compile Include="Reportes\R_Comanda.vb">
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <DependentUpon>R_Comanda.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_EfectividadVendedor.vb">
-      <DependentUpon>R_EfectividadVendedor.rpt</DependentUpon>
+    <Compile Include="Reportes\R_HistoricoPrecios.vb">
+      <DependentUpon>R_HistoricoPrecios.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_HojadeRuta.vb">
+      <DependentUpon>R_HojadeRuta.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_ComprobanteSalidaItemsDavid.vb">
       <DependentUpon>R_ComprobanteSalidaItemsDavid.rpt</DependentUpon>
@@ -1125,6 +1140,24 @@
     </Compile>
     <Compile Include="Reportes\R_ClienteMasVentas.vb">
       <DependentUpon>R_ClienteMasVentas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_PrestamoCanastillosChofer.vb">
+      <DependentUpon>R_PrestamoCanastillosChofer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_PrestamoCanastillos.vb">
+      <DependentUpon>R_PrestamoCanastillos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_ReporteMovimiento.vb">
+      <DependentUpon>R_ReporteMovimiento.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
@@ -1507,12 +1540,6 @@
       <DependentUpon>R_VentasVendedor12Meses.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_CoberturaClientes.vb">
-      <DependentUpon>R_CoberturaClientes.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Reportes\R_VisitaClientes.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1531,10 +1558,34 @@
       <DependentUpon>R_ProductoMayor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="R_ReporteMovimiento.vb">
+    <Compile Include="R_ComandaEtiqueta.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>R_ReporteMovimiento.rpt</DependentUpon>
+      <DependentUpon>R_ComandaEtiqueta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_HojaRutaxChofer1.vb">
+      <DependentUpon>R_HojaRutaxChofer1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_HojaRutaxChofer.vb">
+      <DependentUpon>R_HojaRutaxChofer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_RepComanda.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_RepComanda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_ReporteMovimientoCierre.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_ReporteMovimientoCierre.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="R_SaldoActualFiltrado.vb">
@@ -1854,6 +1905,12 @@
     <Compile Include="Utils\Efecto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utils\F1_AgregarTarea.Designer.vb">
+      <DependentUpon>F1_AgregarTarea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\F1_AgregarTarea.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utils\F1_Cantidad.Designer.vb">
       <DependentUpon>F1_Cantidad.vb</DependentUpon>
     </Compile>
@@ -1981,9 +2038,6 @@
     <EmbeddedResource Include="F02ZonaAsignacion.resx">
       <DependentUpon>F02ZonaAsignacion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F02_ComisionesCategoria.resx">
-      <DependentUpon>F02_ComisionesCategoria.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="F02_Compra.resx">
       <DependentUpon>F02_Compra.vb</DependentUpon>
     </EmbeddedResource>
@@ -2017,11 +2071,14 @@
     <EmbeddedResource Include="F0G_MovimientoChoferSalida.resx">
       <DependentUpon>F0G_MovimientoChoferSalida.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F0_Camion.resx">
+      <DependentUpon>F0_Camion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F0_CreditosPedidos.resx">
       <DependentUpon>F0_CreditosPedidos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F0_AjusteStock.resx">
-      <DependentUpon>F0_AjusteStock.vb</DependentUpon>
+    <EmbeddedResource Include="F0_Despacho.resx">
+      <DependentUpon>F0_Despacho.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F0_PagosCreditoCompraUlt.resx">
       <DependentUpon>F0_PagosCreditoCompraUlt.vb</DependentUpon>
@@ -2029,8 +2086,8 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F0_IngresoStock.resx">
-      <DependentUpon>F0_IngresoStock.vb</DependentUpon>
+    <EmbeddedResource Include="F0_PreciosAlterno2.resx">
+      <DependentUpon>F0_PreciosAlterno2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F0_Ventas.resx">
       <DependentUpon>F0_Ventas.vb</DependentUpon>
@@ -2049,6 +2106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F0_HojaRuta.resx">
+      <DependentUpon>F0_HojaRuta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCajaGeneral.resx">
       <DependentUpon>frmCajaGeneral.vb</DependentUpon>
@@ -2113,9 +2173,6 @@
     <EmbeddedResource Include="P_Mesas.resx">
       <DependentUpon>P_Mesas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="R01_EfectividadCliente.resx">
-      <DependentUpon>R01_EfectividadCliente.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="R01_Concepto_Ventas_Meses.resx">
       <DependentUpon>R01_Concepto_Ventas_Meses.vb</DependentUpon>
     </EmbeddedResource>
@@ -2176,6 +2233,9 @@
     <EmbeddedResource Include="R01_EquipoPrestadoVsVenta.resx">
       <DependentUpon>R01_EquipoPrestadoVsVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_CanastilloChofer.resx">
+      <DependentUpon>R01_CanastilloChofer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_MorosidadProveedores.resx">
       <DependentUpon>R01_MorosidadProveedores.vb</DependentUpon>
     </EmbeddedResource>
@@ -2184,6 +2244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="R01_PedidosRechazados.resx">
       <DependentUpon>R01_PedidosRechazados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_KardexPrestamoCanastillos.resx">
+      <DependentUpon>R01_KardexPrestamoCanastillos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_PrestamoEquiposAgrupado.resx">
       <DependentUpon>R01_PrestamoEquiposAgrupado.vb</DependentUpon>
@@ -2227,8 +2290,8 @@
     <EmbeddedResource Include="R01_VentasProductosInv.resx">
       <DependentUpon>R01_VentasProductosInv.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="R01_CoberturaVendedor.resx">
-      <DependentUpon>R01_CoberturaVendedor.vb</DependentUpon>
+    <EmbeddedResource Include="R01_HistoricoPrecios.resx">
+      <DependentUpon>R01_HistoricoPrecios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R01_VentasVendedor.resx">
       <DependentUpon>R01_VentasVendedor.vb</DependentUpon>
@@ -2262,13 +2325,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MAM_ZonasRepartidor.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_CierreCaja - Copia.rpt">
+    <EmbeddedResource Include="Reportes\R_Comanda.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_CierreCaja - Copia.vb</LastGenOutput>
+      <LastGenOutput>R_Comanda.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_EfectividadVendedor.rpt">
+    <EmbeddedResource Include="Reportes\R_HistoricoPrecios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_EfectividadVendedor.vb</LastGenOutput>
+      <LastGenOutput>R_HistoricoPrecios.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_HojadeRuta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_HojadeRuta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_ComprobanteSalidaItemsDavid.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2285,6 +2352,18 @@
     <EmbeddedResource Include="Reportes\R_ClienteMasVentas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ClienteMasVentas.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_PrestamoCanastillosChofer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_PrestamoCanastillosChofer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_PrestamoCanastillos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_PrestamoCanastillos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_ReporteMovimiento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ReporteMovimiento.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VendedorUtilidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2538,10 +2617,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VentasVendedor12Meses.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_CoberturaClientes.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_CoberturaClientes.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VisitaClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VisitaClientes.vb</LastGenOutput>
@@ -2554,9 +2629,25 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ProductoMayor.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="R_ReporteMovimiento.rpt">
+    <EmbeddedResource Include="R_ComandaEtiqueta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_ReporteMovimiento.vb</LastGenOutput>
+      <LastGenOutput>R_ComandaEtiqueta.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_HojaRutaxChofer1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_HojaRutaxChofer1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_HojaRutaxChofer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_HojaRutaxChofer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_RepComanda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_RepComanda.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_ReporteMovimientoCierre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ReporteMovimientoCierre.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="R_SaldoActualFiltrado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2753,6 +2844,9 @@
     <EmbeddedResource Include="Utils\Efecto.resx">
       <DependentUpon>Efecto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utils\F1_AgregarTarea.resx">
+      <DependentUpon>F1_AgregarTarea.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utils\F1_Cantidad.resx">
       <DependentUpon>F1_Cantidad.vb</DependentUpon>
     </EmbeddedResource>
@@ -2883,6 +2977,7 @@
     <None Include="Resources\ASIGNAR_PEDIDOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\camiones.png" />
     <Content Include="x64\pdfium.dll" />
     <Content Include="x86\pdfium.dll" />
     <None Include="Resources\14.png" />

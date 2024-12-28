@@ -150,7 +150,9 @@ Public Class F02_Movimiento
         Return False
     End Function
     Private Sub dgjDetalle_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjDetalle.KeyDown
-        
+
+
+
 
         If (BoNuevo Or BoModificar) Then
             If (e.KeyData = Keys.Control + Keys.Enter) Then
@@ -291,7 +293,7 @@ Public Class F02_Movimiento
         If (Not gb_ConexionAbierta) Then
             L_prAbrirConexion()
         End If
-        L_prJobDuplicados()
+        'L_prJobDuplicados()
         'Validar requisitos del programa
         If (Not P_fnValidarRequisitos() = String.Empty) Then
             Return
@@ -816,7 +818,15 @@ Public Class F02_Movimiento
         'where a.cptipo=2
         Dt = L_fnObtenerTabla("a.cpnumi as numi, ROW_NUMBER() OVER(ORDER BY a.cpnumi ASC) AS [row], a.cpdesc as [desc]",
                               "TCI001 a", "a.cptipo=" + IIf(tipo = 1, "2", "3"))
+        If tipo = 1 Then
+            For i = Dt.Rows.Count - 1 To 0 Step -1
+                If Dt.Rows(i).Item("numi") > 18 Or Dt.Rows(i).Item("numi") < 17 Then
 
+                    Dt.Rows.RemoveAt(i)
+                End If
+            Next
+
+        End If
         With cbConcepto.DropDownList
             .Columns.Add(Dt.Columns("numi").ToString)
             .Columns(0).Visible = False
@@ -1096,9 +1106,9 @@ Public Class F02_Movimiento
                 'dgjDetalle.GetRow(rowIndex).Cells("cant").Value = 1
                 '  dgjDetalle.CurrentRow.Cells.Item("cant").Value = 1
                 Dim lin As Integer = dgjDetalle.GetValue("icid")
-                Dim pos As Integer = -1
+                Dim pos As Integer = dgjDetalle.Row
                 _fnObtenerFilaDetalle(pos, lin)
-                CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
+                'CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = 1
 
                 Dim estado As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("estado")
 
@@ -1112,7 +1122,7 @@ Public Class F02_Movimiento
                     Dim stock As Double = dgjDetalle.GetValue("stock")
                     If (dgjDetalle.GetValue("iccant") > stock And cbConcepto.Value = 60) Then
                         Dim lin As Integer = dgjDetalle.GetValue("icid")
-                        Dim pos As Integer = -1
+                        Dim pos As Integer = dgjDetalle.Row
                         _fnObtenerFilaDetalle(pos, lin)
                         CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("iccant") = stock
                         dgjDetalle.SetValue("iccant", stock)
@@ -1170,6 +1180,40 @@ Public Class F02_Movimiento
 
     End Sub
 
+    Private Sub btAddTarea_Click(sender As Object, e As EventArgs) Handles btAddTarea.Click
+        GenerarReporte()
+        L_VaciarStock()
+        MBtNuevo.PerformClick()
+        CargarListaProductos(L_ProductosPedido_GeneralNuevoStock2(0, 2, 1, False))
+    End Sub
+
+    Private Sub CargarListaProductos(dt As DataTable)
+
+        CType(dgjDetalle.DataSource, DataTable).Rows(0).Item("iccprod") = dt.Rows(0).Item("canumi")
+        CType(dgjDetalle.DataSource, DataTable).Rows(0).Item("ncprod") = dt.Rows(0).Item("cadesc")
+        CType(dgjDetalle.DataSource, DataTable).Rows(0).Item("iccant") = 0 'dt.Rows(0).Item("iacant")
+        CType(dgjDetalle.DataSource, DataTable).Rows(0).Item("stock") = 0 'dt.Rows(0).Item("")
+        CType(dgjDetalle.DataSource, DataTable).Rows(0).Item("estado") = 0 'dt.Rows(0).Item("")
+        For i = 1 To dt.Rows.Count - 1 Step 1
+            P_prAddFilaDetalle()
+            CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("iccprod") = dt.Rows(i).Item("canumi")
+            CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("ncprod") = dt.Rows(i).Item("cadesc")
+            CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("iccant") = 0 'dt.Rows(0).Item("iacant")
+            CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("stock") = 0 'dt.Rows(0).Item("")
+            CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("estado") = 0 'dt.Rows(0).Item("")
+        Next
+    End Sub
+    Private Sub GenerarReporte()
+        P_Global.Visualizador = New Visualizador
+        Dim dt As DataTable = L_ProductosPedido_GeneralNuevoStock2(0, 2, 1, False)
+        Dim objrep As New R_ReporteMovimientoCierre
+        objrep.SetDataSource(dt)
+
+        'objrep.SetParameterValue("idPedido", idPedido)
+        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+        P_Global.Visualizador.ShowDialog() 'Comentar
+        P_Global.Visualizador.BringToFront() 'Comentar
+    End Sub
 #End Region
 
 End Class

@@ -89,14 +89,14 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanel4)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1144, 455)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -601,7 +601,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel4.Name = "GroupPanel4"
-        Me.GroupPanel4.Size = New System.Drawing.Size(942, 455)
+        Me.GroupPanel4.Size = New System.Drawing.Size(1144, 455)
         '
         '
         '
@@ -651,7 +651,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grmovimiento.Name = "grmovimiento"
         Me.grmovimiento.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grmovimiento.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimiento.Size = New System.Drawing.Size(936, 432)
+        Me.grmovimiento.Size = New System.Drawing.Size(1138, 432)
         Me.grmovimiento.TabIndex = 0
         Me.grmovimiento.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

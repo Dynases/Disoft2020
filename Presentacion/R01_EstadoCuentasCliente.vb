@@ -214,4 +214,11 @@ Public Class R01_EstadoCuentasCliente
         'Timer1.Enabled = False
     End Sub
 
+    Private Sub CheckTodosClientes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckTodosClientes.CheckedChanged
+
+    End Sub
+
+    Private Sub checkUnCliente_CheckedChanged(sender As Object, e As EventArgs) Handles checkUnCliente.CheckedChanged
+
+    End Sub
 End Class

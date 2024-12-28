@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class F02_Zona
     Inherits Modelo.ModeloF02_cd
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class F02_Zona
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -123,7 +123,7 @@ Partial Class F02_Zona
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1144, 455)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -271,8 +271,9 @@ Partial Class F02_Zona
         Me.TableLayoutPanelBase2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanelBase2.Name = "TableLayoutPanelBase2"
         Me.TableLayoutPanelBase2.RowCount = 2
-        Me.TableLayoutPanelBase2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanelBase2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanelBase2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanelBase2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanelBase2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanelBase2.Size = New System.Drawing.Size(337, 449)
         Me.TableLayoutPanelBase2.TabIndex = 0
         '
@@ -285,13 +286,13 @@ Partial Class F02_Zona
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(331, 173)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(331, 162)
         '
         '
         '
-        Me.GroupPanelDatosGenerales.Style.BackColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelDatosGenerales.Style.BackColor2 = System.Drawing.SystemColors.Control
+        Me.GroupPanelDatosGenerales.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
         Me.GroupPanelDatosGenerales.Style.BackColorGradientAngle = 90
+        Me.GroupPanelDatosGenerales.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.GroupPanelDatosGenerales.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
         Me.GroupPanelDatosGenerales.Style.BorderBottomWidth = 1
         Me.GroupPanelDatosGenerales.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
@@ -330,7 +331,7 @@ Partial Class F02_Zona
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(325, 152)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(325, 141)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -406,7 +407,7 @@ Partial Class F02_Zona
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 19)
+        Me.Label4.Location = New System.Drawing.Point(6, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(70, 17)
         Me.Label4.TabIndex = 4
@@ -415,7 +416,7 @@ Partial Class F02_Zona
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 48)
+        Me.Label3.Location = New System.Drawing.Point(6, 20)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 17)
         Me.Label3.TabIndex = 3
@@ -431,6 +432,7 @@ Partial Class F02_Zona
         Me.CbZona.SelectedItem = Nothing
         Me.CbZona.Size = New System.Drawing.Size(150, 23)
         Me.CbZona.TabIndex = 2
+        Me.CbZona.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'CbProvincia
         '
@@ -442,6 +444,7 @@ Partial Class F02_Zona
         Me.CbProvincia.SelectedItem = Nothing
         Me.CbProvincia.Size = New System.Drawing.Size(150, 23)
         Me.CbProvincia.TabIndex = 1
+        Me.CbProvincia.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'CbCiudad
         '
@@ -453,6 +456,7 @@ Partial Class F02_Zona
         Me.CbCiudad.SelectedItem = Nothing
         Me.CbCiudad.Size = New System.Drawing.Size(150, 23)
         Me.CbCiudad.TabIndex = 0
+        Me.CbCiudad.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'TbCodigo
         '
@@ -487,15 +491,15 @@ Partial Class F02_Zona
         Me.GroupPanelPersonal.Controls.Add(Me.SuperTabControlPersonal)
         Me.GroupPanelPersonal.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelPersonal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelPersonal.Location = New System.Drawing.Point(3, 182)
+        Me.GroupPanelPersonal.Location = New System.Drawing.Point(3, 171)
         Me.GroupPanelPersonal.Name = "GroupPanelPersonal"
-        Me.GroupPanelPersonal.Size = New System.Drawing.Size(331, 264)
+        Me.GroupPanelPersonal.Size = New System.Drawing.Size(331, 275)
         '
         '
         '
-        Me.GroupPanelPersonal.Style.BackColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelPersonal.Style.BackColor2 = System.Drawing.SystemColors.Control
+        Me.GroupPanelPersonal.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
         Me.GroupPanelPersonal.Style.BackColorGradientAngle = 90
+        Me.GroupPanelPersonal.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.GroupPanelPersonal.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
         Me.GroupPanelPersonal.Style.BorderBottomWidth = 1
         Me.GroupPanelPersonal.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
@@ -544,7 +548,7 @@ Partial Class F02_Zona
         Me.SuperTabControlPersonal.ReorderTabsEnabled = True
         Me.SuperTabControlPersonal.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.SuperTabControlPersonal.SelectedTabIndex = 1
-        Me.SuperTabControlPersonal.Size = New System.Drawing.Size(325, 243)
+        Me.SuperTabControlPersonal.Size = New System.Drawing.Size(325, 254)
         Me.SuperTabControlPersonal.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControlPersonal.TabIndex = 118
         Me.SuperTabControlPersonal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemRepartidor, Me.SuperTabItem2})
@@ -557,7 +561,7 @@ Partial Class F02_Zona
         Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 23)
         Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(325, 220)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(325, 231)
         Me.SuperTabControlPanel1.TabIndex = 1
         Me.SuperTabControlPanel1.TabItem = Me.SuperTabItemRepartidor
         '
@@ -566,7 +570,7 @@ Partial Class F02_Zona
         Me.dgjRepartidor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjRepartidor.Location = New System.Drawing.Point(0, 0)
         Me.dgjRepartidor.Name = "dgjRepartidor"
-        Me.dgjRepartidor.Size = New System.Drawing.Size(325, 220)
+        Me.dgjRepartidor.Size = New System.Drawing.Size(325, 231)
         Me.dgjRepartidor.TabIndex = 117
         '
         'SuperTabItemRepartidor
@@ -754,7 +758,7 @@ Partial Class F02_Zona
         Me.DgjBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgjBusqueda.Location = New System.Drawing.Point(5, 5)
         Me.DgjBusqueda.Name = "DgjBusqueda"
-        Me.DgjBusqueda.Size = New System.Drawing.Size(926, 424)
+        Me.DgjBusqueda.Size = New System.Drawing.Size(1128, 424)
         Me.DgjBusqueda.TabIndex = 0
         '
         'GroupPanelBusqueda
@@ -767,7 +771,7 @@ Partial Class F02_Zona
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
         Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(942, 455)
+        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(1144, 455)
         '
         '
         '

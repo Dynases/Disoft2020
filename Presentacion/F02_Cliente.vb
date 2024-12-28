@@ -37,7 +37,6 @@ Public Class F02_Cliente
     Dim BoModificar As Boolean = False
     Dim BoEliminar As Boolean = False
     Dim BoNavegar As Boolean = False
-    Dim UserSpecial As Boolean = False
 
     'Dim StCod As String
 
@@ -128,9 +127,6 @@ Public Class F02_Cliente
             Return
         End If
 
-        If VerificarUsuario() Then
-            UserSpecial = True
-        End If
         'Inicializar componentes
         P_prInicializarComponentes()
 
@@ -161,16 +157,6 @@ Public Class F02_Cliente
             stiFrecuencia.Visible = False
         End If
     End Sub
-
-    Private Function VerificarUsuario() As Boolean
-        Dim dt As DataTable = TraerUsuariosEspeciales()
-        For i = 0 To dt.Rows.Count - 1 Step 1
-            If gi_userNumi = dt.Rows(i).Item("especial") Then
-                Return True
-            End If
-        Next
-        Return False
-    End Function
     Private Sub _Habilitar()
         GroupPanelEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
     End Sub
@@ -212,8 +198,8 @@ Public Class F02_Cliente
         DtiUltimoPedido.ButtonDropDown.Enabled = False
         DtiUltimaVenta.IsInputReadOnly = True
         DtiUltimaVenta.ButtonDropDown.Enabled = False
-        TbiCantEntrante.IsInputReadOnly = True
-        TbiCantSaliente.IsInputReadOnly = True
+        TbiCantEntrante.IsInputReadOnly = False
+        TbiCantSaliente.IsInputReadOnly = False
         TbiCantSaldo.IsInputReadOnly = True
         tbAcuCodCliente.ReadOnly = True
         tbAcuNombre.ReadOnly = True
@@ -307,7 +293,6 @@ Public Class F02_Cliente
         cbSupervisor.ReadOnly = Not flat
         cbPrevendedor.ReadOnly = Not flat
         cbTipoCredito.ReadOnly = Not flat
-        cbCatCliente.ReadOnly = Not flat
 
         'DateTimer
         DtiFechaNac.IsInputReadOnly = Not flat
@@ -386,7 +371,7 @@ Public Class F02_Cliente
         cbSupervisor.SelectedIndex = 0
         cbPrevendedor.SelectedIndex = 0
         cbTipoCredito.SelectedIndex = 0
-        cbCatCliente.SelectedIndex = 0
+
         'DateTimer
         DtiFechaNac.Value = Now.Date
         DtiFechaIng.Value = Now.Date
@@ -444,7 +429,7 @@ Public Class F02_Cliente
         P_prArmarComboSupervisor()
         P_prArmarComboPrevendedor()
         P_prArmarComboTipoCredito()
-        P_prArmarComboCliente()
+
         If (gi_vacu = 1) Then
             'Combos acuerdo
             P_prArmarComboTipoAcuerdo()
@@ -495,7 +480,7 @@ Public Class F02_Cliente
                     Me.DtiFechaNac.Value = .GetValue("fnac")
                     Me.DtiFechaIng.Value = .GetValue("fing")
                     Me.TbDireccion.Text = .GetValue("direc").ToString
-                    Me.cbCatCliente.Value = .GetValue("ccuesp")
+
                     If (.GetValue("ultped").ToString.Equals("")) Then
                         Me.DtiUltimoPedido.Value = DtiFechaIng.Value
                     Else
@@ -804,7 +789,6 @@ Public Class F02_Cliente
 
         Dim giFrec As String
         Dim frecvisita As String
-        Dim usuesp As Integer
 
 
 
@@ -879,7 +863,7 @@ Public Class F02_Cliente
                 'Para registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-                usuesp = cbCatCliente.Value
+
 
 
                 BtAddEquipo.Select()
@@ -894,7 +878,7 @@ Public Class F02_Cliente
                                                        IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                        IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                        IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                       IIf(chbDomingo.Checked, 1, 0), TablaImagenes, usuesp)
+                                                       IIf(chbDomingo.Checked, 1, 0), TablaImagenes)
 
 
                 If (res) Then
@@ -990,7 +974,7 @@ Public Class F02_Cliente
                 'Para modificar o registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-                usuesp = cbCatCliente.Value
+
                 BtAddEquipo.Select()
 
                 Dim dt As DataTable = CType(DgjEquipo.DataSource, DataTable).DefaultView.ToTable(False, "chnumi", "chfec", "chcod", "chdesc", "chtmov", "chnrem", "chcan", "chmonbs", "chmonsus", "chnota", "chlin", "chobs", "estado")
@@ -1003,7 +987,7 @@ Public Class F02_Cliente
                                                           IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                           IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                           IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                          IIf(chbDomingo.Checked, 1, 0), TablaImagenes, usuesp)
+                                                          IIf(chbDomingo.Checked, 1, 0), TablaImagenes)
 
                 If (res) Then
                     _prCrearCarpetaImagenes("ProductosTodos")
@@ -1217,12 +1201,7 @@ Public Class F02_Cliente
 
     Private Sub P_prArmarGrillaBusqueda()
         DtBusqueda = New DataTable
-        If UserSpecial Then
-            DtBusqueda = L_fnClientes2()
-        Else
-            DtBusqueda = L_fnClientes()
-        End If
-
+        DtBusqueda = L_fnClientes()
 
         DgjBusqueda.BoundMode = Janus.Data.BoundMode.Bound
         DgjBusqueda.DataSource = DtBusqueda
@@ -2965,11 +2944,6 @@ Public Class F02_Cliente
         Dim dt As DataTable
         dt = L_fnObtenerTabla("cenum as [cod], cedesc as [desc]", "TC0051", "cecon=16")
         g_prArmarCombo(cbTipoCredito, dt, 60, 200, "Código", "Tipo Crédito")
-    End Sub
-    Private Sub P_prArmarComboCliente()
-        Dim dt As DataTable
-        dt = L_fnObtenerTabla("cenum as [cod], cedesc as [desc]", "TC0051", "cecon=107")
-        g_prArmarCombo(cbCatCliente, dt, 60, 200, "Código", "Categoria")
     End Sub
     'Private Sub P_prArmarComboDias()
     '    Dim dt As New DataTable

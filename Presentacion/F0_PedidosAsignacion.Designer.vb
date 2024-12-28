@@ -153,9 +153,6 @@ Partial Class F0_PedidosAsignacion
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ConMenu_Rechazado = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuImprimir = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl1.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
@@ -221,7 +218,6 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.SuspendLayout()
         Me.ConMenu_Opciones1.SuspendLayout()
         Me.ConMenu_Rechazado.SuspendLayout()
-        Me.ContextMenuImprimir.SuspendLayout()
         Me.SuspendLayout()
         '
         'SuperTabControl1
@@ -239,8 +235,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1284, 661)
@@ -248,8 +244,8 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
         '
         'SuperTabControlPanel2
         '
@@ -2408,9 +2404,9 @@ Partial Class F0_PedidosAsignacion
         'ConMenu_Opciones3
         '
         Me.ConMenu_Opciones3.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.ToolStripMenuItem3, Me.VERHISTORIALToolStripMenuItem2})
+        Me.ConMenu_Opciones3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2, Me.VERHISTORIALToolStripMenuItem2})
         Me.ConMenu_Opciones3.Name = "ConMenu_Opciones3"
-        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 114)
+        Me.ConMenu_Opciones3.Size = New System.Drawing.Size(351, 92)
         '
         'RETORNARPEDIDOACONFIRMACIONDEENTREGAToolStripMenuItem
         '
@@ -2493,26 +2489,6 @@ Partial Class F0_PedidosAsignacion
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(246, 26)
         Me.ToolStripMenuItem2.Text = "RETORNAR A PEDIDO DICTADO "
         '
-        'ContextMenuImprimir
-        '
-        Me.ContextMenuImprimir.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuImprimir.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8})
-        Me.ContextMenuImprimir.Name = "ConMenu_Opciones"
-        Me.ContextMenuImprimir.Size = New System.Drawing.Size(175, 30)
-        '
-        'ToolStripMenuItem8
-        '
-        Me.ToolStripMenuItem8.Image = Global.Presentacion.My.Resources.Resources.I32x32_printer
-        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(184, 26)
-        Me.ToolStripMenuItem8.Text = "IMPRIMIR PEDIDO"
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(350, 22)
-        Me.ToolStripMenuItem3.Text = "IMPRIMIR RECIBO"
-        '
         'F0_PedidosAsignacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2589,7 +2565,6 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones3.ResumeLayout(False)
         Me.ConMenu_Opciones1.ResumeLayout(False)
         Me.ConMenu_Rechazado.ResumeLayout(False)
-        Me.ContextMenuImprimir.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2725,7 +2700,4 @@ Partial Class F0_PedidosAsignacion
     Friend WithEvents pbImgProdu As PictureBox
     Friend WithEvents PanelListImagenes As Panel
     Friend WithEvents ButtonX6 As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents ContextMenuImprimir As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
 End Class

@@ -8,7 +8,7 @@ Public Class F01_KardexInventarioEquiProd
     Dim _inter As Integer = 0
 #Region "Atributos generales"
 
-    Private stTitulo As String = "K A R D E X   D E   E Q U I P O"
+    Private stTitulo As String = "K A R D E X   D E   C A N A S T I L L O S"
     Private inTipo As Byte = 1
 
     Public _nameButton As String
@@ -75,10 +75,47 @@ Public Class F01_KardexInventarioEquiProd
         'Me.WindowState = FormWindowState.Maximized
         _prCargarComboLibreriaDeposito(cbAlmacenOrigen)
         cbAlmacenOrigen.SelectedIndex = 0
-        MRlAccion.Text = IIf(Tipo = 1, "KARDEX DE EQUIPO", "KARDEX DE PRODUCTO")
-        lbEquiProd.Text = IIf(Tipo = 1, "Equipo", "Producto")
-        GroupPanelKardex.Text = IIf(Tipo = 1, "HISTORIAL KARDEX DE EQUIPO", "HISTORIAL KARDEX DE PRODUCTO")
-        GroupPanelBusqueda.Text = IIf(Tipo = 1, "BUSQUEDA DE EQUIPO", "BUSQUEDA DE PRODUCTO")
+        CheckTodosClientes.Checked = True
+        MRlAccion.Text = IIf(Tipo = 1, "KARDEX DE CANASTILLOS", "KARDEX DE PRODUCTO")
+        lbEquiProd.Text = IIf(Tipo = 1, "Canastillos", "Producto")
+
+        Dti1FechaIni.Value = Now.Date
+        Dti2FechaFin.Value = Now.Date
+        If Tipo = 1 Then
+            lbCliente.Visible = True
+            tbDescCliente.Visible = True
+            checkUnCliente.Visible = True
+            CheckTodosClientes.Visible = True
+
+            lbEquiProd.Visible = False
+            Tb1CodEquipo.Visible = False
+            Bt1BuscarCliente.Visible = False
+            Tb2DescEquipo.Visible = False
+
+            cbAlmacenOrigen.Visible = False
+            lbDepositoOrigen.Visible = False
+
+            Dti1FechaIni.Value = "01/01/2024"
+            Dti1FechaIni.Visible = False
+            Dim coorden As New Point(91, 35)
+            Dti2FechaFin.Location = coorden
+            LabelX3.Visible = False
+            LabelX2.Text = "Fecha Al:"
+            Tb1CodEquipo.Text = "36"
+            If (L_ObtenerStockInventario(1, Tb1CodEquipo.Text).Tables(0).Rows.Count > 0) Then
+                Tb3Saldo.Text = L_ObtenerStockInventario(1, Tb1CodEquipo.Text).Tables(0).Rows(0).Item("Cantidad").ToString
+            Else
+                Tb3Saldo.Text = "0"
+            End If
+        Else
+            lbCliente.Visible = False
+            tbDescCliente.Visible = False
+            checkUnCliente.Visible = False
+            CheckTodosClientes.Visible = False
+
+        End If
+        GroupPanelKardex.Text = IIf(Tipo = 1, "HISTORIAL KARDEX DE CANASTILLOS", "HISTORIAL KARDEX DE PRODUCTO")
+        GroupPanelBusqueda.Text = IIf(Tipo = 1, "BUSQUEDA DE CANASTILLOS", "BUSQUEDA DE PRODUCTO")
 
         MBtNuevo.Visible = False
         MBtModificar.Visible = False
@@ -89,8 +126,7 @@ Public Class F01_KardexInventarioEquiProd
         MSuperTabItemBusqueda.Visible = False
         MSuperTabControlPrincipal.SelectedTabIndex = 0
 
-        Dti1FechaIni.Value = Now.Date
-        Dti2FechaFin.Value = Now.Date
+
 
         P_ArmarGrillaDatos()
         P_ArmarGrillaAyuda()
@@ -119,8 +155,14 @@ Public Class F01_KardexInventarioEquiProd
         Dt1Kardex = New DataTable
         Dt2KardexTotal = New DataTable
         If (Tb1CodEquipo.Text.Length > 0) Then
-            Dt2KardexTotal = L_VistaKardexInventarioTodo(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
-            Dt1Kardex = L_VistaKardexInventario(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
+            If Tipo = 1 Then
+                Dt2KardexTotal = L_VistaKardexInventarioTodo2(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value, tbDescCliente.Text).Tables(0)
+                Dt1Kardex = L_VistaKardexInventario2(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value, tbDescCliente.Text).Tables(0)
+            Else
+                Dt2KardexTotal = L_VistaKardexInventarioTodo(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
+                Dt1Kardex = L_VistaKardexInventario(Tb1CodEquipo.Text, Dti1FechaIni.Value.ToString("yyyy/MM/dd"), Dti2FechaFin.Value.ToString("yyyy/MM/dd"), cbAlmacenOrigen.Value).Tables(0)
+            End If
+
             If (Dt1Kardex.Rows.Count > 0) Then
                 P_ArmarKardex()
             Else
@@ -234,7 +276,7 @@ Public Class F01_KardexInventarioEquiProd
             .FormatString = "0.00"
         End With
         With Dgj1Datos.RootTable.Columns(9)
-            .Caption = IIf(Tipo = 1, "Equipo", "Producto")
+            .Caption = IIf(Tipo = 1, "Canastillo", "Producto")
             .Key = "descProd"
             .Width = 200
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -536,21 +578,22 @@ Public Class F01_KardexInventarioEquiProd
         f.Item(11) = 0
         f.Item(12) = saldoInicial
         f.Item(13) = ""
-
-        Dt1Kardex.Rows.InsertAt(f, 0)
+        If Tipo <> 1 Then
+            Dt1Kardex.Rows.InsertAt(f, 0)
+        End If
 
         For Each fil As DataRow In Dt1Kardex.Rows
-            Dim s As String = fil.Item("concep").ToString
-            If (fil.Item("concep").ToString.Equals("1")) Then
-                saldoInicial = saldoInicial + CDbl(fil.Item("cant"))
-                fil.Item("saldo") = saldoInicial
-            ElseIf (fil.Item("concep").ToString.Equals("2")) Then
-                saldoInicial = saldoInicial + CDbl(fil.Item("cant"))
-                fil.Item("saldo") = saldoInicial
-            End If
-        Next
+                Dim s As String = fil.Item("concep").ToString
+                If (fil.Item("concep").ToString.Equals("1")) Then
+                    saldoInicial = saldoInicial + CDbl(fil.Item("cant"))
+                    fil.Item("saldo") = saldoInicial
+                ElseIf (fil.Item("concep").ToString.Equals("2")) Then
+                    saldoInicial = saldoInicial + CDbl(fil.Item("cant"))
+                    fil.Item("saldo") = saldoInicial
+                End If
+            Next
 
-        P_prActualizarSaldo()
+            P_prActualizarSaldo()
 
     End Sub
 
@@ -569,7 +612,7 @@ Public Class F01_KardexInventarioEquiProd
         objrep.SetDataSource(Dt1Kardex)
         objrep.SetParameterValue("FechaIni", Dti1FechaIni.Value.ToShortDateString)
         objrep.SetParameterValue("FechaFin", Dti2FechaFin.Value.ToShortDateString)
-        objrep.SetParameterValue("Titulo", IIf(Tipo = 1, "Equipos", "Productos"))
+        objrep.SetParameterValue("Titulo", IIf(Tipo = 1, "Canastillos", "Productos"))
         objrep.SetParameterValue("Saldo", CDbl(Dt1Kardex.Rows(Dt1Kardex.Rows.Count - 1).Item("saldo").ToString))
 
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
@@ -624,5 +667,73 @@ Public Class F01_KardexInventarioEquiProd
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub CheckTodosClientes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckTodosClientes.CheckedChanged
+        If (CheckTodosClientes.Checked) Then
+            checkUnCliente.CheckValue = False
+            tbDescCliente.Enabled = True
+
+            tbDescCliente.Clear()
+            tbCodigoCliente.Clear()
+
+        End If
+    End Sub
+
+    Private Sub checkUnCliente_CheckedChanged(sender As Object, e As EventArgs) Handles checkUnCliente.CheckedChanged
+        If (checkUnCliente.Checked) Then
+            CheckTodosClientes.CheckValue = False
+            tbDescCliente.Enabled = True
+            tbDescCliente.Focus()
+
+        End If
+    End Sub
+
+    Private Sub tbDescCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles tbDescCliente.KeyDown
+        If (checkUnCliente.Checked) Then
+            If e.KeyData = Keys.Control + Keys.Enter Then
+                _prListarDistribuidores()
+            End If
+
+        End If
+    End Sub
+
+    Public Sub _prListarDistribuidores()
+
+        Dim dt As DataTable
+        dt = L_prListarCliente()
+
+        'a.ccnumi, a.cccod, isnull(a.ccdesc, '') as ccdesc, isnull (a.cctelf2, '') as cctelf2,
+        'isnull(a.ccobs, '') as ccobs
+        Dim listEstCeldas As New List(Of Modelo.MCelda)
+        listEstCeldas.Add(New Modelo.MCelda("ccnumi", True, "ID", 50))
+        listEstCeldas.Add(New Modelo.MCelda("cccod", True, "CODIGO", 70))
+        listEstCeldas.Add(New Modelo.MCelda("ccdesc", True, "NOMBRE", 280))
+        listEstCeldas.Add(New Modelo.MCelda("cctelf2", True, "TELEFONO", 220))
+        listEstCeldas.Add(New Modelo.MCelda("ccobs", True, "DIRECCION".ToUpper, 200))
+        Dim ef = New Efecto
+        ef.tipo = 3
+        ef.dt = dt
+        ef.SeleclCol = 1
+        ef.listEstCeldas = listEstCeldas
+        ef.alto = 50
+        ef.ancho = 350
+        ef.Context = "Seleccione CLIENTE".ToUpper
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
+        bandera = ef.band
+        If (bandera = True) Then
+            Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+            If (IsNothing(Row)) Then
+                tbDescCliente.Focus()
+                Return
+            End If
+            tbCodigoCliente.Text = Row.Cells("ccnumi").Value
+            tbDescCliente.Text = Row.Cells("ccdesc").Value
+            'MBtGenerar.Select()
+
+        End If
+
+
     End Sub
 End Class

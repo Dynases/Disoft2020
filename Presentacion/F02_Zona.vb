@@ -10,6 +10,8 @@ Imports Janus.Data
 Imports Janus.Windows.GridEX
 Imports DevComponents.DotNetBar.Controls
 
+
+
 Public Class F02_Zona
     Dim _inter As Integer = 0
 #Region "Atributos generales"
@@ -293,6 +295,7 @@ Public Class F02_Zona
         P_prArmarComboCiudad()
         P_prArmarComboProvincia()
         P_prArmarComboZona()
+        ' P_prArmarComboCatCliente()
     End Sub
 
     Private Sub P_PrArmarGrillas()
@@ -305,6 +308,26 @@ Public Class F02_Zona
         MLbPaginacion.Text = "Reg. " & index + 1 & " de " & DgjBusqueda.GetRows.Count
     End Sub
 
+    'Private Sub P_prArmarComboCatCliente()
+
+    '    Dim Dt As New DataTable
+    '    Dt = L_CategoriaPrecioGeneral("citcv='True'")
+    '    With cbCatPre.DropDownList
+    '        .Columns.Add(Dt.Columns(0).ToString).Width = 50
+    '        .Columns(0).Caption = "Código"
+
+    '        .Columns.Add(Dt.Columns(1).ToString).Width = 70
+    '        .Columns(1).Caption = "Abreviatura"
+
+    '        .Columns.Add(Dt.Columns(2).ToString).Width = 120
+    '        .Columns(2).Caption = "Descripción"
+    '    End With
+
+    '    cbCatPre.ValueMember = Dt.Columns(0).ToString
+    '    cbCatPre.DisplayMember = Dt.Columns(2).ToString
+    '    cbCatPre.DataSource = Dt
+    '    cbCatPre.Refresh()
+    'End Sub
     Private Sub P_prMoverIndexActual()
         Dim index As Integer = CInt(MLbPaginacion.Text.Trim.Split(" ")(1).Trim)
         If (index < 0) Then
@@ -669,7 +692,7 @@ Public Class F02_Zona
 
     Private Sub P_prArmarGrillaBusqueda()
         DtBusqueda = New DataTable
-        DtBusqueda = L_fnZonaGeneral()
+        DtBusqueda = L_fnZonaGeneral2()
 
         DgjBusqueda.BoundMode = Janus.Data.BoundMode.Bound
         DgjBusqueda.DataSource = DtBusqueda
@@ -956,12 +979,17 @@ Public Class F02_Zona
     Private Sub P_prCargarMapa()
         GmMapa.DragButton = MouseButtons.Left
         GmMapa.CanDragMap = True
-        GmMapa.MapProvider = GMapProviders.BingSatelliteMap
+        GmMapa.MapProvider = GMapProviders.GoogleMap
+        GMaps.Instance.Mode = AccessMode.ServerOnly ' Requerido para evitar el mensaje de advertencia
+
+        ' Agrega un segundo proveedor de mapas para los nombres de call
+
         GmMapa.Position = New PointLatLng(-17.782814, -63.182386)
         GmMapa.MinZoom = 0
         GmMapa.MaxZoom = 24
         GmMapa.Zoom = 14
         GmMapa.AutoScroll = True
+        GmMapa.ShowCenter = False
         GMapProvider.Language = LanguageType.Spanish
 
         'GM_mapa.Manager.Mode = AccessMode.CacheOnly
@@ -1123,10 +1151,6 @@ Public Class F02_Zona
                 GmMapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
             Case "SALTA"
                 GmMapa.Position = New PointLatLng(-24.789496, -65.410377)
-            Case "JUJUY"
-                GmMapa.Position = New PointLatLng(-24.186866252769693, -65.2995127819435)
-            Case "TUCUMAN"
-                GmMapa.Position = New PointLatLng(-26.823925, -65.223834)
         End Select
 
         MEP.SetError(CbCiudad, "")

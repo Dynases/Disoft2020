@@ -377,8 +377,16 @@ Public Class F02_PedidoNuevo
             .CellStyle.FontSize = gi_fuenteTamano
             .AllowSort = False
         End With
-
         With JGr_DetallePedido.RootTable.Columns(4)
+            .Caption = "Unidad"
+            .Key = "unidad"
+            .Width = 80
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.FontSize = gi_fuenteTamano
+            .AllowSort = False
+        End With
+
+        With JGr_DetallePedido.RootTable.Columns(5)
             .Caption = "Cantidad"
             .Key = "Cantidad"
             .Width = 90
@@ -387,7 +395,7 @@ Public Class F02_PedidoNuevo
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00"
         End With
-        With JGr_DetallePedido.RootTable.Columns(5)
+        With JGr_DetallePedido.RootTable.Columns(6)
             .Caption = "Precio"
             .Key = "Precio"
             .Width = 90
@@ -396,7 +404,7 @@ Public Class F02_PedidoNuevo
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00000"
         End With
-        With JGr_DetallePedido.RootTable.Columns(6)
+        With JGr_DetallePedido.RootTable.Columns(7)
             .Caption = "Monto " + gs_Mon
             .Key = "Monto"
             .Width = 90
@@ -406,7 +414,7 @@ Public Class F02_PedidoNuevo
             .FormatString = "0.00"
             .AggregateFunction = AggregateFunction.Sum
         End With
-        With JGr_DetallePedido.RootTable.Columns(7)
+        With JGr_DetallePedido.RootTable.Columns(8)
             .Visible = True
             .Caption = "Descuento"
             .Key = "Descuento"
@@ -416,7 +424,7 @@ Public Class F02_PedidoNuevo
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .FormatString = "0.00"
         End With
-        With JGr_DetallePedido.RootTable.Columns(8)
+        With JGr_DetallePedido.RootTable.Columns(9)
             .Visible = True
             .Caption = "Total " + gs_Mon
             .Key = "Total"
@@ -427,17 +435,17 @@ Public Class F02_PedidoNuevo
             .FormatString = "0.00"
             .AggregateFunction = AggregateFunction.Sum
         End With
-        With JGr_DetallePedido.RootTable.Columns(9)
+        With JGr_DetallePedido.RootTable.Columns(10)
             .Caption = "Familia"
             .Key = "Familia"
             .Visible = False
         End With
-        With JGr_DetallePedido.RootTable.Columns(10)
+        With JGr_DetallePedido.RootTable.Columns(11)
             .Caption = "Atributo"
             .Key = "Atributo"
             .Visible = False
         End With
-        With JGr_DetallePedido.RootTable.Columns(11)
+        With JGr_DetallePedido.RootTable.Columns(12)
             .Caption = "Stock"
             .Key = "Stock"
             .Visible = False
@@ -612,11 +620,12 @@ Public Class F02_PedidoNuevo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = False
         End With
         With JGr_Productos.RootTable.Columns(2)
             .Caption = "Descripcion"
             .Key = "Descripcion"
-            .Width = 180
+            .Width = 120
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .AllowSort = False
@@ -646,6 +655,11 @@ Public Class F02_PedidoNuevo
             .Visible = False
         End With
         With JGr_Productos.RootTable.Columns(8)
+            .Caption = "Unidad"
+            .Visible = True
+            .Width = 80D
+        End With
+        With JGr_Productos.RootTable.Columns(9)
             .Caption = "Stock"
             .Visible = True
             .Width = 60
@@ -1160,7 +1174,7 @@ Public Class F02_PedidoNuevo
         MBtModificar.Enabled = False
         MBtEliminar.Enabled = False
         MBtGrabar.Enabled = True
-        Tb_Fecha.Enabled = True
+        Tb_Fecha.Enabled = False
         swStock.Enabled = True
 
         'BBtn_Nuevo.Enabled = False
@@ -1178,7 +1192,7 @@ Public Class F02_PedidoNuevo
         Tb_Estado.Enabled = True
 
         cbDistribuidor.ReadOnly = False
-        cbPreVendedor.ReadOnly = False
+        cbPreVendedor.ReadOnly = True
 
         If _nuevoBasePeriodico = True Then
             GrPan_PeriodoPedido.Enabled = True
@@ -1569,6 +1583,7 @@ Public Class F02_PedidoNuevo
     End Function
 
     Private Sub _PGrabarRegistro()
+        btAplicarDesc.PerformClick()
         Try
             Dim _Error As Boolean = False
             If _PValidar() Then
@@ -1629,24 +1644,26 @@ Public Class F02_PedidoNuevo
                 L_GrabarModificarCliente("cczona=" + Tb_CliCodZona.Text, "ccnumi=" + Str(Tb_CliCod.Text))
 
                 'grabar detalle
-                Dim codProd, cant, precio, subTotal, desc, total, flia, atributo As String
-                Dim i As Integer
-                For i = 0 To JGr_DetallePedido.RowCount - 1
-                    JGr_DetallePedido.Row = i
-                    codProd = JGr_DetallePedido.CurrentRow.Cells("CodProd").Value
-                    cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
-                    precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
-                    subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
-                    flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
-                    atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
+                L_prGrabarDetalle(Tb_Id.Text, CType(JGr_DetallePedido.DataSource, DataTable))
+                'Dim codProd, cant, precio, subTotal, desc, total, flia, atributo As String
+                'Dim i As Integer
+                ''-------------------------
+                'For i = 0 To JGr_DetallePedido.RowCount - 1
+                '    JGr_DetallePedido.Row = i
+                '    codProd = JGr_DetallePedido.CurrentRow.Cells("CodProd").Value
+                '    cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
+                '    precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+                '    subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+                '    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
+                '    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+                '    flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
+                '    atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
-                    L_PedidoDetalle_GrabarNuevo(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia, atributo)
+                '    L_PedidoDetalle_GrabarNuevo(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia, atributo)
 
-                    'adiciono un objeto detalle
-                    objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
-                Next
+                '    'adiciono un objeto detalle
+                '    objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
+                'Next
 
                 'VERIFICAR SI EL CLIENTE ESTABA PASIVO
                 If Tb_CliEstado.Text = "0" Then
@@ -2116,7 +2133,7 @@ Public Class F02_PedidoNuevo
         _PLimpiar()
         Tb_Fecha.Focus()
         _Nuevo = True
-        btnVentaDirecta.Visible = True
+        btnVentaDirecta.Visible = False
         'ir a clientes
         MSuperTabControlPrincipal.SelectedTabIndex = 2
         JGr_Clientes.Focus()
@@ -2328,7 +2345,7 @@ Public Class F02_PedidoNuevo
                     cbPreVendedor.SelectedText = ""
                 End If
             End If
-
+            cbPreVendedor.Value = 2
             'poner el foco en tipo de producto
             MSuperTabControlPrincipal.SelectedTabIndex = 0
             JGr_TipoProd.Focus()
@@ -2372,7 +2389,7 @@ Public Class F02_PedidoNuevo
 
                     If (Not existe) Then
                         'agregar al detalle producto seleccionado
-                        Dim codProd, codProd1, descrip, precio, familia, atributo, stock As String
+                        Dim codProd, codProd1, descrip, precio, familia, atributo, stock, unidad As String
 
                         codProd = Convert.ToString(JGr_Productos.CurrentRow.Cells("Codigo").Value)
                         codProd1 = Convert.ToString(JGr_Productos.CurrentRow.Cells("CodigoFlex").Value)
@@ -2381,18 +2398,19 @@ Public Class F02_PedidoNuevo
                         familia = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr4").Value)
                         atributo = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr3").Value)
                         stock = Convert.ToString(JGr_Productos.CurrentRow.Cells("iacant").Value)
-
+                        unidad = Convert.ToString(JGr_Productos.CurrentRow.Cells("cedesc").Value)
 
                         Dim nuevaFila As DataRow = CType(JGr_DetallePedido.DataSource, DataTable).NewRow()
 
                         nuevaFila(1) = codProd
                         nuevaFila(2) = codProd1
                         nuevaFila(3) = descrip
-                        nuevaFila(5) = precio
-                        nuevaFila(7) = 0
-                        nuevaFila(9) = familia
-                        nuevaFila(10) = atributo
-                        nuevaFila(11) = stock
+                        nuevaFila(4) = unidad
+                        nuevaFila(6) = precio
+                        nuevaFila(8) = 0
+                        nuevaFila(10) = familia
+                        nuevaFila(11) = atributo
+                        nuevaFila(12) = stock
 
                         CType(JGr_DetallePedido.DataSource, DataTable).Rows.Add(nuevaFila)
 
@@ -2470,7 +2488,10 @@ Public Class F02_PedidoNuevo
     End Sub
 
     Public Function _fnAccesible()
-        Return Tb_Fecha.Enabled = True
+        If MBtModificar.Enabled = True Or MBtNuevo.Enabled = False Then
+            Return True
+        End If
+        'Return Tb_Fecha.Enabled = True
     End Function
     Private Sub JGr_TipoProd_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGr_TipoProd.EditingCell
         e.Cancel = True
@@ -3082,24 +3103,25 @@ Public Class F02_PedidoNuevo
             L_GrabarModificarCliente("cczona=" + Tb_CliCodZona.Text, "ccnumi=" + Str(Tb_CliCod.Text))
 
             'grabar detalle
-            Dim codProd, cant, precio, subTotal, desc, total, flia, atributo As String
-            Dim i As Integer
-            For i = 0 To JGr_DetallePedido.RowCount - 1
-                JGr_DetallePedido.Row = i
-                codProd = JGr_DetallePedido.CurrentRow.Cells("CodProd").Value
-                cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
-                precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
-                subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
-                desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
-                total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
-                flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
-                atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
+            L_prGrabarDetalle(Tb_Id.Text, CType(JGr_DetallePedido.DataSource, DataTable))
+            'Dim codProd, cant, precio, subTotal, desc, total, flia, atributo As String
+            'Dim i As Integer
+            'For i = 0 To JGr_DetallePedido.RowCount - 1
+            '    JGr_DetallePedido.Row = i
+            '    codProd = JGr_DetallePedido.CurrentRow.Cells("CodProd").Value
+            '    cant = JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value
+            '    precio = JGr_DetallePedido.CurrentRow.Cells("Precio").Value
+            '    subTotal = JGr_DetallePedido.CurrentRow.Cells("Monto").Value
+            '    desc = JGr_DetallePedido.CurrentRow.Cells("Descuento").Value
+            '    total = JGr_DetallePedido.CurrentRow.Cells("Total").Value
+            '    flia = JGr_DetallePedido.CurrentRow.Cells("Familia").Value
+            '    atributo = JGr_DetallePedido.CurrentRow.Cells("Atributo").Value
 
-                L_PedidoDetalle_GrabarNuevo(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia, atributo)
+            '    L_PedidoDetalle_GrabarNuevo(Tb_Id.Text, codProd, cant, precio, subTotal, desc, total, flia, atributo)
 
-                'adiciono un objeto detalle
-                objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
-            Next
+            '    'adiciono un objeto detalle
+            '    objListDetalle.Add(New RequestDetail(Tb_Id.Text, codProd, cant, precio, subTotal, L_ClaseGetProducto(codProd))) 'webLuis
+            'Next
 
             'VERIFICAR SI EL CLIENTE ESTABA PASIVO
             If Tb_CliEstado.Text = "0" Then

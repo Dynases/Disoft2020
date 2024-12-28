@@ -39,22 +39,22 @@ Public Class R01_VentasAtendidas
         If (swTipoVenta.Value = True) Then  ''''''PRE VENDEDOR
             titulo = "PRE VENDEDOR:"
             If (CheckTodosVendedor.Checked) Then
-                _dt = L_prReporteVentasTodosPrevendedores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), gi_userNumi)
+                _dt = L_prReporteVentasTodosPrevendedores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
-                _dt = L_prReporteVentasUnoPrevendedores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, gi_userNumi)
+                _dt = L_prReporteVentasUnoPrevendedores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
                 Return
             End If
 
         Else   ''''' DISTRIBUIDOR
             titulo = "DISTRIBUIDOR:"
             If (CheckTodosVendedor.Checked) Then
-                _dt = L_prReporteVentasTodosDistribuidores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), gi_userNumi)
+                _dt = L_prReporteVentasTodosDistribuidores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
                 Return
             End If
             If (checkUnaVendedor.Checked) Then
-                _dt = L_prReporteVentasUnoDistribuidor(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text, gi_userNumi)
+                _dt = L_prReporteVentasUnoDistribuidor(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), tbCodigoVendedor.Text)
                 Return
             End If
         End If

@@ -29,16 +29,10 @@ Public Class F0_PedidosAsignacion
 
     Dim RutaGlobal As String = gs_CarpetaRaiz
 
-    Dim UserSpecial As Boolean = False
-
 #End Region
 
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
-
-        If VerificarUsuario() Then
-            UserSpecial = True
-        End If
         dtImagenesAll = L_prCargarImagenesClienteAll()
         'L_prJobDuplicados()
         If gb_mostrarMapa = False Then
@@ -93,15 +87,6 @@ Public Class F0_PedidosAsignacion
         'SuperTabItem4.Visible = False
     End Sub
 
-    Private Function VerificarUsuario() As Boolean
-        Dim dt As DataTable = TraerUsuariosEspeciales()
-        For i = 0 To dt.Rows.Count - 1 Step 1
-            If gi_userNumi = dt.Rows(i).Item("especial") Then
-                Return True
-            End If
-        Next
-        Return False
-    End Function
     Private Sub _PAsignarPermisos()
         'Dim idRolUsu As String = L_Usuario_General(-1, " AND yduser='" + gs_user + "' ").Tables(0).Rows(0).Item("ybnumi")
         'Dim dtRolUsu As DataTable = L_RolDetalle_General2(-1, idRolUsu, "ycyanumi=9")
@@ -188,42 +173,22 @@ Public Class F0_PedidosAsignacion
         Dim dtReg As DataTable
         If codZona = "" Then
             If codRep = "-1" Then
-                If UserSpecial Then
-                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " )   and ccuesp > 0")
-                Else
-                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
-                End If
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
             Else
                 If estado = "1" Then
-                    If UserSpecial Then
-                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0")
-                    Else
-                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ")
-                    End If
+                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
                 Else
-                    If UserSpecial Then
-                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0")
-                    Else
-                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ")
-                    End If
+                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
                 End If
             End If
         Else
             If codRep = "-1" Then
-                If UserSpecial Then
-                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " and ccuesp > 0")
-                Else
-                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
-                End If
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
             Else
-                If UserSpecial Then
-                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " and ccuesp > 0")
-                Else
-                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
-                End If
+                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
             End If
 
-            End If
+        End If
 
 
         'añadir columna de check box
@@ -420,20 +385,20 @@ Public Class F0_PedidosAsignacion
         'fc.FormatStyle.BackColor = Color.LightYellow
         fc.FormatStyle.ForeColor = Color.Red
 
-        'fc1 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 1)
-        'fc1.FormatStyle.BackColor = Color.LightGreen
+        fc1 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 1)
+        fc1.FormatStyle.BackColor = Color.LightGreen
 
         'pedido generado desde el celular
-        'fc66 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 11)
-        'fc66.FormatStyle.BackColor = Color.LightCyan
+        fc66 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 11)
+        fc66.FormatStyle.BackColor = Color.LightCyan
 
         'formato para decir si es un pedido esta entregado y con nota
         fc2 = New GridEXFormatCondition(objGrid.RootTable.Columns("oaest"), ConditionOperator.Equal, 4)
         fc2.FormatStyle.BackColor = Color.LightGray
 
         'formato para decir si es un pedido fue regerado a partir de otro pedido
-        'fc3 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 2)
-        'fc3.FormatStyle.BackColor = Color.Yellow
+        fc3 = New GridEXFormatCondition(objGrid.RootTable.Columns("oapg"), ConditionOperator.Equal, 2)
+        fc3.FormatStyle.BackColor = Color.Yellow
 
         'formato para decir si es un pedido tiene reclamo de un repartidor
         fcRecRepart = New GridEXFormatCondition(objGrid.RootTable.Columns("tipoRecRepartidor"), ConditionOperator.Equal, 1)
@@ -444,10 +409,10 @@ Public Class F0_PedidosAsignacion
         fcRecClient.FormatStyle.BackColor = Color.LightGreen
 
         objGrid.RootTable.FormatConditions.Add(fc)
-        'objGrid.RootTable.FormatConditions.Add(fc1)
+        objGrid.RootTable.FormatConditions.Add(fc1)
         objGrid.RootTable.FormatConditions.Add(fc2)
-        'objGrid.RootTable.FormatConditions.Add(fc3)
-        'objGrid.RootTable.FormatConditions.Add(fc66)
+        objGrid.RootTable.FormatConditions.Add(fc3)
+        objGrid.RootTable.FormatConditions.Add(fc66)
 
         objGrid.RootTable.FormatConditions.Add(fcRecRepart)
         objGrid.RootTable.FormatConditions.Add(fcRecClient)
@@ -2251,7 +2216,7 @@ Public Class F0_PedidosAsignacion
         objrep.SetParameterValue("descuento", desc)
 
         objrep.PrintOptions.PrinterName = printerName
-        objrep.PrintToPrinter(1, True, 1, 1)
+        objrep.PrintToPrinter(1, False, 1, 1)
 
 
     End Sub
@@ -2367,49 +2332,5 @@ Public Class F0_PedidosAsignacion
             Exit Sub
         End If
         EliminarImagenes()
-    End Sub
-
-    Private Sub ContextMenuImprimir_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuImprimir.Opening
-
-    End Sub
-
-    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
-        If (JGr_Registros3.GetRows.Count > 0) Then
-            Dim dPrinter As New PrintDialog
-
-            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
-                For Each fil As GridEXRow In JGr_Registros3.GetRows
-                    P_ImprimirRecibos(fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
-                Next
-            End If
-        Else
-            ToastNotification.Show(Me,
-                                   "No hay ningún pedido para imprimir.".ToUpper,
-                                   My.Resources.WARNING,
-                                   3 * 1000,
-                                   eToastGlowColor.Red,
-                                   eToastPosition.TopCenter)
-
-        End If
-    End Sub
-
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
-        If (JGr_Registros3.GetRows.Count > 0) Then
-            Dim dPrinter As New PrintDialog
-
-            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
-                'For Each fil As GridEXRow In JGr_Registros3.GetRows
-                P_ImprimirRecibos(JGr_Registros3.GetValue("CodPedido"), dPrinter.PrinterSettings.PrinterName) 'fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
-                'Next
-            End If
-        Else
-            ToastNotification.Show(Me,
-                                   "No hay ningún pedido para imprimir.".ToUpper,
-                                   My.Resources.WARNING,
-                                   3 * 1000,
-                                   eToastGlowColor.Red,
-                                   eToastPosition.TopCenter)
-
-        End If
     End Sub
 End Class

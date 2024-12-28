@@ -15,9 +15,6 @@ Imports System.ComponentModel
 Imports Newtonsoft.Json
 Imports Presentacion.RespPDF
 Imports Presentacion.RespFactura
-Imports Presentacion.EmisorResp
-Imports Presentacion.Numeracion
-Imports Presentacion.ResNumeracion
 Imports PdfiumViewer
 Imports iTextSharp.text.pdf
 Imports iTextSharp.text
@@ -29,7 +26,7 @@ Public Class frmBillingDispatch
     Public _modulo As SideNavItem
 
     Private _cargaCompleta = False
-    Private _TipoCarga = False
+
     Public nit As String
     Public razonsocial As String
     Public email As String
@@ -37,12 +34,9 @@ Public Class frmBillingDispatch
 
     Public fact As Integer = 0
 
-    Private WithEvents pdfViewer As AxAcroPDFLib.AxAcroPDF
+
 #Region "Eventos"
     Private Sub frmBillingDispatch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'pdfViewer = New AxAcroPDFLib.AxAcroPDF()
-        'Me.Controls.Add(PdfViewer)
-        'PdfViewer.Dock = DockStyle.Fill
         Init()
     End Sub
 
@@ -50,7 +44,6 @@ Public Class frmBillingDispatch
         Try
             If (_cargaCompleta) Then
                 CargarPedidos()
-                _TipoCarga = False
                 lblCantidadPedido.Text = dgjPedido.RowCount.ToString
                 btnNotaVenta.Enabled = True
                 btnFactura.Enabled = True
@@ -66,24 +59,18 @@ Public Class frmBillingDispatch
             If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
-            Dim listIdPedido As New List(Of Integer)()
-            Dim listVendedores As New List(Of String)()
-            'Dim checks = Me.dgjPedido.GetCheckedRows()
-            'Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
-            For i = 0 To CType(dgjPedido.DataSource, DataTable).Rows.Count - 1 Step 1
-                If CType(dgjPedido.DataSource, DataTable).Rows(i).Item("checks") = True Then
-                    listIdPedido.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("Id"))
-                    listVendedores.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("NombreVendedor"))
-                End If
-            Next
+
+            Dim checks = Me.dgjPedido.GetCheckedRows()
+            Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+
             If (listIdPedido.Count = 0) Then
                 Throw New Exception("Debe seleccionar por lo menos un pedido.")
             End If
 
-            'Dim list1 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
+            Dim list1 As List(Of VPedido_BillingDispatch) = CType(dgjPedido.DataSource, List(Of VPedido_BillingDispatch))
             'Dim list1 As List(Of VPedido_BillingDispatch) = New List(Of VPedido_BillingDispatch)
 
-            'list1 = list1.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
+            list1 = list1.Where(Function(a) listIdPedido.Contains(a.Id)).ToList()
 
             'For i As Integer = 0 To list2.Count - 1 Step 1
             '    'If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
@@ -96,7 +83,7 @@ Public Class frmBillingDispatch
             '    End If
             'Next
 
-            If (listIdPedido.Count = 0) Then
+            If (list1.Count = 0) Then
                 ToastNotification.Show(Me, "No Existe ningun dato para generar Notas de Venta!!".ToUpper,
                                     My.Resources.OK,
                                     5 * 1000,
@@ -105,31 +92,22 @@ Public Class frmBillingDispatch
                 Return
             End If
 
-            For i As Integer = 0 To listIdPedido.Count - 1 Step 1
-                If L_YaSeGraboTV001(listIdPedido(i)) = False Then
-                    GrabarTV001(Str(listIdPedido(i)))
+            For i As Integer = 0 To list1.Count - 1 Step 1
+                If L_YaSeGraboTV001(list1(i).Id) = False Then
+                    GrabarTV001(Str(list1(i).Id))
                 End If
 
                 'Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Str(list1(i).Id))
 
                 'P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
                 'P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
-                If _TipoCarga = True Then
-                    P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, 4, listVendedores(i))
-                Else
-                    P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, idChofer, listVendedores(i))
-                End If
-                'P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, idChofer, listVendedores(i))
+                P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer, list1(i).NombreVendedor)
 
             Next
 
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
-            If _TipoCarga = True Then
-                CargarPedidos2()
-            Else
-                CargarPedidos()
-            End If
 
+            CargarPedidos()
             ToastNotification.Show(Me, "Notas de Venta Generadas Correctamente".ToUpper,
                                       img, 2000,
                                       eToastGlowColor.Green,
@@ -1052,7 +1030,7 @@ Public Class frmBillingDispatch
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
-        Dim dt As DataTable = L_prObtenerGrupo(idPedido)
+
         Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
@@ -1060,7 +1038,6 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("Empresa", gs_empresaDescSistema)
         objrep.SetParameterValue("idPedido", idPedido)
-        objrep.SetParameterValue("tgrupo", dt.Rows(0).Item("cedesc"))
         objrep.SetParameterValue("Logo", gb_ubilogo)
         objrep.SetParameterValue("vendedor", nomVendedor)
 
@@ -1392,7 +1369,6 @@ Public Class frmBillingDispatch
         Try
             'L_prJobDuplicados()
             ConfigForm()
-            CargarEstados()
             CargarChoferes()
             Tb_Fecha.Value = DateTime.Today
             Tb_FechaHasta.Value = DateTime.Today
@@ -1412,47 +1388,10 @@ Public Class frmBillingDispatch
         End Try
     End Sub
 
-    Private Sub CargarEstados()
-        Try
-            'Dim listResult As List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
-            Dim listResult As New DataTable
-            listResult.Columns.Add("Id")
-            listResult.Columns.Add("Estado")
-
-            listResult.Rows.Add(2, "PENDIENTE")
-            listResult.Rows.Add(3, "ENTREGADO")
-            With cbEstados.DropDownList
-                .Columns.Clear()
-
-                .Columns.Add("Id").Width = 30
-                .Columns("Id").Caption = "Id"
-                .Columns("Id").Visible = True
-
-                .Columns.Add("Estado").Width = 180
-                .Columns("Estado").Caption = "Estadp"
-                .Columns("Estado").Visible = True
-
-                .ValueMember = "Id"
-                .DisplayMember = "Estado"
-                .DataSource = listResult
-
-                .AlternatingColors = True
-                .AllowColumnDrag = False
-                .AutomaticSort = False
-                .Refresh()
-            End With
-            cbEstados.VisualStyle = VisualStyle.Office2007
-
-            cbEstados.SelectedIndex = 0
-        Catch ex As Exception
-            Throw New Exception(ex.Message)
-        End Try
-    End Sub
-
     Private Sub CargarChoferes()
         Try
-            'Dim listResult As List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
-            Dim listResult As DataTable = ListarChoferesDespacho()
+            Dim listResult As List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
+
             With cbChoferes.DropDownList
                 .Columns.Clear()
 
@@ -1483,19 +1422,7 @@ Public Class frmBillingDispatch
 
     Private Sub CargarPedidos()
         Try
-            Dim lista2 As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
-            Dim lista As DataTable = ListaPedidosDespacho(cbEstados.Value, cbChoferes.Value, Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
-            ArmarListaPedido(lista)
-            '_prCargarIconPagar(lista)
-        Catch ex As Exception
-            Throw New Exception(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub CargarPedidos2()
-        Try
-            'Dim lista2 As List(Of VPedido_BillingDispatch) = ObtenerListaPedidoDirecto()
-            Dim lista As DataTable = ListaPedidosDespachoDirecto(Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+            Dim lista As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
             ArmarListaPedido(lista)
             '_prCargarIconPagar(lista)
         Catch ex As Exception
@@ -1519,7 +1446,7 @@ Public Class frmBillingDispatch
         Return listResult
     End Function
 
-    Private Sub ArmarListaPedido(lista As DataTable)
+    Private Sub ArmarListaPedido(lista As List(Of VPedido_BillingDispatch))
 
         dgjPedido.BoundMode = BoundMode.Bound
         dgjPedido.DataSource = lista
@@ -1623,25 +1550,25 @@ Public Class frmBillingDispatch
             .AggregateFunction = AggregateFunction.Sum
             .Position = 11
         End With
-        'dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
-        With dgjPedido.RootTable.Columns("Checks")
+        dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check"))
+        With dgjPedido.RootTable.Columns("Check")
             .Caption = "Seleccionar"
             .Width = 100
+            .ShowRowSelector = True
+            .UseHeaderSelector = True
+            .FilterEditType = FilterEditType.NoEdit
+            .Position = 12
+        End With
+        dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check1"))
+        With dgjPedido.RootTable.Columns("Check1")
+            .Caption = "Facturar"
+            .Width = 50
+            .Visible = False
             '.ShowRowSelector = True
             '.UseHeaderSelector = True
             '.FilterEditType = FilterEditType.NoEdit
-            .Position = 12
+            '.Position = 12
         End With
-        'dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check2"))
-        'With dgjPedido.RootTable.Columns("Check2")
-        '    .Caption = "Facturar"
-        '    .Width = 50
-        '    .Visible = False
-        '    '.ShowRowSelector = True
-        '    '.UseHeaderSelector = True
-        '    '.FilterEditType = FilterEditType.NoEdit
-        '    '.Position = 12
-        'End With
         With dgjPedido
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
             .FilterMode = FilterMode.Automatic
@@ -1919,7 +1846,7 @@ Public Class frmBillingDispatch
             'Dim lista = (From a In listResult
             '             Where a.oafdoc >= Tb_Fecha.Value And
             '                    a.oafdoc <= Tb_FechaHasta.Value).ToList
-            Dim dt As DataTable = ListarDespachoXChofer(idChofer, cbEstados.Value, Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+            Dim dt As DataTable = ListarDespachoXChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
             If (dt.Rows.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
@@ -1959,25 +1886,10 @@ Public Class frmBillingDispatch
     End Sub
 
     Private Sub btnFactura_Click(sender As Object, e As EventArgs) Handles btnFactura.Click
-
-        Dim listIdPedido As New List(Of Integer)()
-        Dim fecha As New List(Of String)()
-        'Dim checks = Me.dgjPedido.GetCheckedRows()
-        'Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
-        For i = 0 To CType(dgjPedido.DataSource, DataTable).Rows.Count - 1 Step 1
-            If CType(dgjPedido.DataSource, DataTable).Rows(i).Item("checks") = True Then
-                listIdPedido.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("Id"))
-                fecha.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("Fecha"))
-            End If
-        Next
-        If (listIdPedido.Count = 0) Then
-            Throw New Exception("Debe seleccionar por lo menos un pedido.")
-        End If
-        'Dim checks = Me.dgjPedido.GetCheckedRows()
-        'Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
-        'Dim estado = checks.Select(Function(a) (a.Cells("Factura").Value)).ToList()
-        'Dim cliente = checks.Select(Function(a) (a.Cells("Id").Value)).ToList()
-        'Dim fecha = checks.Select(Function(a) (a.Cells("fecha").Value)).ToList()
+        Dim checks = Me.dgjPedido.GetCheckedRows()
+        Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
+        Dim estado = checks.Select(Function(a) (a.Cells("Factura").Value)).ToList()
+        Dim cliente = checks.Select(Function(a) (a.Cells("Id").Value)).ToList()
 
         If (listIdPedido.Count = 0) Then
             ToastNotification.Show(Me, "Debe seleccionar un pedido para facturar.".ToUpper,
@@ -1990,35 +1902,29 @@ Public Class frmBillingDispatch
                                        eToastGlowColor.Blue, eToastPosition.TopCenter)
             Exit Sub
         End If
-        'If (estado(0) = "FACTURADO") Then
-        '    ToastNotification.Show(Me, "La nota ya ha sido facturada.".ToUpper,
-        '                               My.Resources.WARNING, 5 * 1000,
-        '                               eToastGlowColor.Blue, eToastPosition.TopCenter)
-        '    Exit Sub
-        'End If
-        'Dim ef = New Efecto
-        'ef.tipo = 5
-        'ef.cliente = cliente(0)
-        'ef.ShowDialog()
-        'Dim bandera As Boolean = False
+        If (estado(0) = "FACTURADO") Then
+            ToastNotification.Show(Me, "La nota ya ha sido facturada.".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.TopCenter)
+            Exit Sub
+        End If
+        Dim ef = New Efecto
+        ef.tipo = 5
+        ef.cliente = cliente(0)
+        ef.ShowDialog()
+        Dim bandera As Boolean = False
 
-        'bandera = ef.band
-        'If (bandera = True) Then
-        '    nit = ef.nit
-        '    razonsocial = ef.razonsocial
-        '    email = ef.email
-        '    tipoDoc = ef.tipoDoc
-        Dim parametro As Integer = 2
-        If parametro = 1 Then
+        bandera = ef.band
+        If (bandera = True) Then
+            nit = ef.nit
+            razonsocial = ef.razonsocial
+            email = ef.email
+            tipoDoc = ef.tipoDoc
             Dim token As String = F01_Producto.ObtToken()
             crearFactura(token, listIdPedido(0))
             TraerPDF(token, fact)
-        ElseIf parametro = 2 Then
-            crearFactura2("", listIdPedido(0), fecha(0))
+            CargarPedidos()
         End If
-
-        CargarPedidos()
-        'End If
 
     End Sub
 
@@ -2044,21 +1950,21 @@ Public Class frmBillingDispatch
     End Sub
 
     Private Sub dgjPedido_KeyDown(sender As Object, e As KeyEventArgs) Handles dgjPedido.KeyDown
-        'Dim listaPedido As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
-        'If (e.KeyData = Keys.Control + Keys.F) Then
-        '    listaPedido = listaPedido.Where(Function(a) a.observacion.Contains("F,") Or a.observacion.Contains("f,")).ToList()
-        '    ArmarListaPedido(listaPedido)
-        '    btnNotaVenta.Enabled = False
-        '    btnFactura.Enabled = True
-        '    lblCantidadPedido.Text = listaPedido.Count.ToString
-        'End If
-        'If (e.KeyData = Keys.Control + Keys.N) Then
-        '    listaPedido = listaPedido.Where(Function(a) Not (a.observacion.Contains("F,") OrElse a.observacion.Contains("f,"))).ToList()
-        '    ArmarListaPedido(listaPedido)
-        '    btnFactura.Enabled = False
-        '    btnNotaVenta.Enabled = True
-        '    lblCantidadPedido.Text = listaPedido.Count.ToString
-        'End If
+        Dim listaPedido As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
+        If (e.KeyData = Keys.Control + Keys.F) Then
+            listaPedido = listaPedido.Where(Function(a) a.observacion.Contains("F,") Or a.observacion.Contains("f,")).ToList()
+            ArmarListaPedido(listaPedido)
+            btnNotaVenta.Enabled = False
+            btnFactura.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
+        End If
+        If (e.KeyData = Keys.Control + Keys.N) Then
+            listaPedido = listaPedido.Where(Function(a) Not (a.observacion.Contains("F,") OrElse a.observacion.Contains("f,"))).ToList()
+            ArmarListaPedido(listaPedido)
+            btnFactura.Enabled = False
+            btnNotaVenta.Enabled = True
+            lblCantidadPedido.Text = listaPedido.Count.ToString
+        End If
     End Sub
 
     '------------------ FACTURACION-----------------------------------------------------
@@ -2118,51 +2024,6 @@ Public Class frmBillingDispatch
         P_Global.Visualizador2.BringToFront()
 
     End Sub
-
-
-    Public Sub LoadPdf(pdfUrl As String)
-        Try
-            ' Descargar el archivo PDF temporalmente
-            Dim tempFilePath As String = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "temp.pdf")
-            Dim client As New WebClient()
-            client.DownloadFile(pdfUrl, tempFilePath)
-
-            ' Cargar el PDF en el control AxAcroPDF
-            PdfViewer.LoadFile(tempFilePath)
-        Catch ex As Exception
-            ' Manejar posibles excepciones
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
-    End Sub
-    Private Sub LeerPDF2(enlace As String)
-        Dim tempFilePath As String
-        Try
-            ' Descargar el archivo PDF temporalmente
-            tempFilePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "temp.pdf")
-            Using client As New WebClient()
-                client.DownloadFile(enlace, tempFilePath)
-            End Using
-            ' Cargar el PDF en el control AxAcroPDF
-            pdfViewer.LoadFile(tempFilePath)
-        Catch ex As Exception
-            ' Manejar posibles excepciones
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
-        Dim pdfUrl As String = enlace
-
-        ' Crear una instancia del formulario que muestra el PDF
-
-        ' Cargar el PDF en el control WebBrowser
-        'viewer.LoadPdf(tempFilePath)
-        P_Global.Visualizador2 = New Visualizador2
-        ' Mostrar el formulario
-
-        P_Global.Visualizador2.AxAcroPDF1.LoadFile(tempFilePath) '(pdfFilePath)
-        P_Global.Visualizador2.AxAcroPDF1.setZoom(100)
-        P_Global.Visualizador2.Show()
-        P_Global.Visualizador2.BringToFront()
-
-    End Sub
     Private Sub crearCliente(Token As String)
         Dim request = TryCast(System.Net.WebRequest.Create("https://contadores.sige.company/api/customers"), System.Net.HttpWebRequest)
 
@@ -2209,200 +2070,6 @@ Public Class frmBillingDispatch
             End Using
         End Using
     End Sub
-
-    Private Sub crearFactura2(token As String, pedido As Integer, fecha As Date)
-        Try
-            'Dim numi As Integer = ProximaNumeracion()
-
-            Dim res As Boolean = False
-            ' L_BuscarCodCanero(_CodCliente)
-            'Randomize()
-
-
-
-            Dim api = New DBApi()
-            Dim Emenvio = New EmisorEnvio.Emisor()
-
-            'Dim TDoc = tipoDocumento 'obtiene el 'Codigo Tipo de documento' 
-
-            CargarProductos(pedido)
-            Dim array(CType(dgjProducto.DataSource, DataTable).Rows.Count - 1) As EmisorEnvio.Detalle
-            Dim val = 0
-            Dim PrecioTot = 0.00000
-            For Each row In CType(dgjProducto.DataSource, DataTable).Rows
-
-                Dim EmenvioProducto = New EmisorEnvio.producto
-                EmenvioProducto.descripcion = row(1).ToString
-                EmenvioProducto.codigo = row(0)
-                EmenvioProducto.lista_precios = "standard"
-                EmenvioProducto.leyenda = ""
-                EmenvioProducto.unidad_bulto = 1
-                EmenvioProducto.alicuota = 0
-                EmenvioProducto.actualiza_precio = "S"
-                EmenvioProducto.rg5329 = "N"
-                EmenvioProducto.precio_unitario_sin_iva = row(3)
-
-                Dim EmenvioDetalle = New EmisorEnvio.Detalle()
-                EmenvioDetalle.cantidad = row(2)
-                EmenvioDetalle.afecta_stock = "S"
-                EmenvioDetalle.actualiza_precio = "S"
-                EmenvioDetalle.bonificacion_porcentaje = 0
-                EmenvioDetalle.producto = EmenvioProducto
-
-                PrecioTot = PrecioTot + (EmenvioDetalle.cantidad * EmenvioProducto.precio_unitario_sin_iva) 'Format(PrecioTot + Format((Convert.ToDecimal(row("tbpbas")) * 6.96), "0.00000") * (row("tbcmin")), "0.00") 'total
-
-
-                array(val) = EmenvioDetalle
-                'vector = array
-                val = val + 1
-
-            Next
-
-            Dim doc As Integer
-
-
-            'Dim dt As DataTable = L_fnTraerClientes(_CodCliente)
-
-            'If dt.Rows(0).Item("yddctnum") = "" Then
-            '    doc = 123
-            'Else
-            '    doc = CInt(dt.Rows(0).Item("yddctnum"))
-            'End If
-            Dim EnvioCliente = New EmisorEnvio.cliente
-            EnvioCliente.documento_tipo = "CUIT"
-            EnvioCliente.condicion_iva = "M"
-            EnvioCliente.domicilio = "ARGENTINA" 'dt.Rows(0).Item("yddirec")
-            EnvioCliente.condicion_pago = "201"
-            EnvioCliente.documento_nro = 20962008322 'doc
-            EnvioCliente.razon_social = "CONSUMIDOR FINAL" 'dt.Rows(0).Item("ydrazonsocial")
-            EnvioCliente.provincia = 17
-            EnvioCliente.email = "prueba1@gmail.com"
-            EnvioCliente.envia_por_mail = "N"
-            EnvioCliente.rg5329 = "N"
-
-            Dim EnvioComprobante = New EmisorEnvio.comprobante
-            EnvioComprobante.rubro = "Distribución de Alimentos"
-            EnvioComprobante.percepciones_iva = 0
-            EnvioComprobante.tipo = "FACTURA A"
-            EnvioComprobante.numero = 1 'numi
-            EnvioComprobante.bonificacion = 0
-            EnvioComprobante.operacion = "V"
-            EnvioComprobante.detalle = array
-            EnvioComprobante.fecha = fecha.ToString("dd/MM/yyyy") 'tbFechaVenta.Value.ToString("dd/MM/yyyy")
-            EnvioComprobante.vencimiento = "31/12/2025" 'tbFechaVenc.Value.ToString("dd/MM/yyyy")
-            EnvioComprobante.rubro_grupo_contable = "Productos"
-            EnvioComprobante.total = PrecioTot
-            EnvioComprobante.cotizacion = 1
-            EnvioComprobante.moneda = "PES"
-            EnvioComprobante.punto_venta = 6
-
-
-
-
-            Emenvio.apitoken = "0c1669b2ee1a34bbbd4114d70ee071ec"
-            Emenvio.cliente = EnvioCliente
-            Emenvio.apikey = 64207
-            Emenvio.usertoken = "c84d30fcd9d5cc4870bb6beac3d2c0e97dca090172cb755fd8af1a6702de373d"
-            Emenvio.comprobante = EnvioComprobante
-
-            'Emenvio.comprobante = 
-
-            '--------------------
-            'Emenvio.codigoDocumentoSector = 1 '-------------------
-
-
-
-
-
-
-
-
-            'Emenvio.actividadEconomica = 692000 'falta
-            ServicePointManager.Expect100Continue = True
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-            Dim json = JsonConvert.SerializeObject(Emenvio)
-            Dim url = "https://www.tusfacturas.app/app/api/v2/facturacion/nuevo"
-
-            Dim headers = New List(Of Parametro) From {
-                New Parametro("Content-Type", "application/json")
-            }
-
-            'Dim parametros = New List(Of Parametro)
-
-            Dim response = api.Post(url, headers, Emenvio)
-            Dim cant As Integer = response.Length
-            Dim result = JsonConvert.DeserializeObject(Of RespEmisor)(response)
-            'Dim resultError = JsonConvert.DeserializeObject(Of Resp400)(response)
-
-            'codigoRecepcion = result.codigoRecepcion
-            'estadoEmisionEdoc = result.estadoEmisionEDOC
-            'fechaEmision1 = result.fechaEmision
-            'cuf = result.cuf
-            'cuis = result.cuis
-            'cufd = result.cufd
-            'codigoControl = result.codigoControl
-            'linkCodigoQr = result.linkCodigoQR
-            'codigoError = result.codigoError
-            'mensajeRespuesta = result.mensajeRespuesta
-            'If estadoEmisionEdoc = 2 Then
-            '    mensajeRespuesta = "Factura validada correctamente por Impuestos."
-            'End If
-
-
-            Dim codigo = result.comprobante_pdf_url
-            'Dim xml As String
-
-            'If codigo <> "" Then
-            '    res = True
-            'End If
-            LeerPDF2(codigo)
-
-        Catch ex As WebException
-            If Not ex.Response Is Nothing Then
-                Dim data As StreamReader = New StreamReader(ex.Response.GetResponseStream)
-                'Al asignar el data.ReadToEnd al string se puede apreciar la respuesta del WebService en la variable str
-                Dim str As String = data.ReadToEnd
-
-            End If
-
-        End Try
-    End Sub
-
-    Public Function ProximaNumeracion() As Integer
-        Dim api = New DBApi()
-        Dim Emenvio = New Envio
-
-
-        Dim EnvioComprobante = New Numeracion.comprobante
-
-        EnvioComprobante.tipo = "FACTURA C"
-        EnvioComprobante.operacion = "V"
-        EnvioComprobante.punto_venta = 1
-
-
-
-
-        Emenvio.apitoken = "6f478656a47bd32906ad89afece5e52c"
-
-        Emenvio.apikey = 63694
-        Emenvio.usertoken = "2c6e8b87c3007a094a3180b0123b8dfd36a65d0003b084b501eb40e0fa6bb3fb"
-        Emenvio.comprobante = EnvioComprobante
-
-
-        Dim json = JsonConvert.SerializeObject(Emenvio)
-        Dim url = "https://www.tusfacturas.app/app/api/v2/facturacion/numeracion"
-
-        Dim headers = New List(Of Parametro) From {
-            New Parametro("Content-Type", "application/json")
-        }
-
-        'Dim parametros = New List(Of Parametro)
-
-        Dim response = api.Post(url, headers, Emenvio)
-
-        Dim result = JsonConvert.DeserializeObject(Of Resp)(response)
-        Return result.comprobante.numero
-    End Function
 
     Private Sub crearFactura(token As String, pedido As Integer)
         Try
@@ -2547,52 +2214,5 @@ Public Class frmBillingDispatch
         Dim dt As DataTable = TraerFacturaID(listIdPedido(0))
         Dim token As String = F01_Producto.ObtToken()
         TraerPDF(token, dt.Rows(0).Item("fvanumi2"))
-    End Sub
-
-    Private Sub dgjPedido_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles dgjPedido.CellEdited
-
-    End Sub
-
-    Private Sub dgjPedido_EditingCell(sender As Object, e As EditingCellEventArgs) Handles dgjPedido.EditingCell
-        If (e.Column.Index = dgjPedido.RootTable.Columns("checks").Index) Then
-            e.Cancel = False
-        Else
-            e.Cancel = True
-        End If
-    End Sub
-
-    Private Sub dgjPedido_Click(sender As Object, e As EventArgs) Handles dgjPedido.Click
-        If dgjPedido.GetValue("checks") = False Then
-            dgjPedido.SetValue("checks", True)
-        Else
-            dgjPedido.SetValue("checks", False)
-        End If
-    End Sub
-
-    Private Sub cbEstados_ValueChanged(sender As Object, e As EventArgs) Handles cbEstados.ValueChanged
-        Try
-            If (_cargaCompleta) Then
-                CargarPedidos()
-                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
-                btnNotaVenta.Enabled = True
-                btnFactura.Enabled = True
-            End If
-        Catch ex As Exception
-            MostrarMensajeError(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub btVentasDirectas_Click(sender As Object, e As EventArgs) Handles btVentasDirectas.Click
-        Try
-            If (_cargaCompleta) Then
-                CargarPedidos2()
-                _TipoCarga = True
-                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
-                btnNotaVenta.Enabled = True
-                btnFactura.Enabled = True
-            End If
-        Catch ex As Exception
-            MostrarMensajeError(ex.Message)
-        End Try
     End Sub
 End Class

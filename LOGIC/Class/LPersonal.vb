@@ -16,7 +16,7 @@ Public Class LPersonal
             Dim listResult = iPersonal.ListarCombo(tipo)
             
             lCombo.ValidarCombo(listResult)
-            lCombo.AdicionarSeleccionar(listResult)
+            'lCombo.AdicionarSeleccionar(listResult)
 
             Return listResult
         Catch ex As Exception

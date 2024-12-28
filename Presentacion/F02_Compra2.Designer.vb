@@ -142,7 +142,7 @@ Partial Class F02_Compra2
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBuscador)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1244, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1242, 455)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -1367,7 +1367,7 @@ Partial Class F02_Compra2
         Me.GroupPanelBuscador.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelBuscador.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBuscador.Name = "GroupPanelBuscador"
-        Me.GroupPanelBuscador.Size = New System.Drawing.Size(1244, 455)
+        Me.GroupPanelBuscador.Size = New System.Drawing.Size(1242, 455)
         '
         '
         '
@@ -1407,7 +1407,7 @@ Partial Class F02_Compra2
         Me.dgjBusqueda.Name = "dgjBusqueda"
         Me.dgjBusqueda.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.dgjBusqueda.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.dgjBusqueda.Size = New System.Drawing.Size(1238, 433)
+        Me.dgjBusqueda.Size = New System.Drawing.Size(1236, 433)
         Me.dgjBusqueda.TabIndex = 0
         Me.dgjBusqueda.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

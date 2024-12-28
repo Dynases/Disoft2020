@@ -34,6 +34,7 @@ Public Class F01_Personal
 #Region "Eventos"
 
     Private Sub P_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         P_Inicio()
     End Sub
 
@@ -323,9 +324,10 @@ Public Class F01_Personal
                 Else
                     zon = "0"
                 End If
+
                 'Grabar cabecera
                 Dim res As Boolean = L_fnGrabarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                        fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon)
+                                                        fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon, IIf(cbTipo.Value = 1, cbCamion.Value, 0))
 
                 If (res) Then
                     P_Limpiar()
@@ -386,7 +388,7 @@ Public Class F01_Personal
 
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon)
+                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon, IIf(cbTipo.Value = 1, cbCamion.Value, 0))
 
                 If (res) Then
                     Bool = False
@@ -458,6 +460,7 @@ Public Class F01_Personal
         cbTipo.ReadOnly = False
         CbAlmacen.ReadOnly = False
         cbSucursal.ReadOnly = False
+        cbCamion.ReadOnly = False
         'Botones
         SbEstado.IsReadOnly = False
         swPrecio.IsReadOnly = False
@@ -472,6 +475,7 @@ Public Class F01_Personal
         'MultiCombo
         cbTipo.ReadOnly = True
         CbAlmacen.ReadOnly = True
+        cbCamion.ReadOnly = True
         'CbAlmacen.Visible = False 'gs_Parametros(0).Item("syruta")
         cbSucursal.ReadOnly = True
         'Botones
@@ -512,11 +516,14 @@ Public Class F01_Personal
         SbEstado.Value = True
         swPrecio.Value = False
         swZona.Value = False
+
+        cbCamion.SelectedIndex = 0
     End Sub
 
     Private Sub P_prArmarCombos()
         P_prArmarComboTipoPersonal()
         p_prcomboalmacendiavi()
+        p_prcomboCamion()
         'If gs_Parametros(0).Item("syruta") = True Then
         '    p_prcomboalmacendiavi()
         'End If
@@ -533,6 +540,26 @@ Public Class F01_Personal
             .DropDownList.Columns("aabdes").Caption = "SUCURSAL"
             .ValueMember = "aanumi"
             .DisplayMember = "aabdes"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+
+        'g_prArmarCombo(CbAlmacen, dt, 60, 150, "Código", "Almacen")
+    End Sub
+
+    Private Sub p_prcomboCamion()
+        Dim dt As New DataTable
+        dt = L_prGeneralCamiones()
+
+        With cbCamion
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("numi").Width = 60
+            .DropDownList.Columns("numi").Caption = "COD"
+            .DropDownList.Columns.Add("placa").Width = 500
+            .DropDownList.Columns("placa").Caption = "CAMION"
+            .ValueMember = "numi"
+            .DisplayMember = "placa"
             .DataSource = dt
             .Refresh()
         End With
@@ -569,6 +596,7 @@ Public Class F01_Personal
                 TbNombre.Text = .Cells("cbdesc").Value.ToString
                 TbPassMovil.Text = .Cells("cbci").Value.ToString
                 cbSucursal.Value = .Cells("cbalmacen").Value
+                cbCamion.Value = .Cells("cbCamion").Value
                 cbTipo.Clear()
                 If (CType(cbTipo.DataSource, DataTable).Rows.Count > 0) Then
                     cbTipo.SelectedText = .Cells("ncat").Value.ToString
@@ -728,6 +756,9 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("zona")
             .Visible = False
         End With
+        With Dgj1Busqueda.RootTable.Columns("cbCamion")
+            .Visible = False
+        End With
 
         'Habilitar Filtradores
         With Dgj1Busqueda
@@ -792,6 +823,16 @@ Public Class F01_Personal
 
     Private Sub Dgj1Busqueda_DoubleClick(sender As Object, e As EventArgs) Handles Dgj1Busqueda.DoubleClick
 
+    End Sub
+
+    Private Sub cbTipo_ValueChanged(sender As Object, e As EventArgs) Handles cbTipo.ValueChanged
+        If cbTipo.Value = 1 Then
+            LabelX9.Visible = True
+            cbCamion.Visible = True
+        Else
+            LabelX9.Visible = False
+            cbCamion.Visible = False
+        End If
     End Sub
 
 #End Region

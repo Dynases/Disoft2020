@@ -242,8 +242,8 @@ Partial Class F02_PedidoNuevo
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1349, 562)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemCliente})
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
@@ -1186,6 +1186,7 @@ Partial Class F02_PedidoNuevo
         Me.btAplicarDesc.TabIndex = 44
         Me.btAplicarDesc.Text = "APLICAR DESCUENTOS"
         Me.btAplicarDesc.TextColor = System.Drawing.Color.Navy
+        Me.btAplicarDesc.Visible = False
         '
         'tbMontoCredito
         '
@@ -1217,6 +1218,7 @@ Partial Class F02_PedidoNuevo
         Me.swTipoVenta.TabIndex = 45
         Me.swTipoVenta.Value = True
         Me.swTipoVenta.ValueObject = "Y"
+        Me.swTipoVenta.Visible = False
         '
         'LabelX12
         '
@@ -1415,6 +1417,7 @@ Partial Class F02_PedidoNuevo
         Me.Tb_Hora.PreventEnterBeep = True
         Me.Tb_Hora.Size = New System.Drawing.Size(88, 23)
         Me.Tb_Hora.TabIndex = 26
+        Me.Tb_Hora.Visible = False
         '
         'LabelX3
         '

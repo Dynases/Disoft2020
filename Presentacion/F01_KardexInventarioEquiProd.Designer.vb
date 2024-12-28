@@ -30,6 +30,11 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Dgj1Datos = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.tbCodigoCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.CheckTodosClientes = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.checkUnCliente = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.lbCliente = New DevComponents.DotNetBar.LabelX()
+        Me.tbDescCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.cbAlmacenOrigen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.lbEquiProd = New DevComponents.DotNetBar.LabelX()
@@ -94,7 +99,7 @@ Partial Class F01_KardexInventarioEquiProd
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1242, 555)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -298,6 +303,11 @@ Partial Class F01_KardexInventarioEquiProd
         Me.PanelExDatosGenerales.AutoScroll = True
         Me.PanelExDatosGenerales.CanvasColor = System.Drawing.Color.Transparent
         Me.PanelExDatosGenerales.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelExDatosGenerales.Controls.Add(Me.tbCodigoCliente)
+        Me.PanelExDatosGenerales.Controls.Add(Me.CheckTodosClientes)
+        Me.PanelExDatosGenerales.Controls.Add(Me.checkUnCliente)
+        Me.PanelExDatosGenerales.Controls.Add(Me.lbCliente)
+        Me.PanelExDatosGenerales.Controls.Add(Me.tbDescCliente)
         Me.PanelExDatosGenerales.Controls.Add(Me.cbAlmacenOrigen)
         Me.PanelExDatosGenerales.Controls.Add(Me.lbDepositoOrigen)
         Me.PanelExDatosGenerales.Controls.Add(Me.lbEquiProd)
@@ -323,6 +333,78 @@ Partial Class F01_KardexInventarioEquiProd
         Me.PanelExDatosGenerales.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelExDatosGenerales.Style.GradientAngle = 90
         Me.PanelExDatosGenerales.TabIndex = 14
+        '
+        'tbCodigoCliente
+        '
+        '
+        '
+        '
+        Me.tbCodigoCliente.Border.Class = "TextBoxBorder"
+        Me.tbCodigoCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCodigoCliente.Location = New System.Drawing.Point(673, 90)
+        Me.tbCodigoCliente.Name = "tbCodigoCliente"
+        Me.tbCodigoCliente.PreventEnterBeep = True
+        Me.tbCodigoCliente.ReadOnly = True
+        Me.tbCodigoCliente.Size = New System.Drawing.Size(100, 21)
+        Me.tbCodigoCliente.TabIndex = 245
+        Me.tbCodigoCliente.Visible = False
+        '
+        'CheckTodosClientes
+        '
+        '
+        '
+        '
+        Me.CheckTodosClientes.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.CheckTodosClientes.Location = New System.Drawing.Point(444, 89)
+        Me.CheckTodosClientes.Name = "CheckTodosClientes"
+        Me.CheckTodosClientes.Size = New System.Drawing.Size(57, 23)
+        Me.CheckTodosClientes.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.CheckTodosClientes.TabIndex = 244
+        Me.CheckTodosClientes.Text = "Todos"
+        '
+        'checkUnCliente
+        '
+        '
+        '
+        '
+        Me.checkUnCliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.checkUnCliente.Location = New System.Drawing.Point(397, 89)
+        Me.checkUnCliente.Name = "checkUnCliente"
+        Me.checkUnCliente.Size = New System.Drawing.Size(44, 23)
+        Me.checkUnCliente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.checkUnCliente.TabIndex = 243
+        Me.checkUnCliente.Text = "Uno"
+        '
+        'lbCliente
+        '
+        Me.lbCliente.AutoSize = True
+        Me.lbCliente.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbCliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbCliente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbCliente.Location = New System.Drawing.Point(23, 93)
+        Me.lbCliente.Name = "lbCliente"
+        Me.lbCliente.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbCliente.Size = New System.Drawing.Size(51, 16)
+        Me.lbCliente.TabIndex = 242
+        Me.lbCliente.Text = "Cliente:"
+        '
+        'tbDescCliente
+        '
+        '
+        '
+        '
+        Me.tbDescCliente.Border.Class = "TextBoxBorder"
+        Me.tbDescCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbDescCliente.Location = New System.Drawing.Point(91, 91)
+        Me.tbDescCliente.Name = "tbDescCliente"
+        Me.tbDescCliente.PreventEnterBeep = True
+        Me.tbDescCliente.ReadOnly = True
+        Me.tbDescCliente.Size = New System.Drawing.Size(300, 21)
+        Me.tbDescCliente.TabIndex = 241
         '
         'cbAlmacenOrigen
         '
@@ -578,7 +660,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
         Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(942, 455)
+        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(1242, 555)
         '
         '
         '
@@ -615,7 +697,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Dgj2Busqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgj2Busqueda.Location = New System.Drawing.Point(5, 5)
         Me.Dgj2Busqueda.Name = "Dgj2Busqueda"
-        Me.Dgj2Busqueda.Size = New System.Drawing.Size(926, 424)
+        Me.Dgj2Busqueda.Size = New System.Drawing.Size(1226, 524)
         Me.Dgj2Busqueda.TabIndex = 1
         '
         'Timer1
@@ -685,4 +767,9 @@ Partial Class F01_KardexInventarioEquiProd
     Friend WithEvents Timer1 As Timer
     Friend WithEvents cbAlmacenOrigen As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbCliente As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbDescCliente As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents CheckTodosClientes As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents checkUnCliente As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents tbCodigoCliente As DevComponents.DotNetBar.Controls.TextBoxX
 End Class
