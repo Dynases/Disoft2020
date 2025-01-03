@@ -34,7 +34,7 @@ Public Class F02_PedidoNuevo
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
         'L_prAbrirConexion()
-        L_prJobDuplicados()
+        'L_prJobDuplicados()
         Me.Text = "P E D I D O S"
         'Me.WindowState = FormWindowState.Maximized
         MSuperTabControlPrincipal.SelectedTabIndex = 0
@@ -1614,10 +1614,12 @@ Public Class F02_PedidoNuevo
                     Dim diasTrans As Integer = DateDiff(DateInterval.Day, ultimaFechaPedido, Today.Date)
                     prom = (prom + diasTrans) / 2
 
-                    L_GrabarModificarCliente("ccprconsu=" + Str(prom), "ccnumi=" + Str(Tb_CliCod.Text))
-                    L_GrabarModificarCliente("ccultped='" + Today.Date.ToString("yyyy/MM/dd") + "'", "ccnumi=" + Str(Tb_CliCod.Text))
-                    L_GrabarModificarCliente("ccultvent='" + Today.Date.ToString("yyyy/MM/dd") + "'", "ccnumi=" + Str(Tb_CliCod.Text))
+                    'L_GrabarModificarCliente("ccprconsu=" + Str(prom), "ccnumi=" + Str(Tb_CliCod.Text))
+                    'L_GrabarModificarCliente("ccultped='" + Today.Date.ToString("yyyy/MM/dd") + "'", "ccnumi=" + Str(Tb_CliCod.Text))
+                    'L_GrabarModificarCliente("ccultvent='" + Today.Date.ToString("yyyy/MM/dd") + "'", "ccnumi=" + Str(Tb_CliCod.Text))
 
+                    L_prActualizarDatosCliente(Date.Now.ToString("yyyy/MM/dd"), Date.Now.ToString("yyyy/MM/dd"), Str(prom), Str(Tb_CliCod.Text))
+                    L_prTraerCategoriasPorClientes(1)
                 End If
 
                 L_PedidoCabecera_Grabar(Tb_Id.Text, Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, Tb_CliCod.Text, Tb_CliCodZona.Text, cbPreVendedor.Value.ToString, Tb_Observaciones.Text, IIf(_nuevoBasePeriodico = True, "10", "2"), "1", "0")

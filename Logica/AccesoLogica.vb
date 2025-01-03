@@ -6844,6 +6844,22 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_prActualizarDatosCliente(ccultvent As String, ccultped As String, ccprconsu As String, numi As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 21))
+        _listParam.Add(New Datos.DParametro("@ccnumi", numi))
+        _listParam.Add(New Datos.DParametro("@ccprconsu", ccprconsu))
+        _listParam.Add(New Datos.DParametro("@ccultvent", ccultvent))
+        _listParam.Add(New Datos.DParametro("@ccultped", ccultped))
+        _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TC004", _listParam)
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_prObtenerSaldoAnterior(cliente As Integer, fechaI As String) As Integer
         Dim _Tabla As DataTable
         Dim saldo As Integer
@@ -13586,5 +13602,20 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+
+    Public Shared Function TraerTotales(cod As Integer, salida As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listPalam As New List(Of Datos.DParametro)
+
+        _listPalam.Add(New Datos.DParametro("@tipo", 19))
+        _listPalam.Add(New Datos.DParametro("@trnumi", cod))
+        _listPalam.Add(New Datos.DParametro("@salida", salida))
+        _listPalam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_mam_THR001", _listPalam)
+
+        Return _Tabla
+    End Function
+
 #End Region
 End Class

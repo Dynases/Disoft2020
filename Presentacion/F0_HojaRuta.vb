@@ -1493,6 +1493,10 @@ Public Class F0_HojaRuta
         MBtModificar.Enabled = False
         MBtGrabar.Enabled = True
         btCargarHoja.Enabled = False
+        btAddTarea.Enabled = True
+        btVisualizar.Enabled = False
+        MBtImprimir.Enabled = False
+        btCerrarHoja.Enabled = False
         tbHoraS.Enabled = True
         tbHoraL.Enabled = True
         tbHoraS2.Enabled = True
@@ -1527,6 +1531,10 @@ Public Class F0_HojaRuta
         MBtModificar.Enabled = True
         MBtGrabar.Enabled = False
         btCargarHoja.Enabled = True
+        btAddTarea.Enabled = False
+        btVisualizar.Enabled = True
+        MBtImprimir.Enabled = True
+        btCerrarHoja.Enabled = True
         tbHoraS.Enabled = False
         tbHoraL.Enabled = False
         tbHoraS2.Enabled = False
@@ -3215,8 +3223,8 @@ Public Class F0_HojaRuta
         Next
         'Dim dt As DataTable = CType(grPedidos.DataSource, DataTable)
         dt.Columns.RemoveAt(0)
-        dt.Columns.RemoveAt(15)
-        dt.Columns.RemoveAt(15)
+        'dt.Columns.RemoveAt(15)
+        'dt.Columns.RemoveAt(15)
         Dim dtAux As DataTable = dtCab.Clone()
 
 
@@ -3295,8 +3303,8 @@ Public Class F0_HojaRuta
         Next
         dt.Columns.RemoveAt(0)
         If Nuevo = True Then
-            dt.Columns.RemoveAt(15)
-            dt.Columns.RemoveAt(15)
+            'dt.Columns.RemoveAt(15)
+            'dt.Columns.RemoveAt(15)
         End If
 
 
@@ -5108,8 +5116,24 @@ Public Class F0_HojaRuta
         End If
         'detalle = detalle + "    ZONA: " + cbZona.Text + "    CHOFER: " + cbRepartidor.Text
         P_Global.Visualizador = New Visualizador
-
         Dim objrep As New R_HojaRutaxChofer
+
+        Dim dt1 As DataTable = TraerTotales(CInt(tbCodigo.Text), salida)
+
+        Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects("Subreport1"), SubreportObject)
+        Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport("R_RepComandaTotales.rpt")
+        crSubreportDocument.SetDataSource(dt1)
+
+        Dim crSubreportObject2 As SubreportObject = CType(objrep.ReportDefinition.ReportObjects("Subreport2"), SubreportObject)
+        Dim crSubreportDocument2 As ReportDocument = crSubreportObject2.OpenSubreport("R_RepComandaTotalesG.rpt")
+        crSubreportDocument2.SetDataSource(dt1)
+
+        Dim crSubreportObject3 As SubreportObject = CType(objrep.ReportDefinition.ReportObjects("Subreport3"), SubreportObject)
+        Dim crSubreportDocument3 As ReportDocument = crSubreportObject3.OpenSubreport("R_RepComandaTotalesP.rpt")
+        crSubreportDocument3.SetDataSource(dt1)
+
+
+
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("detalle", detalle)
         objrep.SetParameterValue("zona", cbZona.Text)
@@ -5122,6 +5146,7 @@ Public Class F0_HojaRuta
         P_Global.Visualizador.CRV1.ReportSource = objrep
         P_Global.Visualizador.Show()
         P_Global.Visualizador.BringToFront()
+
 
     End Sub
     Private Sub TraerPendientes()

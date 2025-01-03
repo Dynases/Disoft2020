@@ -2120,7 +2120,7 @@ Partial Class F0_HojaRuta
         Me.btOrdenar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.btOrdenar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btOrdenar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btOrdenar.Location = New System.Drawing.Point(1140, 89)
+        Me.btOrdenar.Location = New System.Drawing.Point(1134, 89)
         Me.btOrdenar.Name = "btOrdenar"
         Me.btOrdenar.Size = New System.Drawing.Size(75, 23)
         Me.btOrdenar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -2413,9 +2413,9 @@ Partial Class F0_HojaRuta
         Me.PanelEx6.Controls.Add(Me.LabelX32)
         Me.PanelEx6.Controls.Add(Me.LabelX29)
         Me.PanelEx6.DisabledBackColor = System.Drawing.Color.Empty
-        Me.PanelEx6.Location = New System.Drawing.Point(783, 0)
+        Me.PanelEx6.Location = New System.Drawing.Point(777, 0)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(399, 301)
+        Me.PanelEx6.Size = New System.Drawing.Size(399, 280)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx6.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -2539,7 +2539,7 @@ Partial Class F0_HojaRuta
         Me.grPendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.grPendientes.Location = New System.Drawing.Point(0, 0)
         Me.grPendientes.Name = "grPendientes"
-        Me.grPendientes.Size = New System.Drawing.Size(777, 301)
+        Me.grPendientes.Size = New System.Drawing.Size(771, 280)
         Me.grPendientes.TabIndex = 0
         '
         'btAddTarea
