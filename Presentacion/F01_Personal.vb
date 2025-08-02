@@ -266,6 +266,9 @@ Public Class F01_Personal
         End If
     End Sub
 
+    Private Sub verificarCamion(camion As Integer)
+
+    End Sub
     Private Sub P_Grabar()
         'Campo de la Tabla
         Dim numi As String
@@ -287,6 +290,7 @@ Public Class F01_Personal
         Dim pre As Integer
         Dim zon As Integer
         TbNombre.Select()
+        verificarCamion(cbCamion.Value)
         If (Nuevo) Then
             If (P_Validar()) Then
                 'Cargar campos

@@ -2003,7 +2003,7 @@ Public Class F0_Despacho
         If cod = 1 Then
             dt = TraerPedidosPendientes2(dt1, cbCamion.Value, 1)
         Else
-            dt = TraerPedidosPendientes()
+            dt = TraerPedidosPendientes(0)
         End If
 
 
@@ -2891,7 +2891,7 @@ Public Class F0_Despacho
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
         End With
-        With grilla.RootTable.Columns("oanumi")
+        With grilla.RootTable.Columns("obnumi")
             .Caption = "HORA"
             .Width = 50
             .HeaderStyle.BackColor = Color.Green
@@ -3746,13 +3746,17 @@ Public Class F0_Despacho
 
         columns("oaobs").Visible = True
         columns("oaobs").HeaderText = "OBSERVACION"
+        columns("oaobs").CellStyles.Default.AllowWrap = Style.Tbool.True
+        columns("oaobs").Width = 400
 
         columns("tokg").Visible = True
         columns("tokg").HeaderText = "PESO"
-        columns("tokg").CellStyles.Default.Alignment = Style.Alignment.BottomRight
+        columns("tokg").CellStyles.Default.Alignment = Style.Alignment.MiddleCenter
 
 
         panel.ShowCheckBox = True
+
+        panel.DefaultRowHeight = 0
     End Sub
 
     Private Sub AddSubRow(fila As GridRow)

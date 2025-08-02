@@ -26,6 +26,7 @@ Partial Class F02_PedidoNuevo
         Dim cbPreVendedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_PedidoNuevo))
         Dim cbDistribuidor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbCamion_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GrPan_PeriodoPedido = New DevComponents.DotNetBar.Controls.GroupPanel()
@@ -103,6 +104,17 @@ Partial Class F02_PedidoNuevo
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.JGr_Productos = New Janus.Windows.GridEX.GridEX()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.PanelEx7 = New DevComponents.DotNetBar.PanelEx()
+        Me.tbHoraT = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
+        Me.tbHoraL = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
+        Me.tbHoraS = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
+        Me.cbCamion = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.swTipoP = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.LabelX28 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX27 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX25 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX24 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX13 = New DevComponents.DotNetBar.LabelX()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.JGr_TipoProd = New Janus.Windows.GridEX.GridEX()
         Me.SuperTabItemCliente = New DevComponents.DotNetBar.SuperTabItem()
@@ -195,6 +207,11 @@ Partial Class F02_PedidoNuevo
         CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JGr_Productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
+        Me.PanelEx7.SuspendLayout()
+        CType(Me.tbHoraT, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbHoraL, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbHoraS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCamion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx3.SuspendLayout()
         CType(Me.JGr_TipoProd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel1.SuspendLayout()
@@ -241,8 +258,8 @@ Partial Class F02_PedidoNuevo
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 2
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1349, 562)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemCliente})
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
@@ -423,6 +440,7 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanelPrincipal.Name = "TableLayoutPanelPrincipal"
         Me.TableLayoutPanelPrincipal.RowCount = 1
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 462.0!))
         Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1307, 562)
         Me.TableLayoutPanelPrincipal.TabIndex = 29
         '
@@ -1488,8 +1506,8 @@ Partial Class F02_PedidoNuevo
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(917, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.09991009!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 99.90009!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(387, 556)
         Me.TableLayoutPanel2.TabIndex = 1
         '
@@ -1501,9 +1519,9 @@ Partial Class F02_PedidoNuevo
         Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupPanel1.Location = New System.Drawing.Point(3, 225)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(381, 550)
+        Me.GroupPanel1.Size = New System.Drawing.Size(381, 328)
         '
         '
         '
@@ -1550,7 +1568,7 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelEx4.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx4.Name = "PanelEx4"
-        Me.PanelEx4.Size = New System.Drawing.Size(375, 526)
+        Me.PanelEx4.Size = New System.Drawing.Size(375, 304)
         Me.PanelEx4.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx4.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelEx4.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -1563,7 +1581,7 @@ Partial Class F02_PedidoNuevo
         '
         Me.QrFactura.ErrorCorrectLevel = Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.M
         Me.QrFactura.Image = CType(resources.GetObject("QrFactura.Image"), System.Drawing.Image)
-        Me.QrFactura.Location = New System.Drawing.Point(15, 477)
+        Me.QrFactura.Location = New System.Drawing.Point(26, 196)
         Me.QrFactura.Margin = New System.Windows.Forms.Padding(2)
         Me.QrFactura.Name = "QrFactura"
         Me.QrFactura.QuietZoneModule = Gma.QrCodeNet.Encoding.Windows.Render.QuietZoneModules.Two
@@ -1581,11 +1599,12 @@ Partial Class F02_PedidoNuevo
         '
         Me.Tb_CantProd.Border.Class = "TextBoxBorder"
         Me.Tb_CantProd.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Tb_CantProd.Location = New System.Drawing.Point(72, 443)
+        Me.Tb_CantProd.Location = New System.Drawing.Point(83, 162)
         Me.Tb_CantProd.Name = "Tb_CantProd"
         Me.Tb_CantProd.PreventEnterBeep = True
         Me.Tb_CantProd.Size = New System.Drawing.Size(100, 23)
         Me.Tb_CantProd.TabIndex = 27
+        Me.Tb_CantProd.Visible = False
         '
         'Btn_AddProd
         '
@@ -1594,7 +1613,7 @@ Partial Class F02_PedidoNuevo
         Me.Btn_AddProd.Image = Global.Presentacion.My.Resources.Resources.add21
         Me.Btn_AddProd.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.Btn_AddProd.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_AddProd.Location = New System.Drawing.Point(259, 437)
+        Me.Btn_AddProd.Location = New System.Drawing.Point(270, 156)
         Me.Btn_AddProd.Name = "Btn_AddProd"
         Me.Btn_AddProd.Size = New System.Drawing.Size(75, 58)
         Me.Btn_AddProd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1609,12 +1628,13 @@ Partial Class F02_PedidoNuevo
         Me.Btn_TerminarAdd.Image = Global.Presentacion.My.Resources.Resources.GRABAR
         Me.Btn_TerminarAdd.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.Btn_TerminarAdd.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.Btn_TerminarAdd.Location = New System.Drawing.Point(178, 437)
+        Me.Btn_TerminarAdd.Location = New System.Drawing.Point(189, 156)
         Me.Btn_TerminarAdd.Name = "Btn_TerminarAdd"
         Me.Btn_TerminarAdd.Size = New System.Drawing.Size(75, 58)
         Me.Btn_TerminarAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.Btn_TerminarAdd.TabIndex = 6
         Me.Btn_TerminarAdd.Text = "Terminar"
+        Me.Btn_TerminarAdd.Visible = False
         '
         'LabelX2
         '
@@ -1622,18 +1642,19 @@ Partial Class F02_PedidoNuevo
         '
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Location = New System.Drawing.Point(4, 443)
+        Me.LabelX2.Location = New System.Drawing.Point(15, 162)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(62, 23)
         Me.LabelX2.TabIndex = 0
         Me.LabelX2.Text = "Cantidad:"
+        Me.LabelX2.Visible = False
         '
         'JGr_Productos
         '
         Me.JGr_Productos.Dock = System.Windows.Forms.DockStyle.Top
         Me.JGr_Productos.Location = New System.Drawing.Point(0, 0)
         Me.JGr_Productos.Name = "JGr_Productos"
-        Me.JGr_Productos.Size = New System.Drawing.Size(375, 431)
+        Me.JGr_Productos.Size = New System.Drawing.Size(375, 299)
         Me.JGr_Productos.TabIndex = 0
         '
         'GroupPanel2
@@ -1641,13 +1662,14 @@ Partial Class F02_PedidoNuevo
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel2.Controls.Add(Me.PanelEx7)
         Me.GroupPanel2.Controls.Add(Me.PanelEx3)
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(381, 1)
+        Me.GroupPanel2.Size = New System.Drawing.Size(381, 216)
         '
         '
         '
@@ -1677,8 +1699,266 @@ Partial Class F02_PedidoNuevo
         '
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 1
-        Me.GroupPanel2.Text = "SELECCIONAR CATEGORIA"
-        Me.GroupPanel2.Visible = False
+        Me.GroupPanel2.Text = "DATOS"
+        '
+        'PanelEx7
+        '
+        Me.PanelEx7.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx7.Controls.Add(Me.tbHoraT)
+        Me.PanelEx7.Controls.Add(Me.tbHoraL)
+        Me.PanelEx7.Controls.Add(Me.tbHoraS)
+        Me.PanelEx7.Controls.Add(Me.cbCamion)
+        Me.PanelEx7.Controls.Add(Me.swTipoP)
+        Me.PanelEx7.Controls.Add(Me.LabelX28)
+        Me.PanelEx7.Controls.Add(Me.LabelX27)
+        Me.PanelEx7.Controls.Add(Me.LabelX25)
+        Me.PanelEx7.Controls.Add(Me.LabelX24)
+        Me.PanelEx7.Controls.Add(Me.LabelX13)
+        Me.PanelEx7.DisabledBackColor = System.Drawing.Color.Empty
+        Me.PanelEx7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelEx7.Location = New System.Drawing.Point(0, 0)
+        Me.PanelEx7.Name = "PanelEx7"
+        Me.PanelEx7.Size = New System.Drawing.Size(375, 192)
+        Me.PanelEx7.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx7.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.PanelEx7.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.PanelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx7.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx7.Style.GradientAngle = 90
+        Me.PanelEx7.TabIndex = 1
+        '
+        'tbHoraT
+        '
+        '
+        '
+        '
+        Me.tbHoraT.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbHoraT.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraT.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
+        Me.tbHoraT.ButtonDropDown.Visible = True
+        Me.tbHoraT.Format = DevComponents.Editors.eDateTimePickerFormat.ShortTime
+        Me.tbHoraT.IsPopupCalendarOpen = False
+        Me.tbHoraT.Location = New System.Drawing.Point(197, 137)
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.tbHoraT.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraT.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
+        Me.tbHoraT.MonthCalendar.ClearButtonVisible = True
+        '
+        '
+        '
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
+        Me.tbHoraT.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraT.MonthCalendar.DisplayMonth = New Date(2025, 2, 1, 0, 0, 0, 0)
+        Me.tbHoraT.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
+        '
+        '
+        '
+        Me.tbHoraT.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.tbHoraT.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraT.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.tbHoraT.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraT.MonthCalendar.TodayButtonVisible = True
+        Me.tbHoraT.MonthCalendar.Visible = False
+        Me.tbHoraT.Name = "tbHoraT"
+        Me.tbHoraT.Size = New System.Drawing.Size(79, 23)
+        Me.tbHoraT.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.tbHoraT.TabIndex = 50
+        Me.tbHoraT.Value = New Date(2025, 2, 25, 0, 0, 0, 0)
+        '
+        'tbHoraL
+        '
+        '
+        '
+        '
+        Me.tbHoraL.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbHoraL.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraL.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
+        Me.tbHoraL.ButtonDropDown.Visible = True
+        Me.tbHoraL.Format = DevComponents.Editors.eDateTimePickerFormat.ShortTime
+        Me.tbHoraL.IsPopupCalendarOpen = False
+        Me.tbHoraL.Location = New System.Drawing.Point(197, 108)
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.tbHoraL.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraL.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
+        Me.tbHoraL.MonthCalendar.ClearButtonVisible = True
+        '
+        '
+        '
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
+        Me.tbHoraL.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraL.MonthCalendar.DisplayMonth = New Date(2025, 2, 1, 0, 0, 0, 0)
+        Me.tbHoraL.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
+        '
+        '
+        '
+        Me.tbHoraL.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.tbHoraL.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraL.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.tbHoraL.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraL.MonthCalendar.TodayButtonVisible = True
+        Me.tbHoraL.MonthCalendar.Visible = False
+        Me.tbHoraL.Name = "tbHoraL"
+        Me.tbHoraL.Size = New System.Drawing.Size(79, 23)
+        Me.tbHoraL.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.tbHoraL.TabIndex = 49
+        Me.tbHoraL.Value = New Date(2025, 2, 25, 0, 0, 0, 0)
+        '
+        'tbHoraS
+        '
+        '
+        '
+        '
+        Me.tbHoraS.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbHoraS.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraS.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
+        Me.tbHoraS.ButtonDropDown.Visible = True
+        Me.tbHoraS.Format = DevComponents.Editors.eDateTimePickerFormat.ShortTime
+        Me.tbHoraS.IsPopupCalendarOpen = False
+        Me.tbHoraS.Location = New System.Drawing.Point(197, 79)
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.tbHoraS.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraS.MonthCalendar.CalendarDimensions = New System.Drawing.Size(1, 1)
+        Me.tbHoraS.MonthCalendar.ClearButtonVisible = True
+        '
+        '
+        '
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1
+        Me.tbHoraS.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraS.MonthCalendar.DisplayMonth = New Date(2025, 2, 1, 0, 0, 0, 0)
+        Me.tbHoraS.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday
+        '
+        '
+        '
+        Me.tbHoraS.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.tbHoraS.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90
+        Me.tbHoraS.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.tbHoraS.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbHoraS.MonthCalendar.TodayButtonVisible = True
+        Me.tbHoraS.MonthCalendar.Visible = False
+        Me.tbHoraS.Name = "tbHoraS"
+        Me.tbHoraS.Size = New System.Drawing.Size(79, 23)
+        Me.tbHoraS.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.tbHoraS.TabIndex = 48
+        Me.tbHoraS.Value = New Date(2025, 2, 25, 0, 0, 0, 0)
+        '
+        'cbCamion
+        '
+        cbCamion_DesignTimeLayout.LayoutString = resources.GetString("cbCamion_DesignTimeLayout.LayoutString")
+        Me.cbCamion.DesignTimeLayout = cbCamion_DesignTimeLayout
+        Me.cbCamion.Location = New System.Drawing.Point(15, 32)
+        Me.cbCamion.Name = "cbCamion"
+        Me.cbCamion.SelectedIndex = -1
+        Me.cbCamion.SelectedItem = Nothing
+        Me.cbCamion.Size = New System.Drawing.Size(140, 23)
+        Me.cbCamion.TabIndex = 47
+        '
+        'swTipoP
+        '
+        '
+        '
+        '
+        Me.swTipoP.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swTipoP.Location = New System.Drawing.Point(178, 32)
+        Me.swTipoP.Name = "swTipoP"
+        Me.swTipoP.OffBackColor = System.Drawing.Color.Cyan
+        Me.swTipoP.OffText = "PENDIENTE"
+        Me.swTipoP.OnBackColor = System.Drawing.Color.LawnGreen
+        Me.swTipoP.OnText = "HOJA DE RUTA"
+        Me.swTipoP.Size = New System.Drawing.Size(156, 22)
+        Me.swTipoP.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swTipoP.TabIndex = 46
+        '
+        'LabelX28
+        '
+        '
+        '
+        '
+        Me.LabelX28.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX28.Location = New System.Drawing.Point(178, 3)
+        Me.LabelX28.Name = "LabelX28"
+        Me.LabelX28.Size = New System.Drawing.Size(97, 23)
+        Me.LabelX28.TabIndex = 22
+        Me.LabelX28.Text = "ASIGNAR:"
+        '
+        'LabelX27
+        '
+        '
+        '
+        '
+        Me.LabelX27.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX27.Location = New System.Drawing.Point(15, 3)
+        Me.LabelX27.Name = "LabelX27"
+        Me.LabelX27.Size = New System.Drawing.Size(122, 23)
+        Me.LabelX27.TabIndex = 21
+        Me.LabelX27.Text = "CAMION:"
+        '
+        'LabelX25
+        '
+        '
+        '
+        '
+        Me.LabelX25.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX25.Location = New System.Drawing.Point(15, 137)
+        Me.LabelX25.Name = "LabelX25"
+        Me.LabelX25.Size = New System.Drawing.Size(157, 23)
+        Me.LabelX25.TabIndex = 19
+        Me.LabelX25.Text = "TIEMPO DE ENTREGA:"
+        '
+        'LabelX24
+        '
+        '
+        '
+        '
+        Me.LabelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX24.Location = New System.Drawing.Point(15, 108)
+        Me.LabelX24.Name = "LabelX24"
+        Me.LabelX24.Size = New System.Drawing.Size(140, 23)
+        Me.LabelX24.TabIndex = 18
+        Me.LabelX24.Text = "HORA LLEGADA:"
+        '
+        'LabelX13
+        '
+        '
+        '
+        '
+        Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX13.Location = New System.Drawing.Point(15, 79)
+        Me.LabelX13.Name = "LabelX13"
+        Me.LabelX13.Size = New System.Drawing.Size(140, 23)
+        Me.LabelX13.TabIndex = 17
+        Me.LabelX13.Text = "HORA SALIDA:"
         '
         'PanelEx3
         '
@@ -1690,7 +1970,7 @@ Partial Class F02_PedidoNuevo
         Me.PanelEx3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelEx3.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx3.Name = "PanelEx3"
-        Me.PanelEx3.Size = New System.Drawing.Size(375, 8)
+        Me.PanelEx3.Size = New System.Drawing.Size(375, 192)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelEx3.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -1704,7 +1984,7 @@ Partial Class F02_PedidoNuevo
         Me.JGr_TipoProd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGr_TipoProd.Location = New System.Drawing.Point(0, 0)
         Me.JGr_TipoProd.Name = "JGr_TipoProd"
-        Me.JGr_TipoProd.Size = New System.Drawing.Size(375, 8)
+        Me.JGr_TipoProd.Size = New System.Drawing.Size(375, 192)
         Me.JGr_TipoProd.TabIndex = 0
         '
         'SuperTabItemCliente
@@ -2364,24 +2644,24 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Clientes.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ACTUALIZARCLIENTESToolStripMenuItem, Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem, Me.VERCLIENTESACTIVOSToolStripMenuItem})
         Me.ConMenu_Clientes.Name = "ConMenu_Clientes"
-        Me.ConMenu_Clientes.Size = New System.Drawing.Size(256, 70)
+        Me.ConMenu_Clientes.Size = New System.Drawing.Size(258, 70)
         '
         'ACTUALIZARCLIENTESToolStripMenuItem
         '
         Me.ACTUALIZARCLIENTESToolStripMenuItem.Name = "ACTUALIZARCLIENTESToolStripMenuItem"
-        Me.ACTUALIZARCLIENTESToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.ACTUALIZARCLIENTESToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.ACTUALIZARCLIENTESToolStripMenuItem.Text = "ACTUALIZAR CLIENTES"
         '
         'VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem
         '
         Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Name = "VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem"
-        Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.VERCLIENTESPASIVOSYACTIVOSToolStripMenuItem.Text = "VER CLIENTES PASIVOS Y ACTIVOS"
         '
         'VERCLIENTESACTIVOSToolStripMenuItem
         '
         Me.VERCLIENTESACTIVOSToolStripMenuItem.Name = "VERCLIENTESACTIVOSToolStripMenuItem"
-        Me.VERCLIENTESACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.VERCLIENTESACTIVOSToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.VERCLIENTESACTIVOSToolStripMenuItem.Text = "VER CLIENTES ACTIVOS"
         '
         'ConMenu_Buscador
@@ -2389,12 +2669,12 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Buscador.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Buscador.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VERHISTORIALToolStripMenuItem})
         Me.ConMenu_Buscador.Name = "ConMenu_Buscador"
-        Me.ConMenu_Buscador.Size = New System.Drawing.Size(146, 26)
+        Me.ConMenu_Buscador.Size = New System.Drawing.Size(147, 26)
         '
         'VERHISTORIALToolStripMenuItem
         '
         Me.VERHISTORIALToolStripMenuItem.Name = "VERHISTORIALToolStripMenuItem"
-        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.VERHISTORIALToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.VERHISTORIALToolStripMenuItem.Text = "VER ESTADOS"
         '
         'ConMenu_Opciones1
@@ -2402,36 +2682,36 @@ Partial Class F02_PedidoNuevo
         Me.ConMenu_Opciones1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem, Me.VERHISTORIALToolStripMenuItem1, Me.REGERARPEDIDOToolStripMenuItem, Me.ANULARPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones1.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(247, 114)
+        Me.ConMenu_Opciones1.Size = New System.Drawing.Size(248, 114)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(246, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(247, 22)
         Me.ToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem"
-        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem.Text = "GRABAR RECLAMO REPARTIDOR"
         '
         'VERHISTORIALToolStripMenuItem1
         '
         Me.VERHISTORIALToolStripMenuItem1.Name = "VERHISTORIALToolStripMenuItem1"
-        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(246, 22)
+        Me.VERHISTORIALToolStripMenuItem1.Size = New System.Drawing.Size(247, 22)
         Me.VERHISTORIALToolStripMenuItem1.Text = "VER ESTADOS"
         '
         'REGERARPEDIDOToolStripMenuItem
         '
         Me.REGERARPEDIDOToolStripMenuItem.Name = "REGERARPEDIDOToolStripMenuItem"
-        Me.REGERARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.REGERARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.REGERARPEDIDOToolStripMenuItem.Text = "REGENERAR PEDIDO"
         '
         'ANULARPEDIDOToolStripMenuItem
         '
         Me.ANULARPEDIDOToolStripMenuItem.Name = "ANULARPEDIDOToolStripMenuItem"
-        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(246, 22)
+        Me.ANULARPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.ANULARPEDIDOToolStripMenuItem.Text = "ANULAR PEDIDO"
         '
         'btActualizar
@@ -2550,6 +2830,12 @@ Partial Class F02_PedidoNuevo
         CType(Me.QrFactura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JGr_Productos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
+        Me.PanelEx7.ResumeLayout(False)
+        Me.PanelEx7.PerformLayout()
+        CType(Me.tbHoraT, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbHoraL, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbHoraS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCamion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx3.ResumeLayout(False)
         CType(Me.JGr_TipoProd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel1.ResumeLayout(False)
@@ -2708,4 +2994,15 @@ Partial Class F02_PedidoNuevo
     Friend WithEvents dtpFechaVenc As DateTimePicker
     Friend WithEvents lbFVenc As DevComponents.DotNetBar.LabelX
     Friend WithEvents swStock As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents PanelEx7 As DevComponents.DotNetBar.PanelEx
+    Friend WithEvents tbHoraT As DevComponents.Editors.DateTimeAdv.DateTimeInput
+    Friend WithEvents tbHoraL As DevComponents.Editors.DateTimeAdv.DateTimeInput
+    Friend WithEvents tbHoraS As DevComponents.Editors.DateTimeAdv.DateTimeInput
+    Friend WithEvents cbCamion As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents swTipoP As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents LabelX28 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX27 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX25 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX24 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX13 As DevComponents.DotNetBar.LabelX
 End Class

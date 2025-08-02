@@ -86,7 +86,7 @@ Partial Class F0_Categoria
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.gpDatos)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.gpDatos, 0)
@@ -114,14 +114,14 @@ Partial Class F0_Categoria
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
         '
-        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MBtSiguiente
         '
@@ -146,6 +146,10 @@ Partial Class F0_Categoria
         '
         'MBtNuevo
         '
+        '
+        'MBtImprimir
+        '
+        Me.MBtImprimir.Visible = False
         '
         'MBubbleBarUsuario
         '
@@ -193,7 +197,7 @@ Partial Class F0_Categoria
         Me.gpDatos.Dock = System.Windows.Forms.DockStyle.Top
         Me.gpDatos.Font = New System.Drawing.Font("Georgia", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gpDatos.Location = New System.Drawing.Point(0, 0)
-        Me.gpDatos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gpDatos.Margin = New System.Windows.Forms.Padding(2)
         Me.gpDatos.Name = "gpDatos"
         Me.gpDatos.Size = New System.Drawing.Size(942, 254)
         '
@@ -227,7 +231,7 @@ Partial Class F0_Categoria
         Me.Panel1.Controls.Add(Me.tbnombre)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(942, 236)
         Me.Panel1.TabIndex = 0
@@ -238,7 +242,7 @@ Partial Class F0_Categoria
         Me.Panel3.Controls.Add(Me.cbme)
         Me.Panel3.Controls.Add(Me.cbagua)
         Me.Panel3.Location = New System.Drawing.Point(109, 164)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(348, 69)
         Me.Panel3.TabIndex = 225
@@ -257,7 +261,7 @@ Partial Class F0_Categoria
         Me.cbninguna.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbninguna.CheckValue = "Y"
         Me.cbninguna.Location = New System.Drawing.Point(226, 8)
-        Me.cbninguna.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbninguna.Margin = New System.Windows.Forms.Padding(2)
         Me.cbninguna.Name = "cbninguna"
         Me.cbninguna.Size = New System.Drawing.Size(100, 20)
         Me.cbninguna.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -274,7 +278,7 @@ Partial Class F0_Categoria
         Me.cbme.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
         Me.cbme.CheckSignSize = New System.Drawing.Size(18, 18)
         Me.cbme.Location = New System.Drawing.Point(121, 8)
-        Me.cbme.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbme.Margin = New System.Windows.Forms.Padding(2)
         Me.cbme.Name = "cbme"
         Me.cbme.Size = New System.Drawing.Size(52, 20)
         Me.cbme.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -291,7 +295,7 @@ Partial Class F0_Categoria
         Me.cbagua.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
         Me.cbagua.CheckSignSize = New System.Drawing.Size(18, 18)
         Me.cbagua.Location = New System.Drawing.Point(14, 8)
-        Me.cbagua.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cbagua.Margin = New System.Windows.Forms.Padding(2)
         Me.cbagua.Name = "cbagua"
         Me.cbagua.Size = New System.Drawing.Size(105, 20)
         Me.cbagua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -352,9 +356,9 @@ Partial Class F0_Categoria
         Me.Panel2.BackgroundImage = Global.Presentacion.My.Resources.Resources.img2
         Me.Panel2.Controls.Add(Me.pbImage)
         Me.Panel2.Location = New System.Drawing.Point(502, 18)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Panel2.Size = New System.Drawing.Size(225, 162)
         Me.Panel2.TabIndex = 8
         '
@@ -364,7 +368,7 @@ Partial Class F0_Categoria
         Me.pbImage.Image = Global.Presentacion.My.Resources.Resources.I256x256_image_capture
         Me.pbImage.InitialImage = Global.Presentacion.My.Resources.Resources.pantalla1
         Me.pbImage.Location = New System.Drawing.Point(4, 4)
-        Me.pbImage.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pbImage.Margin = New System.Windows.Forms.Padding(2)
         Me.pbImage.Name = "pbImage"
         Me.pbImage.Size = New System.Drawing.Size(217, 154)
         Me.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -467,7 +471,7 @@ Partial Class F0_Categoria
         Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 254)
-        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupPanel1.Name = "GroupPanel1"
         Me.GroupPanel1.Size = New System.Drawing.Size(942, 201)
         '
@@ -509,7 +513,7 @@ Partial Class F0_Categoria
         Me.grBuscador.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grBuscador.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grBuscador.Location = New System.Drawing.Point(0, 0)
-        Me.grBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.grBuscador.Margin = New System.Windows.Forms.Padding(2)
         Me.grBuscador.Name = "grBuscador"
         Me.grBuscador.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grBuscador.Size = New System.Drawing.Size(936, 177)
@@ -529,7 +533,7 @@ Partial Class F0_Categoria
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 561)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "F0_Categoria"
         Me.Opacity = 0.05R
         Me.Text = "F0_Categoria"

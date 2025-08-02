@@ -26,6 +26,7 @@ Imports DevComponents.DotNetBar.SuperGrid.GridPanel
 Imports DevComponents.DotNetBar.SuperGrid.SuperGrid
 Imports System.Drawing.Drawing2D
 Imports System.Globalization
+Imports System.Text.RegularExpressions
 
 Public Class F0_HojaRuta
     Dim _inter As Integer = 0
@@ -1324,7 +1325,7 @@ Public Class F0_HojaRuta
             Dim cod As Integer = cbCamion.Value
             Tb_FechaHasta.Value = DateTime.Today
             _cargaCompleta = True
-            cbEstado.SelectedIndex = 0
+            'cbEstado.SelectedIndex = 0
             CargarHojaRuta()
             CargarHojaPedidosPendientes(grPendientes, 0, CType(grPedidos4.DataSource, DataTable))
             InHabilitar()
@@ -1643,21 +1644,21 @@ Public Class F0_HojaRuta
     End Sub
     Private Sub CargarChoferes()
         Try
-            Dim listResult As List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
+            Dim listResult As DataTable = L_fnObtenerPersonal(1) 'List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
 
             With cbRepartidor.DropDownList
                 .Columns.Clear()
 
-                .Columns.Add("Id").Width = 30
-                .Columns("Id").Caption = "Id"
-                .Columns("Id").Visible = True
+                .Columns.Add("cod").Width = 30
+                .Columns("cod").Caption = "Id"
+                .Columns("cod").Visible = True
 
-                .Columns.Add("Descripcion").Width = 180
-                .Columns("Descripcion").Caption = "Nombre repartidor"
-                .Columns("Descripcion").Visible = True
+                .Columns.Add("desc").Width = 180
+                .Columns("desc").Caption = "Nombre repartidor"
+                .Columns("desc").Visible = True
 
-                .ValueMember = "Id"
-                .DisplayMember = "Descripcion"
+                .ValueMember = "cod"
+                .DisplayMember = "desc"
                 .DataSource = listResult
 
                 .AlternatingColors = True
@@ -2183,7 +2184,7 @@ Public Class F0_HojaRuta
 
         Else
 
-            dt = TraerPedidosPendientes()
+            dt = TraerPedidosPendientes(peso)
 
         End If
         calcularRecorrido(dt)
@@ -2234,7 +2235,7 @@ Public Class F0_HojaRuta
             .Visible = False
         End With
         With grilla.RootTable.Columns("tohora")
-            .Caption = "HORA"
+            .Caption = "LLEGADA"
             .HeaderStyle.BackColor = Color.Green
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
@@ -2489,7 +2490,7 @@ Public Class F0_HojaRuta
             End If
 
 
-            Dim recorrido As String = horas.ToString("00") + ":" + minutos.ToString("00") + ":00"
+            Dim recorrido As String = horas.ToString("00") + ":" + minutos.ToString("00")
 
             dt.Rows(i).Item("torecorr") = recorrido
         Next
@@ -2503,7 +2504,7 @@ Public Class F0_HojaRuta
 
         calcularRecorrido(dt)
 
-        dt.Columns.RemoveAt(17)
+        'dt.Columns.RemoveAt(17)
 
         grilla.BoundMode = Janus.Data.BoundMode.Bound
         grilla.DataSource = dt
@@ -2558,6 +2559,12 @@ Public Class F0_HojaRuta
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
         End With
+        With grilla.RootTable.Columns("totentre")
+            .Caption = "ENTREGA"
+            .HeaderStyle.BackColor = Color.Green
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+        End With
         With grilla.RootTable.Columns("totrasl")
             .Caption = "SALIDA"
             .HeaderStyle.BackColor = Color.Green
@@ -2596,13 +2603,13 @@ Public Class F0_HojaRuta
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
         End With
-        'With grilla.RootTable.Columns("oanumi")
-        '    .Caption = "HORA"
-        '    .Width = 50
-        '    .HeaderStyle.BackColor = Color.Green
-        '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-        '    .Visible = False
-        'End With
+        With grilla.RootTable.Columns("obnumi")
+            .Caption = "HORA"
+            .Width = 50
+            .HeaderStyle.BackColor = Color.Green
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
         'With grilla.RootTable.Columns("oaest")
         '    .Caption = "ESTADO"
         '    .Width = 50
@@ -3197,8 +3204,53 @@ Public Class F0_HojaRuta
 
 
         End If
+        If ((e.Column.Key.Equals("totrasl")) Or (e.Column.Key.Equals("tohora"))) Then
+            Dim horaI As String = grPedidos.GetValue("totrasl").ToString
+            Dim horaF As String = grPedidos.GetValue("tohora").ToString
+            If EsFormatoHora(horaI) And EsFormatoHora(horaF) Then
+
+
+
+                ' Convertir las cadenas a objetos DateTime
+                Dim tiempoInicio As DateTime = DateTime.ParseExact(horaI, "HH:mm", Nothing)
+                Dim tiempoFin As DateTime = DateTime.ParseExact(horaF, "HH:mm", Nothing)
+
+                ' Calcular la diferencia
+                Dim diferencia As TimeSpan = tiempoFin - tiempoInicio
+
+                ' Extraer la diferencia en horas y minutos
+                Dim horas As Integer
+                Dim minutos As Integer
+                If diferencia.Hours < 0 Then
+                    horas = 0
+                Else
+
+                    horas = diferencia.Hours
+                End If
+                If diferencia.Minutes < 0 Then
+                    minutos = 0
+                Else
+
+                    minutos = diferencia.Minutes
+                End If
+
+
+                Dim recorrido As String = horas.ToString("00") + ":" + minutos.ToString("00")
+
+                grPedidos.SetValue("torecorr", recorrido)
+            Else
+                grPedidos.SetValue("torecorr", "00:00")
+            End If
+
+        Else
+            grPedidos.SetValue("torecorr", "00:00")
+        End If
     End Sub
 
+    Function EsFormatoHora(texto As String) As Boolean
+        Dim regex As New Regex("^\d{2}:\d{2}$")
+        Return regex.IsMatch(texto)
+    End Function
     Private Sub LabelX27_Click(sender As Object, e As EventArgs) Handles LabelX27.Click
 
     End Sub
@@ -3212,7 +3264,49 @@ Public Class F0_HojaRuta
         End If
     End Sub
 
+    Private Function validarHora() As Boolean
+        Dim res As Boolean = True
+        If SuperTabControl1.SelectedTab Is tbSalida1 Then
+            If tbSalida1.Text = "PRIMERA SALIDA" Then
+                res = True
+            ElseIf tbSalida1.Text = "SEGUNDA SALIDA" Then
+                Dim hora As String = traerHoraLlegada(cbCamion.Value, 1)
+                If hora > tbHoraS.Text Then
+                    res = False
+                End If
+            ElseIf tbSalida1.Text = "TERCERA SALIDA" Then
+                Dim hora As String = traerHoraLlegada(cbCamion.Value, 2)
+                If hora > tbHoraS.Text Then
+                    res = False
+                End If
+            End If
+        ElseIf SuperTabControl1.SelectedTab Is tbSalida2 Then
+            If tbHoraS2.ToString > tbHoraL.ToString Then
+                res = False
+            End If
+        ElseIf SuperTabControl1.SelectedTab Is tbSalida3 Then
+            If tbHoraS3.ToString > tbHoraL2.ToString Then
+                res = False
+            End If
+        ElseIf SuperTabControl1.SelectedTab Is tbSalida4 Then
+            res = False
+        End If
+
+        Return res
+    End Function
+
     Private Sub GrabarNuevoRegistro()
+
+        If validarHora() Then
+
+        Else
+            ToastNotification.Show(Me, "La hora de salida en menor a la hora de llegada de la anterior salida".ToUpper,
+                                       My.Resources.WARNING,
+                                       3 * 1000,
+                                       eToastGlowColor.Red,
+                                       eToastPosition.TopCenter)
+            Exit Sub
+        End If
         calcularRecorrido(CType(grPedidos.DataSource, DataTable))
         llenarvacios(grPedidos)
         Dim resultadoFilas() As DataRow = CType(grPedidos.DataSource, DataTable).Select("check1 = True")
@@ -3383,7 +3477,7 @@ Public Class F0_HojaRuta
 
     Private Sub MBtModificar_Click(sender As Object, e As EventArgs) Handles MBtModificar.Click
         Dim cont As Integer
-        If Grilla2 = 1 Then
+        If Grilla2 = 2 Then
             If CType(grPedidos2.DataSource, DataTable).Rows.Count = 0 Then
                 CargarHojaPedidos(grPedidos2, cbZona.Value)
                 cont = CType(grPedidos2.DataSource, DataTable).Rows.Count
@@ -3392,7 +3486,7 @@ Public Class F0_HojaRuta
                     SuperTabControl1.SelectedTab = tbSalida2
                 End If
             End If
-        ElseIf Grilla3 = 1 Then
+        ElseIf Grilla3 = 2 Then
             If CType(grPedidos3.DataSource, DataTable).Rows.Count = 0 Then
                 CargarHojaPedidos(grPedidos3, cbZona.Value)
                 cont = CType(grPedidos3.DataSource, DataTable).Rows.Count
@@ -3401,7 +3495,7 @@ Public Class F0_HojaRuta
                     SuperTabControl1.SelectedTab = tbSalida3
                 End If
             End If
-        ElseIf Grilla4 = 1 Then
+        ElseIf Grilla4 = 2 Then
             If CType(grPedidos4.DataSource, DataTable).Rows.Count = 0 Then
                 CargarHojaPedidos(grPedidos4, cbZona.Value)
                 cont = CType(grPedidos4.DataSource, DataTable).Rows.Count
@@ -3443,32 +3537,32 @@ Public Class F0_HojaRuta
             tbFecha.Value = .GetValue("trfdoc")
             cbRepartidor.Value = .GetValue("trcodrep")
             cbCamion.Value = .GetValue("trzon")
-            Dim dt As DataTable = TraerSalidas(CInt(.GetValue("trnumi")))
-            Dim resultadoFilas() As DataRow = dt.Select("tssalida = 1")
-            Dim dt1 As DataTable = dt.Clone()
-            dt1.Clear()
-            For Each fila As DataRow In resultadoFilas
-                dt1.ImportRow(fila)
-            Next
-            If dt1.Rows.Count > 0 Then
-                CargarGrillas(grPedidos, dt1)
-                tbHoraS.Value = dt1.Rows(0).Item("tshoras")
-                tbHoraL.Value = dt1.Rows(0).Item("tshoral")
-                total = IIf(IsDBNull(dt1.Compute("Sum(tokg)", "toclie>0")), 0, dt1.Compute("Sum(tokg)", "toclie>0"))
-                tbPesTot.Text = (dt1.Rows(0).Item("tspeso")).ToString
+            Dim dt As DataTable = TraerSalidas(CInt(.GetValue("trnumi")), 1)
+            'Dim resultadoFilas() As DataRow = dt.Select("tssalida = 1")
+            'Dim dt1 As DataTable = dt.Clone()
+            'dt1.Clear()
+            'For Each fila As DataRow In resultadoFilas
+            '    dt1.ImportRow(fila)
+            'Next
+            If dt.Rows.Count > 0 Then
+                CargarGrillas(grPedidos, dt)
+                tbHoraS.Value = dt.Rows(0).Item("tshoras")
+                tbHoraL.Value = dt.Rows(0).Item("tshoral")
+                total = IIf(IsDBNull(dt.Compute("Sum(tokg)", "toclie>0")), 0, dt.Compute("Sum(tokg)", "toclie>0"))
+                tbPesTot.Text = (dt.Rows(0).Item("tspeso")).ToString
                 tbPesSel.Text = total.ToString
-                tbPesSal.Text = (dt1.Rows(0).Item("tspeso") - total).ToString
+                tbPesSal.Text = (dt.Rows(0).Item("tspeso") - total).ToString
                 Grilla1 = 2
             Else
-                CargarGrillas(grPedidos, dt1)
+                CargarGrillas(grPedidos, dt)
                 Grilla1 = 1
             End If
-            resultadoFilas = dt.Select("tssalida = 2")
-            Dim dt2 As DataTable = dt.Clone()
-            dt2.Clear()
-            For Each fila As DataRow In resultadoFilas
-                dt2.ImportRow(fila)
-            Next
+            'resultadoFilas = dt.Select("tssalida = 2")
+            Dim dt2 As DataTable = TraerSalidas(CInt(.GetValue("trnumi")), 2) 'dt.Clone()
+            'dt2.Clear()
+            'For Each fila As DataRow In resultadoFilas
+            '    dt2.ImportRow(fila)
+            'Next
             If dt2.Rows.Count > 0 Then
                 CargarGrillas(grPedidos2, dt2)
                 tbHoraS2.Value = dt2.Rows(0).Item("tshoras")
@@ -3483,12 +3577,12 @@ Public Class F0_HojaRuta
                 tbPesTot2.Text = tbPesTot.Text
             End If
 
-            resultadoFilas = dt.Select("tssalida = 3")
-            Dim dt3 As DataTable = dt.Clone()
-            dt3.Clear()
-            For Each fila As DataRow In resultadoFilas
-                dt3.ImportRow(fila)
-            Next
+            'resultadoFilas = dt.Select("tssalida = 3")
+            Dim dt3 As DataTable = TraerSalidas(CInt(.GetValue("trnumi")), 3) 'dt.Clone()
+            'dt3.Clear()
+            'For Each fila As DataRow In resultadoFilas
+            '    dt3.ImportRow(fila)
+            'Next
             If dt3.Rows.Count > 0 Then
                 CargarGrillas(grPedidos3, dt3)
                 tbHoraS3.Value = dt3.Rows(0).Item("tshoras")
@@ -3501,12 +3595,12 @@ Public Class F0_HojaRuta
                 Grilla3 = 1
             End If
 
-            resultadoFilas = dt.Select("tssalida = 4")
-            Dim dt4 As DataTable = dt.Clone()
+            'resultadoFilas = dt.Select("tssalida = 4")
+            Dim dt4 As DataTable = TraerSalidas(CInt(.GetValue("trnumi")), 4) 'dt.Clone()
             dt4.Clear()
-            For Each fila As DataRow In resultadoFilas
-                dt4.ImportRow(fila)
-            Next
+            'For Each fila As DataRow In resultadoFilas
+            ' dt4.ImportRow(fila)
+            'Next
             If dt4.Rows.Count > 0 Then
                 CargarGrillas(grPedidos4, dt4)
                 tbHoraS2.Value = dt4.Rows(0).Item("tshoras")
@@ -4419,7 +4513,7 @@ Public Class F0_HojaRuta
                             objrep.SetDataSource(dt1)
                             objrep.SetParameterValue("chofer", cbRepartidor.Text)
                             objrep.SetParameterValue("salida", salidaS)
-                            objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                            objrep.SetParameterValue("codigo", CType(grPedidos2.DataSource, DataTable).Rows(i).Item("tonro"))
                             ' Finalmente, puedes mostrar el informe en el visor de informes
                             'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                             'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4428,8 +4522,8 @@ Public Class F0_HojaRuta
                             pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
                             If (Not pd.PrinterSettings.IsValid) Then
                                 ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                       My.Resources.WARNING, 5 * 1000,
-                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+                                           My.Resources.WARNING, 5 * 1000,
+                                           eToastGlowColor.Blue, eToastPosition.BottomRight)
                             Else
                                 objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
                                 objrep.PrintToPrinter(1, False, 1, 1)
@@ -4450,7 +4544,7 @@ Public Class F0_HojaRuta
                             objrep.SetDataSource(dt1)
                             objrep.SetParameterValue("chofer", cbRepartidor.Text)
                             objrep.SetParameterValue("salida", salidaS)
-                            objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                            objrep.SetParameterValue("codigo", CType(grPedidos2.DataSource, DataTable).Rows(i).Item("tonro"))
                             ' Finalmente, puedes mostrar el informe en el visor de informes
                             'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                             'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4481,7 +4575,7 @@ Public Class F0_HojaRuta
                         objrep.SetDataSource(dtaux)
                         objrep.SetParameterValue("chofer", cbRepartidor.Text)
                         objrep.SetParameterValue("salida", salidaS)
-                        objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                        objrep.SetParameterValue("codigo", CType(grPedidos2.DataSource, DataTable).Rows(i).Item("tonro"))
                         ' Finalmente, puedes mostrar el informe en el visor de informes
                         'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                         'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4500,9 +4594,12 @@ Public Class F0_HojaRuta
                         'crSubreportDocument.SetParameterValue("cliente2", CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
 
                         cont = cont + 1
+
                         Exit For
                     End If
                 Next
+                est2 = 0
+                est1 = 0
             Next
 
 
@@ -4522,7 +4619,7 @@ Public Class F0_HojaRuta
                             objrep.SetDataSource(dt1)
                             objrep.SetParameterValue("chofer", cbRepartidor.Text)
                             objrep.SetParameterValue("salida", salidaS)
-                            objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                            objrep.SetParameterValue("codigo", CType(grPedidos3.DataSource, DataTable).Rows(i).Item("tonro"))
                             ' Finalmente, puedes mostrar el informe en el visor de informes
                             'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                             'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4553,7 +4650,7 @@ Public Class F0_HojaRuta
                             objrep.SetDataSource(dt1)
                             objrep.SetParameterValue("chofer", cbRepartidor.Text)
                             objrep.SetParameterValue("salida", salidaS)
-                            objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                            objrep.SetParameterValue("codigo", CType(grPedidos3.DataSource, DataTable).Rows(i).Item("tonro"))
                             ' Finalmente, puedes mostrar el informe en el visor de informes
                             'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                             'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4584,7 +4681,7 @@ Public Class F0_HojaRuta
                         objrep.SetDataSource(dtaux)
                         objrep.SetParameterValue("chofer", cbRepartidor.Text)
                         objrep.SetParameterValue("salida", salidaS)
-                        objrep.SetParameterValue("codigo", CType(grPedidos.DataSource, DataTable).Rows(i).Item("tonro"))
+                        objrep.SetParameterValue("codigo", CType(grPedidos3.DataSource, DataTable).Rows(i).Item("tonro"))
                         ' Finalmente, puedes mostrar el informe en el visor de informes
                         'P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                         'P_Global.Visualizador.ShowDialog() 'Comentar
@@ -4867,22 +4964,55 @@ Public Class F0_HojaRuta
             salidaS = "SEGUNDA SALIDA"
             For i = 0 To CType(grPedidos2.DataSource, DataTable).Rows.Count - 1 Step 1
                 dt = TraerComanda(CType(grPedidos2.DataSource, DataTable).Rows(i).Item("tooanumi"))
+                est1 = 0
+                est2 = 0
                 For Each fila As DataRow In dt.Rows
-                    If fila("tipo1") = 1 Or ("tipo1") = 2 Then
-                        Dim dt1 As DataTable = dt.Clone()
-                        dt1.Clear()
-                        dt1.ImportRow(fila)
-                        Dim reporte As String = "Subreport" + (cont + 1).ToString
-                        Dim reporte1 As String
-                        If cont = 0 Then
-                            reporte1 = "R_RepComanda.rpt"
-                        Else
-                            reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                    If fila("tipo1") = 1 Then
+                        If est1 = 0 Then
+                            Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 1")
+                            Dim dt1 As DataTable = dt.Clone()
+                            dt1.Clear()
+                            For Each fila1 As DataRow In resultadoFilas
+                                dt1.ImportRow(fila1)
+                            Next
+                            Dim reporte As String = "Subreport" + (cont + 1).ToString
+                            Dim reporte1 As String
+                            If cont = 0 Then
+                                reporte1 = "R_RepComanda.rpt"
+                            Else
+                                reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                            End If
+                            Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
+                            Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
+                            crSubreportDocument.SetDataSource(dt1)
+                            'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                            'objrep.SetParameterValue("cliente1".ToString, CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+                            cont = cont + 1
+                            est1 = 1
                         End If
-                        Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
-                        Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
-                        crSubreportDocument.SetDataSource(dt1)
-                        cont = cont + 1
+                    ElseIf fila("tipo1") = 2 Then
+                        If est2 = 0 Then
+                            Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 2")
+                            Dim dt1 As DataTable = dt.Clone()
+                            dt1.Clear()
+                            For Each fila1 As DataRow In resultadoFilas
+                                dt1.ImportRow(fila1)
+                            Next
+                            Dim reporte As String = "Subreport" + (cont + 1).ToString
+                            Dim reporte1 As String
+                            If cont = 0 Then
+                                reporte1 = "R_RepComanda.rpt"
+                            Else
+                                reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                            End If
+                            Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
+                            Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
+                            crSubreportDocument.SetDataSource(dt1)
+                            'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                            'objrep.SetParameterValue("cliente1".ToString, CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+                            cont = cont + 1
+                            est2 = 1
+                        End If
                     Else
 
                         Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 3")
@@ -4901,6 +5031,9 @@ Public Class F0_HojaRuta
                         Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
                         Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
                         crSubreportDocument.SetDataSource(dtaux)
+                        'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                        'crSubreportDocument.SetParameterValue("cliente2", CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+
                         cont = cont + 1
                         Exit For
                     End If
@@ -4912,22 +5045,55 @@ Public Class F0_HojaRuta
             salidaS = "TERCERA SALIDA"
             For i = 0 To CType(grPedidos3.DataSource, DataTable).Rows.Count - 1 Step 1
                 dt = TraerComanda(CType(grPedidos3.DataSource, DataTable).Rows(i).Item("tooanumi"))
+                est1 = 0
+                est2 = 0
                 For Each fila As DataRow In dt.Rows
-                    If fila("tipo1") = 1 Or ("tipo1") = 2 Then
-                        Dim dt1 As DataTable = dt.Clone()
-                        dt1.Clear()
-                        dt1.ImportRow(fila)
-                        Dim reporte As String = "Subreport" + (cont + 1).ToString
-                        Dim reporte1 As String
-                        If cont = 0 Then
-                            reporte1 = "R_RepComanda.rpt"
-                        Else
-                            reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                    If fila("tipo1") = 1 Then
+                        If est1 = 0 Then
+                            Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 1")
+                            Dim dt1 As DataTable = dt.Clone()
+                            dt1.Clear()
+                            For Each fila1 As DataRow In resultadoFilas
+                                dt1.ImportRow(fila1)
+                            Next
+                            Dim reporte As String = "Subreport" + (cont + 1).ToString
+                            Dim reporte1 As String
+                            If cont = 0 Then
+                                reporte1 = "R_RepComanda.rpt"
+                            Else
+                                reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                            End If
+                            Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
+                            Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
+                            crSubreportDocument.SetDataSource(dt1)
+                            'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                            'objrep.SetParameterValue("cliente1".ToString, CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+                            cont = cont + 1
+                            est1 = 1
                         End If
-                        Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
-                        Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
-                        crSubreportDocument.SetDataSource(dt1)
-                        cont = cont + 1
+                    ElseIf fila("tipo1") = 2 Then
+                        If est2 = 0 Then
+                            Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 2")
+                            Dim dt1 As DataTable = dt.Clone()
+                            dt1.Clear()
+                            For Each fila1 As DataRow In resultadoFilas
+                                dt1.ImportRow(fila1)
+                            Next
+                            Dim reporte As String = "Subreport" + (cont + 1).ToString
+                            Dim reporte1 As String
+                            If cont = 0 Then
+                                reporte1 = "R_RepComanda.rpt"
+                            Else
+                                reporte1 = "R_RepComanda.rpt - " + (Format(cont, "00")).ToString
+                            End If
+                            Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
+                            Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
+                            crSubreportDocument.SetDataSource(dt1)
+                            'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                            'objrep.SetParameterValue("cliente1".ToString, CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+                            cont = cont + 1
+                            est2 = 1
+                        End If
                     Else
 
                         Dim resultadoFilas() As DataRow = dt.Select("tipo1 = 3")
@@ -4946,6 +5112,9 @@ Public Class F0_HojaRuta
                         Dim crSubreportObject As SubreportObject = CType(objrep.ReportDefinition.ReportObjects(reporte), SubreportObject)
                         Dim crSubreportDocument As ReportDocument = crSubreportObject.OpenSubreport(reporte1)
                         crSubreportDocument.SetDataSource(dtaux)
+                        'objrep.SetParameterValue("chofer" + (cont + 1).ToString, cbRepartidor.Text)
+                        'crSubreportDocument.SetParameterValue("cliente2", CType(grPedidos.DataSource, DataTable).Rows(i).Item("ccdesc"))
+
                         cont = cont + 1
                         Exit For
                     End If
@@ -5254,9 +5423,14 @@ Public Class F0_HojaRuta
 
     Private Sub grCamiones_SelectionChanged(sender As Object, e As GridEventArgs) Handles grCamiones.SelectionChanged
         Dim filaModificada As Integer = e.GridPanel.ActiveRow.Index
-        Dim columna As Integer = e.GridPanel.Columns.Item("saldo").ColumnIndex
+        Dim columna As Integer = e.GridPanel.Columns.Item("capacidad").ColumnIndex
+
+        Dim id As Integer = e.GridPanel.Columns.Item("CODIGO").ColumnIndex
 
         Dim peso As Integer = grCamiones.GetCell(filaModificada, columna).Value
+        Dim numi As Integer = grCamiones.GetCell(filaModificada, id).Value
+
+        CargarHojaPedidosPendientes(grPendientes, 0, CType(grPedidos4.DataSource, DataTable))
         Dim placa As String = grCamiones.GetCell(filaModificada, e.GridPanel.Columns.Item("NOMBRE").ColumnIndex).Value
         tbDescripcionCamion.Text = "CAMION: " + placa + "   CAPACIDAD: " + peso.ToString
 
@@ -5291,13 +5465,21 @@ Public Class F0_HojaRuta
         Dim salida As Integer = 0
         Dim numi As Integer = 0
 
+        Dim pesoseleccionado As Double = dt.Compute("Sum(kg)", "oaccli>0")
 
+        If pesoTotal < pesoseleccionado Then
+            ToastNotification.Show(Me, "El peso seleccionado es mayor a la capacidad del camion".ToUpper,
+                                       My.Resources.WARNING,
+                                       5 * 1000,
+                                       eToastGlowColor.Red,
+                                       eToastPosition.TopCenter)
+        Else
+            CargarNuevosPendientes(dt)
+            tbPesSal.Text = tbSaldoCamion.Text
+            tbPesTot.Text = pesoTotal.ToString
+            btOrdenar.PerformClick()
+        End If
 
-
-        CargarNuevosPendientes(dt)
-        tbPesSal.Text = tbSaldoCamion.Text
-        tbPesTot.Text = pesoTotal.ToString
-        btOrdenar.PerformClick()
     End Sub
 
     Private Sub CargarNuevosPendientes(dt As DataTable)
@@ -5439,7 +5621,7 @@ Public Class F0_HojaRuta
         nuevaFila2(4) = CType(grilla.DataSource, DataTable).Rows(0).Item("tshoral")
         nuevaFila2(5) = CType(grilla.DataSource, DataTable).Rows(0).Item("tspeso")
         nuevaFila2(6) = horaL
-        nuevaFila2(7) = "00:00:00"
+        nuevaFila2(7) = "00:00"
         nuevaFila2(8) = HoraE
         nuevaFila2(9) = "00:00"
         nuevaFila2(10) = dir
@@ -5475,7 +5657,7 @@ Public Class F0_HojaRuta
                 nuevaFila(4) = CType(grilla.DataSource, DataTable).Rows(0).Item("tshoral")
                 nuevaFila(5) = CType(grilla.DataSource, DataTable).Rows(0).Item("tspeso")
                 nuevaFila(6) = horaL
-                nuevaFila(7) = "00:00:00"
+                nuevaFila(7) = "00:00"
                 nuevaFila(8) = HoraE
                 nuevaFila(9) = "00:00"
                 nuevaFila(10) = dir
@@ -5594,9 +5776,9 @@ Public Class F0_HojaRuta
     End Sub
 
     Private Sub AnularPedidosNoEntregados(cod As Integer)
-        Dim dt As DataTable = TraerSalidas(cod)
+        Dim dt As DataTable = TraerSalidas(cod, 1)
         For i = 0 To dt.Rows.Count - 1 Step 1
-            L_PedidoCabacera_ModificarActivoPasivo(dt.Rows(i).Item("tooanumi"), "2")
+            L_PedidoCabacera_ModificarActivoPasivo2(dt.Rows(i).Item("tooanumi"), "2")
         Next
     End Sub
     Private Sub btCerrarHoja_Click(sender As Object, e As EventArgs) Handles btCerrarHoja.Click
@@ -5606,6 +5788,11 @@ Public Class F0_HojaRuta
         CargarHojaRuta()
         InHabilitar()
         CargarCamiones()
+        ToastNotification.Show(Me, "Cierre de Hoja de ruta existoso".ToUpper,
+                                           My.Resources.OK,
+                                           3 * 1000,
+                                           eToastGlowColor.Red,
+                                           eToastPosition.TopCenter)
     End Sub
 
     Private Sub MSuperTabControlPrincipal_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles MSuperTabControlPrincipal.SelectedTabChanged

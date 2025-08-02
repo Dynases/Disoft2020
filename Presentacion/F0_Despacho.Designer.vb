@@ -24,10 +24,10 @@ Partial Class F0_Despacho
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim cbChoferes_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim SuperTabItemColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabItemColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemColorTable()
-        Dim SuperTabColorStates2 As DevComponents.DotNetBar.Rendering.SuperTabColorStates = New DevComponents.DotNetBar.Rendering.SuperTabColorStates()
-        Dim SuperTabItemStateColorTable3 As DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable()
-        Dim SuperTabItemStateColorTable4 As DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable()
+        Dim SuperTabItemColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabItemColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemColorTable()
+        Dim SuperTabColorStates1 As DevComponents.DotNetBar.Rendering.SuperTabColorStates = New DevComponents.DotNetBar.Rendering.SuperTabColorStates()
+        Dim SuperTabItemStateColorTable1 As DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable()
+        Dim SuperTabItemStateColorTable2 As DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable = New DevComponents.DotNetBar.Rendering.SuperTabItemStateColorTable()
         Dim cbCamion_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_Despacho))
         Dim cbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -984,12 +984,12 @@ Partial Class F0_Despacho
         Me.tbSalida1.AttachedControl = Me.SuperTabControlPanel2
         Me.tbSalida1.GlobalItem = False
         Me.tbSalida1.Name = "tbSalida1"
-        SuperTabItemStateColorTable3.Text = System.Drawing.Color.MidnightBlue
-        SuperTabColorStates2.Normal = SuperTabItemStateColorTable3
-        SuperTabItemStateColorTable4.Text = System.Drawing.Color.MidnightBlue
-        SuperTabColorStates2.Selected = SuperTabItemStateColorTable4
-        SuperTabItemColorTable2.Default = SuperTabColorStates2
-        Me.tbSalida1.TabColor = SuperTabItemColorTable2
+        SuperTabItemStateColorTable1.Text = System.Drawing.Color.MidnightBlue
+        SuperTabColorStates1.Normal = SuperTabItemStateColorTable1
+        SuperTabItemStateColorTable2.Text = System.Drawing.Color.MidnightBlue
+        SuperTabColorStates1.Selected = SuperTabItemStateColorTable2
+        SuperTabItemColorTable1.Default = SuperTabColorStates1
+        Me.tbSalida1.TabColor = SuperTabItemColorTable1
         Me.tbSalida1.Text = "PRIMERA SALIDA"
         '
         'SuperTabControlPanel4

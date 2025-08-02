@@ -58,7 +58,7 @@ Public Class MetodoDatos
             _adaptador.SelectCommand = Comando
 
             _adaptador.Fill(_tabla)
-            Comando.CommandTimeout = 1200
+            'Comando.CommandTimeout = 1200
         Catch ex As Exception
             If Comando.Connection.State = False Then
                 Comando.Connection.Open()

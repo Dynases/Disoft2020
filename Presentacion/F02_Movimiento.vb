@@ -1032,7 +1032,7 @@ Public Class F02_Movimiento
     Private Sub P_prAddFilaDetalle()
         Dim fil As DataRow
         fil = DtDetalle.NewRow
-        fil.Item("icid") = 0
+        fil.Item("icid") = CType(dgjDetalle.DataSource, DataTable).Rows.Count
         fil.Item("icibid") = 0
         fil.Item("iccprod") = 0
         fil.Item("ncprod") = "Nuevo"
@@ -1094,7 +1094,6 @@ Public Class F02_Movimiento
                 Return
             End If
         Next
-
     End Sub
 
     Private Sub dgjDetalle_CellValueChanged(sender As Object, e As ColumnActionEventArgs) Handles dgjDetalle.CellValueChanged
