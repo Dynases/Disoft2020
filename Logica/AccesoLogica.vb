@@ -10280,6 +10280,29 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_prListarEfectividadVentas(fechaI As String, fechaF As String, zona As Integer, vendedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 19))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _listParam.Add(New Datos.DParametro("@distribuidor", zona))
+        _listParam.Add(New Datos.DParametro("@prevendedor", vendedor))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function ReporteDespachoxProducto(idchofer As Integer, Estado As Integer, fechaI As String, fechaF As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 28))
+        _listParam.Add(New Datos.DParametro("@distribuidor", idchofer))
+        _listParam.Add(New Datos.DParametro("@categoria", Estado))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+
     Public Shared Function L_prListarDistribuidor() As DataTable
         Dim _Tabla As DataTable
         Dim _listParam As New List(Of Datos.DParametro)
