@@ -1,4 +1,4 @@
-﻿Imports Logica.AccesoLogica
+Imports Logica.AccesoLogica
 Imports Modelo.MGlobal
 Imports DevComponents.DotNetBar.Controls
 Imports DevComponents.DotNetBar.Metro
@@ -1956,21 +1956,33 @@ Public Class P_Principal
 		Dim frm As New F0_Despacho
 		frm.Show()
 
-	End Sub
+    Private Sub btEfectividadVendedor_Click(sender As Object, e As EventArgs) Handles btEfectividadVendedor.Click
+        Dim frm As New R01_EfectividadCliente
+        frm._nameButton = btReporteCobertura.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
 
-	Private Sub btReporteCanastilloCliente_Click(sender As Object, e As EventArgs) Handles btReporteCanastilloCliente.Click
-		Dim frm As New R01_KardexPrestamoCanastillos
-		frm._nameButton = btReporteCanastilloCliente.Name
-		frm._modulo = FP_Inventario
-		frm.Show()
-	End Sub
+    Private Sub btReporteCompra_Click(sender As Object, e As EventArgs) Handles btReporteCompra.Click
+        Dim frm As New R01_ReporteCompras
+        frm._nameButton = btReporteCompra.Name
+        frm._modulo = FP_Inventario
+        frm.Show()
+    End Sub
 
-	Private Sub btCanastilloChofer_Click(sender As Object, e As EventArgs) Handles btCanastilloChofer.Click
-		Dim frm As New R01_CanastilloChofer
-		frm._nameButton = btCanastilloChofer.Name
-		frm._modulo = FP_Inventario
-		frm.Show()
-	End Sub
+    Private Sub btReporteVentasClientes_Click(sender As Object, e As EventArgs) Handles btReporteVentasClientes.Click
+        Dim frm As New R01_VentasUtilidad
+        frm._nameButton = btReporteVentasClientes.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
+    Private Sub btReporteVentasProducto_Click(sender As Object, e As EventArgs) Handles btReporteVentasProducto.Click
+        Dim frm As New R01_VentasUtilidadProducto
+        frm._nameButton = btReporteVentasProducto.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
 End Class
 
 

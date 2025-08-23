@@ -1479,6 +1479,8 @@ Public Class Dashboard
             dt = TraerKPIProducto2(tbFechaIni.Value.ToString("dd/MM/yyyy"), tbFechaFin.Value.ToString("dd/MM/yyyy"), tbtop.Value, orden)
         ElseIf cbProducto3.Checked = True Then
             dt = TraerKPIProducto3(tbFechaIni.Value.ToString("dd/MM/yyyy"), tbFechaFin.Value.ToString("dd/MM/yyyy"), tbtop.Value, orden)
+        ElseIf cbProducto4.Checked = True Then
+            dt = TraerKPIProducto4(tbFechaIni.Value.ToString("dd/MM/yyyy"), tbFechaFin.Value.ToString("dd/MM/yyyy"), tbtop.Value, orden, CInt(tbCodigoCliente.Text))
         End If
         Return dt
     End Function
@@ -1557,6 +1559,34 @@ Public Class Dashboard
                 ProductosMas.BringToFront()
             End If
         ElseIf cbProducto3.Checked = True Then
+
+            '                                   FechaFVendedor.ToString("yyyy/MM/dd"))
+            'If (_dt.Rows.Count > 0) Then
+            If orden = 1 Then
+                Dim objrep As New R_ProductoMayorVendidoUnidades()
+                objrep.SetDataSource(_dt)
+                Dim fechaI As String = tbFechaIni.Value.ToString("dd/MM/yyyy")
+                Dim fechaF As String = tbFechaFin.Value.ToString("dd/MM/yyyy")
+                objrep.SetParameterValue("usuario", L_Usuario)
+                objrep.SetParameterValue("fechaI", fechaI)
+                objrep.SetParameterValue("fechaF", fechaF)
+                ProductosMas.ReportSource = objrep
+                ProductosMas.Show()
+                ProductosMas.BringToFront()
+            Else
+                Dim objrep As New R_ProductoMenorVendidoUnidades_()
+                objrep.SetDataSource(_dt)
+                Dim fechaI As String = tbFechaIni.Value.ToString("dd/MM/yyyy")
+                Dim fechaF As String = tbFechaFin.Value.ToString("dd/MM/yyyy")
+                objrep.SetParameterValue("usuario", L_Usuario)
+                objrep.SetParameterValue("fechaI", fechaI)
+                objrep.SetParameterValue("fechaF", fechaF)
+                ProductosMas.ReportSource = objrep
+                ProductosMas.Show()
+                ProductosMas.BringToFront()
+            End If
+
+        ElseIf cbProducto4.Checked = True Then
 
             '                                   FechaFVendedor.ToString("yyyy/MM/dd"))
             'If (_dt.Rows.Count > 0) Then
@@ -1708,5 +1738,70 @@ Public Class Dashboard
             Dim loc As Point = (New Point(126, 259))
             btGenerar2.Location = loc
         End If
+    End Sub
+
+    Private Sub GroupPanel5_Click(sender As Object, e As EventArgs) Handles GroupPanel5.Click
+
+    End Sub
+
+    Private Sub tbCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles tbCliente.KeyDown
+        If e.KeyData = Keys.Control + Keys.Enter Then
+            Dim dt As DataTable
+            dt = L_prListarCliente()
+            '              a.ydnumi, a.ydcod, a.yddesc, a.yddctnum, a.yddirec
+            ',a.ydtelf1 ,a.ydfnac 
+            Dim listEstCeldas As New List(Of Modelo.MCelda)
+            listEstCeldas.Add(New Modelo.MCelda("ccnumi", True, "ID", 50))
+            listEstCeldas.Add(New Modelo.MCelda("cccod", True, "CODIGO", 70))
+            listEstCeldas.Add(New Modelo.MCelda("ccdesc", True, "NOMBRE", 280))
+            listEstCeldas.Add(New Modelo.MCelda("cctelf2", True, "TELEFONO", 220))
+            listEstCeldas.Add(New Modelo.MCelda("ccobs", True, "DIRECCION".ToUpper, 200))
+            Dim ef = New Efecto
+            ef.tipo = 3
+            ef.dt = dt
+            ef.SeleclCol = 1
+            ef.listEstCeldas = listEstCeldas
+            ef.alto = 50
+            ef.ancho = 350
+            ef.Context = "Seleccione Cliente".ToUpper
+            ef.ShowDialog()
+            Dim bandera As Boolean = False
+            bandera = ef.band
+            If (bandera = True) Then
+                Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                If (IsNothing(Row)) Then
+                    tbCliente.Focus()
+                    Return
+                End If
+                tbCodigoCliente.Text = Row.Cells("ccnumi").Value
+                tbCliente.Text = Row.Cells("ccdesc").Value
+
+            End If
+
+        End If
+    End Sub
+
+    Private Sub cbProducto4_CheckedChanged(sender As Object, e As EventArgs) Handles cbProducto4.CheckedChanged
+        tbCodigoCliente.Visible = True
+        tbCliente.Visible = True
+        lbcliente.Visible = True
+    End Sub
+
+    Private Sub cbProducto3_CheckedChanged(sender As Object, e As EventArgs) Handles cbProducto3.CheckedChanged
+        tbCodigoCliente.Visible = False
+        tbCliente.Visible = False
+        lbcliente.Visible = False
+    End Sub
+
+    Private Sub cbProducto2_CheckedChanged(sender As Object, e As EventArgs) Handles cbProducto2.CheckedChanged
+        tbCodigoCliente.Visible = False
+        tbCliente.Visible = False
+        lbcliente.Visible = False
+    End Sub
+
+    Private Sub cbProducto1_CheckedChanged(sender As Object, e As EventArgs) Handles cbProducto1.CheckedChanged
+        tbCodigoCliente.Visible = False
+        tbCliente.Visible = False
+        lbcliente.Visible = False
     End Sub
 End Class

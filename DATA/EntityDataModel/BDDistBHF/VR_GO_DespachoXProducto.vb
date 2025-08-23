@@ -17,6 +17,9 @@ Partial Public Class VR_GO_DespachoXProducto
     Public Property cadesc As String
     Public Property cadesc2 As String
     Public Property categoria As String
+
+    Public Property caubi As String
+
     Public Property obpcant As Nullable(Of Decimal)
     Public Property oacnconc As Nullable(Of Integer)
     Public Property oaest As Nullable(Of Integer)

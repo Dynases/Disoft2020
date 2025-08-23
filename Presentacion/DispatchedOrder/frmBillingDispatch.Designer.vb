@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmBillingDispatch
     Inherits System.Windows.Forms.Form
 
@@ -23,6 +23,7 @@ Partial Class frmBillingDispatch
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim cbEstados_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBillingDispatch))
         Dim cbChoferes_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.PanelBase = New System.Windows.Forms.Panel()
@@ -177,6 +178,19 @@ Partial Class frmBillingDispatch
         Me.PanelSuperior.Size = New System.Drawing.Size(1284, 60)
         Me.PanelSuperior.TabIndex = 0
         '
+        'cbEstados
+        '
+        cbEstados_DesignTimeLayout.LayoutString = resources.GetString("cbEstados_DesignTimeLayout.LayoutString")
+        Me.cbEstados.DesignTimeLayout = cbEstados_DesignTimeLayout
+        Me.cbEstados.Location = New System.Drawing.Point(553, 36)
+        Me.cbEstados.Name = "cbEstados"
+        Me.cbEstados.SelectedIndex = -1
+        Me.cbEstados.SelectedItem = Nothing
+        Me.cbEstados.Size = New System.Drawing.Size(120, 20)
+        Me.cbEstados.TabIndex = 245
+        Me.cbEstados.Visible = False
+        Me.cbEstados.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
         'ButtonX1
         '
         Me.ButtonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
@@ -197,7 +211,7 @@ Partial Class frmBillingDispatch
         '
         Me.cbEstado.FormattingEnabled = True
         Me.cbEstado.Items.AddRange(New Object() {"DICTADO", "ENTREGADO"})
-        Me.cbEstado.Location = New System.Drawing.Point(369, 38)
+        Me.cbEstado.Location = New System.Drawing.Point(346, 37)
         Me.cbEstado.Name = "cbEstado"
         Me.cbEstado.Size = New System.Drawing.Size(121, 21)
         Me.cbEstado.TabIndex = 243
@@ -229,6 +243,22 @@ Partial Class frmBillingDispatch
         Me.btnFactura.TabIndex = 240
         Me.btnFactura.Text = "Factura"
         Me.btnFactura.Visible = False
+        '
+        'btVentasDirectas
+        '
+        Me.btVentasDirectas.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btVentasDirectas.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btVentasDirectas.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btVentasDirectas.Image = Global.Presentacion.My.Resources.Resources.ENTRADA_SALIDA_ALM
+        Me.btVentasDirectas.ImageFixedSize = New System.Drawing.Size(30, 30)
+        Me.btVentasDirectas.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btVentasDirectas.Location = New System.Drawing.Point(834, 0)
+        Me.btVentasDirectas.Name = "btVentasDirectas"
+        Me.btVentasDirectas.Size = New System.Drawing.Size(75, 60)
+        Me.btVentasDirectas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btVentasDirectas.TabIndex = 246
+        Me.btVentasDirectas.Text = "Ventas Directas"
+        Me.btVentasDirectas.Visible = False
         '
         'lblCantidadPedido
         '

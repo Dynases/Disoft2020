@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports Janus.Windows.GridEX
@@ -315,7 +315,7 @@ Public Class F01_Producto
         CbUnidVenta.ReadOnly = Not flat
         CbUnidMax.ReadOnly = Not flat
         TbConversion.IsInputReadOnly = Not flat
-
+        tbUbicacion.ReadOnly = Not flat
         swPack.IsReadOnly = Not flat
         JGProdPack.Enabled = flat
 
@@ -335,7 +335,7 @@ Public Class F01_Producto
         DaFecha = Now.Date
         swPack.Value = False
         tbPeso.Value = 0
-        tbAbrev.Clear()
+        tbUbicacion.Clear()
 
         If (Limpiar = False) Then
             _prSeleccionarCombo(cbgrupo1)
@@ -424,7 +424,7 @@ Public Class F01_Producto
                     Me.TbConversion.Value = .GetValue("caconv")
                     Me.swPack.Value = .GetValue("capack")
                     Me.tbPeso.Value = .GetValue("capeso")
-
+                    Me.tbUbicacion.Text = .GetValue("ubicacion").ToString
                     Dim s As String = .GetValue("nimg").ToString
                     If (.GetValue("nimg").ToString.Equals("")) Then
                         UcImagen.Image = My.Resources.imageDefault
@@ -591,7 +591,7 @@ Public Class F01_Producto
 
                 'Grabar
                 Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin,
-                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value, campo1)
+                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value, tbUbicacion.Text)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -671,7 +671,7 @@ Public Class F01_Producto
 
                 'Grabar
                 Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed,
-                                                           umin, umax, conv, pack, dt, tbPeso.Value, campo1)
+                                                           umin, umax, conv, pack, dt, tbPeso.Value, tbUbicacion.Text)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -1266,16 +1266,26 @@ Public Class F01_Producto
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
         End With
-        'With DgjBusqueda.RootTable.Columns(29)
-        '    .Caption = ""
-        '    .Key = "capeso"
-        '    .Width = 0
-        '    .HeaderStyle.Font = FtTitulo
-        '    .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        '    .CellStyle.Font = FtNormal
-        '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-        '    .Visible = False
-        'End With
+        With DgjBusqueda.RootTable.Columns(29)
+            .Caption = ""
+            .Key = "capeso"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With DgjBusqueda.RootTable.Columns(30)
+            .Caption = "UBICACION"
+            .Key = "ubicacion"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
         'Habilitar Filtradores
         With DgjBusqueda
             .GroupByBoxVisible = False

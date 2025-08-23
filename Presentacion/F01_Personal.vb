@@ -1,4 +1,4 @@
-﻿Imports Logica.AccesoLogica
+Imports Logica.AccesoLogica
 Imports Janus.Windows.GridEX
 Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
@@ -355,6 +355,7 @@ Public Class F01_Personal
         ElseIf (Modificar) Then
             If (P_Validar()) Then
                 'Cargar variables
+                Dim orden As Integer
                 numi = TbCodigo.Text.Trim
                 desc = TbNombre.Text.Trim
                 direc = ""
@@ -389,10 +390,18 @@ Public Class F01_Personal
                 Else
                     zon = "0"
                 End If
-
+                If cbCodigo.Checked Then
+                    orden = 1
+                ElseIf cbAlfabetico.Checked Then
+                    orden = 2
+                ElseIf cbStock.Checked Then
+                    orden = 3
+                Else
+                    orden = 4
+                End If
                 'Modificar
                 Dim res As Boolean = L_fnModificarPersonal(numi, desc, direc, telef, cat, sal, ci, obs, fnac, fing,
-                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon, IIf(cbTipo.Value = 1, cbCamion.Value, 0))
+                                                           fret, fot, est, eciv, plan, reloj, cbSucursal.Value, pre, zon, orden)
 
                 If (res) Then
                     Bool = False
@@ -469,6 +478,10 @@ Public Class F01_Personal
         SbEstado.IsReadOnly = False
         swPrecio.IsReadOnly = False
         swZona.IsReadOnly = False
+
+        cbCodigo.Enabled = True
+        cbAlfabetico.Enabled = True
+        cbStock.Enabled = True
     End Sub
 
     Private Sub P_Deshabilitar()
@@ -488,6 +501,9 @@ Public Class F01_Personal
         swPrecio.IsReadOnly = True
         swZona.IsReadOnly = True
 
+        cbCodigo.Enabled = False
+        cbAlfabetico.Enabled = False
+        cbStock.Enabled = False
     End Sub
 
     Private Sub P_Limpiar()
@@ -615,7 +631,13 @@ Public Class F01_Personal
                 '        CbAlmacen.Text = ""
                 '    End If
                 'End If
-
+                If .Cells("orden").Value = 1 Then
+                    cbCodigo.Checked = True
+                ElseIf .Cells("orden").Value = 2 Then
+                    cbAlfabetico.Checked = True
+                ElseIf .Cells("orden").Value = 3 Then
+                    cbStock.Checked = True
+                End If
                 SbEstado.Value = (.Cells("cbest").Value.ToString.Equals("True"))
                 swPrecio.Value = IIf(.Cells("precio").Value = 0, False, True)
                 swZona.Value = IIf(.Cells("zona").Value = 0, False, True)
@@ -760,7 +782,7 @@ Public Class F01_Personal
         With Dgj1Busqueda.RootTable.Columns("zona")
             .Visible = False
         End With
-        With Dgj1Busqueda.RootTable.Columns("cbCamion")
+        With Dgj1Busqueda.RootTable.Columns("orden")
             .Visible = False
         End With
 
@@ -829,14 +851,8 @@ Public Class F01_Personal
 
     End Sub
 
-    Private Sub cbTipo_ValueChanged(sender As Object, e As EventArgs) Handles cbTipo.ValueChanged
-        If cbTipo.Value = 1 Then
-            LabelX9.Visible = True
-            cbCamion.Visible = True
-        Else
-            LabelX9.Visible = False
-            cbCamion.Visible = False
-        End If
+    Private Sub PanelEx2_Click(sender As Object, e As EventArgs) Handles PanelEx2.Click
+
     End Sub
 
 #End Region

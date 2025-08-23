@@ -34,6 +34,10 @@ Partial Class R01_StockDisponible
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.rbUnidades = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.rbCajas = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.grExcel = New Janus.Windows.GridEX.GridEX()
+        Me.btnExportar = New DevComponents.DotNetBar.ButtonX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -44,6 +48,7 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.SuspendLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -59,7 +64,7 @@ Partial Class R01_StockDisponible
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2)
         Me.MPnInferior.Size = New System.Drawing.Size(722, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -72,11 +77,11 @@ Partial Class R01_StockDisponible
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(522, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -112,6 +117,10 @@ Partial Class R01_StockDisponible
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.grExcel)
+        Me.MGpFiltro.Controls.Add(Me.btnExportar)
+        Me.MGpFiltro.Controls.Add(Me.rbCajas)
+        Me.MGpFiltro.Controls.Add(Me.rbUnidades)
         Me.MGpFiltro.Controls.Add(Me.cbProveedor)
         Me.MGpFiltro.Controls.Add(Me.LabelX1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
@@ -119,7 +128,7 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.Controls.Add(Me.LabelX5)
         Me.MGpFiltro.Controls.Add(Me.swTipo)
         Me.MGpFiltro.Controls.Add(Me.Label1)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2)
         Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
@@ -156,10 +165,14 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX1, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbProveedor, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.rbUnidades, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.rbCajas, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.btnExportar, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.grExcel, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2)
         Me.MCrReporte.Size = New System.Drawing.Size(722, 561)
         '
         'Timer1
@@ -278,12 +291,67 @@ Partial Class R01_StockDisponible
         Me.LabelX1.TabIndex = 389
         Me.LabelX1.Text = "Proveedor:"
         '
+        'rbUnidades
+        '
+        '
+        '
+        '
+        Me.rbUnidades.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.rbUnidades.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.rbUnidades.Checked = True
+        Me.rbUnidades.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.rbUnidades.CheckValue = "Y"
+        Me.rbUnidades.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.rbUnidades.Location = New System.Drawing.Point(38, 179)
+        Me.rbUnidades.Name = "rbUnidades"
+        Me.rbUnidades.Size = New System.Drawing.Size(100, 23)
+        Me.rbUnidades.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.rbUnidades.TabIndex = 391
+        Me.rbUnidades.Text = "Unidades"
+        '
+        'rbCajas
+        '
+        '
+        '
+        '
+        Me.rbCajas.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.rbCajas.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.rbCajas.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.rbCajas.Location = New System.Drawing.Point(154, 179)
+        Me.rbCajas.Name = "rbCajas"
+        Me.rbCajas.Size = New System.Drawing.Size(100, 23)
+        Me.rbCajas.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.rbCajas.TabIndex = 392
+        Me.rbCajas.Text = "Cajas"
+        '
+        'grExcel
+        '
+        Me.grExcel.Location = New System.Drawing.Point(73, 305)
+        Me.grExcel.Name = "grExcel"
+        Me.grExcel.Size = New System.Drawing.Size(154, 82)
+        Me.grExcel.TabIndex = 396
+        Me.grExcel.Visible = False
+        '
+        'btnExportar
+        '
+        Me.btnExportar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnExportar.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btnExportar.Image = Global.Presentacion.My.Resources.Resources.EXCEL
+        Me.btnExportar.ImageFixedSize = New System.Drawing.Size(50, 55)
+        Me.btnExportar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnExportar.Location = New System.Drawing.Point(116, 230)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(65, 72)
+        Me.btnExportar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnExportar.TabIndex = 395
+        Me.btnExportar.Text = "Exportar"
+        '
         'R01_StockDisponible
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_StockDisponible"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -303,6 +371,7 @@ Partial Class R01_StockDisponible
         Me.MGpFiltro.PerformLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -315,4 +384,8 @@ Partial Class R01_StockDisponible
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbProveedor As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents rbCajas As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents rbUnidades As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents grExcel As Janus.Windows.GridEX.GridEX
+    Friend WithEvents btnExportar As DevComponents.DotNetBar.ButtonX
 End Class

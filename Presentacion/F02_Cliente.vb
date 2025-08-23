@@ -1,4 +1,4 @@
-﻿Imports Logica.AccesoLogica
+Imports Logica.AccesoLogica
 Imports GMap.NET
 Imports GMap.NET.WindowsForms
 Imports Janus.Windows.GridEX
@@ -285,6 +285,9 @@ Public Class F02_Cliente
         tbLatitud.ReadOnly = Not flat
         tbLongitud.ReadOnly = Not flat
         tbRecorrido.ReadOnly = Not flat
+        tbAtencion.ReadOnly = Not flat
+        tbContacto.ReadOnly = Not flat
+        tbTienda.ReadOnly = Not flat
 
         'ComboBox
         CbZona.ReadOnly = Not flat
@@ -293,6 +296,10 @@ Public Class F02_Cliente
         cbSupervisor.ReadOnly = Not flat
         cbPrevendedor.ReadOnly = Not flat
         cbTipoCredito.ReadOnly = Not flat
+        cbCatCliente.ReadOnly = Not flat
+        cbCategoriaCliente.ReadOnly = Not flat
+        cbTipoCliente.ReadOnly = Not flat
+        cbSubCategoria.ReadOnly = Not flat
 
         'DateTimer
         DtiFechaNac.IsInputReadOnly = Not flat
@@ -371,7 +378,7 @@ Public Class F02_Cliente
         cbSupervisor.SelectedIndex = 0
         cbPrevendedor.SelectedIndex = 0
         cbTipoCredito.SelectedIndex = 0
-
+        'cbCatCliente.SelectedIndex = 0
         'DateTimer
         DtiFechaNac.Value = Now.Date
         DtiFechaIng.Value = Now.Date
@@ -424,6 +431,9 @@ Public Class F02_Cliente
     Private Sub P_prArmarCombos()
         P_prArmarComboZona()
         P_prArmarComboTipoDoc()
+        P_prArmarComboSubTipoCliente()
+        P_prArmarComboCategoriaCliente()
+        P_prArmarComboSubCategoriaCliente()
         P_prArmarComboCatCliente()
         P_prArmarComboEquipo()
         P_prArmarComboSupervisor()
@@ -480,7 +490,7 @@ Public Class F02_Cliente
                     Me.DtiFechaNac.Value = .GetValue("fnac")
                     Me.DtiFechaIng.Value = .GetValue("fing")
                     Me.TbDireccion.Text = .GetValue("direc").ToString
-
+                    'Me.cbCatCliente.Value = .GetValue("ccuesp")
                     If (.GetValue("ultped").ToString.Equals("")) Then
                         Me.DtiUltimoPedido.Value = DtiFechaIng.Value
                     Else
@@ -526,6 +536,15 @@ Public Class F02_Cliente
                     Me.cbPrevendedor.Clear()
                     Me.cbPrevendedor.SelectedText = .GetValue("npreven").ToString
 
+
+
+
+                    Me.tbTienda.Text = .GetValue("nomfac").ToString
+                    Me.tbAtencion.Text = .GetValue("cchorario").ToString
+                    Me.cbTipoCliente.Value = .GetValue("cccargo")
+                    cbCategoriaCliente.Value = .GetValue("ccCategoria")
+                    cbSubCategoria.Value = .GetValue("ccSubCat")
+                    tbContacto.Text = .GetValue("ccencargado").ToString
                     'Me.cbTipoCredito.Clear()
                     Dim s As String = .GetValue("tcre").ToString
                     Me.cbTipoCredito.Value = .GetValue("tcre")
@@ -789,6 +808,7 @@ Public Class F02_Cliente
 
         Dim giFrec As String
         Dim frecvisita As String
+        'Dim usuesp As Integer
 
 
 
@@ -863,6 +883,7 @@ Public Class F02_Cliente
                 'Para registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
+                'usuesp = cbCatCliente.Value
 
 
 
@@ -974,7 +995,7 @@ Public Class F02_Cliente
                 'Para modificar o registrar frecuencia de visitas
                 giFrec = gi_frecvisita.ToString
                 frecvisita = tbiFrecuencia.Value.ToString
-
+                'usuesp = cbCatCliente.Value
                 BtAddEquipo.Select()
 
                 Dim dt As DataTable = CType(DgjEquipo.DataSource, DataTable).DefaultView.ToTable(False, "chnumi", "chfec", "chcod", "chdesc", "chtmov", "chnrem", "chcan", "chmonbs", "chmonsus", "chnota", "chlin", "chobs", "estado")
@@ -1142,6 +1163,26 @@ Public Class F02_Cliente
 
         Dt = L_fnObtenerLibreria("9", " 1=1 ")
         g_prArmarCombo(CbTipoDoc, Dt, 60, 200, "Código", "Descripción")
+    End Sub
+
+    Private Sub P_prArmarComboCategoriaCliente()
+        Dim Dt As New DataTable
+
+        Dt = L_fnObtenerLibreria("108", " 1=1 ")
+        g_prArmarCombo(cbCategoriaCliente, Dt, 60, 200, "Código", "Descripción")
+    End Sub
+    Private Sub P_prArmarComboSubCategoriaCliente()
+        Dim Dt As New DataTable
+
+        Dt = L_fnObtenerLibreria("109", " 1=1 ")
+        g_prArmarCombo(cbSubCategoria, Dt, 60, 200, "Código", "Descripción")
+    End Sub
+
+    Private Sub P_prArmarComboSubTipoCliente()
+        Dim Dt As New DataTable
+
+        Dt = L_fnObtenerLibreria("107", " 1=1 ")
+        g_prArmarCombo(cbTipoCliente, Dt, 60, 200, "Código", "Descripción")
     End Sub
 
     Private Sub P_prArmarComboCatCliente()
@@ -1424,7 +1465,7 @@ Public Class F02_Cliente
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(19)
-            .Caption = "Nombre Factura"
+            .Caption = "Nombre De Tienda"
             .Key = "nomfac"
             .Width = 200
             .HeaderStyle.Font = FtTitulo
@@ -1547,7 +1588,62 @@ Public Class F02_Cliente
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
         End With
-        With DgjBusqueda.RootTable.Columns(31)
+        With DgjBusqueda.RootTable.Columns("ccencargado")
+            .Caption = "Contacto"
+            .Key = "ccencargado"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With DgjBusqueda.RootTable.Columns("cccargo")
+            .Caption = "Cargo"
+            .Key = "cccargo"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With DgjBusqueda.RootTable.Columns("cchorario")
+            .Caption = "Horario Atención"
+            .Key = "cchorario"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With DgjBusqueda.RootTable.Columns("cccategoria")
+            .Caption = "Categoria"
+            .Key = "cccategoria"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With DgjBusqueda.RootTable.Columns("ccsubcat")
+            .Caption = "Subcategoria"
+            .Key = "ccsubcat"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With DgjBusqueda.RootTable.Columns("ccfact")
             .Caption = ""
             .Key = "fact"
             .Width = 0
@@ -1558,7 +1654,7 @@ Public Class F02_Cliente
             .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
-        With DgjBusqueda.RootTable.Columns(32)
+        With DgjBusqueda.RootTable.Columns("cchact")
             .Caption = ""
             .Key = "hact"
             .Width = 0
@@ -1569,7 +1665,7 @@ Public Class F02_Cliente
             .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
-        With DgjBusqueda.RootTable.Columns(33)
+        With DgjBusqueda.RootTable.Columns("ccuact")
             .Caption = ""
             .Key = "uact"
             .Width = 100
@@ -1577,7 +1673,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
 
@@ -2404,7 +2500,7 @@ Public Class F02_Cliente
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjSugerencia.RootTable.Columns(4)
-            .Caption = "Teléfono 2"
+            .Caption = "Teléfono 1"
             .Key = "cctelf1"
             .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -2415,7 +2511,7 @@ Public Class F02_Cliente
         End With
 
         With DgjSugerencia.RootTable.Columns(5)
-            .Caption = "Teléfono 1"
+            .Caption = "Teléfono 2"
             .Key = "cctelf2"
             .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -3389,5 +3485,148 @@ Public Class F02_Cliente
             _prCargarImagen()
         End If
 
+    End Sub
+
+    Private Sub btExcel_Click(sender As Object, e As EventArgs) Handles btExcel.Click
+        _prCrearCarpetaReportes()
+        Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+        If (P_ExportarExcel(RutaGlobal + "\Reporte\Reporte Productos")) Then
+            ToastNotification.Show(Me, "EXPORTACIÓN DE LISTA DE PRODUCTOS EXITOSA..!!!",
+                                       img, 2000,
+                                       eToastGlowColor.Green,
+                                       eToastPosition.BottomCenter)
+        Else
+            ToastNotification.Show(Me, "FALLO AL EXPORTACIÓN DE LISTA DE PRODUCTOS..!!!",
+                                       My.Resources.WARNING, 2000,
+                                       eToastGlowColor.Red,
+                                       eToastPosition.BottomLeft)
+        End If
+    End Sub
+
+    Public Function P_ExportarExcel(_ruta As String) As Boolean
+        Dim _ubicacion As String
+        'Dim _directorio As New FolderBrowserDialog
+
+        If (1 = 1) Then 'If(_directorio.ShowDialog = Windows.Forms.DialogResult.OK) Then
+            '_ubicacion = _directorio.SelectedPath
+            _ubicacion = _ruta
+            Try
+                Dim _stream As Stream
+                Dim _escritor As StreamWriter
+                Dim _fila As Integer = DgjBusqueda.GetRows.Length
+                Dim _columna As Integer = DgjBusqueda.RootTable.Columns.Count
+                Dim _archivo As String = _ubicacion & "\ReporteProductoDetalle_" & Now.Date.Day &
+                    "." & Now.Date.Month & "." & Now.Date.Year & "_" & Now.Hour & "." & Now.Minute & "." & Now.Second & ".csv"
+                Dim _linea As String = ""
+                Dim _linea1 As String = ";;"
+                Dim _filadata = 0, columndata As Int32 = 0
+                File.Delete(_archivo)
+                _stream = File.OpenWrite(_archivo)
+                _escritor = New StreamWriter(_stream, System.Text.Encoding.UTF8)
+
+                For Each _col As GridEXColumn In DgjBusqueda.RootTable.Columns
+                    If (_col.Index = 0 Or _col.Index = 2 Or _col.Index = 3 Or _col.Index = 4 Or _col.Index = 19 Or _col.Index = 31 Or _col.Index = 21 Or _col.Index = 22 Or _col.Index = 32 Or _col.Index = 34 Or _col.Index = 35) Then
+                        _linea = _linea & _col.Caption & ";"
+                    End If
+                Next
+                'Dim cont As Integer = 0
+                'Dim mesI As Integer = Month(tbFechaI.Value.ToString("dd/MM/yyyy"))
+                'Dim mesF As Integer = Month(tbFechaF.Value.ToString("dd/MM/yyyy"))
+                'Dim anioI As Integer = Year(tbFechaI.Value.ToString("dd/MM/yyyy"))
+                'Dim anioF As Integer = Year(tbFechaF.Value.ToString("dd/MM/yyyy"))
+
+                'Dim contador As Integer = grExcel.RootTable.Columns.Count - 2
+                'For i = 2 To grExcel.RootTable.Columns.Count - 1 Step 1
+                '    If ((i + 1) Mod 6) = 0 Then
+                '        Dim mesA As String = ObtenerMes(mesI + cont)
+                '        _linea1 = _linea1 & mesA & " " & anioI.ToString & ";"
+                '        If cont = 12 Then
+                '            mesI = 0
+                '            cont = 0
+                '            anioI = anioI + 1
+                '        Else
+                '            cont = cont + 1
+                '        End If
+
+                '    Else
+                '        _linea1 = _linea1 & "" & ";"
+                '    End If
+
+
+                'Next
+                _linea1 = Mid(CStr(_linea1), 1, _linea1.Length - 1)
+                _escritor.WriteLine(_linea1)
+                _linea = Mid(CStr(_linea), 1, _linea.Length - 1)
+                _escritor.WriteLine(_linea)
+                _linea = Nothing
+
+                'Pbx_Precios.Visible = True
+                'Pbx_Precios.Minimum = 1
+                'Pbx_Precios.Maximum = Dgv_Precios.RowCount
+                'Pbx_Precios.Value = 1
+
+                For Each _fil As GridEXRow In DgjBusqueda.GetRows
+                    For Each _col As GridEXColumn In DgjBusqueda.RootTable.Columns
+                        If (_col.Index = 0 Or _col.Index = 2 Or _col.Index = 3 Or _col.Index = 4 Or _col.Index = 19 Or _col.Index = 31 Or _col.Index = 21 Or _col.Index = 22 Or _col.Index = 32 Or _col.Index = 34 Or _col.Index = 35) Then
+                            Dim data As String = CStr(_fil.Cells(_col.Key).Value)
+                            data = data.Replace(vbLf, "")
+                            data = data.Replace(vbCr, "")
+                            data = data.Replace(";", ",")
+                            _linea = _linea & data & ";"
+                        End If
+                    Next
+                    _linea = Mid(CStr(_linea), 1, _linea.Length - 1)
+                    _escritor.WriteLine(_linea)
+                    _linea = Nothing
+                    'Pbx_Precios.Value += 1
+                Next
+                _escritor.Close()
+                'Pbx_Precios.Visible = False
+                Try
+                    Dim ef = New Efecto
+                    ef._archivo = _archivo
+
+                    ef.tipo = 1
+                    ef.Context = "Su archivo ha sido Guardado en la ruta: " + _archivo + vbLf + "DESEA ABRIR EL ARCHIVO?"
+                    ef.Header = "PREGUNTA"
+                    ef.ShowDialog()
+                    Dim bandera As Boolean = False
+                    bandera = ef.band
+                    If (bandera = True) Then
+                        Process.Start(_archivo)
+                    End If
+
+                    'If (MessageBox.Show("Su archivo ha sido Guardado en la ruta: " + _archivo + vbLf + "DESEA ABRIR EL ARCHIVO?", "PREGUNTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes) Then
+                    '    Process.Start(_archivo)
+                    'End If
+                    Return True
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Return False
+                End Try
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+        End If
+        Return False
+    End Function
+
+    Private Sub _prCrearCarpetaReportes()
+        Dim rutaDestino As String = RutaGlobal + "\Reporte\Reporte Productos\"
+
+        If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Productos\") = False Then
+            If System.IO.Directory.Exists(RutaGlobal + "\Reporte") = False Then
+                System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte")
+                If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Productos") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte\Reporte Productos")
+                End If
+            Else
+                If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Productos") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte\Reporte Productos")
+
+                End If
+            End If
+        End If
     End Sub
 End Class

@@ -1017,14 +1017,14 @@ Public Class F02_Movimiento
         Dim res As Boolean = True
         MEP.Clear()
 
-        If (Not IsNumeric(cbConcepto.Value)) Then
-            cbConcepto.BackColor = Color.Red
-            MEP.SetError(cbConcepto, "elija un concepto valido.".ToUpper)
-            res = False
-        Else
-            cbConcepto.BackColor = Color.White
-            MEP.SetError(cbConcepto, "")
-        End If
+        'If (Not IsNumeric(cbConcepto.Value)) Then
+        '    cbConcepto.BackColor = Color.Red
+        '    MEP.SetError(cbConcepto, "elija un concepto valido.".ToUpper)
+        '    res = False
+        'Else
+        '    cbConcepto.BackColor = Color.White
+        '    MEP.SetError(cbConcepto, "")
+        'End If
 
         Return res
     End Function

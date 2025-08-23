@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -1030,6 +1030,24 @@
     <Compile Include="R01_ListaPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="R01_ReporteCompras.Designer.vb">
+      <DependentUpon>R01_ReporteCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_ReporteCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_VentasUtilidadProducto.Designer.vb">
+      <DependentUpon>R01_VentasUtilidadProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_VentasUtilidadProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R01_VentasUtilidad.Designer.vb">
+      <DependentUpon>R01_VentasUtilidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="R01_VentasUtilidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="R01_VentasProductosInv.Designer.vb">
       <DependentUpon>R01_VentasProductosInv.vb</DependentUpon>
     </Compile>
@@ -1105,13 +1123,6 @@
     <Compile Include="Reportes\R_Comanda.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>R_Comanda.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\R_HistoricoPrecios.vb">
-      <DependentUpon>R_HistoricoPrecios.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_HojadeRuta.vb">
@@ -1144,41 +1155,11 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_PrestamoCanastillosChofer.vb">
-      <DependentUpon>R_PrestamoCanastillosChofer.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\R_PrestamoCanastillos.vb">
-      <DependentUpon>R_PrestamoCanastillos.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\R_RepComandaTotalesP.vb">
-      <DependentUpon>R_RepComandaTotalesP.rpt</DependentUpon>
+    <Compile Include="Reportes\R_StockDisponibleCajas.vb">
+      <DependentUpon>R_StockDisponibleCajas.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reportes\R_RepComandaTotalesG.vb">
-      <DependentUpon>R_RepComandaTotalesG.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reportes\R_RepComandaTotales.vb">
-      <DependentUpon>R_RepComandaTotales.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reportes\R_ReporteMovimiento.vb">
-      <DependentUpon>R_ReporteMovimiento.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VendedorUtilidad.vb">
       <DependentUpon>R_VendedorUtilidad.rpt</DependentUpon>
@@ -1510,6 +1491,18 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_ReporteCompra.vb">
+      <DependentUpon>R_ReporteCompra.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_VentasDetalladaProducto12meses.vb">
+      <DependentUpon>R_VentasDetalladaProducto12meses.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\R_VentasProductosInventario.vb">
       <DependentUpon>R_VentasProductosInventario.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1552,10 +1545,22 @@
       <DependentUpon>R_VentasProductos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\R_VentasDetallada12meses.vb">
+      <DependentUpon>R_VentasDetallada12meses.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\R_VentasVendedor12Meses.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>R_VentasVendedor12Meses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\R_CoberturaClientes.vb">
+      <DependentUpon>R_CoberturaClientes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_VisitaClientes.vb">
@@ -2305,6 +2310,15 @@
     <EmbeddedResource Include="R01_ListaPedidos.resx">
       <DependentUpon>R01_ListaPedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="R01_ReporteCompras.resx">
+      <DependentUpon>R01_ReporteCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_VentasUtilidadProducto.resx">
+      <DependentUpon>R01_VentasUtilidadProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R01_VentasUtilidad.resx">
+      <DependentUpon>R01_VentasUtilidad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="R01_VentasProductosInv.resx">
       <DependentUpon>R01_VentasProductosInv.vb</DependentUpon>
     </EmbeddedResource>
@@ -2371,29 +2385,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ClienteMasVentas.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_PrestamoCanastillosChofer.rpt">
+    <EmbeddedResource Include="Reportes\R_StockDisponibleCajas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_PrestamoCanastillosChofer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_PrestamoCanastillos.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_PrestamoCanastillos.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_RepComandaTotalesP.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_RepComandaTotalesP.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_RepComandaTotalesG.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_RepComandaTotalesG.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_RepComandaTotales.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_RepComandaTotales.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_ReporteMovimiento.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_ReporteMovimiento.vb</LastGenOutput>
+      <LastGenOutput>R_StockDisponibleCajas.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VendedorUtilidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2615,6 +2609,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VentasComisionRepartidor.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_ReporteCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ReporteCompra.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasDetalladaProducto12meses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasDetalladaProducto12meses.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VentasProductosInventario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VentasProductosInventario.vb</LastGenOutput>
@@ -2642,6 +2644,10 @@
     <EmbeddedResource Include="Reportes\R_VentasProductos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VentasProductos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_VentasDetallada12meses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentasDetallada12meses.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_VentasVendedor12Meses.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2723,6 +2729,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F0_PedidosAsignacion.resx">
       <DependentUpon>F0_PedidosAsignacion.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="P_ReclamoAyuda.resx">
       <DependentUpon>P_ReclamoAyuda.vb</DependentUpon>

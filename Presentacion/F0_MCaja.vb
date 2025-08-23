@@ -1,4 +1,4 @@
-﻿Imports Logica.AccesoLogica
+Imports Logica.AccesoLogica
 Imports Janus.Windows.GridEX
 Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
@@ -615,6 +615,15 @@ Public Class F0_MCaja
                 .CellStyle.TextAlignment = 3
                 .FormatString = "0.00"
             End With
+            'With Dgv_PedidoTotal.RootTable.Columns("transferencia")
+            '    .Caption = "TRASPASO"
+            '    .Width = 200
+            '    .AggregateFunction = AggregateFunction.Sum
+            '    '.Visible = (gi_vcre2 = 1)
+            '    .Visible = True
+            '    .CellStyle.TextAlignment = 3
+            '    .FormatString = "0.00"
+            'End With
             With Dgv_PedidoTotal.RootTable.Columns("oarepa")
                 .Width = 160
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -623,6 +632,16 @@ Public Class F0_MCaja
             With Dgv_PedidoTotal.RootTable.Columns("tcre")
                 .Visible = False
             End With
+            'With Dgv_PedidoTotal.RootTable.Columns("gasto")
+            '    .Width = 50
+            '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            '    .Visible = False
+            'End With
+            'With Dgv_PedidoTotal.RootTable.Columns("concepto")
+            '    .Width = 50
+            '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            '    .Visible = False
+            'End With
             With Dgv_PedidoTotal.RootTable.Columns("estado")
                 .Width = 50
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -717,6 +736,15 @@ Public Class F0_MCaja
                 .CellStyle.TextAlignment = 3
                 .AggregateFunction = AggregateFunction.Sum
             End With
+            'With Dgv_PedidoTotal.RootTable.Columns("transferencia")
+            '    .Caption = "TRASPASO"
+            '    .Width = 200
+            '    '.Visible = (gi_vcre2 = 1)
+            '    .Visible = True
+            '    .FormatString = "0.00"
+            '    .CellStyle.TextAlignment = 3
+            '    .AggregateFunction = AggregateFunction.Sum
+            'End With
             With Dgv_PedidoTotal.RootTable.Columns("oarepa")
                 .Width = 160
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -1068,6 +1096,16 @@ Public Class F0_MCaja
     Public Sub _GuardarNuevo()
 
         Try
+            Dim dt1 As DataTable = CType(Dgv_PedidoTotal.DataSource, DataTable).Clone()
+            For Each row As DataRow In CType(Dgv_PedidoTotal.DataSource, DataTable).Rows
+                ' Crear una nueva fila con los mismos datos que la fila original
+                Dim newRow As DataRow = dt1.NewRow()
+                newRow.ItemArray = row.ItemArray.Clone()
+
+                ' Agregar la nueva fila al DataTable clonado
+                dt1.Rows.Add(newRow)
+            Next
+            'dt1.Columns.RemoveAt(11)
             Dim numi As String = ""
             Dim res As Boolean = L_prCajaGrabar(numi, Numi_Chofer, Numi_Conciliacion, tbFecha.Value.ToString("yyyy/MM/dd"), Tb_TConciliacion.Value.ToString, CType(Dgv_PedidoTotal.DataSource, DataTable), Tb_TCredito.Value, Tb_TipoCambio.Value)
             If res Then
@@ -1462,14 +1500,14 @@ Public Class F0_MCaja
             End If
             totalCorteDol = Dgv_Cortes.GetTotal(Dgv_Cortes.RootTable.Columns("TotalD"), AggregateFunction.Sum)
             TotalDeposito = Dgv_Depositos.GetTotal(Dgv_Depositos.RootTable.Columns("Monto"), AggregateFunction.Sum)
-
+            'TotalDeposito = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("transferencia"), AggregateFunction.Sum)
             totalConciliacion = (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("contado"), AggregateFunction.Sum)) + (Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("credito"), AggregateFunction.Sum))
 
             'totalConciliacion = Dgv_PedidoTotal.GetTotal(Dgv_PedidoTotal.RootTable.Columns("total"), AggregateFunction.Sum)
             Tb_TEfectivo.Value = totalCorteBol + (totalCorteDol * Tb_TipoCambio.Value)
             Tb_TDeposito.Value = TotalDeposito
             Tb_TCredito.Value = credito
-            Tb_TGeneral.Value = Tb_TEfectivo.Value + Tb_TDeposito.Value + Tb_TCredito.Value
+            Tb_TGeneral.Value = Tb_TEfectivo.Value + Tb_TCredito.Value + Tb_TDeposito.Value
             Tb_TConciliacion.Value = totalConciliacion
             Tb_TDiferencia.Value = Tb_TGeneral.Value - Tb_TConciliacion.Value
         Catch ex As Exception

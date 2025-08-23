@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Dashboard
     Inherits Modelo.ModeloHor
 
@@ -51,6 +51,10 @@ Partial Class Dashboard
         Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.PanelEx18 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupPanel5 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.tbCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.tbCodigoCliente = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lbcliente = New DevComponents.DotNetBar.LabelX()
+        Me.cbProducto4 = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.ButtonX3 = New DevComponents.DotNetBar.ButtonX()
         Me.tbtop = New DevComponents.Editors.IntegerInput()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -196,9 +200,9 @@ Partial Class Dashboard
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel6)
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel5)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
@@ -207,10 +211,10 @@ Partial Class Dashboard
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel5, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel6, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         '
         'SuperTabControlPanel2
         '
@@ -222,7 +226,7 @@ Partial Class Dashboard
         Me.SuperTabControlPanel2.Controls.Add(Me.SuperGridControl1)
         Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.None
         Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(48884, 12536)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(28884, 7536)
         '
         'SuperTabItem2
         '
@@ -856,6 +860,10 @@ Partial Class Dashboard
         Me.GroupPanel5.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel5.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel5.Controls.Add(Me.tbCliente)
+        Me.GroupPanel5.Controls.Add(Me.tbCodigoCliente)
+        Me.GroupPanel5.Controls.Add(Me.lbcliente)
+        Me.GroupPanel5.Controls.Add(Me.cbProducto4)
         Me.GroupPanel5.Controls.Add(Me.ButtonX3)
         Me.GroupPanel5.Controls.Add(Me.tbtop)
         Me.GroupPanel5.Controls.Add(Me.Label7)
@@ -899,13 +907,78 @@ Partial Class Dashboard
         Me.GroupPanel5.TabIndex = 110
         Me.GroupPanel5.Text = "DATOS"
         '
+        'tbCliente
+        '
+        Me.tbCliente.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.tbCliente.Border.Class = "TextBoxBorder"
+        Me.tbCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbCliente.Location = New System.Drawing.Point(52, 217)
+        Me.tbCliente.Name = "tbCliente"
+        Me.tbCliente.PreventEnterBeep = True
+        Me.tbCliente.Size = New System.Drawing.Size(254, 22)
+        Me.tbCliente.TabIndex = 248
+        '
+        'tbCodigoCliente
+        '
+        '
+        '
+        '
+        Me.tbCodigoCliente.Border.Class = "TextBoxBorder"
+        Me.tbCodigoCliente.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbCodigoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCodigoCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbCodigoCliente.Location = New System.Drawing.Point(24, 214)
+        Me.tbCodigoCliente.Name = "tbCodigoCliente"
+        Me.tbCodigoCliente.PreventEnterBeep = True
+        Me.tbCodigoCliente.Size = New System.Drawing.Size(22, 22)
+        Me.tbCodigoCliente.TabIndex = 247
+        Me.tbCodigoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tbCodigoCliente.Visible = False
+        '
+        'lbcliente
+        '
+        Me.lbcliente.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbcliente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbcliente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbcliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbcliente.Location = New System.Drawing.Point(27, 188)
+        Me.lbcliente.Name = "lbcliente"
+        Me.lbcliente.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbcliente.Size = New System.Drawing.Size(74, 23)
+        Me.lbcliente.TabIndex = 246
+        Me.lbcliente.Text = "Cliente:"
+        '
+        'cbProducto4
+        '
+        '
+        '
+        '
+        Me.cbProducto4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.cbProducto4.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.cbProducto4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProducto4.Location = New System.Drawing.Point(27, 159)
+        Me.cbProducto4.Name = "cbProducto4"
+        Me.cbProducto4.Size = New System.Drawing.Size(264, 23)
+        Me.cbProducto4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.cbProducto4.TabIndex = 126
+        Me.cbProducto4.Text = "PRODUCTO MAS VENDIDO (POR CLIENTE)"
+        Me.cbProducto4.TextColor = System.Drawing.Color.DarkBlue
+        '
         'ButtonX3
         '
         Me.ButtonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.ButtonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.ButtonX3.Image = Global.Presentacion.My.Resources.Resources.down1
         Me.ButtonX3.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.ButtonX3.Location = New System.Drawing.Point(199, 326)
+        Me.ButtonX3.Location = New System.Drawing.Point(212, 404)
         Me.ButtonX3.Name = "ButtonX3"
         Me.ButtonX3.Size = New System.Drawing.Size(46, 40)
         Me.ButtonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -919,7 +992,7 @@ Partial Class Dashboard
         Me.tbtop.BackgroundStyle.Class = "DateTimeInputBackground"
         Me.tbtop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbtop.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbtop.Location = New System.Drawing.Point(119, 279)
+        Me.tbtop.Location = New System.Drawing.Point(131, 357)
         Me.tbtop.MaxValue = 40
         Me.tbtop.Name = "tbtop"
         Me.tbtop.ShowUpDown = True
@@ -931,7 +1004,7 @@ Partial Class Dashboard
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.DarkBlue
-        Me.Label7.Location = New System.Drawing.Point(37, 286)
+        Me.Label7.Location = New System.Drawing.Point(49, 364)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(36, 13)
         Me.Label7.TabIndex = 123
@@ -942,7 +1015,7 @@ Partial Class Dashboard
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.DarkBlue
-        Me.Label6.Location = New System.Drawing.Point(37, 231)
+        Me.Label6.Location = New System.Drawing.Point(49, 309)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(26, 13)
         Me.Label6.TabIndex = 122
@@ -953,7 +1026,7 @@ Partial Class Dashboard
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.DarkBlue
-        Me.Label5.Location = New System.Drawing.Point(37, 194)
+        Me.Label5.Location = New System.Drawing.Point(49, 272)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(35, 13)
         Me.Label5.TabIndex = 121
@@ -969,7 +1042,7 @@ Partial Class Dashboard
         Me.tbFechaFin.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.tbFechaFin.ButtonDropDown.Visible = True
         Me.tbFechaFin.IsPopupCalendarOpen = False
-        Me.tbFechaFin.Location = New System.Drawing.Point(119, 224)
+        Me.tbFechaFin.Location = New System.Drawing.Point(131, 302)
         '
         '
         '
@@ -1014,7 +1087,7 @@ Partial Class Dashboard
         Me.tbFechaIni.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown
         Me.tbFechaIni.ButtonDropDown.Visible = True
         Me.tbFechaIni.IsPopupCalendarOpen = False
-        Me.tbFechaIni.Location = New System.Drawing.Point(119, 188)
+        Me.tbFechaIni.Location = New System.Drawing.Point(131, 266)
         '
         '
         '
@@ -1104,7 +1177,7 @@ Partial Class Dashboard
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.up1
         Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(40, 40)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Bottom
-        Me.ButtonX1.Location = New System.Drawing.Point(84, 323)
+        Me.ButtonX1.Location = New System.Drawing.Point(96, 401)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Size = New System.Drawing.Size(43, 43)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
@@ -1257,7 +1330,7 @@ Partial Class Dashboard
         Me.SuperGridControl1.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
         Me.SuperGridControl1.Location = New System.Drawing.Point(0, 0)
         Me.SuperGridControl1.Name = "SuperGridControl1"
-        Me.SuperGridControl1.Size = New System.Drawing.Size(48884, 12536)
+        Me.SuperGridControl1.Size = New System.Drawing.Size(28884, 7536)
         Me.SuperGridControl1.TabIndex = 8
         Me.SuperGridControl1.Text = "Eficiencia"
         '
@@ -1271,7 +1344,7 @@ Partial Class Dashboard
         Me.PanelEx6.DisabledBackColor = System.Drawing.Color.Empty
         Me.PanelEx6.Location = New System.Drawing.Point(0, 0)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(324, 12536)
+        Me.PanelEx6.Size = New System.Drawing.Size(324, 7536)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx6.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -1290,7 +1363,7 @@ Partial Class Dashboard
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(324, 12536)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(324, 7536)
         '
         '
         '
@@ -1332,7 +1405,7 @@ Partial Class Dashboard
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(318, 12515)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(318, 7515)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -1416,7 +1489,7 @@ Partial Class Dashboard
         Me.grPresupuesto.FilterExprColors.SysFunction = System.Drawing.Color.DarkRed
         Me.grPresupuesto.Location = New System.Drawing.Point(327, 0)
         Me.grPresupuesto.Name = "grPresupuesto"
-        Me.grPresupuesto.Size = New System.Drawing.Size(48557, 12536)
+        Me.grPresupuesto.Size = New System.Drawing.Size(28557, 7536)
         Me.grPresupuesto.TabIndex = 120
         Me.grPresupuesto.Text = "SuperGridControl2"
         '
@@ -2232,4 +2305,8 @@ Partial Class Dashboard
     Friend WithEvents SuperTabItem6 As DevComponents.DotNetBar.SuperTabItem
     Friend WithEvents cbFecha As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents cbConci As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents cbProducto4 As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents tbCliente As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents tbCodigoCliente As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents lbcliente As DevComponents.DotNetBar.LabelX
 End Class

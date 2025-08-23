@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class DespachoXProducto11
+Public Class DespachoXProducto1
     Inherits ReportClass
     
     Public Sub New()
@@ -184,7 +184,7 @@ Public Class CachedDespachoXProducto1
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As DespachoXProducto11 = New DespachoXProducto11()
+        Dim rpt As DespachoXProducto1 = New DespachoXProducto1()
         rpt.Site = Me.Site
         Return rpt
     End Function

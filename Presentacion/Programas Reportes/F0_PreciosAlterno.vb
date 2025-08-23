@@ -42,6 +42,7 @@ Public Class F0_PreciosAlterno
     Private Sub P_prArmarComboCategoria()
         Dim Dt As DataTable
         Dt = L_fnObtenerCategoria()
+        Dt.Rows.Add(0, "TODOS")
         ''   Dt = L_fnObtenerLibreria("5", IIf(TipoForm = 1, "cenum>0", "cenum<0"))
         g_prArmarCombo(cbAlmacen, Dt, 60, 200, "Código", "Categoría")
         If (Dt.Rows.Count > 0) Then
@@ -77,11 +78,14 @@ Public Class F0_PreciosAlterno
             dtProd.Clear()
 
             For i As Integer = 0 To productos.Rows.Count - 1 Step 1
-
-                If (cbAlmacen.Value = productos.Rows(i).Item("cacat")) Then
+                If cbAlmacen.Value = 0 Then
                     dtProd.ImportRow(productos.Rows(i))
-                End If
+                Else
 
+                    If (cbAlmacen.Value = productos.Rows(i).Item("cacat")) Then
+                        dtProd.ImportRow(productos.Rows(i))
+                    End If
+                End If
             Next
 
             productos = dtProd

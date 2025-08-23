@@ -701,13 +701,13 @@ Partial Class F0_PreciosAlterno
         Me.msModulos.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.msModulos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SELECCIONARTODOSDELToolStripMenuItem})
         Me.msModulos.Name = "msModulos"
-        Me.msModulos.Size = New System.Drawing.Size(193, 26)
+        Me.msModulos.Size = New System.Drawing.Size(194, 26)
         '
         'SELECCIONARTODOSDELToolStripMenuItem
         '
         Me.SELECCIONARTODOSDELToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SELECCIONARTODOSDELToolStripMenuItem.Name = "SELECCIONARTODOSDELToolStripMenuItem"
-        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.SELECCIONARTODOSDELToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.SELECCIONARTODOSDELToolStripMenuItem.Text = "ELIMINAR CATEGORIA"
         '
         'F0_PreciosAlterno

@@ -1,4 +1,4 @@
-﻿Imports DevComponents.DotNetBar
+Imports DevComponents.DotNetBar
 Imports DevComponents.DotNetBar.Controls
 Imports ENTITY
 Imports Janus.Windows.GridEX
@@ -59,10 +59,17 @@ Public Class frmBillingDispatch
             If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
-
+            'Dim listIdPedido As New List(Of Integer)()
+            'Dim listVendedores As New List(Of String)()
             Dim checks = Me.dgjPedido.GetCheckedRows()
             Dim listIdPedido = checks.Select(Function(a) Convert.ToInt32(a.Cells("Id").Value)).ToList()
-
+            Dim listVendedores = checks.Select(Function(a) (a.Cells("NombreVendedor").Value)).ToList()
+            'For i = 0 To CType(dgjPedido.DataSource, DataTable).Rows.Count - 1 Step 1
+            '    If CType(dgjPedido.DataSource, DataTable).Rows(i).Item("checks") = True Then
+            '        listIdPedido.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("Id"))
+            '        listVendedores.Add(CType(dgjPedido.DataSource, DataTable).Rows(i).Item("NombreVendedor"))
+            '    End If
+            'Next
             If (listIdPedido.Count = 0) Then
                 Throw New Exception("Debe seleccionar por lo menos un pedido.")
             End If
@@ -101,11 +108,21 @@ Public Class frmBillingDispatch
 
                 'P_fnGenerarFactura(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"))
                 'P_prImprimirNotaVenta(dtDetalle.Rows(0).Item("oanumi"), True, True, idChofer)
-                P_prImprimirNotaVenta(Str(list1(i).Id), True, True, idChofer, list1(i).NombreVendedor)
+                'If _TipoCarga = True Then
+                '    P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, 4, listVendedores(i))
+                'Else
+                '    P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, idChofer, listVendedores(i))
+                'End If
+                P_prImprimirNotaVenta(Str(listIdPedido(i)), True, True, idChofer, listVendedores(i))
 
             Next
 
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+            If _TipoCarga = True Then
+                'CargarPedidos2()
+            Else
+                CargarPedidos()
+            End If
 
             CargarPedidos()
             ToastNotification.Show(Me, "Notas de Venta Generadas Correctamente".ToUpper,
@@ -1030,7 +1047,7 @@ Public Class frmBillingDispatch
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)
         mesl = ObtenerMesLiberal(mes)
-
+        'Dim dt As DataTable = L_prObtenerGrupo(idPedido)
         Fecliteral = _Ds2.Tables(0).Rows(0).Item("scciu").ToString + " " + dia.ToString + " de " + mesl + " del " + ano.ToString
         objrep.SetDataSource(listResult)
         objrep.SetParameterValue("Telefono", _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
@@ -1038,6 +1055,7 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("Ciudad", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
         objrep.SetParameterValue("Empresa", gs_empresaDescSistema)
         objrep.SetParameterValue("idPedido", idPedido)
+        'objrep.SetParameterValue("tgrupo", dt.Rows(0).Item("cedesc"))
         objrep.SetParameterValue("Logo", gb_ubilogo)
         objrep.SetParameterValue("vendedor", nomVendedor)
 
@@ -1288,22 +1306,24 @@ Public Class frmBillingDispatch
                 Throw New Exception("Debe seleccionar un chofer.")
             End If
 
-            Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
-            Dim lista = (From a In listResult
-                         Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
-                         Select New RDespachoXProducto With {
-                          .canumi = grupo.FirstOrDefault().canumi,
-                          .cacod = grupo.FirstOrDefault().cacod,
-                          .cadesc = grupo.FirstOrDefault().cadesc,
-                          .categoria = grupo.FirstOrDefault().categoria,
-                          .obpcant = grupo.Sum(Function(item) item.obpcant),
-                          .Caja = grupo.Sum(Function(item) item.Caja),
-                          .Unidad = grupo.Sum(Function(item) item.Unidad),
-                          .Total = grupo.Sum(Function(item) item.Total),
-                          .Conv = grupo.FirstOrDefault().Conv,
-                          .Pesokg = grupo.Sum(Function(item) item.Pesokg)
-                        }).ToList()
-            If (lista.Count = 0) Then
+            Dim listaResultado As DataTable = ReporteDespachoxProducto(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+
+            'Dim listResult = New LPedido().ListarDespachoXProductoDeChofer(idChofer, IIf(cbEstado.SelectedIndex = 0, ENEstadoPedido.DICTADO, ENEstadoPedido.ENTREGADO), Tb_Fecha.Value, Tb_FechaHasta.Value)
+            'Dim lista = (From a In listResult
+            '             Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
+            '             Select New RDespachoXProducto With {
+            '              .canumi = grupo.FirstOrDefault().canumi,
+            '              .cacod = grupo.FirstOrDefault().cacod,
+            '              .cadesc = grupo.FirstOrDefault().cadesc,
+            '              .categoria = grupo.FirstOrDefault().categoria,
+            '              .obpcant = grupo.Sum(Function(item) item.obpcant),
+            '              .Caja = grupo.Sum(Function(item) item.Caja),
+            '              .Unidad = grupo.Sum(Function(item) item.Unidad),
+            '              .Total = grupo.Sum(Function(item) item.Total),
+            '              .Conv = grupo.FirstOrDefault().Conv,
+            '              .Pesokg = grupo.Sum(Function(item) item.Pesokg)
+            '            }).ToList()
+            If (listaResultado.Rows.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
             End If
             Dim empresaId = ObtenerEmpresaHabilitada()
@@ -1311,11 +1331,11 @@ Public Class frmBillingDispatch
             For Each fila As DataRow In empresaHabilitada.Rows
                 Select Case fila.Item("TipoReporte").ToString
                     Case ENReporteTipo.DESPACHOXPRODUCTO_AgrupadoXCategoria
-                        Dim objrep As New DespachoXProducto
-                        SerParametros(lista, objrep)
+                        Dim objrep As New DespachoXProducto1
+                        SerParametros(listaResultado, objrep)
                     Case ENReporteTipo.DESPACHOXPRODUCTO_SinAgrupacion
                         Dim objrep As New DespachoXProductoSinAgrupacion
-                        SerParametros(lista, objrep)
+                        SerParametros(listaResultado, objrep)
                 End Select
             Next
         Catch ex As Exception
@@ -1323,7 +1343,7 @@ Public Class frmBillingDispatch
         End Try
     End Sub
 
-    Private Sub SerParametros(listResult As List(Of RDespachoXProducto), objrep As Object)
+    Private Sub SerParametros(listResult As DataTable, objrep As Object)
         If Not IsNothing(P_Global.Visualizador) Then
             P_Global.Visualizador.Close()
         End If
@@ -1391,7 +1411,7 @@ Public Class frmBillingDispatch
     Private Sub CargarChoferes()
         Try
             Dim listResult As List(Of VCombo) = New LPersonal().ListarRepatidorCombo()
-
+            'Dim listResult As DataTable = ListarChoferesDespacho()
             With cbChoferes.DropDownList
                 .Columns.Clear()
 
@@ -1423,12 +1443,24 @@ Public Class frmBillingDispatch
     Private Sub CargarPedidos()
         Try
             Dim lista As List(Of VPedido_BillingDispatch) = ObtenerListaPedido()
+            'Dim lista As DataTable = ListaPedidosDespacho(cbEstados.Value, cbChoferes.Value, Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
             ArmarListaPedido(lista)
             '_prCargarIconPagar(lista)
         Catch ex As Exception
             Throw New Exception(ex.Message)
         End Try
     End Sub
+
+    'Private Sub CargarPedidos2()
+    '    Try
+    '        'Dim lista2 As List(Of VPedido_BillingDispatch) = ObtenerListaPedidoDirecto()
+    '        Dim lista As DataTable = ListaPedidosDespachoDirecto(Tb_Fecha.Value.ToString("dd/MM/yyyy"), Tb_FechaHasta.Value.ToString("dd/MM/yyyy"))
+    '        ArmarListaPedido(lista)
+    '        '_prCargarIconPagar(lista)
+    '    Catch ex As Exception
+    '        Throw New Exception(ex.Message)
+    '    End Try
+    'End Sub
 
     Private Function ObtenerListaPedido() As List(Of VPedido_BillingDispatch)
         Dim idChofer = Me.cbChoferes.Value
@@ -1559,8 +1591,8 @@ Public Class frmBillingDispatch
             .FilterEditType = FilterEditType.NoEdit
             .Position = 12
         End With
-        dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check1"))
-        With dgjPedido.RootTable.Columns("Check1")
+        dgjPedido.RootTable.Columns.Add(New GridEXColumn("Check2"))
+        With dgjPedido.RootTable.Columns("Check2")
             .Caption = "Facturar"
             .Width = 50
             .Visible = False
@@ -1630,12 +1662,12 @@ Public Class frmBillingDispatch
     End Function
     Private Sub CargarProductos(idPedido As Integer)
         Try
-            'Dim listResult = New LProducto().ListarProductoXPedido(idPedido)
+            Dim listResult = New LProducto().ListarProductoXPedido(idPedido)
 
-            Dim dt As DataTable = ListarProductoxPedido(idPedido)
+            'Dim dt As DataTable = ListarProductoxPedido(idPedido)
 
             dgjProducto.BoundMode = Janus.Data.BoundMode.Bound
-            dgjProducto.DataSource = dt
+            dgjProducto.DataSource = listResult
             dgjProducto.RetrieveStructure()
 
             With dgjProducto.RootTable.Columns("Id")
@@ -1688,30 +1720,30 @@ Public Class frmBillingDispatch
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
             End With
-            With dgjProducto.RootTable.Columns("idFact")
-                .Caption = "Total"
-                .Width = 120
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = False
-                .FormatString = "0.00"
-                .AggregateFunction = AggregateFunction.Sum
-            End With
-            With dgjProducto.RootTable.Columns("codAct")
-                .Caption = "Total"
-                .Width = 120
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = False
-                .FormatString = "0.00"
-                .AggregateFunction = AggregateFunction.Sum
-            End With
-            With dgjProducto.RootTable.Columns("codSin")
-                .Caption = "Total"
-                .Width = 120
-                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-                .Visible = False
-                .FormatString = "0.00"
-                .AggregateFunction = AggregateFunction.Sum
-            End With
+            'With dgjProducto.RootTable.Columns("idFact")
+            '    .Caption = "Total"
+            '    .Width = 120
+            '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            '    .Visible = False
+            '    .FormatString = "0.00"
+            '    .AggregateFunction = AggregateFunction.Sum
+            'End With
+            'With dgjProducto.RootTable.Columns("codAct")
+            '    .Caption = "Total"
+            '    .Width = 120
+            '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            '    .Visible = False
+            '    .FormatString = "0.00"
+            '    .AggregateFunction = AggregateFunction.Sum
+            'End With
+            'With dgjProducto.RootTable.Columns("codSin")
+            '    .Caption = "Total"
+            '    .Width = 120
+            '    .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            '    .Visible = False
+            '    .FormatString = "0.00"
+            '    .AggregateFunction = AggregateFunction.Sum
+            'End With
 
             With dgjProducto
                 .GroupByBoxVisible = False
@@ -2214,5 +2246,52 @@ Public Class frmBillingDispatch
         Dim dt As DataTable = TraerFacturaID(listIdPedido(0))
         Dim token As String = F01_Producto.ObtToken()
         TraerPDF(token, dt.Rows(0).Item("fvanumi2"))
+    End Sub
+
+    Private Sub dgjPedido_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles dgjPedido.CellEdited
+
+    End Sub
+
+    Private Sub dgjPedido_EditingCell(sender As Object, e As EditingCellEventArgs) Handles dgjPedido.EditingCell
+        If (e.Column.Index = dgjPedido.RootTable.Columns("checks").Index) Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub dgjPedido_Click(sender As Object, e As EventArgs) Handles dgjPedido.Click
+        'If dgjPedido.GetValue("checks") = False Then
+        '    dgjPedido.SetValue("checks", True)
+        'Else
+        '    dgjPedido.SetValue("checks", False)
+        'End If
+    End Sub
+
+    Private Sub cbEstados_ValueChanged(sender As Object, e As EventArgs) Handles cbEstados.ValueChanged
+        Try
+            If (_cargaCompleta) Then
+                CargarPedidos()
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btVentasDirectas_Click(sender As Object, e As EventArgs) Handles btVentasDirectas.Click
+        Try
+            If (_cargaCompleta) Then
+                'CargarPedidos2()
+                _TipoCarga = True
+                lblCantidadPedido.Text = dgjPedido.RowCount.ToString
+                btnNotaVenta.Enabled = True
+                btnFactura.Enabled = True
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
     End Sub
 End Class

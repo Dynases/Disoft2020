@@ -36,6 +36,8 @@ Partial Class R01_SaldoFisicoValorado
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.cbProveedor = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.grExcel = New Janus.Windows.GridEX.GridEX()
+        Me.btnExportar = New DevComponents.DotNetBar.ButtonX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -47,6 +49,7 @@ Partial Class R01_SaldoFisicoValorado
         CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -62,7 +65,7 @@ Partial Class R01_SaldoFisicoValorado
         'MPnInferior
         '
         Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Size = New System.Drawing.Size(722, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
@@ -75,11 +78,11 @@ Partial Class R01_SaldoFisicoValorado
         'MPanelToolBarUsuario
         '
         Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(522, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -115,6 +118,8 @@ Partial Class R01_SaldoFisicoValorado
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.grExcel)
+        Me.MGpFiltro.Controls.Add(Me.btnExportar)
         Me.MGpFiltro.Controls.Add(Me.cbProveedor)
         Me.MGpFiltro.Controls.Add(Me.LabelX1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
@@ -123,7 +128,7 @@ Partial Class R01_SaldoFisicoValorado
         Me.MGpFiltro.Controls.Add(Me.swTipo)
         Me.MGpFiltro.Controls.Add(Me.cbCategoria)
         Me.MGpFiltro.Controls.Add(Me.LabelX4)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4)
         Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
         '
         '
@@ -161,10 +166,12 @@ Partial Class R01_SaldoFisicoValorado
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX1, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbProveedor, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.btnExportar, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.grExcel, 0)
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4)
         Me.MCrReporte.Size = New System.Drawing.Size(722, 561)
         '
         'Timer1
@@ -298,12 +305,34 @@ Partial Class R01_SaldoFisicoValorado
         Me.LabelX1.TabIndex = 384
         Me.LabelX1.Text = "Proveedor:"
         '
+        'grExcel
+        '
+        Me.grExcel.Location = New System.Drawing.Point(70, 240)
+        Me.grExcel.Name = "grExcel"
+        Me.grExcel.Size = New System.Drawing.Size(154, 82)
+        Me.grExcel.TabIndex = 400
+        Me.grExcel.Visible = False
+        '
+        'btnExportar
+        '
+        Me.btnExportar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnExportar.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btnExportar.Image = Global.Presentacion.My.Resources.Resources.EXCEL
+        Me.btnExportar.ImageFixedSize = New System.Drawing.Size(50, 55)
+        Me.btnExportar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnExportar.Location = New System.Drawing.Point(113, 165)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(65, 72)
+        Me.btnExportar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnExportar.TabIndex = 399
+        Me.btnExportar.Text = "Exportar"
+        '
         'R01_SaldoFisicoValorado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1022, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_SaldoFisicoValorado"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"
@@ -324,6 +353,7 @@ Partial Class R01_SaldoFisicoValorado
         CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbProveedor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -337,4 +367,6 @@ Partial Class R01_SaldoFisicoValorado
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbProveedor As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents grExcel As Janus.Windows.GridEX.GridEX
+    Friend WithEvents btnExportar As DevComponents.DotNetBar.ButtonX
 End Class

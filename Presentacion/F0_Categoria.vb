@@ -28,7 +28,7 @@ Public Class F0_Categoria
         '' L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
         ''L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
         'Me.WindowState = FormWindowState.Maximized
-
+        _prCargarComboLibreria(cbgrupo1, 110)
         _prInhabiliitar()
         _prCargarVenta()
         _prAsignarPermisos()
@@ -99,6 +99,16 @@ Public Class F0_Categoria
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
         End With
+        With grBuscador.RootTable.Columns("caubi")
+            .Width = 50
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With grBuscador.RootTable.Columns("cadet")
+            .Width = 50
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
 
         With grBuscador
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
@@ -129,7 +139,8 @@ Public Class F0_Categoria
         MBtEliminar.Enabled = True
         grBuscador.Enabled = True
 
-
+        cbgrupo1.ReadOnly = True
+        tbDetalle.ReadOnly = True
     End Sub
     Private Sub _prhabilitar()
         tbnombre.ReadOnly = False
@@ -143,6 +154,9 @@ Public Class F0_Categoria
         cbagua.Enabled = True
         cbme.Enabled = True
         cbninguna.Enabled = True
+
+        cbgrupo1.ReadOnly = False
+        tbDetalle.ReadOnly = False
     End Sub
     Public Sub _prFiltrar()
         'cargo el buscador
@@ -163,6 +177,10 @@ Public Class F0_Categoria
 
         pbImage.Image = My.Resources.pantalla
         cbninguna.Checked = True
+
+        cbgrupo1.SelectedIndex = 0
+        tbDetalle.Clear()
+
     End Sub
     Public Sub _prColocarEstado(estado As Integer)
         If (estado = 0) Then
@@ -185,10 +203,15 @@ Public Class F0_Categoria
             tbcodigo.Text = .GetValue("canumi")
             tbnombre.Text = .GetValue("canombre")
             tbobservacion.Text = .GetValue("cadesc")
+            cbgrupo1.Value = .GetValue("caubi")
+            tbDetalle.Text = .GetValue("cadet")
 
             MLblFecha.Text = CType(.GetValue("cafact"), Date).ToString("dd/MM/yyyy")
             MLblHora.Text = .GetValue("cahact").ToString
             MLblUsuario.Text = .GetValue("cauact").ToString
+
+
+
             Dim caest As Object = .GetValue("caest")
             _prColocarEstado(IIf(IsDBNull(caest), 0, caest))
         End With
@@ -520,9 +543,9 @@ Public Class F0_Categoria
         Dim nameImage As String = grBuscador.GetValue("caimg")
         Dim Res As Boolean
         If (Modificado = False) Then
-            Res = L_prCategoriaModificar(tbcodigo.Text, tbnombre.Text, tbobservacion.Text, nameImage, _fnObtenerEstado())
+            Res = L_prCategoriaModificar(tbcodigo.Text, tbnombre.Text, tbobservacion.Text, nameImage, _fnObtenerEstado(), cbgrupo1.Value, tbDetalle.Text)
         Else
-            Res = L_prCategoriaModificar(tbcodigo.Text, tbnombre.Text, tbobservacion.Text, nameImg, _fnObtenerEstado())
+            Res = L_prCategoriaModificar(tbcodigo.Text, tbnombre.Text, tbobservacion.Text, nameImg, _fnObtenerEstado(), cbgrupo1.Value, tbDetalle.Text)
         End If
 
         If res Then
@@ -572,7 +595,7 @@ Public Class F0_Categoria
         'ByRef _olnumi As String, _olnumichof As String, _olnumiconci As Integer, _olfecha As String, _dt As DataTable
         Dim numi As String = ""
 
-        Dim res As Boolean = L_prCategoriaGrabar(numi, tbnombre.Text, tbobservacion.Text, nameImg, _fnObtenerEstado())
+        Dim res As Boolean = L_prCategoriaGrabar(numi, tbnombre.Text, tbobservacion.Text, nameImg, _fnObtenerEstado(), cbgrupo1.Value, tbDetalle.Text)
 
         If res Then
             Modificado = False
@@ -712,5 +735,44 @@ Public Class F0_Categoria
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub btgrupo1_Click(sender As Object, e As EventArgs) Handles btgrupo1.Click
+        Dim numi As String = ""
+
+        If L_prLibreriaGrabar(numi, "110", cbgrupo1.Text, "") Then
+            _prCargarComboLibreria(cbgrupo1, "110")
+            cbgrupo1.SelectedIndex = CType(cbgrupo1.DataSource, DataTable).Rows.Count - 1
+        End If
+    End Sub
+
+    Private Sub _prCargarComboLibreria(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo, cod1 As String)
+        Dim dt As New DataTable
+        dt = L_prLibreriaProductoGeneral(cod1)
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("cenum").Width = 70
+            .DropDownList.Columns("cenum").Caption = "COD"
+            .DropDownList.Columns.Add("cedesc").Width = 200
+            .DropDownList.Columns("cedesc").Caption = "DESCRIPCION"
+            .ValueMember = "cenum"
+            .DisplayMember = "cedesc"
+            .DataSource = dt
+            .Refresh()
+        End With
+    End Sub
+
+    Private Sub cbgrupo1_ValueChanged(sender As Object, e As EventArgs) Handles cbgrupo1.ValueChanged
+
+        If cbgrupo1.SelectedIndex < 0 And cbgrupo1.Text <> String.Empty Then
+            btgrupo1.Visible = True
+        Else
+            btgrupo1.Visible = False
+        End If
+
     End Sub
 End Class

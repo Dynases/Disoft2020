@@ -1,4 +1,4 @@
-﻿Imports Janus.Windows.GridEX
+Imports Janus.Windows.GridEX
 Imports Logica.AccesoLogica
 Imports GMap.NET.MapProviders
 Imports GMap.NET
@@ -29,10 +29,16 @@ Public Class F0_PedidosAsignacion
 
     Dim RutaGlobal As String = gs_CarpetaRaiz
 
+    Dim UserSpecial As Boolean = False
+
 #End Region
 
 #Region "Metodos Privados"
     Private Sub _PIniciarTodo()
+
+        If VerificarUsuario() Then
+            UserSpecial = True
+        End If
         dtImagenesAll = L_prCargarImagenesClienteAll()
         'L_prJobDuplicados()
         If gb_mostrarMapa = False Then
@@ -87,6 +93,15 @@ Public Class F0_PedidosAsignacion
         'SuperTabItem4.Visible = False
     End Sub
 
+    Private Function VerificarUsuario() As Boolean
+        Dim dt As DataTable = TraerUsuariosEspeciales()
+        For i = 0 To dt.Rows.Count - 1 Step 1
+            If gi_userNumi = dt.Rows(i).Item("especial") Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub _PAsignarPermisos()
         'Dim idRolUsu As String = L_Usuario_General(-1, " AND yduser='" + gs_user + "' ").Tables(0).Rows(0).Item("ybnumi")
         'Dim dtRolUsu As DataTable = L_RolDetalle_General2(-1, idRolUsu, "ycyanumi=9")
@@ -173,19 +188,39 @@ Public Class F0_PedidosAsignacion
         Dim dtReg As DataTable
         If codZona = "" Then
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " )   and ccuesp > 0 ") ' and oaap = 1
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) ") ' and oaap = 1
+                End If
             Else
                 If estado = "1" Then
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
+                    If UserSpecial Then
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0 ") 'and oaap = 1
+                    Else
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ") ' and oaap = 1
+                    End If
                 Else
-                    dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep)
+                    If UserSpecial Then
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor1(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " and ccuesp > 0") ' and oaap = 1
+                    Else
+                        dtReg = L_PedidoCabecera_GeneralSoloRepartidor(-1, " AND (oaest=" + estado + " )" + " AND tl0012.lccbnumi=" + codRep + " ") ' and oaap = 1
+                    End If
                 End If
             End If
         Else
             If codRep = "-1" Then
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " and ccuesp > 0")
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + ") AND oazona= " + codZona + " ")
+                End If
             Else
-                dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
+                If UserSpecial Then
+                    dtReg = L_PedidoCabecera_General1(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " and ccuesp > 0")
+                Else
+                    dtReg = L_PedidoCabecera_General(-1, " AND (oaest=" + estado + " ) AND oazona= " + codZona + " AND oarepa=" + codRep + " ")
+                End If
             End If
 
         End If
@@ -2216,7 +2251,7 @@ Public Class F0_PedidosAsignacion
         objrep.SetParameterValue("descuento", desc)
 
         objrep.PrintOptions.PrinterName = printerName
-        objrep.PrintToPrinter(1, False, 1, 1)
+        objrep.PrintToPrinter(1, True, 1, 1)
 
 
     End Sub
@@ -2332,5 +2367,49 @@ Public Class F0_PedidosAsignacion
             Exit Sub
         End If
         EliminarImagenes()
+    End Sub
+
+    Private Sub ContextMenuImprimir_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuImprimir.Opening
+
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        If (JGr_Registros3.GetRows.Count > 0) Then
+            Dim dPrinter As New PrintDialog
+
+            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
+                For Each fil As GridEXRow In JGr_Registros3.GetRows
+                    P_ImprimirRecibos(fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
+                Next
+            End If
+        Else
+            ToastNotification.Show(Me,
+                                   "No hay ningún pedido para imprimir.".ToUpper,
+                                   My.Resources.WARNING,
+                                   3 * 1000,
+                                   eToastGlowColor.Red,
+                                   eToastPosition.TopCenter)
+
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        If (JGr_Registros3.GetRows.Count > 0) Then
+            Dim dPrinter As New PrintDialog
+
+            If (dPrinter.ShowDialog = Windows.Forms.DialogResult.OK) Then
+                'For Each fil As GridEXRow In JGr_Registros3.GetRows
+                P_ImprimirRecibos(JGr_Registros3.GetValue("CodPedido"), dPrinter.PrinterSettings.PrinterName) 'fil.Cells("CodPedido").Value.ToString, dPrinter.PrinterSettings.PrinterName)
+                'Next
+            End If
+        Else
+            ToastNotification.Show(Me,
+                                   "No hay ningún pedido para imprimir.".ToUpper,
+                                   My.Resources.WARNING,
+                                   3 * 1000,
+                                   eToastGlowColor.Red,
+                                   eToastPosition.TopCenter)
+
+        End If
     End Sub
 End Class

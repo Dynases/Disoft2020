@@ -3797,9 +3797,9 @@ Public Class F02_PedidoNuevo
         Dim _VistaPrevia As Boolean = True
 
         _Desc = CDbl(0)
-
-        Dim listResult = New LPedido().ListarDespachoXNotaVenta(idPedido)
-        If (listResult.Count = 0) Then
+        Dim listResult
+        Dim listResult2 = L_prReporteNotaVenta(idPedido) 'New LPedido().ListarDespachoXNotaVenta(idPedido)
+        If (listResult2.Rows.Count = 0) Then
             Throw New Exception("No hay registros para generar el reporte.")
         End If
         If Not IsNothing(P_Global.Visualizador) Then
@@ -3810,7 +3810,7 @@ Public Class F02_PedidoNuevo
         _Hora = Now.Hour.ToString + ":" + Now.Minute.ToString
 
         'Literal 
-        _TotalLi = listResult.Item(0).Total
+        _TotalLi = listResult2.Rows(0).Item("Total")
         _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
         _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
@@ -3842,7 +3842,7 @@ Public Class F02_PedidoNuevo
             Case "8"
                 ReporteNotaVenta8(idPedido, _Ds2, _Ds3, _Literal, listResult)
             Case "9"
-                ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult)
+                ReporteNotaVenta9(idPedido, _Ds2, _Ds3, _Literal, listResult2)
             Case "10"
                 ReporteNotaVenta10(idPedido, _Ds2, _Ds3, _Literal, listResult, cbPreVendedor.Text)
         End Select
@@ -4253,13 +4253,13 @@ Public Class F02_PedidoNuevo
         End If
     End Sub
 
-    Private Sub ReporteNotaVenta9(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As List(Of RDespachoNotaVenta))
+    Private Sub ReporteNotaVenta9(idPedido As String, _Ds2 As DataSet, _Ds3 As DataSet, _Literal As String, listResult As DataTable)
         P_Global.Visualizador = New Visualizador
         Dim objrep As New NotaVenta9
         Dim dia, mes, ano As Integer
         Dim Fecliteral, mesl As String
 
-        Fecliteral = listResult.Item(0).oafdoc
+        Fecliteral = listResult.Rows(0).Item("oafdoc")
         dia = Microsoft.VisualBasic.Left(Fecliteral, 2)
         mes = Microsoft.VisualBasic.Mid(Fecliteral, 4, 2)
         ano = Microsoft.VisualBasic.Mid(Fecliteral, 7, 4)

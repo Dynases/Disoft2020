@@ -32,6 +32,8 @@ Partial Class R01_SaldoProducto
         Me.lbDepositoOrigen = New DevComponents.DotNetBar.LabelX()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.chkSaldoMayorCero = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.grExcel = New Janus.Windows.GridEX.GridEX()
+        Me.btnExportar = New DevComponents.DotNetBar.ButtonX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -41,6 +43,7 @@ Partial Class R01_SaldoProducto
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MGpFiltro.SuspendLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MPnSuperior
@@ -107,6 +110,8 @@ Partial Class R01_SaldoProducto
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.grExcel)
+        Me.MGpFiltro.Controls.Add(Me.btnExportar)
         Me.MGpFiltro.Controls.Add(Me.chkSaldoMayorCero)
         Me.MGpFiltro.Controls.Add(Me.Label1)
         Me.MGpFiltro.Controls.Add(Me.cbAlmacen)
@@ -149,6 +154,8 @@ Partial Class R01_SaldoProducto
         Me.MGpFiltro.Controls.SetChildIndex(Me.cbAlmacen, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.Label1, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.chkSaldoMayorCero, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.btnExportar, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.grExcel, 0)
         '
         'MCrReporte
         '
@@ -252,6 +259,28 @@ Partial Class R01_SaldoProducto
         Me.chkSaldoMayorCero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.chkSaldoMayorCero.TabIndex = 380
         '
+        'grExcel
+        '
+        Me.grExcel.Location = New System.Drawing.Point(59, 214)
+        Me.grExcel.Name = "grExcel"
+        Me.grExcel.Size = New System.Drawing.Size(154, 82)
+        Me.grExcel.TabIndex = 398
+        Me.grExcel.Visible = False
+        '
+        'btnExportar
+        '
+        Me.btnExportar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnExportar.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btnExportar.Image = Global.Presentacion.My.Resources.Resources.EXCEL
+        Me.btnExportar.ImageFixedSize = New System.Drawing.Size(50, 55)
+        Me.btnExportar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnExportar.Location = New System.Drawing.Point(102, 139)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(65, 72)
+        Me.btnExportar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnExportar.TabIndex = 397
+        Me.btnExportar.Text = "Exportar"
+        '
         'R01_SaldoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -276,6 +305,7 @@ Partial Class R01_SaldoProducto
         Me.MGpFiltro.ResumeLayout(False)
         Me.MGpFiltro.PerformLayout()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -287,4 +317,6 @@ Partial Class R01_SaldoProducto
     Friend WithEvents lbDepositoOrigen As DevComponents.DotNetBar.LabelX
     Friend WithEvents chkSaldoMayorCero As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents Label1 As Label
+    Friend WithEvents grExcel As Janus.Windows.GridEX.GridEX
+    Friend WithEvents btnExportar As DevComponents.DotNetBar.ButtonX
 End Class

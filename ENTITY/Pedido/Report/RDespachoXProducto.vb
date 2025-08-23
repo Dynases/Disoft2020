@@ -58,6 +58,14 @@
             _categoria = value
         End Set
     End Property
+    'Public Property caubi() As String
+    '    Get
+    '        Return caubi
+    '    End Get
+    '    Set(ByVal value As String)
+    '        caubi = value
+    '    End Set
+    'End Property
 
     Private _obpcant As Decimal
     Public Property obpcant() As Decimal
@@ -124,4 +132,6 @@
             _Pesokg = value
         End Set
     End Property
+
+
 End Class
