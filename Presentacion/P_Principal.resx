@@ -31888,6 +31888,7 @@
         X8YGsN1nANtdBnDcZwDnAwZwMjWA+4HNsDc2hKexgZ7nAcNnvQ5tHupzaPNIn0Nb3nfZZ9j3rNFm+Bw0
         gN0+A2w0MISh4X+HQPJ/+i/SPW/8T7+t7nnjf/ptdc8b/9Nvq3ve+J9+W/1/p6oPTFjOTpoAAAAASUVO
         RK5CYII=
+<<<<<<< Updated upstream
 </value>
   </data>
   <data name="btnDespacho.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -32187,6 +32188,8 @@
         X++/ep4EcLv/hnkSv2yBBFotEJ9NfH7DfPHicXbxOE6L5okHP4ezfi6uO3B/Bz524dJt3Vxx5XG8+Dmc
         VswTnxVz2/ism/e074b5nf03zO/pv2FBN/c1857Ys2S++PMzOPI1s+fOYyf7nwGWJ/gv/oNw043/xd3D
         TTf+F3cPN934X9w93HTjf3G3APm/p6oPTG+EQ2sAAAAASUVORK5CYII=
+=======
+>>>>>>> Stashed changes
 </value>
   </data>
   <data name="btPediReporteUtilidadesPorProducto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -55647,6 +55650,7 @@
         mYIQH3MKQnz2KQjlM5EgxAelASE+QBWE+GBVEMo1GgShfAorCPHprCCUT20FIT7NYxDigz4HwgP8JhCD
         EF8SYhDiy0MMQnyvCCBUE+KLRwxCfCcJIExMKN9eUgcWgRDfeWwpBWMQZmOCFRBWtspW2V6b7f8BeW/P
         QjYMXIEAAAAASUVORK5CYII=
+<<<<<<< Updated upstream
 </value>
   </data>
   <data name="MetroTilePanelInventario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -61038,6 +61042,8 @@
         +imr6DZ7p9ajRw8lT1fn96nux0wY1KVZ5eduwlB38hN7m3V+ay1XdrCyWv/BbG0dpW7duhEHcI/ZZv92
         +/DDD5UmTpyktHr1aiVHJyclHR1dpZEjeTGzzdqszdqszdqszdqszdqszdqszf65KSn9f7xY3fGR5+Eu
         AAAAAElFTkSuQmCC
+=======
+>>>>>>> Stashed changes
 </value>
   </data>
   <data name="MetroTilePanelConf.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -82732,6 +82738,7 @@
   <data name="btKPI.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAABtbSURBVHhe3Z0JXFRV+8cvoJap
         b5uV5ZK9+paaiiyyqLikyDZsgooYmwsDoqaWaVpamZmp/8wyt8rdyi1RMxcUxQ1XcGFRkH0VWWTfht//
@@ -134951,6 +134958,8 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAABsQSURBVHhe3Z0HeFTF+ocnOWAD
         OyoWEK9cRQRCOgFCESE9pNAEKaFkNwkgqCgXFFTk2vAvolyaSlcRQUKTHgkt1AAhBQIhjSQQSEJ6233/
         z5xNQrK7CQkGrt55nt+zu3POmTPzZso338w5EQQKUX9ZCDSWN6SVn0rN39rqvyu+y8/KY1XXqN/vQ6N0
@@ -135068,6 +135077,7 @@
         io8UTyZFi+fSzgvnTz8eNdDGGm83N7zqMHHuNMCKNCpl2QqN0qvivzvIGrql4r88yKaXLjdxV/Sl8ruM
         k9C3yo2NaJWZaJVX0Sqta79XHQADhCgPVIRLeKh4JD5RvHzyqEEnDovnks6KFxOTxavTPvzAp3evHC8P
         j1xZ24wk45L/H1aA6Q/+bnYaAAAAAElFTkSuQmCC
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 </value>
@@ -177658,6 +177668,8 @@
         io8UTyZFi+fSzgvnTz8eNdDGGm83N7zqMHHuNMCKNCpl2QqN0qvivzvIGrql4r88yKaXLjdxV/Sl8ruM
         k9C3yo2NaJWZaJVX0Sqta79XHQADhCgPVIRLeKh4JD5RvHzyqEEnDovnks6KFxOTxavTPvzAp3evHC8P
         j1xZ24wk45L/H1aA6Q/+bnYaAAAAAElFTkSuQmCC
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </value>
   </data>

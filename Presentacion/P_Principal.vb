@@ -2004,6 +2004,27 @@ Public Class P_Principal
         frm._modulo = FP_Venta
         frm.Show()
     End Sub
+
+    Private Sub btReporteCompra_Click(sender As Object, e As EventArgs) Handles btReporteCompra.Click
+        Dim frm As New R01_ReporteCompras
+        frm._nameButton = btReporteCompra.Name
+        frm._modulo = FP_Inventario
+        frm.Show()
+    End Sub
+
+    Private Sub btReporteVentasClientes_Click(sender As Object, e As EventArgs) Handles btReporteVentasClientes.Click
+        Dim frm As New R01_VentasUtilidad
+        frm._nameButton = btReporteVentasClientes.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
+
+    Private Sub btReporteVentasProducto_Click(sender As Object, e As EventArgs) Handles btReporteVentasProducto.Click
+        Dim frm As New R01_VentasUtilidadProducto
+        frm._nameButton = btReporteVentasProducto.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+    End Sub
 End Class
 
 
